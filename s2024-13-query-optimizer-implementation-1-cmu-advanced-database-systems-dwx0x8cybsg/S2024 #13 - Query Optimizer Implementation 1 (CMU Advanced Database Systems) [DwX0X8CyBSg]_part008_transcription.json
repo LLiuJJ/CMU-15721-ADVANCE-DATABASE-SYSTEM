@@ -1,0 +1,551 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.72,
+      "text": "And then I'll use my final cost here."
+    },
+    {
+      "id": 1,
+      "start": 3.72,
+      "end": 5.96,
+      "text": "And then now if I do any other traversals for maybe"
+    },
+    {
+      "id": 2,
+      "start": 5.96,
+      "end": 8.72,
+      "text": "other physical operators or other joins,"
+    },
+    {
+      "id": 3,
+      "start": 8.72,
+      "end": 13.28,
+      "text": "I stop the search once I see a cost that's greater than 80."
+    },
+    {
+      "id": 4,
+      "start": 13.28,
+      "end": 15.92,
+      "text": "Or sorry, greater than 125."
+    },
+    {
+      "id": 5,
+      "start": 15.92,
+      "end": 18.52,
+      "text": "All right, so let's stop here."
+    },
+    {
+      "id": 6,
+      "start": 18.52,
+      "end": 19.32,
+      "text": "Any quick questions?"
+    },
+    {
+      "id": 7,
+      "start": 19.32,
+      "end": 20.52,
+      "text": "And we'll pick up the summary left off."
+    },
+    {
+      "id": 8,
+      "start": 20.52,
+      "end": 22.12,
+      "text": "What do you predict wrong?"
+    },
+    {
+      "id": 9,
+      "start": 22.12,
+      "end": 23.72,
+      "text": "Did we build the entire building?"
+    },
+    {
+      "id": 10,
+      "start": 23.72,
+      "end": 25.56,
+      "text": "What do we predict wrong?"
+    },
+    {
+      "id": 11,
+      "start": 25.56,
+      "end": 28.32,
+      "text": "If you, let's say during execution,"
+    },
+    {
+      "id": 12,
+      "start": 28.32,
+      "end": 32.64,
+      "text": "well, the cost of getting these actually"
+    },
+    {
+      "id": 13,
+      "start": 32.64,
+      "end": 34.56,
+      "text": "in the same way as the way that they're"
+    },
+    {
+      "id": 14,
+      "start": 34.56,
+      "end": 36.08,
+      "text": "going to rebuild the entire building?"
+    },
+    {
+      "id": 15,
+      "start": 36.08,
+      "end": 38.4,
+      "text": "The question is, we'll talk about next week"
+    },
+    {
+      "id": 16,
+      "start": 38.4,
+      "end": 40.4,
+      "text": "at activity stuff."
+    },
+    {
+      "id": 17,
+      "start": 40.4,
+      "end": 42.44,
+      "text": "What are my estimates are wrong?"
+    },
+    {
+      "id": 18,
+      "start": 42.44,
+      "end": 43.96,
+      "text": "What happens?"
+    },
+    {
+      "id": 19,
+      "start": 43.96,
+      "end": 45.92,
+      "text": "Most systems, nothing."
+    },
+    {
+      "id": 20,
+      "start": 45.92,
+      "end": 48.12,
+      "text": "You just keep going."
+    },
+    {
+      "id": 21,
+      "start": 48.12,
+      "end": 50.88,
+      "text": "We'll see ways to put hooks in the query plan to say, OK,"
+    },
+    {
+      "id": 22,
+      "start": 50.88,
+      "end": 54.8,
+      "text": "if I'm getting wrong, go back and replant things."
+    },
+    {
+      "id": 23,
+      "start": 54.8,
+      "end": 56.6,
+      "text": "We'll see cases like an IBM and other systems"
+    },
+    {
+      "id": 24,
+      "start": 56.68,
+      "end": 58.8,
+      "text": "where you get feedback from, hey, you told me this,"
+    },
+    {
+      "id": 25,
+      "start": 58.8,
+      "end": 60.36,
+      "text": "but it's really this when I ran it again."
+    },
+    {
+      "id": 26,
+      "start": 60.36,
+      "end": 61.92,
+      "text": "So the next query comes along."
+    },
+    {
+      "id": 27,
+      "start": 61.92,
+      "end": 63.6,
+      "text": "You can get updated on this."
+    },
+    {
+      "id": 28,
+      "start": 63.6,
+      "end": 65.72,
+      "text": "But in general, all this memo state"
+    },
+    {
+      "id": 29,
+      "start": 65.72,
+      "end": 68.6,
+      "text": "gets thrown away when the query is done."
+    },
+    {
+      "id": 30,
+      "start": 68.6,
+      "end": 72.24,
+      "text": "Because I don't want to do this in our optimizer."
+    },
+    {
+      "id": 31,
+      "start": 72.24,
+      "end": 74.16,
+      "text": "But then this thing is huge."
+    },
+    {
+      "id": 32,
+      "start": 74.16,
+      "end": 78.64,
+      "text": "How long should that be maintained for?"
+    },
+    {
+      "id": 33,
+      "start": 78.64,
+      "end": 80.8,
+      "text": "Also, when I'm not showing in these multi-expressions,"
+    },
+    {
+      "id": 34,
+      "start": 80.8,
+      "end": 83.32,
+      "text": "I'm not showing what the original query is."
+    },
+    {
+      "id": 35,
+      "start": 83.32,
+      "end": 86.2,
+      "text": "It's the question of the hand cost of 10 for it on A."
+    },
+    {
+      "id": 36,
+      "start": 86.2,
+      "end": 87.04,
+      "text": "Well, what's the predicate?"
+    },
+    {
+      "id": 37,
+      "start": 87.04,
+      "end": 88.28,
+      "text": "What's the wear clause?"
+    },
+    {
+      "id": 38,
+      "start": 88.28,
+      "end": 90.12,
+      "text": "That could be different from one with query to another."
+    },
+    {
+      "id": 39,
+      "start": 90.12,
+      "end": 92.72,
+      "text": "You'd have to account for that in your memo table as well."
+    },
+    {
+      "id": 40,
+      "start": 92.72,
+      "end": 94.12,
+      "text": "So that you potentially could reuse it"
+    },
+    {
+      "id": 41,
+      "start": 94.12,
+      "end": 97.08,
+      "text": "across different queries."
+    },
+    {
+      "id": 42,
+      "start": 100.04,
+      "end": 101.76,
+      "text": "OK, I'm always over ambitious of what"
+    },
+    {
+      "id": 43,
+      "start": 101.76,
+      "end": 106.04,
+      "text": "I can try to cover in the last class."
+    },
+    {
+      "id": 44,
+      "start": 106.04,
+      "end": 107.48,
+      "text": "Obviously, it's one lecture."
+    },
+    {
+      "id": 45,
+      "start": 107.48,
+      "end": 111.04,
+      "text": "So let me just say we'll pick up next class on,"
+    },
+    {
+      "id": 46,
+      "start": 111.04,
+      "end": 113.0,
+      "text": "we'll go through cascades again because you sort of rush"
+    },
+    {
+      "id": 47,
+      "start": 113.0,
+      "end": 114.44,
+      "text": "that."
+    },
+    {
+      "id": 48,
+      "start": 114.44,
+      "end": 116.88,
+      "text": "I'm going to talk about randomized search for,"
+    },
+    {
+      "id": 49,
+      "start": 116.88,
+      "end": 119.96,
+      "text": "like in Postgres and others."
+    },
+    {
+      "id": 50,
+      "start": 119.96,
+      "end": 122.08,
+      "text": "I debate whether I actually teach that because, like I said,"
+    },
+    {
+      "id": 51,
+      "start": 122.08,
+      "end": 123.52,
+      "text": "nobody actually really uses it."
+    },
+    {
+      "id": 52,
+      "start": 123.52,
+      "end": 125.72,
+      "text": "And the Postgres one is broken."
+    },
+    {
+      "id": 53,
+      "start": 125.72,
+      "end": 127.76,
+      "text": "Last year, I put together this playlist on YouTube."
+    },
+    {
+      "id": 54,
+      "start": 127.76,
+      "end": 130.12,
+      "text": "These are all the talks in the various companies"
+    },
+    {
+      "id": 55,
+      "start": 130.12,
+      "end": 132.32,
+      "text": "over the years that come talk to their query optimizers."
+    },
+    {
+      "id": 56,
+      "start": 132.32,
+      "end": 135.88,
+      "text": "The one I cannot recommend enough is the one for Microsoft"
+    },
+    {
+      "id": 57,
+      "start": 135.88,
+      "end": 136.88,
+      "text": "on SQL Server."
+    },
+    {
+      "id": 58,
+      "start": 136.88,
+      "end": 140.12,
+      "text": "Because again, in my opinion, that's the other way hyper is"
+    },
+    {
+      "id": 59,
+      "start": 140.12,
+      "end": 141.8,
+      "text": "going to do join ordering."
+    },
+    {
+      "id": 60,
+      "start": 141.8,
+      "end": 143.44,
+      "text": "This is the best one."
+    },
+    {
+      "id": 61,
+      "start": 143.44,
+      "end": 144.92,
+      "text": "And this is a really great talk."
+    },
+    {
+      "id": 62,
+      "start": 144.92,
+      "end": 146.96,
+      "text": "The next best one is probably from Becca, from Cockroach"
+    },
+    {
+      "id": 63,
+      "start": 146.96,
+      "end": 149.52,
+      "text": "DB to talk about how they're a query optimizer, which"
+    },
+    {
+      "id": 64,
+      "start": 149.52,
+      "end": 150.4,
+      "text": "is based on cascades."
+    },
+    {
+      "id": 65,
+      "start": 150.4,
+      "end": 153.64,
+      "text": "And they do some of the things that Microsoft doesn't do."
+    },
+    {
+      "id": 66,
+      "start": 153.64,
+      "end": 156.68,
+      "text": "So next class will be, finish up with cascades,"
+    },
+    {
+      "id": 67,
+      "start": 156.68,
+      "end": 158.36,
+      "text": "finish up with random algorithms."
+    },
+    {
+      "id": 68,
+      "start": 158.36,
+      "end": 160.72,
+      "text": "We'll see how Germans do unnesting subquers,"
+    },
+    {
+      "id": 69,
+      "start": 160.72,
+      "end": 162.12,
+      "text": "and how Germans do dynamic programming"
+    },
+    {
+      "id": 70,
+      "start": 162.12,
+      "end": 164.68,
+      "text": "through hyper graphs for picking joiner."
+    },
+    {
+      "id": 71,
+      "start": 164.68,
+      "end": 166.68,
+      "text": "OK?"
+    },
+    {
+      "id": 72,
+      "start": 166.68,
+      "end": 167.44,
+      "text": "All right, guys."
+    },
+    {
+      "id": 73,
+      "start": 167.44,
+      "end": 168.44,
+      "text": "See ya."
+    },
+    {
+      "id": 74,
+      "start": 168.44,
+      "end": 172.04,
+      "text": "You know, I'm glad you had a belt to get the 40-ounce bar."
+    },
+    {
+      "id": 75,
+      "start": 172.04,
+      "end": 174.88,
+      "text": "Get a grip, take a sip, and you'll be picking up bottles."
+    },
+    {
+      "id": 76,
+      "start": 174.88,
+      "end": 176.84,
+      "text": "Ain't any no puzzle, I'll go through some more, man."
+    },
+    {
+      "id": 77,
+      "start": 176.84,
+      "end": 179.6,
+      "text": "I'm telling the 40, I'm a 40-ounce dog, four cans."
+    },
+    {
+      "id": 78,
+      "start": 179.6,
+      "end": 181.68,
+      "text": "Stack the six-pack, sort of table."
+    },
+    {
+      "id": 79,
+      "start": 181.68,
+      "end": 183.92,
+      "text": "And I'm able to see St. I was on the label."
+    },
+    {
+      "id": 80,
+      "start": 183.92,
+      "end": 185.88,
+      "text": "No short, put the cross, you know what got them."
+    },
+    {
+      "id": 81,
+      "start": 185.88,
+      "end": 188.48,
+      "text": "I take off the cap, my first attack on the bottom."
+    },
+    {
+      "id": 82,
+      "start": 188.48,
+      "end": 190.4,
+      "text": "Throw my three in the freezer, throw my controller."
+    },
+    {
+      "id": 83,
+      "start": 190.4,
+      "end": 191.64,
+      "text": "Care for with the bottle, baby."
+    },
+    {
+      "id": 84,
+      "start": 191.64,
+      "end": 193.0,
+      "text": "You can still spill it."
+    },
+    {
+      "id": 85,
+      "start": 193.0,
+      "end": 195.2,
+      "text": "Go say nice and say, the paint last wet."
+    },
+    {
+      "id": 86,
+      "start": 195.2,
+      "end": 197.48,
+      "text": "You drink it down with the guys that are behind you."
+    },
+    {
+      "id": 87,
+      "start": 197.48,
+      "end": 199.12,
+      "text": "Take back the pack of drugs."
+    },
+    {
+      "id": 88,
+      "start": 199.12,
+      "end": 202.0,
+      "text": "It won't get you some safe miles to trick it to the front."
+    },
+    {
+      "id": 89,
+      "start": 202.0,
+      "end": 204.6,
+      "text": "Bill the dance, the chillin' piece of talent, the weak guys."
+    },
+    {
+      "id": 90,
+      "start": 204.6,
+      "end": 206.48,
+      "text": "Be a man to get a can of faith, huh?"
+    }
+  ],
+  "language": "en"
+}

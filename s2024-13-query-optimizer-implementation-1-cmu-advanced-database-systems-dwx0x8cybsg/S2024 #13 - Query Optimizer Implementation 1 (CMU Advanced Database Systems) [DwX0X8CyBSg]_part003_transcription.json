@@ -1,0 +1,1481 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.24,
+      "text": "to make any sense, but it does have implications"
+    },
+    {
+      "id": 1,
+      "start": 2.24,
+      "end": 6.34,
+      "text": "for the scope in which you can examine and operate"
+    },
+    {
+      "id": 2,
+      "start": 6.34,
+      "end": 7.76,
+      "text": "on the query plan when you apply different"
+    },
+    {
+      "id": 3,
+      "start": 7.76,
+      "end": 9.6,
+      "text": "tons of transformations, and how you're actually"
+    },
+    {
+      "id": 4,
+      "start": 9.6,
+      "end": 10.88,
+      "text": "going to cost them."
+    },
+    {
+      "id": 5,
+      "start": 10.88,
+      "end": 17.72,
+      "text": "In the end, they're doing a dynamic, a pro-wing approach."
+    },
+    {
+      "id": 6,
+      "start": 17.72,
+      "end": 19.96,
+      "text": "It's just the way, and they're doing the costing,"
+    },
+    {
+      "id": 7,
+      "start": 19.96,
+      "end": 22.12,
+      "text": "and pruning things will differ."
+    },
+    {
+      "id": 8,
+      "start": 25.36,
+      "end": 27.32,
+      "text": "So let's look at the system R optimizer."
+    },
+    {
+      "id": 9,
+      "start": 27.32,
+      "end": 31.04,
+      "text": "We'll see an early version of a bottom-up approach,"
+    },
+    {
+      "id": 10,
+      "start": 31.04,
+      "end": 34.12,
+      "text": "and then we'll see how that think it's expanded into a little"
+    },
+    {
+      "id": 11,
+      "start": 34.12,
+      "end": 35.12,
+      "text": "bit at Starburst."
+    },
+    {
+      "id": 12,
+      "start": 35.12,
+      "end": 38.16,
+      "text": "And as I said, next class, we'll go to more details"
+    },
+    {
+      "id": 13,
+      "start": 38.16,
+      "end": 41.64,
+      "text": "of the state-of-the-art approach of bottoms-up plan"
+    },
+    {
+      "id": 14,
+      "start": 41.64,
+      "end": 44.36,
+      "text": "and emeration that the Germans do in hyper."
+    },
+    {
+      "id": 15,
+      "start": 44.36,
+      "end": 47.48,
+      "text": "And I think DuckDB does the same thing as well."
+    },
+    {
+      "id": 16,
+      "start": 47.48,
+      "end": 50.2,
+      "text": "So the way system R is going to work"
+    },
+    {
+      "id": 17,
+      "start": 50.2,
+      "end": 51.88,
+      "text": "is that the queries are going to show up,"
+    },
+    {
+      "id": 18,
+      "start": 51.88,
+      "end": 53.64,
+      "text": "and they're going to break it up the query plan"
+    },
+    {
+      "id": 19,
+      "start": 53.64,
+      "end": 57.24,
+      "text": "into blocks that have logical operators for each block."
+    },
+    {
+      "id": 20,
+      "start": 57.24,
+      "end": 58.8,
+      "text": "So anything like a block could be like a pipeline"
+    },
+    {
+      "id": 21,
+      "start": 58.8,
+      "end": 61.08,
+      "text": "breaker, or it could be a nested subquery."
+    },
+    {
+      "id": 22,
+      "start": 61.08,
+      "end": 63.68,
+      "text": "It's going to be some subcomponent or subplan"
+    },
+    {
+      "id": 23,
+      "start": 63.68,
+      "end": 66.04,
+      "text": "of the overall query plan."
+    },
+    {
+      "id": 24,
+      "start": 66.04,
+      "end": 70.72,
+      "text": "And then for the logical operator within a subplan or block,"
+    },
+    {
+      "id": 25,
+      "start": 70.72,
+      "end": 73.32,
+      "text": "they're going to generate the set of physical operators"
+    },
+    {
+      "id": 26,
+      "start": 73.32,
+      "end": 76.12,
+      "text": "that could possibly implement it."
+    },
+    {
+      "id": 27,
+      "start": 76.12,
+      "end": 79.08,
+      "text": "And they're primarily going to be focusing on joiner access"
+    },
+    {
+      "id": 28,
+      "start": 79.08,
+      "end": 79.4,
+      "text": "path."
+    },
+    {
+      "id": 29,
+      "start": 79.4,
+      "end": 82.28,
+      "text": "So figuring out how can I scan this table, your index,"
+    },
+    {
+      "id": 30,
+      "start": 82.28,
+      "end": 85.28,
+      "text": "or a sequential scan, and then what sort of,"
+    },
+    {
+      "id": 31,
+      "start": 85.28,
+      "end": 88.32,
+      "text": "sorry, we're join algorithm I'm going to want to use."
+    },
+    {
+      "id": 32,
+      "start": 88.32,
+      "end": 91.2,
+      "text": "And again, to reduce the complexity of the search base,"
+    },
+    {
+      "id": 33,
+      "start": 91.2,
+      "end": 92.68,
+      "text": "they're only going to look at left-deep trees."
+    },
+    {
+      "id": 34,
+      "start": 92.68,
+      "end": 96.04,
+      "text": "So they're not going to sit in right-deep or bushy trees."
+    },
+    {
+      "id": 35,
+      "start": 96.04,
+      "end": 98.6,
+      "text": "Again, this is a relic of the 1970s and limited computing"
+    },
+    {
+      "id": 36,
+      "start": 98.6,
+      "end": 100.84,
+      "text": "harbor, but a lot of systems still today"
+    },
+    {
+      "id": 37,
+      "start": 100.84,
+      "end": 104.48,
+      "text": "make this big assumption."
+    },
+    {
+      "id": 38,
+      "start": 104.48,
+      "end": 106.08,
+      "text": "As far as they know, left-deep and right-deep"
+    },
+    {
+      "id": 39,
+      "start": 106.08,
+      "end": 107.56,
+      "text": "are always going to be equivalent,"
+    },
+    {
+      "id": 40,
+      "start": 107.56,
+      "end": 109.68,
+      "text": "but sometimes you do actually want a bushy plan,"
+    },
+    {
+      "id": 41,
+      "start": 109.68,
+      "end": 112.88,
+      "text": "and they're not going to be able to find those."
+    },
+    {
+      "id": 42,
+      "start": 112.88,
+      "end": 114.64,
+      "text": "And so they're going to literally construct this left-deep"
+    },
+    {
+      "id": 43,
+      "start": 114.64,
+      "end": 116.48,
+      "text": "join tree, and they want to choose the one that's"
+    },
+    {
+      "id": 44,
+      "start": 116.48,
+      "end": 119.6,
+      "text": "going to have the minimal cost at the end."
+    },
+    {
+      "id": 45,
+      "start": 119.6,
+      "end": 123.32,
+      "text": "Again, based on some cost-bound estimate."
+    },
+    {
+      "id": 46,
+      "start": 123.32,
+      "end": 125.68,
+      "text": "So we go back to our query we have we have before."
+    },
+    {
+      "id": 47,
+      "start": 125.68,
+      "end": 127.6,
+      "text": "So in the first step, we're going to choose the best access"
+    },
+    {
+      "id": 48,
+      "start": 127.6,
+      "end": 131.12,
+      "text": "paths for all the tables that we're going to be"
+    },
+    {
+      "id": 49,
+      "start": 131.12,
+      "end": 132.88,
+      "text": "touching in the query."
+    },
+    {
+      "id": 50,
+      "start": 132.88,
+      "end": 134.76,
+      "text": "So independently, we're going to decide,"
+    },
+    {
+      "id": 51,
+      "start": 134.76,
+      "end": 137.56,
+      "text": "oh, we want to do a sequential scan on artists and appears."
+    },
+    {
+      "id": 52,
+      "start": 137.56,
+      "end": 142.8,
+      "text": "But then we identify that the best look up for the album table"
+    },
+    {
+      "id": 53,
+      "start": 142.8,
+      "end": 146.92,
+      "text": "will be on the index we have on name."
+    },
+    {
+      "id": 54,
+      "start": 146.92,
+      "end": 149.08,
+      "text": "So all of those are occurring independently"
+    },
+    {
+      "id": 55,
+      "start": 149.08,
+      "end": 153.52,
+      "text": "of how we're actually going to do the join."
+    },
+    {
+      "id": 56,
+      "start": 153.52,
+      "end": 155.96,
+      "text": "Then we're going to numerate all possible joinerings for the tables."
+    },
+    {
+      "id": 57,
+      "start": 155.96,
+      "end": 158.8,
+      "text": "And this literally is just a Cartesian product"
+    },
+    {
+      "id": 58,
+      "start": 158.8,
+      "end": 162.52,
+      "text": "with all kinds of combinations or combinatorial"
+    },
+    {
+      "id": 59,
+      "start": 162.52,
+      "end": 165.2,
+      "text": "combination of all the possible ways we could do a join."
+    },
+    {
+      "id": 60,
+      "start": 165.2,
+      "end": 167.6,
+      "text": "Different join algorithms, different join orders, whether or not"
+    },
+    {
+      "id": 61,
+      "start": 167.6,
+      "end": 169.48,
+      "text": "we even do a Cartesian product."
+    },
+    {
+      "id": 62,
+      "start": 169.48,
+      "end": 172.32,
+      "text": "The simple thing system art is going to do is sort of what"
+    },
+    {
+      "id": 63,
+      "start": 172.32,
+      "end": 173.76,
+      "text": "I should in the beginning is recognize that I've"
+    },
+    {
+      "id": 64,
+      "start": 173.76,
+      "end": 175.96,
+      "text": "known as a never going to do Cartesian product."
+    },
+    {
+      "id": 65,
+      "start": 175.96,
+      "end": 179.92,
+      "text": "So I can immediately throw all those away."
+    },
+    {
+      "id": 66,
+      "start": 179.92,
+      "end": 182.04,
+      "text": "And then now I'm going to do this bottom up base search"
+    },
+    {
+      "id": 67,
+      "start": 182.04,
+      "end": 183.72,
+      "text": "for all these different combinations that I have"
+    },
+    {
+      "id": 68,
+      "start": 183.72,
+      "end": 188.16,
+      "text": "to figure out what the join order is that I want to be."
+    },
+    {
+      "id": 69,
+      "start": 188.16,
+      "end": 193.12,
+      "text": "So again, in this diagram here, think of the top as the final output."
+    },
+    {
+      "id": 70,
+      "start": 193.12,
+      "end": 194.88,
+      "text": "And the bottom here is my starting point."
+    },
+    {
+      "id": 71,
+      "start": 194.88,
+      "end": 197.52,
+      "text": "So my final output is what I want to have joined artists"
+    },
+    {
+      "id": 72,
+      "start": 197.52,
+      "end": 198.72,
+      "text": "appears in album."
+    },
+    {
+      "id": 73,
+      "start": 198.72,
+      "end": 201.64,
+      "text": "But at the bottom here, I haven't joined anything."
+    },
+    {
+      "id": 74,
+      "start": 201.64,
+      "end": 203.76,
+      "text": "And assume also, too, I've selected for each of these"
+    },
+    {
+      "id": 75,
+      "start": 203.76,
+      "end": 206.56,
+      "text": "integer tables as I showed in the previous slide,"
+    },
+    {
+      "id": 76,
+      "start": 206.56,
+      "end": 209.08,
+      "text": "I've already selected what access method I'm going to use."
+    },
+    {
+      "id": 77,
+      "start": 209.08,
+      "end": 212.4,
+      "text": "So there's sequential scans for artists and appears,"
+    },
+    {
+      "id": 78,
+      "start": 212.4,
+      "end": 216.12,
+      "text": "and then the index woke up on an album."
+    },
+    {
+      "id": 79,
+      "start": 216.12,
+      "end": 218.08,
+      "text": "So again, they're going to do a bottom up approach."
+    },
+    {
+      "id": 80,
+      "start": 218.08,
+      "end": 219.12,
+      "text": "So I'm starting here at the bottom."
+    },
+    {
+      "id": 81,
+      "start": 219.12,
+      "end": 221.52,
+      "text": "They're going to say, here's all the possible join combinations"
+    },
+    {
+      "id": 82,
+      "start": 221.52,
+      "end": 224.44,
+      "text": "I could have for these three tables."
+    },
+    {
+      "id": 83,
+      "start": 224.44,
+      "end": 227.28,
+      "text": "And because it's PowerPoint and for simplicity,"
+    },
+    {
+      "id": 84,
+      "start": 227.28,
+      "end": 229.12,
+      "text": "assume it goes all the way to the side with all possible"
+    },
+    {
+      "id": 85,
+      "start": 229.12,
+      "end": 229.6,
+      "text": "combinations."
+    },
+    {
+      "id": 86,
+      "start": 229.6,
+      "end": 232.64,
+      "text": "I'm truncating here in the cigarette time."
+    },
+    {
+      "id": 87,
+      "start": 232.64,
+      "end": 235.16,
+      "text": "And then now these physical operators then"
+    },
+    {
+      "id": 88,
+      "start": 235.16,
+      "end": 238.36,
+      "text": "produce an output that's going to either have"
+    },
+    {
+      "id": 89,
+      "start": 238.36,
+      "end": 240.04,
+      "text": "that's going to choose one of the two tables"
+    },
+    {
+      "id": 90,
+      "start": 240.04,
+      "end": 241.08,
+      "text": "to be joined together."
+    },
+    {
+      "id": 91,
+      "start": 241.08,
+      "end": 242.92,
+      "text": "And then the third table is just way"
+    },
+    {
+      "id": 92,
+      "start": 242.92,
+      "end": 245.4,
+      "text": "to be joined up for this."
+    },
+    {
+      "id": 93,
+      "start": 245.4,
+      "end": 249.36,
+      "text": "So I can do hash joins, merge joins, and so forth."
+    },
+    {
+      "id": 94,
+      "start": 249.36,
+      "end": 254.16,
+      "text": "And then now, for all these possible paths up to the next level,"
+    },
+    {
+      "id": 95,
+      "start": 254.16,
+      "end": 257.8,
+      "text": "I'm going to choose for each of these next nodes"
+    },
+    {
+      "id": 96,
+      "start": 257.8,
+      "end": 260.52,
+      "text": "at the next level above."
+    },
+    {
+      "id": 97,
+      "start": 260.52,
+      "end": 263.0,
+      "text": "What's the path that has the lowest cost?"
+    },
+    {
+      "id": 98,
+      "start": 263.0,
+      "end": 265.36,
+      "text": "So for each of these, I'm going to choose one of them"
+    },
+    {
+      "id": 99,
+      "start": 265.36,
+      "end": 268.32,
+      "text": "as the best one based on my cost model estimates."
+    },
+    {
+      "id": 100,
+      "start": 268.32,
+      "end": 270.32,
+      "text": "And then now, again, proceed at the next level"
+    },
+    {
+      "id": 101,
+      "start": 270.32,
+      "end": 271.72,
+      "text": "to the exact same thing."
+    },
+    {
+      "id": 102,
+      "start": 271.72,
+      "end": 274.76,
+      "text": "For each of these possible choices here,"
+    },
+    {
+      "id": 103,
+      "start": 274.76,
+      "end": 277.44,
+      "text": "choose the different physical join"
+    },
+    {
+      "id": 104,
+      "start": 277.44,
+      "end": 281.12,
+      "text": "operators that then get me to my final result that I want."
+    },
+    {
+      "id": 105,
+      "start": 281.12,
+      "end": 283.32,
+      "text": "And then once I've done that, do the same thing."
+    },
+    {
+      "id": 106,
+      "start": 283.32,
+      "end": 287.36,
+      "text": "Choose along which one of these has the shortest of the least"
+    },
+    {
+      "id": 107,
+      "start": 287.36,
+      "end": 288.76,
+      "text": "cost."
+    },
+    {
+      "id": 108,
+      "start": 288.76,
+      "end": 292.2,
+      "text": "And then now, since I've reached the top of my query plan,"
+    },
+    {
+      "id": 109,
+      "start": 292.2,
+      "end": 293.96,
+      "text": "I know this is the final result that I want."
+    },
+    {
+      "id": 110,
+      "start": 293.96,
+      "end": 296.48,
+      "text": "Now, I just recurse back and figure out which of these"
+    },
+    {
+      "id": 111,
+      "start": 296.48,
+      "end": 298.68,
+      "text": "is the cheapest path."
+    },
+    {
+      "id": 112,
+      "start": 298.68,
+      "end": 302.4,
+      "text": "And that's what I'm choosing as the optimal query plan for us."
+    },
+    {
+      "id": 113,
+      "start": 302.4,
+      "end": 302.92,
+      "text": "Yes?"
+    },
+    {
+      "id": 114,
+      "start": 302.92,
+      "end": 305.6,
+      "text": "I don't know if you already answered this question."
+    },
+    {
+      "id": 115,
+      "start": 305.6,
+      "end": 307.76,
+      "text": "So I'll just clear it up."
+    },
+    {
+      "id": 116,
+      "start": 307.76,
+      "end": 310.68,
+      "text": "This example is going to be just doing our..."
+    },
+    {
+      "id": 117,
+      "start": 310.68,
+      "end": 314.16,
+      "text": "So if this bottom up construct is like that,"
+    },
+    {
+      "id": 118,
+      "start": 314.28,
+      "end": 315.76,
+      "text": "if you're just afraid that this is not only work,"
+    },
+    {
+      "id": 119,
+      "start": 315.76,
+      "end": 316.92,
+      "text": "happen for doing ordering,"
+    },
+    {
+      "id": 120,
+      "start": 316.92,
+      "end": 320.12,
+      "text": "or is it going to do all this for different"
+    },
+    {
+      "id": 121,
+      "start": 320.12,
+      "end": 322.36,
+      "text": "modern operators and make choices for a built-in list,"
+    },
+    {
+      "id": 122,
+      "start": 322.36,
+      "end": 324.16,
+      "text": "but it's going to try to build a gear,"
+    },
+    {
+      "id": 123,
+      "start": 324.16,
+      "end": 326.04,
+      "text": "build a gear, see if it can get in or go through"
+    },
+    {
+      "id": 124,
+      "start": 326.04,
+      "end": 327.6,
+      "text": "all the other constructions."
+    },
+    {
+      "id": 125,
+      "start": 327.6,
+      "end": 331.2,
+      "text": "His question is, when do other optimizations"
+    },
+    {
+      "id": 126,
+      "start": 331.2,
+      "end": 333.36,
+      "text": "get applied like predicate brush down here?"
+    },
+    {
+      "id": 127,
+      "start": 333.36,
+      "end": 334.92,
+      "text": "For this approach in System R,"
+    },
+    {
+      "id": 128,
+      "start": 334.92,
+      "end": 336.92,
+      "text": "they're only going to pick this in join ordering."
+    },
+    {
+      "id": 129,
+      "start": 336.92,
+      "end": 338.84,
+      "text": "In the case of..."
+    },
+    {
+      "id": 130,
+      "start": 338.84,
+      "end": 340.64,
+      "text": "In hyper-ocene next week, they're going to be"
+    },
+    {
+      "id": 131,
+      "start": 340.64,
+      "end": 342.92,
+      "text": "DP just for join ordering."
+    },
+    {
+      "id": 132,
+      "start": 342.92,
+      "end": 344.28,
+      "text": "The way you would handle the additional things"
+    },
+    {
+      "id": 133,
+      "start": 344.28,
+      "end": 345.72,
+      "text": "that you're talking about is that you would define"
+    },
+    {
+      "id": 134,
+      "start": 345.72,
+      "end": 347.44,
+      "text": "those additional transformation rules"
+    },
+    {
+      "id": 135,
+      "start": 347.44,
+      "end": 348.44,
+      "text": "in a stratified search,"
+    },
+    {
+      "id": 136,
+      "start": 348.44,
+      "end": 350.72,
+      "text": "and you would apply them potentially"
+    },
+    {
+      "id": 137,
+      "start": 350.72,
+      "end": 352.48,
+      "text": "with the cost model as well,"
+    },
+    {
+      "id": 138,
+      "start": 352.48,
+      "end": 355.48,
+      "text": "and then you do this DP search."
+    },
+    {
+      "id": 139,
+      "start": 355.48,
+      "end": 357.92,
+      "text": "Cass, K is going to integrate everything all at once."
+    },
+    {
+      "id": 140,
+      "start": 357.92,
+      "end": 360.72,
+      "text": "So this approach where you literally try"
+    },
+    {
+      "id": 141,
+      "start": 360.72,
+      "end": 363.76,
+      "text": "all the physical operator possible,"
+    },
+    {
+      "id": 142,
+      "start": 363.76,
+      "end": 364.96,
+      "text": "is this..."
+    },
+    {
+      "id": 143,
+      "start": 364.96,
+      "end": 367.84,
+      "text": "Am I correct in saying this is only practical"
+    },
+    {
+      "id": 144,
+      "start": 367.84,
+      "end": 369.48,
+      "text": "for a join ordering?"
+    },
+    {
+      "id": 145,
+      "start": 369.48,
+      "end": 371.0,
+      "text": "And that if you want to do something like that,"
+    },
+    {
+      "id": 146,
+      "start": 371.0,
+      "end": 372.0,
+      "text": "you can put it down to the motherboard,"
+    },
+    {
+      "id": 147,
+      "start": 372.0,
+      "end": 373.0,
+      "text": "and then it's not going to be sufficient"
+    },
+    {
+      "id": 148,
+      "start": 373.0,
+      "end": 374.0,
+      "text": "in a different way."
+    },
+    {
+      "id": 149,
+      "start": 374.0,
+      "end": 376.24,
+      "text": "His question is, would you only want to do this"
+    },
+    {
+      "id": 150,
+      "start": 376.24,
+      "end": 377.24,
+      "text": "bottom approach?"
+    },
+    {
+      "id": 151,
+      "start": 377.24,
+      "end": 379.92,
+      "text": "Could you only do this for join ordering?"
+    },
+    {
+      "id": 152,
+      "start": 379.92,
+      "end": 381.72,
+      "text": "Yes."
+    },
+    {
+      "id": 153,
+      "start": 381.72,
+      "end": 384.52,
+      "text": "Because again, you're trying to march through,"
+    },
+    {
+      "id": 154,
+      "start": 384.52,
+      "end": 385.52,
+      "text": "if I have to do..."
+    },
+    {
+      "id": 155,
+      "start": 385.52,
+      "end": 386.52,
+      "text": "To recognize what I'm going to do,"
+    },
+    {
+      "id": 156,
+      "start": 386.52,
+      "end": 387.76,
+      "text": "predicate push down,"
+    },
+    {
+      "id": 157,
+      "start": 387.76,
+      "end": 389.84,
+      "text": "you have to go back, insert it in somewhere,"
+    },
+    {
+      "id": 158,
+      "start": 389.84,
+      "end": 391.0,
+      "text": "and then go back up."
+    },
+    {
+      "id": 159,
+      "start": 391.0,
+      "end": 392.0,
+      "text": "Be kind of funky."
+    },
+    {
+      "id": 160,
+      "start": 394.2,
+      "end": 395.04,
+      "text": "Question."
+    },
+    {
+      "id": 161,
+      "start": 395.04,
+      "end": 398.56,
+      "text": "So I think you mentioned the log 30-5.3."
+    },
+    {
+      "id": 162,
+      "start": 398.56,
+      "end": 401.76,
+      "text": "So is there a special handling for aggregation?"
+    },
+    {
+      "id": 163,
+      "start": 401.76,
+      "end": 405.28,
+      "text": "So there's special handling for aggregations."
+    },
+    {
+      "id": 164,
+      "start": 405.28,
+      "end": 409.64,
+      "text": "You would treat the aggregation as a block."
+    },
+    {
+      "id": 165,
+      "start": 409.64,
+      "end": 410.64,
+      "text": "So..."
+    },
+    {
+      "id": 166,
+      "start": 410.64,
+      "end": 411.64,
+      "text": "You could subdivide that further."
+    },
+    {
+      "id": 167,
+      "start": 411.64,
+      "end": 413.64,
+      "text": "What is one of the grade blocks?"
+    },
+    {
+      "id": 168,
+      "start": 413.64,
+      "end": 419.48,
+      "text": "I think of this as a query block."
+    },
+    {
+      "id": 169,
+      "start": 419.48,
+      "end": 422.52,
+      "text": "And so, yeah, in this case, the aggregation would be"
+    },
+    {
+      "id": 170,
+      "start": 422.52,
+      "end": 423.52,
+      "text": "the..."
+    },
+    {
+      "id": 171,
+      "start": 423.52,
+      "end": 424.76,
+      "text": "If it's no necessary query, the aggregation"
+    },
+    {
+      "id": 172,
+      "start": 424.76,
+      "end": 426.0,
+      "text": "is the final output."
+    },
+    {
+      "id": 173,
+      "start": 426.0,
+      "end": 428.36,
+      "text": "So it would be a grade block above this, yes."
+    },
+    {
+      "id": 174,
+      "start": 429.2,
+      "end": 430.56,
+      "text": "And then the same thing, you could choose"
+    },
+    {
+      "id": 175,
+      "start": 430.56,
+      "end": 432.04,
+      "text": "what aggregation algorithm I want to use,"
+    },
+    {
+      "id": 176,
+      "start": 432.04,
+      "end": 433.04,
+      "text": "which is..."
+    },
+    {
+      "id": 177,
+      "start": 433.04,
+      "end": 435.04,
+      "text": "Most of all, it's going to be hash joined."
+    },
+    {
+      "id": 178,
+      "start": 435.04,
+      "end": 436.44,
+      "text": "Or the hash aggregate."
+    },
+    {
+      "id": 179,
+      "start": 438.6,
+      "end": 439.44,
+      "text": "Yes."
+    },
+    {
+      "id": 180,
+      "start": 439.44,
+      "end": 442.12,
+      "text": "You said you first select how you access the tables."
+    },
+    {
+      "id": 181,
+      "start": 442.12,
+      "end": 444.6,
+      "text": "Where is it possible that for a different journal"
+    },
+    {
+      "id": 182,
+      "start": 444.6,
+      "end": 447.32,
+      "text": "or different access methods would be better?"
+    },
+    {
+      "id": 183,
+      "start": 447.32,
+      "end": 448.96,
+      "text": "To say it is..."
+    },
+    {
+      "id": 184,
+      "start": 448.96,
+      "end": 450.96,
+      "text": "I said in this approach here,"
+    },
+    {
+      "id": 185,
+      "start": 450.96,
+      "end": 453.8,
+      "text": "you first pick the access method they're going to use."
+    },
+    {
+      "id": 186,
+      "start": 453.8,
+      "end": 454.8,
+      "text": "Then you pick join ordering."
+    },
+    {
+      "id": 187,
+      "start": 454.8,
+      "end": 457.12,
+      "text": "Is it possible that there would be a different access method"
+    },
+    {
+      "id": 188,
+      "start": 457.12,
+      "end": 459.68,
+      "text": "would be better for a different join order?"
+    },
+    {
+      "id": 189,
+      "start": 459.68,
+      "end": 460.52,
+      "text": "Yes."
+    },
+    {
+      "id": 190,
+      "start": 460.52,
+      "end": 462.36,
+      "text": "If I recognize that I have an index,"
+    },
+    {
+      "id": 191,
+      "start": 462.36,
+      "end": 463.76,
+      "text": "and I should be doing nested loop joins"
+    },
+    {
+      "id": 192,
+      "start": 463.76,
+      "end": 465.4,
+      "text": "instead of a hash join, right?"
+    },
+    {
+      "id": 193,
+      "start": 467.76,
+      "end": 471.52,
+      "text": "But if I'm picking to always do an extra join before"
+    },
+    {
+      "id": 194,
+      "start": 471.52,
+      "end": 472.8,
+      "text": "I check my join order, yes."
+    },
+    {
+      "id": 195,
+      "start": 472.8,
+      "end": 475.64,
+      "text": "I would have a disconnect between the access method"
+    },
+    {
+      "id": 196,
+      "start": 475.64,
+      "end": 476.56,
+      "text": "and the join order."
+    },
+    {
+      "id": 197,
+      "start": 476.56,
+      "end": 478.72,
+      "text": "For this approach, yes, that's a problem."
+    },
+    {
+      "id": 198,
+      "start": 478.72,
+      "end": 480.2,
+      "text": "The stratified search and unified search"
+    },
+    {
+      "id": 199,
+      "start": 480.2,
+      "end": 482.84,
+      "text": "will fix that, because we'll get everything out once."
+    },
+    {
+      "id": 200,
+      "start": 483.64,
+      "end": 487.24,
+      "text": "So what's one problem with this query here?"
+    },
+    {
+      "id": 201,
+      "start": 487.24,
+      "end": 489.24,
+      "text": "It's actually not correct, right?"
+    },
+    {
+      "id": 202,
+      "start": 489.24,
+      "end": 491.44,
+      "text": "Because my original query said I wanted to join"
+    },
+    {
+      "id": 203,
+      "start": 491.44,
+      "end": 492.84,
+      "text": "these three tables,"
+    },
+    {
+      "id": 204,
+      "start": 492.84,
+      "end": 494.64,
+      "text": "but I also wanted to do an order box"
+    },
+    {
+      "id": 205,
+      "start": 494.64,
+      "end": 497.88,
+      "text": "on the final output, right?"
+    },
+    {
+      "id": 206,
+      "start": 497.88,
+      "end": 500.64,
+      "text": "And so in the original implementation of system R,"
+    },
+    {
+      "id": 207,
+      "start": 500.64,
+      "end": 503.64,
+      "text": "this dynamic programming search piece had no notion"
+    },
+    {
+      "id": 208,
+      "start": 503.64,
+      "end": 506.08,
+      "text": "of physical properties of data."
+    },
+    {
+      "id": 209,
+      "start": 506.08,
+      "end": 509.68,
+      "text": "So I'm choosing to do a hash join,"
+    },
+    {
+      "id": 210,
+      "start": 510.68,
+      "end": 512.68,
+      "text": "if I go back here,"
+    },
+    {
+      "id": 211,
+      "start": 513.48,
+      "end": 516.04,
+      "text": "one of my choices could have been a certain merge join."
+    },
+    {
+      "id": 212,
+      "start": 516.04,
+      "end": 517.04,
+      "text": "So maybe in the case,"
+    },
+    {
+      "id": 213,
+      "start": 517.04,
+      "end": 520.0,
+      "text": "I wouldn't better off doing the certain merge join,"
+    },
+    {
+      "id": 214,
+      "start": 520.0,
+      "end": 523.68,
+      "text": "because then my data would have been sorted."
+    },
+    {
+      "id": 215,
+      "start": 524.64,
+      "end": 526.96,
+      "text": "So the way IBM handles this,"
+    },
+    {
+      "id": 216,
+      "start": 526.96,
+      "end": 528.8,
+      "text": "or the system R handle this is that,"
+    },
+    {
+      "id": 217,
+      "start": 528.8,
+      "end": 531.16,
+      "text": "David keep track of the best plan they've seen"
+    },
+    {
+      "id": 218,
+      "start": 532.64,
+      "end": 534.6,
+      "text": "with and without a physical property,"
+    },
+    {
+      "id": 219,
+      "start": 534.6,
+      "end": 536.56,
+      "text": "like the sort order."
+    },
+    {
+      "id": 220,
+      "start": 536.56,
+      "end": 540.72,
+      "text": "And then they would have two plans at the end,"
+    },
+    {
+      "id": 221,
+      "start": 540.72,
+      "end": 542.32,
+      "text": "and then they would say,"
+    },
+    {
+      "id": 222,
+      "start": 542.32,
+      "end": 544.4,
+      "text": "okay, my data needs to be sorted."
+    },
+    {
+      "id": 223,
+      "start": 544.4,
+      "end": 548.32,
+      "text": "So if I have an estimate what the sort cost is gonna be,"
+    },
+    {
+      "id": 224,
+      "start": 548.32,
+      "end": 552.08,
+      "text": "if I add that on to my unsorted data query plan,"
+    },
+    {
+      "id": 225,
+      "start": 552.08,
+      "end": 554.72,
+      "text": "is that gonna be less than the cost"
+    },
+    {
+      "id": 226,
+      "start": 554.72,
+      "end": 558.16,
+      "text": "of doing the sorting directly within the sort merge join?"
+    },
+    {
+      "id": 227,
+      "start": 558.16,
+      "end": 561.4,
+      "text": "And if still less, then you pick that one."
+    },
+    {
+      "id": 228,
+      "start": 561.4,
+      "end": 562.84,
+      "text": "So it's sort of like an afterthought,"
+    },
+    {
+      "id": 229,
+      "start": 562.84,
+      "end": 565.04,
+      "text": "they had to add the additional step,"
+    },
+    {
+      "id": 230,
+      "start": 565.04,
+      "end": 567.36,
+      "text": "the deal with physical properties of the data,"
+    },
+    {
+      "id": 231,
+      "start": 567.36,
+      "end": 570.64,
+      "text": "because they had no way to handle that natively in the search."
+    },
+    {
+      "id": 232,
+      "start": 570.64,
+      "end": 571.48,
+      "text": "Yes."
+    },
+    {
+      "id": 233,
+      "start": 571.48,
+      "end": 573.56,
+      "text": "So what are you talking during after the total"
+    },
+    {
+      "id": 234,
+      "start": 573.56,
+      "end": 576.48,
+      "text": "100s are, you do the sort mark as part of the join,"
+    },
+    {
+      "id": 235,
+      "start": 576.48,
+      "end": 578.24,
+      "text": "but you do the sorting as part of the join,"
+    },
+    {
+      "id": 236,
+      "start": 578.24,
+      "end": 581.56,
+      "text": "or you add an order by like a sort of node above."
+    },
+    {
+      "id": 237,
+      "start": 581.56,
+      "end": 582.88,
+      "text": "Yes, correct, yes."
+    },
+    {
+      "id": 238,
+      "start": 582.88,
+      "end": 585.64,
+      "text": "So same it is, what I'm talking about in this case here,"
+    },
+    {
+      "id": 239,
+      "start": 585.64,
+      "end": 588.68,
+      "text": "because the query wants the data to be sorted by artist ID,"
+    },
+    {
+      "id": 240,
+      "start": 588.68,
+      "end": 593.52,
+      "text": "if I data sort was joined on artist ID here,"
+    },
+    {
+      "id": 241,
+      "start": 593.6,
+      "end": 597.04,
+      "text": "then the output of this would have been sort of"
+    },
+    {
+      "id": 242,
+      "start": 597.04,
+      "end": 599.24,
+      "text": "on the way that the query wants."
+    },
+    {
+      "id": 243,
+      "start": 599.24,
+      "end": 602.12,
+      "text": "So you keep track of this query plan,"
+    },
+    {
+      "id": 244,
+      "start": 602.12,
+      "end": 603.6,
+      "text": "and then, because it says it's the best one"
+    },
+    {
+      "id": 245,
+      "start": 603.6,
+      "end": 605.12,
+      "text": "of all the ones that are sorted."
+    }
+  ],
+  "language": "en"
+}

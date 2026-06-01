@@ -1,0 +1,1403 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.0,
+      "text": "of limiting the size of an output buffer,"
+    },
+    {
+      "id": 1,
+      "start": 4.28,
+      "end": 8.44,
+      "text": "because you have no way to sort of,"
+    },
+    {
+      "id": 2,
+      "start": 8.44,
+      "end": 10.6,
+      "text": "in the case of the next call,"
+    },
+    {
+      "id": 3,
+      "start": 10.6,
+      "end": 13.16,
+      "text": "if I got enough data at the top of my query plan,"
+    },
+    {
+      "id": 4,
+      "start": 13.16,
+      "end": 15.2,
+      "text": "then I'm called next anymore."
+    },
+    {
+      "id": 5,
+      "start": 15.2,
+      "end": 17.64,
+      "text": "But in the case of the push-based model,"
+    },
+    {
+      "id": 6,
+      "start": 17.64,
+      "end": 20.44,
+      "text": "even though I may be still sending entire batches,"
+    },
+    {
+      "id": 7,
+      "start": 20.44,
+      "end": 22.04,
+      "text": "instead of all the output,"
+    },
+    {
+      "id": 8,
+      "start": 22.04,
+      "end": 24.6,
+      "text": "I may get more data in a batch than I actually want."
+    },
+    {
+      "id": 9,
+      "start": 25.84,
+      "end": 26.68,
+      "text": "Yes."
+    },
+    {
+      "id": 10,
+      "start": 26.68,
+      "end": 31.68,
+      "text": "So, the only benefit you get from having Apple control"
+    },
+    {
+      "id": 11,
+      "start": 40.72,
+      "end": 42.68,
+      "text": "at the top is through limits."
+    },
+    {
+      "id": 12,
+      "start": 44.0,
+      "end": 45.44,
+      "text": "I think that's true, yes."
+    },
+    {
+      "id": 13,
+      "start": 47.76,
+      "end": 49.08,
+      "text": "When no functions,"
+    },
+    {
+      "id": 14,
+      "start": 50.88,
+      "end": 52.96,
+      "text": "I superficially say yes, but I might be wrong."
+    },
+    {
+      "id": 15,
+      "start": 53.96,
+      "end": 56.96,
+      "text": "In the case of push, it's actually tricky to do,"
+    },
+    {
+      "id": 16,
+      "start": 56.96,
+      "end": 57.96,
+      "text": "also sort merge,"
+    },
+    {
+      "id": 17,
+      "start": 57.96,
+      "end": 60.96,
+      "text": "because you need two iterators at the same time,"
+    },
+    {
+      "id": 18,
+      "start": 60.96,
+      "end": 61.96,
+      "text": "and you have to keep extra statement."
+    },
+    {
+      "id": 19,
+      "start": 61.96,
+      "end": 63.96,
+      "text": "Not impossible, you can do it."
+    },
+    {
+      "id": 20,
+      "start": 63.96,
+      "end": 65.96,
+      "text": "It's a little bit more tricky,"
+    },
+    {
+      "id": 21,
+      "start": 65.96,
+      "end": 67.96,
+      "text": "because it's not that nested for loops"
+    },
+    {
+      "id": 22,
+      "start": 67.96,
+      "end": 70.96,
+      "text": "ripping through a single two-board within a batch."
+    },
+    {
+      "id": 23,
+      "start": 71.96,
+      "end": 72.96,
+      "text": "Yes."
+    },
+    {
+      "id": 24,
+      "start": 72.96,
+      "end": 73.96,
+      "text": "If we're doing push-based,"
+    },
+    {
+      "id": 25,
+      "start": 73.96,
+      "end": 75.96,
+      "text": "is there still a distinction between the iterators"
+    },
+    {
+      "id": 26,
+      "start": 75.96,
+      "end": 77.96,
+      "text": "and the parallelization?"
+    },
+    {
+      "id": 27,
+      "start": 77.96,
+      "end": 78.96,
+      "text": "This question is,"
+    },
+    {
+      "id": 28,
+      "start": 78.96,
+      "end": 79.96,
+      "text": "if we're doing push-based,"
+    },
+    {
+      "id": 29,
+      "start": 79.96,
+      "end": 84.96,
+      "text": "is there still a distinction between two-board-a-time"
+    },
+    {
+      "id": 30,
+      "start": 84.96,
+      "end": 86.96,
+      "text": "entire output versus the entire,"
+    },
+    {
+      "id": 31,
+      "start": 86.96,
+      "end": 87.96,
+      "text": "versus the vector?"
+    },
+    {
+      "id": 32,
+      "start": 87.96,
+      "end": 88.96,
+      "text": "Absolutely, yes."
+    },
+    {
+      "id": 33,
+      "start": 88.96,
+      "end": 89.96,
+      "text": "So, my example here,"
+    },
+    {
+      "id": 34,
+      "start": 89.96,
+      "end": 91.96,
+      "text": "I'm iterating over a single two-pole,"
+    },
+    {
+      "id": 35,
+      "start": 91.96,
+      "end": 93.96,
+      "text": "and I call it eValPredicate."
+    },
+    {
+      "id": 36,
+      "start": 93.96,
+      "end": 95.96,
+      "text": "And again, assuming that they're function pointers,"
+    },
+    {
+      "id": 37,
+      "start": 95.96,
+      "end": 97.96,
+      "text": "I'm jumping every single time"
+    },
+    {
+      "id": 38,
+      "start": 97.96,
+      "end": 99.96,
+      "text": "to eValPredicate for one two-pole."
+    },
+    {
+      "id": 39,
+      "start": 99.96,
+      "end": 102.96,
+      "text": "What you could do is you could pass a batch of two-poles,"
+    },
+    {
+      "id": 40,
+      "start": 102.96,
+      "end": 105.96,
+      "text": "call this vectorized version of eValPredicate,"
+    },
+    {
+      "id": 41,
+      "start": 105.96,
+      "end": 108.96,
+      "text": "and then it gets a batch of processes of those."
+    },
+    {
+      "id": 42,
+      "start": 108.96,
+      "end": 110.96,
+      "text": "They're compatible."
+    },
+    {
+      "id": 43,
+      "start": 114.96,
+      "end": 115.96,
+      "text": "Okay."
+    },
+    {
+      "id": 44,
+      "start": 115.96,
+      "end": 117.96,
+      "text": "I don't think we're going to get through parallel execution,"
+    },
+    {
+      "id": 45,
+      "start": 117.96,
+      "end": 118.96,
+      "text": "but let's finish up with,"
+    },
+    {
+      "id": 46,
+      "start": 118.96,
+      "end": 119.96,
+      "text": "we'll cover that next class."
+    },
+    {
+      "id": 47,
+      "start": 119.96,
+      "end": 121.96,
+      "text": "But let's finish up with,"
+    },
+    {
+      "id": 48,
+      "start": 121.96,
+      "end": 125.96,
+      "text": "with how to represent filter data."
+    },
+    {
+      "id": 49,
+      "start": 125.96,
+      "end": 127.96,
+      "text": "So, in the,"
+    },
+    {
+      "id": 50,
+      "start": 128.96,
+      "end": 129.96,
+      "text": "in the iterator model,"
+    },
+    {
+      "id": 51,
+      "start": 129.96,
+      "end": 130.96,
+      "text": "because we're operating,"
+    },
+    {
+      "id": 52,
+      "start": 130.96,
+      "end": 133.96,
+      "text": "or every operator is going to process one two-board-a-time,"
+    },
+    {
+      "id": 53,
+      "start": 133.96,
+      "end": 136.96,
+      "text": "if something doesn't match like a predicate,"
+    },
+    {
+      "id": 54,
+      "start": 136.96,
+      "end": 138.96,
+      "text": "something's not meant to be produced as an output,"
+    },
+    {
+      "id": 55,
+      "start": 138.96,
+      "end": 142.96,
+      "text": "then we don't send it up to the parent operator, right?"
+    },
+    {
+      "id": 56,
+      "start": 142.96,
+      "end": 144.96,
+      "text": "Either call next and get the next, next, next,"
+    },
+    {
+      "id": 57,
+      "start": 144.96,
+      "end": 145.96,
+      "text": "next two-pole from our child,"
+    },
+    {
+      "id": 58,
+      "start": 145.96,
+      "end": 147.96,
+      "text": "or whatever, you know,"
+    },
+    {
+      "id": 59,
+      "start": 147.96,
+      "end": 148.96,
+      "text": "the local thing we're processing,"
+    },
+    {
+      "id": 60,
+      "start": 148.96,
+      "end": 150.96,
+      "text": "or we return back into file,"
+    },
+    {
+      "id": 61,
+      "start": 150.96,
+      "end": 151.96,
+      "text": "meaning we have no more."
+    },
+    {
+      "id": 62,
+      "start": 151.96,
+      "end": 152.96,
+      "text": "So that means that,"
+    },
+    {
+      "id": 63,
+      "start": 152.96,
+      "end": 154.96,
+      "text": "at no point in the query plan,"
+    },
+    {
+      "id": 64,
+      "start": 154.96,
+      "end": 158.96,
+      "text": "what we send up data that we know has been disqualified"
+    },
+    {
+      "id": 65,
+      "start": 158.96,
+      "end": 160.96,
+      "text": "or thrown out,"
+    },
+    {
+      "id": 66,
+      "start": 160.96,
+      "end": 164.96,
+      "text": "because we wouldn't have emitted it up, right?"
+    },
+    {
+      "id": 67,
+      "start": 164.96,
+      "end": 166.96,
+      "text": "But in the vectorized model,"
+    },
+    {
+      "id": 68,
+      "start": 166.96,
+      "end": 167.96,
+      "text": "you can't do that,"
+    },
+    {
+      "id": 69,
+      "start": 167.96,
+      "end": 169.96,
+      "text": "because you're operating on batches of two-poles,"
+    },
+    {
+      "id": 70,
+      "start": 169.96,
+      "end": 171.96,
+      "text": "so you may have,"
+    },
+    {
+      "id": 71,
+      "start": 171.96,
+      "end": 172.96,
+      "text": "based on what your predicate is,"
+    },
+    {
+      "id": 72,
+      "start": 172.96,
+      "end": 174.96,
+      "text": "or whatever the operation you're trying to do,"
+    },
+    {
+      "id": 73,
+      "start": 174.96,
+      "end": 176.96,
+      "text": "you may end up filtering out,"
+    },
+    {
+      "id": 74,
+      "start": 176.96,
+      "end": 179.96,
+      "text": "or throwing away some two-poles inside the vector,"
+    },
+    {
+      "id": 75,
+      "start": 179.96,
+      "end": 182.96,
+      "text": "while other two-poles still need to be passed up."
+    },
+    {
+      "id": 76,
+      "start": 182.96,
+      "end": 183.96,
+      "text": "So now the question is,"
+    },
+    {
+      "id": 77,
+      "start": 183.96,
+      "end": 184.96,
+      "text": "how do we handle that?"
+    },
+    {
+      "id": 78,
+      "start": 184.96,
+      "end": 185.96,
+      "text": "So basically, we have a vector,"
+    },
+    {
+      "id": 79,
+      "start": 185.96,
+      "end": 186.96,
+      "text": "it's going to have things,"
+    },
+    {
+      "id": 80,
+      "start": 186.96,
+      "end": 187.96,
+      "text": "half the data is,"
+    },
+    {
+      "id": 81,
+      "start": 187.96,
+      "end": 188.96,
+      "text": "we want to keep,"
+    },
+    {
+      "id": 82,
+      "start": 188.96,
+      "end": 190.96,
+      "text": "half the data we know we want to throw away."
+    },
+    {
+      "id": 83,
+      "start": 190.96,
+      "end": 192.96,
+      "text": "I'm sorry."
+    },
+    {
+      "id": 84,
+      "start": 192.96,
+      "end": 195.96,
+      "text": "So let's say that we're a query like this,"
+    },
+    {
+      "id": 85,
+      "start": 195.96,
+      "end": 197.96,
+      "text": "where the where clause is where column 0 is null,"
+    },
+    {
+      "id": 86,
+      "start": 197.96,
+      "end": 198.96,
+      "text": "and column 1,"
+    },
+    {
+      "id": 87,
+      "start": 198.96,
+      "end": 200.96,
+      "text": "or column 1 is like,"
+    },
+    {
+      "id": 88,
+      "start": 200.96,
+      "end": 202.96,
+      "text": "and then being a wildcard."
+    },
+    {
+      "id": 89,
+      "start": 202.96,
+      "end": 203.96,
+      "text": "So say this is my data,"
+    },
+    {
+      "id": 90,
+      "start": 203.96,
+      "end": 205.96,
+      "text": "I've column 0, column 1,"
+    },
+    {
+      "id": 91,
+      "start": 205.96,
+      "end": 209.96,
+      "text": "and so if I now do the filtering on this data,"
+    },
+    {
+      "id": 92,
+      "start": 209.96,
+      "end": 211.96,
+      "text": "say this is coming in as a batch,"
+    },
+    {
+      "id": 93,
+      "start": 211.96,
+      "end": 215.96,
+      "text": "this is the output I really want, right?"
+    },
+    {
+      "id": 94,
+      "start": 215.96,
+      "end": 216.96,
+      "text": "This is, because this is,"
+    },
+    {
+      "id": 95,
+      "start": 216.96,
+      "end": 218.96,
+      "text": "logically, this is the correct result."
+    },
+    {
+      "id": 96,
+      "start": 218.96,
+      "end": 220.96,
+      "text": "But how did I get there?"
+    },
+    {
+      "id": 97,
+      "start": 220.96,
+      "end": 223.96,
+      "text": "Because I don't want to have to copy everything out,"
+    },
+    {
+      "id": 98,
+      "start": 223.96,
+      "end": 225.96,
+      "text": "and then put it back into another buffer,"
+    },
+    {
+      "id": 99,
+      "start": 225.96,
+      "end": 227.96,
+      "text": "that's going to be slow."
+    },
+    {
+      "id": 100,
+      "start": 227.96,
+      "end": 231.96,
+      "text": "And so I need a way to represent,"
+    },
+    {
+      "id": 101,
+      "start": 231.96,
+      "end": 233.96,
+      "text": "logically, that these are the two-poles that have been filtered out,"
+    },
+    {
+      "id": 102,
+      "start": 233.96,
+      "end": 234.96,
+      "text": "even though physically,"
+    },
+    {
+      "id": 103,
+      "start": 234.96,
+      "end": 237.96,
+      "text": "I may be still be passing on dead two-poles,"
+    },
+    {
+      "id": 104,
+      "start": 237.96,
+      "end": 241.96,
+      "text": "or two-poles that I don't need."
+    },
+    {
+      "id": 105,
+      "start": 241.96,
+      "end": 243.96,
+      "text": "So there's two approaches to do this."
+    },
+    {
+      "id": 106,
+      "start": 243.96,
+      "end": 246.96,
+      "text": "The first is used what is called a selection vector."
+    },
+    {
+      "id": 107,
+      "start": 246.96,
+      "end": 249.96,
+      "text": "Sometimes I'll also call it a position list."
+    },
+    {
+      "id": 108,
+      "start": 249.96,
+      "end": 254.96,
+      "text": "And the idea here, it's just going to be a densely packed array"
+    },
+    {
+      "id": 109,
+      "start": 254.96,
+      "end": 258.96,
+      "text": "of the offsets of the two-poles within my vector,"
+    },
+    {
+      "id": 110,
+      "start": 258.96,
+      "end": 260.96,
+      "text": "and I'm passing from one operator to the next,"
+    },
+    {
+      "id": 111,
+      "start": 260.96,
+      "end": 261.96,
+      "text": "that are still valid,"
+    },
+    {
+      "id": 112,
+      "start": 261.96,
+      "end": 264.96,
+      "text": "are still alive, are still active."
+    },
+    {
+      "id": 113,
+      "start": 264.96,
+      "end": 267.96,
+      "text": "So again, going back to my example here,"
+    },
+    {
+      "id": 114,
+      "start": 267.96,
+      "end": 270.96,
+      "text": "my selected vector would just be a list of offsets,"
+    },
+    {
+      "id": 115,
+      "start": 270.96,
+      "end": 273.96,
+      "text": "1, 3, 4, because they correspond to the two-poles"
+    },
+    {
+      "id": 116,
+      "start": 273.96,
+      "end": 275.96,
+      "text": "that satisfied the predicate."
+    },
+    {
+      "id": 117,
+      "start": 275.96,
+      "end": 277.96,
+      "text": "So now this is what gets passed on from,"
+    },
+    {
+      "id": 118,
+      "start": 277.96,
+      "end": 280.96,
+      "text": "the output of next, or if I'm pushing along in the push-based model."
+    },
+    {
+      "id": 119,
+      "start": 280.96,
+      "end": 283.96,
+      "text": "This is what the next operator is going to process on."
+    },
+    {
+      "id": 120,
+      "start": 283.96,
+      "end": 285.96,
+      "text": "So now, when I start doing whatever it is,"
+    },
+    {
+      "id": 121,
+      "start": 285.96,
+      "end": 288.96,
+      "text": "I get this batch of data, I have this selection vector,"
+    },
+    {
+      "id": 122,
+      "start": 288.96,
+      "end": 292.96,
+      "text": "I then account for some of the data may have been discarded"
+    },
+    {
+      "id": 123,
+      "start": 292.96,
+      "end": 295.96,
+      "text": "and some of the data is still active."
+    },
+    {
+      "id": 124,
+      "start": 295.96,
+      "end": 296.96,
+      "text": "Yes?"
+    },
+    {
+      "id": 125,
+      "start": 296.96,
+      "end": 298.96,
+      "text": "This must affect sende somewhere, right?"
+    },
+    {
+      "id": 126,
+      "start": 298.96,
+      "end": 299.96,
+      "text": "Why do this?"
+    },
+    {
+      "id": 127,
+      "start": 299.96,
+      "end": 301.96,
+      "text": "This question is this must affect sende."
+    },
+    {
+      "id": 128,
+      "start": 301.96,
+      "end": 303.96,
+      "text": "The question is, why do this?"
+    },
+    {
+      "id": 129,
+      "start": 303.96,
+      "end": 304.96,
+      "text": "Right."
+    },
+    {
+      "id": 130,
+      "start": 304.96,
+      "end": 307.96,
+      "text": "Because the answer is going to be yes and for sende"
+    },
+    {
+      "id": 131,
+      "start": 307.96,
+      "end": 311.96,
+      "text": "and for other operations, it's actually going to be faster for us"
+    },
+    {
+      "id": 132,
+      "start": 311.96,
+      "end": 314.96,
+      "text": "just to pass along garbage."
+    },
+    {
+      "id": 133,
+      "start": 314.96,
+      "end": 315.96,
+      "text": "Right?"
+    },
+    {
+      "id": 134,
+      "start": 315.96,
+      "end": 318.96,
+      "text": "And then if the selection vector goes zero,"
+    },
+    {
+      "id": 135,
+      "start": 318.96,
+      "end": 320.96,
+      "text": "then I know everything is discarded,"
+    },
+    {
+      "id": 136,
+      "start": 320.96,
+      "end": 322.96,
+      "text": "and I just throw the entire thing away,"
+    },
+    {
+      "id": 137,
+      "start": 322.96,
+      "end": 323.96,
+      "text": "and jump out."
+    },
+    {
+      "id": 138,
+      "start": 323.96,
+      "end": 327.96,
+      "text": "But it's going to be faster for us to not have to say,"
+    },
+    {
+      "id": 139,
+      "start": 327.96,
+      "end": 329.96,
+      "text": "after everything will step, saying like,"
+    },
+    {
+      "id": 140,
+      "start": 329.96,
+      "end": 333.96,
+      "text": "in seizure of visualizes this in the fusion model,"
+    },
+    {
+      "id": 141,
+      "start": 333.96,
+      "end": 336.96,
+      "text": "or the fusion approach, like it's easier from going from one"
+    },
+    {
+      "id": 142,
+      "start": 336.96,
+      "end": 339.96,
+      "text": "sort of line to the next line within my nest before the,"
+    },
+    {
+      "id": 143,
+      "start": 339.96,
+      "end": 343.96,
+      "text": "to not have to go allocate memory resizing stuff."
+    },
+    {
+      "id": 144,
+      "start": 343.96,
+      "end": 344.96,
+      "text": "Right?"
+    },
+    {
+      "id": 145,
+      "start": 346.96,
+      "end": 349.96,
+      "text": "The alternative approach is to do bitmaps,"
+    },
+    {
+      "id": 146,
+      "start": 349.96,
+      "end": 353.96,
+      "text": "and this is just going to be a bitmap that's that corresponded"
+    },
+    {
+      "id": 147,
+      "start": 353.96,
+      "end": 356.96,
+      "text": "that has the same length as the number of tuples in my vector"
+    },
+    {
+      "id": 148,
+      "start": 356.96,
+      "end": 358.96,
+      "text": "that I'm passing along, and it's just a zero one"
+    },
+    {
+      "id": 149,
+      "start": 358.96,
+      "end": 362.96,
+      "text": "that specifies whether the tuple at the given offset"
+    },
+    {
+      "id": 150,
+      "start": 362.96,
+      "end": 364.96,
+      "text": "is valid or not."
+    },
+    {
+      "id": 151,
+      "start": 364.96,
+      "end": 367.96,
+      "text": "And again, as you brought out, this is going to matter,"
+    },
+    {
+      "id": 152,
+      "start": 367.96,
+      "end": 369.96,
+      "text": "this is going to make our life easier in simd in some cases,"
+    },
+    {
+      "id": 153,
+      "start": 369.96,
+      "end": 373.96,
+      "text": "because some simd instructions in AVX512 will actually take this"
+    },
+    {
+      "id": 154,
+      "start": 373.96,
+      "end": 376.96,
+      "text": "as input as a mask, and you can use it to tell it,"
+    },
+    {
+      "id": 155,
+      "start": 376.96,
+      "end": 378.96,
+      "text": "hey, don't process the data in these lanes,"
+    },
+    {
+      "id": 156,
+      "start": 378.96,
+      "end": 381.96,
+      "text": "because I don't care for the output."
+    },
+    {
+      "id": 157,
+      "start": 383.96,
+      "end": 387.96,
+      "text": "So again, we'll see more of this later on, actually,"
+    },
+    {
+      "id": 158,
+      "start": 387.96,
+      "end": 391.96,
+      "text": "you know, how to design simd and then,"
+    },
+    {
+      "id": 159,
+      "start": 391.96,
+      "end": 395.96,
+      "text": "you know, simd optimize operations or algorithms for,"
+    },
+    {
+      "id": 160,
+      "start": 395.96,
+      "end": 400.96,
+      "text": "or query plans or database system that can use all these things."
+    },
+    {
+      "id": 161,
+      "start": 400.96,
+      "end": 403.96,
+      "text": "The current research literature actually says the top one"
+    },
+    {
+      "id": 162,
+      "start": 403.96,
+      "end": 405.96,
+      "text": "is the faster way to do this."
+    },
+    {
+      "id": 163,
+      "start": 405.96,
+      "end": 408.96,
+      "text": "So the photon paper from, from Databricks,"
+    },
+    {
+      "id": 164,
+      "start": 408.96,
+      "end": 412.96,
+      "text": "we'll read later on, says this, and then our own research paper."
+    },
+    {
+      "id": 165,
+      "start": 412.96,
+      "end": 416.96,
+      "text": "Why would this even be the only thing we're doing at fields?"
+    },
+    {
+      "id": 166,
+      "start": 416.96,
+      "end": 418.96,
+      "text": "Because if you're doing fields things,"
+    },
+    {
+      "id": 167,
+      "start": 418.96,
+      "end": 421.96,
+      "text": "it's just one or whatever, the next layer of one,"
+    },
+    {
+      "id": 168,
+      "start": 421.96,
+      "end": 424.96,
+      "text": "because if you don't find line of all papers,"
+    },
+    {
+      "id": 169,
+      "start": 424.96,
+      "end": 427.96,
+      "text": "that means that there's a pipeline worker at the end of it."
+    },
+    {
+      "id": 170,
+      "start": 427.96,
+      "end": 429.96,
+      "text": "We don't need to use that organization data,"
+    },
+    {
+      "id": 171,
+      "start": 429.96,
+      "end": 434.96,
+      "text": "so if we just are doing in that abstraction."
+    },
+    {
+      "id": 172,
+      "start": 434.96,
+      "end": 437.96,
+      "text": "So your statement is if we're doing this,"
+    },
+    {
+      "id": 173,
+      "start": 437.96,
+      "end": 439.96,
+      "text": "why don't we even need that?"
+    },
+    {
+      "id": 174,
+      "start": 439.96,
+      "end": 442.96,
+      "text": "Why do we even need to, because, you see, at the end of it,"
+    },
+    {
+      "id": 175,
+      "start": 442.96,
+      "end": 445.96,
+      "text": "we just, it's almost like we have a,"
+    },
+    {
+      "id": 176,
+      "start": 445.96,
+      "end": 447.96,
+      "text": "we have a pipeline worker at the end of it, right?"
+    },
+    {
+      "id": 177,
+      "start": 447.96,
+      "end": 451.96,
+      "text": "So like, literally thing of like, say to T2,"
+    },
+    {
+      "id": 178,
+      "start": 451.96,
+      "end": 453.96,
+      "text": "it's being a, say to a batch, a vector."
+    },
+    {
+      "id": 179,
+      "start": 453.96,
+      "end": 456.96,
+      "text": "I call this eValprethicate, right?"
+    },
+    {
+      "id": 180,
+      "start": 456.96,
+      "end": 459.96,
+      "text": "It's going to then populate either the position list,"
+    },
+    {
+      "id": 181,
+      "start": 459.96,
+      "end": 463.96,
+      "text": "the selection vector, or the output, the bitmap, right?"
+    },
+    {
+      "id": 182,
+      "start": 463.96,
+      "end": 466.96,
+      "text": "If it's the bitmap, I do pop count, tell me how many zeros I have,"
+    },
+    {
+      "id": 183,
+      "start": 466.96,
+      "end": 467.96,
+      "text": "or how many ones I have."
+    },
+    {
+      "id": 184,
+      "start": 467.96,
+      "end": 472.96,
+      "text": "If it's, if I have at least one, one, then I know I want to do this."
+    },
+    {
+      "id": 185,
+      "start": 472.96,
+      "end": 475.96,
+      "text": "If you don't do that, then I got to go copy,"
+    },
+    {
+      "id": 186,
+      "start": 476.96,
+      "end": 479.96,
+      "text": "go iterate over every single tuple within my batch,"
+    },
+    {
+      "id": 187,
+      "start": 479.96,
+      "end": 483.96,
+      "text": "populate a new output buffer, then feed that into my probe hash table."
+    },
+    {
+      "id": 188,
+      "start": 483.96,
+      "end": 484.96,
+      "text": "Right?"
+    },
+    {
+      "id": 189,
+      "start": 484.96,
+      "end": 488.96,
+      "text": "It's just faster to do zero copy, operate on the data as it exists,"
+    },
+    {
+      "id": 190,
+      "start": 488.96,
+      "end": 491.96,
+      "text": "but I'm just upending bits or a position list to say,"
+    },
+    {
+      "id": 191,
+      "start": 491.96,
+      "end": 493.96,
+      "text": "what tuple is actually matter?"
+    },
+    {
+      "id": 192,
+      "start": 493.96,
+      "end": 495.96,
+      "text": "And all these implementations of these operators,"
+    },
+    {
+      "id": 193,
+      "start": 495.96,
+      "end": 497.96,
+      "text": "which we'll cover later, take as input,"
+    },
+    {
+      "id": 194,
+      "start": 497.96,
+      "end": 499.96,
+      "text": "when the selection vector, or the bitmask,"
+    },
+    {
+      "id": 195,
+      "start": 499.96,
+      "end": 503.96,
+      "text": "and know whether or not to, to even consider a tuple at an offset."
+    },
+    {
+      "id": 196,
+      "start": 504.96,
+      "end": 507.96,
+      "text": "What if we had s was the batch, and there was an output loop,"
+    },
+    {
+      "id": 197,
+      "start": 507.96,
+      "end": 509.96,
+      "text": "that was actually moving to a bunch of s's,"
+    },
+    {
+      "id": 198,
+      "start": 509.96,
+      "end": 512.96,
+      "text": "but you see how that could be much."
+    },
+    {
+      "id": 199,
+      "start": 512.96,
+      "end": 514.96,
+      "text": "Yeah, but don't do that."
+    },
+    {
+      "id": 200,
+      "start": 514.96,
+      "end": 516.96,
+      "text": "We can do code, and they can do all of this stuff,"
+    },
+    {
+      "id": 201,
+      "start": 516.96,
+      "end": 517.96,
+      "text": "they can do all of this stuff, they can do that."
+    },
+    {
+      "id": 202,
+      "start": 517.96,
+      "end": 519.96,
+      "text": "Yeah, but like, that's, that's going to be, you know,"
+    },
+    {
+      "id": 203,
+      "start": 519.96,
+      "end": 520.96,
+      "text": "scalar instruction, sissy."
+    },
+    {
+      "id": 204,
+      "start": 520.96,
+      "end": 522.96,
+      "text": "We can vectorize all of this."
+    },
+    {
+      "id": 205,
+      "start": 522.96,
+      "end": 524.96,
+      "text": "We can vectorize the evo, and then the program."
+    },
+    {
+      "id": 206,
+      "start": 524.96,
+      "end": 525.96,
+      "text": "Absolutely, yeah."
+    },
+    {
+      "id": 207,
+      "start": 525.96,
+      "end": 526.96,
+      "text": "That's what s is."
+    },
+    {
+      "id": 208,
+      "start": 526.96,
+      "end": 527.96,
+      "text": "Yeah."
+    },
+    {
+      "id": 209,
+      "start": 527.96,
+      "end": 529.96,
+      "text": "That's why this course is existing,"
+    },
+    {
+      "id": 210,
+      "start": 529.96,
+      "end": 531.96,
+      "text": "why people pay you a lot of money to do this stuff, right?"
+    },
+    {
+      "id": 211,
+      "start": 531.96,
+      "end": 532.96,
+      "text": "It's hard."
+    },
+    {
+      "id": 212,
+      "start": 532.96,
+      "end": 534.96,
+      "text": "All right."
+    },
+    {
+      "id": 213,
+      "start": 534.96,
+      "end": 535.96,
+      "text": "Yes."
+    },
+    {
+      "id": 214,
+      "start": 535.96,
+      "end": 547.96,
+      "text": "So, statement is, if I go back to the,"
+    },
+    {
+      "id": 215,
+      "start": 551.96,
+      "end": 554.96,
+      "text": "so, could you do in a pull-based approach?"
+    },
+    {
+      "id": 216,
+      "start": 554.96,
+      "end": 557.96,
+      "text": "Like, it's waiting for the vector to come,"
+    },
+    {
+      "id": 217,
+      "start": 557.96,
+      "end": 561.96,
+      "text": "and then you put in from the one to the other."
+    },
+    {
+      "id": 218,
+      "start": 561.96,
+      "end": 564.96,
+      "text": "But, so, so, so, but, you put in a batch of tuples,"
+    },
+    {
+      "id": 219,
+      "start": 564.96,
+      "end": 566.96,
+      "text": "a vector tuples, or a single tuple."
+    },
+    {
+      "id": 220,
+      "start": 566.96,
+      "end": 568.96,
+      "text": "A batch of tuples, so, so, so, so, so, so,"
+    },
+    {
+      "id": 221,
+      "start": 568.96,
+      "end": 571.96,
+      "text": "so, statement is, can't, if, if I have, in my example here,"
+    },
+    {
+      "id": 222,
+      "start": 571.96,
+      "end": 574.96,
+      "text": "so I have three out of, three out of what,"
+    },
+    {
+      "id": 223,
+      "start": 574.96,
+      "end": 577.96,
+      "text": "three out of five match, so I have two empty slots,"
+    },
+    {
+      "id": 224,
+      "start": 577.96,
+      "end": 580.96,
+      "text": "can I just call it next below me, get the next vector,"
+    },
+    {
+      "id": 225,
+      "start": 580.96,
+      "end": 583.96,
+      "text": "then, you know, at least find two matches,"
+    },
+    {
+      "id": 226,
+      "start": 583.96,
+      "end": 585.96,
+      "text": "then I then put in this vector here."
+    },
+    {
+      "id": 227,
+      "start": 585.96,
+      "end": 588.96,
+      "text": "But, that's a more bookkeeping,"
+    },
+    {
+      "id": 228,
+      "start": 588.96,
+      "end": 591.96,
+      "text": "it keeps track of how many space do I have,"
+    },
+    {
+      "id": 229,
+      "start": 591.96,
+      "end": 593.96,
+      "text": "then I still gotta maintain the, the, the,"
+    },
+    {
+      "id": 230,
+      "start": 593.96,
+      "end": 596.96,
+      "text": "the inner-metre result of the child thing I call before me."
+    },
+    {
+      "id": 231,
+      "start": 596.96,
+      "end": 598.96,
+      "text": "It's not worth it."
+    },
+    {
+      "id": 232,
+      "start": 598.96,
+      "end": 599.96,
+      "text": "It has its way more indirectly."
+    }
+  ],
+  "language": "en"
+}

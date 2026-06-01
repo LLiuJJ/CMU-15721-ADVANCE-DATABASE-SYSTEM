@@ -1,0 +1,1535 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.96,
+      "text": "on the on-prem version."
+    },
+    {
+      "id": 1,
+      "start": 1.96,
+      "end": 3.12,
+      "text": "It just be all about the cloud."
+    },
+    {
+      "id": 2,
+      "start": 5.84,
+      "end": 6.84,
+      "text": "All right, so here's again,"
+    },
+    {
+      "id": 3,
+      "start": 6.84,
+      "end": 9.36,
+      "text": "high level overview of the key aspects of it,"
+    },
+    {
+      "id": 4,
+      "start": 9.36,
+      "end": 11.48,
+      "text": "going similar to the text on what we've used"
+    },
+    {
+      "id": 5,
+      "start": 11.48,
+      "end": 13.66,
+      "text": "for the other systems we talked about so far."
+    },
+    {
+      "id": 6,
+      "start": 13.66,
+      "end": 15.78,
+      "text": "So as I said, start off as shared nothing,"
+    },
+    {
+      "id": 7,
+      "start": 15.78,
+      "end": 18.32,
+      "text": "but now it's a shared disk system,"
+    },
+    {
+      "id": 8,
+      "start": 18.32,
+      "end": 20.24,
+      "text": "which this is going to compute in storage."
+    },
+    {
+      "id": 9,
+      "start": 20.24,
+      "end": 22.8,
+      "text": "There will be a push-based vectorized query processing."
+    },
+    {
+      "id": 10,
+      "start": 24.2,
+      "end": 25.16,
+      "text": "They're going to make heavy use"
+    },
+    {
+      "id": 11,
+      "start": 25.16,
+      "end": 28.44,
+      "text": "or be entirely doing a code generation"
+    },
+    {
+      "id": 12,
+      "start": 29.28,
+      "end": 31.76,
+      "text": "using the translation method we talked about with high queue."
+    },
+    {
+      "id": 13,
+      "start": 31.76,
+      "end": 33.0,
+      "text": "So they're going to take the query plan"
+    },
+    {
+      "id": 14,
+      "start": 33.0,
+      "end": 35.28,
+      "text": "and convert it into SQL Plus code"
+    },
+    {
+      "id": 15,
+      "start": 35.28,
+      "end": 37.48,
+      "text": "and then go ahead and compile that."
+    },
+    {
+      "id": 16,
+      "start": 37.48,
+      "end": 38.8,
+      "text": "They're going to compute side caching,"
+    },
+    {
+      "id": 17,
+      "start": 38.8,
+      "end": 41.8,
+      "text": "similar to we saw on Snowflake."
+    },
+    {
+      "id": 18,
+      "start": 41.8,
+      "end": 43.08,
+      "text": "They're going to have a separate row"
+    },
+    {
+      "id": 19,
+      "start": 43.08,
+      "end": 45.0,
+      "text": "and column storage opponent."
+    },
+    {
+      "id": 20,
+      "start": 46.24,
+      "end": 49.8,
+      "text": "And this is a lot of them to do ingestion of new rights"
+    },
+    {
+      "id": 21,
+      "start": 49.8,
+      "end": 50.76,
+      "text": "in a row-oriented manner,"
+    },
+    {
+      "id": 22,
+      "start": 50.76,
+      "end": 51.96,
+      "text": "and then the background process"
+    },
+    {
+      "id": 23,
+      "start": 51.96,
+      "end": 56.4,
+      "text": "is going to convert them into a Pax columnar format."
+    },
+    {
+      "id": 24,
+      "start": 56.4,
+      "end": 58.08,
+      "text": "There will be short merge joins, hash joins,"
+    },
+    {
+      "id": 25,
+      "start": 58.08,
+      "end": 60.08,
+      "text": "they also support nest of loop joins."
+    },
+    {
+      "id": 26,
+      "start": 60.08,
+      "end": 62.0,
+      "text": "And as I said, they're going to rely heavily still"
+    },
+    {
+      "id": 27,
+      "start": 62.0,
+      "end": 63.24,
+      "text": "on the post-credit app from our server,"
+    },
+    {
+      "id": 28,
+      "start": 63.24,
+      "end": 67.88,
+      "text": "but in POS or install their own additional optimization passes"
+    },
+    {
+      "id": 29,
+      "start": 67.88,
+      "end": 73.4,
+      "text": "for, you know, for, you know, for, you know,"
+    },
+    {
+      "id": 30,
+      "start": 73.4,
+      "end": 75.0,
+      "text": "for the yellow brick stuff."
+    },
+    {
+      "id": 31,
+      "start": 75.0,
+      "end": 77.84,
+      "text": "And, and then, and say this multiple times that's faster,"
+    },
+    {
+      "id": 32,
+      "start": 77.84,
+      "end": 80.36,
+      "text": "like co-king level and seeing system engineering"
+    },
+    {
+      "id": 33,
+      "start": 80.36,
+      "end": 81.96,
+      "text": "from the optimizations."
+    },
+    {
+      "id": 34,
+      "start": 81.96,
+      "end": 83.4,
+      "text": "So we're going to talk about all of these,"
+    },
+    {
+      "id": 35,
+      "start": 83.4,
+      "end": 85.84,
+      "text": "but I think these two ones are probably the,"
+    },
+    {
+      "id": 36,
+      "start": 86.44,
+      "end": 87.68,
+      "text": "the most interesting ones,"
+    },
+    {
+      "id": 37,
+      "start": 87.68,
+      "end": 89.52,
+      "text": "least the ones we can talk about the most,"
+    },
+    {
+      "id": 38,
+      "start": 89.52,
+      "end": 91.24,
+      "text": "but what's most publicly available?"
+    },
+    {
+      "id": 39,
+      "start": 93.2,
+      "end": 94.56,
+      "text": "All right, so the nomically they're going to use"
+    },
+    {
+      "id": 40,
+      "start": 94.56,
+      "end": 97.44,
+      "text": "and say that there'll be a data warehouse instance."
+    },
+    {
+      "id": 41,
+      "start": 98.44,
+      "end": 102.08,
+      "text": "And that'll be the front end service of the,"
+    },
+    {
+      "id": 42,
+      "start": 102.08,
+      "end": 104.76,
+      "text": "the data system that's going to manage all the,"
+    },
+    {
+      "id": 43,
+      "start": 104.76,
+      "end": 107.28,
+      "text": "you sort of have the complete purview of the worker nodes"
+    },
+    {
+      "id": 44,
+      "start": 107.28,
+      "end": 109.84,
+      "text": "and the, and other additional services"
+    },
+    {
+      "id": 45,
+      "start": 109.84,
+      "end": 112.24,
+      "text": "running for a single customer."
+    },
+    {
+      "id": 46,
+      "start": 112.24,
+      "end": 115.08,
+      "text": "So the, the front end piece is going to have,"
+    },
+    {
+      "id": 47,
+      "start": 115.08,
+      "end": 117.8,
+      "text": "and that, that, that, that portion of Postgres"
+    },
+    {
+      "id": 48,
+      "start": 117.8,
+      "end": 120.4,
+      "text": "that's going to take incoming connections,"
+    },
+    {
+      "id": 49,
+      "start": 120.4,
+      "end": 122.6,
+      "text": "do the parsing, the plan, the optimization."
+    },
+    {
+      "id": 50,
+      "start": 122.6,
+      "end": 125.24,
+      "text": "It also is where they're going to run"
+    },
+    {
+      "id": 51,
+      "start": 125.24,
+      "end": 127.64,
+      "text": "the, the Rostro portion of the system."
+    },
+    {
+      "id": 52,
+      "start": 127.64,
+      "end": 129.08,
+      "text": "But then they're still going to use Postgres"
+    },
+    {
+      "id": 53,
+      "start": 129.08,
+      "end": 130.16,
+      "text": "for the catalogs."
+    },
+    {
+      "id": 54,
+      "start": 130.16,
+      "end": 133.64,
+      "text": "They're just going to use PG catalog inside of the,"
+    },
+    {
+      "id": 55,
+      "start": 133.64,
+      "end": 136.32,
+      "text": "Postgres keeps track of where, what data is available,"
+    },
+    {
+      "id": 56,
+      "start": 136.32,
+      "end": 138.48,
+      "text": "where, you know, we're, how to map the shards to,"
+    },
+    {
+      "id": 57,
+      "start": 138.48,
+      "end": 140.28,
+      "text": "or the files to, to different nodes."
+    },
+    {
+      "id": 58,
+      "start": 141.4,
+      "end": 143.52,
+      "text": "They're going to make, have a use of caching for this"
+    },
+    {
+      "id": 59,
+      "start": 143.52,
+      "end": 144.96,
+      "text": "and other, they're going to use those, because they hit up"
+    },
+    {
+      "id": 60,
+      "start": 144.96,
+      "end": 147.08,
+      "text": "PG catalog for every single time we want to do a request,"
+    },
+    {
+      "id": 61,
+      "start": 147.08,
+      "end": 148.04,
+      "text": "would be too slow."
+    },
+    {
+      "id": 62,
+      "start": 149.04,
+      "end": 151.44,
+      "text": "And for transaction management as well,"
+    },
+    {
+      "id": 63,
+      "start": 151.44,
+      "end": 152.48,
+      "text": "which we're not really talking about,"
+    },
+    {
+      "id": 64,
+      "start": 152.48,
+      "end": 155.36,
+      "text": "but they try to mimic, or try to follow Postgres's,"
+    },
+    {
+      "id": 65,
+      "start": 155.36,
+      "end": 158.96,
+      "text": "style, and VCC to do, to do transactions."
+    },
+    {
+      "id": 66,
+      "start": 160.08,
+      "end": 162.4,
+      "text": "The worker nodes are going to be single containers,"
+    },
+    {
+      "id": 67,
+      "start": 162.4,
+      "end": 165.08,
+      "text": "and this is, they're, as he, as he describes it,"
+    },
+    {
+      "id": 68,
+      "start": 165.08,
+      "end": 166.36,
+      "text": "they're pretty lightweight or dumb."
+    },
+    {
+      "id": 69,
+      "start": 166.36,
+      "end": 168.44,
+      "text": "There's, you know, they just, given the task"
+    },
+    {
+      "id": 70,
+      "start": 168.44,
+      "end": 170.84,
+      "text": "of here's the Kapal query, and they go ahead and run it,"
+    },
+    {
+      "id": 71,
+      "start": 170.84,
+      "end": 173.12,
+      "text": "and know how to move the data back and forth between,"
+    },
+    {
+      "id": 72,
+      "start": 173.28,
+      "end": 175.36,
+      "text": "the hardware and the different nodes."
+    },
+    {
+      "id": 73,
+      "start": 175.36,
+      "end": 178.68,
+      "text": "But they're all going to maintain their own local cache,"
+    },
+    {
+      "id": 74,
+      "start": 178.68,
+      "end": 182.48,
+      "text": "using, you know, NDE drives to write things out,"
+    },
+    {
+      "id": 75,
+      "start": 182.48,
+      "end": 184.44,
+      "text": "as needed if they have to spill to it."
+    },
+    {
+      "id": 76,
+      "start": 184.44,
+      "end": 185.68,
+      "text": "And we'll talk about that in a second."
+    },
+    {
+      "id": 77,
+      "start": 185.68,
+      "end": 187.8,
+      "text": "And then there's separate additional services"
+    },
+    {
+      "id": 78,
+      "start": 187.8,
+      "end": 190.8,
+      "text": "that are running background tasks, or maintenance tasks."
+    },
+    {
+      "id": 79,
+      "start": 190.8,
+      "end": 194.04,
+      "text": "This is for compilation, they run analyze,"
+    },
+    {
+      "id": 80,
+      "start": 194.04,
+      "end": 196.08,
+      "text": "and these background tasks, bulk loading,"
+    },
+    {
+      "id": 81,
+      "start": 196.08,
+      "end": 198.24,
+      "text": "they actually do a bypass of the row store,"
+    },
+    {
+      "id": 82,
+      "start": 198.24,
+      "end": 199.56,
+      "text": "so you can just take, you know, large files"
+    },
+    {
+      "id": 83,
+      "start": 199.56,
+      "end": 201.36,
+      "text": "and dump them directly to the column store."
+    },
+    {
+      "id": 84,
+      "start": 203.12,
+      "end": 205.6,
+      "text": "So the high level architecture looks like this, right?"
+    },
+    {
+      "id": 85,
+      "start": 205.6,
+      "end": 207.48,
+      "text": "Again, so this is the front end, and then you need the worker nodes,"
+    },
+    {
+      "id": 86,
+      "start": 207.48,
+      "end": 210.36,
+      "text": "and then the object storage is S3, or whatever Azure has."
+    },
+    {
+      "id": 87,
+      "start": 211.64,
+      "end": 214.96,
+      "text": "Query shows up, it's going to go through this post-cress front layer,"
+    },
+    {
+      "id": 88,
+      "start": 214.96,
+      "end": 217.2,
+      "text": "again, through all the parsing and planning there."
+    },
+    {
+      "id": 89,
+      "start": 217.2,
+      "end": 218.8,
+      "text": "And then it's going to hand things off to the scheduler"
+    },
+    {
+      "id": 90,
+      "start": 218.8,
+      "end": 220.16,
+      "text": "and the compiler service."
+    },
+    {
+      "id": 91,
+      "start": 220.16,
+      "end": 221.88,
+      "text": "We'll talk about each of these in a second,"
+    },
+    {
+      "id": 92,
+      "start": 221.88,
+      "end": 223.88,
+      "text": "but they have a centralized scheduler"
+    },
+    {
+      "id": 93,
+      "start": 223.88,
+      "end": 225.64,
+      "text": "that then's going to hand out the tasks"
+    },
+    {
+      "id": 94,
+      "start": 225.64,
+      "end": 227.12,
+      "text": "to the different worker nodes,"
+    },
+    {
+      "id": 95,
+      "start": 227.12,
+      "end": 228.32,
+      "text": "and then every 100 milliseconds,"
+    },
+    {
+      "id": 96,
+      "start": 228.32,
+      "end": 229.48,
+      "text": "they're going to coordinate and synchronize"
+    },
+    {
+      "id": 97,
+      "start": 229.48,
+      "end": 231.2,
+      "text": "and say what task should we work on next."
+    },
+    {
+      "id": 98,
+      "start": 232.16,
+      "end": 234.36,
+      "text": "And these guys are all going to run as code routines."
+    },
+    {
+      "id": 99,
+      "start": 234.36,
+      "end": 236.08,
+      "text": "Compiler service, we'll see in a second,"
+    },
+    {
+      "id": 100,
+      "start": 236.08,
+      "end": 238.88,
+      "text": "and it's just converting the query plan into"
+    },
+    {
+      "id": 101,
+      "start": 238.88,
+      "end": 240.24,
+      "text": "seamless loss and go ahead and compile it,"
+    },
+    {
+      "id": 102,
+      "start": 240.24,
+      "end": 242.28,
+      "text": "but they'll do some tricks to make this run faster"
+    },
+    {
+      "id": 103,
+      "start": 242.28,
+      "end": 244.44,
+      "text": "in parallel with the LLVM."
+    },
+    {
+      "id": 104,
+      "start": 245.32,
+      "end": 247.68,
+      "text": "Schedule hands out the tasks to the worker nodes,"
+    },
+    {
+      "id": 105,
+      "start": 247.68,
+      "end": 249.92,
+      "text": "assuming that the worker nodes caches are empty."
+    },
+    {
+      "id": 106,
+      "start": 250.88,
+      "end": 252.88,
+      "text": "If they need any data that go out to the object store"
+    },
+    {
+      "id": 107,
+      "start": 252.88,
+      "end": 256.52,
+      "text": "and get it stored in its local cache,"
+    },
+    {
+      "id": 108,
+      "start": 256.52,
+      "end": 259.52,
+      "text": "they'll do an approximate version of LLUK,"
+    },
+    {
+      "id": 109,
+      "start": 259.52,
+      "end": 260.76,
+      "text": "which we'll cover in a second,"
+    },
+    {
+      "id": 110,
+      "start": 260.76,
+      "end": 263.4,
+      "text": "to decide when to evict things from memory,"
+    },
+    {
+      "id": 111,
+      "start": 263.4,
+      "end": 265.68,
+      "text": "or things from the cache,"
+    },
+    {
+      "id": 112,
+      "start": 265.68,
+      "end": 267.48,
+      "text": "and then they can also move data back and forth"
+    },
+    {
+      "id": 113,
+      "start": 267.48,
+      "end": 269.64,
+      "text": "between different worker nodes."
+    },
+    {
+      "id": 114,
+      "start": 269.64,
+      "end": 272.2,
+      "text": "And then as I said, if you're doing a bulk loading"
+    },
+    {
+      "id": 115,
+      "start": 272.2,
+      "end": 274.2,
+      "text": "of like, I have terabytes of files,"
+    },
+    {
+      "id": 116,
+      "start": 274.2,
+      "end": 276.64,
+      "text": "I don't want to go through the row store,"
+    },
+    {
+      "id": 117,
+      "start": 276.64,
+      "end": 278.76,
+      "text": "and then have it get compacted to the object store,"
+    },
+    {
+      "id": 118,
+      "start": 278.76,
+      "end": 280.44,
+      "text": "you can have this bulk loader service"
+    },
+    {
+      "id": 119,
+      "start": 280.44,
+      "end": 283.0,
+      "text": "just right directly out to the object store"
+    },
+    {
+      "id": 120,
+      "start": 283.0,
+      "end": 284.56,
+      "text": "on an intersectional manner."
+    },
+    {
+      "id": 121,
+      "start": 285.88,
+      "end": 286.72,
+      "text": "Yes."
+    },
+    {
+      "id": 122,
+      "start": 286.72,
+      "end": 288.12,
+      "text": "So you were saying that the old worker"
+    },
+    {
+      "id": 123,
+      "start": 288.12,
+      "end": 289.64,
+      "text": "was sure nothing could be there."
+    },
+    {
+      "id": 124,
+      "start": 289.64,
+      "end": 290.8,
+      "text": "Yeah, that part's a little bit confusing."
+    },
+    {
+      "id": 125,
+      "start": 290.8,
+      "end": 295.0,
+      "text": "So again, historically it was a shared nothing system."
+    },
+    {
+      "id": 126,
+      "start": 295.0,
+      "end": 298.88,
+      "text": "And I think they're incorrect,"
+    },
+    {
+      "id": 127,
+      "start": 298.88,
+      "end": 303.0,
+      "text": "because like, these things are caches, right?"
+    },
+    {
+      "id": 128,
+      "start": 303.0,
+      "end": 306.08,
+      "text": "The primary location of the database at rest is over here."
+    },
+    {
+      "id": 129,
+      "start": 306.08,
+      "end": 307.56,
+      "text": "Now, ignoring the row store,"
+    },
+    {
+      "id": 130,
+      "start": 307.56,
+      "end": 308.92,
+      "text": "but it doesn't really make a difference."
+    },
+    {
+      "id": 131,
+      "start": 308.92,
+      "end": 310.2,
+      "text": "And then they talk about how, okay,"
+    },
+    {
+      "id": 132,
+      "start": 310.2,
+      "end": 311.32,
+      "text": "with any time I need to get data,"
+    },
+    {
+      "id": 133,
+      "start": 311.32,
+      "end": 313.8,
+      "text": "I go fetch it from the object store, right?"
+    },
+    {
+      "id": 134,
+      "start": 313.8,
+      "end": 315.56,
+      "text": "They're not, so it's like a,"
+    },
+    {
+      "id": 135,
+      "start": 316.48,
+      "end": 318.68,
+      "text": "it's a right back caches that are right through caches,"
+    },
+    {
+      "id": 136,
+      "start": 318.68,
+      "end": 321.76,
+      "text": "meaning I get data and I want to get it to the object store,"
+    },
+    {
+      "id": 137,
+      "start": 321.76,
+      "end": 324.52,
+      "text": "and then I pull in and then I fill my caches"
+    },
+    {
+      "id": 138,
+      "start": 324.52,
+      "end": 326.36,
+      "text": "as needed when I run queries."
+    },
+    {
+      "id": 139,
+      "start": 326.36,
+      "end": 328.0,
+      "text": "If it was shared nothing,"
+    },
+    {
+      "id": 140,
+      "start": 328.0,
+      "end": 329.64,
+      "text": "then I would not never have to do that,"
+    },
+    {
+      "id": 141,
+      "start": 329.64,
+      "end": 331.48,
+      "text": "because I would always populate this stuff here."
+    },
+    {
+      "id": 142,
+      "start": 331.48,
+      "end": 334.36,
+      "text": "Is it like, what the decision would be that,"
+    },
+    {
+      "id": 143,
+      "start": 334.36,
+      "end": 336.64,
+      "text": "whatever we take the data from the object store,"
+    },
+    {
+      "id": 144,
+      "start": 336.64,
+      "end": 338.88,
+      "text": "all the queries running it never goes back?"
+    },
+    {
+      "id": 145,
+      "start": 338.88,
+      "end": 340.36,
+      "text": "Because I've got a code of seems to something"
+    },
+    {
+      "id": 146,
+      "start": 340.36,
+      "end": 343.92,
+      "text": "that they'll use the industry as intermediate."
+    },
+    {
+      "id": 147,
+      "start": 345.4,
+      "end": 346.76,
+      "text": "So his comment is like,"
+    },
+    {
+      "id": 148,
+      "start": 348.52,
+      "end": 351.28,
+      "text": "is it the case where they will never have,"
+    },
+    {
+      "id": 149,
+      "start": 351.28,
+      "end": 353.16,
+      "text": "is it the case that they have to spill the disk,"
+    },
+    {
+      "id": 150,
+      "start": 353.16,
+      "end": 355.6,
+      "text": "if they run out of disk space on the worker nodes,"
+    },
+    {
+      "id": 151,
+      "start": 355.6,
+      "end": 357.16,
+      "text": "then they don't write to the object store."
+    },
+    {
+      "id": 152,
+      "start": 357.16,
+      "end": 358.16,
+      "text": "As far as I can know from the paper,"
+    },
+    {
+      "id": 153,
+      "start": 358.16,
+      "end": 360.16,
+      "text": "they don't write to the object store, right?"
+    },
+    {
+      "id": 154,
+      "start": 360.16,
+      "end": 361.36,
+      "text": "And then it'll do back pressure to say,"
+    },
+    {
+      "id": 155,
+      "start": 361.36,
+      "end": 364.32,
+      "text": "okay, we can't process this as fast as possible,"
+    },
+    {
+      "id": 156,
+      "start": 364.32,
+      "end": 366.28,
+      "text": "so everyone sort of slows down that way."
+    },
+    {
+      "id": 157,
+      "start": 367.28,
+      "end": 371.44,
+      "text": "Again, like, historically it was a shared nothing system"
+    },
+    {
+      "id": 158,
+      "start": 371.44,
+      "end": 372.76,
+      "text": "when it was on-prem,"
+    },
+    {
+      "id": 159,
+      "start": 372.76,
+      "end": 374.28,
+      "text": "but what they described in the paper"
+    },
+    {
+      "id": 160,
+      "start": 374.28,
+      "end": 375.44,
+      "text": "smells like snowflake,"
+    },
+    {
+      "id": 161,
+      "start": 375.44,
+      "end": 377.92,
+      "text": "and snowflake is a shared disk system."
+    },
+    {
+      "id": 162,
+      "start": 377.92,
+      "end": 379.0,
+      "text": "So I think that's incorrect."
+    },
+    {
+      "id": 163,
+      "start": 383.16,
+      "end": 386.12,
+      "text": "All right, so again, the insane parts of here"
+    },
+    {
+      "id": 164,
+      "start": 386.12,
+      "end": 388.52,
+      "text": "for these guys is that all this,"
+    },
+    {
+      "id": 165,
+      "start": 388.52,
+      "end": 390.12,
+      "text": "these lines are drawing here."
+    },
+    {
+      "id": 166,
+      "start": 390.12,
+      "end": 391.4,
+      "text": "This is all being custom stuff,"
+    },
+    {
+      "id": 167,
+      "start": 391.4,
+      "end": 394.84,
+      "text": "either custom drivers or custom API limitations,"
+    },
+    {
+      "id": 168,
+      "start": 395.0,
+      "end": 398.4,
+      "text": "custom protocols to talk to either internally"
+    },
+    {
+      "id": 169,
+      "start": 398.4,
+      "end": 400.12,
+      "text": "between the client,"
+    },
+    {
+      "id": 170,
+      "start": 400.12,
+      "end": 401.6,
+      "text": "internally between the network nodes,"
+    },
+    {
+      "id": 171,
+      "start": 401.6,
+      "end": 404.32,
+      "text": "and also within the object store itself."
+    },
+    {
+      "id": 172,
+      "start": 404.32,
+      "end": 407.68,
+      "text": "But the outbound stuff going back to the client,"
+    },
+    {
+      "id": 173,
+      "start": 408.68,
+      "end": 411.2,
+      "text": "that's just gonna be the regular GDBC wire protocol,"
+    },
+    {
+      "id": 174,
+      "start": 411.2,
+      "end": 413.08,
+      "text": "or the ODBC wire protocol that Postgres has."
+    },
+    {
+      "id": 175,
+      "start": 416.28,
+      "end": 418.24,
+      "text": "So I've said some of this already,"
+    },
+    {
+      "id": 176,
+      "start": 418.24,
+      "end": 421.76,
+      "text": "they're gonna be heavily based on Kubernetes,"
+    },
+    {
+      "id": 177,
+      "start": 421.76,
+      "end": 423.28,
+      "text": "so all the different pieces that I'm showing here,"
+    },
+    {
+      "id": 178,
+      "start": 423.28,
+      "end": 425.24,
+      "text": "they're gonna run separate microservices."
+    },
+    {
+      "id": 179,
+      "start": 427.48,
+      "end": 428.28,
+      "text": "When I think of microservice,"
+    },
+    {
+      "id": 180,
+      "start": 428.28,
+      "end": 430.2,
+      "text": "I think that like something like a Lambda function comes in,"
+    },
+    {
+      "id": 181,
+      "start": 430.2,
+      "end": 431.2,
+      "text": "comes out, like, you know,"
+    },
+    {
+      "id": 182,
+      "start": 431.2,
+      "end": 432.64,
+      "text": "does some processing goes away."
+    },
+    {
+      "id": 183,
+      "start": 432.64,
+      "end": 434.24,
+      "text": "These things are always running,"
+    },
+    {
+      "id": 184,
+      "start": 434.24,
+      "end": 436.84,
+      "text": "so, but they're using the term microservices."
+    },
+    {
+      "id": 185,
+      "start": 436.84,
+      "end": 438.44,
+      "text": "Basically, they've broken up,"
+    },
+    {
+      "id": 186,
+      "start": 438.44,
+      "end": 440.88,
+      "text": "and things are running separately."
+    },
+    {
+      "id": 187,
+      "start": 440.88,
+      "end": 443.08,
+      "text": "And so they're gonna leverage Kubernetes"
+    },
+    {
+      "id": 188,
+      "start": 443.08,
+      "end": 445.16,
+      "text": "to do all the state management of like,"
+    },
+    {
+      "id": 189,
+      "start": 445.16,
+      "end": 446.08,
+      "text": "what machines are up,"
+    },
+    {
+      "id": 190,
+      "start": 446.08,
+      "end": 448.12,
+      "text": "when one goes down, how to do failover,"
+    },
+    {
+      "id": 191,
+      "start": 448.12,
+      "end": 449.64,
+      "text": "how to provision new machines,"
+    },
+    {
+      "id": 192,
+      "start": 449.64,
+      "end": 451.68,
+      "text": "all of that's gonna be done through Kubernetes,"
+    },
+    {
+      "id": 193,
+      "start": 451.68,
+      "end": 453.16,
+      "text": "so that sort of control plane,"
+    },
+    {
+      "id": 194,
+      "start": 453.16,
+      "end": 456.32,
+      "text": "the backbone of the system itself,"
+    },
+    {
+      "id": 195,
+      "start": 456.32,
+      "end": 458.2,
+      "text": "they don't write from scratch the way,"
+    },
+    {
+      "id": 196,
+      "start": 458.2,
+      "end": 459.84,
+      "text": "snowflake in others had to do."
+    },
+    {
+      "id": 197,
+      "start": 460.76,
+      "end": 463.16,
+      "text": "There's gonna leverage Kubernetes for all of this."
+    },
+    {
+      "id": 198,
+      "start": 465.68,
+      "end": 466.68,
+      "text": "And as far as I know,"
+    },
+    {
+      "id": 199,
+      "start": 466.68,
+      "end": 467.6,
+      "text": "I mean, I'm not saying that they're the only"
+    },
+    {
+      "id": 200,
+      "start": 467.6,
+      "end": 468.72,
+      "text": "system running Kubernetes,"
+    },
+    {
+      "id": 201,
+      "start": 468.72,
+      "end": 471.56,
+      "text": "but they're only these paper that publicly talks about"
+    },
+    {
+      "id": 202,
+      "start": 471.56,
+      "end": 472.68,
+      "text": "how they're using Kubernetes"
+    },
+    {
+      "id": 203,
+      "start": 472.68,
+      "end": 475.72,
+      "text": "to organize a scale-out system like this."
+    },
+    {
+      "id": 204,
+      "start": 475.72,
+      "end": 477.84,
+      "text": "But if you ever use Kubernetes,"
+    },
+    {
+      "id": 205,
+      "start": 478.96,
+      "end": 480.24,
+      "text": "it's depending on how set up,"
+    },
+    {
+      "id": 206,
+      "start": 481.24,
+      "end": 483.52,
+      "text": "and so you'd have to write the Helm chart"
+    },
+    {
+      "id": 207,
+      "start": 483.52,
+      "end": 486.68,
+      "text": "to figure out how to install the pods and whatnot."
+    },
+    {
+      "id": 208,
+      "start": 486.68,
+      "end": 488.32,
+      "text": "So they're gonna hide all of the"
+    },
+    {
+      "id": 209,
+      "start": 489.72,
+      "end": 492.48,
+      "text": "Kubernetes operations behind SQL, which is fantastic."
+    },
+    {
+      "id": 210,
+      "start": 492.48,
+      "end": 493.6,
+      "text": "So you can call it create cluster,"
+    },
+    {
+      "id": 211,
+      "start": 493.6,
+      "end": 494.96,
+      "text": "create instance or whatever,"
+    },
+    {
+      "id": 212,
+      "start": 494.96,
+      "end": 496.32,
+      "text": "and not all done through SQL,"
+    },
+    {
+      "id": 213,
+      "start": 496.32,
+      "end": 497.48,
+      "text": "and then it's translating that"
+    },
+    {
+      "id": 214,
+      "start": 497.48,
+      "end": 501.2,
+      "text": "into the Kubernetes commands to apply the changes."
+    },
+    {
+      "id": 215,
+      "start": 501.2,
+      "end": 506.2,
+      "text": "It's nice, obviously not like groundbreakingly,"
+    },
+    {
+      "id": 216,
+      "start": 506.36,
+      "end": 509.64,
+      "text": "but it's a quality of life feature that I like."
+    },
+    {
+      "id": 217,
+      "start": 511.04,
+      "end": 513.24,
+      "text": "The other thing they're gonna do that sort of goes against"
+    },
+    {
+      "id": 218,
+      "start": 513.24,
+      "end": 517.08,
+      "text": "the way you're expected to run or operate Kubernetes"
+    },
+    {
+      "id": 219,
+      "start": 517.08,
+      "end": 519.92,
+      "text": "is that when the worker pods come up,"
+    },
+    {
+      "id": 220,
+      "start": 519.92,
+      "end": 521.4,
+      "text": "they wanna make sure they have a one-to-one mapping"
+    },
+    {
+      "id": 221,
+      "start": 521.4,
+      "end": 523.04,
+      "text": "between a worker pod and a worker node,"
+    },
+    {
+      "id": 222,
+      "start": 523.04,
+      "end": 525.84,
+      "text": "because when a worker pod lands on the node,"
+    },
+    {
+      "id": 223,
+      "start": 525.84,
+      "end": 527.68,
+      "text": "they wanna take over everything."
+    },
+    {
+      "id": 224,
+      "start": 529.04,
+      "end": 530.84,
+      "text": "And again, this is why I'm saying it's not truly"
+    },
+    {
+      "id": 225,
+      "start": 530.84,
+      "end": 532.2,
+      "text": "like a microservice where,"
+    },
+    {
+      "id": 226,
+      "start": 533.96,
+      "end": 536.2,
+      "text": "because this worker pod,"
+    },
+    {
+      "id": 227,
+      "start": 536.2,
+      "end": 538.44,
+      "text": "it's gonna allocate all the memory that it wants,"
+    },
+    {
+      "id": 228,
+      "start": 538.44,
+      "end": 540.04,
+      "text": "it's gonna run forever."
+    },
+    {
+      "id": 229,
+      "start": 540.04,
+      "end": 543.4,
+      "text": "Because you don't wanna have the spin up cost"
+    },
+    {
+      "id": 230,
+      "start": 543.4,
+      "end": 547.0,
+      "text": "of starting a stopping worker pod over and over again."
+    },
+    {
+      "id": 231,
+      "start": 547.0,
+      "end": 550.24,
+      "text": "And again, the paper talks about how they thought to be trouble,"
+    },
+    {
+      "id": 232,
+      "start": 550.24,
+      "end": 552.0,
+      "text": "they have troubles with the worker node,"
+    },
+    {
+      "id": 233,
+      "start": 552.0,
+      "end": 553.12,
+      "text": "which is like the worker pod,"
+    },
+    {
+      "id": 234,
+      "start": 553.12,
+      "end": 554.88,
+      "text": "taking control of all the hardware,"
+    },
+    {
+      "id": 235,
+      "start": 556.44,
+      "end": 557.88,
+      "text": "at least through the container,"
+    },
+    {
+      "id": 236,
+      "start": 557.88,
+      "end": 558.8,
+      "text": "and that seemed to work,"
+    },
+    {
+      "id": 237,
+      "start": 558.8,
+      "end": 561.76,
+      "text": "but if you had two containers running at the same node,"
+    },
+    {
+      "id": 238,
+      "start": 561.76,
+      "end": 563.68,
+      "text": "they may be conflict in trying to get to the hardware,"
+    },
+    {
+      "id": 239,
+      "start": 563.68,
+      "end": 564.52,
+      "text": "and that would break things."
+    },
+    {
+      "id": 240,
+      "start": 564.52,
+      "end": 566.04,
+      "text": "So that's why they have a one-to-one mapping"
+    },
+    {
+      "id": 241,
+      "start": 566.04,
+      "end": 568.72,
+      "text": "for the worker pod and the worker node."
+    },
+    {
+      "id": 242,
+      "start": 571.04,
+      "end": 573.4,
+      "text": "All right, so the execution engine is the push-based model,"
+    },
+    {
+      "id": 243,
+      "start": 573.4,
+      "end": 574.76,
+      "text": "we've talked about before."
+    },
+    {
+      "id": 244,
+      "start": 574.76,
+      "end": 576.24,
+      "text": "They're doing vectorized query processing,"
+    },
+    {
+      "id": 245,
+      "start": 576.24,
+      "end": 578.36,
+      "text": "when they're operating on a columnar data,"
+    },
+    {
+      "id": 246,
+      "start": 578.36,
+      "end": 580.12,
+      "text": "but as I said, in some cases,"
+    },
+    {
+      "id": 247,
+      "start": 580.12,
+      "end": 582.8,
+      "text": "they're actually gonna convert things into row store,"
+    },
+    {
+      "id": 248,
+      "start": 582.8,
+      "end": 583.96,
+      "text": "row-oriented data,"
+    },
+    {
+      "id": 249,
+      "start": 585.12,
+      "end": 587.92,
+      "text": "essentially doing early materialization in some cases."
+    },
+    {
+      "id": 250,
+      "start": 587.92,
+      "end": 592.12,
+      "text": "So like, all the scans we vectorize based on a columnar data,"
+    },
+    {
+      "id": 251,
+      "start": 592.12,
+      "end": 594.24,
+      "text": "but then if you feed that up into a join,"
+    },
+    {
+      "id": 252,
+      "start": 594.24,
+      "end": 596.28,
+      "text": "they're gonna convert it to a row store,"
+    },
+    {
+      "id": 253,
+      "start": 597.72,
+      "end": 599.52,
+      "text": "they call it a transpose operator."
+    },
+    {
+      "id": 254,
+      "start": 599.52,
+      "end": 601.52,
+      "text": "They're gonna convert, they have a..."
+    }
+  ],
+  "language": "en"
+}

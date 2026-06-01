@@ -1,0 +1,977 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Kaniki Melon University's advanced database systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filmed in front of a live studio audience."
+    },
+    {
+      "id": 2,
+      "start": 9.0,
+      "end": 11.0,
+      "text": "Hi, everyone."
+    },
+    {
+      "id": 3,
+      "start": 11.0,
+      "end": 13.0,
+      "text": "Hi, everyone."
+    },
+    {
+      "id": 4,
+      "start": 13.0,
+      "end": 15.0,
+      "text": "Today we're not just talking about,"
+    },
+    {
+      "id": 5,
+      "start": 15.0,
+      "end": 18.0,
+      "text": "actually, X-Tune queries."
+    },
+    {
+      "id": 6,
+      "start": 18.0,
+      "end": 21.0,
+      "text": "So the last two classes,"
+    },
+    {
+      "id": 7,
+      "start": 21.0,
+      "end": 25.0,
+      "text": "the last two classes were focusing on"
+    },
+    {
+      "id": 8,
+      "start": 25.0,
+      "end": 27.0,
+      "text": "what the data is actually going to look like."
+    },
+    {
+      "id": 9,
+      "start": 27.0,
+      "end": 29.0,
+      "text": "And we were designing our encoding schemes"
+    },
+    {
+      "id": 10,
+      "start": 29.0,
+      "end": 32.0,
+      "text": "in such a way that when we actually start running the queries,"
+    },
+    {
+      "id": 11,
+      "start": 32.0,
+      "end": 35.0,
+      "text": "we would minimize the amount of data we have to fetch from disk"
+    },
+    {
+      "id": 12,
+      "start": 35.0,
+      "end": 38.0,
+      "text": "or remote object store and bring that into memory."
+    },
+    {
+      "id": 13,
+      "start": 38.0,
+      "end": 41.0,
+      "text": "And we can be clever about encoding our data in certain ways"
+    },
+    {
+      "id": 14,
+      "start": 41.0,
+      "end": 46.0,
+      "text": "that we can ideally do our processing on it"
+    },
+    {
+      "id": 15,
+      "start": 46.0,
+      "end": 49.0,
+      "text": "in its encoded form or in its compressed form."
+    },
+    {
+      "id": 16,
+      "start": 49.0,
+      "end": 51.0,
+      "text": "RLE is an obvious one,"
+    },
+    {
+      "id": 17,
+      "start": 51.0,
+      "end": 53.0,
+      "text": "but there's other ways we should have to do this as well."
+    },
+    {
+      "id": 18,
+      "start": 53.0,
+      "end": 56.0,
+      "text": "And so for the next couple of weeks,"
+    },
+    {
+      "id": 19,
+      "start": 56.0,
+      "end": 58.0,
+      "text": "we're going to talk about how we actually are going to execute queries."
+    },
+    {
+      "id": 20,
+      "start": 58.0,
+      "end": 61.0,
+      "text": "And again, in the O-Lat world,"
+    },
+    {
+      "id": 21,
+      "start": 61.0,
+      "end": 63.0,
+      "text": "it's all about sequential scans."
+    },
+    {
+      "id": 22,
+      "start": 63.0,
+      "end": 65.0,
+      "text": "We're not going to do index lookups."
+    },
+    {
+      "id": 23,
+      "start": 65.0,
+      "end": 67.0,
+      "text": "We're ignoring bitmap indexes and other things."
+    },
+    {
+      "id": 24,
+      "start": 67.0,
+      "end": 70.0,
+      "text": "But there is going to be a beep-as-tree to go find us single"
+    },
+    {
+      "id": 25,
+      "start": 70.0,
+      "end": 71.0,
+      "text": "things, single records."
+    },
+    {
+      "id": 26,
+      "start": 71.0,
+      "end": 74.0,
+      "text": "We're going to have to scan through large chunks of data."
+    },
+    {
+      "id": 27,
+      "start": 74.0,
+      "end": 78.0,
+      "text": "So this is that, again, that list of what I showed a couple of weeks ago"
+    },
+    {
+      "id": 28,
+      "start": 78.0,
+      "end": 81.0,
+      "text": "of here's the bag of techniques or tricks we can do"
+    },
+    {
+      "id": 29,
+      "start": 81.0,
+      "end": 83.0,
+      "text": "to make sequential scans run faster."
+    },
+    {
+      "id": 30,
+      "start": 83.0,
+      "end": 85.0,
+      "text": "And as I said, we're not going to discuss"
+    },
+    {
+      "id": 31,
+      "start": 85.0,
+      "end": 88.0,
+      "text": "how to use zone maps to say,"
+    },
+    {
+      "id": 32,
+      "start": 88.0,
+      "end": 90.0,
+      "text": "here's the min-max of this giant block of data"
+    },
+    {
+      "id": 33,
+      "start": 90.0,
+      "end": 93.0,
+      "text": "and check to see whether the tuple you're looking for"
+    },
+    {
+      "id": 34,
+      "start": 93.0,
+      "end": 97.0,
+      "text": "or any tuple that could be in that block based on that unzoned map."
+    },
+    {
+      "id": 35,
+      "start": 97.0,
+      "end": 100.0,
+      "text": "So for the rest of the maps, we're going to go through all of these."
+    },
+    {
+      "id": 36,
+      "start": 100.0,
+      "end": 103.0,
+      "text": "And it's not going to be like, here's a lecture on test parallelization."
+    },
+    {
+      "id": 37,
+      "start": 103.0,
+      "end": 105.0,
+      "text": "Here's a lecture on query parallelization."
+    },
+    {
+      "id": 38,
+      "start": 105.0,
+      "end": 107.0,
+      "text": "It's going to come up with a query parallelization."
+    },
+    {
+      "id": 39,
+      "start": 107.0,
+      "end": 109.0,
+      "text": "It's going to come up with a query parallelization."
+    },
+    {
+      "id": 40,
+      "start": 109.0,
+      "end": 111.0,
+      "text": "It's going to come up with a query parallelization."
+    },
+    {
+      "id": 41,
+      "start": 111.0,
+      "end": 114.0,
+      "text": "Here's a lecture on query parallelization."
+    },
+    {
+      "id": 42,
+      "start": 114.0,
+      "end": 118.0,
+      "text": "It's going to come up in different points throughout the entire semester."
+    },
+    {
+      "id": 43,
+      "start": 118.0,
+      "end": 121.0,
+      "text": "Because sometimes we'll delay discussing certain things"
+    },
+    {
+      "id": 44,
+      "start": 121.0,
+      "end": 124.0,
+      "text": "and then we'll have to bring in this bag of tricks"
+    },
+    {
+      "id": 45,
+      "start": 124.0,
+      "end": 126.0,
+      "text": "for discuss how to do joins efficiently"
+    },
+    {
+      "id": 46,
+      "start": 126.0,
+      "end": 128.0,
+      "text": "or how to do code specialization and other things."
+    },
+    {
+      "id": 47,
+      "start": 128.0,
+      "end": 134.0,
+      "text": "So, again, we'll go through these throughout the semester."
+    },
+    {
+      "id": 48,
+      "start": 134.0,
+      "end": 138.0,
+      "text": "So at its core, what this class is in somewhat really about"
+    },
+    {
+      "id": 49,
+      "start": 138.0,
+      "end": 143.0,
+      "text": "is how to build a database system to run efficiently on your data"
+    },
+    {
+      "id": 50,
+      "start": 143.0,
+      "end": 145.0,
+      "text": "for giving set of queries."
+    },
+    {
+      "id": 51,
+      "start": 145.0,
+      "end": 149.0,
+      "text": "And the idea here is that we want to make the full use of the hardware"
+    },
+    {
+      "id": 52,
+      "start": 149.0,
+      "end": 151.0,
+      "text": "that's available to us."
+    },
+    {
+      "id": 53,
+      "start": 151.0,
+      "end": 156.0,
+      "text": "So again, we can run queries fast and at lower cost than otherwise"
+    },
+    {
+      "id": 54,
+      "start": 156.0,
+      "end": 158.0,
+      "text": "than doing something stupid."
+    },
+    {
+      "id": 55,
+      "start": 158.0,
+      "end": 161.0,
+      "text": "And so all of the things I showed on the last slide,"
+    },
+    {
+      "id": 56,
+      "start": 161.0,
+      "end": 163.0,
+      "text": "there's not one I can point to and say,"
+    },
+    {
+      "id": 57,
+      "start": 163.0,
+      "end": 165.0,
+      "text": "hey, if you're building a brand new system,"
+    },
+    {
+      "id": 58,
+      "start": 165.0,
+      "end": 167.0,
+      "text": "here's the one thing you want to do above everything else."
+    },
+    {
+      "id": 59,
+      "start": 167.0,
+      "end": 169.0,
+      "text": "Just briefly going back to it."
+    },
+    {
+      "id": 60,
+      "start": 169.0,
+      "end": 170.0,
+      "text": "All of these things matter."
+    },
+    {
+      "id": 61,
+      "start": 170.0,
+      "end": 173.0,
+      "text": "All of these things are going to be accumulative or multiplicative"
+    },
+    {
+      "id": 62,
+      "start": 173.0,
+      "end": 176.0,
+      "text": "where we can add them on top of each other and get better results"
+    },
+    {
+      "id": 63,
+      "start": 176.0,
+      "end": 178.0,
+      "text": "and make things run faster."
+    },
+    {
+      "id": 64,
+      "start": 178.0,
+      "end": 182.0,
+      "text": "And so it's really about understanding from engineering perspective"
+    },
+    {
+      "id": 65,
+      "start": 182.0,
+      "end": 185.0,
+      "text": "what are the trade-offs that one of these techniques could make"
+    },
+    {
+      "id": 66,
+      "start": 185.0,
+      "end": 189.0,
+      "text": "both in terms of the performance costs and actually the engineering costs."
+    },
+    {
+      "id": 67,
+      "start": 189.0,
+      "end": 192.0,
+      "text": "How much time is it going to make for some actually to build this"
+    },
+    {
+      "id": 68,
+      "start": 192.0,
+      "end": 195.0,
+      "text": "and maintain it as another big problem as well?"
+    },
+    {
+      "id": 69,
+      "start": 195.0,
+      "end": 198.0,
+      "text": "Right? So the spoiler is going to be just in time query compilation"
+    },
+    {
+      "id": 70,
+      "start": 198.0,
+      "end": 201.0,
+      "text": "amazing results. Right? You'll get really fast."
+    },
+    {
+      "id": 71,
+      "start": 201.0,
+      "end": 204.0,
+      "text": "But it's a big pain to maintain and build."
+    },
+    {
+      "id": 72,
+      "start": 204.0,
+      "end": 208.0,
+      "text": "And so therefore most systems are going to choose pre-compiled"
+    },
+    {
+      "id": 73,
+      "start": 208.0,
+      "end": 212.0,
+      "text": "primitives or operations. Right? This is actually with a vector-wise paper."
+    },
+    {
+      "id": 74,
+      "start": 212.0,
+      "end": 213.0,
+      "text": "I don't think they didn't mention in that paper,"
+    },
+    {
+      "id": 75,
+      "start": 213.0,
+      "end": 215.0,
+      "text": "but it's one of the techniques that they used."
+    },
+    {
+      "id": 76,
+      "start": 215.0,
+      "end": 219.0,
+      "text": "So this is not a scientific list of what I think the top three"
+    },
+    {
+      "id": 77,
+      "start": 219.0,
+      "end": 222.0,
+      "text": "optimizations from the previous list."
+    },
+    {
+      "id": 78,
+      "start": 222.0,
+      "end": 224.0,
+      "text": "These aren't the ones that I think they're going to matter most."
+    },
+    {
+      "id": 79,
+      "start": 224.0,
+      "end": 227.0,
+      "text": "In the context of query execution, these are going to matter."
+    },
+    {
+      "id": 80,
+      "start": 227.0,
+      "end": 232.0,
+      "text": "Obviously data-scaping, if you're looking for a thing that's not in any possible block"
+    },
+    {
+      "id": 81,
+      "start": 232.0,
+      "end": 235.0,
+      "text": "and your zone map can help you help you avoid reading any data,"
+    },
+    {
+      "id": 82,
+      "start": 235.0,
+      "end": 238.0,
+      "text": "like nothing you go faster than that and reading nothing."
+    },
+    {
+      "id": 83,
+      "start": 238.0,
+      "end": 241.0,
+      "text": "But if you actually do have to run queries, these are the ones I think are"
+    },
+    {
+      "id": 84,
+      "start": 241.0,
+      "end": 244.0,
+      "text": "in a matter of most. So we'll spend a little bit time talking"
+    },
+    {
+      "id": 85,
+      "start": 244.0,
+      "end": 248.0,
+      "text": "about vectorization, not actually the vectorized algorithms to do our query"
+    },
+    {
+      "id": 86,
+      "start": 248.0,
+      "end": 250.0,
+      "text": "operators. That'll come in a week."
+    },
+    {
+      "id": 87,
+      "start": 250.0,
+      "end": 254.0,
+      "text": "Today is really setting up the query processing model so that we can then feed"
+    },
+    {
+      "id": 88,
+      "start": 254.0,
+      "end": 258.0,
+      "text": "data in such a way that we can vectorize them."
+    },
+    {
+      "id": 89,
+      "start": 258.0,
+      "end": 261.0,
+      "text": "Task parallelization, we'll talk about today is basically how to take a query,"
+    },
+    {
+      "id": 90,
+      "start": 261.0,
+      "end": 265.0,
+      "text": "break it up to disjoint tasks and run them in parallel with different cores,"
+    },
+    {
+      "id": 91,
+      "start": 265.0,
+      "end": 268.0,
+      "text": "different threads, different nodes."
+    },
+    {
+      "id": 92,
+      "start": 268.0,
+      "end": 271.0,
+      "text": "And then code specialization, again, well, this will be a big thing starting"
+    },
+    {
+      "id": 93,
+      "start": 271.0,
+      "end": 275.0,
+      "text": "next week. Basically, how can we avoid giant switch statements in"
+    },
+    {
+      "id": 94,
+      "start": 275.0,
+      "end": 282.0,
+      "text": "our database system by having exactly what the query wants to use or the instructions"
+    },
+    {
+      "id": 95,
+      "start": 282.0,
+      "end": 289.0,
+      "text": "of the query wants to use process the data? Again, we'll see the two ways to do this."
+    },
+    {
+      "id": 96,
+      "start": 289.0,
+      "end": 294.0,
+      "text": "So at a high level, our optimization goals are going to be the following three things."
+    },
+    {
+      "id": 97,
+      "start": 294.0,
+      "end": 299.0,
+      "text": "So in order to get queries run fast, the most obvious thing we can do is just reduce"
+    },
+    {
+      "id": 98,
+      "start": 299.0,
+      "end": 301.0,
+      "text": "the number of instructions we have to use to execute it."
+    },
+    {
+      "id": 99,
+      "start": 301.0,
+      "end": 307.0,
+      "text": "We want to use fewer instructions on the CPU to run the query in the same amount of work."
+    },
+    {
+      "id": 100,
+      "start": 307.0,
+      "end": 311.0,
+      "text": "The compiler can help a little bit. If you pass in the O2 flag,"
+    },
+    {
+      "id": 101,
+      "start": 311.0,
+      "end": 315.0,
+      "text": "I don't know what the equivalent is in Rust, but you pass O2 and GCC and Klang,"
+    },
+    {
+      "id": 102,
+      "start": 315.0,
+      "end": 321.0,
+      "text": "it'll be more aggressive in trying to optimize things so that you'll get fewer instructions."
+    },
+    {
+      "id": 103,
+      "start": 321.0,
+      "end": 327.0,
+      "text": "As far as I know, people typically don't ship production databases with O3 enabled,"
+    },
+    {
+      "id": 104,
+      "start": 327.0,
+      "end": 332.0,
+      "text": "or three compilations, because things can get kind of hairy, but can reorder things"
+    },
+    {
+      "id": 105,
+      "start": 332.0,
+      "end": 338.0,
+      "text": "in a way that will be incorrect. So instead, what we're going to do is try to design our database system,"
+    },
+    {
+      "id": 106,
+      "start": 338.0,
+      "end": 342.0,
+      "text": "design our execution engine just to use fewer instructions."
+    },
+    {
+      "id": 107,
+      "start": 342.0,
+      "end": 347.0,
+      "text": "If you don't take my word, you don't want to ship O3. This is from the Linux mailing list two or three years ago,"
+    },
+    {
+      "id": 108,
+      "start": 347.0,
+      "end": 353.0,
+      "text": "and basically Linus is saying here he thinks O3 is generally unsafe."
+    },
+    {
+      "id": 109,
+      "start": 354.0,
+      "end": 359.0,
+      "text": "So, again, as far as the database systems will ship with O2, enable compilations."
+    },
+    {
+      "id": 110,
+      "start": 359.0,
+      "end": 364.0,
+      "text": "So after we've reduced the number of instructions that we want to use to execute queries,"
+    },
+    {
+      "id": 111,
+      "start": 364.0,
+      "end": 368.0,
+      "text": "the next thing we can do is try to reduce the number of cycles per instruction."
+    },
+    {
+      "id": 112,
+      "start": 368.0,
+      "end": 373.0,
+      "text": "The idea here is that when we actually have to execute instructions to run a query,"
+    },
+    {
+      "id": 113,
+      "start": 373.0,
+      "end": 380.0,
+      "text": "we want the data that it's going to need to operate on to process to be in L1, L2 cache,"
+    },
+    {
+      "id": 114,
+      "start": 380.0,
+      "end": 383.0,
+      "text": "even better would be CPU registers."
+    },
+    {
+      "id": 115,
+      "start": 383.0,
+      "end": 389.0,
+      "text": "And that means we want to reduce cache misses due to memory lows and stores."
+    },
+    {
+      "id": 116,
+      "start": 389.0,
+      "end": 395.0,
+      "text": "We want to maximize the locality of the data that we're going to process on in our operator's and our query plan,"
+    },
+    {
+      "id": 117,
+      "start": 395.0,
+      "end": 400.0,
+      "text": "so that they're going to sit in the CPU caches, and we'll see how to do this through pipelining,"
+    },
+    {
+      "id": 118,
+      "start": 400.0,
+      "end": 406.0,
+      "text": "and more aggressively with operator fusion in push-based query execution."
+    },
+    {
+      "id": 119,
+      "start": 407.0,
+      "end": 415.0,
+      "text": "So the weird thing about this, not weird, but the thing why this one's going to be tricky,"
+    },
+    {
+      "id": 120,
+      "start": 415.0,
+      "end": 417.0,
+      "text": "everyone can reason out this, the first one."
+    },
+    {
+      "id": 121,
+      "start": 417.0,
+      "end": 419.0,
+      "text": "Run for your instructions, don't do stupid things."
+    },
+    {
+      "id": 122,
+      "start": 419.0,
+      "end": 423.0,
+      "text": "Don't make library calls and start computing pived unnecessarily running a query."
+    },
+    {
+      "id": 123,
+      "start": 423.0,
+      "end": 425.0,
+      "text": "That's obviously stupid, but things like that."
+    },
+    {
+      "id": 124,
+      "start": 425.0,
+      "end": 427.0,
+      "text": "This one's a bit more tricky."
+    },
+    {
+      "id": 125,
+      "start": 427.0,
+      "end": 434.0,
+      "text": "And the reason why this can be tricky is because we as humans, the way we naturally write system code or code,"
+    },
+    {
+      "id": 126,
+      "start": 434.0,
+      "end": 440.0,
+      "text": "is not going to be always the best way that the CPU actually wants that code or wants to run instructions."
+    },
+    {
+      "id": 127,
+      "start": 440.0,
+      "end": 444.0,
+      "text": "Because the out-of-order, super-scaler, CPU, which we'll cover in a second,"
+    },
+    {
+      "id": 128,
+      "start": 444.0,
+      "end": 450.0,
+      "text": "what is ideal for humans for us to reason about and maintain software may actually be the worst thing for the CPU."
+    },
+    {
+      "id": 129,
+      "start": 450.0,
+      "end": 455.0,
+      "text": "So we'll have to look at what the algorithms we're going to use when we run out queries or build our system"
+    },
+    {
+      "id": 130,
+      "start": 455.0,
+      "end": 462.0,
+      "text": "to make sure that we account for what the CPU expects or wants and try to design the code in such a way that it generates that for us."
+    },
+    {
+      "id": 131,
+      "start": 462.0,
+      "end": 465.0,
+      "text": "Because the compiler isn't always going to magically do that for us."
+    },
+    {
+      "id": 132,
+      "start": 465.0,
+      "end": 468.0,
+      "text": "And the last one is obvious as well."
+    },
+    {
+      "id": 133,
+      "start": 468.0,
+      "end": 472.0,
+      "text": "We want to parallelize execution, more as law, it is more or less ending."
+    },
+    {
+      "id": 134,
+      "start": 472.0,
+      "end": 477.0,
+      "text": "And we're not getting faster clock speeds, although Intel is more recently rationing that up."
+    },
+    {
+      "id": 135,
+      "start": 477.0,
+      "end": 480.0,
+      "text": "But we're going to get a lot more courts."
+    },
+    {
+      "id": 136,
+      "start": 480.0,
+      "end": 486.0,
+      "text": "And the cool thing about this is that on newer CPUs, there's a mix of the high performance cores and the efficiency cores."
+    },
+    {
+      "id": 137,
+      "start": 486.0,
+      "end": 490.0,
+      "text": "So now we can, in theory, start scheduling things based on one core versus another."
+    },
+    {
+      "id": 138,
+      "start": 490.0,
+      "end": 495.0,
+      "text": "And then you throw in GPUs and those things have tens of thousands of cores, which is insane."
+    },
+    {
+      "id": 139,
+      "start": 495.0,
+      "end": 500.0,
+      "text": "Right? So we're going to cover all of these throughout the lecture."
+    },
+    {
+      "id": 140,
+      "start": 500.0,
+      "end": 504.0,
+      "text": "What we use today, we'll talk a little bit about how to do this one, the second one."
+    },
+    {
+      "id": 141,
+      "start": 504.0,
+      "end": 507.0,
+      "text": "And this last one a little bit."
+    },
+    {
+      "id": 142,
+      "start": 507.0,
+      "end": 511.0,
+      "text": "The first one we'll see this when we talk about code specialization, query compilation, and,"
+    },
+    {
+      "id": 143,
+      "start": 511.0,
+      "end": 515.0,
+      "text": "but precompiled and jitted."
+    },
+    {
+      "id": 144,
+      "start": 516.0,
+      "end": 521.0,
+      "text": "All right, so let's make sure we're all using the same terminology vernacular when we're describing queries."
+    },
+    {
+      "id": 145,
+      "start": 521.0,
+      "end": 523.0,
+      "text": "And what we're actually going to be executing."
+    },
+    {
+      "id": 146,
+      "start": 523.0,
+      "end": 526.0,
+      "text": "You can think of a query plan as a DAGLE operators."
+    },
+    {
+      "id": 147,
+      "start": 526.0,
+      "end": 531.0,
+      "text": "Right? So we have a SQL query here, and we converted it into a physical plan."
+    },
+    {
+      "id": 148,
+      "start": 531.0,
+      "end": 537.0,
+      "text": "So we have scans in the bottom, then our projections feeding to a join, followed by a,"
+    },
+    {
+      "id": 149,
+      "start": 537.0,
+      "end": 542.0,
+      "text": "that's the projection type, the filters, join, and then projection."
+    },
+    {
+      "id": 150,
+      "start": 542.0,
+      "end": 545.0,
+      "text": "So these are the operators that we're going to have in a query plan."
+    },
+    {
+      "id": 151,
+      "start": 545.0,
+      "end": 553.0,
+      "text": "And then the database system is going to convert them into operator instances that are going to be invocations of that operator."
+    },
+    {
+      "id": 152,
+      "start": 553.0,
+      "end": 557.0,
+      "text": "Right? And the reason why we have the distinguished operator instance in operators,"
+    },
+    {
+      "id": 153,
+      "start": 557.0,
+      "end": 560.0,
+      "text": "because we could have an operator run in parallel."
+    },
+    {
+      "id": 154,
+      "start": 560.0,
+      "end": 567.0,
+      "text": "Right? If this table is a billion two pulls, I could divide it up the scan operator into ten operator instances"
+    },
+    {
+      "id": 155,
+      "start": 567.0,
+      "end": 573.0,
+      "text": "that are each going to scan different row groups, different files in S3."
+    },
+    {
+      "id": 156,
+      "start": 573.0,
+      "end": 578.0,
+      "text": "And task is going to be a sequence of one or more operator instances."
+    },
+    {
+      "id": 157,
+      "start": 578.0,
+      "end": 581.0,
+      "text": "And this will basically be the same thing as pipelines, but not always."
+    },
+    {
+      "id": 158,
+      "start": 581.0,
+      "end": 586.0,
+      "text": "It's basically, you're going to recognize that, oh, as soon as I do the scan, I immediately want to do the filter."
+    },
+    {
+      "id": 159,
+      "start": 586.0,
+      "end": 589.0,
+      "text": "So I can combine these two operator instances together in a single task."
+    },
+    {
+      "id": 160,
+      "start": 589.0,
+      "end": 593.0,
+      "text": "And that's what's getting scheduled by the system to run."
+    },
+    {
+      "id": 161,
+      "start": 593.0,
+      "end": 600.0,
+      "text": "And then a task set will be a collection of these extradil tasks that we could have for this pipeline that we can then ship out."
+    }
+  ],
+  "language": "en"
+}

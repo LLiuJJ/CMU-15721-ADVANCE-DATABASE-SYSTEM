@@ -1,0 +1,1517 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.72,
+      "text": "So you have every single file."
+    },
+    {
+      "id": 1,
+      "start": 2.72,
+      "end": 4.56,
+      "text": "The paper makes a big deal about this query"
+    },
+    {
+      "id": 2,
+      "start": 4.56,
+      "end": 5.96,
+      "text": "writing framework, QRF."
+    },
+    {
+      "id": 3,
+      "start": 5.96,
+      "end": 8.2,
+      "text": "Again, they don't describe what it actually is."
+    },
+    {
+      "id": 4,
+      "start": 8.2,
+      "end": 10.16,
+      "text": "As far as you can tell, there's no documentation about it."
+    },
+    {
+      "id": 5,
+      "start": 10.16,
+      "end": 13.0,
+      "text": "Because again, it's this internal thing."
+    },
+    {
+      "id": 6,
+      "start": 13.0,
+      "end": 15.64,
+      "text": "They talk about how it's a DSL-based approach"
+    },
+    {
+      "id": 7,
+      "start": 15.64,
+      "end": 19.0,
+      "text": "where you can basically specify the patterns"
+    },
+    {
+      "id": 8,
+      "start": 19.0,
+      "end": 21.68,
+      "text": "that you're looking for, and then the transformation rules"
+    },
+    {
+      "id": 9,
+      "start": 21.68,
+      "end": 24.52,
+      "text": "if you match a pattern, which is what we've been talking about"
+    },
+    {
+      "id": 10,
+      "start": 24.52,
+      "end": 26.76,
+      "text": "all before for query optimizers is basically how they work."
+    },
+    {
+      "id": 11,
+      "start": 26.76,
+      "end": 29.48,
+      "text": "But they claim that their implementation"
+    },
+    {
+      "id": 12,
+      "start": 29.48,
+      "end": 33.48,
+      "text": "about their method of doing this is really easy"
+    },
+    {
+      "id": 13,
+      "start": 33.48,
+      "end": 37.72,
+      "text": "for anyone to come along and extend it."
+    },
+    {
+      "id": 14,
+      "start": 37.72,
+      "end": 39.76,
+      "text": "They mentioned interns could use it in three days,"
+    },
+    {
+      "id": 15,
+      "start": 39.76,
+      "end": 43.0,
+      "text": "get it working in three days, or make changes in three days."
+    },
+    {
+      "id": 16,
+      "start": 43.0,
+      "end": 46.36,
+      "text": "So this sounds like what the yellow brick people"
+    },
+    {
+      "id": 17,
+      "start": 46.36,
+      "end": 50.0,
+      "text": "were talking about in last class where they, rather than"
+    },
+    {
+      "id": 18,
+      "start": 50.0,
+      "end": 54.32,
+      "text": "making principal changes to the internals of the query"
+    },
+    {
+      "id": 19,
+      "start": 54.32,
+      "end": 56.72,
+      "text": "optimizer and how it actually wants to do searches,"
+    },
+    {
+      "id": 20,
+      "start": 56.72,
+      "end": 58.52,
+      "text": "and numerations, and other things, that they"
+    },
+    {
+      "id": 21,
+      "start": 58.52,
+      "end": 60.76,
+      "text": "have these sort of one-off rules where they try"
+    },
+    {
+      "id": 22,
+      "start": 60.76,
+      "end": 64.56,
+      "text": "to patch things up for queries as they come in based on,"
+    },
+    {
+      "id": 23,
+      "start": 64.56,
+      "end": 69.76,
+      "text": "to force the query plan in the form that they want it."
+    },
+    {
+      "id": 24,
+      "start": 69.76,
+      "end": 74.28,
+      "text": "So another interesting thing that Amazon does,"
+    },
+    {
+      "id": 25,
+      "start": 74.28,
+      "end": 77.52,
+      "text": "in their documentation for Redshift is actually really good."
+    },
+    {
+      "id": 26,
+      "start": 77.52,
+      "end": 79.0,
+      "text": "They have a whole documentation page"
+    },
+    {
+      "id": 27,
+      "start": 79.0,
+      "end": 82.36,
+      "text": "on how to make queries run faster, especially running"
+    },
+    {
+      "id": 28,
+      "start": 82.36,
+      "end": 86.0,
+      "text": "on Redshift, again, when you don't have statistical information."
+    },
+    {
+      "id": 29,
+      "start": 86.0,
+      "end": 87.48,
+      "text": "So they have a bunch of guidelines."
+    },
+    {
+      "id": 30,
+      "start": 87.48,
+      "end": 89.84,
+      "text": "I'm not going to read them all."
+    },
+    {
+      "id": 31,
+      "start": 89.84,
+      "end": 93.92,
+      "text": "But they talk about how, OK, well, if you know you're"
+    },
+    {
+      "id": 32,
+      "start": 93.92,
+      "end": 96.36,
+      "text": "running on the start schema, then you"
+    },
+    {
+      "id": 33,
+      "start": 96.36,
+      "end": 99.88,
+      "text": "should put your fact tables in S3 and all your dimension"
+    },
+    {
+      "id": 34,
+      "start": 99.88,
+      "end": 102.2,
+      "text": "tables in Redshift Manage Storage."
+    },
+    {
+      "id": 35,
+      "start": 102.2,
+      "end": 104.76,
+      "text": "Because in that case, you can at least get statistics"
+    },
+    {
+      "id": 36,
+      "start": 104.76,
+      "end": 106.48,
+      "text": "for the Redshift Manage Storage data."
+    },
+    {
+      "id": 37,
+      "start": 106.48,
+      "end": 110.76,
+      "text": "And then there are optimizers where we smart enough"
+    },
+    {
+      "id": 38,
+      "start": 110.76,
+      "end": 112.32,
+      "text": "to recognize, OK, well, batch maybe"
+    },
+    {
+      "id": 39,
+      "start": 112.32,
+      "end": 114.24,
+      "text": "be where I'm going to build all my hash tables."
+    },
+    {
+      "id": 40,
+      "start": 114.24,
+      "end": 116.0,
+      "text": "And I just have this giant pipeline"
+    },
+    {
+      "id": 41,
+      "start": 116.0,
+      "end": 119.6,
+      "text": "where I probe all those hash tables with my fact table."
+    },
+    {
+      "id": 42,
+      "start": 119.6,
+      "end": 121.4,
+      "text": "Or they talk about how you should write your queries"
+    },
+    {
+      "id": 43,
+      "start": 121.4,
+      "end": 123.84,
+      "text": "in a certain way that you know that these things can be pushed"
+    },
+    {
+      "id": 44,
+      "start": 123.84,
+      "end": 129.28,
+      "text": "down into the storage layer based on them being simple"
+    },
+    {
+      "id": 45,
+      "start": 129.28,
+      "end": 131.76,
+      "text": "and whatnot."
+    },
+    {
+      "id": 46,
+      "start": 131.76,
+      "end": 134.52,
+      "text": "You can actually also define statistics"
+    },
+    {
+      "id": 47,
+      "start": 134.52,
+      "end": 136.52,
+      "text": "on these external tables or S3 tables."
+    },
+    {
+      "id": 48,
+      "start": 136.52,
+      "end": 138.6,
+      "text": "And that I think what happens is Amazon then"
+    },
+    {
+      "id": 49,
+      "start": 138.6,
+      "end": 141.4,
+      "text": "goes and reads that data in, collects the statistics,"
+    },
+    {
+      "id": 50,
+      "start": 141.4,
+      "end": 145.04,
+      "text": "and then stores it as if it was a regular table."
+    },
+    {
+      "id": 51,
+      "start": 145.04,
+      "end": 147.04,
+      "text": "So I find this kind of interesting."
+    },
+    {
+      "id": 52,
+      "start": 147.04,
+      "end": 150.84,
+      "text": "It's like telling you what you should be doing as a user"
+    },
+    {
+      "id": 53,
+      "start": 150.84,
+      "end": 153.04,
+      "text": "to deal with the fact that you may not"
+    },
+    {
+      "id": 54,
+      "start": 153.04,
+      "end": 157.28,
+      "text": "have any statistics on S3 data, and instead of preempt"
+    },
+    {
+      "id": 55,
+      "start": 157.28,
+      "end": 158.36,
+      "text": "any problems that come later on."
+    },
+    {
+      "id": 56,
+      "start": 162.24,
+      "end": 165.04,
+      "text": "So we've talked about this already, the Redshift Manage"
+    },
+    {
+      "id": 57,
+      "start": 165.04,
+      "end": 165.8,
+      "text": "Storage."
+    },
+    {
+      "id": 58,
+      "start": 165.8,
+      "end": 169.56,
+      "text": "Again, as I said, I think it's steppert nodes."
+    },
+    {
+      "id": 59,
+      "start": 169.56,
+      "end": 173.12,
+      "text": "As you said, the running on S3 or S3."
+    },
+    {
+      "id": 60,
+      "start": 173.12,
+      "end": 179.32,
+      "text": "And they're going to have local attached SSDs that if they"
+    },
+    {
+      "id": 61,
+      "start": 179.32,
+      "end": 181.88,
+      "text": "then fill up, then they spill to S3."
+    },
+    {
+      "id": 62,
+      "start": 181.88,
+      "end": 183.56,
+      "text": "So that's why I don't think their pure S3 nodes."
+    },
+    {
+      "id": 63,
+      "start": 183.56,
+      "end": 186.4,
+      "text": "I think they're separate, like, not easy to do."
+    },
+    {
+      "id": 64,
+      "start": 186.4,
+      "end": 188.32,
+      "text": "This is because they're virtual, but I think it's"
+    },
+    {
+      "id": 65,
+      "start": 188.32,
+      "end": 189.12,
+      "text": "something separate."
+    },
+    {
+      "id": 66,
+      "start": 189.12,
+      "end": 191.16,
+      "text": "That's just what I'm understanding."
+    },
+    {
+      "id": 67,
+      "start": 191.16,
+      "end": 194.76,
+      "text": "And I think the computer nodes also have their own local SSD"
+    },
+    {
+      "id": 68,
+      "start": 194.76,
+      "end": 196.36,
+      "text": "cache as well."
+    },
+    {
+      "id": 69,
+      "start": 196.36,
+      "end": 199.84,
+      "text": "But when you put things in Redshift Manage Storage,"
+    },
+    {
+      "id": 70,
+      "start": 199.84,
+      "end": 201.44,
+      "text": "that's not going to be using Part K. It's not going to be"
+    },
+    {
+      "id": 71,
+      "start": 201.44,
+      "end": 202.68,
+      "text": "using an open source file format."
+    },
+    {
+      "id": 72,
+      "start": 202.68,
+      "end": 204.4,
+      "text": "It's going to be using their proprietary format."
+    },
+    {
+      "id": 73,
+      "start": 204.4,
+      "end": 205.88,
+      "text": "And similar to what we saw in Snowflake,"
+    },
+    {
+      "id": 74,
+      "start": 205.88,
+      "end": 208.32,
+      "text": "Yellowbrick, and others."
+    },
+    {
+      "id": 75,
+      "start": 208.32,
+      "end": 209.12,
+      "text": "Yes?"
+    },
+    {
+      "id": 76,
+      "start": 209.12,
+      "end": 211.56,
+      "text": "So what it says on the main is that spectrum,"
+    },
+    {
+      "id": 77,
+      "start": 211.56,
+      "end": 214.56,
+      "text": "Redshift Spectrum is going to plug into Redshift"
+    },
+    {
+      "id": 78,
+      "start": 214.56,
+      "end": 217.68,
+      "text": "where it can work directly on S3."
+    },
+    {
+      "id": 79,
+      "start": 217.68,
+      "end": 220.8,
+      "text": "Whereas for RMS, it would have to load into the proprietary"
+    },
+    {
+      "id": 80,
+      "start": 220.8,
+      "end": 223.52,
+      "text": "for my first and then they go down queries."
+    },
+    {
+      "id": 81,
+      "start": 223.52,
+      "end": 227.52,
+      "text": "So Redshift just calls Redshift Spectrum."
+    },
+    {
+      "id": 82,
+      "start": 227.52,
+      "end": 229.32,
+      "text": "And then I can work in the native format,"
+    },
+    {
+      "id": 83,
+      "start": 229.32,
+      "end": 231.2,
+      "text": "Part K, or can all my own S3."
+    },
+    {
+      "id": 84,
+      "start": 231.2,
+      "end": 233.24,
+      "text": "So that's the third of my native format."
+    },
+    {
+      "id": 85,
+      "start": 233.24,
+      "end": 236.56,
+      "text": "Yes, so what she said was for Spectrum,"
+    },
+    {
+      "id": 86,
+      "start": 236.56,
+      "end": 242.72,
+      "text": "it has the ability to read data on S3 in any possible format,"
+    },
+    {
+      "id": 87,
+      "start": 242.72,
+      "end": 245.28,
+      "text": "and then feed that data into the regular Redshift"
+    },
+    {
+      "id": 88,
+      "start": 245.28,
+      "end": 246.72,
+      "text": "compute nodes."
+    },
+    {
+      "id": 89,
+      "start": 246.72,
+      "end": 249.4,
+      "text": "But again, going back to my original point,"
+    },
+    {
+      "id": 90,
+      "start": 249.4,
+      "end": 250.84,
+      "text": "I don't think there's separate nodes."
+    },
+    {
+      "id": 91,
+      "start": 250.84,
+      "end": 254.16,
+      "text": "I think it's just the same compute nodes."
+    },
+    {
+      "id": 92,
+      "start": 254.16,
+      "end": 257.12,
+      "text": "And as the Redshift compute nodes, like the work nodes,"
+    },
+    {
+      "id": 93,
+      "start": 257.12,
+      "end": 258.12,
+      "text": "yeah."
+    },
+    {
+      "id": 94,
+      "start": 258.12,
+      "end": 260.52,
+      "text": "Do you have the, you, you, you, you, you, you, you, you,"
+    },
+    {
+      "id": 95,
+      "start": 260.52,
+      "end": 262.68,
+      "text": "you, okay, you get the provision, you pay for them,"
+    },
+    {
+      "id": 96,
+      "start": 262.68,
+      "end": 264.96,
+      "text": "you provision them separately."
+    },
+    {
+      "id": 97,
+      "start": 264.96,
+      "end": 268.32,
+      "text": "The information, it's, it is transparent,"
+    },
+    {
+      "id": 98,
+      "start": 268.32,
+      "end": 270.4,
+      "text": "but it's one of the based on your query,"
+    },
+    {
+      "id": 99,
+      "start": 270.4,
+      "end": 271.04,
+      "text": "based on your work."
+    },
+    {
+      "id": 100,
+      "start": 271.04,
+      "end": 272.04,
+      "text": "Okay."
+    },
+    {
+      "id": 101,
+      "start": 272.04,
+      "end": 272.88,
+      "text": "Okay."
+    },
+    {
+      "id": 102,
+      "start": 272.88,
+      "end": 275.28,
+      "text": "So that's, okay."
+    },
+    {
+      "id": 103,
+      "start": 275.28,
+      "end": 276.28,
+      "text": "That's helpful."
+    },
+    {
+      "id": 104,
+      "start": 276.28,
+      "end": 277.12,
+      "text": "Thank you."
+    },
+    {
+      "id": 105,
+      "start": 279.12,
+      "end": 282.16,
+      "text": "Again, because again, they want to manage everything."
+    },
+    {
+      "id": 106,
+      "start": 282.16,
+      "end": 284.32,
+      "text": "So when you, when you create a table schema,"
+    },
+    {
+      "id": 107,
+      "start": 284.32,
+      "end": 286.8,
+      "text": "that they're going to, you can specify exactly"
+    },
+    {
+      "id": 108,
+      "start": 286.88,
+      "end": 288.48,
+      "text": "what compression schema, coding schema,"
+    },
+    {
+      "id": 109,
+      "start": 288.48,
+      "end": 289.84,
+      "text": "want to use."
+    },
+    {
+      "id": 110,
+      "start": 289.84,
+      "end": 291.32,
+      "text": "These are just a sample them."
+    },
+    {
+      "id": 111,
+      "start": 291.32,
+      "end": 292.76,
+      "text": "And then they had, they talk about how they're,"
+    },
+    {
+      "id": 112,
+      "start": 292.76,
+      "end": 295.44,
+      "text": "they had their own proprietary one called AZ64,"
+    },
+    {
+      "id": 113,
+      "start": 295.44,
+      "end": 298.68,
+      "text": "that they claim is, you know, it's comparable compression"
+    },
+    {
+      "id": 114,
+      "start": 298.68,
+      "end": 302.08,
+      "text": "to something like snappy, but it, but it's faster."
+    },
+    {
+      "id": 115,
+      "start": 302.08,
+      "end": 304.72,
+      "text": "But as far as they know, there's no public documentation"
+    },
+    {
+      "id": 116,
+      "start": 304.72,
+      "end": 305.96,
+      "text": "that talks about it."
+    },
+    {
+      "id": 117,
+      "start": 305.96,
+      "end": 307.76,
+      "text": "There's, I'm sure there's a patent,"
+    },
+    {
+      "id": 118,
+      "start": 307.76,
+      "end": 310.56,
+      "text": "but we don't, we don't want to repattence in academia."
+    },
+    {
+      "id": 119,
+      "start": 310.56,
+      "end": 313.56,
+      "text": "So it's for, uh, plausible deniability."
+    },
+    {
+      "id": 120,
+      "start": 313.56,
+      "end": 314.92,
+      "text": "Is there a bad word?"
+    },
+    {
+      "id": 121,
+      "start": 314.92,
+      "end": 315.76,
+      "text": "Patents?"
+    },
+    {
+      "id": 122,
+      "start": 315.76,
+      "end": 316.6,
+      "text": "Yeah."
+    },
+    {
+      "id": 123,
+      "start": 316.6,
+      "end": 318.2,
+      "text": "I don't want to repattence."
+    },
+    {
+      "id": 124,
+      "start": 318.2,
+      "end": 319.36,
+      "text": "I didn't get it right."
+    },
+    {
+      "id": 125,
+      "start": 319.36,
+      "end": 320.2,
+      "text": "All right."
+    },
+    {
+      "id": 126,
+      "start": 320.2,
+      "end": 321.2,
+      "text": "So if you're a researcher, don't repattence,"
+    },
+    {
+      "id": 127,
+      "start": 321.2,
+      "end": 324.4,
+      "text": "because then if you end up inventing the same thing,"
+    },
+    {
+      "id": 128,
+      "start": 324.4,
+      "end": 326.44,
+      "text": "they can't claim that you told, so there are ideas"
+    },
+    {
+      "id": 129,
+      "start": 326.44,
+      "end": 328.96,
+      "text": "because you didn't read the patent, right?"
+    },
+    {
+      "id": 130,
+      "start": 328.96,
+      "end": 331.16,
+      "text": "And prevent you from, you know, from maybe reselling"
+    },
+    {
+      "id": 131,
+      "start": 331.16,
+      "end": 333.0,
+      "text": "or doing it, you know, monetizing it,"
+    },
+    {
+      "id": 132,
+      "start": 333.0,
+      "end": 335.48,
+      "text": "but it's not, it won't, it isn't like,"
+    },
+    {
+      "id": 133,
+      "start": 335.48,
+      "end": 337.48,
+      "text": "this I have to cut."
+    },
+    {
+      "id": 134,
+      "start": 337.48,
+      "end": 339.68,
+      "text": "Uh, what was the point of the story?"
+    },
+    {
+      "id": 135,
+      "start": 339.68,
+      "end": 342.72,
+      "text": "The point of the story."
+    },
+    {
+      "id": 136,
+      "start": 342.72,
+      "end": 343.72,
+      "text": "Don't repattence."
+    },
+    {
+      "id": 137,
+      "start": 343.72,
+      "end": 344.56,
+      "text": "There you go."
+    },
+    {
+      "id": 138,
+      "start": 344.56,
+      "end": 345.92,
+      "text": "That's the point of the story."
+    },
+    {
+      "id": 139,
+      "start": 346.48,
+      "end": 349.0,
+      "text": "Um, okay."
+    },
+    {
+      "id": 140,
+      "start": 349.0,
+      "end": 356.52,
+      "text": "So, uh, here's the, uh, here's the, the, the paper."
+    },
+    {
+      "id": 141,
+      "start": 356.52,
+      "end": 358.12,
+      "text": "Uh, sorry, here's the graph in the paper"
+    },
+    {
+      "id": 142,
+      "start": 358.12,
+      "end": 360.44,
+      "text": "where they show how fast sure things are."
+    },
+    {
+      "id": 143,
+      "start": 360.44,
+      "end": 364.32,
+      "text": "Um, so this is running TPCDS on three terabyte, uh, data set."
+    },
+    {
+      "id": 144,
+      "start": 364.32,
+      "end": 366.52,
+      "text": "And so they have what they call the out of box experience,"
+    },
+    {
+      "id": 145,
+      "start": 366.52,
+      "end": 368.72,
+      "text": "meaning like, you just, you just, you just book loads of data"
+    },
+    {
+      "id": 146,
+      "start": 368.72,
+      "end": 370.24,
+      "text": "and then immediately run your queries at it."
+    },
+    {
+      "id": 147,
+      "start": 370.24,
+      "end": 372.76,
+      "text": "And then here's the performance you're getting relative to redshift."
+    },
+    {
+      "id": 148,
+      "start": 372.76,
+      "end": 375.16,
+      "text": "And then the, the tune one is like,"
+    },
+    {
+      "id": 149,
+      "start": 375.16,
+      "end": 377.4,
+      "text": "if you actually go, maybe at indexes,"
+    },
+    {
+      "id": 150,
+      "start": 377.4,
+      "end": 378.88,
+      "text": "at compression, appropriately,"
+    },
+    {
+      "id": 151,
+      "start": 378.88,
+      "end": 381.12,
+      "text": "actually spend time actually tighten things up."
+    },
+    {
+      "id": 152,
+      "start": 381.12,
+      "end": 382.76,
+      "text": "Uh, here's, here's what you can do."
+    },
+    {
+      "id": 153,
+      "start": 382.76,
+      "end": 384.44,
+      "text": "Everybody says that the best thing is that."
+    },
+    {
+      "id": 154,
+      "start": 384.44,
+      "end": 386.44,
+      "text": "So, that's why we prepared something else."
+    },
+    {
+      "id": 155,
+      "start": 386.44,
+      "end": 388.04,
+      "text": "That's my sleep."
+    },
+    {
+      "id": 156,
+      "start": 388.04,
+      "end": 390.24,
+      "text": "They just went through reading a series with 4p version"
+    },
+    {
+      "id": 157,
+      "start": 390.24,
+      "end": 391.52,
+      "text": "and they all have figure that says,"
+    },
+    {
+      "id": 158,
+      "start": 391.52,
+      "end": 392.84,
+      "text": "look, we're better than everybody else."
+    },
+    {
+      "id": 159,
+      "start": 392.84,
+      "end": 394.32,
+      "text": "Yes."
+    },
+    {
+      "id": 160,
+      "start": 394.32,
+      "end": 396.48,
+      "text": "Well, this was, we showed Yellowbrick last time, right?"
+    },
+    {
+      "id": 161,
+      "start": 396.48,
+      "end": 397.32,
+      "text": "Yeah."
+    },
+    {
+      "id": 162,
+      "start": 397.32,
+      "end": 398.28,
+      "text": "It was completely different."
+    },
+    {
+      "id": 163,
+      "start": 398.28,
+      "end": 400.44,
+      "text": "Right. So, I mean, so Yellowbrick is faster."
+    },
+    {
+      "id": 164,
+      "start": 400.44,
+      "end": 403.48,
+      "text": "This, Yellowbrick's not in here, but like, they,"
+    },
+    {
+      "id": 165,
+      "start": 403.64,
+      "end": 406.56,
+      "text": "Yellowbrick had, it's not like always had,"
+    },
+    {
+      "id": 166,
+      "start": 406.56,
+      "end": 408.16,
+      "text": "as being a number two, right?"
+    },
+    {
+      "id": 167,
+      "start": 408.16,
+      "end": 413.04,
+      "text": "I think, but Yellowbrick had, had nothing redshift slower"
+    },
+    {
+      "id": 168,
+      "start": 413.04,
+      "end": 414.04,
+      "text": "than, uh,"
+    },
+    {
+      "id": 169,
+      "start": 414.04,
+      "end": 415.08,
+      "text": "What was that like as well?"
+    },
+    {
+      "id": 170,
+      "start": 415.08,
+      "end": 416.4,
+      "text": "Yes, it's not like, well, yes."
+    },
+    {
+      "id": 171,
+      "start": 416.4,
+      "end": 418.28,
+      "text": "Wasn't it worth a degree at all?"
+    },
+    {
+      "id": 172,
+      "start": 418.28,
+      "end": 419.12,
+      "text": "Yes."
+    },
+    {
+      "id": 173,
+      "start": 419.12,
+      "end": 420.36,
+      "text": "No one in the area."
+    },
+    {
+      "id": 174,
+      "start": 420.36,
+      "end": 421.96,
+      "text": "Yo, what's funny is this time,"
+    },
+    {
+      "id": 175,
+      "start": 421.96,
+      "end": 422.96,
+      "text": "I was even less accurate,"
+    },
+    {
+      "id": 176,
+      "start": 422.96,
+      "end": 425.04,
+      "text": "because they're just doing tpcds non-time,"
+    },
+    {
+      "id": 177,
+      "start": 425.04,
+      "end": 426.76,
+      "text": "than one, two, three, four."
+    },
+    {
+      "id": 178,
+      "start": 426.76,
+      "end": 429.0,
+      "text": "It's, sorry, it's relative to redshift, sorry."
+    },
+    {
+      "id": 179,
+      "start": 429.0,
+      "end": 430.2,
+      "text": "They're not actually giving numbers."
+    },
+    {
+      "id": 180,
+      "start": 430.2,
+      "end": 432.04,
+      "text": "They just give, they're giving us."
+    },
+    {
+      "id": 181,
+      "start": 432.04,
+      "end": 434.04,
+      "text": "So, that's right."
+    },
+    {
+      "id": 182,
+      "start": 434.04,
+      "end": 437.92,
+      "text": "So, I think it's, it's rare to see absolute numbers in there,"
+    },
+    {
+      "id": 183,
+      "start": 437.92,
+      "end": 440.76,
+      "text": "just because again, you don't want your competitors"
+    },
+    {
+      "id": 184,
+      "start": 440.76,
+      "end": 443.56,
+      "text": "using your own numbers against you."
+    },
+    {
+      "id": 185,
+      "start": 443.56,
+      "end": 446.76,
+      "text": "So, maybe this, say this is actually legitimate, right?"
+    },
+    {
+      "id": 186,
+      "start": 448.52,
+      "end": 450.4,
+      "text": "And maybe, you know,"
+    },
+    {
+      "id": 187,
+      "start": 450.4,
+      "end": 451.32,
+      "text": "I'm not saying it's not legitimate,"
+    },
+    {
+      "id": 188,
+      "start": 451.32,
+      "end": 453.68,
+      "text": "I'm just saying like, there's so many different factors."
+    },
+    {
+      "id": 189,
+      "start": 453.68,
+      "end": 456.08,
+      "text": "But say, you know, snowflake really was slower,"
+    },
+    {
+      "id": 190,
+      "start": 456.08,
+      "end": 458.4,
+      "text": "and then they add new features,"
+    },
+    {
+      "id": 191,
+      "start": 458.4,
+      "end": 460.08,
+      "text": "and to get this number down,"
+    },
+    {
+      "id": 192,
+      "start": 460.08,
+      "end": 461.76,
+      "text": "so now they can point to say, you know,"
+    },
+    {
+      "id": 193,
+      "start": 461.76,
+      "end": 463.24,
+      "text": "redshift got this, and we got that,"
+    },
+    {
+      "id": 194,
+      "start": 463.24,
+      "end": 464.84,
+      "text": "because we added this new feature, right?"
+    },
+    {
+      "id": 195,
+      "start": 464.84,
+      "end": 465.8,
+      "text": "So, they want to avoid all that."
+    },
+    {
+      "id": 196,
+      "start": 465.8,
+      "end": 467.48,
+      "text": "And they said, yellow brick, that paper's great,"
+    },
+    {
+      "id": 197,
+      "start": 467.48,
+      "end": 468.8,
+      "text": "because they put roll numbers in."
+    },
+    {
+      "id": 198,
+      "start": 468.8,
+      "end": 470.0,
+      "text": "No one does that."
+    },
+    {
+      "id": 199,
+      "start": 471.2,
+      "end": 473.44,
+      "text": "But there's no way like Amazon Legal"
+    },
+    {
+      "id": 200,
+      "start": 473.44,
+      "end": 475.48,
+      "text": "is going to let you put anything out like that."
+    },
+    {
+      "id": 201,
+      "start": 475.48,
+      "end": 479.24,
+      "text": "So, again, I hope again, you guys are skeptical,"
+    },
+    {
+      "id": 202,
+      "start": 479.24,
+      "end": 480.68,
+      "text": "it sounds like everyone is, which is good,"
+    },
+    {
+      "id": 203,
+      "start": 480.68,
+      "end": 483.32,
+      "text": "about like what these numbers actually mean,"
+    },
+    {
+      "id": 204,
+      "start": 483.32,
+      "end": 486.52,
+      "text": "and actually, you know, telling us anything."
+    },
+    {
+      "id": 205,
+      "start": 486.52,
+      "end": 487.56,
+      "text": "Other than to say like,"
+    },
+    {
+      "id": 206,
+      "start": 487.56,
+      "end": 491.8,
+      "text": "despite all their efforts to make everything be serverless"
+    },
+    {
+      "id": 207,
+      "start": 491.8,
+      "end": 495.64,
+      "text": "and try to remove the need for a human to come"
+    },
+    {
+      "id": 208,
+      "start": 495.64,
+      "end": 498.68,
+      "text": "and tune things, you know, clearly it makes a difference."
+    },
+    {
+      "id": 209,
+      "start": 498.68,
+      "end": 500.92,
+      "text": "Right, again, this number is not this number, right?"
+    },
+    {
+      "id": 210,
+      "start": 500.92,
+      "end": 504.4,
+      "text": "These are two separate, you know, baselines,"
+    },
+    {
+      "id": 211,
+      "start": 506.0,
+      "end": 510.0,
+      "text": "but like, you know, going from this to this for BigQuery,"
+    },
+    {
+      "id": 212,
+      "start": 510.0,
+      "end": 512.56,
+      "text": "that's a pretty big job, right?"
+    },
+    {
+      "id": 213,
+      "start": 512.56,
+      "end": 514.32,
+      "text": "Because I can't imagine the other ones got,"
+    },
+    {
+      "id": 214,
+      "start": 514.32,
+      "end": 516.08,
+      "text": "got significantly slower, and you know,"
+    },
+    {
+      "id": 215,
+      "start": 516.08,
+      "end": 518.96,
+      "text": "but BigQuery is just the same, if you're tuning it, yes."
+    },
+    {
+      "id": 216,
+      "start": 518.96,
+      "end": 520.88,
+      "text": "So, when I say data like this,"
+    },
+    {
+      "id": 217,
+      "start": 520.88,
+      "end": 523.32,
+      "text": "what should I look at to try, like,"
+    },
+    {
+      "id": 218,
+      "start": 523.32,
+      "end": 526.76,
+      "text": "what information should I try to objectively get?"
+    },
+    {
+      "id": 219,
+      "start": 526.76,
+      "end": 529.08,
+      "text": "Should I try say, oh, this means redshift"
+    },
+    {
+      "id": 220,
+      "start": 529.08,
+      "end": 531.08,
+      "text": "is really good with large data sets"
+    },
+    {
+      "id": 221,
+      "start": 531.08,
+      "end": 533.2,
+      "text": "with complex query lengthies, yes,"
+    },
+    {
+      "id": 222,
+      "start": 533.2,
+      "end": 535.72,
+      "text": "for should I say, oh, maybe it's the relative scale"
+    },
+    {
+      "id": 223,
+      "start": 535.72,
+      "end": 539.04,
+      "text": "that I should think about like, what should I take away from this?"
+    },
+    {
+      "id": 224,
+      "start": 539.04,
+      "end": 541.0,
+      "text": "So, goes back to that, I think that reddit post I showed"
+    },
+    {
+      "id": 225,
+      "start": 541.0,
+      "end": 545.2,
+      "text": "before, as question is, what should you take away from this?"
+    },
+    {
+      "id": 226,
+      "start": 546.52,
+      "end": 549.56,
+      "text": "It goes back to the, that reddit post where I said before,"
+    },
+    {
+      "id": 227,
+      "start": 549.56,
+      "end": 551.28,
+      "text": "like, you can simplify the decision,"
+    },
+    {
+      "id": 228,
+      "start": 551.28,
+      "end": 554.0,
+      "text": "like, if you're already got much data on Amazon S3,"
+    },
+    {
+      "id": 229,
+      "start": 554.0,
+      "end": 556.48,
+      "text": "then you probably just use redshift, right?"
+    },
+    {
+      "id": 230,
+      "start": 556.48,
+      "end": 558.68,
+      "text": "Or something that can access the raw files."
+    },
+    {
+      "id": 231,
+      "start": 559.92,
+      "end": 562.76,
+      "text": "The, if you're a company where like, you know,"
+    },
+    {
+      "id": 232,
+      "start": 562.76,
+      "end": 565.0,
+      "text": "it's your job or responsibility to figure out"
+    },
+    {
+      "id": 233,
+      "start": 565.0,
+      "end": 566.6,
+      "text": "what, you know, which one you can use,"
+    },
+    {
+      "id": 234,
+      "start": 566.6,
+      "end": 569.56,
+      "text": "and money and location and what cloud platform you can use,"
+    },
+    {
+      "id": 235,
+      "start": 569.56,
+      "end": 570.8,
+      "text": "it's not an issue."
+    },
+    {
+      "id": 236,
+      "start": 570.8,
+      "end": 572.84,
+      "text": "You just don't like, look at this and say,"
+    },
+    {
+      "id": 237,
+      "start": 572.84,
+      "end": 574.16,
+      "text": "oh, I'm gonna use this."
+    },
+    {
+      "id": 238,
+      "start": 574.16,
+      "end": 576.96,
+      "text": "There's the whole process where you do a POC,"
+    },
+    {
+      "id": 239,
+      "start": 576.96,
+      "end": 580.16,
+      "text": "they have solution architects help set up your cluster,"
+    },
+    {
+      "id": 240,
+      "start": 580.16,
+      "end": 582.12,
+      "text": "like, you know, if you're signing for millions of dollars"
+    },
+    {
+      "id": 241,
+      "start": 582.12,
+      "end": 584.16,
+      "text": "of, you know, years of service, right?"
+    },
+    {
+      "id": 242,
+      "start": 584.16,
+      "end": 585.4,
+      "text": "Could you also not paying monthly?"
+    },
+    {
+      "id": 243,
+      "start": 585.4,
+      "end": 587.16,
+      "text": "You're paying like, you're prepaid ahead of time"
+    },
+    {
+      "id": 244,
+      "start": 587.16,
+      "end": 588.32,
+      "text": "to get a discount."
+    },
+    {
+      "id": 245,
+      "start": 588.32,
+      "end": 590.48,
+      "text": "So, you have like solution architects that help, you know,"
+    },
+    {
+      "id": 246,
+      "start": 590.48,
+      "end": 593.32,
+      "text": "set up your, the environment, help take a sample,"
+    },
+    {
+      "id": 247,
+      "start": 593.32,
+      "end": 595.44,
+      "text": "your workload, running on whatever, you know,"
+    },
+    {
+      "id": 248,
+      "start": 595.44,
+      "end": 597.56,
+      "text": "software you have now, data system you have now,"
+    },
+    {
+      "id": 249,
+      "start": 597.56,
+      "end": 599.04,
+      "text": "and then they'll want experiments for you"
+    },
+    {
+      "id": 250,
+      "start": 599.04,
+      "end": 599.88,
+      "text": "and give you feedback."
+    },
+    {
+      "id": 251,
+      "start": 600.88,
+      "end": 603.64,
+      "text": "So, it's, it's, for you as a student,"
+    }
+  ],
+  "language": "en"
+}

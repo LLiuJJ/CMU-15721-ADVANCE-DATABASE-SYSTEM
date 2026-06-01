@@ -1,0 +1,1481 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.32,
+      "text": "in the context of an distribute architecture."
+    },
+    {
+      "id": 1,
+      "start": 3.32,
+      "end": 5.52,
+      "text": "OK?"
+    },
+    {
+      "id": 2,
+      "start": 5.52,
+      "end": 10.48,
+      "text": "And so what I'll be interesting about the,"
+    },
+    {
+      "id": 3,
+      "start": 10.48,
+      "end": 11.72,
+      "text": "I'll tell you, I sketch out implementations."
+    },
+    {
+      "id": 4,
+      "start": 11.72,
+      "end": 14.32,
+      "text": "We'll see in Umbra and Hyper, these are going"
+    },
+    {
+      "id": 5,
+      "start": 14.32,
+      "end": 16.96,
+      "text": "to have like sort of dedicated worker pools that are just"
+    },
+    {
+      "id": 6,
+      "start": 16.96,
+      "end": 21.08,
+      "text": "like crunching through all the tasks as they can."
+    },
+    {
+      "id": 7,
+      "start": 21.08,
+      "end": 25.04,
+      "text": "Whereas in the HANA one, they're trying to be a bit more"
+    },
+    {
+      "id": 8,
+      "start": 25.04,
+      "end": 27.32,
+      "text": "sophisticated and have this notion of some worker"
+    },
+    {
+      "id": 9,
+      "start": 27.32,
+      "end": 29.96,
+      "text": "threads can be asleep, some worker threads can be parked."
+    },
+    {
+      "id": 10,
+      "start": 30.96,
+      "end": 32.56,
+      "text": "And we'll also see this trade up between work stealing"
+    },
+    {
+      "id": 11,
+      "start": 32.56,
+      "end": 34.28,
+      "text": "and not work stealing, which is another dynamic."
+    },
+    {
+      "id": 12,
+      "start": 34.28,
+      "end": 37.88,
+      "text": "We have to consider it as well."
+    },
+    {
+      "id": 13,
+      "start": 37.88,
+      "end": 40.64,
+      "text": "All right, so, and this is just a reminder from the"
+    },
+    {
+      "id": 14,
+      "start": 40.64,
+      "end": 44.44,
+      "text": "interclass that there's this notion of a process model"
+    },
+    {
+      "id": 15,
+      "start": 44.44,
+      "end": 46.0,
+      "text": "in any data-based system."
+    },
+    {
+      "id": 16,
+      "start": 46.0,
+      "end": 51.68,
+      "text": "And this specifies what a worker actually is going to be"
+    },
+    {
+      "id": 17,
+      "start": 51.68,
+      "end": 54.8,
+      "text": "in our system."
+    },
+    {
+      "id": 18,
+      "start": 54.8,
+      "end": 59.92,
+      "text": "So the sort of earlier data-based systems in the 1980s"
+    },
+    {
+      "id": 19,
+      "start": 59.92,
+      "end": 62.96,
+      "text": "or the 1990s, these were a process-based system,"
+    },
+    {
+      "id": 20,
+      "start": 62.96,
+      "end": 66.08,
+      "text": "meaning like every worker was a separate OS process."
+    },
+    {
+      "id": 21,
+      "start": 66.08,
+      "end": 69.2,
+      "text": "Because back then they didn't have p-threads like we have now"
+    },
+    {
+      "id": 22,
+      "start": 69.2,
+      "end": 71.04,
+      "text": "that they weren't really portable."
+    },
+    {
+      "id": 23,
+      "start": 71.04,
+      "end": 73.4,
+      "text": "So if you wanted to support one unit versus another unit,"
+    },
+    {
+      "id": 24,
+      "start": 73.4,
+      "end": 77.4,
+      "text": "you had basically the POSIX API specified how to do fork"
+    },
+    {
+      "id": 25,
+      "start": 77.4,
+      "end": 82.12,
+      "text": "to spawn processes, then maybe not, didn't have threading."
+    },
+    {
+      "id": 26,
+      "start": 82.12,
+      "end": 84.96,
+      "text": "Every modern system now today is going to be multi-threaded."
+    },
+    {
+      "id": 27,
+      "start": 84.96,
+      "end": 86.96,
+      "text": "So we'll assume in our system we're exceptionally"
+    },
+    {
+      "id": 28,
+      "start": 86.96,
+      "end": 88.6,
+      "text": "building that we multi-threaded."
+    },
+    {
+      "id": 29,
+      "start": 88.6,
+      "end": 90.88,
+      "text": "The only ones that are not multi-threaded are ones that fork"
+    },
+    {
+      "id": 30,
+      "start": 90.88,
+      "end": 96.52,
+      "text": "postgres, because postgres uses a process per worker."
+    },
+    {
+      "id": 31,
+      "start": 96.52,
+      "end": 98.56,
+      "text": "And the worker is going to be this generic term that means"
+    },
+    {
+      "id": 32,
+      "start": 98.56,
+      "end": 102.24,
+      "text": "it's just the computational resource that can be assigned"
+    },
+    {
+      "id": 33,
+      "start": 102.24,
+      "end": 105.8,
+      "text": "a task to execute for some query or something"
+    },
+    {
+      "id": 34,
+      "start": 105.8,
+      "end": 108.28,
+      "text": "for the internal data, something for the database system,"
+    },
+    {
+      "id": 35,
+      "start": 108.28,
+      "end": 111.08,
+      "text": "and that it can take some data in, crunch on it,"
+    },
+    {
+      "id": 36,
+      "start": 111.08,
+      "end": 114.8,
+      "text": "in our operator instances, and then produce output."
+    },
+    {
+      "id": 37,
+      "start": 114.8,
+      "end": 117.68,
+      "text": "And as I said, for our purposes going forward,"
+    },
+    {
+      "id": 38,
+      "start": 117.68,
+      "end": 120.04,
+      "text": "consume every system unless they fork postgres"
+    },
+    {
+      "id": 39,
+      "start": 120.04,
+      "end": 122.84,
+      "text": "is going to be multi-threaded."
+    },
+    {
+      "id": 40,
+      "start": 122.84,
+      "end": 126.04,
+      "text": "For some reason, in the early days, when I first"
+    },
+    {
+      "id": 41,
+      "start": 126.04,
+      "end": 127.52,
+      "text": "started CMU, we took postgres and we"
+    },
+    {
+      "id": 42,
+      "start": 127.52,
+      "end": 133.64,
+      "text": "decided to make it multi-threaded instead of multi-process."
+    },
+    {
+      "id": 43,
+      "start": 133.64,
+      "end": 135.92,
+      "text": "I forget why we did that."
+    },
+    {
+      "id": 44,
+      "start": 135.92,
+      "end": 137.2,
+      "text": "But the interesting about it is, if you're"
+    },
+    {
+      "id": 45,
+      "start": 137.2,
+      "end": 138.08,
+      "text": "looking at the postgres code, there's"
+    },
+    {
+      "id": 46,
+      "start": 138.08,
+      "end": 141.0,
+      "text": "a bunch of pound of fines for the different OSs that"
+    },
+    {
+      "id": 47,
+      "start": 141.0,
+      "end": 145.64,
+      "text": "support Linux and Windows and HPox and BSD."
+    },
+    {
+      "id": 48,
+      "start": 146.16,
+      "end": 150.48,
+      "text": "We ended up using the Win32 code."
+    },
+    {
+      "id": 49,
+      "start": 150.48,
+      "end": 152.76,
+      "text": "And that was at least starting point for us to then"
+    },
+    {
+      "id": 50,
+      "start": 152.76,
+      "end": 154.4,
+      "text": "convert everything to Pthreads."
+    },
+    {
+      "id": 51,
+      "start": 154.4,
+      "end": 156.8,
+      "text": "We also converted it to C++ 11, which I don't know why"
+    },
+    {
+      "id": 52,
+      "start": 156.8,
+      "end": 157.48,
+      "text": "we did that one either."
+    },
+    {
+      "id": 53,
+      "start": 160.76,
+      "end": 161.44,
+      "text": "Yeah, we did it."
+    },
+    {
+      "id": 54,
+      "start": 161.44,
+      "end": 163.04,
+      "text": "We shouldn't have done it, but whatever."
+    },
+    {
+      "id": 55,
+      "start": 163.04,
+      "end": 163.56,
+      "text": "Yes."
+    },
+    {
+      "id": 56,
+      "start": 163.56,
+      "end": 165.08,
+      "text": "So you said postgres is single-thread,"
+    },
+    {
+      "id": 57,
+      "start": 165.08,
+      "end": 166.92,
+      "text": "but I thought you also said it has processors."
+    },
+    {
+      "id": 58,
+      "start": 166.92,
+      "end": 170.28,
+      "text": "So postgres is a process per worker."
+    },
+    {
+      "id": 59,
+      "start": 170.28,
+      "end": 175.6,
+      "text": "So a worker is going to be a whole entire OS process."
+    },
+    {
+      "id": 60,
+      "start": 175.76,
+      "end": 178.56,
+      "text": "So you can do some parallel execution of queries,"
+    },
+    {
+      "id": 61,
+      "start": 178.56,
+      "end": 180.12,
+      "text": "but that's going to be across multiple processes."
+    },
+    {
+      "id": 62,
+      "start": 180.12,
+      "end": 182.24,
+      "text": "And they use shared memory to communicate."
+    },
+    {
+      "id": 63,
+      "start": 182.24,
+      "end": 185.08,
+      "text": "But no, but you wouldn't build a system like that today."
+    },
+    {
+      "id": 64,
+      "start": 185.08,
+      "end": 185.6,
+      "text": "Yes."
+    },
+    {
+      "id": 65,
+      "start": 185.6,
+      "end": 187.52,
+      "text": "If all modern systems were a multi-threaded"
+    },
+    {
+      "id": 66,
+      "start": 187.52,
+      "end": 191.68,
+      "text": "was the idea to do that in postgres?"
+    },
+    {
+      "id": 67,
+      "start": 191.68,
+      "end": 196.0,
+      "text": "This question is, if all modern systems are multi-threaded,"
+    },
+    {
+      "id": 68,
+      "start": 196.0,
+      "end": 200.52,
+      "text": "why was it a bad idea for us to try to do that in postgres?"
+    },
+    {
+      "id": 69,
+      "start": 200.52,
+      "end": 204.64,
+      "text": "Looking back on it now, I failed to see what the research"
+    },
+    {
+      "id": 70,
+      "start": 204.64,
+      "end": 207.56,
+      "text": "contribution would have been."
+    },
+    {
+      "id": 71,
+      "start": 207.56,
+      "end": 212.32,
+      "text": "We had this execution engine that was written in SIPUP"
+    },
+    {
+      "id": 72,
+      "start": 212.32,
+      "end": 214.52,
+      "text": "floss that was faster than postgres, which is not"
+    },
+    {
+      "id": 73,
+      "start": 214.52,
+      "end": 215.84,
+      "text": "always hard to do."
+    },
+    {
+      "id": 74,
+      "start": 215.84,
+      "end": 217.44,
+      "text": "I said not that hard to do."
+    },
+    {
+      "id": 75,
+      "start": 217.44,
+      "end": 220.72,
+      "text": "And then rather than sliding it in as an extension,"
+    },
+    {
+      "id": 76,
+      "start": 220.72,
+      "end": 222.84,
+      "text": "using extension hooks that postgres supports, which"
+    },
+    {
+      "id": 77,
+      "start": 222.84,
+      "end": 227.32,
+      "text": "is a Timesco does and Sliders does, C-Files, another one."
+    },
+    {
+      "id": 78,
+      "start": 227.32,
+      "end": 228.76,
+      "text": "There's a bunch of these data systems that"
+    },
+    {
+      "id": 79,
+      "start": 228.76,
+      "end": 230.12,
+      "text": "use extension hooks to get over that"
+    },
+    {
+      "id": 80,
+      "start": 230.12,
+      "end": 231.48,
+      "text": "bench inside of postgres."
+    },
+    {
+      "id": 81,
+      "start": 231.48,
+      "end": 233.44,
+      "text": "We decided to fork everything."
+    },
+    {
+      "id": 82,
+      "start": 233.52,
+      "end": 237.2,
+      "text": "And then the top half of postgres, we had the top half,"
+    },
+    {
+      "id": 83,
+      "start": 237.2,
+      "end": 238.96,
+      "text": "kept the top half, rewrote the bottom half,"
+    },
+    {
+      "id": 84,
+      "start": 238.96,
+      "end": 240.64,
+      "text": "we started it and just scrapped the whole top"
+    },
+    {
+      "id": 85,
+      "start": 240.64,
+      "end": 242.6,
+      "text": "and rewrote everything, because everything was slow"
+    },
+    {
+      "id": 86,
+      "start": 242.6,
+      "end": 244.0,
+      "text": "for what we wanted to do."
+    },
+    {
+      "id": 87,
+      "start": 244.0,
+      "end": 246.56,
+      "text": "But again, if I hadn't done it alone again,"
+    },
+    {
+      "id": 88,
+      "start": 246.56,
+      "end": 249.32,
+      "text": "I would have just used extensions."
+    },
+    {
+      "id": 89,
+      "start": 249.32,
+      "end": 250.16,
+      "text": "Yes."
+    },
+    {
+      "id": 90,
+      "start": 250.16,
+      "end": 252.52,
+      "text": "So this process model, like the term,"
+    },
+    {
+      "id": 91,
+      "start": 252.52,
+      "end": 254.44,
+      "text": "is that just like multi-threaded versus process"
+    },
+    {
+      "id": 92,
+      "start": 254.44,
+      "end": 256.44,
+      "text": "for threaded, so it's seen the process in the process"
+    },
+    {
+      "id": 93,
+      "start": 256.44,
+      "end": 259.32,
+      "text": "like the new and the quality of the standard process."
+    },
+    {
+      "id": 94,
+      "start": 259.32,
+      "end": 260.76,
+      "text": "Its question is, is the process model"
+    },
+    {
+      "id": 95,
+      "start": 260.76,
+      "end": 263.6,
+      "text": "determined the new and topology stuff,"
+    },
+    {
+      "id": 96,
+      "start": 263.6,
+      "end": 265.32,
+      "text": "or is it just like, is it a thread per worker?"
+    },
+    {
+      "id": 97,
+      "start": 265.32,
+      "end": 266.32,
+      "text": "Is it a process for it?"
+    },
+    {
+      "id": 98,
+      "start": 266.32,
+      "end": 268.08,
+      "text": "It's just a process per worker."
+    },
+    {
+      "id": 99,
+      "start": 268.08,
+      "end": 271.56,
+      "text": "It's just like, what is the thread?"
+    },
+    {
+      "id": 100,
+      "start": 271.56,
+      "end": 272.16,
+      "text": "Is it a process?"
+    },
+    {
+      "id": 101,
+      "start": 272.16,
+      "end": 274.2,
+      "text": "Is the process pulled per worker?"
+    },
+    {
+      "id": 102,
+      "start": 274.2,
+      "end": 275.76,
+      "text": "The new and most stuff is in slow."
+    },
+    {
+      "id": 103,
+      "start": 279.88,
+      "end": 281.64,
+      "text": "OK."
+    },
+    {
+      "id": 104,
+      "start": 281.64,
+      "end": 284.28,
+      "text": "So the other thing we can account for is,"
+    },
+    {
+      "id": 105,
+      "start": 284.28,
+      "end": 289.24,
+      "text": "how do we want to sign the workers to see view cores?"
+    },
+    {
+      "id": 106,
+      "start": 289.24,
+      "end": 291.08,
+      "text": "And the basic two approaches are,"
+    },
+    {
+      "id": 107,
+      "start": 291.08,
+      "end": 294.12,
+      "text": "you could have a single dedicated thread,"
+    },
+    {
+      "id": 108,
+      "start": 294.12,
+      "end": 297.36,
+      "text": "or single dedicated worker, the only thing"
+    },
+    {
+      "id": 109,
+      "start": 297.36,
+      "end": 301.08,
+      "text": "that can run on a single core, a single CPU core."
+    },
+    {
+      "id": 110,
+      "start": 301.08,
+      "end": 307.76,
+      "text": "And this prevents contention on that core, where two threads"
+    },
+    {
+      "id": 111,
+      "start": 307.76,
+      "end": 308.68,
+      "text": "are trying to run at the same time,"
+    },
+    {
+      "id": 112,
+      "start": 308.68,
+      "end": 309.88,
+      "text": "the workers are trying to run at the same time"
+    },
+    {
+      "id": 113,
+      "start": 309.88,
+      "end": 312.92,
+      "text": "at the same core, and they're trashing each other's"
+    },
+    {
+      "id": 114,
+      "start": 312.92,
+      "end": 314.84,
+      "text": "L3 caches and so forth."
+    },
+    {
+      "id": 115,
+      "start": 314.84,
+      "end": 315.36,
+      "text": "Yes."
+    },
+    {
+      "id": 116,
+      "start": 315.36,
+      "end": 317.32,
+      "text": "So one work is looking with one task,"
+    },
+    {
+      "id": 117,
+      "start": 317.32,
+      "end": 319.84,
+      "text": "one is a diagnostic or one partition of the task."
+    },
+    {
+      "id": 118,
+      "start": 319.84,
+      "end": 323.84,
+      "text": "This question is, is one worker going to be working on one task?"
+    },
+    {
+      "id": 119,
+      "start": 323.84,
+      "end": 327.44,
+      "text": "Or one task set or one partition of the task set?"
+    },
+    {
+      "id": 120,
+      "start": 327.44,
+      "end": 329.0,
+      "text": "We're not there yet."
+    },
+    {
+      "id": 121,
+      "start": 329.0,
+      "end": 330.0,
+      "text": "Right?"
+    },
+    {
+      "id": 122,
+      "start": 330.0,
+      "end": 331.76,
+      "text": "It's going to be one task."
+    },
+    {
+      "id": 123,
+      "start": 331.76,
+      "end": 332.32,
+      "text": "One task."
+    },
+    {
+      "id": 124,
+      "start": 332.32,
+      "end": 333.24,
+      "text": "Yes."
+    },
+    {
+      "id": 125,
+      "start": 333.24,
+      "end": 335.76,
+      "text": "And again, and they think of that like, at the scan this table,"
+    },
+    {
+      "id": 126,
+      "start": 335.76,
+      "end": 338.48,
+      "text": "the table has 10 chunks or morsels."
+    },
+    {
+      "id": 127,
+      "start": 338.48,
+      "end": 340.96,
+      "text": "You have one worker for each of those 10 morsels."
+    },
+    {
+      "id": 128,
+      "start": 343.84,
+      "end": 345.8,
+      "text": "The other one is going to be, you know,"
+    },
+    {
+      "id": 129,
+      "start": 345.8,
+      "end": 347.72,
+      "text": "multiple workers on a CPU core."
+    },
+    {
+      "id": 130,
+      "start": 347.72,
+      "end": 352.84,
+      "text": "And the idea here is that with when one core gets or thread"
+    },
+    {
+      "id": 131,
+      "start": 352.84,
+      "end": 355.32,
+      "text": "gets stalled because a one worker thread gets stalled"
+    },
+    {
+      "id": 132,
+      "start": 355.32,
+      "end": 357.72,
+      "text": "because the thing it needs is on disk."
+    },
+    {
+      "id": 133,
+      "start": 357.72,
+      "end": 359.28,
+      "text": "Maybe it'll fetch into memory, or even if it's"
+    },
+    {
+      "id": 134,
+      "start": 359.28,
+      "end": 362.48,
+      "text": "at a low level L3 cache miss, you could have other threads"
+    },
+    {
+      "id": 135,
+      "start": 362.48,
+      "end": 364.08,
+      "text": "run at the same time."
+    },
+    {
+      "id": 136,
+      "start": 364.08,
+      "end": 366.6,
+      "text": "For maximum performance, this is probably the right way"
+    },
+    {
+      "id": 137,
+      "start": 366.6,
+      "end": 367.6,
+      "text": "to go though."
+    },
+    {
+      "id": 138,
+      "start": 367.6,
+      "end": 370.68,
+      "text": "And actually, if you also want to turn off hyper threading,"
+    },
+    {
+      "id": 139,
+      "start": 370.68,
+      "end": 373.12,
+      "text": "it's run bare metal harbor threads."
+    },
+    {
+      "id": 140,
+      "start": 374.12,
+      "end": 376.04,
+      "text": "Because we're going to be CPU bound,"
+    },
+    {
+      "id": 141,
+      "start": 376.04,
+      "end": 377.92,
+      "text": "and most of the computations we're going to do in our database"
+    },
+    {
+      "id": 142,
+      "start": 377.92,
+      "end": 380.0,
+      "text": "system, we don't want any contention"
+    },
+    {
+      "id": 143,
+      "start": 380.0,
+      "end": 381.32,
+      "text": "on the actual harbor itself."
+    },
+    {
+      "id": 144,
+      "start": 385.76,
+      "end": 390.0,
+      "text": "There's other advantages in this for, if you do transaction"
+    },
+    {
+      "id": 145,
+      "start": 390.0,
+      "end": 392.6,
+      "text": "process, where things you don't want any stoles."
+    },
+    {
+      "id": 146,
+      "start": 392.6,
+      "end": 396.28,
+      "text": "But for OLAP, for both OLAP and OLAP, this"
+    },
+    {
+      "id": 147,
+      "start": 396.28,
+      "end": 397.28,
+      "text": "could be the better way to go."
+    },
+    {
+      "id": 148,
+      "start": 397.28,
+      "end": 398.84,
+      "text": "The HANA guys are going to claim this is better,"
+    },
+    {
+      "id": 149,
+      "start": 398.84,
+      "end": 400.12,
+      "text": "because they're going to have really,"
+    },
+    {
+      "id": 150,
+      "start": 400.12,
+      "end": 401.48,
+      "text": "they're going to try to do fine-grained control,"
+    },
+    {
+      "id": 151,
+      "start": 401.48,
+      "end": 405.28,
+      "text": "what threads are actually awake and running at a given time."
+    },
+    {
+      "id": 152,
+      "start": 405.28,
+      "end": 407.64,
+      "text": "But we'll cover that later."
+    },
+    {
+      "id": 153,
+      "start": 407.64,
+      "end": 409.12,
+      "text": "And they claim that's going to be better for a machine"
+    },
+    {
+      "id": 154,
+      "start": 409.12,
+      "end": 411.04,
+      "text": "with a lot of corbs."
+    },
+    {
+      "id": 155,
+      "start": 411.04,
+      "end": 412.12,
+      "text": "I'm sorry, a lot of sockets."
+    },
+    {
+      "id": 156,
+      "start": 412.12,
+      "end": 412.64,
+      "text": "Yes."
+    },
+    {
+      "id": 157,
+      "start": 412.64,
+      "end": 414.28,
+      "text": "You see the first one is better?"
+    },
+    {
+      "id": 158,
+      "start": 414.28,
+      "end": 415.28,
+      "text": "Yes."
+    },
+    {
+      "id": 159,
+      "start": 415.28,
+      "end": 418.56,
+      "text": "But why would you choose one for course to use it?"
+    },
+    {
+      "id": 160,
+      "start": 418.56,
+      "end": 421.48,
+      "text": "So if you're compute bound, and you're"
+    },
+    {
+      "id": 161,
+      "start": 421.48,
+      "end": 423.08,
+      "text": "careful about what you're putting in your CPU"
+    },
+    {
+      "id": 162,
+      "start": 423.08,
+      "end": 425.08,
+      "text": "caches and your prefetching things ahead of time,"
+    },
+    {
+      "id": 163,
+      "start": 425.08,
+      "end": 428.68,
+      "text": "a course should never be stalled."
+    },
+    {
+      "id": 164,
+      "start": 428.68,
+      "end": 430.76,
+      "text": "Again, we saw those with the branchless stuff."
+    },
+    {
+      "id": 165,
+      "start": 430.84,
+      "end": 433.56,
+      "text": "If you designed the system such a way"
+    },
+    {
+      "id": 166,
+      "start": 433.56,
+      "end": 436.4,
+      "text": "that you avoid branchless predictions"
+    },
+    {
+      "id": 167,
+      "start": 436.4,
+      "end": 439.16,
+      "text": "and having to flush the pipeline of the CPU,"
+    },
+    {
+      "id": 168,
+      "start": 439.16,
+      "end": 440.88,
+      "text": "then you should just be crunching through data as fast"
+    },
+    {
+      "id": 169,
+      "start": 440.88,
+      "end": 441.48,
+      "text": "as possible."
+    },
+    {
+      "id": 170,
+      "start": 441.48,
+      "end": 443.84,
+      "text": "And you should never have installs for branchless."
+    },
+    {
+      "id": 171,
+      "start": 443.84,
+      "end": 444.36,
+      "text": "Yes?"
+    },
+    {
+      "id": 172,
+      "start": 444.36,
+      "end": 449.24,
+      "text": "Is this for CPU core or for hardware thread?"
+    },
+    {
+      "id": 173,
+      "start": 449.24,
+      "end": 452.92,
+      "text": "Per core, but within that, you turn off hyper threading"
+    },
+    {
+      "id": 174,
+      "start": 452.92,
+      "end": 453.64,
+      "text": "since one hardware thread."
+    },
+    {
+      "id": 175,
+      "start": 456.84,
+      "end": 458.8,
+      "text": "It's like a socket can have four cores,"
+    },
+    {
+      "id": 176,
+      "start": 458.8,
+      "end": 460.28,
+      "text": "and each core can have two threads,"
+    },
+    {
+      "id": 177,
+      "start": 460.28,
+      "end": 462.24,
+      "text": "because of hyper threading."
+    },
+    {
+      "id": 178,
+      "start": 462.24,
+      "end": 464.12,
+      "text": "So you turn off hyper threading, and now it's one core,"
+    },
+    {
+      "id": 179,
+      "start": 464.12,
+      "end": 465.12,
+      "text": "equals one hardware thread."
+    },
+    {
+      "id": 180,
+      "start": 465.12,
+      "end": 466.24,
+      "text": "So turn off hyper threading, and you"
+    },
+    {
+      "id": 181,
+      "start": 466.24,
+      "end": 469.48,
+      "text": "said you're avoiding potentials and more value."
+    },
+    {
+      "id": 182,
+      "start": 469.48,
+      "end": 470.64,
+      "text": "Yes."
+    },
+    {
+      "id": 183,
+      "start": 470.64,
+      "end": 472.8,
+      "text": "You're running basically a bare metal."
+    },
+    {
+      "id": 184,
+      "start": 472.8,
+      "end": 474.96,
+      "text": "What, wait, why is it turn off hyper threading"
+    },
+    {
+      "id": 185,
+      "start": 474.96,
+      "end": 475.8,
+      "text": "on the whole system?"
+    },
+    {
+      "id": 186,
+      "start": 475.8,
+      "end": 477.72,
+      "text": "Like, wouldn't you be able to then run a little like"
+    },
+    {
+      "id": 187,
+      "start": 477.72,
+      "end": 479.08,
+      "text": "give a cron job running or something?"
+    },
+    {
+      "id": 188,
+      "start": 479.08,
+      "end": 481.2,
+      "text": "So you can have that run on the platform."
+    },
+    {
+      "id": 189,
+      "start": 481.2,
+      "end": 482.32,
+      "text": "What is that cron job?"
+    },
+    {
+      "id": 190,
+      "start": 482.32,
+      "end": 483.32,
+      "text": "What is this for?"
+    },
+    {
+      "id": 191,
+      "start": 483.32,
+      "end": 484.48,
+      "text": "I don't like to have a server running."
+    },
+    {
+      "id": 192,
+      "start": 484.48,
+      "end": 486.24,
+      "text": "You have a database on a server in places"
+    },
+    {
+      "id": 193,
+      "start": 486.24,
+      "end": 487.28,
+      "text": "dominating the CPU."
+    },
+    {
+      "id": 194,
+      "start": 487.28,
+      "end": 488.04,
+      "text": "Yes."
+    },
+    {
+      "id": 195,
+      "start": 488.04,
+      "end": 489.08,
+      "text": "You can have that."
+    },
+    {
+      "id": 196,
+      "start": 489.08,
+      "end": 491.08,
+      "text": "It can handle all of the, all of the,"
+    },
+    {
+      "id": 197,
+      "start": 491.08,
+      "end": 495.44,
+      "text": "it can sort of own all of the actual real threads that"
+    },
+    {
+      "id": 198,
+      "start": 495.44,
+      "end": 498.32,
+      "text": "correspond to real cores, and maybe then the back-on-passing"
+    },
+    {
+      "id": 199,
+      "start": 498.32,
+      "end": 500.88,
+      "text": "system can run on the unutilized hardware."
+    },
+    {
+      "id": 200,
+      "start": 500.88,
+      "end": 503.68,
+      "text": "What are these back, like, like, garbage collection and stats"
+    },
+    {
+      "id": 201,
+      "start": 503.68,
+      "end": 504.04,
+      "text": "collection?"
+    },
+    {
+      "id": 202,
+      "start": 504.04,
+      "end": 505.44,
+      "text": "Or what, what, what are these back-on-tests?"
+    },
+    {
+      "id": 203,
+      "start": 505.44,
+      "end": 507.84,
+      "text": "Like, not even prior to the TV, just the,"
+    },
+    {
+      "id": 204,
+      "start": 507.84,
+      "end": 509.64,
+      "text": "oh, randoms, like random stuff?"
+    },
+    {
+      "id": 205,
+      "start": 509.64,
+      "end": 510.64,
+      "text": "Yeah."
+    },
+    {
+      "id": 206,
+      "start": 510.64,
+      "end": 513.16,
+      "text": "Why would you run them in your database server?"
+    },
+    {
+      "id": 207,
+      "start": 513.16,
+      "end": 515.24,
+      "text": "Well, I mean, presumably it's running on a left page."
+    },
+    {
+      "id": 208,
+      "start": 515.24,
+      "end": 515.76,
+      "text": "Yes?"
+    },
+    {
+      "id": 209,
+      "start": 515.76,
+      "end": 516.8,
+      "text": "Are we doing something?"
+    },
+    {
+      "id": 210,
+      "start": 516.8,
+      "end": 517.8,
+      "text": "Yeah."
+    },
+    {
+      "id": 211,
+      "start": 518.0,
+      "end": 518.8,
+      "text": "Turn all that off."
+    },
+    {
+      "id": 212,
+      "start": 518.8,
+      "end": 520.2,
+      "text": "You don't want any of that."
+    },
+    {
+      "id": 213,
+      "start": 520.2,
+      "end": 521.16,
+      "text": "No, no."
+    },
+    {
+      "id": 214,
+      "start": 521.16,
+      "end": 522.44,
+      "text": "The core of the question is, why not"
+    },
+    {
+      "id": 215,
+      "start": 522.44,
+      "end": 523.32,
+      "text": "these have to be written on?"
+    },
+    {
+      "id": 216,
+      "start": 523.32,
+      "end": 526.28,
+      "text": "Is there an advantage to turn it off?"
+    },
+    {
+      "id": 217,
+      "start": 526.28,
+      "end": 527.44,
+      "text": "Is there an advantage to turning it off?"
+    },
+    {
+      "id": 218,
+      "start": 527.44,
+      "end": 528.44,
+      "text": "Yeah."
+    },
+    {
+      "id": 219,
+      "start": 528.44,
+      "end": 530.24,
+      "text": "Yeah, you don't have, you don't have two threads"
+    },
+    {
+      "id": 220,
+      "start": 530.24,
+      "end": 531.76,
+      "text": "contending for the same hardware resource."
+    },
+    {
+      "id": 221,
+      "start": 535.2,
+      "end": 536.2,
+      "text": "Yeah."
+    },
+    {
+      "id": 222,
+      "start": 540.12,
+      "end": 540.96,
+      "text": "I do have a graph."
+    },
+    {
+      "id": 223,
+      "start": 544.32,
+      "end": 546.6,
+      "text": "My impression was that when you have a type of threading on,"
+    },
+    {
+      "id": 224,
+      "start": 546.6,
+      "end": 549.2,
+      "text": "the other thread respond the same core,"
+    },
+    {
+      "id": 225,
+      "start": 549.2,
+      "end": 552.36,
+      "text": "it's going to only use the only U.S. part of the core."
+    },
+    {
+      "id": 226,
+      "start": 552.36,
+      "end": 553.36,
+      "text": "No."
+    },
+    {
+      "id": 227,
+      "start": 553.36,
+      "end": 557.04,
+      "text": "What is the only U.S. part of the core?"
+    },
+    {
+      "id": 228,
+      "start": 557.04,
+      "end": 558.28,
+      "text": "The other probably is."
+    },
+    {
+      "id": 229,
+      "start": 558.28,
+      "end": 561.64,
+      "text": "You have a pipeline of instructions, right?"
+    },
+    {
+      "id": 230,
+      "start": 561.64,
+      "end": 564.88,
+      "text": "So when one gets stalled, the idea is like you swap out"
+    },
+    {
+      "id": 231,
+      "start": 564.88,
+      "end": 566.76,
+      "text": "all the registers for this other logical thread,"
+    },
+    {
+      "id": 232,
+      "start": 566.76,
+      "end": 568.88,
+      "text": "hyper thread, and then they come in and pick up"
+    },
+    {
+      "id": 233,
+      "start": 568.88,
+      "end": 572.24,
+      "text": "where you left off, right?"
+    },
+    {
+      "id": 234,
+      "start": 572.24,
+      "end": 576.28,
+      "text": "But like, again, if you're CPU bound,"
+    },
+    {
+      "id": 235,
+      "start": 576.96,
+      "end": 579.04,
+      "text": "there's not going to be stalled like that."
+    },
+    {
+      "id": 236,
+      "start": 579.04,
+      "end": 579.56,
+      "text": "Yes."
+    },
+    {
+      "id": 237,
+      "start": 579.56,
+      "end": 581.68,
+      "text": "So we don't want contention just to summarize."
+    },
+    {
+      "id": 238,
+      "start": 581.68,
+      "end": 585.48,
+      "text": "We don't want contention because when we have two threads,"
+    },
+    {
+      "id": 239,
+      "start": 585.48,
+      "end": 588.84,
+      "text": "if we have a pfI with threading, then we end up,"
+    },
+    {
+      "id": 240,
+      "start": 588.84,
+      "end": 590.36,
+      "text": "because they find it the same hardware,"
+    },
+    {
+      "id": 241,
+      "start": 590.36,
+      "end": 592.04,
+      "text": "we need to be more cashmistered with them."
+    },
+    {
+      "id": 242,
+      "start": 592.04,
+      "end": 593.28,
+      "text": "At the other level?"
+    },
+    {
+      "id": 243,
+      "start": 593.28,
+      "end": 594.28,
+      "text": "Yes."
+    },
+    {
+      "id": 244,
+      "start": 594.28,
+      "end": 597.84,
+      "text": "Like, the same thing is, there's more contention."
+    },
+    {
+      "id": 245,
+      "start": 597.84,
+      "end": 600.28,
+      "text": "If there's more things running on a single core."
+    }
+  ],
+  "language": "en"
+}

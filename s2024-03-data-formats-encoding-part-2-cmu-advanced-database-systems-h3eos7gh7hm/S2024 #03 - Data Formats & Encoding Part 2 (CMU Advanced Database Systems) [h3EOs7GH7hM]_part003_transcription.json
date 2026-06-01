@@ -1,0 +1,1217 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.0,
+      "text": "As you're trying to decode things,"
+    },
+    {
+      "id": 1,
+      "start": 4.0,
+      "end": 7.5,
+      "text": "it's trying to figure out on the fly which decoding seems"
+    },
+    {
+      "id": 2,
+      "start": 7.5,
+      "end": 10.0,
+      "text": "should I use, isn't it going to start with the same problem?"
+    },
+    {
+      "id": 3,
+      "start": 10.0,
+      "end": 12.6,
+      "text": "My understanding is, though, within the column chunk,"
+    },
+    {
+      "id": 4,
+      "start": 12.6,
+      "end": 14.2,
+      "text": "they're picking one encoding scheme,"
+    },
+    {
+      "id": 5,
+      "start": 14.2,
+      "end": 18.0,
+      "text": "whereas Orch is trying to be clever on smaller runs."
+    },
+    {
+      "id": 6,
+      "start": 18.0,
+      "end": 21.3,
+      "text": "I will say they only compare against Park K in this paper."
+    },
+    {
+      "id": 7,
+      "start": 21.3,
+      "end": 23.2,
+      "text": "They don't compare against Orch."
+    },
+    {
+      "id": 8,
+      "start": 23.2,
+      "end": 28.0,
+      "text": "Then for our experiments in our paper,"
+    },
+    {
+      "id": 9,
+      "start": 28.0,
+      "end": 30.0,
+      "text": "we didn't compare against this."
+    },
+    {
+      "id": 10,
+      "start": 30.0,
+      "end": 32.8,
+      "text": "That's an open question."
+    },
+    {
+      "id": 11,
+      "start": 32.8,
+      "end": 33.3,
+      "text": "Yes?"
+    },
+    {
+      "id": 12,
+      "start": 33.3,
+      "end": 35.0,
+      "text": "I think the ZOMA maps are going to be"
+    },
+    {
+      "id": 13,
+      "start": 35.0,
+      "end": 37.0,
+      "text": "in another file, so they won't be fixed."
+    },
+    {
+      "id": 14,
+      "start": 37.0,
+      "end": 39.0,
+      "text": "The metadata is going to work."
+    },
+    {
+      "id": 15,
+      "start": 39.0,
+      "end": 42.0,
+      "text": "And speed the data back to the file."
+    },
+    {
+      "id": 16,
+      "start": 42.0,
+      "end": 45.0,
+      "text": "So you know how to use data from the data to the map."
+    },
+    {
+      "id": 17,
+      "start": 45.0,
+      "end": 48.6,
+      "text": "So there's common is, the argument that they're making"
+    },
+    {
+      "id": 18,
+      "start": 48.6,
+      "end": 50.5,
+      "text": "this paper about why they want to store the metadata"
+    },
+    {
+      "id": 19,
+      "start": 50.5,
+      "end": 54.8,
+      "text": "as a separate file is that it allows them to retrieve the file,"
+    },
+    {
+      "id": 20,
+      "start": 54.8,
+      "end": 56.5,
+      "text": "which is going to be smushable in the actual data,"
+    },
+    {
+      "id": 21,
+      "start": 56.5,
+      "end": 58.5,
+      "text": "and then look at the ZOMA maps and information,"
+    },
+    {
+      "id": 22,
+      "start": 58.5,
+      "end": 60.5,
+      "text": "and figure out whether or not you need to look at the file."
+    },
+    {
+      "id": 23,
+      "start": 60.5,
+      "end": 63.0,
+      "text": "But as we said last time, like with S3,"
+    },
+    {
+      "id": 24,
+      "start": 63.0,
+      "end": 64.0,
+      "text": "I can go get a range."
+    },
+    {
+      "id": 25,
+      "start": 64.0,
+      "end": 68.0,
+      "text": "So whether getting that metadata is the photo of the file"
+    },
+    {
+      "id": 26,
+      "start": 68.0,
+      "end": 74.5,
+      "text": "or the separate file from my perspective, it's the same."
+    },
+    {
+      "id": 27,
+      "start": 74.5,
+      "end": 75.5,
+      "text": "That's the other one."
+    },
+    {
+      "id": 28,
+      "start": 75.5,
+      "end": 77.5,
+      "text": "Yeah, yeah, yeah."
+    },
+    {
+      "id": 29,
+      "start": 77.5,
+      "end": 78.5,
+      "text": "OK."
+    },
+    {
+      "id": 30,
+      "start": 78.5,
+      "end": 80.0,
+      "text": "So let's look at all the encoding schemes that they have."
+    },
+    {
+      "id": 31,
+      "start": 80.0,
+      "end": 82.2,
+      "text": "A bunch of these, we've already seen two of these,"
+    },
+    {
+      "id": 32,
+      "start": 82.2,
+      "end": 83.5,
+      "text": "what we'll cover in more detail."
+    },
+    {
+      "id": 33,
+      "start": 83.5,
+      "end": 85.5,
+      "text": "So we already know about run-like encoding."
+    },
+    {
+      "id": 34,
+      "start": 85.5,
+      "end": 87.5,
+      "text": "One value is like the extreme example,"
+    },
+    {
+      "id": 35,
+      "start": 87.5,
+      "end": 92.5,
+      "text": "or literally your column of 64,000 tuples has one value."
+    },
+    {
+      "id": 36,
+      "start": 92.5,
+      "end": 94.5,
+      "text": "So you just store that once."
+    },
+    {
+      "id": 37,
+      "start": 94.5,
+      "end": 97.5,
+      "text": "Again, it's like the extreme case of RLE."
+    },
+    {
+      "id": 38,
+      "start": 97.5,
+      "end": 99.5,
+      "text": "Frequency encoding we didn't talk about,"
+    },
+    {
+      "id": 39,
+      "start": 99.5,
+      "end": 103.5,
+      "text": "but this comes from IBM's DB2 blue system from a few years ago."
+    },
+    {
+      "id": 40,
+      "start": 103.5,
+      "end": 108.0,
+      "text": "Basically, it's like you store the, you look at your column,"
+    },
+    {
+      "id": 41,
+      "start": 108.0,
+      "end": 110.5,
+      "text": "figure out what's the most common value,"
+    },
+    {
+      "id": 42,
+      "start": 110.5,
+      "end": 113.5,
+      "text": "what's the one value that appears most often?"
+    },
+    {
+      "id": 43,
+      "start": 113.5,
+      "end": 115.5,
+      "text": "Or that's separately."
+    },
+    {
+      "id": 44,
+      "start": 115.5,
+      "end": 117.5,
+      "text": "And then you have a bit map to say how many times"
+    },
+    {
+      "id": 45,
+      "start": 117.5,
+      "end": 119.5,
+      "text": "where it occurs in the column."
+    },
+    {
+      "id": 46,
+      "start": 119.5,
+      "end": 123.5,
+      "text": "And then all the other values that are not that top value,"
+    },
+    {
+      "id": 47,
+      "start": 123.5,
+      "end": 127.5,
+      "text": "you just store them in an uncompressed way."
+    },
+    {
+      "id": 48,
+      "start": 127.5,
+      "end": 129.5,
+      "text": "But then you feed that back into the encoding scheme"
+    },
+    {
+      "id": 49,
+      "start": 129.5,
+      "end": 131.5,
+      "text": "to compress it further."
+    },
+    {
+      "id": 50,
+      "start": 131.5,
+      "end": 142.5,
+      "text": "So I think it was a good example of this."
+    },
+    {
+      "id": 51,
+      "start": 142.5,
+      "end": 147.5,
+      "text": "You're at a, you're at a, everybody loves"
+    },
+    {
+      "id": 52,
+      "start": 147.5,
+      "end": 149.5,
+      "text": "a one person."
+    },
+    {
+      "id": 53,
+      "start": 149.5,
+      "end": 151.5,
+      "text": "So you just store, everyone loves a"
+    },
+    {
+      "id": 54,
+      "start": 151.5,
+      "end": 154.5,
+      "text": "equals yes, store that, the name of a bit map would then occur."
+    },
+    {
+      "id": 55,
+      "start": 154.5,
+      "end": 156.5,
+      "text": "And then for the few people that don't like a,"
+    },
+    {
+      "id": 56,
+      "start": 156.5,
+      "end": 157.5,
+      "text": "you just store that separately."
+    },
+    {
+      "id": 57,
+      "start": 157.5,
+      "end": 160.5,
+      "text": "It's a stupid example, that's a basic idea."
+    },
+    {
+      "id": 58,
+      "start": 160.5,
+      "end": 163.5,
+      "text": "Frame a reference, a bit packing we talked about last time."
+    },
+    {
+      "id": 59,
+      "start": 163.5,
+      "end": 164.5,
+      "text": "Again, it's like delta encoding."
+    },
+    {
+      "id": 60,
+      "start": 164.5,
+      "end": 166.5,
+      "text": "They're not going to do it delta coding."
+    },
+    {
+      "id": 61,
+      "start": 166.5,
+      "end": 167.5,
+      "text": "This is the variant of it."
+    },
+    {
+      "id": 62,
+      "start": 167.5,
+      "end": 171.5,
+      "text": "We just store what's the min value of within a column chunk"
+    },
+    {
+      "id": 63,
+      "start": 171.5,
+      "end": 173.5,
+      "text": "and then just store the delta from everyone,"
+    },
+    {
+      "id": 64,
+      "start": 173.5,
+      "end": 178.5,
+      "text": "everyone's delta to that, that, that global value."
+    },
+    {
+      "id": 65,
+      "start": 178.5,
+      "end": 180.5,
+      "text": "Dictionary, okay, I'm covered."
+    },
+    {
+      "id": 66,
+      "start": 180.5,
+      "end": 182.5,
+      "text": "Sudo-desmos, we had to really talk about fixed point"
+    },
+    {
+      "id": 67,
+      "start": 182.5,
+      "end": 187.5,
+      "text": "desmos, but the basic idea is that they're going to convert"
+    },
+    {
+      "id": 68,
+      "start": 187.5,
+      "end": 191.5,
+      "text": "floating point numbers into, to integers by just figuring out"
+    },
+    {
+      "id": 69,
+      "start": 191.5,
+      "end": 194.5,
+      "text": "where the decimal point is and store the integer version of that."
+    },
+    {
+      "id": 70,
+      "start": 194.5,
+      "end": 197.5,
+      "text": "And then what power of 10 you need to convert it back to a decimal."
+    },
+    {
+      "id": 71,
+      "start": 197.5,
+      "end": 200.5,
+      "text": "Right?"
+    },
+    {
+      "id": 72,
+      "start": 200.5,
+      "end": 202.5,
+      "text": "I'll briefly talk about these in a second,"
+    },
+    {
+      "id": 73,
+      "start": 202.5,
+      "end": 207.5,
+      "text": "but this is basically, FSST comes from the Germans and the WDB people."
+    },
+    {
+      "id": 74,
+      "start": 207.5,
+      "end": 211.5,
+      "text": "It allows you to do compression on strings,"
+    },
+    {
+      "id": 75,
+      "start": 211.5,
+      "end": 213.5,
+      "text": "but instead of doing dictionary coding where you have a code"
+    },
+    {
+      "id": 76,
+      "start": 213.5,
+      "end": 215.5,
+      "text": "represents the entire value of that string,"
+    },
+    {
+      "id": 77,
+      "start": 215.5,
+      "end": 218.5,
+      "text": "you can do separate codes for individual bytes."
+    },
+    {
+      "id": 78,
+      "start": 218.5,
+      "end": 224.5,
+      "text": "Right? I think if you have a column of a bunch of URLs"
+    },
+    {
+      "id": 79,
+      "start": 224.5,
+      "end": 227.5,
+      "text": "and all the URLs start with HTTPS."
+    },
+    {
+      "id": 80,
+      "start": 227.5,
+      "end": 230.5,
+      "text": "So I could store the separate code just for HTTPS"
+    },
+    {
+      "id": 81,
+      "start": 230.5,
+      "end": 233.5,
+      "text": "and then additional codes for the other parts of the URLs."
+    },
+    {
+      "id": 82,
+      "start": 233.5,
+      "end": 235.5,
+      "text": "Right? Talk about that in a second."
+    },
+    {
+      "id": 83,
+      "start": 235.5,
+      "end": 239.5,
+      "text": "And then roaring bitmaps is a way to do, basically,"
+    },
+    {
+      "id": 84,
+      "start": 239.5,
+      "end": 242.5,
+      "text": "compress bitmaps, but they're going to use these for nulls and exceptions,"
+    },
+    {
+      "id": 85,
+      "start": 242.5,
+      "end": 245.5,
+      "text": "like the, the free-percent coding."
+    },
+    {
+      "id": 86,
+      "start": 245.5,
+      "end": 249.5,
+      "text": "I'm keeping track of like, when, you know, what locations"
+    },
+    {
+      "id": 87,
+      "start": 249.5,
+      "end": 253.5,
+      "text": "is the most frequent value occurs, I would store that as a roaring bitmap."
+    },
+    {
+      "id": 88,
+      "start": 253.5,
+      "end": 255.5,
+      "text": "And again, we'll cover that in a second."
+    },
+    {
+      "id": 89,
+      "start": 255.5,
+      "end": 258.5,
+      "text": "So again, no doubt on coding because it's not simply friendly,"
+    },
+    {
+      "id": 90,
+      "start": 258.5,
+      "end": 261.5,
+      "text": "but then the fastlings people will fix this."
+    },
+    {
+      "id": 91,
+      "start": 261.5,
+      "end": 264.5,
+      "text": "So the selection algorithm works like that."
+    },
+    {
+      "id": 92,
+      "start": 264.5,
+      "end": 268.5,
+      "text": "So basically that you're going to collect some sample data from your column"
+    },
+    {
+      "id": 93,
+      "start": 268.5,
+      "end": 271.5,
+      "text": "and recall, in case of ORC, ORC was using this run-ahead buffer"
+    },
+    {
+      "id": 94,
+      "start": 271.5,
+      "end": 273.5,
+      "text": "to look at the next 512 bytes and figure out,"
+    },
+    {
+      "id": 95,
+      "start": 273.5,
+      "end": 278.5,
+      "text": "okay, sorry, 512 values and look at what's the next encoding scheme I should use."
+    },
+    {
+      "id": 96,
+      "start": 278.5,
+      "end": 282.5,
+      "text": "What they're going to do is assuming you have the entire column chunk ahead of time"
+    },
+    {
+      "id": 97,
+      "start": 282.5,
+      "end": 285.5,
+      "text": "and you're going to sample from that uniformly and then use that to determine"
+    },
+    {
+      "id": 98,
+      "start": 285.5,
+      "end": 289.5,
+      "text": "what's the best encoding scheme for, for this given column chunk."
+    },
+    {
+      "id": 99,
+      "start": 289.5,
+      "end": 292.5,
+      "text": "Right? But you just can't do random sampling by just jumping different locations"
+    },
+    {
+      "id": 100,
+      "start": 292.5,
+      "end": 296.5,
+      "text": "because that'll make run-length encoding look terrible."
+    },
+    {
+      "id": 101,
+      "start": 296.5,
+      "end": 302.5,
+      "text": "Right? Because you're going to miss that continuity or repeated values in a sequence."
+    },
+    {
+      "id": 102,
+      "start": 302.5,
+      "end": 306.5,
+      "text": "Likewise, if you just then grab the first, you know, 100 values,"
+    },
+    {
+      "id": 103,
+      "start": 306.5,
+      "end": 309.5,
+      "text": "then it's going to make other schemes look bad because, again,"
+    },
+    {
+      "id": 104,
+      "start": 309.5,
+      "end": 313.5,
+      "text": "you may just hit a bunch of repeated values in the beginning and therefore run-length encoding looks great,"
+    },
+    {
+      "id": 105,
+      "start": 313.5,
+      "end": 316.5,
+      "text": "but that's actually not the most optimal scheme."
+    },
+    {
+      "id": 106,
+      "start": 316.5,
+      "end": 321.5,
+      "text": "So what they're basically going to do is they're going to jump to 10 different locations"
+    },
+    {
+      "id": 107,
+      "start": 321.5,
+      "end": 324.5,
+      "text": "in a column chunk, which is 64,000 values."
+    },
+    {
+      "id": 108,
+      "start": 324.5,
+      "end": 326.5,
+      "text": "So basically 1%."
+    },
+    {
+      "id": 109,
+      "start": 326.5,
+      "end": 330.5,
+      "text": "And then when they jump to that location, they're going to then grab 64 values."
+    },
+    {
+      "id": 110,
+      "start": 330.5,
+      "end": 336.5,
+      "text": "So that gives you sort of the spatial randomness within the column chunk itself,"
+    },
+    {
+      "id": 111,
+      "start": 336.5,
+      "end": 341.5,
+      "text": "but also the continuity of the particularness that you need to figure out whether Arle makes sense."
+    },
+    {
+      "id": 112,
+      "start": 341.5,
+      "end": 345.5,
+      "text": "So then you run the algorithm, figure out what the best encoding scheme is,"
+    },
+    {
+      "id": 113,
+      "start": 345.5,
+      "end": 350.5,
+      "text": "and then, as I said, sometimes the encoding scheme is to produce more outputs,"
+    },
+    {
+      "id": 114,
+      "start": 350.5,
+      "end": 354.5,
+      "text": "and then you can just feed those outputs back into the next encoding scheme."
+    },
+    {
+      "id": 115,
+      "start": 354.5,
+      "end": 355.5,
+      "text": "Yes?"
+    },
+    {
+      "id": 116,
+      "start": 355.5,
+      "end": 358.5,
+      "text": "Is there something special about the greeting algorithm?"
+    },
+    {
+      "id": 117,
+      "start": 358.5,
+      "end": 361.5,
+      "text": "Is there something special about the greeting algorithm as opposed to what?"
+    },
+    {
+      "id": 118,
+      "start": 361.5,
+      "end": 363.5,
+      "text": "I'm trying to open the thresholds."
+    },
+    {
+      "id": 119,
+      "start": 363.5,
+      "end": 365.5,
+      "text": "They're trying all of them."
+    },
+    {
+      "id": 120,
+      "start": 365.5,
+      "end": 366.5,
+      "text": "Or they're trying all of them?"
+    },
+    {
+      "id": 121,
+      "start": 366.5,
+      "end": 372.5,
+      "text": "Yes, so say my original data is this vector of strings, since column of strings."
+    },
+    {
+      "id": 122,
+      "start": 372.5,
+      "end": 374.5,
+      "text": "So this is the algorithm, right?"
+    },
+    {
+      "id": 123,
+      "start": 374.5,
+      "end": 379.5,
+      "text": "It's an integer, so they're literally going to try all of them on the sample."
+    },
+    {
+      "id": 124,
+      "start": 379.5,
+      "end": 385.5,
+      "text": "And they say roughly, it's about 2% overhead of the compression cost."
+    },
+    {
+      "id": 125,
+      "start": 385.5,
+      "end": 390.5,
+      "text": "But presumably, the seldom would do what the data is basically expensive,"
+    },
+    {
+      "id": 126,
+      "start": 390.5,
+      "end": 394.5,
+      "text": "just encode it and start with the real array of these."
+    },
+    {
+      "id": 127,
+      "start": 394.5,
+      "end": 398.5,
+      "text": "Right, so his comment is, basically, what are we doing this?"
+    },
+    {
+      "id": 128,
+      "start": 398.5,
+      "end": 400.5,
+      "text": "It's when we're loading the data into the database, right?"
+    },
+    {
+      "id": 129,
+      "start": 400.5,
+      "end": 406.5,
+      "text": "And so the encoding is an expensive cost, because we're willing to pay that cost upfront once,"
+    },
+    {
+      "id": 130,
+      "start": 406.5,
+      "end": 409.5,
+      "text": "because that's going to make the common case of running queries run faster."
+    },
+    {
+      "id": 131,
+      "start": 409.5,
+      "end": 410.5,
+      "text": "Absolutely, yes."
+    },
+    {
+      "id": 132,
+      "start": 410.5,
+      "end": 413.5,
+      "text": "So they're saying the running this algorithm is a 2% overhead,"
+    },
+    {
+      "id": 133,
+      "start": 413.5,
+      "end": 416.5,
+      "text": "and I think that's a fair trade-off."
+    },
+    {
+      "id": 134,
+      "start": 416.5,
+      "end": 419.5,
+      "text": "Right?"
+    },
+    {
+      "id": 135,
+      "start": 419.5,
+      "end": 423.5,
+      "text": "So in this example here, again, they can just be raw, uncompressed, run like encoding."
+    },
+    {
+      "id": 136,
+      "start": 423.5,
+      "end": 430.5,
+      "text": "There's open-source invitations to do vectorize partial frame of reference,"
+    },
+    {
+      "id": 137,
+      "start": 430.5,
+      "end": 434.5,
+      "text": "and then bit packing, one value we talked about in the dictionary."
+    },
+    {
+      "id": 138,
+      "start": 434.5,
+      "end": 440.5,
+      "text": "So let's say in my stupid example here, it picks that run like the coding is the fastest."
+    },
+    {
+      "id": 139,
+      "start": 440.5,
+      "end": 445.5,
+      "text": "Well, then again, this is going to produce out two columns now, one for the actual values,"
+    },
+    {
+      "id": 140,
+      "start": 445.5,
+      "end": 449.5,
+      "text": "and then the next column is the actual length."
+    },
+    {
+      "id": 141,
+      "start": 449.5,
+      "end": 450.5,
+      "text": "Right?"
+    },
+    {
+      "id": 142,
+      "start": 450.5,
+      "end": 454.5,
+      "text": "And again, they'll recursively try three times for every single output,"
+    },
+    {
+      "id": 143,
+      "start": 454.5,
+      "end": 457.5,
+      "text": "as long as it's something that can be compressed again,"
+    },
+    {
+      "id": 144,
+      "start": 457.5,
+      "end": 460.5,
+      "text": "they'll feed it back into the algorithm and try it again."
+    },
+    {
+      "id": 145,
+      "start": 460.5,
+      "end": 462.5,
+      "text": "Right? Up to three tries."
+    },
+    {
+      "id": 146,
+      "start": 462.5,
+      "end": 465.5,
+      "text": "In the case of, like, you know, if you land with like bit packing,"
+    },
+    {
+      "id": 147,
+      "start": 465.5,
+      "end": 467.5,
+      "text": "there's nothing you can do after that. Right?"
+    },
+    {
+      "id": 148,
+      "start": 467.5,
+      "end": 468.5,
+      "text": "So the algorithm terminates."
+    },
+    {
+      "id": 149,
+      "start": 469.5,
+      "end": 473.5,
+      "text": "So my example here is for integers, but then they have basically decision trees"
+    },
+    {
+      "id": 150,
+      "start": 473.5,
+      "end": 477.5,
+      "text": "for strings and doubles."
+    },
+    {
+      "id": 151,
+      "start": 477.5,
+      "end": 481.5,
+      "text": "And that's, okay, there's the core data types that we care about in databases."
+    },
+    {
+      "id": 152,
+      "start": 481.5,
+      "end": 482.5,
+      "text": "Yes."
+    },
+    {
+      "id": 153,
+      "start": 482.5,
+      "end": 484.5,
+      "text": "No, here, yes."
+    },
+    {
+      "id": 154,
+      "start": 484.5,
+      "end": 486.5,
+      "text": "Does it have a background character?"
+    },
+    {
+      "id": 155,
+      "start": 486.5,
+      "end": 489.5,
+      "text": "Is it important to support the examples, like, layout, and actually,"
+    },
+    {
+      "id": 156,
+      "start": 489.5,
+      "end": 492.5,
+      "text": "because I don't get a complex area where the server will back in these."
+    },
+    {
+      "id": 157,
+      "start": 492.5,
+      "end": 495.5,
+      "text": "This question is, like, do I ever, do I ever backtrack and say,"
+    },
+    {
+      "id": 158,
+      "start": 495.5,
+      "end": 500.5,
+      "text": "like, after recursively applying it, it turns out that what I'm doing is,"
+    },
+    {
+      "id": 159,
+      "start": 500.5,
+      "end": 504.5,
+      "text": "the optimal choice is actually another path down. No."
+    },
+    {
+      "id": 160,
+      "start": 504.5,
+      "end": 507.5,
+      "text": "Not even like the thought of the multiple data, I thought."
+    },
+    {
+      "id": 161,
+      "start": 507.5,
+      "end": 509.5,
+      "text": "But how do you know it's not representative?"
+    },
+    {
+      "id": 162,
+      "start": 509.5,
+      "end": 511.5,
+      "text": "Why do you actually start?"
+    },
+    {
+      "id": 163,
+      "start": 511.5,
+      "end": 512.5,
+      "text": "Oh, oh, yeah, yeah."
+    },
+    {
+      "id": 164,
+      "start": 512.5,
+      "end": 516.5,
+      "text": "So like, yeah, I say, it is basically, if I start encoding and I realize this kind of sucks,"
+    },
+    {
+      "id": 165,
+      "start": 516.5,
+      "end": 517.5,
+      "text": "this is not what, wait, it's working."
+    },
+    {
+      "id": 166,
+      "start": 517.5,
+      "end": 519.5,
+      "text": "It's not working out as well as I thought it was going to do the,"
+    },
+    {
+      "id": 167,
+      "start": 519.5,
+      "end": 522.5,
+      "text": "do the ever go back and try it again."
+    },
+    {
+      "id": 168,
+      "start": 522.5,
+      "end": 523.5,
+      "text": "I don't think they do."
+    },
+    {
+      "id": 169,
+      "start": 523.5,
+      "end": 526.5,
+      "text": "But, I don't know."
+    },
+    {
+      "id": 170,
+      "start": 526.5,
+      "end": 527.5,
+      "text": "That's the same one."
+    },
+    {
+      "id": 171,
+      "start": 527.5,
+      "end": 528.5,
+      "text": "Okay."
+    },
+    {
+      "id": 172,
+      "start": 528.5,
+      "end": 531.5,
+      "text": "Basically, it also, like, what is the cost savings of, like,"
+    },
+    {
+      "id": 173,
+      "start": 531.5,
+      "end": 533.5,
+      "text": "when we were, like, 10% of the data."
+    },
+    {
+      "id": 174,
+      "start": 533.5,
+      "end": 535.5,
+      "text": "They're looking at 1%."
+    },
+    {
+      "id": 175,
+      "start": 535.5,
+      "end": 537.5,
+      "text": "So, oh, one down, I'm obviously, like,"
+    },
+    {
+      "id": 176,
+      "start": 537.5,
+      "end": 539.5,
+      "text": "when was the data recently, when we get the whole data set,"
+    },
+    {
+      "id": 177,
+      "start": 539.5,
+      "end": 542.5,
+      "text": "try all of them, exhaustive, exhaustive search, search faces."
+    },
+    {
+      "id": 178,
+      "start": 542.5,
+      "end": 544.5,
+      "text": "Wait, across the entire data set?"
+    },
+    {
+      "id": 179,
+      "start": 544.5,
+      "end": 547.5,
+      "text": "Yeah, I mean, I guess it's like, I don't feel like,"
+    },
+    {
+      "id": 180,
+      "start": 547.5,
+      "end": 549.5,
+      "text": "it's just simply like, like, when was that anyways?"
+    },
+    {
+      "id": 181,
+      "start": 549.5,
+      "end": 551.5,
+      "text": "Like, it's like, 100 times slower."
+    },
+    {
+      "id": 182,
+      "start": 552.5,
+      "end": 554.5,
+      "text": "Wait, I want to block a little one, one,"
+    },
+    {
+      "id": 183,
+      "start": 554.5,
+      "end": 556.5,
+      "text": "one, terabyte of data, you want to,"
+    },
+    {
+      "id": 184,
+      "start": 556.5,
+      "end": 558.5,
+      "text": "you want to, you want to, you want to, you want to,"
+    },
+    {
+      "id": 185,
+      "start": 558.5,
+      "end": 560.5,
+      "text": "you want to say, one terabyte."
+    },
+    {
+      "id": 186,
+      "start": 560.5,
+      "end": 563.5,
+      "text": "I think it's, no, excuse me, it's one terabyte, right?"
+    },
+    {
+      "id": 187,
+      "start": 563.5,
+      "end": 567.5,
+      "text": "Right, so, yeah, that's not feasible, right?"
+    },
+    {
+      "id": 188,
+      "start": 569.5,
+      "end": 573.5,
+      "text": "And also, too, someone's got to pay for the, the, the compute, right?"
+    },
+    {
+      "id": 189,
+      "start": 573.5,
+      "end": 576.5,
+      "text": "Uh, so, I'm,"
+    },
+    {
+      "id": 190,
+      "start": 577.5,
+      "end": 580.5,
+      "text": "again, it's, it's a tradeoff."
+    },
+    {
+      "id": 191,
+      "start": 580.5,
+      "end": 583.5,
+      "text": "I'm going to pay this competition overhead,"
+    },
+    {
+      "id": 192,
+      "start": 583.5,
+      "end": 585.5,
+      "text": "two percent seems reasonable to me,"
+    },
+    {
+      "id": 193,
+      "start": 585.5,
+      "end": 587.5,
+      "text": "uh, in order to make queries run faster."
+    },
+    {
+      "id": 194,
+      "start": 587.5,
+      "end": 589.5,
+      "text": "And so, if you do the, here's an example, or your example,"
+    },
+    {
+      "id": 195,
+      "start": 589.5,
+      "end": 591.5,
+      "text": "like, just try everything, or backtrack,"
+    },
+    {
+      "id": 196,
+      "start": 591.5,
+      "end": 593.5,
+      "text": "am I going to get another, you know, what,"
+    },
+    {
+      "id": 197,
+      "start": 593.5,
+      "end": 595.5,
+      "text": "what is it going to be that, that percentage improvement?"
+    },
+    {
+      "id": 198,
+      "start": 595.5,
+      "end": 597.5,
+      "text": "Probably not worth it."
+    },
+    {
+      "id": 199,
+      "start": 597.5,
+      "end": 599.5,
+      "text": "Yes?"
+    },
+    {
+      "id": 200,
+      "start": 599.5,
+      "end": 602.5,
+      "text": "I think it's going to be a good, uh, for you to know data."
+    },
+    {
+      "id": 201,
+      "start": 602.5,
+      "end": 604.5,
+      "text": "Stay, stay along, you know, for all time."
+    }
+  ],
+  "language": "en"
+}

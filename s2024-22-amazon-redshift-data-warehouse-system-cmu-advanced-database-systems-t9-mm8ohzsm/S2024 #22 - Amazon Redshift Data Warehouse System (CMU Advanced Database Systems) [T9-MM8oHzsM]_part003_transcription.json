@@ -1,0 +1,1421 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.12,
+      "text": "I'll say in source code line."
+    },
+    {
+      "id": 1,
+      "start": 3.12,
+      "end": 4.24,
+      "text": "Are they more than like,"
+    },
+    {
+      "id": 2,
+      "start": 4.24,
+      "end": 5.0,
+      "text": "a question of how,"
+    },
+    {
+      "id": 3,
+      "start": 5.0,
+      "end": 6.0,
+      "text": "I wondered mine,"
+    },
+    {
+      "id": 4,
+      "start": 6.0,
+      "end": 9.6,
+      "text": "because if it's like pre-compiled operators,"
+    },
+    {
+      "id": 5,
+      "start": 9.6,
+      "end": 13.08,
+      "text": "it should, like one operator's not gonna be more than like,"
+    },
+    {
+      "id": 6,
+      "start": 13.08,
+      "end": 14.44,
+      "text": "a thousand lines, right?"
+    },
+    {
+      "id": 7,
+      "start": 14.44,
+      "end": 15.4,
+      "text": "So, so it's a state that is like,"
+    },
+    {
+      "id": 8,
+      "start": 15.4,
+      "end": 17.6,
+      "text": "how big in these programs actually be?"
+    },
+    {
+      "id": 9,
+      "start": 17.6,
+      "end": 20.84,
+      "text": "Because like, you know, if it's,"
+    },
+    {
+      "id": 10,
+      "start": 20.84,
+      "end": 22.92,
+      "text": "because if you're using some pre-comp,"
+    },
+    {
+      "id": 11,
+      "start": 22.92,
+      "end": 24.6,
+      "text": "pre-compiled primitives for certain parts"
+    },
+    {
+      "id": 12,
+      "start": 24.6,
+      "end": 25.68,
+      "text": "of the lower leaves,"
+    },
+    {
+      "id": 13,
+      "start": 25.68,
+      "end": 27.48,
+      "text": "but you know, what about everything else?"
+    },
+    {
+      "id": 14,
+      "start": 27.48,
+      "end": 29.6,
+      "text": "How much can that be?"
+    },
+    {
+      "id": 15,
+      "start": 29.6,
+      "end": 30.8,
+      "text": "I can mean the thousands, right?"
+    },
+    {
+      "id": 16,
+      "start": 30.8,
+      "end": 32.6,
+      "text": "Like, for really big queries with a much."
+    },
+    {
+      "id": 17,
+      "start": 32.6,
+      "end": 33.72,
+      "text": "If they, it's fine."
+    },
+    {
+      "id": 18,
+      "start": 33.72,
+      "end": 36.24,
+      "text": "Just specifically for the pre-compiled primitives."
+    },
+    {
+      "id": 19,
+      "start": 36.24,
+      "end": 39.2,
+      "text": "Like, the pre-compiled primitives are usually pretty tight, right?"
+    },
+    {
+      "id": 20,
+      "start": 39.2,
+      "end": 40.04,
+      "text": "It goes in a small one."
+    },
+    {
+      "id": 21,
+      "start": 40.04,
+      "end": 40.88,
+      "text": "Yeah."
+    },
+    {
+      "id": 22,
+      "start": 40.88,
+      "end": 41.56,
+      "text": "So everything else, like,"
+    },
+    {
+      "id": 23,
+      "start": 41.56,
+      "end": 42.56,
+      "text": "it's all the,"
+    },
+    {
+      "id": 24,
+      "start": 42.56,
+      "end": 44.16,
+      "text": "so the scaffolding around it"
+    },
+    {
+      "id": 25,
+      "start": 44.16,
+      "end": 46.08,
+      "text": "that then calls it as pre-compiled primitives."
+    },
+    {
+      "id": 26,
+      "start": 46.08,
+      "end": 46.8,
+      "text": "That's where they weren't,"
+    },
+    {
+      "id": 27,
+      "start": 46.8,
+      "end": 48.92,
+      "text": "they were trying to avoid compiling that."
+    },
+    {
+      "id": 28,
+      "start": 48.92,
+      "end": 50.56,
+      "text": "What's the point of having the pre-compiled primitives?"
+    },
+    {
+      "id": 29,
+      "start": 50.56,
+      "end": 51.56,
+      "text": "So, you're gonna,"
+    },
+    {
+      "id": 30,
+      "start": 51.56,
+      "end": 52.16,
+      "text": "you're gonna,"
+    },
+    {
+      "id": 31,
+      "start": 52.16,
+      "end": 53.6,
+      "text": "why have the pre-compiled primitives"
+    },
+    {
+      "id": 32,
+      "start": 53.6,
+      "end": 54.96,
+      "text": "if you're gonna, you know,"
+    },
+    {
+      "id": 33,
+      "start": 54.96,
+      "end": 55.76,
+      "text": "be able to,"
+    },
+    {
+      "id": 34,
+      "start": 55.76,
+      "end": 56.48,
+      "text": "you know, be able to,"
+    },
+    {
+      "id": 35,
+      "start": 56.48,
+      "end": 57.48,
+      "text": "you know, be able to,"
+    },
+    {
+      "id": 36,
+      "start": 57.48,
+      "end": 58.48,
+      "text": "be able to, you know, be able to,"
+    },
+    {
+      "id": 37,
+      "start": 59.2,
+      "end": 60.8,
+      "text": "I think the paper talks about how,"
+    },
+    {
+      "id": 38,
+      "start": 62.16,
+      "end": 63.84,
+      "text": "they come back and keep saying that,"
+    },
+    {
+      "id": 39,
+      "start": 63.84,
+      "end": 65.6,
+      "text": "I think it's reduced compilation calls."
+    },
+    {
+      "id": 40,
+      "start": 69.64,
+      "end": 70.64,
+      "text": "But it makes,"
+    },
+    {
+      "id": 41,
+      "start": 70.64,
+      "end": 71.68,
+      "text": "I mean, I think it makes sense,"
+    },
+    {
+      "id": 42,
+      "start": 71.68,
+      "end": 72.84,
+      "text": "because you can imagine like,"
+    },
+    {
+      "id": 43,
+      "start": 76.04,
+      "end": 78.36,
+      "text": "you know, here's this one piece of code"
+    },
+    {
+      "id": 44,
+      "start": 78.36,
+      "end": 81.08,
+      "text": "that I'm gonna keep compiling it open over again,"
+    },
+    {
+      "id": 45,
+      "start": 81.08,
+      "end": 82.96,
+      "text": "at their scale,"
+    },
+    {
+      "id": 46,
+      "start": 82.96,
+      "end": 84.76,
+      "text": "if you can compile it once and reuse it,"
+    },
+    {
+      "id": 47,
+      "start": 84.76,
+      "end": 86.68,
+      "text": "I think it makes a huge difference."
+    },
+    {
+      "id": 48,
+      "start": 87.64,
+      "end": 88.48,
+      "text": "And they talk about again,"
+    },
+    {
+      "id": 49,
+      "start": 88.48,
+      "end": 90.68,
+      "text": "there's this overhead of,"
+    },
+    {
+      "id": 50,
+      "start": 90.68,
+      "end": 92.12,
+      "text": "as we saw before, you know,"
+    },
+    {
+      "id": 51,
+      "start": 92.12,
+      "end": 93.76,
+      "text": "with the pre-compiled primitives,"
+    },
+    {
+      "id": 52,
+      "start": 93.76,
+      "end": 96.48,
+      "text": "you know, invoking of functions not free at runtime,"
+    },
+    {
+      "id": 53,
+      "start": 96.48,
+      "end": 99.04,
+      "text": "obviously, because it's a jump call on the CPU,"
+    },
+    {
+      "id": 54,
+      "start": 99.04,
+      "end": 103.12,
+      "text": "but if you do it on a batch of data in a vector,"
+    },
+    {
+      "id": 55,
+      "start": 103.12,
+      "end": 104.4,
+      "text": "then it gets amortized."
+    },
+    {
+      "id": 56,
+      "start": 106.08,
+      "end": 107.4,
+      "text": "And it becomes negligible."
+    },
+    {
+      "id": 57,
+      "start": 110.52,
+      "end": 112.04,
+      "text": "So, this would be,"
+    },
+    {
+      "id": 58,
+      "start": 112.04,
+      "end": 112.96,
+      "text": "I mean, well, talk about this at the end,"
+    },
+    {
+      "id": 59,
+      "start": 112.96,
+      "end": 113.8,
+      "text": "but like,"
+    },
+    {
+      "id": 60,
+      "start": 113.8,
+      "end": 115.24,
+      "text": "Amazon's not stupid."
+    },
+    {
+      "id": 61,
+      "start": 116.2,
+      "end": 119.2,
+      "text": "They have all the metrics and telemetry"
+    },
+    {
+      "id": 62,
+      "start": 119.2,
+      "end": 121.44,
+      "text": "across their entire system."
+    },
+    {
+      "id": 63,
+      "start": 121.44,
+      "end": 123.36,
+      "text": "Like, they can identify,"
+    },
+    {
+      "id": 64,
+      "start": 123.36,
+      "end": 125.36,
+      "text": "here's the part where we're, you know,"
+    },
+    {
+      "id": 65,
+      "start": 125.36,
+      "end": 127.4,
+      "text": "here's a part where it's super inefficient for us,"
+    },
+    {
+      "id": 66,
+      "start": 127.4,
+      "end": 128.88,
+      "text": "and they can introduce caching and other things"
+    },
+    {
+      "id": 67,
+      "start": 128.88,
+      "end": 130.6,
+      "text": "to speed things up."
+    },
+    {
+      "id": 68,
+      "start": 130.6,
+      "end": 131.68,
+      "text": "So it's not like they designed this"
+    },
+    {
+      "id": 69,
+      "start": 131.68,
+      "end": 132.24,
+      "text": "because they thought,"
+    },
+    {
+      "id": 70,
+      "start": 132.24,
+      "end": 134.28,
+      "text": "oh, this one, let's go do this, right?"
+    },
+    {
+      "id": 71,
+      "start": 134.28,
+      "end": 135.32,
+      "text": "They did it for a reason."
+    },
+    {
+      "id": 72,
+      "start": 137.28,
+      "end": 139.0,
+      "text": "And so like, to your point, like, yeah,"
+    },
+    {
+      "id": 73,
+      "start": 139.0,
+      "end": 140.2,
+      "text": "who cares about compiling the same,"
+    },
+    {
+      "id": 74,
+      "start": 140.2,
+      "end": 142.36,
+      "text": "you know, same five-line function open ever again?"
+    },
+    {
+      "id": 75,
+      "start": 142.36,
+      "end": 144.36,
+      "text": "Think of again, on Amazon scale,"
+    },
+    {
+      "id": 76,
+      "start": 144.44,
+      "end": 147.08,
+      "text": "you're doing this a billion times a day,"
+    },
+    {
+      "id": 77,
+      "start": 147.08,
+      "end": 148.88,
+      "text": "that starts to add up."
+    },
+    {
+      "id": 78,
+      "start": 148.88,
+      "end": 152.08,
+      "text": "And so, you know, this probably saves them,"
+    },
+    {
+      "id": 79,
+      "start": 152.08,
+      "end": 154.84,
+      "text": "again, a million dollars a year to have this."
+    },
+    {
+      "id": 80,
+      "start": 156.28,
+      "end": 157.88,
+      "text": "And as I said, like, the customer's happy too,"
+    },
+    {
+      "id": 81,
+      "start": 157.88,
+      "end": 159.72,
+      "text": "because like, now queries are on super fast,"
+    },
+    {
+      "id": 82,
+      "start": 159.72,
+      "end": 160.48,
+      "text": "because you're just stitching"
+    },
+    {
+      "id": 83,
+      "start": 160.48,
+      "end": 162.44,
+      "text": "a bunch of pre-copal stuff put together."
+    },
+    {
+      "id": 84,
+      "start": 165.4,
+      "end": 166.56,
+      "text": "I don't think the paper talks about this,"
+    },
+    {
+      "id": 85,
+      "start": 166.56,
+      "end": 167.48,
+      "text": "but I know that, you know,"
+    },
+    {
+      "id": 86,
+      "start": 167.48,
+      "end": 169.32,
+      "text": "one of our students did an internship with them"
+    },
+    {
+      "id": 87,
+      "start": 169.32,
+      "end": 170.24,
+      "text": "and worked on this project."
+    },
+    {
+      "id": 88,
+      "start": 170.24,
+      "end": 173.96,
+      "text": "Like, they basically keep track of,"
+    },
+    {
+      "id": 89,
+      "start": 173.96,
+      "end": 176.0,
+      "text": "in the cache, like, here's all the source code,"
+    },
+    {
+      "id": 90,
+      "start": 176.0,
+      "end": 177.8,
+      "text": "and then that they've ever generated,"
+    },
+    {
+      "id": 91,
+      "start": 177.8,
+      "end": 179.48,
+      "text": "and they have different compiled versions of it"
+    },
+    {
+      "id": 92,
+      "start": 179.48,
+      "end": 180.96,
+      "text": "for the different versions of Redshift,"
+    },
+    {
+      "id": 93,
+      "start": 180.96,
+      "end": 182.44,
+      "text": "they've deployed, and they're different hardware"
+    },
+    {
+      "id": 94,
+      "start": 182.44,
+      "end": 183.44,
+      "text": "that's out there, right?"
+    },
+    {
+      "id": 95,
+      "start": 183.44,
+      "end": 185.36,
+      "text": "Because Amazon's always putting out"
+    },
+    {
+      "id": 96,
+      "start": 185.36,
+      "end": 186.88,
+      "text": "new instant types and so forth."
+    },
+    {
+      "id": 97,
+      "start": 186.88,
+      "end": 190.28,
+      "text": "And they don't really tell you exactly what the CPU is,"
+    },
+    {
+      "id": 98,
+      "start": 190.28,
+      "end": 193.52,
+      "text": "that's all hidden from you, but, you know,"
+    },
+    {
+      "id": 99,
+      "start": 193.52,
+      "end": 195.24,
+      "text": "they obviously upgrade things over time."
+    },
+    {
+      "id": 100,
+      "start": 195.24,
+      "end": 200.08,
+      "text": "So they have the ability to have background workers go through"
+    },
+    {
+      "id": 101,
+      "start": 200.08,
+      "end": 202.0,
+      "text": "look in the cache, grab the original source code,"
+    },
+    {
+      "id": 102,
+      "start": 202.0,
+      "end": 204.88,
+      "text": "and then recompile it for the new versions."
+    },
+    {
+      "id": 103,
+      "start": 204.88,
+      "end": 206.48,
+      "text": "So it's not just like for this fragment,"
+    },
+    {
+      "id": 104,
+      "start": 206.48,
+      "end": 208.12,
+      "text": "here's exactly one binary version."
+    },
+    {
+      "id": 105,
+      "start": 208.12,
+      "end": 211.36,
+      "text": "There's additional qualifiers you would have"
+    },
+    {
+      "id": 106,
+      "start": 211.36,
+      "end": 213.08,
+      "text": "to select what version of the binary you wanted,"
+    },
+    {
+      "id": 107,
+      "start": 213.08,
+      "end": 215.44,
+      "text": "and we solve the same thing for the yellow brick."
+    },
+    {
+      "id": 108,
+      "start": 219.28,
+      "end": 221.16,
+      "text": "All right, so the other thing that the paper talked about,"
+    },
+    {
+      "id": 109,
+      "start": 221.16,
+      "end": 224.28,
+      "text": "although it's rather short, but we can discuss a little bit,"
+    },
+    {
+      "id": 110,
+      "start": 224.28,
+      "end": 227.04,
+      "text": "is that they have this hardware acceleration layer"
+    },
+    {
+      "id": 111,
+      "start": 227.04,
+      "end": 231.72,
+      "text": "called Aqua, the advanced query accelerator for Redshift."
+    },
+    {
+      "id": 112,
+      "start": 232.72,
+      "end": 236.28,
+      "text": "As far as I can tell, this is just for Redshift and not Spectrum."
+    },
+    {
+      "id": 113,
+      "start": 238.76,
+      "end": 240.32,
+      "text": "All right, because Spectrum is kind of trying to go"
+    },
+    {
+      "id": 114,
+      "start": 240.32,
+      "end": 244.68,
+      "text": "against directly S3 storage, but I might be wrong with this."
+    },
+    {
+      "id": 115,
+      "start": 244.68,
+      "end": 249.68,
+      "text": "But basically they introduced a additional caching,"
+    },
+    {
+      "id": 116,
+      "start": 250.72,
+      "end": 253.12,
+      "text": "what they call a computational storage layer,"
+    },
+    {
+      "id": 117,
+      "start": 253.12,
+      "end": 256.48,
+      "text": "that sits in between the worker nodes and the storage layer,"
+    },
+    {
+      "id": 118,
+      "start": 256.48,
+      "end": 258.6,
+      "text": "that has a bunch FPGAs that you can do"
+    },
+    {
+      "id": 119,
+      "start": 258.6,
+      "end": 261.0,
+      "text": "predicate pushdown and aggregation pushdown"
+    },
+    {
+      "id": 120,
+      "start": 261.0,
+      "end": 266.0,
+      "text": "into these devices, and do a bunch of computation on them"
+    },
+    {
+      "id": 121,
+      "start": 266.32,
+      "end": 269.16,
+      "text": "before you hand it off up to the worker."
+    },
+    {
+      "id": 122,
+      "start": 269.16,
+      "end": 270.88,
+      "text": "So let's say that like the worker says,"
+    },
+    {
+      "id": 123,
+      "start": 270.88,
+      "end": 273.16,
+      "text": "I wanna get some data, I don't want,"
+    },
+    {
+      "id": 124,
+      "start": 273.16,
+      "end": 275.16,
+      "text": "with this predicate like this."
+    },
+    {
+      "id": 125,
+      "start": 275.16,
+      "end": 278.0,
+      "text": "And so instead of going to directly the storage,"
+    },
+    {
+      "id": 126,
+      "start": 278.0,
+      "end": 283.0,
+      "text": "you go to Aqua, and you say, this is the data I wanna process."
+    },
+    {
+      "id": 127,
+      "start": 283.0,
+      "end": 286.04,
+      "text": "I wanna process, here's the where clause I want for it."
+    },
+    {
+      "id": 128,
+      "start": 286.04,
+      "end": 288.4,
+      "text": "And then this thing goes down to the storage layer,"
+    },
+    {
+      "id": 129,
+      "start": 288.4,
+      "end": 292.68,
+      "text": "and just makes the raw get call to S3 or whatever to get it,"
+    },
+    {
+      "id": 130,
+      "start": 292.68,
+      "end": 295.88,
+      "text": "brings it back into this side, does the processing on it"
+    },
+    {
+      "id": 131,
+      "start": 295.88,
+      "end": 300.88,
+      "text": "and the FPGA, and then shoves it back up to the worker"
+    },
+    {
+      "id": 132,
+      "start": 301.16,
+      "end": 303.2,
+      "text": "for the computation."
+    },
+    {
+      "id": 133,
+      "start": 305.48,
+      "end": 308.48,
+      "text": "And the paper talks about how that this layer is not"
+    },
+    {
+      "id": 134,
+      "start": 308.48,
+      "end": 312.28,
+      "text": "actually tied to your cluster, your workers,"
+    },
+    {
+      "id": 135,
+      "start": 312.28,
+      "end": 314.56,
+      "text": "your data warehouse instance."
+    },
+    {
+      "id": 136,
+      "start": 314.56,
+      "end": 318.76,
+      "text": "This is a global service that can be reused from multi-tenor"
+    },
+    {
+      "id": 137,
+      "start": 318.76,
+      "end": 320.28,
+      "text": "across any possible cost per."
+    },
+    {
+      "id": 138,
+      "start": 320.28,
+      "end": 322.12,
+      "text": "Simulator of the compilation service was across"
+    },
+    {
+      "id": 139,
+      "start": 322.12,
+      "end": 325.68,
+      "text": "all the entire fleet of Amazon Redshift users."
+    },
+    {
+      "id": 140,
+      "start": 325.68,
+      "end": 328.2,
+      "text": "Same thing for this, this was like used by anybody."
+    },
+    {
+      "id": 141,
+      "start": 330.52,
+      "end": 333.88,
+      "text": "And they talk about how the,"
+    },
+    {
+      "id": 142,
+      "start": 333.88,
+      "end": 336.56,
+      "text": "when the advantage of having this additional separation"
+    },
+    {
+      "id": 143,
+      "start": 336.56,
+      "end": 339.64,
+      "text": "between the storage layer and the work layer,"
+    },
+    {
+      "id": 144,
+      "start": 339.64,
+      "end": 341.6,
+      "text": "is that you can down do cluster resizing,"
+    },
+    {
+      "id": 145,
+      "start": 341.6,
+      "end": 344.0,
+      "text": "the worker level, and not worry about how much shuffle"
+    },
+    {
+      "id": 146,
+      "start": 344.0,
+      "end": 347.52,
+      "text": "things around, because this thing is independent of it."
+    },
+    {
+      "id": 147,
+      "start": 347.52,
+      "end": 349.36,
+      "text": "I think that's a little bit of them being a remnant"
+    },
+    {
+      "id": 148,
+      "start": 349.36,
+      "end": 351.68,
+      "text": "or the artifact of them, versioning starting off"
+    },
+    {
+      "id": 149,
+      "start": 351.68,
+      "end": 353.2,
+      "text": "being a shared nothing system."
+    },
+    {
+      "id": 150,
+      "start": 354.68,
+      "end": 357.76,
+      "text": "So this was introduced in 2021,"
+    },
+    {
+      "id": 151,
+      "start": 359.36,
+      "end": 362.76,
+      "text": "which is not that long ago, three years ago,"
+    },
+    {
+      "id": 152,
+      "start": 362.76,
+      "end": 364.6,
+      "text": "the paper's 2022, so they're talking about it,"
+    },
+    {
+      "id": 153,
+      "start": 364.6,
+      "end": 366.28,
+      "text": "but the paper's published in 2021"
+    },
+    {
+      "id": 154,
+      "start": 366.28,
+      "end": 367.88,
+      "text": "by the time it came out in 2022."
+    },
+    {
+      "id": 155,
+      "start": 368.88,
+      "end": 371.84,
+      "text": "And then I think around 2022, people noticed"
+    },
+    {
+      "id": 156,
+      "start": 371.84,
+      "end": 375.36,
+      "text": "that you can no longer enable this feature,"
+    },
+    {
+      "id": 157,
+      "start": 375.36,
+      "end": 378.72,
+      "text": "and I think the response was, oh yeah, it's just always on."
+    },
+    {
+      "id": 158,
+      "start": 380.12,
+      "end": 383.52,
+      "text": "But as far as I can tell, as far as I know,"
+    },
+    {
+      "id": 159,
+      "start": 384.6,
+      "end": 388.08,
+      "text": "well, I haven't cut anything here, that this was phased out."
+    },
+    {
+      "id": 160,
+      "start": 388.08,
+      "end": 391.52,
+      "text": "They actually got rid of this, but it didn't publicly"
+    },
+    {
+      "id": 161,
+      "start": 391.52,
+      "end": 394.56,
+      "text": "announce it, and instead what they did was,"
+    },
+    {
+      "id": 162,
+      "start": 394.56,
+      "end": 398.4,
+      "text": "at the storage layer, they have these,"
+    },
+    {
+      "id": 163,
+      "start": 399.4,
+      "end": 400.76,
+      "text": "they've been mentioned Nitro."
+    },
+    {
+      "id": 164,
+      "start": 400.76,
+      "end": 402.96,
+      "text": "Nitro is the, Nitro's on the single thing,"
+    },
+    {
+      "id": 165,
+      "start": 402.96,
+      "end": 407.28,
+      "text": "but that's their sort of, what they call the project"
+    },
+    {
+      "id": 166,
+      "start": 407.28,
+      "end": 408.88,
+      "text": "of how the running of their own hypervisor,"
+    },
+    {
+      "id": 167,
+      "start": 408.88,
+      "end": 410.56,
+      "text": "the specialized harbor that they're running"
+    },
+    {
+      "id": 168,
+      "start": 410.56,
+      "end": 414.8,
+      "text": "for all the different instances on Amazon."
+    },
+    {
+      "id": 169,
+      "start": 414.8,
+      "end": 418.96,
+      "text": "And they have custom silicon on these Nitro instances"
+    },
+    {
+      "id": 170,
+      "start": 418.96,
+      "end": 423.96,
+      "text": "to do networking, do additional processing for EBS"
+    },
+    {
+      "id": 171,
+      "start": 424.6,
+      "end": 427.08,
+      "text": "and storing things, and so one of the things that they've added"
+    },
+    {
+      "id": 172,
+      "start": 427.08,
+      "end": 429.6,
+      "text": "is the hardware acceleration through Nitro"
+    },
+    {
+      "id": 173,
+      "start": 429.6,
+      "end": 431.72,
+      "text": "and additional card to do the kind of stuff"
+    },
+    {
+      "id": 174,
+      "start": 431.72,
+      "end": 433.64,
+      "text": "that they were doing originally on the FPGA."
+    },
+    {
+      "id": 175,
+      "start": 435.28,
+      "end": 436.28,
+      "text": "Right?"
+    },
+    {
+      "id": 176,
+      "start": 437.52,
+      "end": 438.92,
+      "text": "So the,"
+    },
+    {
+      "id": 177,
+      "start": 442.28,
+      "end": 444.92,
+      "text": "so this aspect is unique, but this sort of seemed like"
+    },
+    {
+      "id": 178,
+      "start": 444.92,
+      "end": 448.64,
+      "text": "this was like a, not an afterthought, has it this."
+    },
+    {
+      "id": 179,
+      "start": 448.64,
+      "end": 452.88,
+      "text": "Like, snowflake didn't really do this."
+    },
+    {
+      "id": 180,
+      "start": 452.88,
+      "end": 453.88,
+      "text": "It's basically doing trying to"
+    },
+    {
+      "id": 181,
+      "start": 453.88,
+      "end": 457.96,
+      "text": "get pushed down to the storage, but instead of adding"
+    },
+    {
+      "id": 182,
+      "start": 457.96,
+      "end": 461.08,
+      "text": "much more stuff down here, they just had the extra layer"
+    },
+    {
+      "id": 183,
+      "start": 461.08,
+      "end": 462.2,
+      "text": "in the middle, yes."
+    },
+    {
+      "id": 184,
+      "start": 462.2,
+      "end": 464.72,
+      "text": "Dremel does this as well, right, before it's shuffle."
+    },
+    {
+      "id": 185,
+      "start": 464.72,
+      "end": 466.0,
+      "text": "With FPGA's?"
+    },
+    {
+      "id": 186,
+      "start": 466.0,
+      "end": 467.6,
+      "text": "Yeah, you said it in the lecture."
+    },
+    {
+      "id": 187,
+      "start": 467.6,
+      "end": 468.44,
+      "text": "Dremel?"
+    },
+    {
+      "id": 188,
+      "start": 468.44,
+      "end": 469.2,
+      "text": "That's in BigQuery."
+    },
+    {
+      "id": 189,
+      "start": 469.2,
+      "end": 470.72,
+      "text": "Oh, BigQuery, yeah, sorry, yeah."
+    },
+    {
+      "id": 190,
+      "start": 470.72,
+      "end": 472.84,
+      "text": "Oh, sorry, I said Dremio."
+    },
+    {
+      "id": 191,
+      "start": 472.84,
+      "end": 474.8,
+      "text": "Yeah, sorry, Dremel, yes."
+    },
+    {
+      "id": 192,
+      "start": 475.88,
+      "end": 478.6,
+      "text": "But that's like on the shuffle nodes and cells,"
+    },
+    {
+      "id": 193,
+      "start": 478.6,
+      "end": 481.28,
+      "text": "not like the storage layer, right?"
+    },
+    {
+      "id": 194,
+      "start": 481.28,
+      "end": 483.6,
+      "text": "I think what Amazon has done is pushed this kind of stuff"
+    },
+    {
+      "id": 195,
+      "start": 483.72,
+      "end": 486.0,
+      "text": "down to the storage layer down here."
+    },
+    {
+      "id": 196,
+      "start": 486.0,
+      "end": 488.6,
+      "text": "And so instead of having a separate standalone service,"
+    },
+    {
+      "id": 197,
+      "start": 488.6,
+      "end": 491.16,
+      "text": "which this was, it's all now just down here."
+    },
+    {
+      "id": 198,
+      "start": 493.6,
+      "end": 494.2,
+      "text": "Right?"
+    },
+    {
+      "id": 199,
+      "start": 494.2,
+      "end": 495.84,
+      "text": "You see this with S3?"
+    },
+    {
+      "id": 200,
+      "start": 495.84,
+      "end": 499.48,
+      "text": "Like, they have an S3 select API."
+    },
+    {
+      "id": 201,
+      "start": 499.48,
+      "end": 501.88,
+      "text": "You can basically do ware clauses on S3,"
+    },
+    {
+      "id": 202,
+      "start": 501.88,
+      "end": 505.6,
+      "text": "independent of, of Redshift."
+    },
+    {
+      "id": 203,
+      "start": 505.6,
+      "end": 508.0,
+      "text": "And I suspect that's how they're relying"
+    },
+    {
+      "id": 204,
+      "start": 508.0,
+      "end": 509.48,
+      "text": "on the same kind of mechanism."
+    },
+    {
+      "id": 205,
+      "start": 510.48,
+      "end": 513.64,
+      "text": "But there wasn't really a big announcement."
+    },
+    {
+      "id": 206,
+      "start": 513.64,
+      "end": 517.04,
+      "text": "This aqua just sort of disappeared"
+    },
+    {
+      "id": 207,
+      "start": 517.04,
+      "end": 519.24,
+      "text": "as far as I can tell."
+    },
+    {
+      "id": 208,
+      "start": 519.24,
+      "end": 523.04,
+      "text": "Without acknowledging that it's been removed."
+    },
+    {
+      "id": 209,
+      "start": 523.04,
+      "end": 527.52,
+      "text": "So with the query optimizer, then they don't really say much."
+    },
+    {
+      "id": 210,
+      "start": 527.52,
+      "end": 530.04,
+      "text": "I know that it's still based on, you know,"
+    },
+    {
+      "id": 211,
+      "start": 530.04,
+      "end": 532.76,
+      "text": "it's obviously been heavily modified over the years,"
+    },
+    {
+      "id": 212,
+      "start": 532.76,
+      "end": 535.32,
+      "text": "but it's still heavily based on, in postgres, this query"
+    },
+    {
+      "id": 213,
+      "start": 535.32,
+      "end": 536.92,
+      "text": "optimizer."
+    },
+    {
+      "id": 214,
+      "start": 536.92,
+      "end": 539.4,
+      "text": "So it's going to be a bunch of heuristics and rules"
+    },
+    {
+      "id": 215,
+      "start": 539.4,
+      "end": 542.28,
+      "text": "in the very beginning to do some rewriting."
+    },
+    {
+      "id": 216,
+      "start": 542.28,
+      "end": 544.92,
+      "text": "It's part of what this piece down here does."
+    },
+    {
+      "id": 217,
+      "start": 544.92,
+      "end": 548.08,
+      "text": "And then to do some going to cost-based search"
+    },
+    {
+      "id": 218,
+      "start": 548.08,
+      "end": 550.92,
+      "text": "to figure out the optimal join-on ring."
+    },
+    {
+      "id": 219,
+      "start": 550.92,
+      "end": 556.32,
+      "text": "And again, unlike in Dremel and unlike in Databricks,"
+    },
+    {
+      "id": 220,
+      "start": 556.32,
+      "end": 557.52,
+      "text": "where they assume they're not going to have"
+    },
+    {
+      "id": 221,
+      "start": 557.52,
+      "end": 558.72,
+      "text": "queries to statistics."
+    },
+    {
+      "id": 222,
+      "start": 558.72,
+      "end": 562.32,
+      "text": "In the case of Redshift, if it's on Redshift Manage Storage,"
+    },
+    {
+      "id": 223,
+      "start": 562.32,
+      "end": 565.48,
+      "text": "they'll run analyze and collect the data"
+    },
+    {
+      "id": 224,
+      "start": 565.48,
+      "end": 568.16,
+      "text": "and build statistical models that they're"
+    },
+    {
+      "id": 225,
+      "start": 568.16,
+      "end": 571.76,
+      "text": "memfied into the cost-based optimizations."
+    },
+    {
+      "id": 226,
+      "start": 571.76,
+      "end": 574.48,
+      "text": "For spectrum queries that are running after raw data,"
+    },
+    {
+      "id": 227,
+      "start": 574.48,
+      "end": 577.16,
+      "text": "going after raw data on S3, as far as they can tell,"
+    },
+    {
+      "id": 228,
+      "start": 577.16,
+      "end": 582.56,
+      "text": "the only thing they can do is go extract the metadata"
+    },
+    {
+      "id": 229,
+      "start": 582.56,
+      "end": 585.0,
+      "text": "in the headers of folders of parking or files"
+    },
+    {
+      "id": 230,
+      "start": 585.0,
+      "end": 588.08,
+      "text": "and try to push down filters based on those zone maps."
+    },
+    {
+      "id": 231,
+      "start": 588.08,
+      "end": 590.88,
+      "text": "Like basic min-max clauses and things like that."
+    },
+    {
+      "id": 232,
+      "start": 590.88,
+      "end": 596.16,
+      "text": "And I think that gets cached up into the compute layer."
+    },
+    {
+      "id": 233,
+      "start": 596.16,
+      "end": 598.04,
+      "text": "So you're not always going to read reading S3"
+    },
+    {
+      "id": 234,
+      "start": 598.04,
+      "end": 600.56,
+      "text": "for every single file."
+    },
+    {
+      "id": 235,
+      "start": 600.56,
+      "end": 601.4,
+      "text": "The paper makes a-"
+    }
+  ],
+  "language": "en"
+}

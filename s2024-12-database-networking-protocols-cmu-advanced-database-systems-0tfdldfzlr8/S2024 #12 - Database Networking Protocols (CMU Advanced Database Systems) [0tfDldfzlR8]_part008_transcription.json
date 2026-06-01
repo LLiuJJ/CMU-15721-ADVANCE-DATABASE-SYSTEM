@@ -1,0 +1,209 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 5.8,
+      "text": "a data frame. Data frame is like the table of extraction in panels and a bunch of other Python"
+    },
+    {
+      "id": 1,
+      "start": 5.8,
+      "end": 12.8,
+      "text": "systems. So in this case here, the chart showing that the query part is not that, it's not,"
+    },
+    {
+      "id": 2,
+      "start": 12.8,
+      "end": 16.12,
+      "text": "it's not, it's not, it takes them to a long time, relative to all the cost of actually"
+    },
+    {
+      "id": 3,
+      "start": 16.12,
+      "end": 21.76,
+      "text": "copying the data off the bits we got from the server and converting it into the data frame."
+    },
+    {
+      "id": 4,
+      "start": 21.76,
+      "end": 28.12,
+      "text": "Again, ADBC and Arrow solve this problem because if your Python code can interact natively"
+    },
+    {
+      "id": 5,
+      "start": 28.12,
+      "end": 32.16,
+      "text": "operate on Arrow data, then you don't have to do this conversion. But if your system"
+    },
+    {
+      "id": 6,
+      "start": 32.16,
+      "end": 37.56,
+      "text": "doesn't support ADBC like my SQL Postgres, then you have to pay this penalty. So the"
+    },
+    {
+      "id": 7,
+      "start": 37.56,
+      "end": 41.8,
+      "text": "gist of what they're doing is that they have this thing called Connector X. It is using"
+    },
+    {
+      "id": 8,
+      "start": 41.8,
+      "end": 47.4,
+      "text": "folders and a couple other systems, I think as well like moden. And basically your SQL"
+    },
+    {
+      "id": 9,
+      "start": 47.4,
+      "end": 52.12,
+      "text": "query shows up that you write in Python. You then also provide some information about how"
+    },
+    {
+      "id": 10,
+      "start": 52.12,
+      "end": 57.96,
+      "text": "to split that query up into subqueries or partition queries like range partitioning."
+    },
+    {
+      "id": 11,
+      "start": 57.96,
+      "end": 61.6,
+      "text": "And then you send out multiple queries at the same time from different threads that are"
+    },
+    {
+      "id": 12,
+      "start": 61.6,
+      "end": 65.72,
+      "text": "going to get a portion of the data that you would want to put into your Python program."
+    },
+    {
+      "id": 13,
+      "start": 65.72,
+      "end": 71.08,
+      "text": "And then each thread then going to populate the data frame at different chunks. So instead"
+    },
+    {
+      "id": 14,
+      "start": 71.08,
+      "end": 75.52,
+      "text": "of taking one SQL query, get back a giant result and then one thread populate the table,"
+    },
+    {
+      "id": 15,
+      "start": 75.52,
+      "end": 79.24,
+      "text": "they take one SQL query, rewrite it by adding like additional expressions in the where"
+    },
+    {
+      "id": 16,
+      "start": 79.24,
+      "end": 83.12,
+      "text": "clause, then send that out in parallel, get back multiple results and then the threads"
+    },
+    {
+      "id": 17,
+      "start": 83.12,
+      "end": 87.08,
+      "text": "put it together. I just want to bring this up because it's an alternative if you don't"
+    },
+    {
+      "id": 18,
+      "start": 87.08,
+      "end": 91.44,
+      "text": "have ADBC, this is another approach to do this. All right, well well over time, so I"
+    },
+    {
+      "id": 19,
+      "start": 91.44,
+      "end": 96.88,
+      "text": "apologize. All right, so that we can protocol matters a lot. Kernelbypass can make a big"
+    },
+    {
+      "id": 20,
+      "start": 96.88,
+      "end": 102.56,
+      "text": "difference, but it's a pain to ask to use. I think EPF is going to be the something that's"
+    },
+    {
+      "id": 21,
+      "start": 102.56,
+      "end": 108.68,
+      "text": "going to get it more up to in the next 10 years or so. As EPF gets more expressive."
+    },
+    {
+      "id": 22,
+      "start": 108.68,
+      "end": 113.52,
+      "text": "Okay, so next class will be on query optimization and we'll have three lectures on that and"
+    },
+    {
+      "id": 23,
+      "start": 113.52,
+      "end": 117.08,
+      "text": "that'll be again the core material we need to understand before we start looking at"
+    },
+    {
+      "id": 24,
+      "start": 117.08,
+      "end": 122.64,
+      "text": "other real world invitations. And I know I haven't posted the updated reading list because"
+    },
+    {
+      "id": 25,
+      "start": 122.64,
+      "end": 125.44,
+      "text": "I don't know what paper to read for the first class because like there really isn't a"
+    },
+    {
+      "id": 26,
+      "start": 125.44,
+      "end": 132.52,
+      "text": "good one, but we'll figure something out. But I'll be the read list tonight, okay? Any"
+    },
+    {
+      "id": 27,
+      "start": 132.52,
+      "end": 133.52,
+      "text": "questions?"
+    },
+    {
+      "id": 28,
+      "start": 143.52,
+      "end": 153.44,
+      "text": "I'm sure you know what I don't take off the cap but first on tap on the bottle."
+    },
+    {
+      "id": 29,
+      "start": 153.44,
+      "end": 156.84,
+      "text": "Don't buy three in the freezer so I can kill it. Careful with the bottle baby."
+    },
+    {
+      "id": 30,
+      "start": 156.84,
+      "end": 161.0,
+      "text": "You don't spill it. Cause they know I can save the pain I was wet. You drink it down with"
+    },
+    {
+      "id": 31,
+      "start": 161.0,
+      "end": 165.4,
+      "text": "the guys little by the head. Take back the pack of drugs. You don't get your soul saved"
+    },
+    {
+      "id": 32,
+      "start": 165.4,
+      "end": 169.8,
+      "text": "now. So drink it to the flush. Billy Dames to Chili Teaks to tell me good week guys."
+    },
+    {
+      "id": 33,
+      "start": 169.8,
+      "end": 176.8,
+      "text": "Be a man of good I can't say huh."
+    }
+  ],
+  "language": "en"
+}

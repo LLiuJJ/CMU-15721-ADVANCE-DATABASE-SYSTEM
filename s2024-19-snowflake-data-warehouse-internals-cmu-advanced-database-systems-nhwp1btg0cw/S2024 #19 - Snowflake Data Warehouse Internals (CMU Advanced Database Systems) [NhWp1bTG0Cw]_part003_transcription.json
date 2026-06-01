@@ -1,0 +1,1475 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.68,
+      "text": "the one unit rack machines."
+    },
+    {
+      "id": 1,
+      "start": 1.68,
+      "end": 4.04,
+      "text": "And in that environment, yeah, one of them is going to go down."
+    },
+    {
+      "id": 2,
+      "start": 4.04,
+      "end": 5.52,
+      "text": "If a query is going to run for an hour,"
+    },
+    {
+      "id": 3,
+      "start": 5.52,
+      "end": 6.96,
+      "text": "certainly one's going to go down."
+    },
+    {
+      "id": 4,
+      "start": 6.96,
+      "end": 11.76,
+      "text": "But now only these queries running so fast,"
+    },
+    {
+      "id": 5,
+      "start": 11.76,
+      "end": 13.92,
+      "text": "they're running on a small number of machines anyway."
+    },
+    {
+      "id": 6,
+      "start": 13.92,
+      "end": 15.88,
+      "text": "So the likelihood of a failure is quite low."
+    },
+    {
+      "id": 7,
+      "start": 18.88,
+      "end": 19.38,
+      "text": "Yes?"
+    },
+    {
+      "id": 8,
+      "start": 19.38,
+      "end": 22.08,
+      "text": "But isn't that only a few things to do?"
+    },
+    {
+      "id": 9,
+      "start": 22.08,
+      "end": 23.88,
+      "text": "Doesn't come in scale in terms of what?"
+    },
+    {
+      "id": 10,
+      "start": 23.88,
+      "end": 26.4,
+      "text": "I don't know what you can do."
+    },
+    {
+      "id": 11,
+      "start": 26.4,
+      "end": 29.96,
+      "text": "Yeah, so the question is, like, statement is like,"
+    },
+    {
+      "id": 12,
+      "start": 30.12,
+      "end": 34.4,
+      "text": "statement is like, OK, if I'm saying the more machines you have,"
+    },
+    {
+      "id": 13,
+      "start": 34.4,
+      "end": 35.88,
+      "text": "the more likely one's going to fail,"
+    },
+    {
+      "id": 14,
+      "start": 35.88,
+      "end": 38.88,
+      "text": "have some upper bound how many machines you would need."
+    },
+    {
+      "id": 15,
+      "start": 38.88,
+      "end": 42.6,
+      "text": "Again, it's so fast that I don't think you need thousands of machines"
+    },
+    {
+      "id": 16,
+      "start": 42.6,
+      "end": 44.12,
+      "text": "to process petabytes of data."
+    },
+    {
+      "id": 17,
+      "start": 44.12,
+      "end": 46.52,
+      "text": "So the problem is, because it was so slow."
+    },
+    {
+      "id": 18,
+      "start": 46.52,
+      "end": 50.8,
+      "text": "The idea was so slow that it was like, because it wasn't an inquiry"
+    },
+    {
+      "id": 19,
+      "start": 50.8,
+      "end": 52.72,
+      "text": "optimizer, and it was just doing this dumb,"
+    },
+    {
+      "id": 20,
+      "start": 52.72,
+      "end": 55.8,
+      "text": "map-produced shuffle thing over and over again,"
+    },
+    {
+      "id": 21,
+      "start": 55.8,
+      "end": 57.44,
+      "text": "no matter what the query actually was doing."
+    },
+    {
+      "id": 22,
+      "start": 57.44,
+      "end": 58.88,
+      "text": "It had no notion of pipelines,"
+    },
+    {
+      "id": 23,
+      "start": 58.88,
+      "end": 61.68,
+      "text": "unless someone wrote everything inside of the single map job."
+    },
+    {
+      "id": 24,
+      "start": 63.76,
+      "end": 66.56,
+      "text": "Again, I think it's whereas at the time other parallel"
+    },
+    {
+      "id": 25,
+      "start": 66.56,
+      "end": 69.84,
+      "text": "data systems, like the verticles of the world,"
+    },
+    {
+      "id": 26,
+      "start": 69.84,
+      "end": 72.84,
+      "text": "they were running on, they need fewer nodes to compete"
+    },
+    {
+      "id": 27,
+      "start": 72.84,
+      "end": 75.36,
+      "text": "the same results and less time."
+    },
+    {
+      "id": 28,
+      "start": 81.36,
+      "end": 83.0,
+      "text": "So one thing sort of like does do,"
+    },
+    {
+      "id": 29,
+      "start": 84.96,
+      "end": 88.04,
+      "text": "even though on the shuffle phase, they can do work-stealing."
+    },
+    {
+      "id": 30,
+      "start": 88.04,
+      "end": 90.32,
+      "text": "And it's similar to the morsel stuff that we saw before,"
+    },
+    {
+      "id": 31,
+      "start": 90.32,
+      "end": 92.8,
+      "text": "where instead of a coordinator, like in Dremel,"
+    },
+    {
+      "id": 32,
+      "start": 92.8,
+      "end": 94.36,
+      "text": "recognizing that this guy's running slow,"
+    },
+    {
+      "id": 33,
+      "start": 94.36,
+      "end": 98.32,
+      "text": "this task is running slow, let it fire up the task ourselves,"
+    },
+    {
+      "id": 34,
+      "start": 98.32,
+      "end": 101.88,
+      "text": "the workers themselves, the worker processes, excuse me,"
+    },
+    {
+      "id": 35,
+      "start": 101.88,
+      "end": 104.16,
+      "text": "they're looking for work to do."
+    },
+    {
+      "id": 36,
+      "start": 104.16,
+      "end": 106.12,
+      "text": "And so they recognize that for all the input files"
+    },
+    {
+      "id": 37,
+      "start": 106.12,
+      "end": 107.4,
+      "text": "they were told at the beginning of here,"
+    },
+    {
+      "id": 38,
+      "start": 107.4,
+      "end": 110.32,
+      "text": "you need a process for this stage of the query plan."
+    },
+    {
+      "id": 39,
+      "start": 110.32,
+      "end": 115.08,
+      "text": "If it runs out of stuff to do, then they can go do quick lookups"
+    },
+    {
+      "id": 40,
+      "start": 115.08,
+      "end": 119.92,
+      "text": "on other workers running the same stages they are,"
+    },
+    {
+      "id": 41,
+      "start": 119.92,
+      "end": 123.64,
+      "text": "and see whether they're falling behind and go steal files from them."
+    },
+    {
+      "id": 42,
+      "start": 123.64,
+      "end": 127.72,
+      "text": "But to avoid burdening the other worker nodes"
+    },
+    {
+      "id": 43,
+      "start": 127.72,
+      "end": 132.08,
+      "text": "with sending the data from their local locash data"
+    },
+    {
+      "id": 44,
+      "start": 132.08,
+      "end": 136.2,
+      "text": "to the guy that's going to do the steal the task from them,"
+    },
+    {
+      "id": 45,
+      "start": 136.2,
+      "end": 140.88,
+      "text": "they always go out to S3, because the idea is that if the node"
+    },
+    {
+      "id": 46,
+      "start": 140.88,
+      "end": 143.68,
+      "text": "is already running behind, because it's slow for some reason,"
+    },
+    {
+      "id": 47,
+      "start": 143.68,
+      "end": 148.68,
+      "text": "here but you know where to go go look for that information."
+    },
+    {
+      "id": 48,
+      "start": 148.68,
+      "end": 154.68,
+      "text": "Now let's say Q3 shows up query 3, query 3, so it ends up getting put into the task slot"
+    },
+    {
+      "id": 49,
+      "start": 154.68,
+      "end": 159.68,
+      "text": "in the position here and some other thread, a schedule thread is"
+    },
+    {
+      "id": 50,
+      "start": 159.68,
+      "end": 165.68,
+      "text": "over then flipping a bit in the change mask for all these threads."
+    },
+    {
+      "id": 51,
+      "start": 165.68,
+      "end": 169.68,
+      "text": "So if you see it can put any results in its local storage"
+    },
+    {
+      "id": 52,
+      "start": 169.68,
+      "end": 174.68,
+      "text": "like before, but it's not going to maintain the persistent files in its cache"
+    },
+    {
+      "id": 53,
+      "start": 174.68,
+      "end": 179.68,
+      "text": "beyond the worker to stole, because again there's some high level organization"
+    },
+    {
+      "id": 54,
+      "start": 179.68,
+      "end": 182.68,
+      "text": "through this consistent hashing that's deciding what worker node is responsible"
+    },
+    {
+      "id": 55,
+      "start": 182.68,
+      "end": 185.68,
+      "text": "for, what file on S3."
+    },
+    {
+      "id": 56,
+      "start": 185.68,
+      "end": 188.68,
+      "text": "So the next time the query runs it meets the same data,"
+    },
+    {
+      "id": 57,
+      "start": 188.68,
+      "end": 192.68,
+      "text": "it wouldn't go to that node anyway, go back to the original one."
+    },
+    {
+      "id": 58,
+      "start": 192.68,
+      "end": 195.68,
+      "text": "So you said that the intermediate results are stored in the local list"
+    },
+    {
+      "id": 59,
+      "start": 195.68,
+      "end": 199.68,
+      "text": "right, so I'll keep you from S3, unless you send it to it."
+    },
+    {
+      "id": 60,
+      "start": 199.68,
+      "end": 201.68,
+      "text": "So it's it again? What?"
+    },
+    {
+      "id": 61,
+      "start": 201.68,
+      "end": 203.68,
+      "text": "So when your work's seen from other node,"
+    },
+    {
+      "id": 62,
+      "start": 203.68,
+      "end": 209.68,
+      "text": "I know it's working on some intermediate results that were already on that local list,"
+    },
+    {
+      "id": 63,
+      "start": 209.68,
+      "end": 211.68,
+      "text": "so how can you get it from S3?"
+    },
+    {
+      "id": 64,
+      "start": 211.68,
+      "end": 216.68,
+      "text": "I stay with you, if you're processing data from,"
+    },
+    {
+      "id": 65,
+      "start": 216.68,
+      "end": 218.68,
+      "text": "it's not processing like the ritual persistent files,"
+    },
+    {
+      "id": 66,
+      "start": 218.68,
+      "end": 224.68,
+      "text": "instead it's reading from the intermediate results,"
+    },
+    {
+      "id": 67,
+      "start": 224.68,
+      "end": 226.68,
+      "text": "how can you go to S3 and get it,"
+    },
+    {
+      "id": 68,
+      "start": 226.68,
+      "end": 229.68,
+      "text": "because you could go to the other worker node that it got it from,"
+    },
+    {
+      "id": 69,
+      "start": 229.68,
+      "end": 231.68,
+      "text": "right, and then retrieve the data."
+    },
+    {
+      "id": 70,
+      "start": 231.68,
+      "end": 235.68,
+      "text": "So then you do just have to start from the data you want."
+    },
+    {
+      "id": 71,
+      "start": 235.68,
+      "end": 238.68,
+      "text": "No, no, no, no, so like the worker node got,"
+    },
+    {
+      "id": 72,
+      "start": 238.68,
+      "end": 241.68,
+      "text": "you know, worker node, and I'm slides there, or diagrams,"
+    },
+    {
+      "id": 73,
+      "start": 241.68,
+      "end": 243.68,
+      "text": "if worker node X is running behind,"
+    },
+    {
+      "id": 74,
+      "start": 243.68,
+      "end": 245.68,
+      "text": "but it got its data from worker node Y."
+    },
+    {
+      "id": 75,
+      "start": 246.68,
+      "end": 248.68,
+      "text": "Now worker node Z is going to steal that data,"
+    },
+    {
+      "id": 76,
+      "start": 248.68,
+      "end": 251.68,
+      "text": "it can go to worker node Y and get those intermediate results."
+    },
+    {
+      "id": 77,
+      "start": 251.68,
+      "end": 254.68,
+      "text": "Or if it's again if it's reading persistent files,"
+    },
+    {
+      "id": 78,
+      "start": 254.68,
+      "end": 255.68,
+      "text": "it would go to S3."
+    },
+    {
+      "id": 79,
+      "start": 255.68,
+      "end": 258.68,
+      "text": "I think the worker node can also spill to S3 as well,"
+    },
+    {
+      "id": 80,
+      "start": 258.68,
+      "end": 260.68,
+      "text": "like if you just run it, it's facing entirely,"
+    },
+    {
+      "id": 81,
+      "start": 260.68,
+      "end": 262.68,
+      "text": "then the last case, you know,"
+    },
+    {
+      "id": 82,
+      "start": 262.68,
+      "end": 265.68,
+      "text": "the fallback is to store things in S3 as well."
+    },
+    {
+      "id": 83,
+      "start": 265.68,
+      "end": 268.68,
+      "text": "All the workers know the problem,"
+    },
+    {
+      "id": 84,
+      "start": 268.68,
+      "end": 274.68,
+      "text": "and they both cost the cost for the generalization of the user"
+    },
+    {
+      "id": 85,
+      "start": 274.68,
+      "end": 276.68,
+      "text": "that they use to run."
+    },
+    {
+      "id": 86,
+      "start": 276.68,
+      "end": 279.68,
+      "text": "His question is how can a worker know the progress of another worker"
+    },
+    {
+      "id": 87,
+      "start": 279.68,
+      "end": 281.68,
+      "text": "and identify that they're running behind?"
+    },
+    {
+      "id": 88,
+      "start": 281.68,
+      "end": 283.68,
+      "text": "I don't know whether they talked to the coordinator"
+    },
+    {
+      "id": 89,
+      "start": 283.68,
+      "end": 285.68,
+      "text": "or they talked to the other worker, right?"
+    },
+    {
+      "id": 90,
+      "start": 285.68,
+      "end": 289.68,
+      "text": "But like, I don't, it's not broadcast, because like,"
+    },
+    {
+      "id": 91,
+      "start": 289.68,
+      "end": 292.68,
+      "text": "there'll be like a heartbeat that's,"
+    },
+    {
+      "id": 92,
+      "start": 292.68,
+      "end": 294.68,
+      "text": "that broadcast every so often is they,"
+    },
+    {
+      "id": 93,
+      "start": 294.68,
+      "end": 296.68,
+      "text": "look, I'm still alive, but he wouldn't say,"
+    },
+    {
+      "id": 94,
+      "start": 296.68,
+      "end": 298.68,
+      "text": "like, I'm, here's my progress, I'm going along."
+    },
+    {
+      "id": 95,
+      "start": 298.68,
+      "end": 301.68,
+      "text": "So it's either the coordinator or the worker you say,"
+    },
+    {
+      "id": 96,
+      "start": 301.68,
+      "end": 304.68,
+      "text": "you know, give me something to do."
+    },
+    {
+      "id": 97,
+      "start": 307.68,
+      "end": 308.68,
+      "text": "Okay, so, okay, so, so,"
+    },
+    {
+      "id": 98,
+      "start": 308.68,
+      "end": 310.68,
+      "text": "so, it's going to work stealing,"
+    },
+    {
+      "id": 99,
+      "start": 310.68,
+      "end": 313.68,
+      "text": "and again, what I like about this paper is that they describe,"
+    },
+    {
+      "id": 100,
+      "start": 313.68,
+      "end": 315.68,
+      "text": "like, here's why we did it this way,"
+    },
+    {
+      "id": 101,
+      "start": 315.68,
+      "end": 318.68,
+      "text": "and they go a bit more details than, than Dremel and,"
+    },
+    {
+      "id": 102,
+      "start": 318.68,
+      "end": 321.68,
+      "text": "uh, data for X2."
+    },
+    {
+      "id": 103,
+      "start": 321.68,
+      "end": 323.68,
+      "text": "Then other interesting things they can support as well,"
+    },
+    {
+      "id": 104,
+      "start": 323.68,
+      "end": 325.68,
+      "text": "is what they call flexible compute."
+    },
+    {
+      "id": 105,
+      "start": 325.68,
+      "end": 330.68,
+      "text": "And the idea here is that, because the, you know,"
+    },
+    {
+      "id": 106,
+      "start": 330.68,
+      "end": 332.68,
+      "text": "the original model of Snowflake was like,"
+    },
+    {
+      "id": 107,
+      "start": 332.68,
+      "end": 334.68,
+      "text": "you define this virtual word, data warehouse,"
+    },
+    {
+      "id": 108,
+      "start": 334.68,
+      "end": 336.68,
+      "text": "that sort of sets up the number of compute nodes"
+    },
+    {
+      "id": 109,
+      "start": 336.68,
+      "end": 338.68,
+      "text": "you're going to have at the beginning,"
+    },
+    {
+      "id": 110,
+      "start": 338.68,
+      "end": 341.68,
+      "text": "and that those, unless you're using serverless,"
+    },
+    {
+      "id": 111,
+      "start": 341.68,
+      "end": 344.68,
+      "text": "those machines are always running."
+    },
+    {
+      "id": 112,
+      "start": 344.68,
+      "end": 346.68,
+      "text": "So maybe the case that for any,"
+    },
+    {
+      "id": 113,
+      "start": 346.68,
+      "end": 348.68,
+      "text": "some query shows up, you're actually under-provisioned,"
+    },
+    {
+      "id": 114,
+      "start": 349.68,
+      "end": 351.68,
+      "text": "you don't have as much compute capacity you actually need"
+    },
+    {
+      "id": 115,
+      "start": 351.68,
+      "end": 353.68,
+      "text": "to run the query in a, in a timely manner."
+    },
+    {
+      "id": 116,
+      "start": 353.68,
+      "end": 357.68,
+      "text": "So what they'll do is they'll recognize prior to running,"
+    },
+    {
+      "id": 117,
+      "start": 357.68,
+      "end": 359.68,
+      "text": "they'll look at the query plan and identify,"
+    },
+    {
+      "id": 118,
+      "start": 359.68,
+      "end": 362.68,
+      "text": "is there any part where I think the query plan,"
+    },
+    {
+      "id": 119,
+      "start": 362.68,
+      "end": 364.68,
+      "text": "this portion of the query plan is going to take a longer time"
+    },
+    {
+      "id": 120,
+      "start": 364.68,
+      "end": 366.68,
+      "text": "than, than I, I would want."
+    },
+    {
+      "id": 121,
+      "start": 366.68,
+      "end": 370.68,
+      "text": "And can I then, uh, hand off the, the task for that part"
+    },
+    {
+      "id": 122,
+      "start": 370.68,
+      "end": 373.68,
+      "text": "of the query plan to other nodes that I actually,"
+    },
+    {
+      "id": 123,
+      "start": 373.68,
+      "end": 375.68,
+      "text": "the customer is actually not paying for,"
+    },
+    {
+      "id": 124,
+      "start": 376.68,
+      "end": 378.68,
+      "text": "basically think of other, other idle customers"
+    },
+    {
+      "id": 125,
+      "start": 378.68,
+      "end": 380.68,
+      "text": "that, that have compute nodes that aren't using."
+    },
+    {
+      "id": 126,
+      "start": 380.68,
+      "end": 383.68,
+      "text": "And if I can farm out part of the query plan to those"
+    },
+    {
+      "id": 127,
+      "start": 383.68,
+      "end": 385.68,
+      "text": "of their nodes, it's a win-win situation for everyone,"
+    },
+    {
+      "id": 128,
+      "start": 385.68,
+      "end": 387.68,
+      "text": "because the query runs faster,"
+    },
+    {
+      "id": 129,
+      "start": 387.68,
+      "end": 389.68,
+      "text": "Snowflake is not spending any more money,"
+    },
+    {
+      "id": 130,
+      "start": 389.68,
+      "end": 391.68,
+      "text": "because the customer is already paying for the,"
+    },
+    {
+      "id": 131,
+      "start": 391.68,
+      "end": 394.68,
+      "text": "the, the, the, the, the, the, the, the customer"
+    },
+    {
+      "id": 132,
+      "start": 394.68,
+      "end": 396.68,
+      "text": "that you're borrowing machines from,"
+    },
+    {
+      "id": 133,
+      "start": 396.68,
+      "end": 398.68,
+      "text": "they don't even know that their machines are being used"
+    },
+    {
+      "id": 134,
+      "start": 398.68,
+      "end": 400.68,
+      "text": "in this way, and that when they run queries,"
+    },
+    {
+      "id": 135,
+      "start": 400.68,
+      "end": 402.68,
+      "text": "they can leverage the same, uh,"
+    },
+    {
+      "id": 136,
+      "start": 403.68,
+      "end": 405.68,
+      "text": "spare capacity as well."
+    },
+    {
+      "id": 137,
+      "start": 405.68,
+      "end": 407.68,
+      "text": "So let's say again, say, say we have"
+    },
+    {
+      "id": 138,
+      "start": 407.68,
+      "end": 409.68,
+      "text": "on this side of the query plan here, uh,"
+    },
+    {
+      "id": 139,
+      "start": 409.68,
+      "end": 411.68,
+      "text": "on the probe side of this join,"
+    },
+    {
+      "id": 140,
+      "start": 411.68,
+      "end": 413.68,
+      "text": "it's wants to do some large scan."
+    },
+    {
+      "id": 141,
+      "start": 413.68,
+      "end": 417.68,
+      "text": "So Snowflake can then split this up into two,"
+    },
+    {
+      "id": 142,
+      "start": 417.68,
+      "end": 419.68,
+      "text": "two, uh, sort of subplans that are going to be,"
+    },
+    {
+      "id": 143,
+      "start": 419.68,
+      "end": 421.68,
+      "text": "combine together with the union all."
+    },
+    {
+      "id": 144,
+      "start": 421.68,
+      "end": 423.68,
+      "text": "And so here we have the, the,"
+    },
+    {
+      "id": 145,
+      "start": 423.68,
+      "end": 425.68,
+      "text": "the, the portion of the query, uh,"
+    },
+    {
+      "id": 146,
+      "start": 425.68,
+      "end": 427.68,
+      "text": "that's going to run on, on the,"
+    },
+    {
+      "id": 147,
+      "start": 427.68,
+      "end": 429.68,
+      "text": "the customers, the customer initiate the query"
+    },
+    {
+      "id": 148,
+      "start": 429.68,
+      "end": 431.68,
+      "text": "on their, data warehouse, their, their,"
+    },
+    {
+      "id": 149,
+      "start": 431.68,
+      "end": 432.68,
+      "text": "compute nodes."
+    },
+    {
+      "id": 150,
+      "start": 432.68,
+      "end": 434.68,
+      "text": "But this, this piece over here,"
+    },
+    {
+      "id": 151,
+      "start": 434.68,
+      "end": 436.68,
+      "text": "this is going to run on, on the spare hardware."
+    },
+    {
+      "id": 152,
+      "start": 436.68,
+      "end": 439.68,
+      "text": "Again, item machines running in, you know,"
+    },
+    {
+      "id": 153,
+      "start": 439.68,
+      "end": 441.68,
+      "text": "running in, running in the Snowflake,"
+    },
+    {
+      "id": 154,
+      "start": 441.68,
+      "end": 443.68,
+      "text": "uh, you know, ecosystem."
+    },
+    {
+      "id": 155,
+      "start": 443.68,
+      "end": 446.68,
+      "text": "So, but because these machines are controlled by the,"
+    },
+    {
+      "id": 156,
+      "start": 446.68,
+      "end": 448.68,
+      "text": "the customer that's invoking the query,"
+    },
+    {
+      "id": 157,
+      "start": 448.68,
+      "end": 449.68,
+      "text": "you can't write any,"
+    },
+    {
+      "id": 158,
+      "start": 449.68,
+      "end": 451.68,
+      "text": "any results to the local disk,"
+    },
+    {
+      "id": 159,
+      "start": 451.68,
+      "end": 452.68,
+      "text": "because at any moment,"
+    },
+    {
+      "id": 160,
+      "start": 452.68,
+      "end": 455.68,
+      "text": "the customer could, the customer who owns these machines"
+    },
+    {
+      "id": 161,
+      "start": 455.68,
+      "end": 456.68,
+      "text": "could start running a query,"
+    },
+    {
+      "id": 162,
+      "start": 456.68,
+      "end": 458.68,
+      "text": "and you got to evict all this right away."
+    },
+    {
+      "id": 163,
+      "start": 458.68,
+      "end": 459.68,
+      "text": "Right?"
+    },
+    {
+      "id": 164,
+      "start": 459.68,
+      "end": 461.68,
+      "text": "So, it doesn't look good if like, hey, you know,"
+    },
+    {
+      "id": 165,
+      "start": 461.68,
+      "end": 462.68,
+      "text": "you're assuming the query, uh,"
+    },
+    {
+      "id": 166,
+      "start": 462.68,
+      "end": 463.68,
+      "text": "give me, give me 20 seconds,"
+    },
+    {
+      "id": 167,
+      "start": 463.68,
+      "end": 464.68,
+      "text": "I got to finish up, you know,"
+    },
+    {
+      "id": 168,
+      "start": 464.68,
+      "end": 465.68,
+      "text": "Joe's, Joe's query."
+    },
+    {
+      "id": 169,
+      "start": 465.68,
+      "end": 467.68,
+      "text": "Like, could, could people get pissed, right?"
+    },
+    {
+      "id": 170,
+      "start": 467.68,
+      "end": 468.68,
+      "text": "So, what they'll do is,"
+    },
+    {
+      "id": 171,
+      "start": 468.68,
+      "end": 471.68,
+      "text": "instead of writing the data to the local storage,"
+    },
+    {
+      "id": 172,
+      "start": 471.68,
+      "end": 474.68,
+      "text": "they'll instead insert it as if it was a table"
+    },
+    {
+      "id": 173,
+      "start": 474.68,
+      "end": 476.68,
+      "text": "back into S3,"
+    },
+    {
+      "id": 174,
+      "start": 476.68,
+      "end": 478.68,
+      "text": "and then now, when I, when I,"
+    },
+    {
+      "id": 175,
+      "start": 478.68,
+      "end": 480.68,
+      "text": "when I'm going to retrieve it again,"
+    },
+    {
+      "id": 176,
+      "start": 480.68,
+      "end": 482.68,
+      "text": "uh, you know, the, the,"
+    },
+    {
+      "id": 177,
+      "start": 482.68,
+      "end": 485.68,
+      "text": "the query operator above it is just reading from S3"
+    },
+    {
+      "id": 178,
+      "start": 485.68,
+      "end": 487.68,
+      "text": "like it, like it was a regular table."
+    },
+    {
+      "id": 179,
+      "start": 487.68,
+      "end": 489.68,
+      "text": "Right?"
+    },
+    {
+      "id": 180,
+      "start": 489.68,
+      "end": 490.68,
+      "text": "Actually, going back here,"
+    },
+    {
+      "id": 181,
+      "start": 490.68,
+      "end": 491.68,
+      "text": "this is actually,"
+    },
+    {
+      "id": 182,
+      "start": 491.68,
+      "end": 492.68,
+      "text": "this is actually from,"
+    },
+    {
+      "id": 183,
+      "start": 492.68,
+      "end": 493.68,
+      "text": "so this is another example of the S3,"
+    },
+    {
+      "id": 184,
+      "start": 493.68,
+      "end": 495.68,
+      "text": "the information passion stuff we talked before."
+    },
+    {
+      "id": 185,
+      "start": 495.68,
+      "end": 496.68,
+      "text": "So, they have this,"
+    },
+    {
+      "id": 186,
+      "start": 496.68,
+      "end": 498.68,
+      "text": "you build the hash join,"
+    },
+    {
+      "id": 187,
+      "start": 498.68,
+      "end": 499.68,
+      "text": "uh, sorry, you build the hash,"
+    },
+    {
+      "id": 188,
+      "start": 499.68,
+      "end": 500.68,
+      "text": "you build the hash, you build the join,"
+    },
+    {
+      "id": 189,
+      "start": 500.68,
+      "end": 501.68,
+      "text": "and they have this operator kind of a join filter."
+    },
+    {
+      "id": 190,
+      "start": 501.68,
+      "end": 503.68,
+      "text": "That's passing over the balloon filter"
+    },
+    {
+      "id": 191,
+      "start": 503.68,
+      "end": 505.68,
+      "text": "from, from the build side to the probe side."
+    },
+    {
+      "id": 192,
+      "start": 505.68,
+      "end": 506.68,
+      "text": "Right?"
+    },
+    {
+      "id": 193,
+      "start": 506.68,
+      "end": 507.68,
+      "text": "They, they explicitly call it out,"
+    },
+    {
+      "id": 194,
+      "start": 507.68,
+      "end": 509.68,
+      "text": "as a separate operator called join filter."
+    },
+    {
+      "id": 195,
+      "start": 509.68,
+      "end": 510.68,
+      "text": "Right?"
+    },
+    {
+      "id": 196,
+      "start": 510.68,
+      "end": 514.68,
+      "text": "Again, so, so, this is just,"
+    },
+    {
+      "id": 197,
+      "start": 514.68,
+      "end": 515.68,
+      "text": "because it's a managed service,"
+    },
+    {
+      "id": 198,
+      "start": 515.68,
+      "end": 517.68,
+      "text": "because it's a managed service,"
+    },
+    {
+      "id": 199,
+      "start": 517.68,
+      "end": 519.68,
+      "text": "you're not running on prem, right?"
+    },
+    {
+      "id": 200,
+      "start": 519.68,
+      "end": 520.68,
+      "text": "There's a elasticity to the,"
+    },
+    {
+      "id": 201,
+      "start": 520.68,
+      "end": 522.68,
+      "text": "the resources that are available,"
+    },
+    {
+      "id": 202,
+      "start": 522.68,
+      "end": 524.68,
+      "text": "and again, they smartly recognize,"
+    },
+    {
+      "id": 203,
+      "start": 524.68,
+      "end": 526.68,
+      "text": "okay, these machines are idle,"
+    },
+    {
+      "id": 204,
+      "start": 526.68,
+      "end": 528.68,
+      "text": "uh, right now,"
+    },
+    {
+      "id": 205,
+      "start": 528.68,
+      "end": 530.68,
+      "text": "we'll need to use them to make queries run faster."
+    },
+    {
+      "id": 206,
+      "start": 530.68,
+      "end": 531.68,
+      "text": "And this is all, again,"
+    },
+    {
+      "id": 207,
+      "start": 531.68,
+      "end": 534.68,
+      "text": "all transparent to, to the customer."
+    },
+    {
+      "id": 208,
+      "start": 534.68,
+      "end": 537.68,
+      "text": "You can also use this for the,"
+    },
+    {
+      "id": 209,
+      "start": 537.68,
+      "end": 539.68,
+      "text": "for basically, basically,"
+    },
+    {
+      "id": 210,
+      "start": 539.68,
+      "end": 540.68,
+      "text": "query result caching."
+    },
+    {
+      "id": 211,
+      "start": 540.68,
+      "end": 541.68,
+      "text": "Almost like,"
+    },
+    {
+      "id": 212,
+      "start": 541.68,
+      "end": 542.68,
+      "text": "not exactly like a materialized view,"
+    },
+    {
+      "id": 213,
+      "start": 542.68,
+      "end": 544.68,
+      "text": "because it's not going to automatically refresh,"
+    },
+    {
+      "id": 214,
+      "start": 544.68,
+      "end": 546.68,
+      "text": "but you're, you're writing out the,"
+    },
+    {
+      "id": 215,
+      "start": 546.68,
+      "end": 548.68,
+      "text": "the output of this query plan fragment into s3,"
+    },
+    {
+      "id": 216,
+      "start": 548.68,
+      "end": 550.68,
+      "text": "you're going to update the catalog and say,"
+    },
+    {
+      "id": 217,
+      "start": 550.68,
+      "end": 552.68,
+      "text": "okay, we ever see this query plan fragment again,"
+    },
+    {
+      "id": 218,
+      "start": 552.68,
+      "end": 554.68,
+      "text": "on, on, on these, these files,"
+    },
+    {
+      "id": 219,
+      "start": 554.68,
+      "end": 556.68,
+      "text": "here's some materialized result for it,"
+    },
+    {
+      "id": 220,
+      "start": 556.68,
+      "end": 558.68,
+      "text": "that you can then reuse."
+    },
+    {
+      "id": 221,
+      "start": 558.68,
+      "end": 559.68,
+      "text": "Yes?"
+    },
+    {
+      "id": 222,
+      "start": 559.68,
+      "end": 561.68,
+      "text": "So, I think that's going to be concerning for customers,"
+    },
+    {
+      "id": 223,
+      "start": 561.68,
+      "end": 563.68,
+      "text": "but if we customers don't want to do that anywhere,"
+    },
+    {
+      "id": 224,
+      "start": 563.68,
+      "end": 565.68,
+      "text": "and you have to do that in another customer, right?"
+    },
+    {
+      "id": 225,
+      "start": 565.68,
+      "end": 567.68,
+      "text": "Let's go to what I just,"
+    },
+    {
+      "id": 226,
+      "start": 567.68,
+      "end": 569.68,
+      "text": "for the end of the interview."
+    },
+    {
+      "id": 227,
+      "start": 569.68,
+      "end": 571.68,
+      "text": "Stay with us."
+    },
+    {
+      "id": 228,
+      "start": 571.68,
+      "end": 573.68,
+      "text": "Isn't this, um,"
+    },
+    {
+      "id": 229,
+      "start": 573.68,
+      "end": 575.68,
+      "text": "wouldn't this be concerning for customers,"
+    },
+    {
+      "id": 230,
+      "start": 575.68,
+      "end": 577.68,
+      "text": "because they don't want their data in the mix"
+    },
+    {
+      "id": 231,
+      "start": 577.68,
+      "end": 578.68,
+      "text": "and then their data?"
+    },
+    {
+      "id": 232,
+      "start": 578.68,
+      "end": 580.68,
+      "text": "Well, one is they have,"
+    },
+    {
+      "id": 233,
+      "start": 580.68,
+      "end": 582.68,
+      "text": "they have sort of compute isolation,"
+    },
+    {
+      "id": 234,
+      "start": 582.68,
+      "end": 583.68,
+      "text": "because, as I said before,"
+    },
+    {
+      "id": 235,
+      "start": 583.68,
+      "end": 585.68,
+      "text": "the worker process gets killed after the query."
+    },
+    {
+      "id": 236,
+      "start": 585.68,
+      "end": 587.68,
+      "text": "So it's not like, whatever you're running,"
+    },
+    {
+      "id": 237,
+      "start": 587.68,
+      "end": 589.68,
+      "text": "you know, you're whatever task you run for this query,"
+    },
+    {
+      "id": 238,
+      "start": 589.68,
+      "end": 593.68,
+      "text": "wakes up and can now start seeing the next customer's data, right?"
+    },
+    {
+      "id": 239,
+      "start": 593.68,
+      "end": 595.68,
+      "text": "It's a managed service,"
+    },
+    {
+      "id": 240,
+      "start": 595.68,
+      "end": 597.68,
+      "text": "so it's not running arbitrary code,"
+    },
+    {
+      "id": 241,
+      "start": 597.68,
+      "end": 599.68,
+      "text": "it's all snowflake code."
+    },
+    {
+      "id": 242,
+      "start": 599.68,
+      "end": 601.68,
+      "text": "So if you're trusting snowflake with your data anyway,"
+    },
+    {
+      "id": 243,
+      "start": 601.68,
+      "end": 603.68,
+      "text": "you could trust them to write the,"
+    },
+    {
+      "id": 244,
+      "start": 603.68,
+      "end": 605.68,
+      "text": "the computer side of things."
+    }
+  ],
+  "language": "en"
+}

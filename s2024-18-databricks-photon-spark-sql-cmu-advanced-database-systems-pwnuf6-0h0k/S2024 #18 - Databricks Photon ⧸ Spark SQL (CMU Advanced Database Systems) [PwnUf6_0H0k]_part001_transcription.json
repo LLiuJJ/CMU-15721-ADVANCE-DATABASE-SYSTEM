@@ -1,0 +1,1277 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.48,
+      "text": "computational overhead of doing this approach"
+    },
+    {
+      "id": 1,
+      "start": 3.48,
+      "end": 5.56,
+      "text": "that it became problematic."
+    },
+    {
+      "id": 2,
+      "start": 5.56,
+      "end": 10.44,
+      "text": "And again, this is 2015, to say maybe 2015, 2020."
+    },
+    {
+      "id": 3,
+      "start": 10.44,
+      "end": 13.52,
+      "text": "The disks are super fast now, but at the time,"
+    },
+    {
+      "id": 4,
+      "start": 13.52,
+      "end": 15.2,
+      "text": "you would expect your data warehouse or OLEFs"
+    },
+    {
+      "id": 5,
+      "start": 15.2,
+      "end": 18.76,
+      "text": "something to be always disbound, not CPU bound."
+    },
+    {
+      "id": 6,
+      "start": 18.76,
+      "end": 23.04,
+      "text": "Nowadays, the pendulum was sort of swung the other way,"
+    },
+    {
+      "id": 7,
+      "start": 23.04,
+      "end": 25.08,
+      "text": "the CPUs are becoming the bottleneck, not the disk."
+    },
+    {
+      "id": 8,
+      "start": 25.08,
+      "end": 28.6,
+      "text": "But when they were building this, the disk was not"
+    },
+    {
+      "id": 9,
+      "start": 28.6,
+      "end": 32.36,
+      "text": "swung down, it was the CPU."
+    },
+    {
+      "id": 10,
+      "start": 32.36,
+      "end": 34.48,
+      "text": "So in the first time payment,"
+    },
+    {
+      "id": 11,
+      "start": 34.48,
+      "end": 36.4,
+      "text": "they point out a bunch of observations about the Spark"
+    },
+    {
+      "id": 12,
+      "start": 36.4,
+      "end": 38.04,
+      "text": "SQL attempt."
+    },
+    {
+      "id": 13,
+      "start": 38.04,
+      "end": 41.16,
+      "text": "The first one, as I said, that the workloads"
+    },
+    {
+      "id": 14,
+      "start": 41.16,
+      "end": 43.56,
+      "text": "become CPU bound, just because there"
+    },
+    {
+      "id": 15,
+      "start": 43.56,
+      "end": 46.16,
+      "text": "was so much computation overhead of everything"
+    },
+    {
+      "id": 16,
+      "start": 46.16,
+      "end": 48.48,
+      "text": "that they were doing."
+    },
+    {
+      "id": 17,
+      "start": 48.48,
+      "end": 53.04,
+      "text": "And they spent a lot of time trying"
+    },
+    {
+      "id": 18,
+      "start": 53.04,
+      "end": 55.88,
+      "text": "to work around the GVM in that sort of memory"
+    },
+    {
+      "id": 19,
+      "start": 55.88,
+      "end": 58.56,
+      "text": "management environment, doing things like that."
+    },
+    {
+      "id": 20,
+      "start": 58.56,
+      "end": 60.84,
+      "text": "I know, as you know, about Java programming,"
+    },
+    {
+      "id": 21,
+      "start": 60.84,
+      "end": 63.32,
+      "text": "when you allocate something, like you call a new object,"
+    },
+    {
+      "id": 22,
+      "start": 63.32,
+      "end": 64.88,
+      "text": "that goes in the heap."
+    },
+    {
+      "id": 23,
+      "start": 64.88,
+      "end": 67.48,
+      "text": "The GVM's garbage clutches keep track references to it."
+    },
+    {
+      "id": 24,
+      "start": 67.48,
+      "end": 69.04,
+      "text": "Every time you run a garbage collection pass,"
+    },
+    {
+      "id": 25,
+      "start": 69.04,
+      "end": 71.16,
+      "text": "you check to see whether anybody is still pointing to it."
+    },
+    {
+      "id": 26,
+      "start": 71.16,
+      "end": 74.44,
+      "text": "And then you can free the memory."
+    },
+    {
+      "id": 27,
+      "start": 74.44,
+      "end": 78.28,
+      "text": "There's no direct malloc call in the GVM."
+    },
+    {
+      "id": 28,
+      "start": 78.28,
+      "end": 80.08,
+      "text": "So the way you get around this, you do off heap"
+    },
+    {
+      "id": 29,
+      "start": 80.08,
+      "end": 81.08,
+      "text": "memory."
+    },
+    {
+      "id": 30,
+      "start": 81.08,
+      "end": 84.24,
+      "text": "You basically within the GVM or Java code,"
+    },
+    {
+      "id": 31,
+      "start": 84.24,
+      "end": 85.56,
+      "text": "it's like an unsafe and rust."
+    },
+    {
+      "id": 32,
+      "start": 85.56,
+      "end": 88.52,
+      "text": "You can allocate memory to some outside region."
+    },
+    {
+      "id": 33,
+      "start": 88.52,
+      "end": 90.72,
+      "text": "It's still owned by the process."
+    },
+    {
+      "id": 34,
+      "start": 90.72,
+      "end": 93.64,
+      "text": "But the garbage collector isn't going to go look inside of it"
+    },
+    {
+      "id": 35,
+      "start": 93.64,
+      "end": 96.12,
+      "text": "to see if anybody can free any memory."
+    },
+    {
+      "id": 36,
+      "start": 96.12,
+      "end": 98.04,
+      "text": "So they had to do a bunch of engineering effort"
+    },
+    {
+      "id": 37,
+      "start": 98.04,
+      "end": 101.04,
+      "text": "to move stuff out of the off heap"
+    },
+    {
+      "id": 38,
+      "start": 101.04,
+      "end": 104.44,
+      "text": "so that the garbage collector wouldn't slow them down."
+    },
+    {
+      "id": 39,
+      "start": 104.44,
+      "end": 107.6,
+      "text": "And that becomes a sort of problematic."
+    },
+    {
+      "id": 40,
+      "start": 107.6,
+      "end": 110.16,
+      "text": "It's a lot of engineering effort just to get around"
+    },
+    {
+      "id": 41,
+      "start": 110.16,
+      "end": 112.48,
+      "text": "the internals of the GVM."
+    },
+    {
+      "id": 42,
+      "start": 112.48,
+      "end": 115.28,
+      "text": "The other challenge that they faced was doing the jet"
+    },
+    {
+      "id": 43,
+      "start": 115.28,
+      "end": 118.08,
+      "text": "compilation piece was particularly tricky"
+    },
+    {
+      "id": 44,
+      "start": 118.08,
+      "end": 121.48,
+      "text": "because in order to get the best performance out of it,"
+    },
+    {
+      "id": 45,
+      "start": 121.48,
+      "end": 123.36,
+      "text": "you had to have people that really know"
+    },
+    {
+      "id": 46,
+      "start": 123.36,
+      "end": 127.28,
+      "text": "how to need internals of the GVM."
+    },
+    {
+      "id": 47,
+      "start": 127.28,
+      "end": 132.32,
+      "text": "And they had trouble scaling up the engineering team"
+    },
+    {
+      "id": 48,
+      "start": 132.32,
+      "end": 134.48,
+      "text": "to be optimized the Spark SQL engine"
+    },
+    {
+      "id": 49,
+      "start": 134.48,
+      "end": 135.68,
+      "text": "because it's really unique."
+    },
+    {
+      "id": 50,
+      "start": 135.68,
+      "end": 138.28,
+      "text": "You had experience actually in the internals of the GVM."
+    },
+    {
+      "id": 51,
+      "start": 138.28,
+      "end": 140.72,
+      "text": "Or it's just like, you know, most of the C++ new developers"
+    },
+    {
+      "id": 52,
+      "start": 140.72,
+      "end": 143.28,
+      "text": "can jump in and start running code on anything."
+    },
+    {
+      "id": 53,
+      "start": 143.28,
+      "end": 145.24,
+      "text": "Right?"
+    },
+    {
+      "id": 54,
+      "start": 145.24,
+      "end": 149.88,
+      "text": "You had other limitations of how big the code itself"
+    },
+    {
+      "id": 55,
+      "start": 149.88,
+      "end": 151.04,
+      "text": "could be."
+    },
+    {
+      "id": 56,
+      "start": 151.04,
+      "end": 152.84,
+      "text": "So the paper mentions, the photon paper, you guys"
+    },
+    {
+      "id": 57,
+      "start": 152.84,
+      "end": 156.2,
+      "text": "read, that if the table had more than a couple"
+    },
+    {
+      "id": 58,
+      "start": 156.2,
+      "end": 160.12,
+      "text": "hundreds of columns, which are pretty common sometimes,"
+    },
+    {
+      "id": 59,
+      "start": 160.12,
+      "end": 163.56,
+      "text": "then the GVM would just say, this is too big to compile"
+    },
+    {
+      "id": 60,
+      "start": 163.56,
+      "end": 167.36,
+      "text": "and throw it back to run at the slower, interpretate mode."
+    },
+    {
+      "id": 61,
+      "start": 167.36,
+      "end": 169.52,
+      "text": "So they're basically dealing with this remnant"
+    },
+    {
+      "id": 62,
+      "start": 169.52,
+      "end": 172.92,
+      "text": "of the early 2010s, where I'm like, OK, let's build this"
+    },
+    {
+      "id": 63,
+      "start": 172.92,
+      "end": 174.56,
+      "text": "on the GVM because that's how"
+    },
+    {
+      "id": 64,
+      "start": 174.84,
+      "end": 178.08,
+      "text": "people were building scalable big data systems at the time."
+    },
+    {
+      "id": 65,
+      "start": 178.08,
+      "end": 180.36,
+      "text": "But then when, as the hardware landscape changed,"
+    },
+    {
+      "id": 66,
+      "start": 180.36,
+      "end": 184.44,
+      "text": "as the demands of what people wanted to do with the database"
+    },
+    {
+      "id": 67,
+      "start": 184.44,
+      "end": 187.16,
+      "text": "system changed, they were sort of hitting the upper limits"
+    },
+    {
+      "id": 68,
+      "start": 187.16,
+      "end": 188.4,
+      "text": "of what the GVM could support."
+    },
+    {
+      "id": 69,
+      "start": 188.4,
+      "end": 191.16,
+      "text": "So they had to come up the way to overcome this."
+    },
+    {
+      "id": 70,
+      "start": 193.68,
+      "end": 196.76,
+      "text": "So that's the background for the paper you guys read"
+    },
+    {
+      "id": 71,
+      "start": 196.76,
+      "end": 198.04,
+      "text": "for photon."
+    },
+    {
+      "id": 72,
+      "start": 198.04,
+      "end": 201.4,
+      "text": "So as I said last class, photon isn't a standalone system,"
+    },
+    {
+      "id": 73,
+      "start": 201.4,
+      "end": 206.6,
+      "text": "like Dremel or Snowflake Nick when we read that next week."
+    },
+    {
+      "id": 74,
+      "start": 206.6,
+      "end": 210.28,
+      "text": "But rather, it's a library that's meant to embed inside"
+    },
+    {
+      "id": 75,
+      "start": 210.28,
+      "end": 214.56,
+      "text": "of an existing database system like Spark, or the Spark"
+    },
+    {
+      "id": 76,
+      "start": 214.56,
+      "end": 216.84,
+      "text": "runtime, what they call the Databix runtime."
+    },
+    {
+      "id": 77,
+      "start": 216.84,
+      "end": 219.6,
+      "text": "But it's even more low level than the Velox paper"
+    },
+    {
+      "id": 78,
+      "start": 219.6,
+      "end": 225.0,
+      "text": "we read before, where at least Velox was providing a,"
+    },
+    {
+      "id": 79,
+      "start": 225.0,
+      "end": 227.6,
+      "text": "not a full execution engine, but all the pieces"
+    },
+    {
+      "id": 80,
+      "start": 227.6,
+      "end": 230.16,
+      "text": "are components we need for the execution, and thread pools,"
+    },
+    {
+      "id": 81,
+      "start": 230.16,
+      "end": 232.68,
+      "text": "all the operators, and so forth."
+    },
+    {
+      "id": 82,
+      "start": 232.68,
+      "end": 234.64,
+      "text": "It's photon is even smaller than that."
+    },
+    {
+      "id": 83,
+      "start": 234.64,
+      "end": 237.88,
+      "text": "It's really individual, what they call kernels, or tasks,"
+    },
+    {
+      "id": 84,
+      "start": 237.88,
+      "end": 242.2,
+      "text": "or operators that you can then put in at a really fine grain"
+    },
+    {
+      "id": 85,
+      "start": 242.2,
+      "end": 244.0,
+      "text": "within the query plan itself."
+    },
+    {
+      "id": 86,
+      "start": 244.0,
+      "end": 246.2,
+      "text": "But all the threading, all the memory management,"
+    },
+    {
+      "id": 87,
+      "start": 246.2,
+      "end": 247.92,
+      "text": "all of that's going to be handled by something else."
+    },
+    {
+      "id": 88,
+      "start": 247.92,
+      "end": 252.12,
+      "text": "In this case, here, it's going to be the Databix runtime."
+    },
+    {
+      "id": 89,
+      "start": 252.12,
+      "end": 254.28,
+      "text": "And we'll see alternative approaches to accelerate Spark"
+    },
+    {
+      "id": 90,
+      "start": 254.28,
+      "end": 257.88,
+      "text": "at the end, where they're not going to do the way photon did it,"
+    },
+    {
+      "id": 91,
+      "start": 258.0,
+      "end": 260.68,
+      "text": "where again, just injecting the photon accelerated"
+    },
+    {
+      "id": 92,
+      "start": 260.68,
+      "end": 264.72,
+      "text": "operators within the query plan at such locations,"
+    },
+    {
+      "id": 93,
+      "start": 264.72,
+      "end": 267.52,
+      "text": "the alternative approaches we'll see will just"
+    },
+    {
+      "id": 94,
+      "start": 267.52,
+      "end": 270.24,
+      "text": "take the physical query plan, ignore all of Spark,"
+    },
+    {
+      "id": 95,
+      "start": 270.24,
+      "end": 272.8,
+      "text": "and run it somewhere else, using data fusion,"
+    },
+    {
+      "id": 96,
+      "start": 272.8,
+      "end": 276.28,
+      "text": "or a whole nother database system."
+    },
+    {
+      "id": 97,
+      "start": 276.28,
+      "end": 280.76,
+      "text": "So the idea here, the highlight design goal of photon"
+    },
+    {
+      "id": 98,
+      "start": 280.76,
+      "end": 285.32,
+      "text": "is that they wanted to integrate with what they'll call"
+    },
+    {
+      "id": 99,
+      "start": 285.32,
+      "end": 287.48,
+      "text": "the Databix runtime, or the Spark runtime."
+    },
+    {
+      "id": 100,
+      "start": 287.48,
+      "end": 292.0,
+      "text": "Databix runtime is the proprietary version of Spark."
+    },
+    {
+      "id": 101,
+      "start": 292.0,
+      "end": 293.96,
+      "text": "But they wanted to be able to integrate it"
+    },
+    {
+      "id": 102,
+      "start": 293.96,
+      "end": 297.84,
+      "text": "with the DBR without throwing out all"
+    },
+    {
+      "id": 103,
+      "start": 297.84,
+      "end": 300.24,
+      "text": "of the existing infrastructure."
+    },
+    {
+      "id": 104,
+      "start": 300.24,
+      "end": 305.28,
+      "text": "And that as over time, as they expand the scope or the capabilities"
+    },
+    {
+      "id": 105,
+      "start": 305.28,
+      "end": 308.52,
+      "text": "of what photon can support, they can then just incrementally"
+    },
+    {
+      "id": 106,
+      "start": 308.52,
+      "end": 312.96,
+      "text": "add those pieces into override the ones in the Databix runtime,"
+    },
+    {
+      "id": 107,
+      "start": 312.96,
+      "end": 315.56,
+      "text": "again, without disrupting any of the users."
+    },
+    {
+      "id": 108,
+      "start": 315.64,
+      "end": 321.56,
+      "text": "You don't want someone to run a query one week."
+    },
+    {
+      "id": 109,
+      "start": 321.56,
+      "end": 323.52,
+      "text": "And on an earlier version of photon,"
+    },
+    {
+      "id": 110,
+      "start": 323.52,
+      "end": 326.2,
+      "text": "that maybe doesn't have certain tasks implemented,"
+    },
+    {
+      "id": 111,
+      "start": 326.2,
+      "end": 327.72,
+      "text": "and get one result, and then next week,"
+    },
+    {
+      "id": 112,
+      "start": 327.72,
+      "end": 329.92,
+      "text": "they run the exact same query in the exact same data."
+    },
+    {
+      "id": 113,
+      "start": 329.92,
+      "end": 333.44,
+      "text": "But now photon has been upgraded,"
+    },
+    {
+      "id": 114,
+      "start": 333.44,
+      "end": 336.4,
+      "text": "and now they are getting back different results."
+    },
+    {
+      "id": 115,
+      "start": 336.4,
+      "end": 337.6,
+      "text": "I say they want to avoid all of this"
+    },
+    {
+      "id": 116,
+      "start": 337.6,
+      "end": 340.68,
+      "text": "and make this complete transparent to their users,"
+    },
+    {
+      "id": 117,
+      "start": 340.68,
+      "end": 343.04,
+      "text": "other than charging, they charge you more for it."
+    },
+    {
+      "id": 118,
+      "start": 345.72,
+      "end": 351.72,
+      "text": "So they wanted to support all of the semantics"
+    },
+    {
+      "id": 119,
+      "start": 351.72,
+      "end": 353.84,
+      "text": "and capabilities of the earlier SQL engine,"
+    },
+    {
+      "id": 120,
+      "start": 353.84,
+      "end": 355.2,
+      "text": "and the data-free MAPI."
+    },
+    {
+      "id": 121,
+      "start": 355.2,
+      "end": 360.16,
+      "text": "But again, without having any changes in natural results,"
+    },
+    {
+      "id": 122,
+      "start": 360.16,
+      "end": 362.28,
+      "text": "or high little behaviors."
+    },
+    {
+      "id": 123,
+      "start": 362.28,
+      "end": 367.28,
+      "text": "And then they also want to be able to handle the legacy"
+    },
+    {
+      "id": 124,
+      "start": 367.28,
+      "end": 371.72,
+      "text": "artifact that the Spark runtime is going to be handing out"
+    },
+    {
+      "id": 125,
+      "start": 371.72,
+      "end": 373.8,
+      "text": "individual rows one at a time, and convert it"
+    },
+    {
+      "id": 126,
+      "start": 373.8,
+      "end": 376.24,
+      "text": "to a column oriented or vector oriented implementation"
+    },
+    {
+      "id": 127,
+      "start": 376.24,
+      "end": 377.76,
+      "text": "to speed things up."
+    },
+    {
+      "id": 128,
+      "start": 377.76,
+      "end": 379.8,
+      "text": "Right?"
+    },
+    {
+      "id": 129,
+      "start": 379.8,
+      "end": 381.76,
+      "text": "So the basic way it's going to work is that queries are going"
+    },
+    {
+      "id": 130,
+      "start": 381.76,
+      "end": 387.0,
+      "text": "to, some portion of a query will be able to run in photon."
+    },
+    {
+      "id": 131,
+      "start": 387.0,
+      "end": 389.36,
+      "text": "But if we recognize that for what the query actually wants"
+    },
+    {
+      "id": 132,
+      "start": 389.36,
+      "end": 392.32,
+      "text": "to do, we don't have a photon accelerated implementation"
+    },
+    {
+      "id": 133,
+      "start": 392.32,
+      "end": 394.6,
+      "text": "of that task or operator, then we just fall back"
+    },
+    {
+      "id": 134,
+      "start": 394.6,
+      "end": 400.68,
+      "text": "to the slowpath of the original Spark runtime."
+    },
+    {
+      "id": 135,
+      "start": 400.68,
+      "end": 402.72,
+      "text": "So we'll tell you how that works."
+    },
+    {
+      "id": 136,
+      "start": 402.8,
+      "end": 404.36,
+      "text": "The way you do this in the JVM is,"
+    },
+    {
+      "id": 137,
+      "start": 404.36,
+      "end": 407.68,
+      "text": "you know, it's called the JNi, or Java native interface."
+    },
+    {
+      "id": 138,
+      "start": 407.68,
+      "end": 410.64,
+      "text": "It basically allows you to have Java code then invoke"
+    },
+    {
+      "id": 139,
+      "start": 410.64,
+      "end": 414.2,
+      "text": "SQLVlust code, like the thread that's running the JVM"
+    },
+    {
+      "id": 140,
+      "start": 414.2,
+      "end": 418.4,
+      "text": "now goes down to your SQL code, and can do whatever it wants."
+    },
+    {
+      "id": 141,
+      "start": 418.4,
+      "end": 420.44,
+      "text": "And the paper they talk about, the overhead"
+    },
+    {
+      "id": 142,
+      "start": 420.44,
+      "end": 423.52,
+      "text": "of making that JNi call, was roughly about the same as doing"
+    },
+    {
+      "id": 143,
+      "start": 423.52,
+      "end": 426.68,
+      "text": "a virtual function look up in SQLVlust."
+    },
+    {
+      "id": 144,
+      "start": 426.68,
+      "end": 430.84,
+      "text": "I think it's like 23 nanoseconds per call."
+    },
+    {
+      "id": 145,
+      "start": 430.88,
+      "end": 432.64,
+      "text": "It's not free, right?"
+    },
+    {
+      "id": 146,
+      "start": 432.64,
+      "end": 436.16,
+      "text": "But it's not like, you know, because we're just"
+    },
+    {
+      "id": 147,
+      "start": 436.16,
+      "end": 437.8,
+      "text": "being passed around memory buffers and memory pointers"
+    },
+    {
+      "id": 148,
+      "start": 437.8,
+      "end": 440.34,
+      "text": "in the same process, it's not like we had a copy things"
+    },
+    {
+      "id": 149,
+      "start": 440.34,
+      "end": 442.12,
+      "text": "in one process the next."
+    },
+    {
+      "id": 150,
+      "start": 443.12,
+      "end": 446.0,
+      "text": "So for the paper you guys read, what's super awesome about it,"
+    },
+    {
+      "id": 151,
+      "start": 446.0,
+      "end": 448.76,
+      "text": "at least for me as a professor that I like,"
+    },
+    {
+      "id": 152,
+      "start": 448.76,
+      "end": 450.96,
+      "text": "is that when you look at the author list,"
+    },
+    {
+      "id": 153,
+      "start": 450.96,
+      "end": 453.88,
+      "text": "there's a lot of CMU people here, right?"
+    },
+    {
+      "id": 154,
+      "start": 453.88,
+      "end": 456.76,
+      "text": "So for Shawn Menin was my number one PG student"
+    },
+    {
+      "id": 155,
+      "start": 456.76,
+      "end": 459.56,
+      "text": "that actually worked on code JN query compilation stuff."
+    },
+    {
+      "id": 156,
+      "start": 459.56,
+      "end": 461.24,
+      "text": "So he worked on this system."
+    },
+    {
+      "id": 157,
+      "start": 461.24,
+      "end": 463.4,
+      "text": "You'd caution Arvin, they were master students here."
+    },
+    {
+      "id": 158,
+      "start": 463.4,
+      "end": 466.04,
+      "text": "They took 721, same class you guys took here."
+    },
+    {
+      "id": 159,
+      "start": 466.04,
+      "end": 468.0,
+      "text": "And they went off to Databricks."
+    },
+    {
+      "id": 160,
+      "start": 468.0,
+      "end": 471.04,
+      "text": "Ryan Johnson did his PhD at CMU."
+    },
+    {
+      "id": 161,
+      "start": 471.04,
+      "end": 473.6,
+      "text": "I think he graduated in 2010, but so before I showed up."
+    },
+    {
+      "id": 162,
+      "start": 473.6,
+      "end": 478.0,
+      "text": "But I'm pretty sure he took 721 and T8 it, like 2006,"
+    },
+    {
+      "id": 163,
+      "start": 478.0,
+      "end": 479.52,
+      "text": "the earlier version of it."
+    },
+    {
+      "id": 164,
+      "start": 479.52,
+      "end": 482.04,
+      "text": "And there's a bunch of other people in the,"
+    },
+    {
+      "id": 165,
+      "start": 482.04,
+      "end": 485.88,
+      "text": "a bunch of other people in the citation list,"
+    },
+    {
+      "id": 166,
+      "start": 485.88,
+      "end": 488.6,
+      "text": "the bibliography of the paper, like, you know,"
+    },
+    {
+      "id": 167,
+      "start": 488.6,
+      "end": 490.84,
+      "text": "Alson Wang, my former student, they set a blog article"
+    },
+    {
+      "id": 168,
+      "start": 490.84,
+      "end": 492.24,
+      "text": "for which he's that Databricks working on stuff."
+    },
+    {
+      "id": 169,
+      "start": 492.24,
+      "end": 495.84,
+      "text": "So there's a lot of CMUDB alum at Databricks"
+    },
+    {
+      "id": 170,
+      "start": 495.84,
+      "end": 498.56,
+      "text": "working on this project, which is super cool."
+    },
+    {
+      "id": 171,
+      "start": 498.56,
+      "end": 500.52,
+      "text": "This is basically why you should take this class."
+    },
+    {
+      "id": 172,
+      "start": 500.52,
+      "end": 503.44,
+      "text": "But we're already into like, whatever, the 12 weeks"
+    },
+    {
+      "id": 173,
+      "start": 503.44,
+      "end": 504.44,
+      "text": "so you're here."
+    },
+    {
+      "id": 174,
+      "start": 506.92,
+      "end": 509.08,
+      "text": "All right, so here's the high level overview"
+    },
+    {
+      "id": 175,
+      "start": 509.08,
+      "end": 510.56,
+      "text": "of what photon's gonna have."
+    },
+    {
+      "id": 176,
+      "start": 510.56,
+      "end": 512.76,
+      "text": "Right, again, some of this will be in the context"
+    },
+    {
+      "id": 177,
+      "start": 512.76,
+      "end": 515.36,
+      "text": "of the overall spark system, like shared disk"
+    },
+    {
+      "id": 178,
+      "start": 515.36,
+      "end": 517.08,
+      "text": "and disk aggregate storage, right,"
+    },
+    {
+      "id": 179,
+      "start": 517.36,
+      "end": 518.68,
+      "text": "the server-tecuputing storage."
+    },
+    {
+      "id": 180,
+      "start": 519.68,
+      "end": 520.88,
+      "text": "But the ones that we're gonna,"
+    },
+    {
+      "id": 181,
+      "start": 520.88,
+      "end": 523.84,
+      "text": "one we're gonna focus on is the pole-based vectorized execution"
+    },
+    {
+      "id": 182,
+      "start": 523.84,
+      "end": 526.8,
+      "text": "and then the pre-copyred primitives."
+    },
+    {
+      "id": 183,
+      "start": 526.8,
+      "end": 529.16,
+      "text": "We'll see how they're gonna do shuffle-based distribution,"
+    },
+    {
+      "id": 184,
+      "start": 529.16,
+      "end": 530.48,
+      "text": "just like in Dremel,"
+    },
+    {
+      "id": 185,
+      "start": 530.48,
+      "end": 532.96,
+      "text": "no nothing, nothing really radical there."
+    },
+    {
+      "id": 186,
+      "start": 532.96,
+      "end": 534.48,
+      "text": "They do sort of merge in hash-joins"
+    },
+    {
+      "id": 187,
+      "start": 534.48,
+      "end": 536.4,
+      "text": "and then also talk about how they're doing"
+    },
+    {
+      "id": 188,
+      "start": 536.4,
+      "end": 541.08,
+      "text": "query optimization and ad-aptivity."
+    },
+    {
+      "id": 189,
+      "start": 543.04,
+      "end": 545.16,
+      "text": "So the overall architecture, it looks,"
+    },
+    {
+      "id": 190,
+      "start": 545.16,
+      "end": 546.8,
+      "text": "you look a lot like Dremel, right?"
+    },
+    {
+      "id": 191,
+      "start": 546.84,
+      "end": 548.68,
+      "text": "We have some distributed file system."
+    },
+    {
+      "id": 192,
+      "start": 548.68,
+      "end": 550.2,
+      "text": "We have a query shows up."
+    },
+    {
+      "id": 193,
+      "start": 550.2,
+      "end": 552.96,
+      "text": "It gets sent to what they call a driver,"
+    },
+    {
+      "id": 194,
+      "start": 552.96,
+      "end": 555.24,
+      "text": "but Dremel called the coordinator."
+    },
+    {
+      "id": 195,
+      "start": 555.24,
+      "end": 556.68,
+      "text": "You'll see Sniffle next week."
+    },
+    {
+      "id": 196,
+      "start": 556.68,
+      "end": 560.2,
+      "text": "They'll call this, I think, the compute service"
+    },
+    {
+      "id": 197,
+      "start": 560.2,
+      "end": 561.28,
+      "text": "or something like that."
+    },
+    {
+      "id": 198,
+      "start": 561.28,
+      "end": 562.84,
+      "text": "At a high level, again, it's some node"
+    },
+    {
+      "id": 199,
+      "start": 562.84,
+      "end": 564.88,
+      "text": "that's responsible for taking the query,"
+    },
+    {
+      "id": 200,
+      "start": 564.88,
+      "end": 567.6,
+      "text": "generating the query plan, handing it off to some schedule"
+    },
+    {
+      "id": 201,
+      "start": 567.6,
+      "end": 570.04,
+      "text": "and make sure the task is executed, right?"
+    },
+    {
+      "id": 202,
+      "start": 571.08,
+      "end": 575.16,
+      "text": "So, in the first stage here, the executors fire up"
+    },
+    {
+      "id": 203,
+      "start": 575.16,
+      "end": 578.04,
+      "text": "and they'll start pulling data from the distributed file"
+    },
+    {
+      "id": 204,
+      "start": 578.04,
+      "end": 580.68,
+      "text": "system, they'll reduce some kind of computation on it."
+    },
+    {
+      "id": 205,
+      "start": 581.68,
+      "end": 586.0,
+      "text": "And then they're gonna start writing it out for the shuffle phase."
+    },
+    {
+      "id": 206,
+      "start": 586.0,
+      "end": 589.44,
+      "text": "But in the default version, like if you just download Spark,"
+    },
+    {
+      "id": 207,
+      "start": 589.44,
+      "end": 592.2,
+      "text": "they're gonna do a local in-memory shuffle storm."
+    },
+    {
+      "id": 208,
+      "start": 593.2,
+      "end": 595.36,
+      "text": "So I mean, they're gonna write to basically hash-table"
+    },
+    {
+      "id": 209,
+      "start": 595.36,
+      "end": 597.32,
+      "text": "that's local to them and then other workers"
+    },
+    {
+      "id": 210,
+      "start": 597.32,
+      "end": 599.52,
+      "text": "can pull from them in the next stage."
+    },
+    {
+      "id": 211,
+      "start": 599.52,
+      "end": 601.44,
+      "text": "But as we also saw last class, we have the ability to,"
+    }
+  ],
+  "language": "ba"
+}

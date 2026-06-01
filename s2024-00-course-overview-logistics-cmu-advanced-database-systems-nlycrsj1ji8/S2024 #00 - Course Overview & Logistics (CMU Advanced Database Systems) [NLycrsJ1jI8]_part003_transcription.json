@@ -1,0 +1,377 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.52,
+      "text": "this later, but the liaison's will be responsible"
+    },
+    {
+      "id": 1,
+      "start": 1.52,
+      "end": 5.24,
+      "text": "or actually scheduling the time and running those benchmarks."
+    },
+    {
+      "id": 2,
+      "start": 5.24,
+      "end": 6.84,
+      "text": "So we have a true apples apples comparison"
+    },
+    {
+      "id": 3,
+      "start": 6.84,
+      "end": 8.68,
+      "text": "between the different groups."
+    },
+    {
+      "id": 4,
+      "start": 11.16,
+      "end": 13.08,
+      "text": "And then lastly is that we're not going to say any project"
+    },
+    {
+      "id": 5,
+      "start": 13.08,
+      "end": 15.24,
+      "text": "is completed until we get a final code drop."
+    },
+    {
+      "id": 6,
+      "start": 15.24,
+      "end": 18.04,
+      "text": "And that means all the comments and other code"
+    },
+    {
+      "id": 7,
+      "start": 18.04,
+      "end": 21.08,
+      "text": "or use issues on GitHub, volume addressed."
+    },
+    {
+      "id": 8,
+      "start": 21.08,
+      "end": 22.2,
+      "text": "We have all proper test cases."
+    },
+    {
+      "id": 9,
+      "start": 22.2,
+      "end": 23.76,
+      "text": "We make sure everything's sort of working."
+    },
+    {
+      "id": 10,
+      "start": 23.76,
+      "end": 25.72,
+      "text": "And we have nice documentation and comments"
+    },
+    {
+      "id": 11,
+      "start": 25.72,
+      "end": 26.84,
+      "text": "and the source code."
+    },
+    {
+      "id": 12,
+      "start": 26.84,
+      "end": 31.6,
+      "text": "So if you set your hand it over to the next class"
+    },
+    {
+      "id": 13,
+      "start": 31.6,
+      "end": 33.12,
+      "text": "and let them pick up where you left off,"
+    },
+    {
+      "id": 14,
+      "start": 33.12,
+      "end": 34.4,
+      "text": "or in some cases some of you students"
+    },
+    {
+      "id": 15,
+      "start": 34.4,
+      "end": 38.44,
+      "text": "are doing master's thesis or captain projects."
+    },
+    {
+      "id": 16,
+      "start": 38.44,
+      "end": 40.6,
+      "text": "You know, when you come back in the spring semester"
+    },
+    {
+      "id": 17,
+      "start": 40.6,
+      "end": 42.04,
+      "text": "or sorry, the fall semester,"
+    },
+    {
+      "id": 18,
+      "start": 42.04,
+      "end": 43.28,
+      "text": "you have something to pick up on"
+    },
+    {
+      "id": 19,
+      "start": 43.28,
+      "end": 45.12,
+      "text": "and you know how to keep continuing things."
+    },
+    {
+      "id": 20,
+      "start": 47.56,
+      "end": 50.16,
+      "text": "All right, so this one doesn't go to that saying,"
+    },
+    {
+      "id": 21,
+      "start": 50.16,
+      "end": 52.24,
+      "text": "you don't want to plagiarize, don't copy code"
+    },
+    {
+      "id": 22,
+      "start": 52.24,
+      "end": 55.52,
+      "text": "that's not yours without getting permission from instructors."
+    },
+    {
+      "id": 23,
+      "start": 56.52,
+      "end": 60.32,
+      "text": "Again, for some things like parts of an execution engine,"
+    },
+    {
+      "id": 24,
+      "start": 60.32,
+      "end": 61.6,
+      "text": "you can go look at data fusion"
+    },
+    {
+      "id": 25,
+      "start": 61.6,
+      "end": 62.64,
+      "text": "and see how they do certain things."
+    },
+    {
+      "id": 26,
+      "start": 62.64,
+      "end": 64.28,
+      "text": "I'm not saying they do everything correctly,"
+    },
+    {
+      "id": 27,
+      "start": 64.28,
+      "end": 67.04,
+      "text": "but the best way, but if you want to sort of"
+    },
+    {
+      "id": 28,
+      "start": 67.04,
+      "end": 70.08,
+      "text": "pick high level ideas of how they set up the code,"
+    },
+    {
+      "id": 29,
+      "start": 70.08,
+      "end": 71.0,
+      "text": "that's okay."
+    },
+    {
+      "id": 30,
+      "start": 71.0,
+      "end": 73.88,
+      "text": "But obviously just don't wholesale copy things"
+    },
+    {
+      "id": 31,
+      "start": 73.88,
+      "end": 76.28,
+      "text": "and try to pass it off as your own."
+    },
+    {
+      "id": 32,
+      "start": 76.28,
+      "end": 77.96,
+      "text": "We make sure that we know that the lineage"
+    },
+    {
+      "id": 33,
+      "start": 77.96,
+      "end": 81.52,
+      "text": "of any source code that we're adding to this project,"
+    },
+    {
+      "id": 34,
+      "start": 81.52,
+      "end": 84.16,
+      "text": "where it came from and make sure"
+    },
+    {
+      "id": 35,
+      "start": 84.44,
+      "end": 85.84,
+      "text": "it's another right-circumence."
+    },
+    {
+      "id": 36,
+      "start": 87.76,
+      "end": 89.48,
+      "text": "All right, so that's it for now."
+    },
+    {
+      "id": 37,
+      "start": 89.48,
+      "end": 91.0,
+      "text": "The sun's coming out."
+    },
+    {
+      "id": 38,
+      "start": 91.0,
+      "end": 92.68,
+      "text": "I got it going."
+    },
+    {
+      "id": 39,
+      "start": 93.56,
+      "end": 96.24,
+      "text": "So for next class,"
+    },
+    {
+      "id": 40,
+      "start": 96.24,
+      "end": 98.08,
+      "text": "we'll have the first lecture on the first paper"
+    },
+    {
+      "id": 41,
+      "start": 98.08,
+      "end": 100.84,
+      "text": "on sort of modern analytical systems."
+    },
+    {
+      "id": 42,
+      "start": 100.84,
+      "end": 103.48,
+      "text": "So this will be, I think from the data that's guys"
+    },
+    {
+      "id": 43,
+      "start": 103.48,
+      "end": 104.52,
+      "text": "describing what they do."
+    },
+    {
+      "id": 44,
+      "start": 106.76,
+      "end": 109.04,
+      "text": "You'll want to submit the first reading review"
+    },
+    {
+      "id": 45,
+      "start": 109.04,
+      "end": 110.48,
+      "text": "for this game before class starts"
+    },
+    {
+      "id": 46,
+      "start": 110.48,
+      "end": 111.76,
+      "text": "and then use that link there"
+    },
+    {
+      "id": 47,
+      "start": 111.76,
+      "end": 114.12,
+      "text": "and that'll take you to the Google form to fill it out."
+    },
+    {
+      "id": 48,
+      "start": 114.72,
+      "end": 116.92,
+      "text": "And then we'll also talk a little more about project logistics."
+    },
+    {
+      "id": 49,
+      "start": 116.92,
+      "end": 118.48,
+      "text": "I'll post on Piazza."
+    },
+    {
+      "id": 50,
+      "start": 118.48,
+      "end": 120.2,
+      "text": "Again, if you're not in a group,"
+    },
+    {
+      "id": 51,
+      "start": 120.2,
+      "end": 123.44,
+      "text": "how to find a group and start getting the process"
+    },
+    {
+      "id": 52,
+      "start": 123.44,
+      "end": 125.72,
+      "text": "of writing your project proposal, let's do it in 31st."
+    },
+    {
+      "id": 53,
+      "start": 127.0,
+      "end": 129.04,
+      "text": "And then for the lecture notes,"
+    },
+    {
+      "id": 54,
+      "start": 129.04,
+      "end": 131.24,
+      "text": "again, go check to see what your assigned notes data is"
+    },
+    {
+      "id": 55,
+      "start": 131.24,
+      "end": 133.64,
+      "text": "and for the ones that are,"
+    },
+    {
+      "id": 56,
+      "start": 134.76,
+      "end": 137.32,
+      "text": "where we have more students and lectures,"
+    },
+    {
+      "id": 57,
+      "start": 137.32,
+      "end": 138.84,
+      "text": "again, we'll figure out some alternative"
+    },
+    {
+      "id": 58,
+      "start": 138.84,
+      "end": 142.28,
+      "text": "or something else to do to spread the book out of you."
+    },
+    {
+      "id": 59,
+      "start": 142.28,
+      "end": 143.44,
+      "text": "Okay?"
+    },
+    {
+      "id": 60,
+      "start": 143.48,
+      "end": 145.52,
+      "text": "Okay, so, I hope that."
+    },
+    {
+      "id": 61,
+      "start": 145.52,
+      "end": 147.28,
+      "text": "See you in class of Monday next week."
+    }
+  ],
+  "language": "en"
+}

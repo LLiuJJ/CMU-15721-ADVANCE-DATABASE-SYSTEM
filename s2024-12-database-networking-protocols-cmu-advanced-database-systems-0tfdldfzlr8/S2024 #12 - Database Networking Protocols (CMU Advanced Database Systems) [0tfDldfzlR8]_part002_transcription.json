@@ -1,0 +1,461 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 7.0,
+      "text": "So, if you're going to build a new database system today, you have two choices."
+    },
+    {
+      "id": 1,
+      "start": 7.0,
+      "end": 12.0,
+      "text": "You either can implement your own wire protocol by scratch, and then in which case,"
+    },
+    {
+      "id": 2,
+      "start": 12.0,
+      "end": 20.0,
+      "text": "then you have to write your JDBC, ODBC, client libraries, the drivers to support talking to your database system."
+    },
+    {
+      "id": 3,
+      "start": 20.0,
+      "end": 27.0,
+      "text": "The more common thing to do now though is just use an existing wire protocol from an existing database system,"
+    },
+    {
+      "id": 4,
+      "start": 27.0,
+      "end": 33.0,
+      "text": "because then you can just inherit their driver ecosystem for free."
+    },
+    {
+      "id": 5,
+      "start": 33.0,
+      "end": 41.0,
+      "text": "It's not enough to say, okay, I speak the wire protocol to say you're compatible with another database system."
+    },
+    {
+      "id": 6,
+      "start": 41.0,
+      "end": 48.0,
+      "text": "That's the bare minimum. If you just spoke the wire protocol, the client drivers don't know, typically don't know,"
+    },
+    {
+      "id": 7,
+      "start": 48.0,
+      "end": 51.0,
+      "text": "don't care what the SQL query looks like related to his question."
+    },
+    {
+      "id": 8,
+      "start": 51.0,
+      "end": 55.0,
+      "text": "They're not parsing on the client side to see, are you really sending me a postgres, you know,"
+    },
+    {
+      "id": 9,
+      "start": 55.0,
+      "end": 60.0,
+      "text": "a postgres compatible query? They're just sort of sending the text over."
+    },
+    {
+      "id": 10,
+      "start": 60.0,
+      "end": 65.0,
+      "text": "So, if you want to be able to support more of the ecosystem, then you have to support the catalogs and other functionality,"
+    },
+    {
+      "id": 11,
+      "start": 65.0,
+      "end": 69.0,
+      "text": "but the bare minimum you would need is just to say, I need a wire protocol."
+    },
+    {
+      "id": 12,
+      "start": 69.0,
+      "end": 78.0,
+      "text": "So, it's about 50-50 now. It didn't used to be this way, but the two most common wire protocols that are going to be reused"
+    },
+    {
+      "id": 13,
+      "start": 78.0,
+      "end": 84.0,
+      "text": "is my SQL on postgres. My SQL used to be number one postgres is actually becoming more popular."
+    },
+    {
+      "id": 14,
+      "start": 84.0,
+      "end": 88.0,
+      "text": "That's partly because there's a lot of databases that are like forks of postgres,"
+    },
+    {
+      "id": 15,
+      "start": 88.0,
+      "end": 92.0,
+      "text": "where they keep the top-aff included in network layer, so you're speaking the wire protocol,"
+    },
+    {
+      "id": 16,
+      "start": 92.0,
+      "end": 97.0,
+      "text": "and then they rewrite the bottom layer. That's what Neon does and Redshift and others do."
+    },
+    {
+      "id": 17,
+      "start": 97.0,
+      "end": 103.0,
+      "text": "The third most common wire protocol is actually Redis, and this is because it's so simple."
+    },
+    {
+      "id": 18,
+      "start": 103.0,
+      "end": 107.0,
+      "text": "It's like just text-based, like getting sets and simple things like that."
+    },
+    {
+      "id": 19,
+      "start": 107.0,
+      "end": 115.0,
+      "text": "But again, if you support these existing protocols, someone can run against your new database system without having to rewrite their application"
+    },
+    {
+      "id": 20,
+      "start": 115.0,
+      "end": 123.0,
+      "text": "or change what driver they're using, because you just piggyback off of the existing driver implementations."
+    },
+    {
+      "id": 21,
+      "start": 123.0,
+      "end": 128.0,
+      "text": "Snowflake interestingly did not do this. I think it's a different time."
+    },
+    {
+      "id": 22,
+      "start": 128.0,
+      "end": 134.0,
+      "text": "Snowflake decided we're going to write our own wire protocol from scratch, including their own SQL dialect from scratch."
+    },
+    {
+      "id": 23,
+      "start": 134.0,
+      "end": 141.0,
+      "text": "They started in 2011-2012. I think if you're going to build a new system today, it'll be a hard decision to do that,"
+    },
+    {
+      "id": 24,
+      "start": 141.0,
+      "end": 149.0,
+      "text": "because there's just so much stuff you can reuse if you speak the postgres wire protocol."
+    },
+    {
+      "id": 25,
+      "start": 149.0,
+      "end": 160.0,
+      "text": "So the paper I had you guys read was about how to improve the wire protocol between these different database systems."
+    },
+    {
+      "id": 26,
+      "start": 160.0,
+      "end": 164.0,
+      "text": "And they sort of focused on four key to dying decisions."
+    },
+    {
+      "id": 27,
+      "start": 164.0,
+      "end": 171.0,
+      "text": "The background of this paper is that this is from the Monet-DB Light Project, which was a precursor to DuckDB."
+    },
+    {
+      "id": 28,
+      "start": 171.0,
+      "end": 178.0,
+      "text": "So Hanna and Mark, who are the authors of this paper, as part of the work they were doing when trying to make Monet-DB be embeddable,"
+    },
+    {
+      "id": 29,
+      "start": 178.0,
+      "end": 188.0,
+      "text": "they realized all the problems they were having of getting data in and out into pandas and R programs, even if you're still running on the same process."
+    },
+    {
+      "id": 30,
+      "start": 188.0,
+      "end": 193.0,
+      "text": "So this is sort of what led them to throw away the code and start putting DuckDB."
+    },
+    {
+      "id": 31,
+      "start": 193.0,
+      "end": 197.0,
+      "text": "So this, again, it's the same team, but this before DuckDB came a thing."
+    },
+    {
+      "id": 32,
+      "start": 197.0,
+      "end": 200.0,
+      "text": "And again, this paper is focused on doing large data exports."
+    },
+    {
+      "id": 33,
+      "start": 200.0,
+      "end": 206.0,
+      "text": "So it's not complex queries are doing a bunch of joins and it's sophisticated aggregations."
+    },
+    {
+      "id": 34,
+      "start": 206.0,
+      "end": 212.0,
+      "text": "It's more or less like select star queries, or even getting a subset of the columns projected out,"
+    },
+    {
+      "id": 35,
+      "start": 212.0,
+      "end": 220.0,
+      "text": "to then feed that into a pandas or Python program to do additional computation or train machine learning models and so forth."
+    },
+    {
+      "id": 36,
+      "start": 220.0,
+      "end": 225.0,
+      "text": "So this paper is really about how to get data out of the server into the client."
+    },
+    {
+      "id": 37,
+      "start": 225.0,
+      "end": 230.0,
+      "text": "So, now, whatever, again, whatever organizations we're going to talk about today,"
+    },
+    {
+      "id": 38,
+      "start": 230.0,
+      "end": 233.0,
+      "text": "you're going to have to also implement them in the client driver."
+    },
+    {
+      "id": 39,
+      "start": 233.0,
+      "end": 239.0,
+      "text": "Because if you start compressing things on the server side, send that over the wire,"
+    },
+    {
+      "id": 40,
+      "start": 239.0,
+      "end": 243.0,
+      "text": "if the client doesn't know how to decompress them, then the data is useless."
+    },
+    {
+      "id": 41,
+      "start": 243.0,
+      "end": 248.0,
+      "text": "Likewise, if I convert from a raw-oriented format to a columnar format,"
+    },
+    {
+      "id": 42,
+      "start": 248.0,
+      "end": 256.0,
+      "text": "if the client doesn't know how to do that transpose, then it's all useless."
+    },
+    {
+      "id": 43,
+      "start": 256.0,
+      "end": 264.0,
+      "text": "And so, typically, client drivers are being very conservative and they're not going to want to have a lot of"
+    },
+    {
+      "id": 44,
+      "start": 265.0,
+      "end": 271.0,
+      "text": "extended capabilities in them because now you have to support that for every single possible language you ever want to support."
+    },
+    {
+      "id": 45,
+      "start": 271.0,
+      "end": 279.0,
+      "text": "So if you have the C API and you just wrap that around the various different programming languages, then that's fine because you just start implementing it once."
+    },
+    {
+      "id": 46,
+      "start": 279.0,
+      "end": 287.0,
+      "text": "But as I was saying before, ideally, you want to have a native implementation of your client driver in whatever program language you're running in,"
+    },
+    {
+      "id": 47,
+      "start": 287.0,
+      "end": 293.0,
+      "text": "so you don't have this copying over between C or whatever program language you want."
+    },
+    {
+      "id": 48,
+      "start": 293.0,
+      "end": 301.0,
+      "text": "So if now you have all these additional features in your client driver, well now everybody who, every programming language that implements your client driver has to implement the same thing."
+    },
+    {
+      "id": 49,
+      "start": 301.0,
+      "end": 309.0,
+      "text": "And that becomes problematic because it's fractured, people don't implement all the same capabilities."
+    },
+    {
+      "id": 50,
+      "start": 309.0,
+      "end": 314.0,
+      "text": "So there's a trade-off of the house sophisticated wing B versus what people are actually able to do when the client drivers."
+    },
+    {
+      "id": 51,
+      "start": 314.0,
+      "end": 319.0,
+      "text": "Furthermore, in a modern scenario, we haven't really talked about Lambda functions or serverless applications,"
+    },
+    {
+      "id": 52,
+      "start": 320.0,
+      "end": 335.0,
+      "text": "but a very common scenario now is like the communications of the data servers, like I spin up a Lambda function, which is say some Python thing that is run, it connects to the database server, does authentication, sends some queries, get back results, and then doesn't mind a processing, and then goes away."
+    },
+    {
+      "id": 53,
+      "start": 335.0,
+      "end": 347.0,
+      "text": "So in that case, you're paying for the compute time on the serverless function and you don't want to have a bunch of expensive decitalization if you have a very sophisticated, you know, a client protocol."
+    },
+    {
+      "id": 54,
+      "start": 348.0,
+      "end": 353.0,
+      "text": "And again, the answer is going to be Apache arrows, it's going to be the right solution to this. That's the risk for them."
+    },
+    {
+      "id": 55,
+      "start": 353.0,
+      "end": 364.0,
+      "text": "So we're going to go through these four major pieces, one by one, and see what the trade-offs are. Again, not just for performance, but also again for the engineering side of the client."
+    },
+    {
+      "id": 56,
+      "start": 364.0,
+      "end": 370.0,
+      "text": "So the first one is going to be kind of obvious, because we started off this semester, Roastroir versus a column store."
+    },
+    {
+      "id": 57,
+      "start": 370.0,
+      "end": 381.0,
+      "text": "And ODBC and JDBC are by their nature, are Ro-oriented APIs, because they were developed in the 1990s, early 1990s, before columnar databases were a thing."
+    },
+    {
+      "id": 58,
+      "start": 381.0,
+      "end": 388.0,
+      "text": "The paper columnar databases, the first one column store is like 82, 83, but that's a theory paper."
+    },
+    {
+      "id": 59,
+      "start": 388.0,
+      "end": 399.0,
+      "text": "There was a Swedish system that was technically a column store, but in the 70s, when no one has ever heard of that, Sybaise IQ is probably the first one that came along with it was a true column store invitation, but that's like 97, 98."
+    },
+    {
+      "id": 60,
+      "start": 399.0,
+      "end": 412.0,
+      "text": "So again, ODBC comes along in 1990, column stores aren't a thing. And most people, applications people are writing are like business applications that are like going fetching one order record or single entities, single information."
+    },
+    {
+      "id": 61,
+      "start": 412.0,
+      "end": 422.0,
+      "text": "So it's inherently Ro-oriented. So in this world, what's going to happen is the server is going to take all the two goals that it's getting as part of the output."
+    },
+    {
+      "id": 62,
+      "start": 422.0,
+      "end": 433.0,
+      "text": "And even though on the server side, it may be storing them as a column store, it's going to stick them back together, materialize them back together, because the client protocol, the wire protocol, wants it in a Ro-oriented manner."
+    },
+    {
+      "id": 63,
+      "start": 433.0,
+      "end": 445.0,
+      "text": "Because then you write applications and sort of pseudo Jdbc stuff like this, you're going to iterate over the results set and get one tuba out of time and extract out the data you want Ro-by-Route."
+    },
+    {
+      "id": 64,
+      "start": 445.0,
+      "end": 460.0,
+      "text": "But if we switch to a column of format, then this deck can be bad too, because if I ever need to get multiple data for a single tuba across multiple columns,"
+    },
+    {
+      "id": 65,
+      "start": 460.0,
+      "end": 467.0,
+      "text": "then I have to write some weird code of like iterate over the columns, iterate over the next rows, and try to put, you know, stitch things back together."
+    },
+    {
+      "id": 66,
+      "start": 467.0,
+      "end": 471.0,
+      "text": "Again, this is not real code, it's just some pseudo code here, right?"
+    },
+    {
+      "id": 67,
+      "start": 471.0,
+      "end": 481.0,
+      "text": "So the solution is basically the same thing we talked about in the very beginning. We want a packed space model, because now we can operate over batches of tuples."
+    },
+    {
+      "id": 68,
+      "start": 481.0,
+      "end": 496.0,
+      "text": "And although we're going to be sending them the data out in a, you know, a columnar fashion, they'll group them together in row groups or small enough chunks where all the data we would need for a single tuba will be close together."
+    },
+    {
+      "id": 69,
+      "start": 496.0,
+      "end": 502.0,
+      "text": "Right? So this is what Arrow does as we talked about."
+    },
+    {
+      "id": 70,
+      "start": 502.0,
+      "end": 522.0,
+      "text": "And so Arrow has a thing called the Arrow database connectivity, and it's basically like JDBC or ABC, it's a specification programming API for to how to interact with a database system and operate over getting back, getting back vectors."
+    },
+    {
+      "id": 71,
+      "start": 523.0,
+      "end": 550.0,
+      "text": "And so if now your database system supports ADBC, which some systems do, like snowflake, for example, then now I can make requests, send a SQL query over to the database system and get it back in native arrow form, and then I can integrate that and use that in my application anyway that I want, without having to do any copying or decilization, because it's already in a vector format."
+    },
+    {
+      "id": 72,
+      "start": 550.0,
+      "end": 564.0,
+      "text": "So we're not going to go through like what ADBC is, like, it's not everyone actually supports it, but this is going to be, this is basically what Hanis and Mark are going to propose, like, hey, we have this vector based API, and this is what this is what came out later."
+    },
+    {
+      "id": 73,
+      "start": 564.0,
+      "end": 571.0,
+      "text": "Right? Because the paper you guys read predates, predates ADBC."
+    },
+    {
+      "id": 74,
+      "start": 572.0,
+      "end": 596.0,
+      "text": "Okay, so now if we want to send, sending, sending, sending things back as vectors, how we want to support compression, and this basically is going to smell like again all the stuff we talked about before in storage of this trade off between having general purpose naive compression that was taking blocks of data and throwing gzip or snappy at it versus having a more lightweight encoding scheme that's specific to the actual data that I'm storing."
+    },
+    {
+      "id": 75,
+      "start": 596.0,
+      "end": 603.0,
+      "text": "So again, the easiest approach is to do just gzip or snappy or z standard, and this is basically you"
+    }
+  ],
+  "language": "en"
+}

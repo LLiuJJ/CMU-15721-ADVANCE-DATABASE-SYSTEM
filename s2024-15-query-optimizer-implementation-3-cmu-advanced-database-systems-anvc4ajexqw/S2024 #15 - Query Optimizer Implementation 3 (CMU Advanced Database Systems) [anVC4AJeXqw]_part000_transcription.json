@@ -1,0 +1,761 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 24.96,
+      "text": "The type of optimizers we've talked about so far have been the classic query optimizers"
+    },
+    {
+      "id": 1,
+      "start": 24.96,
+      "end": 29.6,
+      "text": "where the query shows up, we parse the SQL, then we run it through the optimizer and"
+    },
+    {
+      "id": 2,
+      "start": 29.6,
+      "end": 33.92,
+      "text": "we generate a plan before we even begin executing the query."
+    },
+    {
+      "id": 3,
+      "start": 33.92,
+      "end": 36.56,
+      "text": "This is how most query optimizers work, right?"
+    },
+    {
+      "id": 4,
+      "start": 36.56,
+      "end": 40.56,
+      "text": "Obviously you can't run the query unless you have a query plan so you have to put it through"
+    },
+    {
+      "id": 5,
+      "start": 40.56,
+      "end": 42.12,
+      "text": "the optimizer."
+    },
+    {
+      "id": 6,
+      "start": 42.12,
+      "end": 50.24,
+      "text": "But the challenge is going to be that what we think is the best plan during this optimization"
+    },
+    {
+      "id": 7,
+      "start": 50.24,
+      "end": 55.76,
+      "text": "phase before we even start running it may actually be incorrect, right?"
+    },
+    {
+      "id": 8,
+      "start": 55.76,
+      "end": 60.92,
+      "text": "Because since we can't actually run the query without a plan, there's some assumptions"
+    },
+    {
+      "id": 9,
+      "start": 60.92,
+      "end": 65.68,
+      "text": "we have to make about what the database and what our environment looks like."
+    },
+    {
+      "id": 10,
+      "start": 65.68,
+      "end": 69.16,
+      "text": "But these things can change over time for various reasons, right?"
+    },
+    {
+      "id": 11,
+      "start": 69.16,
+      "end": 74.68,
+      "text": "So the physical design, the database can change because the administrator of the application"
+    },
+    {
+      "id": 12,
+      "start": 74.68,
+      "end": 79.4,
+      "text": "could add and drop indexes or change the partition scheme."
+    },
+    {
+      "id": 13,
+      "start": 79.4,
+      "end": 83.16,
+      "text": "The database itself could get modified, people could insert two pulls or delete two pulls"
+    },
+    {
+      "id": 14,
+      "start": 83.16,
+      "end": 87.28,
+      "text": "and that could change the distribution of values for our columns."
+    },
+    {
+      "id": 15,
+      "start": 87.28,
+      "end": 94.0,
+      "text": "If we're invoking our queries as prepared statements, then the behavior of the query for"
+    },
+    {
+      "id": 16,
+      "start": 94.0,
+      "end": 97.56,
+      "text": "one set of the parameters might be different for another set of parameters."
+    },
+    {
+      "id": 17,
+      "start": 97.56,
+      "end": 102.6,
+      "text": "And then of course, every time you run, analyze or whatever the command is in our database"
+    },
+    {
+      "id": 18,
+      "start": 102.6,
+      "end": 108.08,
+      "text": "system to recollect the statistics that we use in our cost models, every time we update"
+    },
+    {
+      "id": 19,
+      "start": 108.08,
+      "end": 114.28,
+      "text": "them, then the decisions we'll make in our optimizer could be entirely different."
+    },
+    {
+      "id": 20,
+      "start": 114.28,
+      "end": 123.08,
+      "text": "So the sort of focus today is to understand how can we potentially improve our optimizers,"
+    },
+    {
+      "id": 21,
+      "start": 123.08,
+      "end": 127.84,
+      "text": "the efficacy of the quality of the plans that we're generating by maybe relaxing this"
+    },
+    {
+      "id": 22,
+      "start": 127.84,
+      "end": 133.84,
+      "text": "requirement that we only generate a plan or only revisit our assumptions or we never"
+    },
+    {
+      "id": 23,
+      "start": 133.84,
+      "end": 137.92,
+      "text": "revisit our assumptions once we generate the plan, the beginning."
+    },
+    {
+      "id": 24,
+      "start": 137.92,
+      "end": 142.8,
+      "text": "So to do this, we want to understand a little bit what a bad query panel looks like, a"
+    },
+    {
+      "id": 25,
+      "start": 142.8,
+      "end": 150.0,
+      "text": "wide query plans can be considered bad and then end up with less than optimal formats."
+    },
+    {
+      "id": 26,
+      "start": 150.0,
+      "end": 154.84,
+      "text": "So we'll cover this more on Wednesday when we discuss cost models."
+    },
+    {
+      "id": 27,
+      "start": 154.84,
+      "end": 158.72,
+      "text": "But in general, I say the high level, the biggest problem we're always going to have is"
+    },
+    {
+      "id": 28,
+      "start": 158.72,
+      "end": 161.84,
+      "text": "the, we're going to get the join orders incorrect."
+    },
+    {
+      "id": 29,
+      "start": 161.84,
+      "end": 167.0,
+      "text": "So almost always the most expensive thing, we're going to execute in an analytical workload."
+    },
+    {
+      "id": 30,
+      "start": 167.0,
+      "end": 172.92,
+      "text": "And so if we get the ordering incorrect, that can get lead to poor performance."
+    },
+    {
+      "id": 31,
+      "start": 172.92,
+      "end": 178.0,
+      "text": "And the reason why we're going to make select incorrect ordering is because we're going"
+    },
+    {
+      "id": 32,
+      "start": 178.0,
+      "end": 180.68,
+      "text": "to have inaccurate cardinality estimations."
+    },
+    {
+      "id": 33,
+      "start": 180.68,
+      "end": 184.8,
+      "text": "Meaning we think that our join is going to produce X number of tuples, but it's really"
+    },
+    {
+      "id": 34,
+      "start": 184.8,
+      "end": 190.72,
+      "text": "going to be X times Y or some larger multiple of them."
+    },
+    {
+      "id": 35,
+      "start": 190.72,
+      "end": 191.72,
+      "text": "So we thought it's going to happen."
+    },
+    {
+      "id": 36,
+      "start": 191.72,
+      "end": 195.72,
+      "text": "Again, we'll discuss why this occurs more in the next lecture."
+    },
+    {
+      "id": 37,
+      "start": 195.72,
+      "end": 201.4,
+      "text": "But this, this, this issue is going to be reoccurring theme that we're going to have to overcome."
+    },
+    {
+      "id": 38,
+      "start": 201.4,
+      "end": 206.92,
+      "text": "And today's discussion is sort of see techniques to do this."
+    },
+    {
+      "id": 39,
+      "start": 206.92,
+      "end": 211.56,
+      "text": "So but since we know things are going to go bad, like we just know, we can just assume"
+    },
+    {
+      "id": 40,
+      "start": 211.56,
+      "end": 216.52,
+      "text": "that our cost model is going to be an accurate, our optimizer is going to make bad decisions."
+    },
+    {
+      "id": 41,
+      "start": 216.52,
+      "end": 223.76,
+      "text": "And ideally, if we can detect how bad our query plan is, once we start running it, then"
+    },
+    {
+      "id": 42,
+      "start": 223.76,
+      "end": 231.52,
+      "text": "we can make a decision to adapt the plan to modify potentially to account for these differences"
+    },
+    {
+      "id": 43,
+      "start": 231.52,
+      "end": 235.2,
+      "text": "and what we're seeing in the real data versus what we assume we're going to see."
+    },
+    {
+      "id": 44,
+      "start": 235.2,
+      "end": 241.32,
+      "text": "And then we can then try to convert our plan into something that's closer to the optimal"
+    },
+    {
+      "id": 45,
+      "start": 241.32,
+      "end": 242.32,
+      "text": "plan."
+    },
+    {
+      "id": 46,
+      "start": 243.16,
+      "end": 246.24,
+      "text": "So what I mean like that is say we have a simple query like this."
+    },
+    {
+      "id": 47,
+      "start": 246.24,
+      "end": 250.4,
+      "text": "It's a four way join between eight tables, ABC and D. And then we just have a simple"
+    },
+    {
+      "id": 48,
+      "start": 250.4,
+      "end": 254.16,
+      "text": "wear clause for the B and D tables."
+    },
+    {
+      "id": 49,
+      "start": 254.16,
+      "end": 258.64,
+      "text": "So let's say that we run this query through our query optimizer and we generate this"
+    },
+    {
+      "id": 50,
+      "start": 258.64,
+      "end": 259.64,
+      "text": "plan, right?"
+    },
+    {
+      "id": 51,
+      "start": 259.64,
+      "end": 263.28,
+      "text": "It's a bunch of hash joins and nothing but sequential scans."
+    },
+    {
+      "id": 52,
+      "start": 263.28,
+      "end": 269.0,
+      "text": "But let's say that when we when we generate this plan for this particular join, we estimated"
+    },
+    {
+      "id": 53,
+      "start": 269.08,
+      "end": 273.8,
+      "text": "the cardinality of that operator to be 1,000, right?"
+    },
+    {
+      "id": 54,
+      "start": 273.8,
+      "end": 277.2,
+      "text": "This is an arbitrary number that I'm using for this illustration."
+    },
+    {
+      "id": 55,
+      "start": 277.2,
+      "end": 281.92,
+      "text": "The cardinality is the number of tuples that this operator will omit."
+    },
+    {
+      "id": 56,
+      "start": 281.92,
+      "end": 285.64,
+      "text": "But let's say when we actually start to run it, we see that we're actually generating"
+    },
+    {
+      "id": 57,
+      "start": 285.64,
+      "end": 288.24,
+      "text": "100,000 tuples."
+    },
+    {
+      "id": 58,
+      "start": 288.24,
+      "end": 294.2,
+      "text": "So our actual cardinality is two orders of magnitude greater than the estimate one."
+    },
+    {
+      "id": 59,
+      "start": 294.2,
+      "end": 298.72,
+      "text": "So the question we're trying to deal with today is if we knew what the just true cardinality"
+    },
+    {
+      "id": 60,
+      "start": 298.72,
+      "end": 306.8,
+      "text": "was before we started executing it, I'm sorry, while we're executing it, then could we"
+    },
+    {
+      "id": 61,
+      "start": 306.8,
+      "end": 313.52,
+      "text": "change some aspect of this query plan to get us closer to a more optimal plan, right?"
+    },
+    {
+      "id": 62,
+      "start": 313.52,
+      "end": 315.16,
+      "text": "Could we change the join ordering?"
+    },
+    {
+      "id": 63,
+      "start": 315.16,
+      "end": 317.72,
+      "text": "Would we want to choose a different algorithm to do our join?"
+    },
+    {
+      "id": 64,
+      "start": 317.72,
+      "end": 322.46,
+      "text": "Would we want to change maybe the access methods that come below the join to use it maybe"
+    },
+    {
+      "id": 65,
+      "start": 322.46,
+      "end": 325.9,
+      "text": "the index or a different type of stem?"
+    },
+    {
+      "id": 66,
+      "start": 325.9,
+      "end": 330.5,
+      "text": "So this is sort of what we're focusing on today is how to then maybe adapt this kind"
+    },
+    {
+      "id": 67,
+      "start": 330.5,
+      "end": 336.94,
+      "text": "of plan when we know something about what the data looks like once we start running it."
+    },
+    {
+      "id": 68,
+      "start": 336.94,
+      "end": 344.36,
+      "text": "So the the high level idea again is that we want to be able to execute estimate the"
+    },
+    {
+      "id": 69,
+      "start": 344.36,
+      "end": 351.1,
+      "text": "behavior of a plan to in order to determine the estimate behavior of a plan to determine"
+    },
+    {
+      "id": 70,
+      "start": 351.18,
+      "end": 355.34,
+      "text": "its quality relative to other plans, this is what the cost model is doing."
+    },
+    {
+      "id": 71,
+      "start": 355.34,
+      "end": 359.94,
+      "text": "But the tricky thing is going to be back here before I started executing is I had to"
+    },
+    {
+      "id": 72,
+      "start": 359.94,
+      "end": 367.18,
+      "text": "derive this cardinality from my statistics that I had maintaining my catalog about what"
+    },
+    {
+      "id": 73,
+      "start": 367.18,
+      "end": 373.5,
+      "text": "my table looks like or what the what these two tables look like when you join them together."
+    },
+    {
+      "id": 74,
+      "start": 373.5,
+      "end": 378.9,
+      "text": "So the stats are based on histograms and possibly samples that we're collecting from"
+    },
+    {
+      "id": 75,
+      "start": 378.98,
+      "end": 379.9,
+      "text": "the data."
+    },
+    {
+      "id": 76,
+      "start": 379.9,
+      "end": 384.74,
+      "text": "We can also make decisions about what the hardware looks like, what kind of cache sizes"
+    },
+    {
+      "id": 77,
+      "start": 384.74,
+      "end": 388.22,
+      "text": "we have, what kind of maybe algorithm we want to use, what other queries are running at"
+    },
+    {
+      "id": 78,
+      "start": 388.22,
+      "end": 389.22,
+      "text": "the same time."
+    },
+    {
+      "id": 79,
+      "start": 389.22,
+      "end": 391.54,
+      "text": "Like the cost model self will cover next class."
+    },
+    {
+      "id": 80,
+      "start": 391.54,
+      "end": 395.98,
+      "text": "But the main idea to think about is what we're talking about today is before we run the"
+    },
+    {
+      "id": 81,
+      "start": 395.98,
+      "end": 401.14,
+      "text": "query we only have an estimation of what the data looks like and how our query will"
+    },
+    {
+      "id": 82,
+      "start": 401.14,
+      "end": 402.98,
+      "text": "perform."
+    },
+    {
+      "id": 83,
+      "start": 402.98,
+      "end": 408.26,
+      "text": "And if we get that wrong, we want to then try to be able to correct ourselves."
+    },
+    {
+      "id": 84,
+      "start": 408.26,
+      "end": 412.1,
+      "text": "So the technique we're talking about today is called adaptive query optimization."
+    },
+    {
+      "id": 85,
+      "start": 412.1,
+      "end": 416.34,
+      "text": "It's sometimes called in the research literature adaptive query processing."
+    },
+    {
+      "id": 86,
+      "start": 416.34,
+      "end": 418.74,
+      "text": "They're essentially synonymous."
+    },
+    {
+      "id": 87,
+      "start": 418.74,
+      "end": 420.34,
+      "text": "And it's everything I said so far."
+    },
+    {
+      "id": 88,
+      "start": 420.34,
+      "end": 426.26,
+      "text": "The idea is that this technique is going to allow the database system to modify the query"
+    },
+    {
+      "id": 89,
+      "start": 426.26,
+      "end": 432.38,
+      "text": "plan for a query to better fit what the actual underlying data looks like."
+    },
+    {
+      "id": 90,
+      "start": 432.38,
+      "end": 437.02,
+      "text": "And we believe modifying for the query plan by just generating an entire new query plan,"
+    },
+    {
+      "id": 91,
+      "start": 437.02,
+      "end": 443.66,
+      "text": "like throwing away the old one and starting over, or we could try to modify a subset of"
+    },
+    {
+      "id": 92,
+      "start": 443.66,
+      "end": 450.62,
+      "text": "the query plan by introducing new sort of sub plans or it's like a pipeline at different"
+    },
+    {
+      "id": 93,
+      "start": 450.62,
+      "end": 455.9,
+      "text": "points where we had to materialize people where we could potentially switch from one plan"
+    },
+    {
+      "id": 94,
+      "start": 455.9,
+      "end": 458.26,
+      "text": "strategy to another."
+    },
+    {
+      "id": 95,
+      "start": 458.26,
+      "end": 462.02,
+      "text": "And this one here, you basically go back to the optimizer and start over."
+    },
+    {
+      "id": 96,
+      "start": 462.02,
+      "end": 467.86,
+      "text": "This one here is that you can try to have the optimizer only do only replay an apportion"
+    },
+    {
+      "id": 97,
+      "start": 467.86,
+      "end": 472.86,
+      "text": "of it or provide these alternative strategies at the beginning."
+    },
+    {
+      "id": 98,
+      "start": 472.86,
+      "end": 479.7,
+      "text": "So the main sort of takeaway approach what we're doing here is that rather than just relying"
+    },
+    {
+      "id": 99,
+      "start": 479.7,
+      "end": 483.34,
+      "text": "on our statistical models that are estimations or approximations of what the data looks"
+    },
+    {
+      "id": 100,
+      "start": 483.34,
+      "end": 488.86,
+      "text": "like, we're trying to use the data we've collected while we actually execute the query"
+    },
+    {
+      "id": 101,
+      "start": 488.86,
+      "end": 493.18,
+      "text": "to then help us make a decision about what the right plan should be for our particular"
+    },
+    {
+      "id": 102,
+      "start": 493.18,
+      "end": 495.18,
+      "text": "query."
+    },
+    {
+      "id": 103,
+      "start": 495.18,
+      "end": 502.1,
+      "text": "And this data we're going to collect is could be used for helping our current query or"
+    },
+    {
+      "id": 104,
+      "start": 502.1,
+      "end": 507.58,
+      "text": "merge it back into the system because we've collected through our analyze operation and"
+    },
+    {
+      "id": 105,
+      "start": 507.58,
+      "end": 511.3,
+      "text": "have it be used for other queries."
+    },
+    {
+      "id": 106,
+      "start": 511.3,
+      "end": 513.9,
+      "text": "So again, we'll cover the various ways you have to do this."
+    },
+    {
+      "id": 107,
+      "start": 514.9,
+      "end": 519.5,
+      "text": "When you think about what a query actually is doing or what analyze does, analyze is"
+    },
+    {
+      "id": 108,
+      "start": 519.5,
+      "end": 526.7,
+      "text": "doing a sequential scan to compute some statistical models about what the data looks like."
+    },
+    {
+      "id": 109,
+      "start": 526.7,
+      "end": 531.78,
+      "text": "And so if we're doing the sequential scan on a table, that's essentially the same thing"
+    },
+    {
+      "id": 110,
+      "start": 531.78,
+      "end": 532.78,
+      "text": "as analyze."
+    },
+    {
+      "id": 111,
+      "start": 532.78,
+      "end": 538.42,
+      "text": "And so rather than just evaluating predicates or using the two blows as we scan them to"
+    },
+    {
+      "id": 112,
+      "start": 538.42,
+      "end": 543.74,
+      "text": "generate the result we need for that particular query, we can piggyback off of those"
+    },
+    {
+      "id": 113,
+      "start": 543.74,
+      "end": 551.7,
+      "text": "all of that scan operator and sort of maintain or update our sort of statistical models with"
+    },
+    {
+      "id": 114,
+      "start": 551.7,
+      "end": 553.1,
+      "text": "new information."
+    },
+    {
+      "id": 115,
+      "start": 553.1,
+      "end": 556.68,
+      "text": "And the question here is whether we just update that models for ourselves to make our"
+    },
+    {
+      "id": 116,
+      "start": 556.68,
+      "end": 562.76,
+      "text": "query go better or we can share this with other queries in the global catalog and now other"
+    },
+    {
+      "id": 117,
+      "start": 562.76,
+      "end": 567.66,
+      "text": "queries can benefit from the data we collected from this."
+    },
+    {
+      "id": 118,
+      "start": 568.66,
+      "end": 575.74,
+      "text": "So there's sort of three broad categories that I want to cover using aql or adaptive query"
+    },
+    {
+      "id": 119,
+      "start": 575.74,
+      "end": 577.14,
+      "text": "optimization."
+    },
+    {
+      "id": 120,
+      "start": 577.14,
+      "end": 583.14,
+      "text": "One is that we can use aql to benefit future invocations of a query."
+    },
+    {
+      "id": 121,
+      "start": 583.14,
+      "end": 587.26,
+      "text": "The second approach is to try to make our current invocation of a query better."
+    },
+    {
+      "id": 122,
+      "start": 587.26,
+      "end": 591.54,
+      "text": "And then the last one would be, well this is like helping your current query, this is"
+    },
+    {
+      "id": 123,
+      "start": 591.54,
+      "end": 595.78,
+      "text": "also helping your current query, but this one would be sort of starting over from scratch"
+    },
+    {
+      "id": 124,
+      "start": 595.78,
+      "end": 599.22,
+      "text": "and running through the optimization all over again."
+    },
+    {
+      "id": 125,
+      "start": 599.22,
+      "end": 600.02,
+      "text": "This would be"
+    }
+  ],
+  "language": "en"
+}

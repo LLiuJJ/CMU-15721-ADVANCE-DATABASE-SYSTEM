@@ -1,0 +1,995 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Canneke Mellon University's advanced database systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filmed in front of a live studio audience?"
+    },
+    {
+      "id": 2,
+      "start": 9.0,
+      "end": 11.0,
+      "text": "Hi, I'm so out of one, I got a question."
+    },
+    {
+      "id": 3,
+      "start": 11.0,
+      "end": 12.0,
+      "text": "Hey, hey!"
+    },
+    {
+      "id": 4,
+      "start": 12.0,
+      "end": 13.0,
+      "text": "Hey, hey!"
+    },
+    {
+      "id": 5,
+      "start": 13.0,
+      "end": 14.0,
+      "text": "Hey, hey!"
+    },
+    {
+      "id": 6,
+      "start": 14.0,
+      "end": 16.0,
+      "text": "Nobody knows the money just there."
+    },
+    {
+      "id": 7,
+      "start": 16.0,
+      "end": 20.0,
+      "text": "Okay, so today's class is a little bit different than what we talked about"
+    },
+    {
+      "id": 8,
+      "start": 20.0,
+      "end": 23.0,
+      "text": "throughout the semester because so far we've most been discussing about"
+    },
+    {
+      "id": 9,
+      "start": 23.0,
+      "end": 25.0,
+      "text": "okay, here's the internals of a database system"
+    },
+    {
+      "id": 10,
+      "start": 26.0,
+      "end": 31.0,
+      "text": "at the lowest levels and how to make queries run faster."
+    },
+    {
+      "id": 11,
+      "start": 31.0,
+      "end": 38.0,
+      "text": "And so today's being a different topic where we're going to be further up the stack"
+    },
+    {
+      "id": 12,
+      "start": 38.0,
+      "end": 41.0,
+      "text": "now in the system, where we're going to do a bunch of tricks up in the,"
+    },
+    {
+      "id": 13,
+      "start": 41.0,
+      "end": 44.0,
+      "text": "before we even get to the query optimizer, when the SQL query shows up,"
+    },
+    {
+      "id": 14,
+      "start": 44.0,
+      "end": 49.0,
+      "text": "and how to make a query runs faster given the architecture we design below."
+    },
+    {
+      "id": 15,
+      "start": 49.0,
+      "end": 53.0,
+      "text": "And so this will then be from this point going into the semester,"
+    },
+    {
+      "id": 16,
+      "start": 54.0,
+      "end": 58.0,
+      "text": "like for this lecture, a next lecture will be about getting things in and out of the database quickly,"
+    },
+    {
+      "id": 17,
+      "start": 58.0,
+      "end": 61.0,
+      "text": "and the next week will spend a lot more time on the query optimizer."
+    },
+    {
+      "id": 18,
+      "start": 61.0,
+      "end": 64.0,
+      "text": "And I know I need to update, finally post the papers we're reading next week,"
+    },
+    {
+      "id": 19,
+      "start": 64.0,
+      "end": 67.0,
+      "text": "but I'll take care of that today or tomorrow."
+    },
+    {
+      "id": 20,
+      "start": 67.0,
+      "end": 72.0,
+      "text": "So there's a reminder before the break, we spent two lectures discussing join algorithms"
+    },
+    {
+      "id": 21,
+      "start": 72.0,
+      "end": 76.0,
+      "text": "and we discussed how to do parallel hash joins because I said that's what,"
+    },
+    {
+      "id": 22,
+      "start": 76.0,
+      "end": 79.0,
+      "text": "you know, every database system needs to do it with hash joins."
+    },
+    {
+      "id": 23,
+      "start": 79.0,
+      "end": 81.0,
+      "text": "Right, if you're relational, it's always equal."
+    },
+    {
+      "id": 24,
+      "start": 81.0,
+      "end": 84.0,
+      "text": "You need joins and hash joins always is going to be the fastest."
+    },
+    {
+      "id": 25,
+      "start": 84.0,
+      "end": 87.0,
+      "text": "And then we spent a whole lecture talking about worst case optimal joins,"
+    },
+    {
+      "id": 26,
+      "start": 87.0,
+      "end": 91.0,
+      "text": "and although very, very few systems do this now,"
+    },
+    {
+      "id": 27,
+      "start": 91.0,
+      "end": 95.0,
+      "text": "this is something they're all going to need to sport within the next decade,"
+    },
+    {
+      "id": 28,
+      "start": 95.0,
+      "end": 99.0,
+      "text": "as people start doing more graph-like things on their databases."
+    },
+    {
+      "id": 29,
+      "start": 100.0,
+      "end": 107.0,
+      "text": "All right, so today's lecture, again, we're really focusing on how to embed more complicated things"
+    },
+    {
+      "id": 30,
+      "start": 107.0,
+      "end": 110.0,
+      "text": "in a database system to execute queries."
+    },
+    {
+      "id": 31,
+      "start": 110.0,
+      "end": 114.0,
+      "text": "Now, loosely categorize these as embedded database logic."
+    },
+    {
+      "id": 32,
+      "start": 114.0,
+      "end": 121.0,
+      "text": "And so we've made the assumption that the scenario that we're supporting in our conceptual database system"
+    },
+    {
+      "id": 33,
+      "start": 121.0,
+      "end": 127.0,
+      "text": "is that there is an application or some tool that the user is using,"
+    },
+    {
+      "id": 34,
+      "start": 127.0,
+      "end": 132.0,
+      "text": "and they're interacting with the application, they're either typing raw SQL queries in"
+    },
+    {
+      "id": 35,
+      "start": 132.0,
+      "end": 136.0,
+      "text": "or they're using a dashboard, and then the application is sending over SQL queries"
+    },
+    {
+      "id": 36,
+      "start": 136.0,
+      "end": 140.0,
+      "text": "that we then compute in their entirety, and then send back the result."
+    },
+    {
+      "id": 37,
+      "start": 140.0,
+      "end": 146.0,
+      "text": "And so the scope of what that query, this query can execute or operate on,"
+    },
+    {
+      "id": 38,
+      "start": 146.0,
+      "end": 153.0,
+      "text": "the computation they can perform on our data is limited to whatever the database system itself actually supports."
+    },
+    {
+      "id": 39,
+      "start": 153.0,
+      "end": 157.0,
+      "text": "And so in some cases, very common, especially in the Python Pandas world,"
+    },
+    {
+      "id": 40,
+      "start": 157.0,
+      "end": 162.0,
+      "text": "you'll see people just do select star queries to get all the data out of the data system,"
+    },
+    {
+      "id": 41,
+      "start": 162.0,
+      "end": 165.0,
+      "text": "then bring it into your Jupyter Notebook or Pandas, whatever you want,"
+    },
+    {
+      "id": 42,
+      "start": 165.0,
+      "end": 170.0,
+      "text": "then do some additional computation on it, and then push the result back to the database server."
+    },
+    {
+      "id": 43,
+      "start": 170.0,
+      "end": 174.0,
+      "text": "And so if we can avoid that, in some cases we can, some cases we cannot."
+    },
+    {
+      "id": 44,
+      "start": 174.0,
+      "end": 177.0,
+      "text": "If we can avoid that, then obviously the database system will have a complete view"
+    },
+    {
+      "id": 45,
+      "start": 177.0,
+      "end": 180.0,
+      "text": "of what you're trying to do in your query on your data,"
+    },
+    {
+      "id": 46,
+      "start": 180.0,
+      "end": 185.0,
+      "text": "and it can optimize accordingly, assuming you have some of the techniques that we'll talk about today."
+    },
+    {
+      "id": 47,
+      "start": 185.0,
+      "end": 189.0,
+      "text": "But it's always going to be a better position to, you know,"
+    },
+    {
+      "id": 48,
+      "start": 189.0,
+      "end": 193.0,
+      "text": "it's always better to operate on the data where it resides rather than then always having to bring it out"
+    },
+    {
+      "id": 49,
+      "start": 193.0,
+      "end": 195.0,
+      "text": "to an external application."
+    },
+    {
+      "id": 50,
+      "start": 195.0,
+      "end": 198.0,
+      "text": "So this is what we end up by embedding the database logic."
+    },
+    {
+      "id": 51,
+      "start": 198.0,
+      "end": 200.0,
+      "text": "So the benefits are kind of obvious, right?"
+    },
+    {
+      "id": 52,
+      "start": 200.0,
+      "end": 203.0,
+      "text": "If you're a network around trips, as I said, like if I can just do one query,"
+    },
+    {
+      "id": 53,
+      "start": 203.0,
+      "end": 206.0,
+      "text": "have all the computation I need for whatever the result I'm looking for,"
+    },
+    {
+      "id": 54,
+      "start": 206.0,
+      "end": 211.0,
+      "text": "the met single query request, then that's fantastic, rather than having to go back and forth."
+    },
+    {
+      "id": 55,
+      "start": 211.0,
+      "end": 216.0,
+      "text": "Obviously, if now, if, you know, if I'm incorporating changes,"
+    },
+    {
+      "id": 56,
+      "start": 216.0,
+      "end": 219.0,
+      "text": "this maybe not so much matters in the Lake House world,"
+    },
+    {
+      "id": 57,
+      "start": 219.0,
+      "end": 225.0,
+      "text": "we're talking about, but like rather than me having sort of a stale snapshot of my data"
+    },
+    {
+      "id": 58,
+      "start": 225.0,
+      "end": 229.0,
+      "text": "that I'm processing locally, if I'm going to push all my computation to the database server,"
+    },
+    {
+      "id": 59,
+      "start": 229.0,
+      "end": 233.0,
+      "text": "then as new things arrive, new data arrives, then I'll see those updates immediately."
+    },
+    {
+      "id": 60,
+      "start": 233.0,
+      "end": 237.0,
+      "text": "And we're not going to have transactions, but think, you know,"
+    },
+    {
+      "id": 61,
+      "start": 237.0,
+      "end": 240.0,
+      "text": "if you're in a transaction world, if I call it begin, run a query,"
+    },
+    {
+      "id": 62,
+      "start": 240.0,
+      "end": 243.0,
+      "text": "get back result, do some processing on the application side,"
+    },
+    {
+      "id": 63,
+      "start": 243.0,
+      "end": 246.0,
+      "text": "the database server is holding locks while I'm doing that computation."
+    },
+    {
+      "id": 64,
+      "start": 246.0,
+      "end": 248.0,
+      "text": "So if I can push all my computation to the database server,"
+    },
+    {
+      "id": 65,
+      "start": 248.0,
+      "end": 251.0,
+      "text": "then I don't have to go through those around trips."
+    },
+    {
+      "id": 66,
+      "start": 251.0,
+      "end": 256.0,
+      "text": "This one is debatable, whether like you,"
+    },
+    {
+      "id": 67,
+      "start": 256.0,
+      "end": 259.0,
+      "text": "whether you're not, you're going to allow your developers to be,"
+    },
+    {
+      "id": 68,
+      "start": 259.0,
+      "end": 262.0,
+      "text": "to not have to implement functionality by using a better database logic."
+    },
+    {
+      "id": 69,
+      "start": 262.0,
+      "end": 269.0,
+      "text": "And I say it's debatable because oftentimes in the, in sort of large corporations or enterprises,"
+    },
+    {
+      "id": 70,
+      "start": 269.0,
+      "end": 272.0,
+      "text": "the people that write the application build that software,"
+    },
+    {
+      "id": 71,
+      "start": 272.0,
+      "end": 274.0,
+      "text": "aren't the same people managing the database servers."
+    },
+    {
+      "id": 72,
+      "start": 274.0,
+      "end": 278.0,
+      "text": "So the application developers might be on one sort of engineering cycle,"
+    },
+    {
+      "id": 73,
+      "start": 278.0,
+      "end": 281.0,
+      "text": "but the database developers are usually very conservative."
+    },
+    {
+      "id": 74,
+      "start": 281.0,
+      "end": 285.0,
+      "text": "And you may say, hey, here's my new user defined function,"
+    },
+    {
+      "id": 75,
+      "start": 285.0,
+      "end": 287.0,
+      "text": "UDF, or service teacher."
+    },
+    {
+      "id": 76,
+      "start": 287.0,
+      "end": 289.0,
+      "text": "But the DB is like, well, I got to vet this."
+    },
+    {
+      "id": 77,
+      "start": 289.0,
+      "end": 291.0,
+      "text": "It's going to take a couple weeks for this to actually happen."
+    },
+    {
+      "id": 78,
+      "start": 291.0,
+      "end": 294.0,
+      "text": "So you end up having developers re-evolving the same thing,"
+    },
+    {
+      "id": 79,
+      "start": 294.0,
+      "end": 296.0,
+      "text": "just in different code bases."
+    },
+    {
+      "id": 80,
+      "start": 296.0,
+      "end": 300.0,
+      "text": "We certainly saw that in the case of the Velox paper, right?"
+    },
+    {
+      "id": 81,
+      "start": 300.0,
+      "end": 305.0,
+      "text": "They talked about how there's 11 implementations of substring in all of Facebook."
+    },
+    {
+      "id": 82,
+      "start": 305.0,
+      "end": 309.0,
+      "text": "And then this last one, again, this is, this is compasses all of this."
+    },
+    {
+      "id": 83,
+      "start": 309.0,
+      "end": 311.0,
+      "text": "But now we're going to be able to extend the function out of the data system"
+    },
+    {
+      "id": 84,
+      "start": 311.0,
+      "end": 313.0,
+      "text": "to go beyond what the built-in capability is."
+    },
+    {
+      "id": 85,
+      "start": 313.0,
+      "end": 318.0,
+      "text": "And this last one here is what the, one of the original motivations of user-defined types,"
+    },
+    {
+      "id": 86,
+      "start": 318.0,
+      "end": 320.0,
+      "text": "the user-defined functions, that Sturmberg likes to talk about."
+    },
+    {
+      "id": 87,
+      "start": 320.0,
+      "end": 323.0,
+      "text": "Like when he was building, when they built, they built ingress,"
+    },
+    {
+      "id": 88,
+      "start": 323.0,
+      "end": 327.0,
+      "text": "they started giving, trying to start selling it to a bunch of banks."
+    },
+    {
+      "id": 89,
+      "start": 327.0,
+      "end": 332.0,
+      "text": "But all the banks were computing interest for accounts on the Julling calendar,"
+    },
+    {
+      "id": 90,
+      "start": 332.0,
+      "end": 335.0,
+      "text": "whereas the rest of the world was running the Gagorean calendar."
+    },
+    {
+      "id": 91,
+      "start": 335.0,
+      "end": 338.0,
+      "text": "So in ingress at the time, they didn't have a Julling date type."
+    },
+    {
+      "id": 92,
+      "start": 338.0,
+      "end": 342.0,
+      "text": "So that meant the developers had to go modify the data system to add this new date type."
+    },
+    {
+      "id": 93,
+      "start": 342.0,
+      "end": 345.0,
+      "text": "But if you can, all of them support, you define types, you define functions,"
+    },
+    {
+      "id": 94,
+      "start": 345.0,
+      "end": 352.0,
+      "text": "and other things, then the developers can extend the system without having to recompile the binary."
+    },
+    {
+      "id": 95,
+      "start": 352.0,
+      "end": 357.0,
+      "text": "So the type on, there's different categories of types of embedded database logic."
+    },
+    {
+      "id": 96,
+      "start": 357.0,
+      "end": 361.0,
+      "text": "The most common two are going to be user-defined functions and store procedures."
+    },
+    {
+      "id": 97,
+      "start": 361.0,
+      "end": 366.0,
+      "text": "There are conceptually the same thing, like it's a function of some kind of procedural code"
+    },
+    {
+      "id": 98,
+      "start": 366.0,
+      "end": 369.0,
+      "text": "that you can run in your database server."
+    },
+    {
+      "id": 99,
+      "start": 369.0,
+      "end": 373.0,
+      "text": "The difference is that in a serial procedure, you don't need to,"
+    },
+    {
+      "id": 100,
+      "start": 373.0,
+      "end": 375.0,
+      "text": "you can invoke it outside of a SQL query."
+    },
+    {
+      "id": 101,
+      "start": 375.0,
+      "end": 378.0,
+      "text": "Like I can call execute, and then the name of the function,"
+    },
+    {
+      "id": 102,
+      "start": 378.0,
+      "end": 380.0,
+      "text": "and I'll just run it like an RPC call."
+    },
+    {
+      "id": 103,
+      "start": 381.0,
+      "end": 385.0,
+      "text": "Whereas in the EDF, it has to be embedded inside of a, inside of a, you know,"
+    },
+    {
+      "id": 104,
+      "start": 385.0,
+      "end": 387.0,
+      "text": "select statement or a SQL query."
+    },
+    {
+      "id": 105,
+      "start": 387.0,
+      "end": 391.0,
+      "text": "In some systems like SQL Server, they make the distinction that user-defined functions"
+    },
+    {
+      "id": 106,
+      "start": 391.0,
+      "end": 395.0,
+      "text": "cannot update tables, like you can't call insert update delete in the EDF."
+    },
+    {
+      "id": 107,
+      "start": 395.0,
+      "end": 397.0,
+      "text": "Postgres doesn't let you do that."
+    },
+    {
+      "id": 108,
+      "start": 397.0,
+      "end": 400.0,
+      "text": "Whereas in a store procedure in SQL Server, you can only,"
+    },
+    {
+      "id": 109,
+      "start": 400.0,
+      "end": 402.0,
+      "text": "that's where you can call update queries."
+    },
+    {
+      "id": 110,
+      "start": 402.0,
+      "end": 405.0,
+      "text": "Right, so again, a bunch of these should be mostly familiar with."
+    },
+    {
+      "id": 111,
+      "start": 405.0,
+      "end": 408.0,
+      "text": "But the one we're going to care about today is user-defined functions."
+    },
+    {
+      "id": 112,
+      "start": 409.0,
+      "end": 413.0,
+      "text": "And this survey comes from the, a follow-up paper from the FOIA paper you guys read,"
+    },
+    {
+      "id": 113,
+      "start": 413.0,
+      "end": 418.0,
+      "text": "where they actually did a survey of real customer databases in Azure,"
+    },
+    {
+      "id": 114,
+      "start": 418.0,
+      "end": 422.0,
+      "text": "and it is counted, you know, what are really EDFs and store procedures look like,"
+    },
+    {
+      "id": 115,
+      "start": 422.0,
+      "end": 425.0,
+      "text": "and that's where they came up with this pie chart like this."
+    },
+    {
+      "id": 116,
+      "start": 427.0,
+      "end": 431.0,
+      "text": "All right, so user-defined function, this can, this should be review for everyone here."
+    },
+    {
+      "id": 117,
+      "start": 431.0,
+      "end": 435.0,
+      "text": "Your-defined function is basically, it's going to be a function that's rewritten by the application developer"
+    },
+    {
+      "id": 118,
+      "start": 435.0,
+      "end": 438.0,
+      "text": "that allows us to extend the functionality of the database system"
+    },
+    {
+      "id": 119,
+      "start": 438.0,
+      "end": 441.0,
+      "text": "beyond its built-in operations, built-in functions."
+    },
+    {
+      "id": 120,
+      "start": 441.0,
+      "end": 445.0,
+      "text": "Right, so the SQL standard specifies there's a substring function."
+    },
+    {
+      "id": 121,
+      "start": 445.0,
+      "end": 448.0,
+      "text": "And every system that, you know, most support SQL standard,"
+    },
+    {
+      "id": 122,
+      "start": 448.0,
+      "end": 450.0,
+      "text": "is going to have their own implementation of it."
+    },
+    {
+      "id": 123,
+      "start": 450.0,
+      "end": 454.0,
+      "text": "But if I have some weird, weird wonky substring version that I want to use for whatever reason,"
+    },
+    {
+      "id": 124,
+      "start": 454.0,
+      "end": 458.0,
+      "text": "right, it's not realistic for me to assume that my database center is going to have that,"
+    },
+    {
+      "id": 125,
+      "start": 458.0,
+      "end": 462.0,
+      "text": "but I can write it as a user-defined function that have the exact capabilities that I want."
+    },
+    {
+      "id": 126,
+      "start": 463.0,
+      "end": 466.0,
+      "text": "And then I can port my application technically anywhere."
+    },
+    {
+      "id": 127,
+      "start": 466.0,
+      "end": 470.0,
+      "text": "A lot of times when you see people at the have like migration services,"
+    },
+    {
+      "id": 128,
+      "start": 470.0,
+      "end": 473.0,
+      "text": "like I'm running an Oracle and I want to switch to Postgres,"
+    },
+    {
+      "id": 129,
+      "start": 473.0,
+      "end": 475.0,
+      "text": "I'm running a Teradata, I want to switch to Postgres or something,"
+    },
+    {
+      "id": 130,
+      "start": 475.0,
+      "end": 480.0,
+      "text": "they'll take whatever the custom functions you're using from the different prepared database servers"
+    },
+    {
+      "id": 131,
+      "start": 480.0,
+      "end": 485.0,
+      "text": "and they'll re-implement them as user-defined functions to ensure compatibility."
+    },
+    {
+      "id": 132,
+      "start": 485.0,
+      "end": 489.0,
+      "text": "All right, so the function is pretty straightforward, right,"
+    },
+    {
+      "id": 133,
+      "start": 489.0,
+      "end": 492.0,
+      "text": "you're taking some input arguments, always as scalers,"
+    },
+    {
+      "id": 134,
+      "start": 492.0,
+      "end": 494.0,
+      "text": "you can perform some kind of computation on it,"
+    },
+    {
+      "id": 135,
+      "start": 494.0,
+      "end": 497.0,
+      "text": "and then you can return result either as a scalar or a table."
+    },
+    {
+      "id": 136,
+      "start": 497.0,
+      "end": 506.0,
+      "text": "For our purposes here, we're going to assume that the UDFs are not pure functions,"
+    },
+    {
+      "id": 137,
+      "start": 506.0,
+      "end": 510.0,
+      "text": "another neighbor, but basically you can't, they're not going to call it outside things."
+    },
+    {
+      "id": 138,
+      "start": 510.0,
+      "end": 513.0,
+      "text": "In some database servers, you can actually make RPC calls to remote services."
+    },
+    {
+      "id": 139,
+      "start": 513.0,
+      "end": 517.0,
+      "text": "To keep things simple today, we're going to assume that everything is going to run inside of the,"
+    },
+    {
+      "id": 140,
+      "start": 517.0,
+      "end": 521.0,
+      "text": "the function itself and doesn't, doesn't, doesn't escape."
+    },
+    {
+      "id": 141,
+      "start": 521.0,
+      "end": 526.0,
+      "text": "You know, we can call one function, can call all their functions."
+    },
+    {
+      "id": 142,
+      "start": 526.0,
+      "end": 528.0,
+      "text": "All right, so again, conceptually looks like this,"
+    },
+    {
+      "id": 143,
+      "start": 528.0,
+      "end": 530.0,
+      "text": "this is our application, we want to execute some SQL,"
+    },
+    {
+      "id": 144,
+      "start": 530.0,
+      "end": 533.0,
+      "text": "that has some kind of program logic, where, you know, conditional clauses,"
+    },
+    {
+      "id": 145,
+      "start": 533.0,
+      "end": 536.0,
+      "text": "whatever, calling whatever libraries it wants,"
+    },
+    {
+      "id": 146,
+      "start": 536.0,
+      "end": 538.0,
+      "text": "execute more SQL and then some program logic and so forth."
+    },
+    {
+      "id": 147,
+      "start": 538.0,
+      "end": 543.0,
+      "text": "So what would happen is that if we can take maybe these two portions here"
+    },
+    {
+      "id": 148,
+      "start": 543.0,
+      "end": 547.0,
+      "text": "and then embed them as functions inside the database server,"
+    },
+    {
+      "id": 149,
+      "start": 547.0,
+      "end": 551.0,
+      "text": "then now we can rewrite our application just to invoke, you know,"
+    },
+    {
+      "id": 150,
+      "start": 551.0,
+      "end": 553.0,
+      "text": "the queries and the functions like this."
+    },
+    {
+      "id": 151,
+      "start": 553.0,
+      "end": 556.0,
+      "text": "Then now there isn't this back and forth, where maybe pulling a bunch of data,"
+    },
+    {
+      "id": 152,
+      "start": 556.0,
+      "end": 559.0,
+      "text": "processing it, and then passing it on the next query, so forth,"
+    },
+    {
+      "id": 153,
+      "start": 559.0,
+      "end": 562.0,
+      "text": "I could keep everything always on the server side."
+    },
+    {
+      "id": 154,
+      "start": 562.0,
+      "end": 565.0,
+      "text": "Again, obviously for some things, like if we call them machine learning libraries,"
+    },
+    {
+      "id": 155,
+      "start": 565.0,
+      "end": 568.0,
+      "text": "like PyTorch, this doesn't quite make sense."
+    },
+    {
+      "id": 156,
+      "start": 569.0,
+      "end": 573.0,
+      "text": "To express everything as a UDF in like the native,"
+    },
+    {
+      "id": 157,
+      "start": 573.0,
+      "end": 577.0,
+      "text": "native UDF language of the database server,"
+    },
+    {
+      "id": 158,
+      "start": 577.0,
+      "end": 581.0,
+      "text": "there are tools, there are extensions to Postgres and other systems where you can make,"
+    },
+    {
+      "id": 159,
+      "start": 581.0,
+      "end": 584.0,
+      "text": "you know, calls into PyTorch, right?"
+    },
+    {
+      "id": 160,
+      "start": 584.0,
+      "end": 586.0,
+      "text": "They basically have UDF wrappers for that."
+    },
+    {
+      "id": 161,
+      "start": 586.0,
+      "end": 589.0,
+      "text": "Like I said, we're going to ignore that for today."
+    },
+    {
+      "id": 162,
+      "start": 589.0,
+      "end": 594.0,
+      "text": "All right, so today we're talking about the background of the challenges of UDFs."
+    },
+    {
+      "id": 163,
+      "start": 595.0,
+      "end": 598.0,
+      "text": "Then we'll talk about three techniques to optimize them."
+    },
+    {
+      "id": 164,
+      "start": 598.0,
+      "end": 600.0,
+      "text": "The first one is going to be the inlining approach."
+    }
+  ],
+  "language": "en"
+}

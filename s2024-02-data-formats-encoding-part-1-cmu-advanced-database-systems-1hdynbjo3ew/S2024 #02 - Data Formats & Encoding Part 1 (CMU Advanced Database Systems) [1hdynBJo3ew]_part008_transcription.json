@@ -1,0 +1,377 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.0,
+      "text": "And it's going to help us as well."
+    },
+    {
+      "id": 1,
+      "start": 1.0,
+      "end": 2.84,
+      "text": "Because now we don't think like the giant switch calls"
+    },
+    {
+      "id": 2,
+      "start": 2.84,
+      "end": 5.2,
+      "text": "that says, if I'm in 32 through this,"
+    },
+    {
+      "id": 3,
+      "start": 5.2,
+      "end": 7.48,
+      "text": "if I'm floating point to do that, which again,"
+    },
+    {
+      "id": 4,
+      "start": 7.48,
+      "end": 9.8,
+      "text": "if you overlook the bus top code or a postcode and all that,"
+    },
+    {
+      "id": 5,
+      "start": 9.8,
+      "end": 12.4,
+      "text": "that's basically what it looks like when they process types."
+    },
+    {
+      "id": 6,
+      "start": 12.4,
+      "end": 13.48,
+      "text": "So if you can specialize all of that,"
+    },
+    {
+      "id": 7,
+      "start": 13.48,
+      "end": 15.04,
+      "text": "then you avoid that in direction."
+    },
+    {
+      "id": 8,
+      "start": 15.04,
+      "end": 20.04,
+      "text": "So that's why par case simplicity is going to help you here."
+    },
+    {
+      "id": 9,
+      "start": 20.04,
+      "end": 20.64,
+      "text": "I'm well over time."
+    },
+    {
+      "id": 10,
+      "start": 20.64,
+      "end": 21.6,
+      "text": "Let me finish quickly."
+    },
+    {
+      "id": 11,
+      "start": 21.6,
+      "end": 24.04,
+      "text": "So main takeaways of this, dictionary coding"
+    },
+    {
+      "id": 12,
+      "start": 24.04,
+      "end": 25.8,
+      "text": "is effective for all types, not just strings."
+    },
+    {
+      "id": 13,
+      "start": 25.8,
+      "end": 27.52,
+      "text": "And again, to me, this is surprising."
+    },
+    {
+      "id": 14,
+      "start": 27.52,
+      "end": 29.56,
+      "text": "The simplistic encoding scheme is actually"
+    },
+    {
+      "id": 15,
+      "start": 29.56,
+      "end": 31.8,
+      "text": "better for modern hardware, as I just said."
+    },
+    {
+      "id": 16,
+      "start": 31.8,
+      "end": 34.36,
+      "text": "And then because the hardware landscape has changed so much,"
+    },
+    {
+      "id": 17,
+      "start": 34.36,
+      "end": 38.2,
+      "text": "where network has gotten so much faster,"
+    },
+    {
+      "id": 18,
+      "start": 38.2,
+      "end": 41.0,
+      "text": "then in disks got much faster too."
+    },
+    {
+      "id": 19,
+      "start": 41.0,
+      "end": 42.84,
+      "text": "We just want to avoid using snappiness"
+    },
+    {
+      "id": 20,
+      "start": 42.84,
+      "end": 44.64,
+      "text": "these standard entirely."
+    },
+    {
+      "id": 21,
+      "start": 44.64,
+      "end": 49.2,
+      "text": "The native encoding schemes, the dictionary coding,"
+    },
+    {
+      "id": 22,
+      "start": 49.2,
+      "end": 53.36,
+      "text": "RLE and all that, that's always me better."
+    },
+    {
+      "id": 23,
+      "start": 53.36,
+      "end": 56.0,
+      "text": "I've already said that's hardware has changed."
+    },
+    {
+      "id": 24,
+      "start": 56.0,
+      "end": 59.8,
+      "text": "And then even though there's been widely successful,"
+    },
+    {
+      "id": 25,
+      "start": 59.8,
+      "end": 61.72,
+      "text": "they're used everywhere, there's a lot of things that"
+    },
+    {
+      "id": 26,
+      "start": 61.72,
+      "end": 62.8,
+      "text": "are missing in parakeet and work."
+    },
+    {
+      "id": 27,
+      "start": 62.8,
+      "end": 65.72,
+      "text": "They didn't consider when they first designed these things."
+    },
+    {
+      "id": 28,
+      "start": 65.72,
+      "end": 68.0,
+      "text": "That would help us if we want to process OLAP queries."
+    },
+    {
+      "id": 29,
+      "start": 68.0,
+      "end": 69.84,
+      "text": "So there's no statistics."
+    },
+    {
+      "id": 30,
+      "start": 69.84,
+      "end": 73.88,
+      "text": "There's the zone maps and tuple counts and bloom filters."
+    },
+    {
+      "id": 31,
+      "start": 73.88,
+      "end": 75.52,
+      "text": "No histograms, no sketches, nothing"
+    },
+    {
+      "id": 32,
+      "start": 75.52,
+      "end": 77.0,
+      "text": "about what's inside those columns that I"
+    },
+    {
+      "id": 33,
+      "start": 77.0,
+      "end": 80.2,
+      "text": "could use for cardinality estimations."
+    },
+    {
+      "id": 34,
+      "start": 80.2,
+      "end": 83.24,
+      "text": "And my query optimizer, I can't increment,"
+    },
+    {
+      "id": 35,
+      "start": 83.24,
+      "end": 85.0,
+      "text": "can't incrementally deseralyze the schema."
+    },
+    {
+      "id": 36,
+      "start": 85.84,
+      "end": 87.96,
+      "text": "10,000 columns, I could deseralyze that"
+    },
+    {
+      "id": 37,
+      "start": 87.96,
+      "end": 91.0,
+      "text": "protobuff thing at the very beginning, all the ones."
+    },
+    {
+      "id": 38,
+      "start": 91.0,
+      "end": 92.96,
+      "text": "And then as I said, there's a bunch of different"
+    },
+    {
+      "id": 39,
+      "start": 92.96,
+      "end": 96.52,
+      "text": "limitations that pick whatever query language you want."
+    },
+    {
+      "id": 40,
+      "start": 96.52,
+      "end": 98.64,
+      "text": "There's a parakeet library for it."
+    },
+    {
+      "id": 41,
+      "start": 98.64,
+      "end": 101.4,
+      "text": "But it doesn't, they're all, I'll say they're all garbage."
+    },
+    {
+      "id": 42,
+      "start": 101.4,
+      "end": 106.08,
+      "text": "But none of them supports exactly what's in the spec."
+    },
+    {
+      "id": 43,
+      "start": 106.08,
+      "end": 108.44,
+      "text": "Even the job one doesn't."
+    },
+    {
+      "id": 44,
+      "start": 108.44,
+      "end": 110.8,
+      "text": "So next class, you're going to read fast lanes."
+    },
+    {
+      "id": 45,
+      "start": 110.8,
+      "end": 111.92,
+      "text": "We'll cover better blocks."
+    },
+    {
+      "id": 46,
+      "start": 111.92,
+      "end": 113.8,
+      "text": "These are going to be sort of modern encoding"
+    },
+    {
+      "id": 47,
+      "start": 113.8,
+      "end": 118.2,
+      "text": "schemes that go beyond the things we talked about today."
+    },
+    {
+      "id": 48,
+      "start": 118.2,
+      "end": 121.68,
+      "text": "And that's going to be really designed for modern hardware."
+    },
+    {
+      "id": 49,
+      "start": 121.68,
+      "end": 123.64,
+      "text": "And the fast lanes one is Wog is basically saying,"
+    },
+    {
+      "id": 50,
+      "start": 123.64,
+      "end": 126.4,
+      "text": "hey, if you don't put things in the order that they,"
+    },
+    {
+      "id": 51,
+      "start": 126.4,
+      "end": 129.4,
+      "text": "in memory, in the way that they're found,"
+    },
+    {
+      "id": 52,
+      "start": 129.4,
+      "end": 133.16,
+      "text": "somebody inserted them, not even sorting it."
+    },
+    {
+      "id": 53,
+      "start": 133.16,
+      "end": 135.92,
+      "text": "They'd be stored things a certain way,"
+    },
+    {
+      "id": 54,
+      "start": 135.92,
+      "end": 138.24,
+      "text": "because you know it's going to be processed with SIMD,"
+    },
+    {
+      "id": 55,
+      "start": 138.24,
+      "end": 140.48,
+      "text": "then you get much better performance."
+    },
+    {
+      "id": 56,
+      "start": 140.48,
+      "end": 142.84,
+      "text": "It's pretty well."
+    },
+    {
+      "id": 57,
+      "start": 142.84,
+      "end": 143.84,
+      "text": "Any last questions?"
+    },
+    {
+      "id": 58,
+      "start": 172.84,
+      "end": 174.84,
+      "text": "Take back the pack of drugs."
+    },
+    {
+      "id": 59,
+      "start": 174.84,
+      "end": 177.64,
+      "text": "We go get you some Zaynals, the trick of Tudor's drugs."
+    },
+    {
+      "id": 60,
+      "start": 177.64,
+      "end": 179.68,
+      "text": "Billion days to Tudor, peace and tellin' to quit,"
+    },
+    {
+      "id": 61,
+      "start": 179.68,
+      "end": 181.84,
+      "text": "guys, be a man to get a can of faith, huh?"
+    }
+  ],
+  "language": "en"
+}

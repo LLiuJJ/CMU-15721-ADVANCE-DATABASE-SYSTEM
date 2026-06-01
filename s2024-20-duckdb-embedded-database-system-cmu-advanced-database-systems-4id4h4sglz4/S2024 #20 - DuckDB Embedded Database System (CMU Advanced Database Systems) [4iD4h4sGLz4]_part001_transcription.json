@@ -1,0 +1,731 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 9.36,
+      "text": "So another important design decision in terms of the implementation of it is that it's all going to be custom C++ code that they've written for ductyb."
+    },
+    {
+      "id": 1,
+      "start": 9.36,
+      "end": 14.64,
+      "text": "So that means they're going to try to avoid bringing in third party dependencies when necessary."
+    },
+    {
+      "id": 2,
+      "start": 14.64,
+      "end": 18.8,
+      "text": "I think for encryption SSL stuff, that stuff you want to bring in, you don't want to write that yourself."
+    },
+    {
+      "id": 3,
+      "start": 18.8,
+      "end": 26.72,
+      "text": "But a bunch of other stuff, they're not going to rely on third party packages or libraries, they're going to write everything themselves."
+    },
+    {
+      "id": 4,
+      "start": 26.72,
+      "end": 34.32,
+      "text": "And this is going to make the system more lightweight, easier to manage from the engineering side of things."
+    },
+    {
+      "id": 5,
+      "start": 34.32,
+      "end": 42.24,
+      "text": "And you have the additional capability of like, now because it's all C++ code that you wrote, and not some weird party library, third party library,"
+    },
+    {
+      "id": 6,
+      "start": 42.24,
+      "end": 47.36,
+      "text": "they can actually compile it on the wasm and it can run in your browser very easily."
+    },
+    {
+      "id": 7,
+      "start": 47.36,
+      "end": 51.52,
+      "text": "There's been attempts to get like SQLite and actually SQLite will run the wasm."
+    },
+    {
+      "id": 8,
+      "start": 51.52,
+      "end": 56.4,
+      "text": "People would try to get PostGust run on wasm and it's always seems like a huge hack to get that to work."
+    },
+    {
+      "id": 9,
+      "start": 56.4,
+      "end": 60.0,
+      "text": "Whereas in for ductyb it's quite simple."
+    },
+    {
+      "id": 10,
+      "start": 60.0,
+      "end": 66.8,
+      "text": "And so the way they're going to be able to expand the, what the system can actually do, beyond the sort of core runtime engine,"
+    },
+    {
+      "id": 11,
+      "start": 66.8,
+      "end": 69.76,
+      "text": "they're going to rely heavily on an extension ecosystem."
+    },
+    {
+      "id": 12,
+      "start": 69.76,
+      "end": 71.04,
+      "text": "We'll talk about in a second."
+    },
+    {
+      "id": 13,
+      "start": 71.04,
+      "end": 77.12,
+      "text": "So they'll have like the official ones that they support, but also you can download arbitrary ones and install them."
+    },
+    {
+      "id": 14,
+      "start": 77.2,
+      "end": 80.4,
+      "text": "And that again, that makes the core engine lightweight and easier for them to manage."
+    },
+    {
+      "id": 15,
+      "start": 82.0,
+      "end": 86.72,
+      "text": "So again, like we talked about when we talked about photon, like the design philosophy of like, okay,"
+    },
+    {
+      "id": 16,
+      "start": 86.72,
+      "end": 90.96,
+      "text": "they have to maintain all the Spark Java crap and they want to avoid Java."
+    },
+    {
+      "id": 17,
+      "start": 90.96,
+      "end": 94.64,
+      "text": "So photon was the supposed engine that they evoked down through JNI."
+    },
+    {
+      "id": 18,
+      "start": 94.64,
+      "end": 95.2,
+      "text": "Yes."
+    },
+    {
+      "id": 19,
+      "start": 95.2,
+      "end": 96.8,
+      "text": "By serverless what exactly do we mean?"
+    },
+    {
+      "id": 20,
+      "start": 96.8,
+      "end": 98.48,
+      "text": "Are we looking like lambda function?"
+    },
+    {
+      "id": 21,
+      "start": 98.48,
+      "end": 104.72,
+      "text": "Yeah, so serverless we like a lambda function meaning like the process goes away when like,"
+    },
+    {
+      "id": 22,
+      "start": 104.8,
+      "end": 106.96,
+      "text": "if nothing is actively using it."
+    },
+    {
+      "id": 23,
+      "start": 108.0,
+      "end": 110.56,
+      "text": "It's not so embedded."
+    },
+    {
+      "id": 24,
+      "start": 110.56,
+      "end": 111.28,
+      "text": "I think it's a better one."
+    },
+    {
+      "id": 25,
+      "start": 111.28,
+      "end": 112.88,
+      "text": "Like embedded is sort of the same idea."
+    },
+    {
+      "id": 26,
+      "start": 112.88,
+      "end": 116.88,
+      "text": "Like there has to be some other process already running that then links into the data system."
+    },
+    {
+      "id": 27,
+      "start": 116.88,
+      "end": 122.08,
+      "text": "And then it is, I don't think you hand it threads where you do in SQL light."
+    },
+    {
+      "id": 28,
+      "start": 122.08,
+      "end": 127.52,
+      "text": "I think you spin up a zone threads, but like it's all within the same address space as the host process."
+    },
+    {
+      "id": 29,
+      "start": 130.08,
+      "end": 131.04,
+      "text": "It's like a library, yes."
+    },
+    {
+      "id": 30,
+      "start": 131.04,
+      "end": 131.84,
+      "text": "It's like a library, yes."
+    },
+    {
+      "id": 31,
+      "start": 131.84,
+      "end": 132.64,
+      "text": "Yeah, it's a library, yes."
+    },
+    {
+      "id": 32,
+      "start": 134.96,
+      "end": 141.6,
+      "text": "All right, so here's at high level what the major features that are in, in ducty B."
+    },
+    {
+      "id": 33,
+      "start": 141.6,
+      "end": 146.64,
+      "text": "And again, the number one difference at the top is going to be that it shared everything versus"
+    },
+    {
+      "id": 34,
+      "start": 146.64,
+      "end": 149.68,
+      "text": "all the shared disk or disaggregated storage stuff we talked about before."
+    },
+    {
+      "id": 35,
+      "start": 149.68,
+      "end": 151.36,
+      "text": "Because again, it's an embedded database system."
+    },
+    {
+      "id": 36,
+      "start": 151.36,
+      "end": 154.72,
+      "text": "It has no notion of separating compute and storage."
+    },
+    {
+      "id": 37,
+      "start": 154.72,
+      "end": 160.0,
+      "text": "I mean, you'll see that they can use extensions to talk to the cloud platforms and so forth."
+    },
+    {
+      "id": 38,
+      "start": 160.4,
+      "end": 167.84,
+      "text": "But the, you know, at its core, it is sort of just like just a, just the query engine."
+    },
+    {
+      "id": 39,
+      "start": 169.44,
+      "end": 171.04,
+      "text": "It's not in time to do because they knew transactions."
+    },
+    {
+      "id": 40,
+      "start": 171.04,
+      "end": 172.48,
+      "text": "They have them in file format."
+    },
+    {
+      "id": 41,
+      "start": 173.12,
+      "end": 178.16,
+      "text": "So, but it's again, it's not the like scaled out architecture that we saw in Dremel and others."
+    },
+    {
+      "id": 42,
+      "start": 179.12,
+      "end": 181.28,
+      "text": "They're new push-based vectorized query processing."
+    },
+    {
+      "id": 43,
+      "start": 181.28,
+      "end": 184.4,
+      "text": "We'll spend most of our time talking about this because they actually started doing pull-based."
+    },
+    {
+      "id": 44,
+      "start": 185.52,
+      "end": 188.72,
+      "text": "And then they switched over two years ago, three years ago, to push-based."
+    },
+    {
+      "id": 45,
+      "start": 188.8,
+      "end": 192.08,
+      "text": "And they talk about all of the challenges they face scaling out"
+    },
+    {
+      "id": 46,
+      "start": 193.6,
+      "end": 197.84,
+      "text": "a pull-based model and why switching to a push-based one was better."
+    },
+    {
+      "id": 47,
+      "start": 198.8,
+      "end": 203.44,
+      "text": "Again, given the, the, the, the provenance of coming from CWI,"
+    },
+    {
+      "id": 48,
+      "start": 203.44,
+      "end": 206.08,
+      "text": "what vector wise was invented, they're going to pre-compile primitives."
+    },
+    {
+      "id": 49,
+      "start": 206.08,
+      "end": 207.68,
+      "text": "That's not, that's not a surprise."
+    },
+    {
+      "id": 50,
+      "start": 207.68,
+      "end": 212.56,
+      "text": "They use a solid MPCC that's actually based on what the Germans do in Umbra or sorry, in hyper."
+    },
+    {
+      "id": 51,
+      "start": 212.56,
+      "end": 217.2,
+      "text": "We're not going to cover this paper, but I'll actually a lot of these are based on what the Germans did."
+    },
+    {
+      "id": 52,
+      "start": 217.6,
+      "end": 221.12,
+      "text": "In some, some ways you say like they let me just took the papers and re-implement the stuff that the"
+    },
+    {
+      "id": 53,
+      "start": 221.12,
+      "end": 225.04,
+      "text": "hype, that we, for all the papers we talked about today. For example, they're doing morsels."
+    },
+    {
+      "id": 54,
+      "start": 225.84,
+      "end": 230.08,
+      "text": "They're going to do the, the, the, the, the, the, the, un-nesting the arbitrary sub queries."
+    },
+    {
+      "id": 55,
+      "start": 230.08,
+      "end": 233.44,
+      "text": "They're the only databases other than hyper and Umbra that can do this."
+    },
+    {
+      "id": 56,
+      "start": 234.88,
+      "end": 235.36,
+      "text": "Yes."
+    },
+    {
+      "id": 57,
+      "start": 235.36,
+      "end": 242.24,
+      "text": "Why would you want morsel fellows to work something that's intended to be better, maybe like on a pizza box?"
+    },
+    {
+      "id": 58,
+      "start": 242.72,
+      "end": 247.52,
+      "text": "So actually, why would you want morsel parallelism, if you, if you intend to be running on a pizza box,"
+    },
+    {
+      "id": 59,
+      "start": 247.52,
+      "end": 250.16,
+      "text": "but a pizza box with nowadays has a sheet of little cores, right?"
+    },
+    {
+      "id": 60,
+      "start": 252.88,
+      "end": 256.64,
+      "text": "Wait, do you remember when it's a pizza box, I mean like one unit rack, rack unit,"
+    },
+    {
+      "id": 61,
+      "start": 256.64,
+      "end": 258.88,
+      "text": "you can put like multiple sockets in those things."
+    },
+    {
+      "id": 62,
+      "start": 259.76,
+      "end": 264.16,
+      "text": "Or even, whatever, the AMD, the Ryzen, the latest one, it's a ton of cores."
+    },
+    {
+      "id": 63,
+      "start": 264.16,
+      "end": 268.0,
+      "text": "The thread, I forget the exact number now. You can get a ton of cores."
+    },
+    {
+      "id": 64,
+      "start": 268.8,
+      "end": 270.32,
+      "text": "So why, why wouldn't you want to use them?"
+    },
+    {
+      "id": 65,
+      "start": 272.24,
+      "end": 275.84,
+      "text": "And it's specifically like not, not new like, the way it's called."
+    },
+    {
+      "id": 66,
+      "start": 275.84,
+      "end": 278.64,
+      "text": "So you're just like all, all the cores are on the same like talking to you."
+    },
+    {
+      "id": 67,
+      "start": 279.68,
+      "end": 282.64,
+      "text": "Actually, I don't know whether this is actually new more where. I don't, the paper doesn't say."
+    },
+    {
+      "id": 68,
+      "start": 283.52,
+      "end": 287.28,
+      "text": "But I imagine it's not hard to figure that out, right? You also tell you."
+    },
+    {
+      "id": 69,
+      "start": 291.04,
+      "end": 296.8,
+      "text": "Like SQLite is, again, obviously, SQLite really was designed to run on like a one core"
+    },
+    {
+      "id": 70,
+      "start": 297.44,
+      "end": 305.6,
+      "text": "very pretty CPU like from the 2000s. There's a, even more stripped down data system called"
+    },
+    {
+      "id": 71,
+      "start": 305.6,
+      "end": 313.2,
+      "text": "extreme DB, that's running like on like, S or C's in like missiles and shit like that, right?"
+    },
+    {
+      "id": 72,
+      "start": 313.2,
+      "end": 316.16,
+      "text": "Where like, you know, you don't even have an operating system."
+    },
+    {
+      "id": 73,
+      "start": 316.16,
+      "end": 320.64,
+      "text": "Right? So there's system, even more like low level than that."
+    },
+    {
+      "id": 74,
+      "start": 320.64,
+      "end": 324.88,
+      "text": "SQLite's a little bit more, right? And in that case, I'm thinking like,"
+    },
+    {
+      "id": 75,
+      "start": 324.88,
+      "end": 329.12,
+      "text": "SQLite can't do parallel query execution. Like, whatever thread makes the SQL request,"
+    },
+    {
+      "id": 76,
+      "start": 329.12,
+      "end": 334.0,
+      "text": "that's the one that runs it. I'm fairly certain. Whereas in duct DB,"
+    },
+    {
+      "id": 77,
+      "start": 334.0,
+      "end": 337.6,
+      "text": "like one thread would make the request, but then if you tell how many threads you're"
+    },
+    {
+      "id": 78,
+      "start": 337.6,
+      "end": 342.08,
+      "text": "allowed to spread the query, query it across and they use more cells to do that schedule."
+    },
+    {
+      "id": 79,
+      "start": 347.28,
+      "end": 350.56,
+      "text": "Right? So the pack stuff that we've covered that many, many times,"
+    },
+    {
+      "id": 80,
+      "start": 350.64,
+      "end": 355.68,
+      "text": "they're going to do the sort merge join and hash joins. And then the stratified query optimizer"
+    },
+    {
+      "id": 81,
+      "start": 355.68,
+      "end": 360.96,
+      "text": "is, looks very similar to what we talked about before. Again, the running on arbitrary files,"
+    },
+    {
+      "id": 82,
+      "start": 360.96,
+      "end": 366.48,
+      "text": "they may not have any statistics for, so they're using much of rules to figure out, you know,"
+    },
+    {
+      "id": 83,
+      "start": 366.48,
+      "end": 371.52,
+      "text": "some basic join order heuristics or things like that. But the one thing they do well is the"
+    },
+    {
+      "id": 84,
+      "start": 371.52,
+      "end": 378.72,
+      "text": "unnesting arbitrary sub queries. They didn't support unnesting arbitrary sub queries for lateral"
+    },
+    {
+      "id": 85,
+      "start": 378.72,
+      "end": 384.24,
+      "text": "joins. And as I said, last year in 721, the students actually did that. Like Sam arched the"
+    },
+    {
+      "id": 86,
+      "start": 384.24,
+      "end": 388.56,
+      "text": "pages of student here. They got that merge into duct DB. So they can handle all possible sub queries"
+    },
+    {
+      "id": 87,
+      "start": 388.56,
+      "end": 392.32,
+      "text": "now. All right. So we're going to spend those right time talking about the push based architecture,"
+    },
+    {
+      "id": 88,
+      "start": 392.32,
+      "end": 396.8,
+      "text": "because they're going to talk about, it's public about actually how they're going to pass data"
+    },
+    {
+      "id": 89,
+      "start": 396.8,
+      "end": 399.6,
+      "text": "between the operators, which is something we haven't really discussed."
+    },
+    {
+      "id": 90,
+      "start": 400.32,
+      "end": 409.6,
+      "text": "So as I mentioned, the original version of duct DB prior to 2021 was using a pull based"
+    },
+    {
+      "id": 91,
+      "start": 409.6,
+      "end": 416.88,
+      "text": "vectorized extrusion model, with pre-compact primitives. But then over the years, they found that"
+    },
+    {
+      "id": 92,
+      "start": 417.36,
+      "end": 423.92,
+      "text": "it was turning out to be cumbersome to maintain and work on, because every single time that you"
+    },
+    {
+      "id": 93,
+      "start": 423.92,
+      "end": 432.08,
+      "text": "wanted to add a new operator and make it parallel, you had to modify this control plane piece to say,"
+    },
+    {
+      "id": 94,
+      "start": 432.08,
+      "end": 436.64,
+      "text": "okay, here's this parallel thing we can now run. It was more infrastructure that they had to"
+    },
+    {
+      "id": 95,
+      "start": 436.64,
+      "end": 440.88,
+      "text": "maintain for every single time to add something new. The other challenge they had is that,"
+    },
+    {
+      "id": 96,
+      "start": 441.52,
+      "end": 446.24,
+      "text": "because now, since they want to be able to support reading data from not necessarily local"
+    },
+    {
+      "id": 97,
+      "start": 446.24,
+      "end": 451.6,
+      "text": "disk, because they're remote files that they can support HTTPS or S3 and so forth, now you have this"
+    },
+    {
+      "id": 98,
+      "start": 451.6,
+      "end": 456.32,
+      "text": "challenge where some pipeline may be blocked because it's getting data over the network, but"
+    },
+    {
+      "id": 99,
+      "start": 456.32,
+      "end": 460.48,
+      "text": "there are other pipelines you could start running, because they don't need to wait for that data."
+    },
+    {
+      "id": 100,
+      "start": 460.48,
+      "end": 463.92,
+      "text": "But if you do a pull based model, like the volcano approach, where you're calling getnext, getnext,"
+    },
+    {
+      "id": 101,
+      "start": 463.92,
+      "end": 470.32,
+      "text": "getnext, getnext, the call stack down in the query plan, that's the century, the state of where"
+    },
+    {
+      "id": 102,
+      "start": 470.32,
+      "end": 475.28,
+      "text": "things are being executed. So if you reach the bottom to a leaf node, and that leaf node wants to"
+    },
+    {
+      "id": 103,
+      "start": 475.28,
+      "end": 480.64,
+      "text": "go get remote data, you have no way to like pause it, unwind it, go back up the stack, and then maybe"
+    },
+    {
+      "id": 104,
+      "start": 480.72,
+      "end": 489.04,
+      "text": "call down another pipeline. Basically, the control flow of the execution of the query plan is"
+    },
+    {
+      "id": 105,
+      "start": 489.04,
+      "end": 496.4,
+      "text": "implicitly within that call stack. So if they switch to a push based model, then now you have the"
+    },
+    {
+      "id": 106,
+      "start": 497.28,
+      "end": 502.24,
+      "text": "centralized scheduler using morsels that I can say are these are the pipelines or tasks that I"
+    },
+    {
+      "id": 107,
+      "start": 502.24,
+      "end": 506.72,
+      "text": "can run right now, go ahead and run them, and here's the ones where I know I'm waiting for IO"
+    },
+    {
+      "id": 108,
+      "start": 506.88,
+      "end": 514.0,
+      "text": "for whatever reason, and we pause them and wait. So for them, they found it, it was a not just in"
+    },
+    {
+      "id": 109,
+      "start": 514.0,
+      "end": 520.0,
+      "text": "terms of performance, but in terms of the engineering of not assuming the data is always readily"
+    },
+    {
+      "id": 110,
+      "start": 520.0,
+      "end": 525.04,
+      "text": "available, switching to a push based model, trying to be a much better approach for them."
+    },
+    {
+      "id": 111,
+      "start": 526.08,
+      "end": 532.48,
+      "text": "And the great thing about it is you can read the actual PR, or Mark, the co-creators of it,"
+    },
+    {
+      "id": 112,
+      "start": 532.48,
+      "end": 538.24,
+      "text": "added the push based model, and now it talks about all the great things that they were able to"
+    },
+    {
+      "id": 113,
+      "start": 538.24,
+      "end": 551.04,
+      "text": "achieve with it. What's wrong? What's that? Yeah, they ripped out all the pull based stuff and"
+    },
+    {
+      "id": 114,
+      "start": 551.04,
+      "end": 557.28,
+      "text": "switched to a push based stuff. Anyway."
+    },
+    {
+      "id": 115,
+      "start": 562.88,
+      "end": 570.72,
+      "text": "They played it all at once. Mark's amazing. I think this point 2021, I think he was still a postdoc."
+    },
+    {
+      "id": 116,
+      "start": 572.24,
+      "end": 577.76,
+      "text": "The Dutch model is kind of weird as a teacher student. CWI is not a university. It's like a"
+    },
+    {
+      "id": 117,
+      "start": 579.68,
+      "end": 584.24,
+      "text": "research consortium of a bunch of other universities. So technically all the people there, Peter"
+    },
+    {
+      "id": 118,
+      "start": 584.24,
+      "end": 591.36,
+      "text": "Bonds, Hannes, Martin, he's died. They had affiliations with other universities, but they didn't"
+    },
+    {
+      "id": 119,
+      "start": 591.36,
+      "end": 598.8,
+      "text": "teach classes really, and they just wrote code at CWI. Again, this is one of the pros and cons of"
+    },
+    {
+      "id": 120,
+      "start": 598.8,
+      "end": 601.6,
+      "text": "the American, you know, the academic..."
+    }
+  ],
+  "language": "en"
+}

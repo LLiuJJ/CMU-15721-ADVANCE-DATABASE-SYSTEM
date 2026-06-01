@@ -1,0 +1,1415 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.0,
+      "text": "How does this?"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 8.4,
+      "text": "You wouldn't get any benefit of some of the data structures"
+    },
+    {
+      "id": 2,
+      "start": 8.4,
+      "end": 11.6,
+      "text": "that they're going to build, like the tries, or in case"
+    },
+    {
+      "id": 3,
+      "start": 11.6,
+      "end": 13.16,
+      "text": "empty-headed, it's like nested hash tables."
+    },
+    {
+      "id": 4,
+      "start": 18.76,
+      "end": 22.56,
+      "text": "Yeah, I actually don't know the complexity of this thing."
+    },
+    {
+      "id": 5,
+      "start": 22.56,
+      "end": 25.2,
+      "text": "If it's one attribute, if it's one attribute,"
+    },
+    {
+      "id": 6,
+      "start": 25.2,
+      "end": 27.56,
+      "text": "I still think this is going to be better."
+    },
+    {
+      "id": 7,
+      "start": 27.56,
+      "end": 29.76,
+      "text": "If the intermediaries also are going to balloon up,"
+    },
+    {
+      "id": 8,
+      "start": 29.76,
+      "end": 31.56,
+      "text": "because again, you're not materializing it."
+    },
+    {
+      "id": 9,
+      "start": 31.56,
+      "end": 34.88,
+      "text": "But all those optimizations that we'll see from the paper"
+    },
+    {
+      "id": 10,
+      "start": 34.88,
+      "end": 38.96,
+      "text": "you guys read of how to do singletons and fast pass"
+    },
+    {
+      "id": 11,
+      "start": 38.96,
+      "end": 41.92,
+      "text": "down to the leaf nodes of the try, those obviously don't"
+    },
+    {
+      "id": 12,
+      "start": 41.92,
+      "end": 44.16,
+      "text": "make any sense if it's only one level."
+    },
+    {
+      "id": 13,
+      "start": 47.36,
+      "end": 48.44,
+      "text": "So we'll see this a little bit."
+    },
+    {
+      "id": 14,
+      "start": 48.44,
+      "end": 50.84,
+      "text": "And the hyperpaper you guys read, or the umbra paper you guys read,"
+    },
+    {
+      "id": 15,
+      "start": 50.84,
+      "end": 52.2,
+      "text": "talks about this as well."
+    },
+    {
+      "id": 16,
+      "start": 52.2,
+      "end": 54.4,
+      "text": "In the same way that we had to get the join order right"
+    },
+    {
+      "id": 17,
+      "start": 54.4,
+      "end": 57.88,
+      "text": "for binary joins, make sure if A joined B joined C,"
+    },
+    {
+      "id": 18,
+      "start": 57.88,
+      "end": 59.36,
+      "text": "we had to get that ordering right."
+    },
+    {
+      "id": 19,
+      "start": 59.36,
+      "end": 62.12,
+      "text": "We had to get the ordering correct in a worst case"
+    },
+    {
+      "id": 20,
+      "start": 62.12,
+      "end": 62.84,
+      "text": "up no join."
+    },
+    {
+      "id": 21,
+      "start": 62.84,
+      "end": 66.12,
+      "text": "But the thing we have to worry about is not so much the ordering"
+    },
+    {
+      "id": 22,
+      "start": 66.12,
+      "end": 67.56,
+      "text": "of the tables themselves."
+    },
+    {
+      "id": 23,
+      "start": 67.56,
+      "end": 69.56,
+      "text": "It's actually the ordering of the attributes."
+    },
+    {
+      "id": 24,
+      "start": 69.56,
+      "end": 71.68,
+      "text": "So we want to do comparisons on attribute."
+    },
+    {
+      "id": 25,
+      "start": 71.68,
+      "end": 74.0,
+      "text": "So we know very many of us are selective as soon as possible."
+    },
+    {
+      "id": 26,
+      "start": 74.0,
+      "end": 76.0,
+      "text": "So again, we start throwing away data"
+    },
+    {
+      "id": 27,
+      "start": 76.0,
+      "end": 77.48,
+      "text": "and not doing useless computations."
+    },
+    {
+      "id": 28,
+      "start": 79.92,
+      "end": 84.44,
+      "text": "So the definition that sort of float around the internet"
+    },
+    {
+      "id": 29,
+      "start": 84.44,
+      "end": 86.36,
+      "text": "actually comes from this professor up in Waterloo"
+    },
+    {
+      "id": 30,
+      "start": 86.36,
+      "end": 91.36,
+      "text": "for he's building an embedded graph database called Kuzu."
+    },
+    {
+      "id": 31,
+      "start": 91.36,
+      "end": 96.64,
+      "text": "You think of like, you know, ducty B or sickle light"
+    },
+    {
+      "id": 32,
+      "start": 96.64,
+      "end": 99.16,
+      "text": "for graph databases, right?"
+    },
+    {
+      "id": 33,
+      "start": 99.16,
+      "end": 101.72,
+      "text": "And so his definition of a worst-cut orbital join"
+    },
+    {
+      "id": 34,
+      "start": 101.72,
+      "end": 104.52,
+      "text": "is one where the worst case runtime of the algorithm"
+    },
+    {
+      "id": 35,
+      "start": 104.52,
+      "end": 107.52,
+      "text": "meets a known lower bound for the worst case runtime"
+    },
+    {
+      "id": 36,
+      "start": 107.52,
+      "end": 108.52,
+      "text": "of any join algorithm."
+    },
+    {
+      "id": 37,
+      "start": 109.52,
+      "end": 111.36,
+      "text": "So I read this and like, what the hell are you talking about?"
+    },
+    {
+      "id": 38,
+      "start": 111.36,
+      "end": 113.92,
+      "text": "Like it's because you're kind of using the definition"
+    },
+    {
+      "id": 39,
+      "start": 113.92,
+      "end": 116.64,
+      "text": "of the thing and using the word time"
+    },
+    {
+      "id": 40,
+      "start": 116.64,
+      "end": 120.12,
+      "text": "define in the definition itself."
+    },
+    {
+      "id": 41,
+      "start": 120.12,
+      "end": 121.6,
+      "text": "So an alternative would be something like this,"
+    },
+    {
+      "id": 42,
+      "start": 121.6,
+      "end": 123.52,
+      "text": "where a worst case runtime of the join"
+    },
+    {
+      "id": 43,
+      "start": 123.52,
+      "end": 125.32,
+      "text": "is one where the runtime of the join algorithm"
+    },
+    {
+      "id": 44,
+      "start": 125.32,
+      "end": 127.56,
+      "text": "is better than all other join algorithms"
+    },
+    {
+      "id": 45,
+      "start": 127.56,
+      "end": 129.52,
+      "text": "where the query and the data represent the worst possible"
+    },
+    {
+      "id": 46,
+      "start": 129.52,
+      "end": 130.32,
+      "text": "scenario."
+    },
+    {
+      "id": 47,
+      "start": 130.32,
+      "end": 133.84,
+      "text": "So if you have the situation where the intermediate size"
+    },
+    {
+      "id": 48,
+      "start": 133.84,
+      "end": 135.64,
+      "text": "is going to balloon up massively,"
+    },
+    {
+      "id": 49,
+      "start": 135.64,
+      "end": 138.36,
+      "text": "if I think of a Cartesian product as the worst case scenario,"
+    },
+    {
+      "id": 50,
+      "start": 138.36,
+      "end": 141.48,
+      "text": "then we want to choose an algorithm where it's not"
+    },
+    {
+      "id": 51,
+      "start": 141.48,
+      "end": 145.4,
+      "text": "going to be magically log in."
+    },
+    {
+      "id": 52,
+      "start": 145.4,
+      "end": 148.52,
+      "text": "But it's still going to be better than just doing all"
+    },
+    {
+      "id": 53,
+      "start": 148.52,
+      "end": 150.28,
+      "text": "other approaches with a binary join, no matter what"
+    },
+    {
+      "id": 54,
+      "start": 150.28,
+      "end": 155.2,
+      "text": "ordering you have for your tables on a binary join."
+    },
+    {
+      "id": 55,
+      "start": 155.2,
+      "end": 160.0,
+      "text": "So again, if you just, that's why I called this lecture,"
+    },
+    {
+      "id": 56,
+      "start": 160.0,
+      "end": 161.76,
+      "text": "the multi-way join, because that one, I think,"
+    },
+    {
+      "id": 57,
+      "start": 161.76,
+      "end": 163.2,
+      "text": "is easy to wrap around."
+    },
+    {
+      "id": 58,
+      "start": 163.2,
+      "end": 164.96,
+      "text": "This one is a bit screwy."
+    },
+    {
+      "id": 59,
+      "start": 164.96,
+      "end": 166.76,
+      "text": "And don't take my word for it also."
+    },
+    {
+      "id": 60,
+      "start": 166.76,
+      "end": 169.48,
+      "text": "For this guy's blogger, Nicole, he has this anecdote"
+    },
+    {
+      "id": 61,
+      "start": 169.48,
+      "end": 171.72,
+      "text": "where he talks about where he met Don Canuth."
+    },
+    {
+      "id": 62,
+      "start": 171.72,
+      "end": 173.68,
+      "text": "And he told Don Canuth he was working on worst case"
+    },
+    {
+      "id": 63,
+      "start": 173.68,
+      "end": 175.04,
+      "text": "optimal join algorithms."
+    },
+    {
+      "id": 64,
+      "start": 175.04,
+      "end": 177.0,
+      "text": "And Canuth was like, what the hell are you talking about, either?"
+    },
+    {
+      "id": 65,
+      "start": 177.0,
+      "end": 179.92,
+      "text": "So as he says, are they so good that they're"
+    },
+    {
+      "id": 66,
+      "start": 179.92,
+      "end": 183.48,
+      "text": "optimal in the worst case performance?"
+    },
+    {
+      "id": 67,
+      "start": 183.48,
+      "end": 185.6,
+      "text": "Yes."
+    },
+    {
+      "id": 68,
+      "start": 185.6,
+      "end": 188.24,
+      "text": "So anyway, so again, if you do understand that,"
+    },
+    {
+      "id": 69,
+      "start": 188.24,
+      "end": 189.76,
+      "text": "this is going to be the best approach"
+    },
+    {
+      "id": 70,
+      "start": 189.76,
+      "end": 192.92,
+      "text": "for the worst case scenario when we have this ballooning up"
+    },
+    {
+      "id": 71,
+      "start": 192.92,
+      "end": 193.84,
+      "text": "in a mere results."
+    },
+    {
+      "id": 72,
+      "start": 193.84,
+      "end": 196.64,
+      "text": "That's the thing we want to solve."
+    },
+    {
+      "id": 73,
+      "start": 196.64,
+      "end": 199.68,
+      "text": "So as I said, there's not very many systems that are"
+    },
+    {
+      "id": 74,
+      "start": 199.68,
+      "end": 202.48,
+      "text": "actually going to implement this."
+    },
+    {
+      "id": 75,
+      "start": 202.48,
+      "end": 206.64,
+      "text": "So the logic blocks was the one I mentioned before."
+    },
+    {
+      "id": 76,
+      "start": 206.64,
+      "end": 209.48,
+      "text": "That's going to be, we'll see this when they do comparison."
+    },
+    {
+      "id": 77,
+      "start": 209.48,
+      "end": 212.6,
+      "text": "I can in the umber paper."
+    },
+    {
+      "id": 78,
+      "start": 212.6,
+      "end": 214.44,
+      "text": "Again, this was an early reasoning system that was trying"
+    },
+    {
+      "id": 79,
+      "start": 214.44,
+      "end": 216.72,
+      "text": "to do graph traversals."
+    },
+    {
+      "id": 80,
+      "start": 216.72,
+      "end": 220.64,
+      "text": "And they had an early invitation of,"
+    },
+    {
+      "id": 81,
+      "start": 220.64,
+      "end": 222.52,
+      "text": "or they had a leaf frog hash line."
+    },
+    {
+      "id": 82,
+      "start": 222.52,
+      "end": 224.24,
+      "text": "Umber, I'll be right about relational AI"
+    },
+    {
+      "id": 83,
+      "start": 224.24,
+      "end": 225.8,
+      "text": "is the follow up to logic blocks."
+    },
+    {
+      "id": 84,
+      "start": 225.8,
+      "end": 227.44,
+      "text": "So logic blocks got bought."
+    },
+    {
+      "id": 85,
+      "start": 227.44,
+      "end": 229.28,
+      "text": "All the key people left the company,"
+    },
+    {
+      "id": 86,
+      "start": 229.28,
+      "end": 232.12,
+      "text": "ever got acquired, and then built relational AI."
+    },
+    {
+      "id": 87,
+      "start": 232.12,
+      "end": 234.24,
+      "text": "It's written in Julia, it's a relational database system"
+    },
+    {
+      "id": 88,
+      "start": 234.24,
+      "end": 240.32,
+      "text": "that's doing a graph representation on a relational database"
+    },
+    {
+      "id": 89,
+      "start": 240.32,
+      "end": 244.24,
+      "text": "system, and they're using their variant of a newer version"
+    },
+    {
+      "id": 90,
+      "start": 244.24,
+      "end": 246.24,
+      "text": "of the leaf frog join."
+    },
+    {
+      "id": 91,
+      "start": 246.24,
+      "end": 247.76,
+      "text": "And the cause is this is a matter of water"
+    },
+    {
+      "id": 92,
+      "start": 247.76,
+      "end": 249.44,
+      "text": "that I mentioned before."
+    },
+    {
+      "id": 93,
+      "start": 249.44,
+      "end": 251.0,
+      "text": "So the reason why this is going to be important,"
+    },
+    {
+      "id": 94,
+      "start": 251.0,
+      "end": 253.68,
+      "text": "and we're not going to go too deep into the latest"
+    },
+    {
+      "id": 95,
+      "start": 253.68,
+      "end": 255.92,
+      "text": "SQL extension, SQL PGQ."
+    },
+    {
+      "id": 96,
+      "start": 255.92,
+      "end": 259.08,
+      "text": "Um, but last year in March of February,"
+    },
+    {
+      "id": 97,
+      "start": 259.08,
+      "end": 261.96,
+      "text": "the new specification for the SQL standard came out."
+    },
+    {
+      "id": 98,
+      "start": 261.96,
+      "end": 264.24,
+      "text": "And in it, they have this thing called SQL PGQ."
+    },
+    {
+      "id": 99,
+      "start": 264.24,
+      "end": 265.68,
+      "text": "So it's an extension,"
+    },
+    {
+      "id": 100,
+      "start": 265.68,
+      "end": 267.68,
+      "text": "a new, new, uh,"
+    },
+    {
+      "id": 101,
+      "start": 267.68,
+      "end": 269.8,
+      "text": "new capabilities in the SQL standard that"
+    },
+    {
+      "id": 102,
+      "start": 269.8,
+      "end": 273.56,
+      "text": "allow you to define property graphs over relational tables,"
+    },
+    {
+      "id": 103,
+      "start": 273.56,
+      "end": 275.56,
+      "text": "and then do, uh,"
+    },
+    {
+      "id": 104,
+      "start": 275.56,
+      "end": 278.72,
+      "text": "pattern searching your graph traversals directly in SQL."
+    },
+    {
+      "id": 105,
+      "start": 278.72,
+      "end": 283.16,
+      "text": "So the, the, the extensions are inspired by,"
+    },
+    {
+      "id": 106,
+      "start": 283.16,
+      "end": 284.96,
+      "text": "uh, Neo4j's cipher,"
+    },
+    {
+      "id": 107,
+      "start": 284.96,
+      "end": 287.88,
+      "text": "I think TigerGraph has their graph query language."
+    },
+    {
+      "id": 108,
+      "start": 287.88,
+      "end": 290.36,
+      "text": "Like there's bits and pieces of existing graph databases,"
+    },
+    {
+      "id": 109,
+      "start": 290.36,
+      "end": 293.12,
+      "text": "but now all this exists in the SQL standard."
+    },
+    {
+      "id": 110,
+      "start": 293.12,
+      "end": 296.56,
+      "text": "Um, the only system that I know that actually supports this is,"
+    },
+    {
+      "id": 111,
+      "start": 296.56,
+      "end": 298.48,
+      "text": "uh, is, it's Oracle."
+    },
+    {
+      "id": 112,
+      "start": 298.48,
+      "end": 300.84,
+      "text": "Oracle is on the standards, standards committee."
+    },
+    {
+      "id": 113,
+      "start": 300.84,
+      "end": 303.64,
+      "text": "Um, the, there's a, there's a,"
+    },
+    {
+      "id": 114,
+      "start": 303.64,
+      "end": 307.56,
+      "text": "experimental development branch of, of, of ducty-b that has"
+    },
+    {
+      "id": 115,
+      "start": 307.56,
+      "end": 309.16,
+      "text": "some portions of this, but they're all,"
+    },
+    {
+      "id": 116,
+      "start": 309.16,
+      "end": 311.08,
+      "text": "the language is all sort of slightly different."
+    },
+    {
+      "id": 117,
+      "start": 311.08,
+      "end": 312.76,
+      "text": "Um, so,"
+    },
+    {
+      "id": 118,
+      "start": 313.6,
+      "end": 316.04,
+      "text": "we're gonna need, we're gonna need the worst case optimal joints"
+    },
+    {
+      "id": 119,
+      "start": 316.04,
+      "end": 318.32,
+      "text": "in order to implement this efficiently, right,"
+    },
+    {
+      "id": 120,
+      "start": 318.32,
+      "end": 319.08,
+      "text": "for these kind of queries."
+    },
+    {
+      "id": 121,
+      "start": 319.08,
+      "end": 322.08,
+      "text": "Do you graph traversals on, on, uh,"
+    },
+    {
+      "id": 122,
+      "start": 322.08,
+      "end": 323.52,
+      "text": "on relational databases?"
+    },
+    {
+      "id": 123,
+      "start": 323.52,
+      "end": 325.28,
+      "text": "So that's why this matters."
+    },
+    {
+      "id": 124,
+      "start": 325.28,
+      "end": 327.32,
+      "text": "So even though in Oracle only supports it now,"
+    },
+    {
+      "id": 125,
+      "start": 327.32,
+      "end": 328.6,
+      "text": "I think in the next five years,"
+    },
+    {
+      "id": 126,
+      "start": 328.6,
+      "end": 330.76,
+      "text": "every major OLAP data system will have,"
+    },
+    {
+      "id": 127,
+      "start": 330.76,
+      "end": 332.04,
+      "text": "we'll have support for this."
+    },
+    {
+      "id": 128,
+      "start": 332.04,
+      "end": 333.92,
+      "text": "And you're gonna need to do a worst case optimal joint"
+    },
+    {
+      "id": 129,
+      "start": 333.92,
+      "end": 335.76,
+      "text": "to make that run efficiently."
+    },
+    {
+      "id": 130,
+      "start": 335.76,
+      "end": 340.16,
+      "text": "All right, so let's go to the first implementation,"
+    },
+    {
+      "id": 131,
+      "start": 340.16,
+      "end": 341.12,
+      "text": "the first one of the first limitations,"
+    },
+    {
+      "id": 132,
+      "start": 341.12,
+      "end": 343.24,
+      "text": "the leapfrog tri-joint,"
+    },
+    {
+      "id": 133,
+      "start": 343.24,
+      "end": 344.48,
+      "text": "and then, uh,"
+    },
+    {
+      "id": 134,
+      "start": 344.48,
+      "end": 346.24,
+      "text": "then we'll see how the Germans extended this"
+    },
+    {
+      "id": 135,
+      "start": 346.24,
+      "end": 347.88,
+      "text": "to make it, make it run faster."
+    },
+    {
+      "id": 136,
+      "start": 349.16,
+      "end": 353.04,
+      "text": "So the idea is that to do a multi-way join,"
+    },
+    {
+      "id": 137,
+      "start": 353.04,
+      "end": 355.92,
+      "text": "the, the leapfrog tri-joint is gonna assume that,"
+    },
+    {
+      "id": 138,
+      "start": 355.92,
+      "end": 358.52,
+      "text": "either the data's already pre-sorted,"
+    },
+    {
+      "id": 139,
+      "start": 358.52,
+      "end": 360.32,
+      "text": "or that you're gonna build a,"
+    },
+    {
+      "id": 140,
+      "start": 360.32,
+      "end": 363.16,
+      "text": "an index data structure on the join keys,"
+    },
+    {
+      "id": 141,
+      "start": 363.16,
+      "end": 365.0,
+      "text": "right before performing the joint itself."
+    },
+    {
+      "id": 142,
+      "start": 365.96,
+      "end": 368.44,
+      "text": "So as we talked about in, in our world,"
+    },
+    {
+      "id": 143,
+      "start": 368.44,
+      "end": 370.52,
+      "text": "we're accessing which part K files,"
+    },
+    {
+      "id": 144,
+      "start": 370.52,
+      "end": 372.16,
+      "text": "anyone has three,"
+    },
+    {
+      "id": 145,
+      "start": 372.16,
+      "end": 374.4,
+      "text": "those things are unlikely to be sorted."
+    },
+    {
+      "id": 146,
+      "start": 374.4,
+      "end": 376.96,
+      "text": "And in the parkane or file specifications,"
+    },
+    {
+      "id": 147,
+      "start": 376.96,
+      "end": 378.36,
+      "text": "you can't store additional data structures,"
+    },
+    {
+      "id": 148,
+      "start": 378.36,
+      "end": 379.92,
+      "text": "so either we have to pre-compute these things"
+    },
+    {
+      "id": 149,
+      "start": 379.92,
+      "end": 381.56,
+      "text": "and store it as this bunch of separate files"
+    },
+    {
+      "id": 150,
+      "start": 381.56,
+      "end": 382.76,
+      "text": "that we load back in,"
+    },
+    {
+      "id": 151,
+      "start": 382.76,
+      "end": 384.08,
+      "text": "or as we're scanning data,"
+    },
+    {
+      "id": 152,
+      "start": 384.08,
+      "end": 385.76,
+      "text": "or building these trives on the fly."
+    },
+    {
+      "id": 153,
+      "start": 387.68,
+      "end": 390.0,
+      "text": "And the, the umper paper you guys read,"
+    },
+    {
+      "id": 154,
+      "start": 390.0,
+      "end": 391.12,
+      "text": "they're gonna be doing the same thing,"
+    },
+    {
+      "id": 155,
+      "start": 391.12,
+      "end": 393.36,
+      "text": "they're gonna be building the trives on the fly too,"
+    },
+    {
+      "id": 156,
+      "start": 393.36,
+      "end": 394.32,
+      "text": "but they're gonna do a bunch of tricks"
+    },
+    {
+      "id": 157,
+      "start": 394.32,
+      "end": 396.48,
+      "text": "to try to lazy evaluation or lazy materialization"
+    },
+    {
+      "id": 158,
+      "start": 396.48,
+      "end": 398.24,
+      "text": "in the data structure, right?"
+    },
+    {
+      "id": 159,
+      "start": 398.24,
+      "end": 399.24,
+      "text": "So in another way,"
+    },
+    {
+      "id": 160,
+      "start": 400.12,
+      "end": 402.84,
+      "text": "when I call create index in Postgres or whatever,"
+    },
+    {
+      "id": 161,
+      "start": 402.84,
+      "end": 404.4,
+      "text": "what is that, what's gonna happen?"
+    },
+    {
+      "id": 162,
+      "start": 404.4,
+      "end": 406.28,
+      "text": "Well, the data system does a sequential scan,"
+    },
+    {
+      "id": 163,
+      "start": 406.28,
+      "end": 407.24,
+      "text": "reads every single row,"
+    },
+    {
+      "id": 164,
+      "start": 407.24,
+      "end": 408.88,
+      "text": "and then populates the index."
+    },
+    {
+      "id": 165,
+      "start": 408.88,
+      "end": 410.36,
+      "text": "And so the umper guys are gonna try"
+    },
+    {
+      "id": 166,
+      "start": 410.36,
+      "end": 411.96,
+      "text": "to avoid having to do that."
+    },
+    {
+      "id": 167,
+      "start": 411.96,
+      "end": 413.96,
+      "text": "These guys are gonna build everything."
+    },
+    {
+      "id": 168,
+      "start": 415.72,
+      "end": 418.04,
+      "text": "So in this tri, we'll see in a second,"
+    },
+    {
+      "id": 169,
+      "start": 418.04,
+      "end": 420.24,
+      "text": "they're gonna have a separate data structure"
+    },
+    {
+      "id": 170,
+      "start": 420.24,
+      "end": 422.68,
+      "text": "per table, per relation we're trying to join,"
+    },
+    {
+      "id": 171,
+      "start": 422.68,
+      "end": 424.52,
+      "text": "and then each level in this tri"
+    },
+    {
+      "id": 172,
+      "start": 424.52,
+      "end": 427.92,
+      "text": "is gonna correspond to one attribute"
+    },
+    {
+      "id": 173,
+      "start": 428.6,
+      "end": 430.72,
+      "text": "that's in our join key, right?"
+    },
+    {
+      "id": 174,
+      "start": 430.72,
+      "end": 434.96,
+      "text": "For that table, each level correspond to an attribute"
+    },
+    {
+      "id": 175,
+      "start": 434.96,
+      "end": 437.64,
+      "text": "that it has that's involved in the join operator."
+    },
+    {
+      "id": 176,
+      "start": 439.04,
+      "end": 441.44,
+      "text": "So as I said, logical blocks of men in this in 2010,"
+    },
+    {
+      "id": 177,
+      "start": 442.84,
+      "end": 445.56,
+      "text": "or 2013, I think, or 14 paper group amount,"
+    },
+    {
+      "id": 178,
+      "start": 445.56,
+      "end": 447.48,
+      "text": "they have their new company relation AI,"
+    },
+    {
+      "id": 179,
+      "start": 447.48,
+      "end": 449.6,
+      "text": "they have an, supposedly a better version"
+    },
+    {
+      "id": 180,
+      "start": 449.6,
+      "end": 452.6,
+      "text": "of the leapfrog hash join called a dovetail join."
+    },
+    {
+      "id": 181,
+      "start": 453.88,
+      "end": 456.2,
+      "text": "I can't actually figure out what they're doing"
+    },
+    {
+      "id": 182,
+      "start": 456.2,
+      "end": 457.92,
+      "text": "because there's a five minute,"
+    },
+    {
+      "id": 183,
+      "start": 457.92,
+      "end": 458.84,
+      "text": "there's this blog article here"
+    },
+    {
+      "id": 184,
+      "start": 458.84,
+      "end": 459.8,
+      "text": "and a five minute YouTube video"
+    },
+    {
+      "id": 185,
+      "start": 459.8,
+      "end": 462.88,
+      "text": "that doesn't let say anything deep, right?"
+    },
+    {
+      "id": 186,
+      "start": 462.88,
+      "end": 465.36,
+      "text": "But they claim it's better than what these guys have."
+    },
+    {
+      "id": 187,
+      "start": 467.6,
+      "end": 470.48,
+      "text": "All right, so the way to think about this is that"
+    },
+    {
+      "id": 188,
+      "start": 470.48,
+      "end": 474.24,
+      "text": "we are, again, we're going to sort our data,"
+    },
+    {
+      "id": 189,
+      "start": 474.24,
+      "end": 475.12,
+      "text": "or build it next for it,"
+    },
+    {
+      "id": 190,
+      "start": 475.12,
+      "end": 478.92,
+      "text": "and then we need a way to iterate through the,"
+    },
+    {
+      "id": 191,
+      "start": 478.92,
+      "end": 481.16,
+      "text": "all the tables are trying to join at the same time,"
+    },
+    {
+      "id": 192,
+      "start": 481.16,
+      "end": 483.04,
+      "text": "and then do comparison across the attributes"
+    },
+    {
+      "id": 193,
+      "start": 483.04,
+      "end": 484.56,
+      "text": "to see whether we have a match."
+    },
+    {
+      "id": 194,
+      "start": 484.56,
+      "end": 487.28,
+      "text": "And because the things are sorted,"
+    },
+    {
+      "id": 195,
+      "start": 487.28,
+      "end": 492.28,
+      "text": "we don't have to backtrack on our join keys, right?"
+    },
+    {
+      "id": 196,
+      "start": 492.6,
+      "end": 494.8,
+      "text": "So let's say we have three tables, x, y, z,"
+    },
+    {
+      "id": 197,
+      "start": 494.8,
+      "end": 498.2,
+      "text": "first step, we're just going to sort it, so that's fine."
+    },
+    {
+      "id": 198,
+      "start": 498.2,
+      "end": 499.56,
+      "text": "And then for now, for this demonstration,"
+    },
+    {
+      "id": 199,
+      "start": 499.56,
+      "end": 501.24,
+      "text": "I'm going to switch to a horizontal view,"
+    },
+    {
+      "id": 200,
+      "start": 501.24,
+      "end": 503.04,
+      "text": "and I'm going to put spaces into where there's actually"
+    },
+    {
+      "id": 201,
+      "start": 503.04,
+      "end": 506.08,
+      "text": "new values corresponding to the sequence, like,"
+    },
+    {
+      "id": 202,
+      "start": 506.08,
+      "end": 507.04,
+      "text": "you know, zero to 10."
+    },
+    {
+      "id": 203,
+      "start": 508.0,
+      "end": 509.76,
+      "text": "So at the very beginning, we're going to have an iterator"
+    },
+    {
+      "id": 204,
+      "start": 509.76,
+      "end": 511.8,
+      "text": "for each of three tables, right?"
+    },
+    {
+      "id": 205,
+      "start": 511.8,
+      "end": 513.92,
+      "text": "So this case here, we're trying to join in one attribute,"
+    },
+    {
+      "id": 206,
+      "start": 513.92,
+      "end": 515.2,
+      "text": "i.d."
+    },
+    {
+      "id": 207,
+      "start": 515.2,
+      "end": 518.36,
+      "text": "And so for x, the first value is zero,"
+    },
+    {
+      "id": 208,
+      "start": 518.36,
+      "end": 521.16,
+      "text": "so x-a-a-a-rator is pointing at zero, y is pointing at zero,"
+    },
+    {
+      "id": 209,
+      "start": 521.16,
+      "end": 522.84,
+      "text": "and then z is pointing at two."
+    },
+    {
+      "id": 210,
+      "start": 523.8,
+      "end": 527.8,
+      "text": "So we're going to start with the, at the top,"
+    },
+    {
+      "id": 211,
+      "start": 527.8,
+      "end": 532.92,
+      "text": "and we're going to do comparisons with the,"
+    },
+    {
+      "id": 212,
+      "start": 532.92,
+      "end": 534.56,
+      "text": "what the iterator is pointing at,"
+    },
+    {
+      "id": 213,
+      "start": 534.56,
+      "end": 537.96,
+      "text": "across the different tables,"
+    },
+    {
+      "id": 214,
+      "start": 537.96,
+      "end": 539.88,
+      "text": "because we know what they're pointing at, too."
+    },
+    {
+      "id": 215,
+      "start": 539.88,
+      "end": 543.8,
+      "text": "And then we find that the value that our iterator is pointing at,"
+    },
+    {
+      "id": 216,
+      "start": 543.8,
+      "end": 548.04,
+      "text": "is less than what the other iterators are pointing at."
+    },
+    {
+      "id": 217,
+      "start": 548.04,
+      "end": 550.88,
+      "text": "Then we know that there isn't a match for us here,"
+    },
+    {
+      "id": 218,
+      "start": 550.88,
+      "end": 552.88,
+      "text": "and therefore we're going to leave for all of our jump"
+    },
+    {
+      "id": 219,
+      "start": 552.88,
+      "end": 557.28,
+      "text": "to some other point in our, in our value list,"
+    },
+    {
+      "id": 220,
+      "start": 557.28,
+      "end": 561.48,
+      "text": "that's going to be equal to or greater than the maximum"
+    },
+    {
+      "id": 221,
+      "start": 561.48,
+      "end": 563.64,
+      "text": "what everyone else is pointing to."
+    },
+    {
+      "id": 222,
+      "start": 563.64,
+      "end": 568.52,
+      "text": "All right, so in this case here, zero is less than two,"
+    },
+    {
+      "id": 223,
+      "start": 568.52,
+      "end": 573.52,
+      "text": "so we need to jump over and find the next value for x,"
+    },
+    {
+      "id": 224,
+      "start": 574.8,
+      "end": 577.28,
+      "text": "that is greater than or equal to two."
+    },
+    {
+      "id": 225,
+      "start": 577.28,
+      "end": 578.64,
+      "text": "In this case here, it's three,"
+    },
+    {
+      "id": 226,
+      "start": 578.64,
+      "end": 580.88,
+      "text": "so the iterator is going to jump over there,"
+    },
+    {
+      "id": 227,
+      "start": 580.88,
+      "end": 582.28,
+      "text": "and we update that that."
+    },
+    {
+      "id": 228,
+      "start": 582.28,
+      "end": 584.52,
+      "text": "Now because this guy now did a jump,"
+    },
+    {
+      "id": 229,
+      "start": 584.52,
+      "end": 586.76,
+      "text": "we now need to come down to the next one"
+    },
+    {
+      "id": 230,
+      "start": 586.76,
+      "end": 588.32,
+      "text": "and do the same comparison here."
+    },
+    {
+      "id": 231,
+      "start": 588.32,
+      "end": 590.32,
+      "text": "So the x-a-a-rator is pointing at zero,"
+    },
+    {
+      "id": 232,
+      "start": 590.32,
+      "end": 594.8,
+      "text": "so it needs to find a, since zero is less than two and three,"
+    },
+    {
+      "id": 233,
+      "start": 594.8,
+      "end": 598.24,
+      "text": "we need to now jump to another position where the,"
+    },
+    {
+      "id": 234,
+      "start": 598.24,
+      "end": 601.84,
+      "text": "but the next value is greater than equal to three."
+    }
+  ],
+  "language": "en"
+}

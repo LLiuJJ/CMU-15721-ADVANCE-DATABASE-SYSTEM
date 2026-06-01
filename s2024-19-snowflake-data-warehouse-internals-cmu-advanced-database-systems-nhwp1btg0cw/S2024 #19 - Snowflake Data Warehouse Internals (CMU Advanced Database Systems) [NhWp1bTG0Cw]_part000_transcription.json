@@ -1,0 +1,1373 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Carnegie Mellon University's Advanced Database Systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filming front of a live studio audience."
+    },
+    {
+      "id": 2,
+      "start": 15.0,
+      "end": 18.0,
+      "text": "So today, again, we're continuing down the path of"
+    },
+    {
+      "id": 3,
+      "start": 18.0,
+      "end": 21.0,
+      "text": "discussing about real world systems that are implementing"
+    },
+    {
+      "id": 4,
+      "start": 21.0,
+      "end": 24.0,
+      "text": "the concept and ideas that we've talked about."
+    },
+    {
+      "id": 5,
+      "start": 24.0,
+      "end": 27.0,
+      "text": "So before we jump into today's lecture,"
+    },
+    {
+      "id": 6,
+      "start": 27.0,
+      "end": 30.0,
+      "text": "again, some administrators that I posted some of this on"
+    },
+    {
+      "id": 7,
+      "start": 30.0,
+      "end": 33.0,
+      "text": "Piazza, but I'm going to put it all in one place now."
+    },
+    {
+      "id": 8,
+      "start": 33.0,
+      "end": 36.0,
+      "text": "So the final presentations for the project is going to be when we have"
+    },
+    {
+      "id": 9,
+      "start": 36.0,
+      "end": 37.0,
+      "text": "our scheduled final exam."
+    },
+    {
+      "id": 10,
+      "start": 37.0,
+      "end": 39.0,
+      "text": "I think it's in this room."
+    },
+    {
+      "id": 11,
+      "start": 39.0,
+      "end": 42.0,
+      "text": "It's scheduled to start on Thursday morning at 8.30am."
+    },
+    {
+      "id": 12,
+      "start": 42.0,
+      "end": 44.0,
+      "text": "That's f***ing we're not doing that."
+    },
+    {
+      "id": 13,
+      "start": 44.0,
+      "end": 46.0,
+      "text": "Let's start at 9am."
+    },
+    {
+      "id": 14,
+      "start": 46.0,
+      "end": 49.0,
+      "text": "And we'll do donuts and bagels."
+    },
+    {
+      "id": 15,
+      "start": 49.0,
+      "end": 51.0,
+      "text": "We can decide what we want to do."
+    },
+    {
+      "id": 16,
+      "start": 51.0,
+      "end": 54.0,
+      "text": "And then the written final exam, that will be given out"
+    },
+    {
+      "id": 17,
+      "start": 55.0,
+      "end": 58.0,
+      "text": "the April 24th, which I think is next week, next Wednesday."
+    },
+    {
+      "id": 18,
+      "start": 58.0,
+      "end": 65.0,
+      "text": "Again, that'll be a prompt to asking you a question about the"
+    },
+    {
+      "id": 19,
+      "start": 65.0,
+      "end": 68.0,
+      "text": "treason encompass all the ideas that we've talked about"
+    },
+    {
+      "id": 20,
+      "start": 68.0,
+      "end": 70.0,
+      "text": "throughout the entire semester."
+    },
+    {
+      "id": 21,
+      "start": 70.0,
+      "end": 72.0,
+      "text": "So it's not like multiple choice questions like,"
+    },
+    {
+      "id": 22,
+      "start": 72.0,
+      "end": 73.0,
+      "text": "what does this paper say?"
+    },
+    {
+      "id": 23,
+      "start": 73.0,
+      "end": 74.0,
+      "text": "What does that paper say?"
+    },
+    {
+      "id": 24,
+      "start": 74.0,
+      "end": 75.0,
+      "text": "Because that's f***ing you."
+    },
+    {
+      "id": 25,
+      "start": 75.0,
+      "end": 76.0,
+      "text": "You can go figure this stuff out."
+    },
+    {
+      "id": 26,
+      "start": 76.0,
+      "end": 80.0,
+      "text": "It's more about synthesizing the ideas, again, that we've evolved"
+    },
+    {
+      "id": 27,
+      "start": 80.0,
+      "end": 81.0,
+      "text": "into a new situation."
+    },
+    {
+      "id": 28,
+      "start": 81.0,
+      "end": 84.0,
+      "text": "Of all the various things that you've talked about, and applying it to a new"
+    },
+    {
+      "id": 29,
+      "start": 84.0,
+      "end": 87.0,
+      "text": "situation, which is, again, the main thing you want to get away from,"
+    },
+    {
+      "id": 30,
+      "start": 87.0,
+      "end": 91.0,
+      "text": "get out of this course, in addition to all the development stuff you guys"
+    },
+    {
+      "id": 31,
+      "start": 91.0,
+      "end": 94.0,
+      "text": "doing for the project, it's like, how to take all these ideas and see how they fit"
+    },
+    {
+      "id": 32,
+      "start": 94.0,
+      "end": 98.0,
+      "text": "into the bigger picture of some data processing or data system."
+    },
+    {
+      "id": 33,
+      "start": 98.0,
+      "end": 99.0,
+      "text": "Okay?"
+    },
+    {
+      "id": 34,
+      "start": 99.0,
+      "end": 103.0,
+      "text": "And again, that'll be due when we, the same day we have the final"
+    },
+    {
+      "id": 35,
+      "start": 103.0,
+      "end": 105.0,
+      "text": "family to show up and hand it to me."
+    },
+    {
+      "id": 36,
+      "start": 105.0,
+      "end": 107.0,
+      "text": "And then we'll do what we did a lot last year."
+    },
+    {
+      "id": 37,
+      "start": 107.0,
+      "end": 110.0,
+      "text": "You can use JTBT to help you answer the question."
+    },
+    {
+      "id": 38,
+      "start": 110.0,
+      "end": 113.0,
+      "text": "But obviously, if you're stupid and copied the prompt, you know,"
+    },
+    {
+      "id": 39,
+      "start": 113.0,
+      "end": 118.0,
+      "text": "copied the output and put it right into your response without checking it,"
+    },
+    {
+      "id": 40,
+      "start": 118.0,
+      "end": 121.0,
+      "text": "you're going to call it, this is going to be a problem."
+    },
+    {
+      "id": 41,
+      "start": 121.0,
+      "end": 124.0,
+      "text": "At least last year when we put the question is, it said,"
+    },
+    {
+      "id": 42,
+      "start": 124.0,
+      "end": 125.0,
+      "text": "I invented stuff, which is not true."
+    },
+    {
+      "id": 43,
+      "start": 125.0,
+      "end": 127.0,
+      "text": "I'm not sure if it's not true."
+    },
+    {
+      "id": 44,
+      "start": 127.0,
+      "end": 129.0,
+      "text": "So be mindful of that."
+    },
+    {
+      "id": 45,
+      "start": 129.0,
+      "end": 130.0,
+      "text": "Okay?"
+    },
+    {
+      "id": 46,
+      "start": 130.0,
+      "end": 134.0,
+      "text": "And then what we also do what we did last year is you can, again,"
+    },
+    {
+      "id": 47,
+      "start": 134.0,
+      "end": 139.0,
+      "text": "you're not penalized for this, you should at JTBT because why wouldn't you?"
+    },
+    {
+      "id": 48,
+      "start": 139.0,
+      "end": 142.0,
+      "text": "It's the way things are going."
+    },
+    {
+      "id": 49,
+      "start": 142.0,
+      "end": 148.0,
+      "text": "But we'll do a, well, you will set up a, a, a, a Google form that I can't see"
+    },
+    {
+      "id": 50,
+      "start": 148.0,
+      "end": 150.0,
+      "text": "and you just tell us whether you use JTBT or not."
+    },
+    {
+      "id": 51,
+      "start": 150.0,
+      "end": 152.0,
+      "text": "And then I'll try to predict whether you did or not."
+    },
+    {
+      "id": 52,
+      "start": 152.0,
+      "end": 153.0,
+      "text": "Okay?"
+    },
+    {
+      "id": 53,
+      "start": 153.0,
+      "end": 155.0,
+      "text": "What? That's fun."
+    },
+    {
+      "id": 54,
+      "start": 155.0,
+      "end": 156.0,
+      "text": "Okay?"
+    },
+    {
+      "id": 55,
+      "start": 156.0,
+      "end": 157.0,
+      "text": "Any questions?"
+    },
+    {
+      "id": 56,
+      "start": 157.0,
+      "end": 162.0,
+      "text": "Okay."
+    },
+    {
+      "id": 57,
+      "start": 162.0,
+      "end": 167.0,
+      "text": "So, do you know what's s*** this?"
+    },
+    {
+      "id": 58,
+      "start": 167.0,
+      "end": 170.0,
+      "text": "You ever heard a s*** programming language?"
+    },
+    {
+      "id": 59,
+      "start": 170.0,
+      "end": 171.0,
+      "text": "Okay."
+    },
+    {
+      "id": 60,
+      "start": 171.0,
+      "end": 172.0,
+      "text": "All right."
+    },
+    {
+      "id": 61,
+      "start": 172.0,
+      "end": 173.0,
+      "text": "Just checking."
+    },
+    {
+      "id": 62,
+      "start": 173.0,
+      "end": 174.0,
+      "text": "All right."
+    },
+    {
+      "id": 63,
+      "start": 174.0,
+      "end": 176.0,
+      "text": "I'll explain afterwards."
+    },
+    {
+      "id": 64,
+      "start": 176.0,
+      "end": 178.0,
+      "text": "All right. So again, last class we were talking about Databricks."
+    },
+    {
+      "id": 65,
+      "start": 178.0,
+      "end": 180.0,
+      "text": "So, Ton, again, that wasn't a full-fledged system."
+    },
+    {
+      "id": 66,
+      "start": 180.0,
+      "end": 184.0,
+      "text": "That was an extension library that you would add that they,"
+    },
+    {
+      "id": 67,
+      "start": 184.0,
+      "end": 187.0,
+      "text": "that the Databricks people added into Spark that the,"
+    },
+    {
+      "id": 68,
+      "start": 187.0,
+      "end": 190.0,
+      "text": "the Java code running Spark SQL would then invoke through JNI."
+    },
+    {
+      "id": 69,
+      "start": 190.0,
+      "end": 193.0,
+      "text": "And that was a super, super, super, super, super, super, super,"
+    },
+    {
+      "id": 70,
+      "start": 193.0,
+      "end": 195.0,
+      "text": "super, super, super, super, super vectorized engine."
+    },
+    {
+      "id": 71,
+      "start": 195.0,
+      "end": 198.0,
+      "text": "That would try to offload the computation expensive tasks in when you're"
+    },
+    {
+      "id": 72,
+      "start": 198.0,
+      "end": 201.0,
+      "text": "running an query in Spark SQL and push that down to C++."
+    },
+    {
+      "id": 73,
+      "start": 201.0,
+      "end": 203.0,
+      "text": "And they showed pretty significant performance gains."
+    },
+    {
+      "id": 74,
+      "start": 203.0,
+      "end": 206.0,
+      "text": "So today again, when we talk about Snowflake, and, um,"
+    },
+    {
+      "id": 75,
+      "start": 206.0,
+      "end": 208.0,
+      "text": "and we'll see this also in Redshift."
+    },
+    {
+      "id": 76,
+      "start": 208.0,
+      "end": 211.0,
+      "text": "You know, these are going to be, you know, full-fledged systems that"
+    },
+    {
+      "id": 77,
+      "start": 211.0,
+      "end": 214.0,
+      "text": "going to look and smell a lot like a Dremel and other systems we talked about"
+    },
+    {
+      "id": 78,
+      "start": 214.0,
+      "end": 217.0,
+      "text": "throughout the entire semester and, and Yellowbrook as well."
+    },
+    {
+      "id": 79,
+      "start": 217.0,
+      "end": 218.0,
+      "text": "All right."
+    },
+    {
+      "id": 80,
+      "start": 218.0,
+      "end": 222.0,
+      "text": "So, just like before, uh, before we jump into Snowflake,"
+    },
+    {
+      "id": 81,
+      "start": 222.0,
+      "end": 226.0,
+      "text": "uh, it's important to sort of, again, to take a step back and understand what the,"
+    },
+    {
+      "id": 82,
+      "start": 226.0,
+      "end": 230.0,
+      "text": "what the, sort of the landscape and the database will look like at the time that"
+    },
+    {
+      "id": 83,
+      "start": 230.0,
+      "end": 232.0,
+      "text": "Snowflake came, came on the scene."
+    },
+    {
+      "id": 84,
+      "start": 232.0,
+      "end": 235.0,
+      "text": "Um, and a lot of this, she, she gives repeating the things that we talked about"
+    },
+    {
+      "id": 85,
+      "start": 235.0,
+      "end": 236.0,
+      "text": "throughout the entire semester."
+    },
+    {
+      "id": 86,
+      "start": 236.0,
+      "end": 240.0,
+      "text": "Um, so again, the, in the 2000s, that's when we saw the,"
+    },
+    {
+      "id": 87,
+      "start": 240.0,
+      "end": 244.0,
+      "text": "the, these, these special purpose of specialized overlap systems that were,"
+    },
+    {
+      "id": 88,
+      "start": 244.0,
+      "end": 248.0,
+      "text": "built, just to run O-Lab, kind of O-Lab crews, we talked about in the"
+    },
+    {
+      "id": 89,
+      "start": 248.0,
+      "end": 250.0,
+      "text": "entire semester, that they sort of came on the scene."
+    },
+    {
+      "id": 90,
+      "start": 250.0,
+      "end": 253.0,
+      "text": "Uh, and for the most part, a lot of them were pushing this idea of,"
+    },
+    {
+      "id": 91,
+      "start": 253.0,
+      "end": 255.0,
+      "text": "of a column store."
+    },
+    {
+      "id": 92,
+      "start": 255.0,
+      "end": 259.0,
+      "text": "Uh, it's a little before, I mean, vector-wise came along in the later 2010s,"
+    },
+    {
+      "id": 93,
+      "start": 259.0,
+      "end": 262.0,
+      "text": "but, you know, everyone sort of, operating column stores compressed data,"
+    },
+    {
+      "id": 94,
+      "start": 262.0,
+      "end": 265.0,
+      "text": "and then vectorized showed how to do vectorized processing on these things."
+    },
+    {
+      "id": 95,
+      "start": 265.0,
+      "end": 270.0,
+      "text": "So, of all these Vertica and Greenplum are probably the two biggest ones."
+    },
+    {
+      "id": 96,
+      "start": 270.0,
+      "end": 273.0,
+      "text": "Um, monity we've talked about, and we'll talk about this again about ducty-based"
+    },
+    {
+      "id": 97,
+      "start": 273.0,
+      "end": 274.0,
+      "text": "talk about this again about ducty-b."
+    },
+    {
+      "id": 98,
+      "start": 274.0,
+      "end": 278.0,
+      "text": "By ducty-b, the early version of ducty-b was monity-b light,"
+    },
+    {
+      "id": 99,
+      "start": 278.0,
+      "end": 281.0,
+      "text": "which is a fork of the system, and we talked a little bit about that."
+    },
+    {
+      "id": 100,
+      "start": 281.0,
+      "end": 283.0,
+      "text": "Vectorized recovered in the early semester."
+    },
+    {
+      "id": 101,
+      "start": 283.0,
+      "end": 286.0,
+      "text": "Park cell, we'll see again when we talk about redshift,"
+    },
+    {
+      "id": 102,
+      "start": 286.0,
+      "end": 288.0,
+      "text": "because redshift wasn't written for the scratch on Amazon."
+    },
+    {
+      "id": 103,
+      "start": 288.0,
+      "end": 291.0,
+      "text": "They bought a license to the park, the park cell source code."
+    },
+    {
+      "id": 104,
+      "start": 291.0,
+      "end": 294.0,
+      "text": "Uh, and we'll see the transition that going from a shared nothing system"
+    },
+    {
+      "id": 105,
+      "start": 294.0,
+      "end": 299.0,
+      "text": "that park, park cell was into, uh, into what redshift is today."
+    },
+    {
+      "id": 106,
+      "start": 299.0,
+      "end": 301.0,
+      "text": "So, of all of these except for vectorized monity-b,"
+    },
+    {
+      "id": 107,
+      "start": 301.0,
+      "end": 303.0,
+      "text": "these are all forks of postgres."
+    },
+    {
+      "id": 108,
+      "start": 303.0,
+      "end": 306.0,
+      "text": "Uh, and they've ripped out the, you know, the storage layer,"
+    },
+    {
+      "id": 109,
+      "start": 306.0,
+      "end": 308.0,
+      "text": "and rewrote a lot of stuff to make it, you know,"
+    },
+    {
+      "id": 110,
+      "start": 308.0,
+      "end": 311.0,
+      "text": "operate it on, uh, analytical workloads."
+    },
+    {
+      "id": 111,
+      "start": 311.0,
+      "end": 313.0,
+      "text": "And at the same time, what this is all going on,"
+    },
+    {
+      "id": 112,
+      "start": 313.0,
+      "end": 317.0,
+      "text": "Hadoop became popular, everybody was trying to shove a lot of data on HDFS,"
+    },
+    {
+      "id": 113,
+      "start": 317.0,
+      "end": 321.0,
+      "text": "and it's data lakes before data lakes, uh, before, uh,"
+    },
+    {
+      "id": 114,
+      "start": 321.0,
+      "end": 323.0,
+      "text": "that term came to prominence."
+    },
+    {
+      "id": 115,
+      "start": 323.0,
+      "end": 325.0,
+      "text": "Right, Hive, we talked about Presto and Paul and Stinger."
+    },
+    {
+      "id": 116,
+      "start": 325.0,
+      "end": 327.0,
+      "text": "So, actually Stinger, we didn't talk about it,"
+    },
+    {
+      "id": 117,
+      "start": 327.0,
+      "end": 329.0,
+      "text": "it's basically the same thing as in Paula, or actually,"
+    },
+    {
+      "id": 118,
+      "start": 329.0,
+      "end": 332.0,
+      "text": "the same thing as Hive, it's the equivalent top of, uh,"
+    },
+    {
+      "id": 119,
+      "start": 332.0,
+      "end": 334.0,
+      "text": "of map-produced and to do."
+    },
+    {
+      "id": 120,
+      "start": 334.0,
+      "end": 337.0,
+      "text": "So, all these systems at the time, right,"
+    },
+    {
+      "id": 121,
+      "start": 337.0,
+      "end": 339.0,
+      "text": "in the various forms, they're supporting analytical systems,"
+    },
+    {
+      "id": 122,
+      "start": 339.0,
+      "end": 343.0,
+      "text": "but their primary, uh, uh, distribution model,"
+    },
+    {
+      "id": 123,
+      "start": 343.0,
+      "end": 346.0,
+      "text": "like the company, the vendor selling the data system,"
+    },
+    {
+      "id": 124,
+      "start": 346.0,
+      "end": 349.0,
+      "text": "the primary way that you got access to these various data systems"
+    },
+    {
+      "id": 125,
+      "start": 349.0,
+      "end": 352.0,
+      "text": "was by downloading it and running it on prem."
+    },
+    {
+      "id": 126,
+      "start": 352.0,
+      "end": 354.0,
+      "text": "So, meaning you would buy a license to the source code,"
+    },
+    {
+      "id": 127,
+      "start": 354.0,
+      "end": 356.0,
+      "text": "or sorry, buy a license to, to the data system,"
+    },
+    {
+      "id": 128,
+      "start": 356.0,
+      "end": 358.0,
+      "text": "but then you would provision the hardware,"
+    },
+    {
+      "id": 129,
+      "start": 358.0,
+      "end": 362.0,
+      "text": "and you would be responsible for running it on your local machines."
+    },
+    {
+      "id": 130,
+      "start": 362.0,
+      "end": 363.0,
+      "text": "Right?"
+    },
+    {
+      "id": 131,
+      "start": 363.0,
+      "end": 365.0,
+      "text": "And this, you know, prem,"
+    },
+    {
+      "id": 132,
+      "start": 365.0,
+      "end": 368.0,
+      "text": "the type of your RAM data systems were, for decades prior to this."
+    },
+    {
+      "id": 133,
+      "start": 368.0,
+      "end": 371.0,
+      "text": "So, as we talked about last, last week,"
+    },
+    {
+      "id": 134,
+      "start": 371.0,
+      "end": 373.0,
+      "text": "the Dremel paper comes out in 2011,"
+    },
+    {
+      "id": 135,
+      "start": 373.0,
+      "end": 375.0,
+      "text": "uh, and shows that, okay, you know,"
+    },
+    {
+      "id": 136,
+      "start": 375.0,
+      "end": 378.0,
+      "text": "you can build something in a cloud-subnative environment,"
+    },
+    {
+      "id": 137,
+      "start": 378.0,
+      "end": 381.0,
+      "text": "to run on a bunch of files that are sitting on these object stores."
+    },
+    {
+      "id": 138,
+      "start": 381.0,
+      "end": 384.0,
+      "text": "Right, it's no longer native, uh, natively,"
+    },
+    {
+      "id": 139,
+      "start": 384.0,
+      "end": 387.0,
+      "text": "the storage is no longer natively managed by the database system."
+    },
+    {
+      "id": 140,
+      "start": 387.0,
+      "end": 390.0,
+      "text": "Facebook also starts building Presto in 2012."
+    },
+    {
+      "id": 141,
+      "start": 390.0,
+      "end": 393.0,
+      "text": "Uh, again, Park Sales, we said this will discuss this next week"
+    },
+    {
+      "id": 142,
+      "start": 393.0,
+      "end": 397.0,
+      "text": "with about Redshift, but AWS buys a license to Park Sales in 2011,"
+    },
+    {
+      "id": 143,
+      "start": 397.0,
+      "end": 401.0,
+      "text": "and then releases it in 2013 as Redshift."
+    },
+    {
+      "id": 144,
+      "start": 401.0,
+      "end": 405.0,
+      "text": "They actually beat Snowflake to the market, uh, by a couple months,"
+    },
+    {
+      "id": 145,
+      "start": 405.0,
+      "end": 407.0,
+      "text": "uh, whereas, but Snowflake,"
+    },
+    {
+      "id": 146,
+      "start": 407.0,
+      "end": 409.0,
+      "text": "so the thing was written and subscribed, uh,"
+    },
+    {
+      "id": 147,
+      "start": 409.0,
+      "end": 412.0,
+      "text": "and Redshift was, again, was, was based in Park Sales."
+    },
+    {
+      "id": 148,
+      "start": 412.0,
+      "end": 414.0,
+      "text": "Park, I mean, I'll cover this next week."
+    },
+    {
+      "id": 149,
+      "start": 414.0,
+      "end": 416.0,
+      "text": "Park Sales basically going bankrupt,"
+    },
+    {
+      "id": 150,
+      "start": 416.0,
+      "end": 418.0,
+      "text": "they were hoping that Amazon was going to acquire them."
+    },
+    {
+      "id": 151,
+      "start": 418.0,
+      "end": 420.0,
+      "text": "Amazon does acquire the source of the license,"
+    },
+    {
+      "id": 152,
+      "start": 420.0,
+      "end": 424.0,
+      "text": "and I forget who, I think, Action bought, uh,"
+    },
+    {
+      "id": 153,
+      "start": 424.0,
+      "end": 426.0,
+      "text": "in a Byne Park sale."
+    },
+    {
+      "id": 154,
+      "start": 426.0,
+      "end": 429.0,
+      "text": "So it's still around, but like, it's basically a zombie database."
+    },
+    {
+      "id": 155,
+      "start": 429.0,
+      "end": 433.0,
+      "text": "So around this same time, uh, there's a VC firm out of,"
+    },
+    {
+      "id": 156,
+      "start": 433.0,
+      "end": 436.0,
+      "text": "uh, out of Silicon Valley called Sutter Hill,"
+    },
+    {
+      "id": 157,
+      "start": 436.0,
+      "end": 440.0,
+      "text": "um, when they decided to, hey, we're going to build a new cloud-native database,"
+    },
+    {
+      "id": 158,
+      "start": 440.0,
+      "end": 442.0,
+      "text": "you know, startup."
+    },
+    {
+      "id": 159,
+      "start": 442.0,
+      "end": 445.0,
+      "text": "Um, so they got these two guys that were, uh,"
+    },
+    {
+      "id": 160,
+      "start": 445.0,
+      "end": 448.0,
+      "text": "uh, you know, very prominent engineers at Oracle,"
+    },
+    {
+      "id": 161,
+      "start": 448.0,
+      "end": 452.0,
+      "text": "and then the vector-wise, uh, uh, developer, uh,"
+    },
+    {
+      "id": 162,
+      "start": 452.0,
+      "end": 454.0,
+      "text": "from the paper you guys read, Marzen Tsakowski,"
+    },
+    {
+      "id": 163,
+      "start": 454.0,
+      "end": 456.0,
+      "text": "from, you know, Vectwys going under at the time."
+    },
+    {
+      "id": 164,
+      "start": 456.0,
+      "end": 459.0,
+      "text": "So they got him, they got, mind these three together,"
+    },
+    {
+      "id": 165,
+      "start": 459.0,
+      "end": 460.0,
+      "text": "gave them a ton of money and said,"
+    },
+    {
+      "id": 166,
+      "start": 460.0,
+      "end": 463.0,
+      "text": "go build, you know, go build a cloud-native,"
+    },
+    {
+      "id": 167,
+      "start": 463.0,
+      "end": 465.0,
+      "text": "cloud-native warehouse, you know, we'll call it Snowflake."
+    },
+    {
+      "id": 168,
+      "start": 465.0,
+      "end": 467.0,
+      "text": "Sutter Hill is different than most of the VC firms"
+    },
+    {
+      "id": 169,
+      "start": 467.0,
+      "end": 469.0,
+      "text": "you've probably been familiar with, like the,"
+    },
+    {
+      "id": 170,
+      "start": 469.0,
+      "end": 471.0,
+      "text": "and Jason Horowitz, the Kleiner Perkins,"
+    },
+    {
+      "id": 171,
+      "start": 471.0,
+      "end": 472.0,
+      "text": "Grey Lockings, and so forth."
+    },
+    {
+      "id": 172,
+      "start": 472.0,
+      "end": 473.0,
+      "text": "Right?"
+    },
+    {
+      "id": 173,
+      "start": 473.0,
+      "end": 476.0,
+      "text": "So their models is, or, like, I have an idea,"
+    },
+    {
+      "id": 174,
+      "start": 476.0,
+      "end": 477.0,
+      "text": "and you go to them, you pitch them,"
+    },
+    {
+      "id": 175,
+      "start": 477.0,
+      "end": 479.0,
+      "text": "and say, hey, give me money to go build a startup."
+    },
+    {
+      "id": 176,
+      "start": 479.0,
+      "end": 480.0,
+      "text": "Sutter Hill is basically, like,"
+    },
+    {
+      "id": 177,
+      "start": 480.0,
+      "end": 482.0,
+      "text": "putting together a boy band at a record label."
+    },
+    {
+      "id": 178,
+      "start": 482.0,
+      "end": 484.0,
+      "text": "You say, let's get some good-looking people together,"
+    },
+    {
+      "id": 179,
+      "start": 484.0,
+      "end": 486.0,
+      "text": "get them in a room, we'll give them money,"
+    },
+    {
+      "id": 180,
+      "start": 486.0,
+      "end": 487.0,
+      "text": "and then they put out the alums, right?"
+    },
+    {
+      "id": 181,
+      "start": 487.0,
+      "end": 489.0,
+      "text": "So they're dictating what we should build."
+    },
+    {
+      "id": 182,
+      "start": 489.0,
+      "end": 491.0,
+      "text": "So that's how Snowflake sort of came about."
+    },
+    {
+      "id": 183,
+      "start": 491.0,
+      "end": 494.0,
+      "text": "Um, and so again, obviously Snowflake was super successful."
+    },
+    {
+      "id": 184,
+      "start": 494.0,
+      "end": 498.0,
+      "text": "We were talking about it, you know, 12 years later."
+    },
+    {
+      "id": 185,
+      "start": 498.0,
+      "end": 501.0,
+      "text": "Um, so, again, all these guys are super nice."
+    },
+    {
+      "id": 186,
+      "start": 501.0,
+      "end": 504.0,
+      "text": "So, uh, Marcin is, um,"
+    },
+    {
+      "id": 187,
+      "start": 504.0,
+      "end": 506.0,
+      "text": "he's much younger than these two French guys here."
+    },
+    {
+      "id": 188,
+      "start": 506.0,
+      "end": 509.0,
+      "text": "But this is just how hardcore they are about databases."
+    },
+    {
+      "id": 189,
+      "start": 509.0,
+      "end": 510.0,
+      "text": "Probably just, just hardcore as I am."
+    },
+    {
+      "id": 190,
+      "start": 510.0,
+      "end": 512.0,
+      "text": "So this is actually Marcin's leg."
+    },
+    {
+      "id": 191,
+      "start": 512.0,
+      "end": 516.0,
+      "text": "Uh, he has a Snowflake tattoo after they went IPO, right?"
+    },
+    {
+      "id": 192,
+      "start": 516.0,
+      "end": 518.0,
+      "text": "That's, that's dedication to databases."
+    },
+    {
+      "id": 193,
+      "start": 518.0,
+      "end": 520.0,
+      "text": "I, I don't even know how that form."
+    },
+    {
+      "id": 194,
+      "start": 520.0,
+      "end": 522.0,
+      "text": "All right, so what is Snowflake?"
+    },
+    {
+      "id": 195,
+      "start": 522.0,
+      "end": 524.0,
+      "text": "Snowflake is going to be a managed,"
+    },
+    {
+      "id": 196,
+      "start": 524.0,
+      "end": 526.0,
+      "text": "a lab database system written in Snowfloss,"
+    },
+    {
+      "id": 197,
+      "start": 526.0,
+      "end": 529.0,
+      "text": "that is only going to run on, in the cloud."
+    },
+    {
+      "id": 198,
+      "start": 529.0,
+      "end": 532.0,
+      "text": "And again, like this seems obvious today."
+    },
+    {
+      "id": 199,
+      "start": 532.0,
+      "end": 534.0,
+      "text": "But back then, 10 years ago, 12 years ago,"
+    },
+    {
+      "id": 200,
+      "start": 534.0,
+      "end": 538.0,
+      "text": "this was, this was sort of unheard of for, for, for database systems."
+    },
+    {
+      "id": 201,
+      "start": 538.0,
+      "end": 539.0,
+      "text": "Right?"
+    },
+    {
+      "id": 202,
+      "start": 539.0,
+      "end": 541.0,
+      "text": "And certainly, you know, the, the Snowflake guys have told me,"
+    },
+    {
+      "id": 203,
+      "start": 541.0,
+      "end": 542.0,
+      "text": "they got a lot of pressure in the early days."
+    },
+    {
+      "id": 204,
+      "start": 542.0,
+      "end": 544.0,
+      "text": "Like, hey, we, great system."
+    },
+    {
+      "id": 205,
+      "start": 544.0,
+      "end": 546.0,
+      "text": "You know, can we download and run it on prem?"
+    },
+    {
+      "id": 206,
+      "start": 546.0,
+      "end": 547.0,
+      "text": "We don't want to run in the cloud."
+    },
+    {
+      "id": 207,
+      "start": 547.0,
+      "end": 548.0,
+      "text": "And they, they said no."
+    },
+    {
+      "id": 208,
+      "start": 548.0,
+      "end": 551.0,
+      "text": "And then eventually everyone just, you know, moved to the cloud."
+    },
+    {
+      "id": 209,
+      "start": 551.0,
+      "end": 553.0,
+      "text": "And that's where, you know, if you're a new database startup today,"
+    },
+    {
+      "id": 210,
+      "start": 553.0,
+      "end": 555.0,
+      "text": "and you don't have a cloud, uh,"
+    },
+    {
+      "id": 211,
+      "start": 555.0,
+      "end": 558.0,
+      "text": "you know, a cloud offering with some exceptions, like duct D.B."
+    },
+    {
+      "id": 212,
+      "start": 558.0,
+      "end": 561.0,
+      "text": "Uh, then, although we'll see mother duct next class as well,"
+    },
+    {
+      "id": 213,
+      "start": 561.0,
+      "end": 564.0,
+      "text": "like, it doesn't, you know, it's very hard to gain traction."
+    },
+    {
+      "id": 214,
+      "start": 564.0,
+      "end": 565.0,
+      "text": "Right?"
+    },
+    {
+      "id": 215,
+      "start": 565.0,
+      "end": 569.0,
+      "text": "So, everything's, everything's been written from scratch."
+    },
+    {
+      "id": 216,
+      "start": 569.0,
+      "end": 572.0,
+      "text": "Uh, and the paper guys talk about like, they, they were, you know,"
+    },
+    {
+      "id": 217,
+      "start": 572.0,
+      "end": 574.0,
+      "text": "they considered like, oh, should we go tapings from like,"
+    },
+    {
+      "id": 218,
+      "start": 574.0,
+      "end": 576.0,
+      "text": "Hadoop or go to, they think, they think things from Postgres,"
+    },
+    {
+      "id": 219,
+      "start": 576.0,
+      "end": 577.0,
+      "text": "like other systems that have done."
+    },
+    {
+      "id": 220,
+      "start": 577.0,
+      "end": 581.0,
+      "text": "And they decided that, in order to have complete control of everything,"
+    },
+    {
+      "id": 221,
+      "start": 581.0,
+      "end": 584.0,
+      "text": "uh, they wanted to write everything from scratch."
+    },
+    {
+      "id": 222,
+      "start": 584.0,
+      "end": 586.0,
+      "text": "They're going to be doing a shared architecture,"
+    },
+    {
+      "id": 223,
+      "start": 586.0,
+      "end": 588.0,
+      "text": "as we talked about before."
+    },
+    {
+      "id": 224,
+      "start": 588.0,
+      "end": 591.0,
+      "text": "Uh, and then one thing that's going to be different than we saw in Dremel,"
+    },
+    {
+      "id": 225,
+      "start": 591.0,
+      "end": 594.0,
+      "text": "and I think the photon paper doesn't really talk about this,"
+    },
+    {
+      "id": 226,
+      "start": 594.0,
+      "end": 596.0,
+      "text": "but Spark SQL doesn't really do this."
+    },
+    {
+      "id": 227,
+      "start": 596.0,
+      "end": 600.0,
+      "text": "Um, is that they're going to do aggressive compute side caching on the work."
+    }
+  ],
+  "language": "en"
+}

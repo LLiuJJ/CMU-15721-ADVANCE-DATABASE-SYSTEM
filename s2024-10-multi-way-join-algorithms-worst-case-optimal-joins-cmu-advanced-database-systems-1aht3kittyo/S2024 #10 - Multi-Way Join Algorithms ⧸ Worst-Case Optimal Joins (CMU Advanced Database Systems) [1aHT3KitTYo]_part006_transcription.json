@@ -1,0 +1,1493 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 0.78,
+      "text": ""
+    },
+    {
+      "id": 1,
+      "start": 30.0,
+      "end": 31.92,
+      "text": "and to see something like this."
+    },
+    {
+      "id": 2,
+      "start": 31.92,
+      "end": 35.88,
+      "text": "And you get a nice visualization for here's all the functions,"
+    },
+    {
+      "id": 3,
+      "start": 35.88,
+      "end": 37.4,
+      "text": "the functions calling this."
+    },
+    {
+      "id": 4,
+      "start": 37.4,
+      "end": 40.0,
+      "text": "This other function, how many times has been in-foked?"
+    },
+    {
+      "id": 5,
+      "start": 40.0,
+      "end": 42.04,
+      "text": "What percentage of the execution of the program"
+    },
+    {
+      "id": 6,
+      "start": 42.04,
+      "end": 44.56,
+      "text": "was spent in that time?"
+    },
+    {
+      "id": 7,
+      "start": 44.56,
+      "end": 47.56,
+      "text": "So here you see that the accumulative distribution"
+    },
+    {
+      "id": 8,
+      "start": 47.56,
+      "end": 49.84,
+      "text": "of all the time being spent in different parts of the code."
+    },
+    {
+      "id": 9,
+      "start": 49.84,
+      "end": 52.56,
+      "text": "Again, you'll see when you call libraries that are"
+    },
+    {
+      "id": 10,
+      "start": 52.56,
+      "end": 54.64,
+      "text": "pre-compiled, that you don't have the symbols for,"
+    },
+    {
+      "id": 11,
+      "start": 54.64,
+      "end": 57.96,
+      "text": "you might just see the library name in a memory address."
+    },
+    {
+      "id": 12,
+      "start": 57.96,
+      "end": 59.64,
+      "text": "So there's ways to try to get that."
+    },
+    {
+      "id": 13,
+      "start": 59.64,
+      "end": 62.68,
+      "text": "If you can use libraries that you compile it yourselves."
+    },
+    {
+      "id": 14,
+      "start": 62.68,
+      "end": 64.24,
+      "text": "And then again, here we see the call graph view."
+    },
+    {
+      "id": 15,
+      "start": 64.24,
+      "end": 66.36,
+      "text": "And then you can drill into each of these"
+    },
+    {
+      "id": 16,
+      "start": 66.36,
+      "end": 68.2,
+      "text": "and see additional information."
+    },
+    {
+      "id": 17,
+      "start": 68.2,
+      "end": 69.96,
+      "text": "But again, so this is going to be done."
+    },
+    {
+      "id": 18,
+      "start": 69.96,
+      "end": 72.52,
+      "text": "It generates this information while your program is running."
+    },
+    {
+      "id": 19,
+      "start": 72.52,
+      "end": 74.16,
+      "text": "It doesn't have any special privileges."
+    },
+    {
+      "id": 20,
+      "start": 74.16,
+      "end": 76.12,
+      "text": "There's no harder to make things run better."
+    },
+    {
+      "id": 21,
+      "start": 76.12,
+      "end": 78.2,
+      "text": "So your program is actually going to run slower."
+    },
+    {
+      "id": 22,
+      "start": 78.2,
+      "end": 81.08,
+      "text": "So the timing could actually be quite off."
+    },
+    {
+      "id": 23,
+      "start": 81.08,
+      "end": 84.48,
+      "text": "The wall clock time versus when you run with call grind"
+    },
+    {
+      "id": 24,
+      "start": 84.48,
+      "end": 87.6,
+      "text": "turned on versus just running by yourself,"
+    },
+    {
+      "id": 25,
+      "start": 87.6,
+      "end": 88.44,
+      "text": "the timing could be off."
+    },
+    {
+      "id": 26,
+      "start": 88.44,
+      "end": 93.32,
+      "text": "And so for this matters a lot for race conditions and other things,"
+    },
+    {
+      "id": 27,
+      "start": 93.32,
+      "end": 94.72,
+      "text": "you may not experience the problems you"
+    },
+    {
+      "id": 28,
+      "start": 94.72,
+      "end": 96.88,
+      "text": "would see when you run without call grind"
+    },
+    {
+      "id": 29,
+      "start": 96.88,
+      "end": 98.6,
+      "text": "because it's just running so much slowly."
+    },
+    {
+      "id": 30,
+      "start": 98.6,
+      "end": 101.64,
+      "text": "Or you may see issues in this run"
+    },
+    {
+      "id": 31,
+      "start": 101.64,
+      "end": 103.16,
+      "text": "that you wouldn't see in the production run."
+    },
+    {
+      "id": 32,
+      "start": 106.84,
+      "end": 110.64,
+      "text": "So the better approaches you use Perf, again, for this one,"
+    },
+    {
+      "id": 33,
+      "start": 110.64,
+      "end": 113.4,
+      "text": "I think you need root privileges because you have to have"
+    },
+    {
+      "id": 34,
+      "start": 113.4,
+      "end": 117.08,
+      "text": "permissions to get the counters from the hardware."
+    },
+    {
+      "id": 35,
+      "start": 117.08,
+      "end": 119.56,
+      "text": "The basic idea is that you're going to start your program"
+    },
+    {
+      "id": 36,
+      "start": 119.56,
+      "end": 124.4,
+      "text": "with where Perf, you can specify how many cycles,"
+    },
+    {
+      "id": 37,
+      "start": 124.4,
+      "end": 126.64,
+      "text": "how often you want to go check for events,"
+    },
+    {
+      "id": 38,
+      "start": 126.64,
+      "end": 130.8,
+      "text": "and how much detail do you want the traces to be?"
+    },
+    {
+      "id": 39,
+      "start": 130.8,
+      "end": 134.08,
+      "text": "There's a bunch of different flags for these things."
+    },
+    {
+      "id": 40,
+      "start": 134.08,
+      "end": 136.68,
+      "text": "And then it's going to run your program."
+    },
+    {
+      "id": 41,
+      "start": 136.68,
+      "end": 138.8,
+      "text": "I think it runs about the same speed."
+    },
+    {
+      "id": 42,
+      "start": 138.8,
+      "end": 142.0,
+      "text": "But again, it has to materialize these results somewhere."
+    },
+    {
+      "id": 43,
+      "start": 142.0,
+      "end": 145.2,
+      "text": "So it has to start running to disk for this dump file."
+    },
+    {
+      "id": 44,
+      "start": 145.2,
+      "end": 148.6,
+      "text": "So if you're program sensitive to disk I.O,"
+    },
+    {
+      "id": 45,
+      "start": 148.6,
+      "end": 149.88,
+      "text": "then this can interfere a little bit."
+    },
+    {
+      "id": 46,
+      "start": 149.88,
+      "end": 153.88,
+      "text": "But it's not as heavy weight as call run."
+    },
+    {
+      "id": 47,
+      "start": 153.88,
+      "end": 157.24,
+      "text": "So then after you run your program in the directory"
+    },
+    {
+      "id": 48,
+      "start": 157.24,
+      "end": 160.08,
+      "text": "where you ran Perf, there'll be a dump file"
+    },
+    {
+      "id": 49,
+      "start": 160.08,
+      "end": 163.44,
+      "text": "where it has some kind of dot Perf name."
+    },
+    {
+      "id": 50,
+      "start": 163.44,
+      "end": 166.68,
+      "text": "And then you just use this Perf report tool."
+    },
+    {
+      "id": 51,
+      "start": 166.68,
+      "end": 170.36,
+      "text": "And then that'll give you a visualization like this,"
+    },
+    {
+      "id": 52,
+      "start": 170.36,
+      "end": 173.0,
+      "text": "where again, you'll see this is actually"
+    },
+    {
+      "id": 53,
+      "start": 173.0,
+      "end": 174.72,
+      "text": "measuring the time being spent."
+    },
+    {
+      "id": 54,
+      "start": 175.12,
+      "end": 176.96,
+      "text": "You'll see the rank list at the top,"
+    },
+    {
+      "id": 55,
+      "start": 176.96,
+      "end": 178.76,
+      "text": "the ones you're spending most of the time."
+    },
+    {
+      "id": 56,
+      "start": 178.76,
+      "end": 180.12,
+      "text": "And then you can drill into them."
+    },
+    {
+      "id": 57,
+      "start": 180.12,
+      "end": 181.52,
+      "text": "And if you compile symbols, you'd actually"
+    },
+    {
+      "id": 58,
+      "start": 181.52,
+      "end": 185.88,
+      "text": "see the lines of code generated these things."
+    },
+    {
+      "id": 59,
+      "start": 185.88,
+      "end": 188.04,
+      "text": "It's cumulative events and then additional things."
+    },
+    {
+      "id": 60,
+      "start": 188.04,
+      "end": 190.56,
+      "text": "So you can click enter and you'll see how often,"
+    },
+    {
+      "id": 61,
+      "start": 190.56,
+      "end": 192.6,
+      "text": "what's actually, what are you spending your time?"
+    },
+    {
+      "id": 62,
+      "start": 192.6,
+      "end": 193.24,
+      "text": "Same in call ground."
+    },
+    {
+      "id": 63,
+      "start": 193.24,
+      "end": 194.64,
+      "text": "You can see lines of code."
+    },
+    {
+      "id": 64,
+      "start": 194.64,
+      "end": 198.76,
+      "text": "But again, this is going to be way better."
+    },
+    {
+      "id": 65,
+      "start": 198.76,
+      "end": 201.44,
+      "text": "So this is probably two or three,"
+    },
+    {
+      "id": 66,
+      "start": 201.44,
+      "end": 203.72,
+      "text": "now, maybe four or five years old."
+    },
+    {
+      "id": 67,
+      "start": 203.72,
+      "end": 205.2,
+      "text": "Because before we named this as a noise page,"
+    },
+    {
+      "id": 68,
+      "start": 205.2,
+      "end": 206.6,
+      "text": "we named it after my dog."
+    },
+    {
+      "id": 69,
+      "start": 206.6,
+      "end": 208.84,
+      "text": "So that's why you see the tier name in there."
+    },
+    {
+      "id": 70,
+      "start": 208.84,
+      "end": 211.92,
+      "text": "But this is some benchmark we had to see how fast we"
+    },
+    {
+      "id": 71,
+      "start": 211.92,
+      "end": 213.44,
+      "text": "can do reads across multiple threads."
+    },
+    {
+      "id": 72,
+      "start": 215.68,
+      "end": 217.88,
+      "text": "And there's other third party tools like hotspot."
+    },
+    {
+      "id": 73,
+      "start": 217.88,
+      "end": 220.92,
+      "text": "And that's a nice thing like this."
+    },
+    {
+      "id": 74,
+      "start": 220.92,
+      "end": 222.48,
+      "text": "We never see these flame graphs."
+    },
+    {
+      "id": 75,
+      "start": 222.48,
+      "end": 227.0,
+      "text": "These flame graphs are being generated by tools based on Perf."
+    },
+    {
+      "id": 76,
+      "start": 227.0,
+      "end": 228.96,
+      "text": "And now you can see where you're just"
+    },
+    {
+      "id": 77,
+      "start": 228.96,
+      "end": 230.0,
+      "text": "spending most of your time in."
+    },
+    {
+      "id": 78,
+      "start": 234.28,
+      "end": 236.28,
+      "text": "And then this is what this is just saying."
+    },
+    {
+      "id": 79,
+      "start": 236.28,
+      "end": 238.12,
+      "text": "What are the other things you want to measure?"
+    },
+    {
+      "id": 80,
+      "start": 238.12,
+      "end": 239.44,
+      "text": "These are what are measuring cycles."
+    },
+    {
+      "id": 81,
+      "start": 239.44,
+      "end": 241.64,
+      "text": "Last level cache misses, CV utilization,"
+    },
+    {
+      "id": 82,
+      "start": 241.64,
+      "end": 242.6,
+      "text": "all bunch of stuff."
+    },
+    {
+      "id": 83,
+      "start": 242.6,
+      "end": 245.68,
+      "text": "You can tell Perf, what you want to collect."
+    },
+    {
+      "id": 84,
+      "start": 245.68,
+      "end": 247.64,
+      "text": "OK?"
+    },
+    {
+      "id": 85,
+      "start": 247.64,
+      "end": 249.64,
+      "text": "So the bunch of these links and slides here."
+    },
+    {
+      "id": 86,
+      "start": 249.64,
+      "end": 251.52,
+      "text": "You go far along."
+    },
+    {
+      "id": 87,
+      "start": 251.52,
+      "end": 255.56,
+      "text": "I'm assuming there's hooks to do this in rust."
+    },
+    {
+      "id": 88,
+      "start": 255.56,
+      "end": 256.08,
+      "text": "What?"
+    },
+    {
+      "id": 89,
+      "start": 256.08,
+      "end": 256.4,
+      "text": "Now?"
+    },
+    {
+      "id": 90,
+      "start": 256.4,
+      "end": 260.12,
+      "text": "If you use cargo flame graph, you get a really nice flame graph."
+    },
+    {
+      "id": 91,
+      "start": 260.12,
+      "end": 262.16,
+      "text": "He says if you use cargo flame graph, you get a nice flame graph."
+    },
+    {
+      "id": 92,
+      "start": 262.96,
+      "end": 264.8,
+      "text": "And I'm assuming that's running Perf."
+    },
+    {
+      "id": 93,
+      "start": 264.8,
+      "end": 265.6,
+      "text": "Yeah."
+    },
+    {
+      "id": 94,
+      "start": 265.6,
+      "end": 267.08,
+      "text": "I need the covers."
+    },
+    {
+      "id": 95,
+      "start": 267.08,
+      "end": 269.08,
+      "text": "But you need root privileges, I think, to run Perf."
+    },
+    {
+      "id": 96,
+      "start": 269.08,
+      "end": 271.12,
+      "text": "I think you actually just set the good environment variable"
+    },
+    {
+      "id": 97,
+      "start": 271.12,
+      "end": 272.52,
+      "text": "when it works."
+    },
+    {
+      "id": 98,
+      "start": 272.52,
+      "end": 273.04,
+      "text": "OK."
+    },
+    {
+      "id": 99,
+      "start": 273.04,
+      "end": 273.52,
+      "text": "I'll see."
+    },
+    {
+      "id": 100,
+      "start": 273.52,
+      "end": 275.36,
+      "text": "It's in a file I think a root which"
+    },
+    {
+      "id": 101,
+      "start": 275.36,
+      "end": 276.44,
+      "text": "should have access."
+    },
+    {
+      "id": 102,
+      "start": 276.44,
+      "end": 277.44,
+      "text": "Yeah."
+    },
+    {
+      "id": 103,
+      "start": 277.44,
+      "end": 280.04,
+      "text": "I think it's different of American aesthetics."
+    },
+    {
+      "id": 104,
+      "start": 280.04,
+      "end": 283.68,
+      "text": "I only did it on my Microsoft."
+    },
+    {
+      "id": 105,
+      "start": 283.68,
+      "end": 285.08,
+      "text": "I think for low level hardware counters,"
+    },
+    {
+      "id": 106,
+      "start": 285.08,
+      "end": 288.72,
+      "text": "you need a minute-shaded perlige."
+    },
+    {
+      "id": 107,
+      "start": 288.72,
+      "end": 290.36,
+      "text": "OK?"
+    },
+    {
+      "id": 108,
+      "start": 290.36,
+      "end": 292.08,
+      "text": "Any questions about performance counters?"
+    },
+    {
+      "id": 109,
+      "start": 292.24,
+      "end": 292.76,
+      "text": "Yes."
+    },
+    {
+      "id": 110,
+      "start": 292.76,
+      "end": 293.16,
+      "text": "Yes."
+    },
+    {
+      "id": 111,
+      "start": 293.16,
+      "end": 295.44,
+      "text": "And you just say one specific function."
+    },
+    {
+      "id": 112,
+      "start": 295.44,
+      "end": 299.0,
+      "text": "I would talk to my death function."
+    },
+    {
+      "id": 113,
+      "start": 299.0,
+      "end": 299.52,
+      "text": "What do you mean?"
+    },
+    {
+      "id": 114,
+      "start": 299.52,
+      "end": 300.04,
+      "text": "Sorry."
+    },
+    {
+      "id": 115,
+      "start": 300.04,
+      "end": 300.52,
+      "text": "Yeah."
+    },
+    {
+      "id": 116,
+      "start": 300.52,
+      "end": 301.16,
+      "text": "I'm using Perf."
+    },
+    {
+      "id": 117,
+      "start": 301.16,
+      "end": 302.6,
+      "text": "Let's say you have huge problems at it."
+    },
+    {
+      "id": 118,
+      "start": 302.6,
+      "end": 305.92,
+      "text": "And there's one specific function at the one-top."
+    },
+    {
+      "id": 119,
+      "start": 305.92,
+      "end": 306.44,
+      "text": "So there's questions."
+    },
+    {
+      "id": 120,
+      "start": 306.44,
+      "end": 309.0,
+      "text": "How would you use Perf to optimize one single function?"
+    },
+    {
+      "id": 121,
+      "start": 309.0,
+      "end": 309.24,
+      "text": "Right."
+    },
+    {
+      "id": 122,
+      "start": 309.24,
+      "end": 310.76,
+      "text": "So you would get, say you used a command line,"
+    },
+    {
+      "id": 123,
+      "start": 310.76,
+      "end": 311.92,
+      "text": "you get Perf report."
+    },
+    {
+      "id": 124,
+      "start": 311.92,
+      "end": 313.56,
+      "text": "If you have this one function, so one"
+    },
+    {
+      "id": 125,
+      "start": 313.56,
+      "end": 315.44,
+      "text": "you can find the function in here."
+    },
+    {
+      "id": 126,
+      "start": 315.44,
+      "end": 317.52,
+      "text": "But then you can drill that."
+    },
+    {
+      "id": 127,
+      "start": 317.52,
+      "end": 319.88,
+      "text": "This is not, this is obviously a screenshot."
+    },
+    {
+      "id": 128,
+      "start": 319.88,
+      "end": 321.4,
+      "text": "But you can drill into that function,"
+    },
+    {
+      "id": 129,
+      "start": 321.4,
+      "end": 322.68,
+      "text": "and it'll show you the lines of code,"
+    },
+    {
+      "id": 130,
+      "start": 322.68,
+      "end": 323.76,
+      "text": "and how much time you're running it,"
+    },
+    {
+      "id": 131,
+      "start": 323.76,
+      "end": 325.32,
+      "text": "and how much time you're spending in it."
+    },
+    {
+      "id": 132,
+      "start": 325.32,
+      "end": 328.04,
+      "text": "And they can use that to figure out where you're wasting"
+    },
+    {
+      "id": 133,
+      "start": 328.04,
+      "end": 328.96,
+      "text": "your time."
+    },
+    {
+      "id": 134,
+      "start": 328.96,
+      "end": 331.44,
+      "text": "And it could be because you're calling Malik a lot,"
+    },
+    {
+      "id": 135,
+      "start": 331.44,
+      "end": 333.32,
+      "text": "or something stupid, in a way you didn't think you were"
+    },
+    {
+      "id": 136,
+      "start": 333.32,
+      "end": 334.6,
+      "text": "going to call it, and then you can then"
+    },
+    {
+      "id": 137,
+      "start": 334.6,
+      "end": 337.84,
+      "text": "refactor and optimize that."
+    },
+    {
+      "id": 138,
+      "start": 337.84,
+      "end": 342.08,
+      "text": "You can count by cycle, civilization, like the caches."
+    },
+    {
+      "id": 139,
+      "start": 342.08,
+      "end": 344.76,
+      "text": "I don't know if you can get memory allocations in this."
+    },
+    {
+      "id": 140,
+      "start": 344.76,
+      "end": 347.56,
+      "text": "TLBs would be another one you would care about."
+    },
+    {
+      "id": 141,
+      "start": 347.56,
+      "end": 350.44,
+      "text": "And those are all the, the point of the thing"
+    },
+    {
+      "id": 142,
+      "start": 350.72,
+      "end": 354.2,
+      "text": "is it gets Perf can record things that call grind can't"
+    },
+    {
+      "id": 143,
+      "start": 354.2,
+      "end": 355.92,
+      "text": "about why your program is slow."
+    },
+    {
+      "id": 144,
+      "start": 355.92,
+      "end": 358.92,
+      "text": "Call grind will tell you how much time you're spending,"
+    },
+    {
+      "id": 145,
+      "start": 358.92,
+      "end": 360.52,
+      "text": "and how much time you invoke the function,"
+    },
+    {
+      "id": 146,
+      "start": 360.52,
+      "end": 363.68,
+      "text": "but it actually can't tell you why that function is slow,"
+    },
+    {
+      "id": 147,
+      "start": 363.68,
+      "end": 366.68,
+      "text": "other than looking at the lines of code."
+    },
+    {
+      "id": 148,
+      "start": 366.68,
+      "end": 368.64,
+      "text": "This will give you the low, little hardware things"
+    },
+    {
+      "id": 149,
+      "start": 368.64,
+      "end": 369.76,
+      "text": "that we care about."
+    },
+    {
+      "id": 150,
+      "start": 369.76,
+      "end": 370.6,
+      "text": "Yes?"
+    },
+    {
+      "id": 151,
+      "start": 370.96,
+      "end": 371.8,
+      "text": "You can do it."
+    },
+    {
+      "id": 152,
+      "start": 371.8,
+      "end": 374.6,
+      "text": "There is a thing you could provide from a"
+    },
+    {
+      "id": 153,
+      "start": 374.6,
+      "end": 376.36,
+      "text": "thinker or a lighter thing."
+    },
+    {
+      "id": 154,
+      "start": 376.36,
+      "end": 378.44,
+      "text": "Think of a router where you're out,"
+    },
+    {
+      "id": 155,
+      "start": 378.44,
+      "end": 381.12,
+      "text": "the other thing will call it some course, where"
+    },
+    {
+      "id": 156,
+      "start": 381.12,
+      "end": 385.52,
+      "text": "and you can specifically measure a function."
+    },
+    {
+      "id": 157,
+      "start": 385.52,
+      "end": 387.04,
+      "text": "Yeah, so this point is like."
+    },
+    {
+      "id": 158,
+      "start": 387.04,
+      "end": 388.88,
+      "text": "It's a very advanced approach to call it."
+    },
+    {
+      "id": 159,
+      "start": 388.88,
+      "end": 389.4,
+      "text": "Yeah."
+    },
+    {
+      "id": 160,
+      "start": 391.48,
+      "end": 393.28,
+      "text": "Another thing about it, this is basically,"
+    },
+    {
+      "id": 161,
+      "start": 393.28,
+      "end": 396.16,
+      "text": "this gets everything."
+    },
+    {
+      "id": 162,
+      "start": 396.16,
+      "end": 397.4,
+      "text": "And you'll be too much."
+    },
+    {
+      "id": 163,
+      "start": 397.4,
+      "end": 399.36,
+      "text": "And so at his point, you can basically put,"
+    },
+    {
+      "id": 164,
+      "start": 399.36,
+      "end": 401.04,
+      "text": "I don't know if they're like kernel probes or whatever,"
+    },
+    {
+      "id": 165,
+      "start": 401.04,
+      "end": 403.4,
+      "text": "like how are their invocations tell Perf"
+    },
+    {
+      "id": 166,
+      "start": 403.4,
+      "end": 404.92,
+      "text": "start recording now, and then when you leave the function"
+    },
+    {
+      "id": 167,
+      "start": 404.92,
+      "end": 406.52,
+      "text": "turn it off."
+    },
+    {
+      "id": 168,
+      "start": 406.52,
+      "end": 408.48,
+      "text": "But like, just running this for everything first,"
+    },
+    {
+      "id": 169,
+      "start": 408.48,
+      "end": 411.4,
+      "text": "for like a small portion of your system,"
+    },
+    {
+      "id": 170,
+      "start": 411.4,
+      "end": 413.4,
+      "text": "well, these tell you what the high level things you want"
+    },
+    {
+      "id": 171,
+      "start": 413.4,
+      "end": 414.8,
+      "text": "to target first."
+    },
+    {
+      "id": 172,
+      "start": 414.8,
+      "end": 416.4,
+      "text": "And then you can then drill that into that"
+    },
+    {
+      "id": 173,
+      "start": 416.4,
+      "end": 418.2,
+      "text": "and say, why am I spending too much time"
+    },
+    {
+      "id": 174,
+      "start": 418.2,
+      "end": 420.64,
+      "text": "which are many cycles in this part?"
+    },
+    {
+      "id": 175,
+      "start": 420.64,
+      "end": 421.4,
+      "text": "What's not a good question?"
+    },
+    {
+      "id": 176,
+      "start": 421.4,
+      "end": 423.16,
+      "text": "I think it's said you wanted to work with"
+    },
+    {
+      "id": 177,
+      "start": 423.16,
+      "end": 424.32,
+      "text": "the code for the code."
+    },
+    {
+      "id": 178,
+      "start": 424.32,
+      "end": 425.16,
+      "text": "Yeah."
+    },
+    {
+      "id": 179,
+      "start": 425.16,
+      "end": 427.16,
+      "text": "I'm happy to optimize."
+    },
+    {
+      "id": 180,
+      "start": 427.16,
+      "end": 430.16,
+      "text": "So you can keep the simple bind."
+    },
+    {
+      "id": 181,
+      "start": 430.16,
+      "end": 431.16,
+      "text": "Yeah."
+    },
+    {
+      "id": 182,
+      "start": 431.16,
+      "end": 433.16,
+      "text": "That's the catcher."
+    },
+    {
+      "id": 183,
+      "start": 433.16,
+      "end": 439.16,
+      "text": "Symbols are separate than compilation optimizations."
+    },
+    {
+      "id": 184,
+      "start": 439.16,
+      "end": 440.36,
+      "text": "Because again, you need this."
+    },
+    {
+      "id": 185,
+      "start": 440.36,
+      "end": 442.36,
+      "text": "I just want to optimize."
+    },
+    {
+      "id": 186,
+      "start": 442.36,
+      "end": 446.16,
+      "text": "Because it's going to optimize for the whole logic away."
+    },
+    {
+      "id": 187,
+      "start": 446.16,
+      "end": 449.88,
+      "text": "So you put the code three and then you're like kind of forced"
+    },
+    {
+      "id": 188,
+      "start": 449.88,
+      "end": 452.0,
+      "text": "to do stupid print statements."
+    },
+    {
+      "id": 189,
+      "start": 452.0,
+      "end": 454.12,
+      "text": "So it doesn't get optimized away."
+    },
+    {
+      "id": 190,
+      "start": 454.12,
+      "end": 458.08,
+      "text": "So you, like, purple, they'll show you the lines of source code."
+    },
+    {
+      "id": 191,
+      "start": 458.08,
+      "end": 460.0,
+      "text": "Then you then get assembly view."
+    },
+    {
+      "id": 192,
+      "start": 460.0,
+      "end": 461.88,
+      "text": "You actually then see the assembly."
+    },
+    {
+      "id": 193,
+      "start": 461.88,
+      "end": 463.24,
+      "text": "So then you got like, if you want to start a thing"
+    },
+    {
+      "id": 194,
+      "start": 463.24,
+      "end": 466.84,
+      "text": "or what did O3 do to change my beautiful C++"
+    },
+    {
+      "id": 195,
+      "start": 466.84,
+      "end": 468.72,
+      "text": "or us code to something bizarre?"
+    },
+    {
+      "id": 196,
+      "start": 468.72,
+      "end": 470.84,
+      "text": "Yeah, look at the assembly."
+    },
+    {
+      "id": 197,
+      "start": 470.84,
+      "end": 471.84,
+      "text": "There's another way to do it."
+    },
+    {
+      "id": 198,
+      "start": 471.84,
+      "end": 473.48,
+      "text": "There's no way to basically, like,"
+    },
+    {
+      "id": 199,
+      "start": 473.48,
+      "end": 474.96,
+      "text": "you know, you're going to say a depth variable."
+    },
+    {
+      "id": 200,
+      "start": 474.96,
+      "end": 476.72,
+      "text": "I do not want it to off my job."
+    },
+    {
+      "id": 201,
+      "start": 476.72,
+      "end": 478.76,
+      "text": "I mean, I guess you get it to be a compiled error."
+    },
+    {
+      "id": 202,
+      "start": 478.76,
+      "end": 480.4,
+      "text": "But I didn't want to find it."
+    },
+    {
+      "id": 203,
+      "start": 480.4,
+      "end": 481.48,
+      "text": "I don't wish it's been this."
+    },
+    {
+      "id": 204,
+      "start": 481.48,
+      "end": 483.52,
+      "text": "I don't know if there's like a difference."
+    },
+    {
+      "id": 205,
+      "start": 483.52,
+      "end": 486.84,
+      "text": "Oh, so you see, David, is there a way to prevent O3"
+    },
+    {
+      "id": 206,
+      "start": 486.84,
+      "end": 492.08,
+      "text": "from majorly writing your function so that you can debug it?"
+    },
+    {
+      "id": 207,
+      "start": 492.08,
+      "end": 493.6,
+      "text": "Especially for high-compugation,"
+    },
+    {
+      "id": 208,
+      "start": 493.6,
+      "end": 496.12,
+      "text": "you can mark it like all of that."
+    },
+    {
+      "id": 209,
+      "start": 496.12,
+      "end": 497.96,
+      "text": "Are you talking about, like, enlightening?"
+    },
+    {
+      "id": 210,
+      "start": 497.96,
+      "end": 498.48,
+      "text": "Yeah."
+    },
+    {
+      "id": 211,
+      "start": 498.48,
+      "end": 500.4,
+      "text": "Oh, you can just tell it in the bottom."
+    },
+    {
+      "id": 212,
+      "start": 500.4,
+      "end": 505.0,
+      "text": "Yeah, but like, it means a lot of the work that he is."
+    },
+    {
+      "id": 213,
+      "start": 505.0,
+      "end": 506.48,
+      "text": "Yeah, I could."
+    },
+    {
+      "id": 214,
+      "start": 506.48,
+      "end": 509.04,
+      "text": "Yeah, but in that case, the compiler might be doing the right thing."
+    },
+    {
+      "id": 215,
+      "start": 509.04,
+      "end": 511.04,
+      "text": "I think you could go because you want to make it"
+    },
+    {
+      "id": 216,
+      "start": 511.04,
+      "end": 512.4,
+      "text": "to be honest with yourself."
+    },
+    {
+      "id": 217,
+      "start": 512.4,
+      "end": 515.32,
+      "text": "Yeah, I have to."
+    },
+    {
+      "id": 218,
+      "start": 515.32,
+      "end": 517.44,
+      "text": "We can take this online, but like, yeah."
+    },
+    {
+      "id": 219,
+      "start": 517.44,
+      "end": 520.8,
+      "text": "All right, other questions?"
+    },
+    {
+      "id": 220,
+      "start": 520.8,
+      "end": 521.68,
+      "text": "OK, awesome."
+    },
+    {
+      "id": 221,
+      "start": 521.68,
+      "end": 526.36,
+      "text": "All right, again, next class presentations."
+    },
+    {
+      "id": 222,
+      "start": 526.36,
+      "end": 528.36,
+      "text": "And then, I mean, I'm both of us now."
+    },
+    {
+      "id": 223,
+      "start": 528.36,
+      "end": 530.44,
+      "text": "I'm happy to talk to you guys want."
+    },
+    {
+      "id": 224,
+      "start": 530.44,
+      "end": 533.44,
+      "text": "And then just make sure you send me the slides"
+    },
+    {
+      "id": 225,
+      "start": 533.44,
+      "end": 537.84,
+      "text": "and your document before class starts, OK?"
+    },
+    {
+      "id": 226,
+      "start": 538.04,
+      "end": 539.32,
+      "text": "All right, and I don't think it should be 60 degrees"
+    },
+    {
+      "id": 227,
+      "start": 539.32,
+      "end": 541.32,
+      "text": "in February, but enjoy it."
+    },
+    {
+      "id": 228,
+      "start": 541.32,
+      "end": 542.92,
+      "text": "Take out your own great hiding."
+    },
+    {
+      "id": 229,
+      "start": 542.92,
+      "end": 545.12,
+      "text": "You got a belt to get the 40-M bar."
+    },
+    {
+      "id": 230,
+      "start": 545.12,
+      "end": 545.72,
+      "text": "Get a grip."
+    },
+    {
+      "id": 231,
+      "start": 545.72,
+      "end": 547.96,
+      "text": "Take a sip, and you'll be picking up bottles."
+    },
+    {
+      "id": 232,
+      "start": 547.96,
+      "end": 549.96,
+      "text": "Ain't it no puzzle, I'll go through some more man."
+    },
+    {
+      "id": 233,
+      "start": 549.96,
+      "end": 552.72,
+      "text": "I'm telling the 40-M I saw these guys four cans."
+    },
+    {
+      "id": 234,
+      "start": 552.72,
+      "end": 554.76,
+      "text": "Stack them six packs on a table."
+    },
+    {
+      "id": 235,
+      "start": 554.76,
+      "end": 557.04,
+      "text": "And I'm able to see St. A and I was on the label."
+    },
+    {
+      "id": 236,
+      "start": 557.04,
+      "end": 559.0,
+      "text": "No sure, with the cloth, you know what got them."
+    },
+    {
+      "id": 237,
+      "start": 559.0,
+      "end": 561.6,
+      "text": "I take off the cap, my friends are tapped on the bottom."
+    },
+    {
+      "id": 238,
+      "start": 561.6,
+      "end": 563.52,
+      "text": "No, my three in the freezer, so I can kill it."
+    },
+    {
+      "id": 239,
+      "start": 563.52,
+      "end": 564.8,
+      "text": "Careful with the bottle, baby."
+    },
+    {
+      "id": 240,
+      "start": 564.8,
+      "end": 566.12,
+      "text": "You can still kill it."
+    },
+    {
+      "id": 241,
+      "start": 566.12,
+      "end": 568.28,
+      "text": "Because they know I can save the pay-loss way."
+    },
+    {
+      "id": 242,
+      "start": 568.28,
+      "end": 570.6,
+      "text": "You drink it down with the gauze, little box head."
+    },
+    {
+      "id": 243,
+      "start": 570.6,
+      "end": 572.28,
+      "text": "Take back the pack of drugs."
+    },
+    {
+      "id": 244,
+      "start": 572.28,
+      "end": 575.12,
+      "text": "You go get your suicide knives, you drink it to the suds."
+    },
+    {
+      "id": 245,
+      "start": 575.12,
+      "end": 576.44,
+      "text": "Bill the dance, just chillin' tea,"
+    },
+    {
+      "id": 246,
+      "start": 576.44,
+      "end": 577.76,
+      "text": "sit down with your weak guys."
+    },
+    {
+      "id": 247,
+      "start": 577.76,
+      "end": 579.8,
+      "text": "Be a man to get a can of fake hearts."
+    }
+  ],
+  "language": "en"
+}

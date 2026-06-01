@@ -1,0 +1,1091 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 5.0,
+      "text": "Parquet is not surprising. I don't know if they're, I don't think they support ORC."
+    },
+    {
+      "id": 1,
+      "start": 5.0,
+      "end": 10.0,
+      "text": "I don't see it here. Obviously, can support Arrow."
+    },
+    {
+      "id": 2,
+      "start": 10.0,
+      "end": 14.0,
+      "text": "Another cool thing they can do is they can attach to a SQL light database and"
+    },
+    {
+      "id": 3,
+      "start": 14.0,
+      "end": 18.0,
+      "text": "actually read that directly and they can manipulate it directly."
+    },
+    {
+      "id": 4,
+      "start": 18.0,
+      "end": 24.0,
+      "text": "And you know, you attach to the database and you see it as if it was a,"
+    },
+    {
+      "id": 5,
+      "start": 24.0,
+      "end": 27.0,
+      "text": "you know, you see the catalog, you see all the scheme and everything."
+    },
+    {
+      "id": 6,
+      "start": 27.0,
+      "end": 34.0,
+      "text": "From your perspective, you don't see that, you don't know that it's actually a SQL light database versus a,"
+    },
+    {
+      "id": 7,
+      "start": 34.0,
+      "end": 38.0,
+      "text": "versus a duct DB database."
+    },
+    {
+      "id": 8,
+      "start": 38.0,
+      "end": 42.0,
+      "text": "They also support obviously reading JSON. And then for the Postgres one,"
+    },
+    {
+      "id": 9,
+      "start": 42.0,
+      "end": 46.0,
+      "text": "I think they connect to the Postgres over like JDBC."
+    },
+    {
+      "id": 10,
+      "start": 46.0,
+      "end": 52.0,
+      "text": "But again, it sucks in all the catalogs. So within duct DB, you can see all the tables you have"
+    },
+    {
+      "id": 11,
+      "start": 52.0,
+      "end": 55.0,
+      "text": "in Postgres and run queries on them."
+    },
+    {
+      "id": 12,
+      "start": 55.0,
+      "end": 60.0,
+      "text": "But I don't know how much like they, they push and pull between pushing down the query into Postgres versus"
+    },
+    {
+      "id": 13,
+      "start": 60.0,
+      "end": 64.0,
+      "text": "sucking the data in and running more quickly inside of duct DB."
+    },
+    {
+      "id": 14,
+      "start": 64.0,
+      "end": 69.0,
+      "text": "Like because the duct DB query engine is going to be way faster than,"
+    },
+    {
+      "id": 15,
+      "start": 69.0,
+      "end": 72.0,
+      "text": "than Postgres for doing analytics."
+    },
+    {
+      "id": 16,
+      "start": 72.0,
+      "end": 75.0,
+      "text": "So these are the, if you call from, it's hard to say, from duct DB extensions,"
+    },
+    {
+      "id": 17,
+      "start": 75.0,
+      "end": 80.0,
+      "text": "like this will give you all the, the listing of the, the official built-in ones."
+    },
+    {
+      "id": 18,
+      "start": 80.0,
+      "end": 83.0,
+      "text": "And whether they're learning or not. And as I was saying before,"
+    },
+    {
+      "id": 19,
+      "start": 83.0,
+      "end": 88.0,
+      "text": "they're trying to minimize the, the, the, the, the, the,"
+    },
+    {
+      "id": 20,
+      "start": 88.0,
+      "end": 96.0,
+      "text": "the size of the core engine binary itself, but not bringing in additional binaries or additional code."
+    },
+    {
+      "id": 21,
+      "start": 96.0,
+      "end": 101.0,
+      "text": "But they, if you do need it, then you get it through these extensions."
+    },
+    {
+      "id": 22,
+      "start": 101.0,
+      "end": 105.0,
+      "text": "One in particular is, is, is ICU. Like that thing is super important."
+    },
+    {
+      "id": 23,
+      "start": 105.0,
+      "end": 107.0,
+      "text": "That's like the international, like timestamps and,"
+    },
+    {
+      "id": 24,
+      "start": 107.0,
+      "end": 111.0,
+      "text": "time zones and things like that. And date formats."
+    },
+    {
+      "id": 25,
+      "start": 111.0,
+      "end": 113.0,
+      "text": "That one you don't want to write yourself."
+    },
+    {
+      "id": 26,
+      "start": 113.0,
+      "end": 115.0,
+      "text": "The Germans did, I'll talk about that in a second."
+    },
+    {
+      "id": 27,
+      "start": 115.0,
+      "end": 118.0,
+      "text": "But like, so, but a lot of people need it."
+    },
+    {
+      "id": 28,
+      "start": 118.0,
+      "end": 122.0,
+      "text": "So like, you get it through one of these extensions, because it's going to be a third party library."
+    },
+    {
+      "id": 29,
+      "start": 122.0,
+      "end": 125.0,
+      "text": "The Germans told me that one time they were going to do a sales call."
+    },
+    {
+      "id": 30,
+      "start": 125.0,
+      "end": 128.0,
+      "text": "This is back when it was hyper. And they needed,"
+    },
+    {
+      "id": 31,
+      "start": 128.0,
+      "end": 132.0,
+      "text": "the customer, they were living on the plane flying to meet some customer."
+    },
+    {
+      "id": 32,
+      "start": 132.0,
+      "end": 137.0,
+      "text": "I don't know where in Europe. And they were running queries with the ICU library."
+    },
+    {
+      "id": 33,
+      "start": 137.0,
+      "end": 141.0,
+      "text": "And it was super slow. So then Thomas, within the flight without internet,"
+    },
+    {
+      "id": 34,
+      "start": 141.0,
+      "end": 143.0,
+      "text": "rewrote the ICU library on the flight."
+    },
+    {
+      "id": 35,
+      "start": 143.0,
+      "end": 146.0,
+      "text": "And they had it, you know, ten times faster when they landed."
+    },
+    {
+      "id": 36,
+      "start": 146.0,
+      "end": 149.0,
+      "text": "In the same. Right?"
+    },
+    {
+      "id": 37,
+      "start": 149.0,
+      "end": 152.0,
+      "text": "So, the one I want to point out though here is this one called Mother Duck."
+    },
+    {
+      "id": 38,
+      "start": 152.0,
+      "end": 155.0,
+      "text": "And again, this is like, we just download DuckDuckDB,"
+    },
+    {
+      "id": 39,
+      "start": 155.0,
+      "end": 158.0,
+      "text": "and you call show extensions. These are all the things you can get."
+    },
+    {
+      "id": 40,
+      "start": 158.0,
+      "end": 162.0,
+      "text": "And I think some of these, they're not, they're not shipped in the binary."
+    },
+    {
+      "id": 41,
+      "start": 162.0,
+      "end": 165.0,
+      "text": "You say, load them, it'll pull them down from the DuckDuckDB website."
+    },
+    {
+      "id": 42,
+      "start": 165.0,
+      "end": 170.0,
+      "text": "But this one here, again, this DuckDDB, which comes along to the thing called Mother Duck."
+    },
+    {
+      "id": 43,
+      "start": 170.0,
+      "end": 172.0,
+      "text": "So what is that? Yes."
+    },
+    {
+      "id": 44,
+      "start": 172.0,
+      "end": 174.0,
+      "text": "How does the index of extension work?"
+    },
+    {
+      "id": 45,
+      "start": 174.0,
+      "end": 178.0,
+      "text": "It does, like, DuckDubDB, like, it library, you call for another project."
+    },
+    {
+      "id": 46,
+      "start": 178.0,
+      "end": 182.0,
+      "text": "So how do you load, like, load the, how do you send it?"
+    },
+    {
+      "id": 47,
+      "start": 182.0,
+      "end": 183.0,
+      "text": "How do you load these extensions?"
+    },
+    {
+      "id": 48,
+      "start": 183.0,
+      "end": 184.0,
+      "text": "Yeah."
+    },
+    {
+      "id": 49,
+      "start": 184.0,
+      "end": 188.0,
+      "text": "It's shared objects. You call load, and then load a create extension,"
+    },
+    {
+      "id": 50,
+      "start": 188.0,
+      "end": 192.0,
+      "text": "the name that you want. And then I think it will pull down for you."
+    },
+    {
+      "id": 51,
+      "start": 193.0,
+      "end": 194.0,
+      "text": "From the work."
+    },
+    {
+      "id": 52,
+      "start": 194.0,
+      "end": 195.0,
+      "text": "I think you're a theoretical process."
+    },
+    {
+      "id": 53,
+      "start": 195.0,
+      "end": 197.0,
+      "text": "I think when you call create extension, yes."
+    },
+    {
+      "id": 54,
+      "start": 197.0,
+      "end": 204.0,
+      "text": "I think, because I think the binary, you know, when you download it's not that big."
+    },
+    {
+      "id": 55,
+      "start": 204.0,
+      "end": 208.0,
+      "text": "There's not like a new couple of creations, like, like, you know,"
+    },
+    {
+      "id": 56,
+      "start": 208.0,
+      "end": 209.0,
+      "text": "Yeah, I,"
+    },
+    {
+      "id": 57,
+      "start": 209.0,
+      "end": 210.0,
+      "text": "I don't know if extension on the web."
+    },
+    {
+      "id": 58,
+      "start": 210.0,
+      "end": 212.0,
+      "text": "Correct, yes."
+    },
+    {
+      "id": 59,
+      "start": 212.0,
+      "end": 216.0,
+      "text": "I think, actually, I think some of them are shipped with it,"
+    },
+    {
+      "id": 60,
+      "start": 216.0,
+      "end": 219.0,
+      "text": "but they're not, they're not, they're not, they're not loaded automatically."
+    },
+    {
+      "id": 61,
+      "start": 220.0,
+      "end": 222.0,
+      "text": "I mean, some of these say built in."
+    },
+    {
+      "id": 62,
+      "start": 222.0,
+      "end": 225.0,
+      "text": "And that would be equivalent to, like, in Postgres, within the Postgres Sourcestry,"
+    },
+    {
+      "id": 63,
+      "start": 225.0,
+      "end": 228.0,
+      "text": "they have a contrib directory, and that has, like,"
+    },
+    {
+      "id": 64,
+      "start": 228.0,
+      "end": 232.0,
+      "text": "official third-party extensions that are shipped with Postgres itself."
+    },
+    {
+      "id": 65,
+      "start": 232.0,
+      "end": 235.0,
+      "text": "But obviously, things like PG Vector, you just download that from GitHub"
+    },
+    {
+      "id": 66,
+      "start": 235.0,
+      "end": 238.0,
+      "text": "and install it yourself. So it's similar model."
+    },
+    {
+      "id": 67,
+      "start": 238.0,
+      "end": 243.0,
+      "text": "I think you can do it on the file, but it's all wall-on, but you should print something."
+    },
+    {
+      "id": 68,
+      "start": 243.0,
+      "end": 244.0,
+      "text": "Yeah, you can, of course."
+    },
+    {
+      "id": 69,
+      "start": 244.0,
+      "end": 245.0,
+      "text": "You know that Postgres too."
+    },
+    {
+      "id": 70,
+      "start": 245.0,
+      "end": 247.0,
+      "text": "It's just linking in a shared object."
+    },
+    {
+      "id": 71,
+      "start": 248.0,
+      "end": 250.0,
+      "text": "And then that shared object has to implement this journey extension API."
+    },
+    {
+      "id": 72,
+      "start": 250.0,
+      "end": 252.0,
+      "text": "They know the entry point when you want to book something."
+    },
+    {
+      "id": 73,
+      "start": 252.0,
+      "end": 254.0,
+      "text": "Yeah, that's, yes."
+    },
+    {
+      "id": 74,
+      "start": 256.0,
+      "end": 259.0,
+      "text": "The question is, like, they may be asking, like,"
+    },
+    {
+      "id": 75,
+      "start": 259.0,
+      "end": 262.0,
+      "text": "when you download DuckDB and get the executor, does it come with these built-in?"
+    },
+    {
+      "id": 76,
+      "start": 262.0,
+      "end": 266.0,
+      "text": "I think some of them, yes, other ones, I think you get from their website."
+    },
+    {
+      "id": 77,
+      "start": 266.0,
+      "end": 270.0,
+      "text": "Is there actually, at least one extension that antelogue their front-line"
+    },
+    {
+      "id": 78,
+      "start": 270.0,
+      "end": 272.0,
+      "text": "just one that overrides the malloc implementation?"
+    },
+    {
+      "id": 79,
+      "start": 272.0,
+      "end": 273.0,
+      "text": "Overrides the what, sorry?"
+    },
+    {
+      "id": 80,
+      "start": 273.0,
+      "end": 275.0,
+      "text": "The malloc implementation gives you a jade malloc."
+    },
+    {
+      "id": 81,
+      "start": 276.0,
+      "end": 277.0,
+      "text": "Jade malloc?"
+    },
+    {
+      "id": 82,
+      "start": 277.0,
+      "end": 279.0,
+      "text": "Yeah, but that comes with it automatically."
+    },
+    {
+      "id": 83,
+      "start": 282.0,
+      "end": 283.0,
+      "text": "Wait, wait, sorry."
+    },
+    {
+      "id": 84,
+      "start": 283.0,
+      "end": 285.0,
+      "text": "We don't actually, do not say that."
+    },
+    {
+      "id": 85,
+      "start": 285.0,
+      "end": 290.0,
+      "text": "We don't only talk about malloc, but you never want to use libc malloc for your database system."
+    },
+    {
+      "id": 86,
+      "start": 290.0,
+      "end": 293.0,
+      "text": "You always, almost always want to use jade malloc."
+    },
+    {
+      "id": 87,
+      "start": 293.0,
+      "end": 296.0,
+      "text": "In rare cases, maybe you maybe want to use tc malloc."
+    },
+    {
+      "id": 88,
+      "start": 296.0,
+      "end": 300.0,
+      "text": "And that one's from Google. Jade malloc's from Facebook."
+    },
+    {
+      "id": 89,
+      "start": 301.0,
+      "end": 309.0,
+      "text": "It's just like, it's just way more efficient, it's less scalable for multiple cores."
+    },
+    {
+      "id": 90,
+      "start": 309.0,
+      "end": 312.0,
+      "text": "Like, the latches are less expensive."
+    },
+    {
+      "id": 91,
+      "start": 312.0,
+      "end": 318.0,
+      "text": "Tc malloc is thought to be better for multi-threaded applications."
+    },
+    {
+      "id": 92,
+      "start": 318.0,
+      "end": 319.0,
+      "text": "If you have a lot of cores."
+    },
+    {
+      "id": 93,
+      "start": 319.0,
+      "end": 322.0,
+      "text": "But jade malloc was always the right choice."
+    },
+    {
+      "id": 94,
+      "start": 322.0,
+      "end": 326.0,
+      "text": "Pretty much everyone uses this in their database system."
+    },
+    {
+      "id": 95,
+      "start": 327.0,
+      "end": 329.0,
+      "text": "We didn't talk about huge pages."
+    },
+    {
+      "id": 96,
+      "start": 329.0,
+      "end": 331.0,
+      "text": "That's another one that most assessments don't do that."
+    },
+    {
+      "id": 97,
+      "start": 331.0,
+      "end": 333.0,
+      "text": "You never want to use transparent huge pages in the OS."
+    },
+    {
+      "id": 98,
+      "start": 333.0,
+      "end": 335.0,
+      "text": "That's always a nightmare."
+    },
+    {
+      "id": 99,
+      "start": 335.0,
+      "end": 337.0,
+      "text": "But I think it's gotten better."
+    },
+    {
+      "id": 100,
+      "start": 337.0,
+      "end": 338.0,
+      "text": "But we can talk about it."
+    },
+    {
+      "id": 101,
+      "start": 338.0,
+      "end": 341.0,
+      "text": "If people are curious about these things, we can talk about it a bit more."
+    },
+    {
+      "id": 102,
+      "start": 341.0,
+      "end": 343.0,
+      "text": "But, just use jade malloc, yes."
+    },
+    {
+      "id": 103,
+      "start": 343.0,
+      "end": 345.0,
+      "text": "What's the problem with the problem?"
+    },
+    {
+      "id": 104,
+      "start": 345.0,
+      "end": 349.0,
+      "text": "Libs, what's the big problem with libc malloc?"
+    },
+    {
+      "id": 105,
+      "start": 349.0,
+      "end": 352.0,
+      "text": "Yeah, because of what's the most big pages?"
+    },
+    {
+      "id": 106,
+      "start": 352.0,
+      "end": 354.0,
+      "text": "No, no, because there's too many latches inside of it."
+    },
+    {
+      "id": 107,
+      "start": 354.0,
+      "end": 355.0,
+      "text": "No, no."
+    },
+    {
+      "id": 108,
+      "start": 355.0,
+      "end": 358.0,
+      "text": "So, jade malloc is basically designed for like taking lightweight latches."
+    },
+    {
+      "id": 109,
+      "start": 358.0,
+      "end": 361.0,
+      "text": "Small, critical section is to be the scale of multiple cores."
+    },
+    {
+      "id": 110,
+      "start": 361.0,
+      "end": 366.0,
+      "text": "And you reason why it's something like under default."
+    },
+    {
+      "id": 111,
+      "start": 366.0,
+      "end": 369.0,
+      "text": "It's a question why is there any reason why it's not the default in Linux?"
+    },
+    {
+      "id": 112,
+      "start": 369.0,
+      "end": 373.0,
+      "text": "That's why we didn't want you to smell it."
+    },
+    {
+      "id": 113,
+      "start": 373.0,
+      "end": 377.0,
+      "text": "The jade malloc is not written explicitly for databases."
+    },
+    {
+      "id": 114,
+      "start": 377.0,
+      "end": 380.0,
+      "text": "Because all the data is used because it's much better."
+    },
+    {
+      "id": 115,
+      "start": 380.0,
+      "end": 383.0,
+      "text": "Any high performance application is going to use jade malloc."
+    },
+    {
+      "id": 116,
+      "start": 383.0,
+      "end": 384.0,
+      "text": "In what way?"
+    },
+    {
+      "id": 117,
+      "start": 384.0,
+      "end": 387.0,
+      "text": "I can see."
+    },
+    {
+      "id": 118,
+      "start": 387.0,
+      "end": 389.0,
+      "text": "I can go for a more."
+    },
+    {
+      "id": 119,
+      "start": 389.0,
+      "end": 390.0,
+      "text": "Let me look at it."
+    },
+    {
+      "id": 120,
+      "start": 390.0,
+      "end": 391.0,
+      "text": "I have no idea."
+    },
+    {
+      "id": 121,
+      "start": 391.0,
+      "end": 393.0,
+      "text": "Licensing, maybe licensing issues."
+    },
+    {
+      "id": 122,
+      "start": 393.0,
+      "end": 400.0,
+      "text": "Maybe this is like MIT and it has a GPO or whatever."
+    },
+    {
+      "id": 123,
+      "start": 400.0,
+      "end": 404.0,
+      "text": "Yeah, there's a paper we didn't read this year."
+    },
+    {
+      "id": 124,
+      "start": 404.0,
+      "end": 408.0,
+      "text": "There's a system called SCUBA at Facebook."
+    },
+    {
+      "id": 125,
+      "start": 408.0,
+      "end": 410.0,
+      "text": "It was in memory database."
+    },
+    {
+      "id": 126,
+      "start": 410.0,
+      "end": 414.0,
+      "text": "And one of the things they do is they want to do rolling upgrades."
+    },
+    {
+      "id": 127,
+      "start": 414.0,
+      "end": 416.0,
+      "text": "I'm going to retard the server."
+    },
+    {
+      "id": 128,
+      "start": 416.0,
+      "end": 420.0,
+      "text": "So, since it's memory database, if I kill the process and start it back up,"
+    },
+    {
+      "id": 129,
+      "start": 420.0,
+      "end": 422.0,
+      "text": "I get a little bit of the data back in."
+    },
+    {
+      "id": 130,
+      "start": 422.0,
+      "end": 425.0,
+      "text": "So, the trick they do is they write everything all the condos of memory"
+    },
+    {
+      "id": 131,
+      "start": 425.0,
+      "end": 427.0,
+      "text": "to shared memory in the OS."
+    },
+    {
+      "id": 132,
+      "start": 427.0,
+      "end": 431.0,
+      "text": "Kill the process, come back, reattach that shared memory and everything's there."
+    },
+    {
+      "id": 133,
+      "start": 431.0,
+      "end": 435.0,
+      "text": "And they talk about how they tried having, because they own the, they,"
+    },
+    {
+      "id": 134,
+      "start": 435.0,
+      "end": 438.0,
+      "text": "they employ the person that writes jade malloc."
+    },
+    {
+      "id": 135,
+      "start": 438.0,
+      "end": 441.0,
+      "text": "They hadn't tried to write some tricks in jade malloc to make it better."
+    },
+    {
+      "id": 136,
+      "start": 441.0,
+      "end": 442.0,
+      "text": "So, they shared memory and restart."
+    },
+    {
+      "id": 137,
+      "start": 442.0,
+      "end": 443.0,
+      "text": "It was a huge nightmare."
+    },
+    {
+      "id": 138,
+      "start": 443.0,
+      "end": 446.0,
+      "text": "For that case, they just relied on the OS to do it."
+    },
+    {
+      "id": 139,
+      "start": 446.0,
+      "end": 449.0,
+      "text": "But so, so there are some optimizations I think in jade malloc"
+    },
+    {
+      "id": 140,
+      "start": 449.0,
+      "end": 451.0,
+      "text": "that are specifically for databases that are rolling."
+    },
+    {
+      "id": 141,
+      "start": 451.0,
+      "end": 453.0,
+      "text": "Because I know Facebook puts stuff in there."
+    },
+    {
+      "id": 142,
+      "start": 453.0,
+      "end": 454.0,
+      "text": "Yes."
+    },
+    {
+      "id": 143,
+      "start": 454.0,
+      "end": 457.0,
+      "text": "Also, lip-see rather because it is used because it uses less memory."
+    },
+    {
+      "id": 144,
+      "start": 457.0,
+      "end": 459.0,
+      "text": "J-malloc is a lot of memory."
+    },
+    {
+      "id": 145,
+      "start": 459.0,
+      "end": 460.0,
+      "text": "You just a lot of memory."
+    },
+    {
+      "id": 146,
+      "start": 460.0,
+      "end": 462.0,
+      "text": "I mean, eagerly allocates ahead of time."
+    },
+    {
+      "id": 147,
+      "start": 462.0,
+      "end": 464.0,
+      "text": "Yeah."
+    },
+    {
+      "id": 148,
+      "start": 464.0,
+      "end": 467.0,
+      "text": "Get this, just use jade malloc."
+    },
+    {
+      "id": 149,
+      "start": 467.0,
+      "end": 468.0,
+      "text": "Sorry, yes."
+    },
+    {
+      "id": 150,
+      "start": 468.0,
+      "end": 469.0,
+      "text": "So, there's mother duck thing."
+    },
+    {
+      "id": 151,
+      "start": 469.0,
+      "end": 470.0,
+      "text": "What is that?"
+    },
+    {
+      "id": 152,
+      "start": 470.0,
+      "end": 475.0,
+      "text": "So, the, this is during the pandemic."
+    },
+    {
+      "id": 153,
+      "start": 475.0,
+      "end": 480.0,
+      "text": "The HANA-SEN mark we're thinking about doing a start-up on duck DB."
+    },
+    {
+      "id": 154,
+      "start": 480.0,
+      "end": 485.0,
+      "text": "But they, but at least when I talk to them what they really wanted to do is just keep building duck DB,"
+    },
+    {
+      "id": 155,
+      "start": 485.0,
+      "end": 489.0,
+      "text": "you know, as is running on, you know, that advice and so forth."
+    },
+    {
+      "id": 156,
+      "start": 489.0,
+      "end": 490.0,
+      "text": "And all right."
+    },
+    {
+      "id": 157,
+      "start": 490.0,
+      "end": 492.0,
+      "text": "So, the next optimization that we do, the lady Chauda expansion."
+    },
+    {
+      "id": 158,
+      "start": 492.0,
+      "end": 499.0,
+      "text": "We do have to make them to make a cloud version of it where they end up looking something like, like snowflake."
+    },
+    {
+      "id": 159,
+      "start": 499.0,
+      "end": 504.0,
+      "text": "But that would be again a major rewrite and go against the ethos of the original design of duck DB."
+    },
+    {
+      "id": 160,
+      "start": 504.0,
+      "end": 507.0,
+      "text": "So, there is duck DB labs."
+    },
+    {
+      "id": 161,
+      "start": 507.0,
+      "end": 513.0,
+      "text": "And that's basically the spin-off of CWI that is doing most of the development on duck DB."
+    },
+    {
+      "id": 162,
+      "start": 513.0,
+      "end": 517.0,
+      "text": "It employs a bunch of former students, Mark and HANA's, to build, you know, building duck DB."
+    },
+    {
+      "id": 163,
+      "start": 517.0,
+      "end": 518.0,
+      "text": "And that's where you get official."
+    },
+    {
+      "id": 164,
+      "start": 518.0,
+      "end": 523.0,
+      "text": "If you need official support for duck DB, you contract out the them."
+    },
+    {
+      "id": 165,
+      "start": 523.0,
+      "end": 532.0,
+      "text": "Then year or two ago there was a spin-off, there was a start-up that was created called MotherDuck,"
+    },
+    {
+      "id": 166,
+      "start": 532.0,
+      "end": 534.0,
+      "text": "to provide a cloud version of duck DB."
+    },
+    {
+      "id": 167,
+      "start": 534.0,
+      "end": 542.0,
+      "text": "But again, it's not a scalable, you know, scale a version of duck DB like a snowflake or a dremel."
+    },
+    {
+      "id": 168,
+      "start": 542.0,
+      "end": 548.0,
+      "text": "Instead, it's more like a remote compute option that you can get now in duck DB,"
+    },
+    {
+      "id": 169,
+      "start": 548.0,
+      "end": 553.0,
+      "text": "where you still run duck DB locally, but if your data is already in the cloud,"
+    },
+    {
+      "id": 170,
+      "start": 553.0,
+      "end": 558.0,
+      "text": "you basically can run it query locally that then gets shipped over the wire to MotherDuck,"
+    },
+    {
+      "id": 171,
+      "start": 558.0,
+      "end": 564.0,
+      "text": "who's running duck DB there, and do some processing and then send back the result to you."
+    },
+    {
+      "id": 172,
+      "start": 564.0,
+      "end": 565.0,
+      "text": "All right?"
+    },
+    {
+      "id": 173,
+      "start": 565.0,
+      "end": 571.0,
+      "text": "So, again, going back here, when you download duck DB, this comes along with it."
+    },
+    {
+      "id": 174,
+      "start": 571.0,
+      "end": 574.0,
+      "text": "This is official MotherDuck extension."
+    },
+    {
+      "id": 175,
+      "start": 574.0,
+      "end": 579.0,
+      "text": "And so that means everybody's running duck DB now can connect directly to MotherDuck,"
+    },
+    {
+      "id": 176,
+      "start": 579.0,
+      "end": 582.0,
+      "text": "assuming they have account in API key."
+    },
+    {
+      "id": 177,
+      "start": 582.0,
+      "end": 587.0,
+      "text": "And so, the MotherDuck sends down to the local duck DB, like here's the catalog,"
+    },
+    {
+      "id": 178,
+      "start": 587.0,
+      "end": 591.0,
+      "text": "everything, all the files that I'm available, and then I can write queries on them"
+    },
+    {
+      "id": 179,
+      "start": 591.0,
+      "end": 596.0,
+      "text": "as if it was a local file, and the system figures out what part of the query needs to run in the cloud,"
+    },
+    {
+      "id": 180,
+      "start": 596.0,
+      "end": 600.0,
+      "text": "and what part of the query needs to run locally."
+    }
+  ],
+  "language": "en"
+}

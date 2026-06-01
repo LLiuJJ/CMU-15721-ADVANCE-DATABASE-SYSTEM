@@ -1,0 +1,1187 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.0,
+      "text": "In case you have no idea what you possibly,"
+    },
+    {
+      "id": 1,
+      "start": 2.0,
+      "end": 3.0,
+      "text": "you could possibly do it."
+    },
+    {
+      "id": 2,
+      "start": 3.0,
+      "end": 5.0,
+      "text": "Because you don't know what the SQL query is going to be"
+    },
+    {
+      "id": 3,
+      "start": 5.0,
+      "end": 6.0,
+      "text": "and to actually run the function."
+    },
+    {
+      "id": 4,
+      "start": 6.0,
+      "end": 7.0,
+      "text": "So you're screwed."
+    },
+    {
+      "id": 5,
+      "start": 7.0,
+      "end": 10.0,
+      "text": "And for this one here, no one's going to solve this."
+    },
+    {
+      "id": 6,
+      "start": 10.0,
+      "end": 12.0,
+      "text": "Again, we did a survey where we scraped GitHub"
+    },
+    {
+      "id": 7,
+      "start": 12.0,
+      "end": 14.0,
+      "text": "and we tried to see how common this was."
+    },
+    {
+      "id": 8,
+      "start": 14.0,
+      "end": 16.0,
+      "text": "It's less than 5%, it's not that common."
+    },
+    {
+      "id": 9,
+      "start": 16.0,
+      "end": 19.0,
+      "text": "At least again, that's for a static evaluation"
+    },
+    {
+      "id": 10,
+      "start": 19.0,
+      "end": 21.0,
+      "text": "of just looking at the UDS."
+    },
+    {
+      "id": 11,
+      "start": 21.0,
+      "end": 23.0,
+      "text": "We don't have numbers to say how often they're invoked."
+    },
+    {
+      "id": 12,
+      "start": 23.0,
+      "end": 25.0,
+      "text": "But we don't think they're very common."
+    },
+    {
+      "id": 13,
+      "start": 26.0,
+      "end": 30.0,
+      "text": "All right, so the related to what I was saying before"
+    },
+    {
+      "id": 14,
+      "start": 30.0,
+      "end": 32.0,
+      "text": "about this parallelization stuff."
+    },
+    {
+      "id": 15,
+      "start": 32.0,
+      "end": 35.0,
+      "text": "So if you can't figure out what's inside the UDF,"
+    },
+    {
+      "id": 16,
+      "start": 35.0,
+      "end": 38.0,
+      "text": "and now you're just going to be looping over the outer table"
+    },
+    {
+      "id": 17,
+      "start": 38.0,
+      "end": 40.0,
+      "text": "or the calling SQL query, the outer query,"
+    },
+    {
+      "id": 18,
+      "start": 40.0,
+      "end": 43.0,
+      "text": "and for every single tuple inside the outer query,"
+    },
+    {
+      "id": 19,
+      "start": 43.0,
+      "end": 44.0,
+      "text": "you're invoking the function,"
+    },
+    {
+      "id": 20,
+      "start": 44.0,
+      "end": 47.0,
+      "text": "you're literally calling the UDF one at a time,"
+    },
+    {
+      "id": 21,
+      "start": 47.0,
+      "end": 49.0,
+      "text": "for every single record."
+    },
+    {
+      "id": 22,
+      "start": 49.0,
+      "end": 52.0,
+      "text": "So in the Microsoft world, they call this row"
+    },
+    {
+      "id": 23,
+      "start": 53.0,
+      "end": 55.0,
+      "text": "by agonizing row R bar."
+    },
+    {
+      "id": 24,
+      "start": 55.0,
+      "end": 58.0,
+      "text": "And as I said, if you don't,"
+    },
+    {
+      "id": 25,
+      "start": 58.0,
+      "end": 61.0,
+      "text": "inside of UDF, you're invoking other queries"
+    },
+    {
+      "id": 26,
+      "start": 61.0,
+      "end": 63.0,
+      "text": "that you can't see until you actually run it,"
+    },
+    {
+      "id": 27,
+      "start": 63.0,
+      "end": 65.0,
+      "text": "then the optimizer has no way to be able to say,"
+    },
+    {
+      "id": 28,
+      "start": 65.0,
+      "end": 67.0,
+      "text": "oh, these are just a join."
+    },
+    {
+      "id": 29,
+      "start": 67.0,
+      "end": 68.0,
+      "text": "Let me combine these together."
+    },
+    {
+      "id": 30,
+      "start": 68.0,
+      "end": 71.0,
+      "text": "Or I'm executing the same query over again."
+    },
+    {
+      "id": 31,
+      "start": 71.0,
+      "end": 74.0,
+      "text": "Let me cache it and leave it over user."
+    },
+    {
+      "id": 32,
+      "start": 74.0,
+      "end": 76.0,
+      "text": "All right."
+    },
+    {
+      "id": 33,
+      "start": 77.0,
+      "end": 81.0,
+      "text": "So the, so this has been well known for a while,"
+    },
+    {
+      "id": 34,
+      "start": 81.0,
+      "end": 83.0,
+      "text": "that UDFs are bad."
+    },
+    {
+      "id": 35,
+      "start": 83.0,
+      "end": 86.0,
+      "text": "They're going to make your queries run slower."
+    },
+    {
+      "id": 36,
+      "start": 86.0,
+      "end": 89.0,
+      "text": "And so there's this semi-famous blog article"
+    },
+    {
+      "id": 37,
+      "start": 89.0,
+      "end": 93.0,
+      "text": "from 2006, where they're very blunt and say,"
+    },
+    {
+      "id": 38,
+      "start": 93.0,
+      "end": 95.0,
+      "text": "T SQL, that's transact SQL,"
+    },
+    {
+      "id": 39,
+      "start": 95.0,
+      "end": 98.0,
+      "text": "the scale of the functions are evil in SQL Server."
+    },
+    {
+      "id": 40,
+      "start": 98.0,
+      "end": 100.0,
+      "text": "And they give a bunch of examples that cite a bunch of the problems"
+    },
+    {
+      "id": 41,
+      "start": 100.0,
+      "end": 101.0,
+      "text": "that I just talked about."
+    },
+    {
+      "id": 42,
+      "start": 101.0,
+      "end": 105.0,
+      "text": "So here's one query that takes 2,600 milliseconds,"
+    },
+    {
+      "id": 43,
+      "start": 105.0,
+      "end": 106.0,
+      "text": "so that's 2.6 seconds."
+    },
+    {
+      "id": 44,
+      "start": 106.0,
+      "end": 110.0,
+      "text": "But then if you add the UDF, it goes to 38 seconds."
+    },
+    {
+      "id": 45,
+      "start": 110.0,
+      "end": 111.0,
+      "text": "Right."
+    },
+    {
+      "id": 46,
+      "start": 111.0,
+      "end": 113.0,
+      "text": "Just by adding a UDF."
+    },
+    {
+      "id": 47,
+      "start": 113.0,
+      "end": 118.0,
+      "text": "So, so the sort of the developers and DBAs of SQL Server"
+    },
+    {
+      "id": 48,
+      "start": 118.0,
+      "end": 121.0,
+      "text": "and other systems, right, this is not just a SQL Server problem."
+    },
+    {
+      "id": 49,
+      "start": 121.0,
+      "end": 123.0,
+      "text": "The all, every system has this problem."
+    },
+    {
+      "id": 50,
+      "start": 123.0,
+      "end": 125.0,
+      "text": "You know, this has certainly been well known for a while."
+    },
+    {
+      "id": 51,
+      "start": 125.0,
+      "end": 128.0,
+      "text": "And then Microsoft actually just came out and said it themselves"
+    },
+    {
+      "id": 52,
+      "start": 128.0,
+      "end": 131.0,
+      "text": "in 2008, so a few years after this one,"
+    },
+    {
+      "id": 53,
+      "start": 131.0,
+      "end": 133.0,
+      "text": "so this is an updated article where they introduced a new way"
+    },
+    {
+      "id": 54,
+      "start": 133.0,
+      "end": 135.0,
+      "text": "to do compiled UDFs."
+    },
+    {
+      "id": 55,
+      "start": 135.0,
+      "end": 137.0,
+      "text": "But in here, they basically use the term like,"
+    },
+    {
+      "id": 56,
+      "start": 137.0,
+      "end": 139.0,
+      "text": "oh yeah, R bar, the row by x and row,"
+    },
+    {
+      "id": 57,
+      "start": 139.0,
+      "end": 144.0,
+      "text": "and queries go slow, scalar UDFs are, I think, the SQL incarnate"
+    },
+    {
+      "id": 58,
+      "start": 144.0,
+      "end": 146.0,
+      "text": "or something, or the Ebo incarnate."
+    },
+    {
+      "id": 59,
+      "start": 146.0,
+      "end": 149.0,
+      "text": "Like, Ebo personified, they're very blunt."
+    },
+    {
+      "id": 60,
+      "start": 149.0,
+      "end": 152.0,
+      "text": "So Microsoft is trying to solve this problem for a while."
+    },
+    {
+      "id": 61,
+      "start": 152.0,
+      "end": 154.0,
+      "text": "Right. So again, this is, like what I'm telling you"
+    },
+    {
+      "id": 62,
+      "start": 154.0,
+      "end": 155.0,
+      "text": "is not like any big secret."
+    },
+    {
+      "id": 63,
+      "start": 155.0,
+      "end": 158.0,
+      "text": "People have known this for a long time."
+    },
+    {
+      "id": 64,
+      "start": 158.0,
+      "end": 163.0,
+      "text": "And like, UDFs are so important and make developers"
+    },
+    {
+      "id": 65,
+      "start": 163.0,
+      "end": 165.0,
+      "text": "lives a lot easier than we want to figure out a way"
+    },
+    {
+      "id": 66,
+      "start": 165.0,
+      "end": 168.0,
+      "text": "to try to optimize them."
+    },
+    {
+      "id": 67,
+      "start": 168.0,
+      "end": 170.0,
+      "text": "So here's another example from Microsoft."
+    },
+    {
+      "id": 68,
+      "start": 170.0,
+      "end": 172.0,
+      "text": "This is from the Floyd paper."
+    },
+    {
+      "id": 69,
+      "start": 172.0,
+      "end": 175.0,
+      "text": "This is from TPCH query 12."
+    },
+    {
+      "id": 70,
+      "start": 175.0,
+      "end": 179.0,
+      "text": "And they basically took the wear clause that is just checking"
+    },
+    {
+      "id": 71,
+      "start": 179.0,
+      "end": 181.0,
+      "text": "to see if a customer key is null,"
+    },
+    {
+      "id": 72,
+      "start": 181.0,
+      "end": 186.0,
+      "text": "and they just made a UDF that just does a lookup on the customer table"
+    },
+    {
+      "id": 73,
+      "start": 186.0,
+      "end": 189.0,
+      "text": "and to see whether it turns back a valid customer key."
+    },
+    {
+      "id": 74,
+      "start": 189.0,
+      "end": 192.0,
+      "text": "Right. So this is like contrived example"
+    },
+    {
+      "id": 75,
+      "start": 192.0,
+      "end": 194.0,
+      "text": "because you're taking the original TPCH query"
+    },
+    {
+      "id": 76,
+      "start": 194.0,
+      "end": 197.0,
+      "text": "that didn't have this UDF and you're adding this one piece here."
+    },
+    {
+      "id": 77,
+      "start": 198.0,
+      "end": 203.0,
+      "text": "And so without this UDF, the query is going to take 0.8 seconds."
+    },
+    {
+      "id": 78,
+      "start": 203.0,
+      "end": 204.0,
+      "text": "So 800 milliseconds."
+    },
+    {
+      "id": 79,
+      "start": 204.0,
+      "end": 208.0,
+      "text": "But if you add in just this UDF, which is really not doing that much,"
+    },
+    {
+      "id": 80,
+      "start": 208.0,
+      "end": 210.0,
+      "text": "then it goes to 13 hours."
+    },
+    {
+      "id": 81,
+      "start": 210.0,
+      "end": 215.0,
+      "text": "Right. Because again, the database server doesn't know that"
+    },
+    {
+      "id": 82,
+      "start": 215.0,
+      "end": 218.0,
+      "text": "for this, I'm developing this function,"
+    },
+    {
+      "id": 83,
+      "start": 218.0,
+      "end": 220.0,
+      "text": "and I'm just checking to see what the output is null."
+    },
+    {
+      "id": 84,
+      "start": 220.0,
+      "end": 222.0,
+      "text": "What's the customer key?"
+    },
+    {
+      "id": 85,
+      "start": 222.0,
+      "end": 225.0,
+      "text": "Right. Am I doing a lookup on the customer table here?"
+    },
+    {
+      "id": 86,
+      "start": 225.0,
+      "end": 227.0,
+      "text": "No, it's the customer key from the order table."
+    },
+    {
+      "id": 87,
+      "start": 227.0,
+      "end": 230.0,
+      "text": "It's not going to be null. Right."
+    },
+    {
+      "id": 88,
+      "start": 230.0,
+      "end": 233.0,
+      "text": "But because it doesn't know what the computation is inside of this thing,"
+    },
+    {
+      "id": 89,
+      "start": 233.0,
+      "end": 236.0,
+      "text": "the optimizer just throws up his hand and says,"
+    },
+    {
+      "id": 90,
+      "start": 236.0,
+      "end": 239.0,
+      "text": "okay, well, I'm just going to execute this for every single row."
+    },
+    {
+      "id": 91,
+      "start": 239.0,
+      "end": 242.0,
+      "text": "And then now you get the overhead of, you know,"
+    },
+    {
+      "id": 92,
+      "start": 242.0,
+      "end": 244.0,
+      "text": "that's pretty significant."
+    },
+    {
+      "id": 93,
+      "start": 244.0,
+      "end": 245.0,
+      "text": "So we'll save Freud in a second."
+    },
+    {
+      "id": 94,
+      "start": 245.0,
+      "end": 249.0,
+      "text": "Freud is going to be able to take this and line it back into this function"
+    },
+    {
+      "id": 95,
+      "start": 249.0,
+      "end": 252.0,
+      "text": "and get this query back down to 900 milliseconds."
+    },
+    {
+      "id": 96,
+      "start": 252.0,
+      "end": 255.0,
+      "text": "Not exactly as it was without the, you know,"
+    },
+    {
+      "id": 97,
+      "start": 255.0,
+      "end": 260.0,
+      "text": "without introducing the, not exactly what it was before you added this piece here,"
+    },
+    {
+      "id": 98,
+      "start": 260.0,
+      "end": 262.0,
+      "text": "but certainly not the 13 hours that they're getting before."
+    },
+    {
+      "id": 99,
+      "start": 262.0,
+      "end": 263.0,
+      "text": "Yes."
+    },
+    {
+      "id": 100,
+      "start": 263.0,
+      "end": 266.0,
+      "text": "Does it strictly a like SQL UDF, right?"
+    },
+    {
+      "id": 101,
+      "start": 266.0,
+      "end": 269.0,
+      "text": "Because you're in line-up, not to have the..."
+    },
+    {
+      "id": 102,
+      "start": 269.0,
+      "end": 272.0,
+      "text": "Yes, same as this example here is a SQL UDF,"
+    },
+    {
+      "id": 103,
+      "start": 272.0,
+      "end": 275.0,
+      "text": "but I don't think that, in this example here,"
+    },
+    {
+      "id": 104,
+      "start": 275.0,
+      "end": 278.0,
+      "text": "I don't think, because I'm declaring variables,"
+    },
+    {
+      "id": 105,
+      "start": 278.0,
+      "end": 281.0,
+      "text": "and I have a return clause, this is not considered a SQL UDF."
+    },
+    {
+      "id": 106,
+      "start": 281.0,
+      "end": 284.0,
+      "text": "A SQL UDF, you don't have variables or returns."
+    },
+    {
+      "id": 107,
+      "start": 284.0,
+      "end": 287.0,
+      "text": "It's just the SQL queries in themselves."
+    },
+    {
+      "id": 108,
+      "start": 287.0,
+      "end": 290.0,
+      "text": "So in that case, yes."
+    },
+    {
+      "id": 109,
+      "start": 290.0,
+      "end": 293.0,
+      "text": "If I got rid of the declare, I got rid of the term,"
+    },
+    {
+      "id": 110,
+      "start": 293.0,
+      "end": 297.0,
+      "text": "and just got rid of this assignment to the variable N,"
+    },
+    {
+      "id": 111,
+      "start": 297.0,
+      "end": 299.0,
+      "text": "if it was just this, then that would get in line,"
+    },
+    {
+      "id": 112,
+      "start": 299.0,
+      "end": 302.0,
+      "text": "and the optimization could figure that out."
+    },
+    {
+      "id": 113,
+      "start": 304.0,
+      "end": 307.0,
+      "text": "Okay, so, how are we going to optimize this?"
+    },
+    {
+      "id": 114,
+      "start": 307.0,
+      "end": 309.0,
+      "text": "Well, there's four basic approaches."
+    },
+    {
+      "id": 115,
+      "start": 309.0,
+      "end": 311.0,
+      "text": "Compilation we've talked about before, right?"
+    },
+    {
+      "id": 116,
+      "start": 311.0,
+      "end": 314.0,
+      "text": "We can just take our UDF, we'd normally interpret it."
+    },
+    {
+      "id": 117,
+      "start": 314.0,
+      "end": 316.0,
+      "text": "We could compile it into native code,"
+    },
+    {
+      "id": 118,
+      "start": 316.0,
+      "end": 318.0,
+      "text": "and that'll run faster."
+    },
+    {
+      "id": 119,
+      "start": 318.0,
+      "end": 320.0,
+      "text": "It doesn't solve our optimizer problem,"
+    },
+    {
+      "id": 120,
+      "start": 320.0,
+      "end": 322.0,
+      "text": "because now we have, although the function now compiled,"
+    },
+    {
+      "id": 121,
+      "start": 322.0,
+      "end": 324.0,
+      "text": "it's going to be much faster."
+    },
+    {
+      "id": 122,
+      "start": 324.0,
+      "end": 328.0,
+      "text": "It's still going to be a black box to the query optimizer."
+    },
+    {
+      "id": 123,
+      "start": 328.0,
+      "end": 330.0,
+      "text": "And I said, Oracle does this,"
+    },
+    {
+      "id": 124,
+      "start": 330.0,
+      "end": 332.0,
+      "text": "and SQL Server already does this now."
+    },
+    {
+      "id": 125,
+      "start": 332.0,
+      "end": 335.0,
+      "text": "It did it since 2016."
+    },
+    {
+      "id": 126,
+      "start": 336.0,
+      "end": 340.0,
+      "text": "Another approach is to extend the programming language"
+    },
+    {
+      "id": 127,
+      "start": 340.0,
+      "end": 343.0,
+      "text": "to the UDF to introduce pragmas or directives"
+    },
+    {
+      "id": 128,
+      "start": 343.0,
+      "end": 345.0,
+      "text": "or other hints to the database server"
+    },
+    {
+      "id": 129,
+      "start": 345.0,
+      "end": 349.0,
+      "text": "that could tell it what portions of the query could be optimized."
+    },
+    {
+      "id": 130,
+      "start": 349.0,
+      "end": 352.0,
+      "text": "So SQL Store, or sorry, SQL, single store,"
+    },
+    {
+      "id": 131,
+      "start": 352.0,
+      "end": 356.0,
+      "text": "has their own variant of a PL SQL called,"
+    },
+    {
+      "id": 132,
+      "start": 356.0,
+      "end": 359.0,
+      "text": "it came out when they were called MIM SQL,"
+    },
+    {
+      "id": 133,
+      "start": 359.0,
+      "end": 361.0,
+      "text": "so it was called MPL, the MIM SQL programming language."
+    },
+    {
+      "id": 134,
+      "start": 361.0,
+      "end": 364.0,
+      "text": "But they have a parallel version where you can write UDFs,"
+    },
+    {
+      "id": 135,
+      "start": 364.0,
+      "end": 367.0,
+      "text": "and you can use them, and that's additionally hints to the optimizer"
+    },
+    {
+      "id": 136,
+      "start": 367.0,
+      "end": 369.0,
+      "text": "to figure out how to parallelize stuff."
+    },
+    {
+      "id": 137,
+      "start": 369.0,
+      "end": 371.0,
+      "text": "But again, as far as I know for that programming language,"
+    },
+    {
+      "id": 138,
+      "start": 371.0,
+      "end": 375.0,
+      "text": "the optimizer still sees a black box with the UDF."
+    },
+    {
+      "id": 139,
+      "start": 375.0,
+      "end": 377.0,
+      "text": "Inlining is the person we're going to talk about today,"
+    },
+    {
+      "id": 140,
+      "start": 377.0,
+      "end": 381.0,
+      "text": "is how to convert the UDF into some kind of declarative form"
+    },
+    {
+      "id": 141,
+      "start": 381.0,
+      "end": 385.0,
+      "text": "that is that we can natively embed into our query plan"
+    },
+    {
+      "id": 142,
+      "start": 385.0,
+      "end": 388.0,
+      "text": "as if it was just much SQL queries"
+    },
+    {
+      "id": 143,
+      "start": 388.0,
+      "end": 391.0,
+      "text": "and then let the optimizer optimize that accordingly."
+    },
+    {
+      "id": 144,
+      "start": 392.0,
+      "end": 397.0,
+      "text": "And then the last one is actually predates inlining,"
+    },
+    {
+      "id": 145,
+      "start": 397.0,
+      "end": 402.0,
+      "text": "but it was rediscovered by us and other Germans a few years ago."
+    },
+    {
+      "id": 146,
+      "start": 402.0,
+      "end": 406.0,
+      "text": "You basically take the UDF and you convert it into a bunch of SQL queries"
+    },
+    {
+      "id": 147,
+      "start": 406.0,
+      "end": 409.0,
+      "text": "that run in batch of multiple tools at a time."
+    },
+    {
+      "id": 148,
+      "start": 409.0,
+      "end": 414.0,
+      "text": "And then now you don't have the invocation cost of invoking this single function,"
+    },
+    {
+      "id": 149,
+      "start": 414.0,
+      "end": 416.0,
+      "text": "and you're just operating things all together."
+    },
+    {
+      "id": 150,
+      "start": 416.0,
+      "end": 418.0,
+      "text": "Again, I'll show examples of that as we go along."
+    },
+    {
+      "id": 151,
+      "start": 418.0,
+      "end": 421.0,
+      "text": "In this case class, we're going to focus on these two."
+    },
+    {
+      "id": 152,
+      "start": 421.0,
+      "end": 425.0,
+      "text": "Because again, this is quite different than everything we've talked about so far."
+    },
+    {
+      "id": 153,
+      "start": 425.0,
+      "end": 427.0,
+      "text": "Okay?"
+    },
+    {
+      "id": 154,
+      "start": 427.0,
+      "end": 431.0,
+      "text": "All right, so you definitely inlining again the idea here from Freud."
+    },
+    {
+      "id": 155,
+      "start": 431.0,
+      "end": 435.0,
+      "text": "And again, we'll use the term Freud described because that's what it's called in the paper."
+    },
+    {
+      "id": 156,
+      "start": 435.0,
+      "end": 439.0,
+      "text": "I think in the obviously, when you pay for SQL Server download,"
+    },
+    {
+      "id": 157,
+      "start": 439.0,
+      "end": 441.0,
+      "text": "it's not called Freud."
+    },
+    {
+      "id": 158,
+      "start": 441.0,
+      "end": 443.0,
+      "text": "If you look for Freud in the documentation, you're not going to see it."
+    },
+    {
+      "id": 159,
+      "start": 443.0,
+      "end": 446.0,
+      "text": "I think they call it this UDF inlining."
+    },
+    {
+      "id": 160,
+      "start": 446.0,
+      "end": 449.0,
+      "text": "But again, the research name of the project was Freud."
+    },
+    {
+      "id": 161,
+      "start": 449.0,
+      "end": 453.0,
+      "text": "So the idea is that we're going to take our UDFs and convert them to relational algebra expressions"
+    },
+    {
+      "id": 162,
+      "start": 453.0,
+      "end": 457.0,
+      "text": "that we can then inline into the SQL queries themselves."
+    },
+    {
+      "id": 163,
+      "start": 457.0,
+      "end": 461.0,
+      "text": "And we're going to do this before we get to the actually cost-based search for the joins"
+    },
+    {
+      "id": 164,
+      "start": 461.0,
+      "end": 463.0,
+      "text": "and other parts of the query optimizer."
+    },
+    {
+      "id": 165,
+      "start": 463.0,
+      "end": 470.0,
+      "text": "So you can think of these static transformation rules that we can do this conversion"
+    },
+    {
+      "id": 166,
+      "start": 470.0,
+      "end": 475.0,
+      "text": "and transformation of the UDF into relational algebra without needing a cost model."
+    },
+    {
+      "id": 167,
+      "start": 475.0,
+      "end": 482.0,
+      "text": "Because we'll just let the query optimizer handle as if it was any other query."
+    },
+    {
+      "id": 168,
+      "start": 482.0,
+      "end": 487.0,
+      "text": "So, as I said, we're going to do this before the rewrite phase before we get to the cost-based optimizer."
+    },
+    {
+      "id": 169,
+      "start": 487.0,
+      "end": 493.0,
+      "text": "Because our cost-based optimizer in theory, in theory, I know we'll cover this later,"
+    },
+    {
+      "id": 170,
+      "start": 493.0,
+      "end": 496.0,
+      "text": "should be able to handle these sub queries effectively."
+    },
+    {
+      "id": 171,
+      "start": 496.0,
+      "end": 499.0,
+      "text": "SQL Server is not going to be able to do that."
+    },
+    {
+      "id": 172,
+      "start": 499.0,
+      "end": 503.0,
+      "text": "The hyper-Umbra Germans can do this."
+    },
+    {
+      "id": 173,
+      "start": 503.0,
+      "end": 506.0,
+      "text": "Duckty-Bee can do this because we did it for them."
+    },
+    {
+      "id": 174,
+      "start": 506.0,
+      "end": 511.0,
+      "text": "We'll cover that in a second."
+    },
+    {
+      "id": 175,
+      "start": 511.0,
+      "end": 514.0,
+      "text": "Let's talk about these sub queries again."
+    },
+    {
+      "id": 176,
+      "start": 514.0,
+      "end": 518.0,
+      "text": "Again, I'm not going to say how to actually do it exactly the German way to do it."
+    },
+    {
+      "id": 177,
+      "start": 518.0,
+      "end": 520.0,
+      "text": "But this is going to be the challenge."
+    },
+    {
+      "id": 178,
+      "start": 520.0,
+      "end": 527.0,
+      "text": "This is what the inlining approaches are going to leverage because they're going to assume that the optimizer"
+    },
+    {
+      "id": 179,
+      "start": 527.0,
+      "end": 532.0,
+      "text": "will be able to take care of these sub queries."
+    },
+    {
+      "id": 180,
+      "start": 532.0,
+      "end": 535.0,
+      "text": "And then we're going to introduce lateral joins because that's how we're going to chain these things together"
+    },
+    {
+      "id": 181,
+      "start": 535.0,
+      "end": 538.0,
+      "text": "to ensure that things execute in order that need to execute in UDF."
+    },
+    {
+      "id": 182,
+      "start": 538.0,
+      "end": 542.0,
+      "text": "But again, things will fall apart if it gets too complicated."
+    },
+    {
+      "id": 183,
+      "start": 542.0,
+      "end": 544.0,
+      "text": "So, again, sub queries, basic idea."
+    },
+    {
+      "id": 184,
+      "start": 544.0,
+      "end": 549.0,
+      "text": "This is just a refresher from the intro class that we just have a nested query."
+    },
+    {
+      "id": 185,
+      "start": 549.0,
+      "end": 552.0,
+      "text": "Like a select query inside of that there's another select query."
+    },
+    {
+      "id": 186,
+      "start": 552.0,
+      "end": 555.0,
+      "text": "It can be anywhere. It can be the projection output, it can be the from clause, it can be the where clause,"
+    },
+    {
+      "id": 187,
+      "start": 555.0,
+      "end": 559.0,
+      "text": "it can be having a group by anywhere you want."
+    },
+    {
+      "id": 188,
+      "start": 559.0,
+      "end": 565.0,
+      "text": "And so the two ways to handle them is to rewrite the query, to decore that and flatten them, to joins."
+    },
+    {
+      "id": 189,
+      "start": 565.0,
+      "end": 567.0,
+      "text": "And this will be the best case scenario."
+    },
+    {
+      "id": 190,
+      "start": 567.0,
+      "end": 570.0,
+      "text": "This is what you always want to do, but not everyone can."
+    },
+    {
+      "id": 191,
+      "start": 570.0,
+      "end": 576.0,
+      "text": "Or you just pull out the nested query, run it once, put its results to a temp table,"
+    },
+    {
+      "id": 192,
+      "start": 576.0,
+      "end": 583.0,
+      "text": "and then join that temp table against the calling table, or in the calling query."
+    },
+    {
+      "id": 193,
+      "start": 583.0,
+      "end": 586.0,
+      "text": "Again, some systems do this."
+    },
+    {
+      "id": 194,
+      "start": 586.0,
+      "end": 592.0,
+      "text": "I think if I have my where clause, I have something that wants to aggregate, like the max value of a column."
+    },
+    {
+      "id": 195,
+      "start": 592.0,
+      "end": 599.0,
+      "text": "I can run that once, we terrorize that as a temp table, and then just join against it later on."
+    },
+    {
+      "id": 196,
+      "start": 599.0,
+      "end": 602.0,
+      "text": "And people, you have to do this when you don't, we can't spread DAGs."
+    }
+  ],
+  "language": "en"
+}

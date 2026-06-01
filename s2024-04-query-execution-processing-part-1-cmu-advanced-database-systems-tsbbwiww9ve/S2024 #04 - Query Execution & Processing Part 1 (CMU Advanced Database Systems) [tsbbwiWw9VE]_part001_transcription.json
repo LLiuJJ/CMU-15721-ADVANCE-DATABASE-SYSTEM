@@ -1,0 +1,1451 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.02,
+      "text": "out to the different cores."
+    },
+    {
+      "id": 1,
+      "start": 3.02,
+      "end": 4.8,
+      "text": "So the pipelines are going to be important part of what"
+    },
+    {
+      "id": 2,
+      "start": 4.8,
+      "end": 7.4,
+      "text": "we talk about today and going forward."
+    },
+    {
+      "id": 3,
+      "start": 7.4,
+      "end": 10.2,
+      "text": "And so again, the pipeline is the boundary in our query"
+    },
+    {
+      "id": 4,
+      "start": 10.2,
+      "end": 14.3,
+      "text": "plan that specifies how much we can process a single two"
+    },
+    {
+      "id": 5,
+      "start": 14.3,
+      "end": 15.92,
+      "text": "board or batch of two poles or set of two"
+    },
+    {
+      "id": 6,
+      "start": 15.92,
+      "end": 18.14,
+      "text": "poles up through the query plan."
+    },
+    {
+      "id": 7,
+      "start": 18.14,
+      "end": 19.88,
+      "text": "To at some point, we reach an operator"
+    },
+    {
+      "id": 8,
+      "start": 19.88,
+      "end": 22.8,
+      "text": "where we need to see all the other two"
+    },
+    {
+      "id": 9,
+      "start": 22.8,
+      "end": 25.08,
+      "text": "poles within our pipeline before we"
+    },
+    {
+      "id": 10,
+      "start": 25.08,
+      "end": 27.88,
+      "text": "can proceed up into the query plan."
+    },
+    {
+      "id": 11,
+      "start": 27.88,
+      "end": 31.08,
+      "text": "So on this side here, we're doing the scan on A, then the filter,"
+    },
+    {
+      "id": 12,
+      "start": 31.08,
+      "end": 32.56,
+      "text": "and assume the build side of the,"
+    },
+    {
+      "id": 13,
+      "start": 32.56,
+      "end": 34.72,
+      "text": "see this is the hash join, the build side here"
+    },
+    {
+      "id": 14,
+      "start": 34.72,
+      "end": 35.8,
+      "text": "is part of this pipeline."
+    },
+    {
+      "id": 15,
+      "start": 35.8,
+      "end": 39.4,
+      "text": "Like I can't, I can't send any two pole up beyond the join"
+    },
+    {
+      "id": 16,
+      "start": 39.4,
+      "end": 41.68,
+      "text": "until I see what comes on the other side."
+    },
+    {
+      "id": 17,
+      "start": 41.68,
+      "end": 44.64,
+      "text": "So assuming I execute pipeline one, again, whether it's a single"
+    },
+    {
+      "id": 18,
+      "start": 44.64,
+      "end": 47.64,
+      "text": "up, sorry, a single task or multiple task running parallel,"
+    },
+    {
+      "id": 19,
+      "start": 47.64,
+      "end": 49.24,
+      "text": "it doesn't matter at this point."
+    },
+    {
+      "id": 20,
+      "start": 49.24,
+      "end": 51.68,
+      "text": "And then once that's complete, I can then run pipeline two."
+    },
+    {
+      "id": 21,
+      "start": 51.68,
+      "end": 53.76,
+      "text": "And now pipeline two could do the filter."
+    },
+    {
+      "id": 22,
+      "start": 53.76,
+      "end": 56.32,
+      "text": "So I do the scan on B filter it and then do the probe in the hash"
+    },
+    {
+      "id": 23,
+      "start": 56.32,
+      "end": 56.92,
+      "text": "join."
+    },
+    {
+      "id": 24,
+      "start": 56.92,
+      "end": 60.36,
+      "text": "And now we know that any two pole that matches in the join"
+    },
+    {
+      "id": 25,
+      "start": 60.36,
+      "end": 64.2,
+      "text": "can then be pushed up to the projection operator as part of the output."
+    },
+    {
+      "id": 26,
+      "start": 64.2,
+      "end": 66.28,
+      "text": "I don't want to start running the join."
+    },
+    {
+      "id": 27,
+      "start": 66.28,
+      "end": 69.88,
+      "text": "I'll start probing the join on this query"
+    },
+    {
+      "id": 28,
+      "start": 69.88,
+      "end": 72.6,
+      "text": "until I've populated everything on the A side,"
+    },
+    {
+      "id": 29,
+      "start": 72.6,
+      "end": 75.04,
+      "text": "because otherwise I could have false negatives."
+    },
+    {
+      "id": 30,
+      "start": 75.04,
+      "end": 78.6,
+      "text": "Now, I'm showing this pipeline all the way up on one side."
+    },
+    {
+      "id": 31,
+      "start": 78.6,
+      "end": 80.4,
+      "text": "That's ideally what we're going to want to do"
+    },
+    {
+      "id": 32,
+      "start": 80.4,
+      "end": 84.52,
+      "text": "to maximize the reuse of data, like to minimize the number"
+    },
+    {
+      "id": 33,
+      "start": 84.52,
+      "end": 87.6,
+      "text": "cycles for two pole as we go along."
+    },
+    {
+      "id": 34,
+      "start": 87.6,
+      "end": 90.04,
+      "text": "But I could have just done the scan on A"
+    },
+    {
+      "id": 35,
+      "start": 90.04,
+      "end": 93.88,
+      "text": "and then filter it, materialize the output, scan on B,"
+    },
+    {
+      "id": 36,
+      "start": 93.88,
+      "end": 96.2,
+      "text": "filter it, and utilize the output, and then have these be"
+    },
+    {
+      "id": 37,
+      "start": 96.2,
+      "end": 97.08,
+      "text": "two separate pipelines."
+    },
+    {
+      "id": 38,
+      "start": 97.08,
+      "end": 100.0,
+      "text": "And then a third pipeline could then be, OK, let me actually"
+    },
+    {
+      "id": 39,
+      "start": 100.0,
+      "end": 101.0,
+      "text": "do the join."
+    },
+    {
+      "id": 40,
+      "start": 101.0,
+      "end": 103.6,
+      "text": "That actually would be slow, because you're basically"
+    },
+    {
+      "id": 41,
+      "start": 103.6,
+      "end": 105.8,
+      "text": "writing much of data between these two pipelines,"
+    },
+    {
+      "id": 42,
+      "start": 105.8,
+      "end": 107.96,
+      "text": "where it's better off to do a pipeline that tries to get"
+    },
+    {
+      "id": 43,
+      "start": 107.96,
+      "end": 111.16,
+      "text": "all the way to the top."
+    },
+    {
+      "id": 44,
+      "start": 111.16,
+      "end": 112.56,
+      "text": "Again, we'll see why this matters when we start"
+    },
+    {
+      "id": 45,
+      "start": 112.56,
+      "end": 117.08,
+      "text": "doing operator fusion and other techniques."
+    },
+    {
+      "id": 46,
+      "start": 117.08,
+      "end": 117.6,
+      "text": "Yes?"
+    },
+    {
+      "id": 47,
+      "start": 117.6,
+      "end": 119.0,
+      "text": "We're going to allow you to potentially start"
+    },
+    {
+      "id": 48,
+      "start": 119.0,
+      "end": 121.12,
+      "text": "executing the join on the other thread,"
+    },
+    {
+      "id": 49,
+      "start": 121.12,
+      "end": 123.56,
+      "text": "or another CPU core, while you're still"
+    },
+    {
+      "id": 50,
+      "start": 123.56,
+      "end": 125.48,
+      "text": "executing to filter."
+    },
+    {
+      "id": 51,
+      "start": 125.48,
+      "end": 128.6,
+      "text": "So you're saying that couldn't you start on?"
+    },
+    {
+      "id": 52,
+      "start": 128.6,
+      "end": 131.36,
+      "text": "Couldn't you start running the join at the same time,"
+    },
+    {
+      "id": 53,
+      "start": 131.36,
+      "end": 132.92,
+      "text": "or are you still scanning A and B?"
+    },
+    {
+      "id": 54,
+      "start": 132.92,
+      "end": 136.0,
+      "text": "Yeah, there would be more bandwidth, certainly,"
+    },
+    {
+      "id": 55,
+      "start": 136.0,
+      "end": 138.24,
+      "text": "but maybe that the whole thing finished faster,"
+    },
+    {
+      "id": 56,
+      "start": 138.24,
+      "end": 140.4,
+      "text": "because we're taking better advantage of parallelism."
+    },
+    {
+      "id": 57,
+      "start": 140.4,
+      "end": 143.24,
+      "text": "So let's say that the very last two-pool ignore parallel"
+    },
+    {
+      "id": 58,
+      "start": 143.24,
+      "end": 147.0,
+      "text": "threads, so ignore multiple operating instances."
+    },
+    {
+      "id": 59,
+      "start": 147.0,
+      "end": 148.08,
+      "text": "This thing's running myself."
+    },
+    {
+      "id": 60,
+      "start": 148.08,
+      "end": 150.36,
+      "text": "The very last two-pool that you see in A"
+    },
+    {
+      "id": 61,
+      "start": 150.36,
+      "end": 152.88,
+      "text": "is the only two-pool that's going to match in B."
+    },
+    {
+      "id": 62,
+      "start": 152.88,
+      "end": 155.2,
+      "text": "But if I start probing into this hash"
+    },
+    {
+      "id": 63,
+      "start": 155.2,
+      "end": 156.88,
+      "text": "table before I finish scanning A,"
+    },
+    {
+      "id": 64,
+      "start": 156.88,
+      "end": 158.28,
+      "text": "I could have a false negative, because I"
+    },
+    {
+      "id": 65,
+      "start": 158.28,
+      "end": 159.64,
+      "text": "didn't put that two-pool last two-pool in."
+    },
+    {
+      "id": 66,
+      "start": 159.64,
+      "end": 160.16,
+      "text": "Yeah."
+    },
+    {
+      "id": 67,
+      "start": 160.16,
+      "end": 161.16,
+      "text": "You can't do that."
+    },
+    {
+      "id": 68,
+      "start": 161.16,
+      "end": 162.16,
+      "text": "Wait, go ahead."
+    },
+    {
+      "id": 69,
+      "start": 162.16,
+      "end": 163.16,
+      "text": "What's that?"
+    },
+    {
+      "id": 70,
+      "start": 163.16,
+      "end": 165.92,
+      "text": "You still build a hash table."
+    },
+    {
+      "id": 71,
+      "start": 165.92,
+      "end": 168.28,
+      "text": "Yeah, you're still building A, but you can't check to see"
+    },
+    {
+      "id": 72,
+      "start": 168.28,
+      "end": 170.92,
+      "text": "whether something exists until it's populated."
+    },
+    {
+      "id": 73,
+      "start": 170.92,
+      "end": 173.68,
+      "text": "Are you willing to start pipeline two before pipeline one?"
+    },
+    {
+      "id": 74,
+      "start": 173.68,
+      "end": 174.28,
+      "text": "That's his question."
+    },
+    {
+      "id": 75,
+      "start": 174.28,
+      "end": 177.44,
+      "text": "Can you start pipeline two before you start pipeline one?"
+    },
+    {
+      "id": 76,
+      "start": 177.44,
+      "end": 179.6,
+      "text": "That would be, again, the problem I said earlier,"
+    },
+    {
+      "id": 77,
+      "start": 179.6,
+      "end": 183.12,
+      "text": "where if I start scanning B, start filtering it,"
+    },
+    {
+      "id": 78,
+      "start": 183.12,
+      "end": 185.52,
+      "text": "what do I do with that output?"
+    },
+    {
+      "id": 79,
+      "start": 185.52,
+      "end": 187.2,
+      "text": "It's got to go somewhere."
+    },
+    {
+      "id": 80,
+      "start": 187.2,
+      "end": 189.52,
+      "text": "So I'm just starting writing the disk in memory,"
+    },
+    {
+      "id": 81,
+      "start": 189.52,
+      "end": 193.84,
+      "text": "then that's just pressure for overall system,"
+    },
+    {
+      "id": 82,
+      "start": 193.84,
+      "end": 194.76,
+      "text": "where it would have been."
+    },
+    {
+      "id": 83,
+      "start": 194.76,
+      "end": 198.12,
+      "text": "It's a better idea to maybe run this in parallel,"
+    },
+    {
+      "id": 84,
+      "start": 198.12,
+      "end": 200.12,
+      "text": "populate the hash table, then run B."
+    },
+    {
+      "id": 85,
+      "start": 206.04,
+      "end": 209.4,
+      "text": "So lots of stuff today, but I want to first"
+    },
+    {
+      "id": 86,
+      "start": 209.4,
+      "end": 211.68,
+      "text": "start talking about the paper you guys read."
+    },
+    {
+      "id": 87,
+      "start": 214.68,
+      "end": 216.0,
+      "text": "It's an older paper, but it's very important."
+    },
+    {
+      "id": 88,
+      "start": 216.0,
+      "end": 221.36,
+      "text": "It's very seminal about why the designs of database systems"
+    },
+    {
+      "id": 89,
+      "start": 221.36,
+      "end": 224.0,
+      "text": "at the time when the paper is written in 2005"
+    },
+    {
+      "id": 90,
+      "start": 224.0,
+      "end": 229.0,
+      "text": "are insufficient for, if you want to run OLAP queries,"
+    },
+    {
+      "id": 91,
+      "start": 229.12,
+      "end": 230.44,
+      "text": "a high performance OLAP queries."
+    },
+    {
+      "id": 92,
+      "start": 230.44,
+      "end": 232.4,
+      "text": "Now you may think, why am I making you read a paper"
+    },
+    {
+      "id": 93,
+      "start": 232.4,
+      "end": 234.32,
+      "text": "that is almost old as some of you guys here,"
+    },
+    {
+      "id": 94,
+      "start": 234.32,
+      "end": 237.72,
+      "text": "or like it's, you know, 19 years old now?"
+    },
+    {
+      "id": 95,
+      "start": 239.28,
+      "end": 242.04,
+      "text": "Because that paper is seminal, meaning every OLAP system"
+    },
+    {
+      "id": 96,
+      "start": 242.04,
+      "end": 243.52,
+      "text": "that's around today for the most part"
+    },
+    {
+      "id": 97,
+      "start": 243.52,
+      "end": 246.48,
+      "text": "followed the design guidelines that was laid up by that paper."
+    },
+    {
+      "id": 98,
+      "start": 246.48,
+      "end": 249.24,
+      "text": "And everything, with some exception about the IT name stuff,"
+    },
+    {
+      "id": 99,
+      "start": 249.24,
+      "end": 250.96,
+      "text": "which we can talk about in a second,"
+    },
+    {
+      "id": 100,
+      "start": 251.24,
+      "end": 253.4,
+      "text": "the core ideas still matter a lot."
+    },
+    {
+      "id": 101,
+      "start": 255.68,
+      "end": 257.52,
+      "text": "Then we'll talk about processing models,"
+    },
+    {
+      "id": 102,
+      "start": 257.52,
+      "end": 261.12,
+      "text": "the planplossing directions, whether it bottoms up"
+    },
+    {
+      "id": 103,
+      "start": 261.12,
+      "end": 263.08,
+      "text": "or top down or pushed over to the pool."
+    },
+    {
+      "id": 104,
+      "start": 263.08,
+      "end": 264.92,
+      "text": "Filter representation, we'll talk about this"
+    },
+    {
+      "id": 105,
+      "start": 264.92,
+      "end": 266.96,
+      "text": "when we talk about vectorization next week,"
+    },
+    {
+      "id": 106,
+      "start": 266.96,
+      "end": 269.88,
+      "text": "but basically when I start applying predicates"
+    },
+    {
+      "id": 107,
+      "start": 269.88,
+      "end": 272.4,
+      "text": "and I start matching Cheapls and they'll get matched,"
+    },
+    {
+      "id": 108,
+      "start": 272.4,
+      "end": 275.4,
+      "text": "what do I actually store when I go from operative to the next?"
+    },
+    {
+      "id": 109,
+      "start": 275.4,
+      "end": 276.72,
+      "text": "And then we have time we'll finish up"
+    },
+    {
+      "id": 110,
+      "start": 276.72,
+      "end": 279.72,
+      "text": "the different modes of parallel execution, right?"
+    },
+    {
+      "id": 111,
+      "start": 279.72,
+      "end": 280.88,
+      "text": "The idea is, again, we're gonna talk about"
+    },
+    {
+      "id": 112,
+      "start": 280.88,
+      "end": 283.64,
+      "text": "how do you architect the system so that you can run"
+    },
+    {
+      "id": 113,
+      "start": 283.64,
+      "end": 287.8,
+      "text": "these tasks or the operative instances in parallel,"
+    },
+    {
+      "id": 114,
+      "start": 288.8,
+      "end": 289.92,
+      "text": "and then in a few weeks we'll then cover"
+    },
+    {
+      "id": 115,
+      "start": 289.92,
+      "end": 291.6,
+      "text": "how do you actually implement the algorithms"
+    },
+    {
+      "id": 116,
+      "start": 291.6,
+      "end": 295.24,
+      "text": "within the implementation itself"
+    },
+    {
+      "id": 117,
+      "start": 295.24,
+      "end": 299.44,
+      "text": "to do parallel execution, like for joins and sorting."
+    },
+    {
+      "id": 118,
+      "start": 301.48,
+      "end": 303.2,
+      "text": "All right, so again, the, the,"
+    },
+    {
+      "id": 119,
+      "start": 303.2,
+      "end": 305.72,
+      "text": "the MoDBX100 paper is from 2005,"
+    },
+    {
+      "id": 120,
+      "start": 305.72,
+      "end": 307.92,
+      "text": "and it's essentially a low level analysis"
+    },
+    {
+      "id": 121,
+      "start": 307.92,
+      "end": 312.92,
+      "text": "of the, for in-memory workloads,"
+    },
+    {
+      "id": 122,
+      "start": 313.64,
+      "end": 315.44,
+      "text": "what are the bottom that you're gonna face"
+    },
+    {
+      "id": 123,
+      "start": 315.44,
+      "end": 318.04,
+      "text": "when you run OLAP queries, right?"
+    },
+    {
+      "id": 124,
+      "start": 318.04,
+      "end": 321.76,
+      "text": "And the idea, the big idea that they did your breakthrough was"
+    },
+    {
+      "id": 125,
+      "start": 321.76,
+      "end": 324.2,
+      "text": "they looked at all these existing systems at the time"
+    },
+    {
+      "id": 126,
+      "start": 324.2,
+      "end": 327.6,
+      "text": "and showed how if you wanna run OLAP queries,"
+    },
+    {
+      "id": 127,
+      "start": 327.6,
+      "end": 331.6,
+      "text": "running large scans over, and doing joins and so forth,"
+    },
+    {
+      "id": 128,
+      "start": 331.6,
+      "end": 334.08,
+      "text": "that the existing systems at the time"
+    },
+    {
+      "id": 129,
+      "start": 334.08,
+      "end": 336.48,
+      "text": "are certainly not well designed for the modern"
+    },
+    {
+      "id": 130,
+      "start": 336.48,
+      "end": 338.76,
+      "text": "out-of-order, super-scaler CPU architectures"
+    },
+    {
+      "id": 131,
+      "start": 338.76,
+      "end": 341.76,
+      "text": "that Intel was putting out at the time, right?"
+    },
+    {
+      "id": 132,
+      "start": 341.76,
+      "end": 344.64,
+      "text": "And the idea is that if you can redesign your database"
+    },
+    {
+      "id": 133,
+      "start": 344.64,
+      "end": 347.08,
+      "text": "that's into better target for what the CPU wants from you,"
+    },
+    {
+      "id": 134,
+      "start": 347.08,
+      "end": 351.2,
+      "text": "what kind of, you know, if you design the system itself,"
+    },
+    {
+      "id": 135,
+      "start": 351.2,
+      "end": 353.76,
+      "text": "how data flows through it, what instructions"
+    },
+    {
+      "id": 136,
+      "start": 353.76,
+      "end": 356.2,
+      "text": "you're calling and when, then you get much, much better"
+    },
+    {
+      "id": 137,
+      "start": 356.2,
+      "end": 358.64,
+      "text": "performance because your designing system is such a way"
+    },
+    {
+      "id": 138,
+      "start": 358.64,
+      "end": 361.56,
+      "text": "that the CPU is, is, is happier, right?"
+    },
+    {
+      "id": 139,
+      "start": 361.56,
+      "end": 363.4,
+      "text": "Instead of you, as a programmer, trying to make things easier"
+    },
+    {
+      "id": 140,
+      "start": 363.4,
+      "end": 365.72,
+      "text": "for yourself, and those are just harder for the CPU,"
+    },
+    {
+      "id": 141,
+      "start": 365.72,
+      "end": 368.4,
+      "text": "you make life slightly harder for yourself,"
+    },
+    {
+      "id": 142,
+      "start": 368.4,
+      "end": 370.88,
+      "text": "and the CPU can run much, much more efficiently."
+    },
+    {
+      "id": 143,
+      "start": 372.72,
+      "end": 375.5,
+      "text": "So what happened was the, the,"
+    },
+    {
+      "id": 144,
+      "start": 375.5,
+      "end": 378.04,
+      "text": "the back on the story is that there was this project"
+    },
+    {
+      "id": 145,
+      "start": 378.04,
+      "end": 380.44,
+      "text": "out of C-3-Y where this paper came from"
+    },
+    {
+      "id": 146,
+      "start": 380.44,
+      "end": 382.2,
+      "text": "for called Moneady to Be the Dates in the 90s."
+    },
+    {
+      "id": 147,
+      "start": 382.2,
+      "end": 384.52,
+      "text": "And basically they were doing some experiments on it"
+    },
+    {
+      "id": 148,
+      "start": 384.52,
+      "end": 387.4,
+      "text": "and they realized that, oh, the way, you know,"
+    },
+    {
+      "id": 149,
+      "start": 387.4,
+      "end": 389.2,
+      "text": "the way they're gonna do their processing model"
+    },
+    {
+      "id": 150,
+      "start": 389.2,
+      "end": 392.56,
+      "text": "and send, you know, entire columns from one upper to the next,"
+    },
+    {
+      "id": 151,
+      "start": 392.56,
+      "end": 394.36,
+      "text": "that's terrible for the CPU."
+    },
+    {
+      "id": 152,
+      "start": 394.6,
+      "end": 396.52,
+      "text": "And there's all this interaction, things much slower."
+    },
+    {
+      "id": 153,
+      "start": 396.52,
+      "end": 398.48,
+      "text": "So they built this X100 prototype."
+    },
+    {
+      "id": 154,
+      "start": 399.64,
+      "end": 402.76,
+      "text": "They then spun it out as a startup called Vectorwise,"
+    },
+    {
+      "id": 155,
+      "start": 402.76,
+      "end": 404.72,
+      "text": "that was acquired by Acting in 2010."
+    },
+    {
+      "id": 156,
+      "start": 405.84,
+      "end": 407.2,
+      "text": "They got then rebranded as Vector,"
+    },
+    {
+      "id": 157,
+      "start": 407.2,
+      "end": 408.6,
+      "text": "which I think is a terrible name for a database"
+    },
+    {
+      "id": 158,
+      "start": 408.6,
+      "end": 409.72,
+      "text": "because you search Vector database,"
+    },
+    {
+      "id": 159,
+      "start": 409.72,
+      "end": 410.76,
+      "text": "you're not gonna get this thing,"
+    },
+    {
+      "id": 160,
+      "start": 410.76,
+      "end": 414.36,
+      "text": "you're gonna get weeveane, pine cone, all these other ones."
+    },
+    {
+      "id": 161,
+      "start": 414.36,
+      "end": 417.8,
+      "text": "But then the cloud version of Vectorwise"
+    },
+    {
+      "id": 162,
+      "start": 417.8,
+      "end": 419.36,
+      "text": "is now called AdVelanch."
+    },
+    {
+      "id": 163,
+      "start": 419.36,
+      "end": 421.16,
+      "text": "Then Acting got bought by, I think,"
+    },
+    {
+      "id": 164,
+      "start": 421.16,
+      "end": 425.48,
+      "text": "Indian Holden company, HCL, two years ago, wish."
+    },
+    {
+      "id": 165,
+      "start": 425.48,
+      "end": 427.76,
+      "text": "Right, and so it's still there."
+    },
+    {
+      "id": 166,
+      "start": 427.76,
+      "end": 430.32,
+      "text": "Acting is also the original, is what Ingress became."
+    },
+    {
+      "id": 167,
+      "start": 430.32,
+      "end": 432.84,
+      "text": "So Ingress got bought and sold over the various years."
+    },
+    {
+      "id": 168,
+      "start": 432.84,
+      "end": 435.68,
+      "text": "And then at some point, I got rebranded to Action"
+    },
+    {
+      "id": 169,
+      "start": 435.68,
+      "end": 438.48,
+      "text": "and they kept sort of had these older databases."
+    },
+    {
+      "id": 170,
+      "start": 438.48,
+      "end": 441.0,
+      "text": "And then Vectorwise was the sort of,"
+    },
+    {
+      "id": 171,
+      "start": 441.0,
+      "end": 445.04,
+      "text": "the high performance columnist or engine for Ingress."
+    },
+    {
+      "id": 172,
+      "start": 445.04,
+      "end": 446.8,
+      "text": "And then it got rebranded."
+    },
+    {
+      "id": 173,
+      "start": 447.72,
+      "end": 450.16,
+      "text": "But anyway, so, again, the reason why I had you guys read this paper"
+    },
+    {
+      "id": 174,
+      "start": 450.16,
+      "end": 453.24,
+      "text": "even though it's from 2005 is because this is,"
+    },
+    {
+      "id": 175,
+      "start": 453.24,
+      "end": 455.28,
+      "text": "this is how you wanna design a system even today."
+    },
+    {
+      "id": 176,
+      "start": 455.28,
+      "end": 457.0,
+      "text": "Now, there's all this other stuff about itanium,"
+    },
+    {
+      "id": 177,
+      "start": 457.0,
+      "end": 458.76,
+      "text": "which I'm assuming that's a CPU architecture"
+    },
+    {
+      "id": 178,
+      "start": 458.76,
+      "end": 461.2,
+      "text": "that no one actually, who here is her titanium?"
+    },
+    {
+      "id": 179,
+      "start": 461.2,
+      "end": 463.36,
+      "text": "One, three, right?"
+    },
+    {
+      "id": 180,
+      "start": 463.36,
+      "end": 465.64,
+      "text": "It's basically, it was another super scaler CPU"
+    },
+    {
+      "id": 181,
+      "start": 465.64,
+      "end": 469.12,
+      "text": "from Intel in collaboration with HP, the 2000s."
+    },
+    {
+      "id": 182,
+      "start": 469.12,
+      "end": 471.52,
+      "text": "It was meant to replace X86, right?"
+    },
+    {
+      "id": 183,
+      "start": 472.48,
+      "end": 474.56,
+      "text": "But it had this massive pipeline."
+    },
+    {
+      "id": 184,
+      "start": 474.56,
+      "end": 476.04,
+      "text": "It did things a little bit different"
+    },
+    {
+      "id": 185,
+      "start": 476.04,
+      "end": 477.92,
+      "text": "than how we, you know, Zion's worked today."
+    },
+    {
+      "id": 186,
+      "start": 477.92,
+      "end": 480.16,
+      "text": "But it didn't go anywhere, they coked it off."
+    },
+    {
+      "id": 187,
+      "start": 480.16,
+      "end": 482.16,
+      "text": "And so we'll see this maybe some other papers too."
+    },
+    {
+      "id": 188,
+      "start": 482.16,
+      "end": 484.44,
+      "text": "There's other Intel hardware that people sort of target"
+    },
+    {
+      "id": 189,
+      "start": 484.44,
+      "end": 485.68,
+      "text": "that doesn't exist anymore."
+    },
+    {
+      "id": 190,
+      "start": 485.68,
+      "end": 487.2,
+      "text": "We don't care about."
+    },
+    {
+      "id": 191,
+      "start": 487.2,
+      "end": 489.56,
+      "text": "But the high level idea is actually matter."
+    },
+    {
+      "id": 192,
+      "start": 489.56,
+      "end": 490.88,
+      "text": "And again, just to show you that this paper,"
+    },
+    {
+      "id": 193,
+      "start": 490.88,
+      "end": 494.0,
+      "text": "even though it's from 2005, it's still timely."
+    },
+    {
+      "id": 194,
+      "start": 494.0,
+      "end": 496.96,
+      "text": "Earlier in this year, at CIDER,"
+    },
+    {
+      "id": 195,
+      "start": 496.96,
+      "end": 499.28,
+      "text": "this paper won the Test of Time Award, all right?"
+    },
+    {
+      "id": 196,
+      "start": 499.28,
+      "end": 500.96,
+      "text": "So, because the DMS research community"
+    },
+    {
+      "id": 197,
+      "start": 500.96,
+      "end": 502.44,
+      "text": "recognized that how important this paper was"
+    },
+    {
+      "id": 198,
+      "start": 502.44,
+      "end": 505.36,
+      "text": "and how this has massive influence"
+    },
+    {
+      "id": 199,
+      "start": 505.36,
+      "end": 509.32,
+      "text": "in the database marketplace for OLEC Quicks, right?"
+    },
+    {
+      "id": 200,
+      "start": 509.32,
+      "end": 511.52,
+      "text": "So that's, right there, that's Peter Bonds."
+    },
+    {
+      "id": 201,
+      "start": 511.52,
+      "end": 515.6,
+      "text": "That's the guy that, you know,"
+    },
+    {
+      "id": 202,
+      "start": 515.6,
+      "end": 517.04,
+      "text": "it did the early work of an ADB,"
+    },
+    {
+      "id": 203,
+      "start": 517.04,
+      "end": 518.8,
+      "text": "did the work early work in vector wise."
+    },
+    {
+      "id": 204,
+      "start": 518.8,
+      "end": 521.08,
+      "text": "Now he's a technically intern at MotherDuck,"
+    },
+    {
+      "id": 205,
+      "start": 521.08,
+      "end": 522.64,
+      "text": "but he did early work on DuckDB."
+    },
+    {
+      "id": 206,
+      "start": 523.76,
+      "end": 525.48,
+      "text": "Nails is the, I think it's the CEO"
+    },
+    {
+      "id": 207,
+      "start": 525.48,
+      "end": 527.4,
+      "text": "of the MooneyDB company."
+    },
+    {
+      "id": 208,
+      "start": 527.4,
+      "end": 529.12,
+      "text": "That's Martin Sikowski."
+    },
+    {
+      "id": 209,
+      "start": 529.12,
+      "end": 531.16,
+      "text": "So after vector wise got bought by Acti"
+    },
+    {
+      "id": 210,
+      "start": 531.16,
+      "end": 533.28,
+      "text": "and he then went and formed Snowflake."
+    },
+    {
+      "id": 211,
+      "start": 533.28,
+      "end": 535.32,
+      "text": "A lot of the ideas that are in this paper"
+    },
+    {
+      "id": 212,
+      "start": 535.32,
+      "end": 537.72,
+      "text": "is what Snowflake's based on, right?"
+    },
+    {
+      "id": 213,
+      "start": 537.72,
+      "end": 538.72,
+      "text": "We'll cover him later."
+    },
+    {
+      "id": 214,
+      "start": 540.24,
+      "end": 542.0,
+      "text": "That's Magda Pat Helen, she's a UW,"
+    },
+    {
+      "id": 215,
+      "start": 542.0,
+      "end": 543.48,
+      "text": "but he's at Salesforce."
+    },
+    {
+      "id": 216,
+      "start": 543.48,
+      "end": 545.24,
+      "text": "That's the guy that then in Boquer,"
+    },
+    {
+      "id": 217,
+      "start": 545.24,
+      "end": 547.08,
+      "text": "he then in Apache Flink."
+    },
+    {
+      "id": 218,
+      "start": 547.08,
+      "end": 549.72,
+      "text": "We're not gonna cover Flink, but anyway."
+    },
+    {
+      "id": 219,
+      "start": 549.72,
+      "end": 552.16,
+      "text": "Again, this paper is super, super influential."
+    },
+    {
+      "id": 220,
+      "start": 553.88,
+      "end": 556.2,
+      "text": "All right, so this is sort of a crash course"
+    },
+    {
+      "id": 221,
+      "start": 556.2,
+      "end": 558.24,
+      "text": "in what CPUs look like"
+    },
+    {
+      "id": 222,
+      "start": 558.24,
+      "end": 562.12,
+      "text": "and just for like what it matters for us as database people,"
+    },
+    {
+      "id": 223,
+      "start": 562.12,
+      "end": 562.96,
+      "text": "right?"
+    },
+    {
+      "id": 224,
+      "start": 562.96,
+      "end": 565.28,
+      "text": "So everything you need to know in like two slides."
+    },
+    {
+      "id": 225,
+      "start": 565.28,
+      "end": 566.48,
+      "text": "At a high level."
+    },
+    {
+      "id": 226,
+      "start": 566.48,
+      "end": 569.84,
+      "text": "So the CPU is basically an order line,"
+    },
+    {
+      "id": 227,
+      "start": 569.84,
+      "end": 571.6,
+      "text": "organize the execution instructions"
+    },
+    {
+      "id": 228,
+      "start": 571.6,
+      "end": 572.96,
+      "text": "through these pipeline stages."
+    },
+    {
+      "id": 229,
+      "start": 572.96,
+      "end": 575.52,
+      "text": "And the CPU is basically goal is to try to keep"
+    },
+    {
+      "id": 230,
+      "start": 575.52,
+      "end": 578.48,
+      "text": "this pipeline busy at all times."
+    },
+    {
+      "id": 231,
+      "start": 578.48,
+      "end": 581.04,
+      "text": "There's always something to do, right?"
+    },
+    {
+      "id": 232,
+      "start": 581.04,
+      "end": 583.32,
+      "text": "So that means that if there are instructions"
+    },
+    {
+      "id": 233,
+      "start": 583.32,
+      "end": 585.24,
+      "text": "that you can't complete in the single cycle,"
+    },
+    {
+      "id": 234,
+      "start": 585.24,
+      "end": 587.12,
+      "text": "it's gonna try to keep executing things in the pipeline"
+    },
+    {
+      "id": 235,
+      "start": 587.12,
+      "end": 588.92,
+      "text": "because there's a catch miss,"
+    },
+    {
+      "id": 236,
+      "start": 588.92,
+      "end": 590.12,
+      "text": "it's got to fetch the single memory."
+    },
+    {
+      "id": 237,
+      "start": 590.12,
+      "end": 593.2,
+      "text": "So it's always gonna try to keep executing things, right?"
+    },
+    {
+      "id": 238,
+      "start": 593.2,
+      "end": 595.28,
+      "text": "And in a super scaleless CPU architecture,"
+    },
+    {
+      "id": 239,
+      "start": 595.28,
+      "end": 597.88,
+      "text": "there's been multiple pipelines running"
+    },
+    {
+      "id": 240,
+      "start": 597.88,
+      "end": 600.12,
+      "text": "at the same time in parallel, right?"
+    }
+  ],
+  "language": "en"
+}

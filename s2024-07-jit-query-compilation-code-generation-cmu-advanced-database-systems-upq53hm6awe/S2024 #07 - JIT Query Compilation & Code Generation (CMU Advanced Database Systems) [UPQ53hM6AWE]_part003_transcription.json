@@ -1,0 +1,1403 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.88,
+      "text": "now, I think, 2018."
+    },
+    {
+      "id": 1,
+      "start": 1.88,
+      "end": 3.64,
+      "text": "Yeah, 14 years old."
+    },
+    {
+      "id": 2,
+      "start": 3.64,
+      "end": 6.64,
+      "text": "So this is running on a really old CPU that's obviously"
+    },
+    {
+      "id": 3,
+      "start": 6.64,
+      "end": 11.6,
+      "text": "been exceeded by everything else, a core 2 Duo."
+    },
+    {
+      "id": 4,
+      "start": 11.6,
+      "end": 14.16,
+      "text": "But that part, what's that?"
+    },
+    {
+      "id": 5,
+      "start": 14.16,
+      "end": 14.92,
+      "text": "Sorry."
+    },
+    {
+      "id": 6,
+      "start": 14.92,
+      "end": 16.72,
+      "text": "No."
+    },
+    {
+      "id": 7,
+      "start": 16.72,
+      "end": 17.92,
+      "text": "So the exact numbers I don't care about"
+    },
+    {
+      "id": 8,
+      "start": 17.92,
+      "end": 20.64,
+      "text": "is the relative performance difference that matters."
+    },
+    {
+      "id": 9,
+      "start": 20.64,
+      "end": 23.6,
+      "text": "And even if we had a modern CPU, I would expect that it would"
+    },
+    {
+      "id": 10,
+      "start": 23.6,
+      "end": 27.24,
+      "text": "still look the same way."
+    },
+    {
+      "id": 11,
+      "start": 27.24,
+      "end": 29.2,
+      "text": "So again, as you said, what's the problem with this approach?"
+    },
+    {
+      "id": 12,
+      "start": 29.2,
+      "end": 30.4,
+      "text": "The compilation costs."
+    },
+    {
+      "id": 13,
+      "start": 30.4,
+      "end": 33.16,
+      "text": "All right, so how much time does that take?"
+    },
+    {
+      "id": 14,
+      "start": 33.16,
+      "end": 37.96,
+      "text": "So in here, they're comparing the high-cute generated source"
+    },
+    {
+      "id": 15,
+      "start": 37.96,
+      "end": 42.96,
+      "text": "code, the compilation cost for either running with 0.1 or 0.2."
+    },
+    {
+      "id": 16,
+      "start": 42.96,
+      "end": 45.92,
+      "text": "And as I said, we don't ship database system software"
+    },
+    {
+      "id": 17,
+      "start": 45.92,
+      "end": 50.4,
+      "text": "with 0.3 compilation because it might put things out of order"
+    },
+    {
+      "id": 18,
+      "start": 50.4,
+      "end": 53.8,
+      "text": "and actually running slower than it would have just 0.2."
+    },
+    {
+      "id": 19,
+      "start": 53.8,
+      "end": 56.2,
+      "text": "So 0.2 is what you want to ship source code with."
+    },
+    {
+      "id": 20,
+      "start": 56.2,
+      "end": 58.04,
+      "text": "Obviously, when you use 0.1, if you're"
+    },
+    {
+      "id": 21,
+      "start": 58.04,
+      "end": 62.32,
+      "text": "trying to debug something, then you run with 0.1."
+    },
+    {
+      "id": 22,
+      "start": 62.32,
+      "end": 64.96,
+      "text": "But obviously, 0.1 is going to be less aggressive on the"
+    },
+    {
+      "id": 23,
+      "start": 64.96,
+      "end": 65.76,
+      "text": "optimizations."
+    },
+    {
+      "id": 24,
+      "start": 65.76,
+      "end": 68.92,
+      "text": "So that's why the compilation cost is lower."
+    },
+    {
+      "id": 25,
+      "start": 68.92,
+      "end": 72.88,
+      "text": "Again, old hardware back in the day, but it just goes to show"
+    },
+    {
+      "id": 26,
+      "start": 72.88,
+      "end": 77.36,
+      "text": "that first of all, you see almost a 3x difference in"
+    },
+    {
+      "id": 27,
+      "start": 77.36,
+      "end": 80.48,
+      "text": "compilation cost between 0.0 and 0.2."
+    },
+    {
+      "id": 28,
+      "start": 80.48,
+      "end": 84.44,
+      "text": "But again, now we're talking in case for this query here,"
+    },
+    {
+      "id": 29,
+      "start": 84.44,
+      "end": 87.4,
+      "text": "600 milliseconds to compile it."
+    },
+    {
+      "id": 30,
+      "start": 87.4,
+      "end": 91.0,
+      "text": "And for scale factor 1, you can probably run this query in"
+    },
+    {
+      "id": 31,
+      "start": 91.0,
+      "end": 95.48,
+      "text": "10 milliseconds, 20 milliseconds."
+    },
+    {
+      "id": 32,
+      "start": 95.48,
+      "end": 99.96,
+      "text": "So this is a big problem because if your query is only going"
+    },
+    {
+      "id": 33,
+      "start": 99.96,
+      "end": 103.72,
+      "text": "to run for a fraction of the compilation cost, you might"
+    },
+    {
+      "id": 34,
+      "start": 103.72,
+      "end": 105.8,
+      "text": "just be better off just not running the compilation step"
+    },
+    {
+      "id": 35,
+      "start": 105.8,
+      "end": 108.44,
+      "text": "at all, just run the old interpretive version."
+    },
+    {
+      "id": 36,
+      "start": 108.44,
+      "end": 110.12,
+      "text": "Now, if your query is going to run for like five hours and it"
+    },
+    {
+      "id": 37,
+      "start": 110.12,
+      "end": 113.04,
+      "text": "takes 600 milliseconds of compile, yeah, who cares?"
+    },
+    {
+      "id": 38,
+      "start": 113.04,
+      "end": 115.16,
+      "text": "But again, the disk has gotten faster than network's gotten"
+    },
+    {
+      "id": 39,
+      "start": 115.16,
+      "end": 117.96,
+      "text": "faster, CPU's not as much."
+    },
+    {
+      "id": 40,
+      "start": 117.96,
+      "end": 124.0,
+      "text": "But with a well-insured, well-built execution engine,"
+    },
+    {
+      "id": 41,
+      "start": 124.0,
+      "end": 127.76,
+      "text": "you'll be able to get through some queries can finish in less"
+    },
+    {
+      "id": 42,
+      "start": 127.76,
+      "end": 129.2,
+      "text": "than 10 milliseconds."
+    },
+    {
+      "id": 43,
+      "start": 129.2,
+      "end": 132.6,
+      "text": "So your compilation cost is going to be a big problem."
+    },
+    {
+      "id": 44,
+      "start": 132.6,
+      "end": 135.24,
+      "text": "Now, the hyperpavary guys read didn't solve it."
+    },
+    {
+      "id": 45,
+      "start": 135.24,
+      "end": 135.92,
+      "text": "They solved it afterwards."
+    },
+    {
+      "id": 46,
+      "start": 135.92,
+      "end": 137.2,
+      "text": "We'll cover that in a second."
+    },
+    {
+      "id": 47,
+      "start": 137.2,
+      "end": 140.96,
+      "text": "But in that case, again, because this is the fork in GCC,"
+    },
+    {
+      "id": 48,
+      "start": 140.96,
+      "end": 143.08,
+      "text": "it's a much more expensive compilation process."
+    },
+    {
+      "id": 49,
+      "start": 143.08,
+      "end": 144.28,
+      "text": "Yes?"
+    },
+    {
+      "id": 50,
+      "start": 144.8,
+      "end": 147.28,
+      "text": "What do you do after the query is to do this"
+    },
+    {
+      "id": 51,
+      "start": 147.28,
+      "end": 148.68,
+      "text": "to avoid the compile code?"
+    },
+    {
+      "id": 52,
+      "start": 148.68,
+      "end": 151.0,
+      "text": "Does someone like kind of use it somehow?"
+    },
+    {
+      "id": 53,
+      "start": 151.0,
+      "end": 153.84,
+      "text": "Yes, the question is, what does high-coup do?"
+    },
+    {
+      "id": 54,
+      "start": 153.84,
+      "end": 155.0,
+      "text": "What do people do?"
+    },
+    {
+      "id": 55,
+      "start": 155.0,
+      "end": 156.2,
+      "text": "In general, yes."
+    },
+    {
+      "id": 56,
+      "start": 156.2,
+      "end": 157.28,
+      "text": "Yes, so the question is, what do people"
+    },
+    {
+      "id": 57,
+      "start": 157.28,
+      "end": 158.6,
+      "text": "do with the compiled code?"
+    },
+    {
+      "id": 58,
+      "start": 158.6,
+      "end": 160.28,
+      "text": "Do they just throw it away and discard it?"
+    },
+    {
+      "id": 59,
+      "start": 160.28,
+      "end": 162.12,
+      "text": "Or can they cache it?"
+    },
+    {
+      "id": 60,
+      "start": 162.12,
+      "end": 163.88,
+      "text": "We'll see rest of it in a second."
+    },
+    {
+      "id": 61,
+      "start": 163.88,
+      "end": 166.6,
+      "text": "They cache it and they cache everything."
+    },
+    {
+      "id": 62,
+      "start": 166.6,
+      "end": 168.28,
+      "text": "And high-coup means an academic system."
+    },
+    {
+      "id": 63,
+      "start": 168.28,
+      "end": 169.12,
+      "text": "I don't know."
+    },
+    {
+      "id": 64,
+      "start": 169.12,
+      "end": 172.28,
+      "text": "But you can obviously imagine it like,"
+    },
+    {
+      "id": 65,
+      "start": 172.28,
+      "end": 175.32,
+      "text": "because if I can parameterize it potentially"
+    },
+    {
+      "id": 66,
+      "start": 175.32,
+      "end": 178.2,
+      "text": "to put it into like, you know, make it a function"
+    },
+    {
+      "id": 67,
+      "start": 178.2,
+      "end": 180.88,
+      "text": "where I pass in the input value."
+    },
+    {
+      "id": 68,
+      "start": 180.88,
+      "end": 182.96,
+      "text": "And I don't get maybe the constant folding that I would want."
+    },
+    {
+      "id": 69,
+      "start": 182.96,
+      "end": 185.24,
+      "text": "At least now the compilation cost would be lessened."
+    },
+    {
+      "id": 70,
+      "start": 185.24,
+      "end": 187.56,
+      "text": "And then you essentially end up with vector-wise's,"
+    },
+    {
+      "id": 71,
+      "start": 187.56,
+      "end": 188.64,
+      "text": "because that's what they're doing."
+    },
+    {
+      "id": 72,
+      "start": 188.64,
+      "end": 190.32,
+      "text": "But they're pre-compiling everything"
+    },
+    {
+      "id": 73,
+      "start": 190.32,
+      "end": 194.32,
+      "text": "when you ship the database system at runtime for queries."
+    },
+    {
+      "id": 74,
+      "start": 194.32,
+      "end": 195.44,
+      "text": "But you have caching with help."
+    },
+    {
+      "id": 75,
+      "start": 195.44,
+      "end": 196.96,
+      "text": "If it's a prepared statement, you can cache it."
+    },
+    {
+      "id": 76,
+      "start": 196.96,
+      "end": 199.68,
+      "text": "Because you know you're going to see it over again."
+    },
+    {
+      "id": 77,
+      "start": 199.68,
+      "end": 200.2,
+      "text": "Yes?"
+    },
+    {
+      "id": 78,
+      "start": 200.2,
+      "end": 203.08,
+      "text": "Is that a question that's going to be a cache?"
+    },
+    {
+      "id": 79,
+      "start": 203.08,
+      "end": 206.32,
+      "text": "Is that what a cache of aqua is?"
+    },
+    {
+      "id": 80,
+      "start": 206.32,
+      "end": 209.24,
+      "text": "Aqua is a harbor accelerator."
+    },
+    {
+      "id": 81,
+      "start": 209.24,
+      "end": 210.96,
+      "text": "We won't cover that."
+    },
+    {
+      "id": 82,
+      "start": 210.96,
+      "end": 213.16,
+      "text": "Even before you get to aqua."
+    },
+    {
+      "id": 83,
+      "start": 213.16,
+      "end": 214.6,
+      "text": "They cache things, yes."
+    },
+    {
+      "id": 84,
+      "start": 219.08,
+      "end": 222.2,
+      "text": "So as I said, the relational operators"
+    },
+    {
+      "id": 85,
+      "start": 222.2,
+      "end": 226.0,
+      "text": "are a great way to read about queries."
+    },
+    {
+      "id": 86,
+      "start": 226.0,
+      "end": 228.52,
+      "text": "And we have these composable query plans."
+    },
+    {
+      "id": 87,
+      "start": 228.52,
+      "end": 230.36,
+      "text": "We can move operators down anywhere we want"
+    },
+    {
+      "id": 88,
+      "start": 230.36,
+      "end": 232.24,
+      "text": "and not worry about what's feeding into what,"
+    },
+    {
+      "id": 89,
+      "start": 232.24,
+      "end": 234.84,
+      "text": "because they're just sending two pulls."
+    },
+    {
+      "id": 90,
+      "start": 234.84,
+      "end": 236.84,
+      "text": "But that's going to be problematic when"
+    },
+    {
+      "id": 91,
+      "start": 236.84,
+      "end": 237.84,
+      "text": "we come this time to execute it."
+    },
+    {
+      "id": 92,
+      "start": 237.84,
+      "end": 243.08,
+      "text": "If we do a little translation of the relational algebra"
+    },
+    {
+      "id": 93,
+      "start": 243.08,
+      "end": 246.16,
+      "text": "query plan into C++ or whatever you want to compile into,"
+    },
+    {
+      "id": 94,
+      "start": 246.16,
+      "end": 250.4,
+      "text": "that may not always be the most efficient way to do this."
+    },
+    {
+      "id": 95,
+      "start": 250.4,
+      "end": 251.84,
+      "text": "And then I said there was a long compilation"
+    },
+    {
+      "id": 96,
+      "start": 251.84,
+      "end": 253.84,
+      "text": "cost in C++."
+    },
+    {
+      "id": 97,
+      "start": 253.84,
+      "end": 256.56,
+      "text": "And in the case of Haiku, they were not supporting full pipe"
+    },
+    {
+      "id": 98,
+      "start": 256.56,
+      "end": 257.16,
+      "text": "mining."
+    },
+    {
+      "id": 99,
+      "start": 257.16,
+      "end": 259.88,
+      "text": "They were still processing one two-blot of time"
+    },
+    {
+      "id": 100,
+      "start": 259.88,
+      "end": 262.64,
+      "text": "from one operative to the next."
+    },
+    {
+      "id": 101,
+      "start": 262.64,
+      "end": 267.6,
+      "text": "And because it's from 2008 and the vectorization stuff"
+    },
+    {
+      "id": 102,
+      "start": 267.6,
+      "end": 270.44,
+      "text": "and the other stuff we talked about so far, that came much later."
+    },
+    {
+      "id": 103,
+      "start": 273.64,
+      "end": 277.76,
+      "text": "So the hyperpig of you guys read is not an easy paper to read."
+    },
+    {
+      "id": 104,
+      "start": 277.76,
+      "end": 280.12,
+      "text": "So hopefully no one spent too much time in the appendix"
+    },
+    {
+      "id": 105,
+      "start": 280.12,
+      "end": 282.2,
+      "text": "on that hell of the IR stuff."
+    },
+    {
+      "id": 106,
+      "start": 282.2,
+      "end": 284.96,
+      "text": "I think it's said not to read it, right?"
+    },
+    {
+      "id": 107,
+      "start": 284.96,
+      "end": 288.84,
+      "text": "So what he's going to do in hyper is that, again,"
+    },
+    {
+      "id": 108,
+      "start": 288.84,
+      "end": 291.56,
+      "text": "rather than generating C++ code,"
+    },
+    {
+      "id": 109,
+      "start": 291.56,
+      "end": 294.72,
+      "text": "they're going to generate a LLVM IR directly."
+    },
+    {
+      "id": 110,
+      "start": 294.72,
+      "end": 298.48,
+      "text": "And then they would then go ahead and compile that"
+    },
+    {
+      "id": 111,
+      "start": 298.48,
+      "end": 299.56,
+      "text": "into machine code."
+    },
+    {
+      "id": 112,
+      "start": 299.56,
+      "end": 302.0,
+      "text": "So you end up with again with the same,"
+    },
+    {
+      "id": 113,
+      "start": 302.0,
+      "end": 305.0,
+      "text": "you would end up with the same machine code theory"
+    },
+    {
+      "id": 114,
+      "start": 305.0,
+      "end": 306.32,
+      "text": "as the Haiku approach."
+    },
+    {
+      "id": 115,
+      "start": 306.32,
+      "end": 308.36,
+      "text": "But you're not going C++ and then converting that"
+    },
+    {
+      "id": 116,
+      "start": 308.36,
+      "end": 309.92,
+      "text": "to a machine code."
+    },
+    {
+      "id": 117,
+      "start": 309.92,
+      "end": 312.68,
+      "text": "And of course, the GZ is going to put that in its own IR."
+    },
+    {
+      "id": 118,
+      "start": 312.68,
+      "end": 314.16,
+      "text": "You're just going directly to the IR,"
+    },
+    {
+      "id": 119,
+      "start": 314.16,
+      "end": 317.6,
+      "text": "with a bunch of C++ macros that then compose a query plan,"
+    },
+    {
+      "id": 120,
+      "start": 317.6,
+      "end": 321.48,
+      "text": "hand it off to LLVM and then LLVM can go ahead and compile it."
+    },
+    {
+      "id": 121,
+      "start": 321.48,
+      "end": 323.96,
+      "text": "Now, the challenge of this paper also too"
+    },
+    {
+      "id": 122,
+      "start": 323.96,
+      "end": 325.76,
+      "text": "is because he's a genius."
+    },
+    {
+      "id": 123,
+      "start": 325.76,
+      "end": 327.28,
+      "text": "He's introducing two key concepts."
+    },
+    {
+      "id": 124,
+      "start": 327.28,
+      "end": 330.12,
+      "text": "He's using this code compilation stuff with LLVM,"
+    },
+    {
+      "id": 125,
+      "start": 330.12,
+      "end": 333.8,
+      "text": "but he's also introducing the push-based execution."
+    },
+    {
+      "id": 126,
+      "start": 333.8,
+      "end": 335.84,
+      "text": "And that makes it seem like you can't"
+    },
+    {
+      "id": 127,
+      "start": 335.84,
+      "end": 336.8,
+      "text": "have one without the other."
+    },
+    {
+      "id": 128,
+      "start": 336.8,
+      "end": 337.68,
+      "text": "It's not true."
+    },
+    {
+      "id": 129,
+      "start": 337.68,
+      "end": 342.32,
+      "text": "But he's showing you how to design these using operative fusion,"
+    },
+    {
+      "id": 130,
+      "start": 342.32,
+      "end": 344.28,
+      "text": "design these query plans, the very efficient"
+    },
+    {
+      "id": 131,
+      "start": 344.28,
+      "end": 347.2,
+      "text": "try to ride tuples up in CPU registers"
+    },
+    {
+      "id": 132,
+      "start": 347.2,
+      "end": 348.4,
+      "text": "for as long as possible."
+    },
+    {
+      "id": 133,
+      "start": 348.4,
+      "end": 352.36,
+      "text": "And the push-based approach is how you do that."
+    },
+    {
+      "id": 134,
+      "start": 352.36,
+      "end": 354.8,
+      "text": "So let's just look over the real simple examples."
+    },
+    {
+      "id": 135,
+      "start": 354.8,
+      "end": 358.16,
+      "text": "So this is the query we showed before."
+    },
+    {
+      "id": 136,
+      "start": 358.16,
+      "end": 361.16,
+      "text": "So we know how to divide up the query plan into pipeline."
+    },
+    {
+      "id": 137,
+      "start": 361.16,
+      "end": 363.04,
+      "text": "There's a pipeline breaker that says"
+    },
+    {
+      "id": 138,
+      "start": 363.04,
+      "end": 365.8,
+      "text": "that we can't sort of executing another pipeline"
+    },
+    {
+      "id": 139,
+      "start": 365.8,
+      "end": 372.28,
+      "text": "until all the tuples are processed by the child pipeline"
+    },
+    {
+      "id": 140,
+      "start": 373.08,
+      "end": 375.56,
+      "text": "Now, we'll cover next class how do we take these pipelines"
+    },
+    {
+      "id": 141,
+      "start": 375.56,
+      "end": 377.08,
+      "text": "and divide them up to task."
+    },
+    {
+      "id": 142,
+      "start": 377.08,
+      "end": 378.92,
+      "text": "We run them on different cores and different nodes"
+    },
+    {
+      "id": 143,
+      "start": 378.92,
+      "end": 379.84,
+      "text": "and schedule them."
+    },
+    {
+      "id": 144,
+      "start": 379.84,
+      "end": 380.52,
+      "text": "That's next week."
+    },
+    {
+      "id": 145,
+      "start": 380.52,
+      "end": 382.48,
+      "text": "But for now, we'll just assume that it's a very simple"
+    },
+    {
+      "id": 146,
+      "start": 382.48,
+      "end": 383.72,
+      "text": "dependency grab to know."
+    },
+    {
+      "id": 147,
+      "start": 383.72,
+      "end": 385.52,
+      "text": "We've got to run run one and two."
+    },
+    {
+      "id": 148,
+      "start": 385.52,
+      "end": 388.04,
+      "text": "We can run in parallel, but three can't run until two"
+    },
+    {
+      "id": 149,
+      "start": 388.04,
+      "end": 390.88,
+      "text": "finishes and four can't run until one and three finish."
+    },
+    {
+      "id": 150,
+      "start": 393.48,
+      "end": 396.88,
+      "text": "So what Hyper's going to do is that they're going to generate"
+    },
+    {
+      "id": 151,
+      "start": 396.88,
+      "end": 401.4,
+      "text": "these essentially much a nest of four loops."
+    },
+    {
+      "id": 152,
+      "start": 401.4,
+      "end": 402.28,
+      "text": "It's the push-based model."
+    },
+    {
+      "id": 153,
+      "start": 402.28,
+      "end": 404.0,
+      "text": "So these nest of four loops are going to be"
+    },
+    {
+      "id": 154,
+      "start": 404.0,
+      "end": 406.88,
+      "text": "able to within one pipeline do as much work"
+    },
+    {
+      "id": 155,
+      "start": 406.88,
+      "end": 408.92,
+      "text": "you can for a single tuple."
+    },
+    {
+      "id": 156,
+      "start": 408.92,
+      "end": 411.72,
+      "text": "And then I'll only go back to the next iteration of the four"
+    },
+    {
+      "id": 157,
+      "start": 411.72,
+      "end": 415.04,
+      "text": "of the ones you've done everything you can with that tuple."
+    },
+    {
+      "id": 158,
+      "start": 415.04,
+      "end": 417.68,
+      "text": "So if you think of the boundaries here are these pipelines"
+    },
+    {
+      "id": 159,
+      "start": 417.68,
+      "end": 419.28,
+      "text": "like this."
+    },
+    {
+      "id": 160,
+      "start": 419.28,
+      "end": 420.92,
+      "text": "And at the end, you have this long pipeline"
+    },
+    {
+      "id": 161,
+      "start": 420.92,
+      "end": 423.4,
+      "text": "for where you're just entering over tuple C,"
+    },
+    {
+      "id": 162,
+      "start": 423.4,
+      "end": 425.6,
+      "text": "probe it into the hash table, probe it into the second hash"
+    },
+    {
+      "id": 163,
+      "start": 425.6,
+      "end": 427.76,
+      "text": "table, and then admit it when it's done."
+    },
+    {
+      "id": 164,
+      "start": 427.76,
+      "end": 429.48,
+      "text": "And so in this case here, for any tuple that match,"
+    },
+    {
+      "id": 165,
+      "start": 430.44,
+      "end": 434.8,
+      "text": "the join clauses for the other two tables,"
+    },
+    {
+      "id": 166,
+      "start": 434.8,
+      "end": 437.48,
+      "text": "I'm going to do all that processing up the pipeline"
+    },
+    {
+      "id": 167,
+      "start": 437.48,
+      "end": 438.48,
+      "text": "before I go back."
+    },
+    {
+      "id": 168,
+      "start": 438.48,
+      "end": 441.96,
+      "text": "And I'm going to be very careful keeping all this data"
+    },
+    {
+      "id": 169,
+      "start": 441.96,
+      "end": 444.72,
+      "text": "in the CV registers themselves."
+    },
+    {
+      "id": 170,
+      "start": 444.72,
+      "end": 446.48,
+      "text": "Rather than saying, hey, here's it's in memory,"
+    },
+    {
+      "id": 171,
+      "start": 446.48,
+      "end": 447.72,
+      "text": "I hope it makes it, there actually"
+    },
+    {
+      "id": 172,
+      "start": 447.72,
+      "end": 449.8,
+      "text": "will be very careful trying to put it into the registers"
+    },
+    {
+      "id": 173,
+      "start": 449.8,
+      "end": 451.88,
+      "text": "and not put anything else in there"
+    },
+    {
+      "id": 174,
+      "start": 451.88,
+      "end": 455.56,
+      "text": "until they have to go back and get another tuple."
+    },
+    {
+      "id": 175,
+      "start": 455.56,
+      "end": 458.04,
+      "text": "And again, these are just showing the dependencies"
+    },
+    {
+      "id": 176,
+      "start": 458.04,
+      "end": 460.36,
+      "text": "between them."
+    },
+    {
+      "id": 177,
+      "start": 460.36,
+      "end": 463.08,
+      "text": "So when you compare, so he's going to compare"
+    },
+    {
+      "id": 178,
+      "start": 463.08,
+      "end": 466.98,
+      "text": "against the initial version of Hyper-Thetti"
+    },
+    {
+      "id": 179,
+      "start": 466.98,
+      "end": 469.64,
+      "text": "wrote the do code generation that was like the high queue"
+    },
+    {
+      "id": 180,
+      "start": 469.64,
+      "end": 471.24,
+      "text": "approach with C++."
+    },
+    {
+      "id": 181,
+      "start": 471.24,
+      "end": 474.08,
+      "text": "And then he had his L of them base approach."
+    },
+    {
+      "id": 182,
+      "start": 474.08,
+      "end": 476.24,
+      "text": "But he's also going to pair against vector wise,"
+    },
+    {
+      "id": 183,
+      "start": 476.24,
+      "end": 477.6,
+      "text": "mode ADB, and hyper."
+    },
+    {
+      "id": 184,
+      "start": 477.6,
+      "end": 480.32,
+      "text": "Again, this is what, 2011, 2010."
+    },
+    {
+      "id": 185,
+      "start": 480.32,
+      "end": 482.4,
+      "text": "So these were sort of state of the art"
+    },
+    {
+      "id": 186,
+      "start": 482.4,
+      "end": 484.16,
+      "text": "OLAP systems at the time."
+    },
+    {
+      "id": 187,
+      "start": 484.16,
+      "end": 485.88,
+      "text": "In case of Oracle, if there's showing,"
+    },
+    {
+      "id": 188,
+      "start": 485.88,
+      "end": 490.36,
+      "text": "here's what happens if you have a volcano based system."
+    },
+    {
+      "id": 189,
+      "start": 490.36,
+      "end": 491.32,
+      "text": "It's not a column store."
+    },
+    {
+      "id": 190,
+      "start": 491.32,
+      "end": 494.12,
+      "text": "It's like the worst case scenario."
+    },
+    {
+      "id": 191,
+      "start": 494.12,
+      "end": 498.24,
+      "text": "And I think he calls it db.e. DavisX in the paper."
+    },
+    {
+      "id": 192,
+      "start": 498.24,
+      "end": 500.4,
+      "text": "That's because Oracle has a new contract or a license"
+    },
+    {
+      "id": 193,
+      "start": 500.4,
+      "end": 502.48,
+      "text": "agreement that says you can't name them by name."
+    },
+    {
+      "id": 194,
+      "start": 502.48,
+      "end": 503.68,
+      "text": "Any account?"
+    },
+    {
+      "id": 195,
+      "start": 503.68,
+      "end": 504.28,
+      "text": "What's that?"
+    },
+    {
+      "id": 196,
+      "start": 504.28,
+      "end": 505.84,
+      "text": "I didn't know it was Oracle."
+    },
+    {
+      "id": 197,
+      "start": 505.84,
+      "end": 506.56,
+      "text": "It's Oracle."
+    },
+    {
+      "id": 198,
+      "start": 506.56,
+      "end": 507.08,
+      "text": "Yeah."
+    },
+    {
+      "id": 199,
+      "start": 509.84,
+      "end": 513.52,
+      "text": "So I get the papers 10 years old, so who cares?"
+    },
+    {
+      "id": 200,
+      "start": 513.52,
+      "end": 514.68,
+      "text": "Maybe they care, I don't know."
+    },
+    {
+      "id": 201,
+      "start": 515.0,
+      "end": 517.96,
+      "text": "Is it better than mode ADB would queue by capital?"
+    },
+    {
+      "id": 202,
+      "start": 517.96,
+      "end": 521.84,
+      "text": "His question is why is Oracle better than Q4?"
+    },
+    {
+      "id": 203,
+      "start": 521.84,
+      "end": 523.24,
+      "text": "Q4?"
+    },
+    {
+      "id": 204,
+      "start": 523.24,
+      "end": 524.4,
+      "text": "Yeah, that one I don't know."
+    },
+    {
+      "id": 205,
+      "start": 527.72,
+      "end": 528.72,
+      "text": "Yeah, I don't know that."
+    },
+    {
+      "id": 206,
+      "start": 528.72,
+      "end": 530.24,
+      "text": "Should it never be better?"
+    },
+    {
+      "id": 207,
+      "start": 533.52,
+      "end": 535.88,
+      "text": "It could be the query optimizer."
+    },
+    {
+      "id": 208,
+      "start": 535.88,
+      "end": 539.48,
+      "text": "So this mode ADB at this point was maybe 10 years old."
+    },
+    {
+      "id": 209,
+      "start": 539.48,
+      "end": 544.12,
+      "text": "Oracle was 30, 35 years old."
+    },
+    {
+      "id": 210,
+      "start": 544.12,
+      "end": 546.88,
+      "text": "So they've had millions of dollars"
+    },
+    {
+      "id": 211,
+      "start": 546.88,
+      "end": 548.76,
+      "text": "poured in the query optimizer, whereas mode ADB"
+    },
+    {
+      "id": 212,
+      "start": 548.76,
+      "end": 550.32,
+      "text": "was a small academic team."
+    },
+    {
+      "id": 213,
+      "start": 550.32,
+      "end": 552.52,
+      "text": "So it maybe did decays mode ADB is picking a bad query plan."
+    },
+    {
+      "id": 214,
+      "start": 552.52,
+      "end": 553.6,
+      "text": "But I don't know."
+    },
+    {
+      "id": 215,
+      "start": 553.6,
+      "end": 555.32,
+      "text": "We'll see bad query plans later on."
+    },
+    {
+      "id": 216,
+      "start": 559.0,
+      "end": 563.04,
+      "text": "In the case it is here for Q2, I think vectorized crash."
+    },
+    {
+      "id": 217,
+      "start": 563.04,
+      "end": 564.72,
+      "text": "They didn't get a result."
+    },
+    {
+      "id": 218,
+      "start": 564.72,
+      "end": 568.32,
+      "text": "So again, I don't care about so much the difference between Oracle"
+    },
+    {
+      "id": 219,
+      "start": 568.32,
+      "end": 570.28,
+      "text": "and everything else."
+    },
+    {
+      "id": 220,
+      "start": 570.28,
+      "end": 574.68,
+      "text": "The thing we sort of care about is the hybrid LLM-based version"
+    },
+    {
+      "id": 221,
+      "start": 574.68,
+      "end": 576.76,
+      "text": "and everyone else."
+    },
+    {
+      "id": 222,
+      "start": 576.76,
+      "end": 579.8,
+      "text": "In the case actually for MoodyD, it has an interpreter"
+    },
+    {
+      "id": 223,
+      "start": 579.8,
+      "end": 580.76,
+      "text": "that's going to use op codes."
+    },
+    {
+      "id": 224,
+      "start": 580.76,
+      "end": 582.16,
+      "text": "That's going to look like SQL Lite."
+    },
+    {
+      "id": 225,
+      "start": 582.16,
+      "end": 583.96,
+      "text": "We'll see in a second."
+    },
+    {
+      "id": 226,
+      "start": 583.96,
+      "end": 587.4,
+      "text": "So it isn't just doing function."
+    },
+    {
+      "id": 227,
+      "start": 587.4,
+      "end": 589.12,
+      "text": "It isn't traversing the query plan"
+    },
+    {
+      "id": 228,
+      "start": 589.12,
+      "end": 590.44,
+      "text": "trees that was the way we saw before."
+    },
+    {
+      "id": 229,
+      "start": 590.44,
+      "end": 593.0,
+      "text": "It's a little bit better than that."
+    },
+    {
+      "id": 230,
+      "start": 593.0,
+      "end": 595.08,
+      "text": "But it's still not, again, it's still not"
+    },
+    {
+      "id": 231,
+      "start": 595.08,
+      "end": 599.84,
+      "text": "an exact program for the query plan."
+    },
+    {
+      "id": 232,
+      "start": 599.84,
+      "end": 603.02,
+      "text": "It's do the ruff."
+    }
+  ],
+  "language": "en"
+}

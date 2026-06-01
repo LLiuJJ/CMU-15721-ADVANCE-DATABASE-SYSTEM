@@ -1,0 +1,989 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Can Eeky Mel in universities advance database systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filming front of a live studio audience?"
+    },
+    {
+      "id": 2,
+      "start": 9.0,
+      "end": 17.0,
+      "text": "So, today we're going to pick up what we left off last class"
+    },
+    {
+      "id": 3,
+      "start": 17.0,
+      "end": 20.0,
+      "text": "and talk about how we're actually going to execute queries."
+    },
+    {
+      "id": 4,
+      "start": 20.0,
+      "end": 26.0,
+      "text": "And so in last class we discussed, we mostly discussed query processing"
+    },
+    {
+      "id": 5,
+      "start": 26.0,
+      "end": 30.0,
+      "text": "models and it's part of this is deciding what is the sort of shape"
+    },
+    {
+      "id": 6,
+      "start": 30.0,
+      "end": 34.0,
+      "text": "and the amount of data we're sending from one operator to the next in the query plan."
+    },
+    {
+      "id": 7,
+      "start": 34.0,
+      "end": 39.0,
+      "text": "And then what is the sort of the control mechanism that we're going to use"
+    },
+    {
+      "id": 8,
+      "start": 39.0,
+      "end": 42.0,
+      "text": "to tell one operator to execute?"
+    },
+    {
+      "id": 9,
+      "start": 42.0,
+      "end": 45.0,
+      "text": "And the distinction here was the push versus pull."
+    },
+    {
+      "id": 10,
+      "start": 45.0,
+      "end": 47.0,
+      "text": "And bus tub is a pull-based system."
+    },
+    {
+      "id": 11,
+      "start": 47.0,
+      "end": 50.0,
+      "text": "We're primarily focusing on push-based systems."
+    },
+    {
+      "id": 12,
+      "start": 50.0,
+      "end": 53.0,
+      "text": "And then we talked about at the end how do you actually represent the output"
+    },
+    {
+      "id": 13,
+      "start": 53.0,
+      "end": 57.0,
+      "text": "of predicates and filters, either a selection vector of offsets"
+    },
+    {
+      "id": 14,
+      "start": 57.0,
+      "end": 61.0,
+      "text": "or position lists or bitmap saying what two plus or got satisfied?"
+    },
+    {
+      "id": 15,
+      "start": 61.0,
+      "end": 64.0,
+      "text": "So again, going forward in the semester, we're going to assume that"
+    },
+    {
+      "id": 16,
+      "start": 64.0,
+      "end": 68.0,
+      "text": "in our conceptual system we're building as we go along,"
+    },
+    {
+      "id": 17,
+      "start": 68.0,
+      "end": 70.0,
+      "text": "it's going to be a vectorized push-based system."
+    },
+    {
+      "id": 18,
+      "start": 70.0,
+      "end": 75.0,
+      "text": "Now vectorized is pretty much every other system now does vectorized."
+    },
+    {
+      "id": 19,
+      "start": 75.0,
+      "end": 80.0,
+      "text": "Push-based, I don't actually know the number of many less than half is push-based."
+    },
+    {
+      "id": 20,
+      "start": 80.0,
+      "end": 83.0,
+      "text": "Still a lot of systems are still pull-based."
+    },
+    {
+      "id": 21,
+      "start": 83.0,
+      "end": 88.0,
+      "text": "But the one-to-key advantages that we talked a little bit at the end about push-based system"
+    },
+    {
+      "id": 22,
+      "start": 88.0,
+      "end": 92.0,
+      "text": "is that you essentially have this centralized scheduler that has complete control"
+    },
+    {
+      "id": 23,
+      "start": 92.0,
+      "end": 96.0,
+      "text": "of what task on an execute in when."
+    },
+    {
+      "id": 24,
+      "start": 96.0,
+      "end": 102.0,
+      "text": "And this allows you to do, have fine-grained control over when things actually are executing."
+    },
+    {
+      "id": 25,
+      "start": 102.0,
+      "end": 107.0,
+      "text": "And so there may be situations where if you're running out of memory"
+    },
+    {
+      "id": 26,
+      "start": 107.0,
+      "end": 112.0,
+      "text": "because too many queries are running, you can just pause in a push-based system"
+    },
+    {
+      "id": 27,
+      "start": 112.0,
+      "end": 114.0,
+      "text": "because you just stop executing tasks."
+    },
+    {
+      "id": 28,
+      "start": 114.0,
+      "end": 116.0,
+      "text": "You stop scheduling them."
+    },
+    {
+      "id": 29,
+      "start": 116.0,
+      "end": 122.0,
+      "text": "Or if you have another operator that needs to go get something over the network"
+    },
+    {
+      "id": 30,
+      "start": 122.0,
+      "end": 127.0,
+      "text": "and that's a blocking call, you just can deschedule that task"
+    },
+    {
+      "id": 31,
+      "start": 127.0,
+      "end": 131.0,
+      "text": "and then fire it up again when it's available."
+    },
+    {
+      "id": 32,
+      "start": 131.0,
+      "end": 136.0,
+      "text": "So push-based model allows more control over exactly what's going on in a pull-based approach."
+    },
+    {
+      "id": 33,
+      "start": 136.0,
+      "end": 139.0,
+      "text": "Again, so not every system is going to be push-based,"
+    },
+    {
+      "id": 34,
+      "start": 139.0,
+      "end": 143.0,
+      "text": "but almost every other system today will be vectorized."
+    },
+    {
+      "id": 35,
+      "start": 143.0,
+      "end": 146.0,
+      "text": "All right, so today's class, we're going to continue where we left off last time"
+    },
+    {
+      "id": 36,
+      "start": 146.0,
+      "end": 149.0,
+      "text": "talking about how we're actually going to run queries in parallel,"
+    },
+    {
+      "id": 37,
+      "start": 149.0,
+      "end": 151.0,
+      "text": "the different types of parallelism that we have."
+    },
+    {
+      "id": 38,
+      "start": 151.0,
+      "end": 155.0,
+      "text": "And essentially how we're going to architect the system so that we can allow multiple"
+    },
+    {
+      "id": 39,
+      "start": 155.0,
+      "end": 161.0,
+      "text": "upper instances to run at the same time, either within the same query or multiple queries concurrently."
+    },
+    {
+      "id": 40,
+      "start": 161.0,
+      "end": 165.0,
+      "text": "And then going forward, starting next week, we'll see how we actually start"
+    },
+    {
+      "id": 41,
+      "start": 165.0,
+      "end": 169.0,
+      "text": "parallelizing the individual operators within the query plan."
+    },
+    {
+      "id": 42,
+      "start": 169.0,
+      "end": 172.0,
+      "text": "Then we'll talk about what the operator output looks like,"
+    },
+    {
+      "id": 43,
+      "start": 172.0,
+      "end": 178.0,
+      "text": "then in terms of how do we reference other parts of a tuple,"
+    },
+    {
+      "id": 44,
+      "start": 178.0,
+      "end": 182.0,
+      "text": "other columns, whether we put everything together or do late materialization,"
+    },
+    {
+      "id": 45,
+      "start": 182.0,
+      "end": 185.0,
+      "text": "we'll talk about what the data is going to look like going from one operator to the next,"
+    },
+    {
+      "id": 46,
+      "start": 185.0,
+      "end": 188.0,
+      "text": "and the spoiler is going to be we're going to use arrow for this,"
+    },
+    {
+      "id": 47,
+      "start": 188.0,
+      "end": 193.0,
+      "text": "how we are in valid expressions, and then we'll just do a quick preview of what"
+    },
+    {
+      "id": 48,
+      "start": 193.0,
+      "end": 195.0,
+      "text": "adaptive query execution looks like,"
+    },
+    {
+      "id": 49,
+      "start": 195.0,
+      "end": 199.0,
+      "text": "where we focus on the, in the context of the Veloc paper you guys read,"
+    },
+    {
+      "id": 50,
+      "start": 199.0,
+      "end": 202.0,
+      "text": "we'll focus on how we do predicate evaluation and let that be adaptive,"
+    },
+    {
+      "id": 51,
+      "start": 202.0,
+      "end": 205.0,
+      "text": "but then going forward throughout the rest of the semester,"
+    },
+    {
+      "id": 52,
+      "start": 205.0,
+      "end": 210.0,
+      "text": "and then when we talk about the query optimization, we'll see how we do query add that add-optivity."
+    },
+    {
+      "id": 53,
+      "start": 210.0,
+      "end": 213.0,
+      "text": "And this is the, this is the hardest one,"
+    },
+    {
+      "id": 54,
+      "start": 213.0,
+      "end": 216.0,
+      "text": "this is one of the hardest things you can do in a database system,"
+    },
+    {
+      "id": 55,
+      "start": 216.0,
+      "end": 219.0,
+      "text": "you can't need to design the data at the very beginning to be able to support this"
+    },
+    {
+      "id": 56,
+      "start": 219.0,
+      "end": 223.0,
+      "text": "rather than go retrofit it. Mostly on the query plan side,"
+    },
+    {
+      "id": 57,
+      "start": 223.0,
+      "end": 227.0,
+      "text": "for the expression stuff you can add this stuff later on."
+    },
+    {
+      "id": 58,
+      "start": 227.0,
+      "end": 231.0,
+      "text": "Alright, so the parallel execution, the idea is pretty straightforward."
+    },
+    {
+      "id": 59,
+      "start": 231.0,
+      "end": 234.0,
+      "text": "Again, this, some of this will be a review of what we discussed in the intro class,"
+    },
+    {
+      "id": 60,
+      "start": 234.0,
+      "end": 239.0,
+      "text": "but the idea is that we want to be able to have our database system run multiple things"
+    },
+    {
+      "id": 61,
+      "start": 239.0,
+      "end": 243.0,
+      "text": "at the same time to take advantage of the hardware that's available to us."
+    },
+    {
+      "id": 62,
+      "start": 243.0,
+      "end": 247.0,
+      "text": "Right, no longer are database systems running on these monolithic machines"
+    },
+    {
+      "id": 63,
+      "start": 247.0,
+      "end": 253.0,
+      "text": "that have one CPU with one CPU core and no way to talk to other machines."
+    },
+    {
+      "id": 64,
+      "start": 253.0,
+      "end": 255.0,
+      "text": "At the very least, if you, if you enter your single socket,"
+    },
+    {
+      "id": 65,
+      "start": 255.0,
+      "end": 259.0,
+      "text": "it's going to have dozens of cores, maybe a multi-sug machine,"
+    },
+    {
+      "id": 66,
+      "start": 259.0,
+      "end": 262.0,
+      "text": "and then now that's basically a distributed system."
+    },
+    {
+      "id": 67,
+      "start": 262.0,
+      "end": 264.0,
+      "text": "Let alone scaling out to multiple nodes."
+    },
+    {
+      "id": 68,
+      "start": 264.0,
+      "end": 269.0,
+      "text": "So in that environment, we want to be able to have the system be able to take one query"
+    },
+    {
+      "id": 69,
+      "start": 269.0,
+      "end": 275.0,
+      "text": "and fan it out across multiple machines to paralyze the, you know, the various operations."
+    },
+    {
+      "id": 70,
+      "start": 275.0,
+      "end": 278.0,
+      "text": "Alright, and when, when, sorry, question."
+    },
+    {
+      "id": 71,
+      "start": 278.0,
+      "end": 280.0,
+      "text": "Does the machine, does it matter?"
+    },
+    {
+      "id": 72,
+      "start": 280.0,
+      "end": 283.0,
+      "text": "Yeah, so this question is multiple machines and multiple cores."
+    },
+    {
+      "id": 73,
+      "start": 283.0,
+      "end": 285.0,
+      "text": "For all the things we're going to talk about today,"
+    },
+    {
+      "id": 74,
+      "start": 285.0,
+      "end": 289.0,
+      "text": "it doesn't matter where it's a multi-threaded, multi-process, multi-node system,"
+    },
+    {
+      "id": 75,
+      "start": 289.0,
+      "end": 293.0,
+      "text": "it doesn't matter. Right, because think about what is, what is a multi-sug at CPU?"
+    },
+    {
+      "id": 76,
+      "start": 293.0,
+      "end": 295.0,
+      "text": "Right, you have to communicate something in the airman,"
+    },
+    {
+      "id": 77,
+      "start": 295.0,
+      "end": 298.0,
+      "text": "not even in the same address space, whether it's a multi-process multi-threaded."
+    },
+    {
+      "id": 78,
+      "start": 298.0,
+      "end": 304.0,
+      "text": "So if you have the communication channels set up to distribute things,"
+    },
+    {
+      "id": 79,
+      "start": 304.0,
+      "end": 309.0,
+      "text": "you're assuming you're not going to, you know, low-level pipes to, you know, to do IPCs,"
+    },
+    {
+      "id": 80,
+      "start": 309.0,
+      "end": 312.0,
+      "text": "to different processes, you can extend that easily to multi-node."
+    },
+    {
+      "id": 81,
+      "start": 312.0,
+      "end": 316.0,
+      "text": "Alright, and we're going to talk about what kind of frameworks you could use,"
+    },
+    {
+      "id": 82,
+      "start": 316.0,
+      "end": 318.0,
+      "text": "whether it's frameworks that hide that abstraction."
+    },
+    {
+      "id": 83,
+      "start": 318.0,
+      "end": 320.0,
+      "text": "But when network data and certain latency and data."
+    },
+    {
+      "id": 84,
+      "start": 320.0,
+      "end": 322.0,
+      "text": "Does it though?"
+    },
+    {
+      "id": 85,
+      "start": 322.0,
+      "end": 323.0,
+      "text": "Nowadays?"
+    },
+    {
+      "id": 86,
+      "start": 323.0,
+      "end": 324.0,
+      "text": "Okay."
+    },
+    {
+      "id": 87,
+      "start": 324.0,
+      "end": 328.0,
+      "text": "It never was really fast. Yeah, especially if it's in the same rack."
+    },
+    {
+      "id": 88,
+      "start": 328.0,
+      "end": 332.0,
+      "text": "Yeah, the CPU is often going to be a lot of neck."
+    },
+    {
+      "id": 89,
+      "start": 332.0,
+      "end": 336.0,
+      "text": "The things, in the last two or three years, things have flipped."
+    },
+    {
+      "id": 90,
+      "start": 336.0,
+      "end": 339.0,
+      "text": "Yeah. Right, so again, I mean, this is basically what I just told him."
+    },
+    {
+      "id": 91,
+      "start": 339.0,
+      "end": 341.0,
+      "text": "The high level project that we're talking about here today,"
+    },
+    {
+      "id": 92,
+      "start": 341.0,
+      "end": 347.0,
+      "text": "aren't going to matter whether it's, again, multi-threaded, multi-process, or multi-node. Right?"
+    },
+    {
+      "id": 93,
+      "start": 347.0,
+      "end": 351.0,
+      "text": "So, at a high level, there's two types of parallelisms, interquery parallelism,"
+    },
+    {
+      "id": 94,
+      "start": 351.0,
+      "end": 354.0,
+      "text": "interquery parallelism. And again, I think we've covered some of this in interclass."
+    },
+    {
+      "id": 95,
+      "start": 354.0,
+      "end": 356.0,
+      "text": "We'll go more detail on reaching this."
+    },
+    {
+      "id": 96,
+      "start": 356.0,
+      "end": 360.0,
+      "text": "So, interquery parallelism basically means that, can I have multiple queries"
+    },
+    {
+      "id": 97,
+      "start": 360.0,
+      "end": 363.0,
+      "text": "running at the same time in my system?"
+    },
+    {
+      "id": 98,
+      "start": 363.0,
+      "end": 367.0,
+      "text": "And there's something up above that a coordinator or a scheduler that's responsible for"
+    },
+    {
+      "id": 99,
+      "start": 367.0,
+      "end": 371.0,
+      "text": "figuring out who runs where and at what time."
+    },
+    {
+      "id": 100,
+      "start": 371.0,
+      "end": 375.0,
+      "text": "I did some previous work in the space, and when we looked at existing systems,"
+    },
+    {
+      "id": 101,
+      "start": 375.0,
+      "end": 378.0,
+      "text": "those that have been using a really basic first-come-first serve policy,"
+    },
+    {
+      "id": 102,
+      "start": 379.0,
+      "end": 383.0,
+      "text": "meaning when a query shows up, it's assigned some priority based on that,"
+    },
+    {
+      "id": 103,
+      "start": 383.0,
+      "end": 386.0,
+      "text": "and then it's a lot of what a resource is that it needs."
+    },
+    {
+      "id": 104,
+      "start": 386.0,
+      "end": 389.0,
+      "text": "And then other queries that come out later in time,"
+    },
+    {
+      "id": 105,
+      "start": 389.0,
+      "end": 393.0,
+      "text": "will get resources when they're available when the first query finishes."
+    },
+    {
+      "id": 106,
+      "start": 393.0,
+      "end": 396.0,
+      "text": "The enterprise systems can do more sophisticated things,"
+    },
+    {
+      "id": 107,
+      "start": 396.0,
+      "end": 401.0,
+      "text": "like have priorities for individual users or connection strings."
+    },
+    {
+      "id": 108,
+      "start": 401.0,
+      "end": 406.0,
+      "text": "So, like if you're a user, if you log in with some user credentials,"
+    },
+    {
+      "id": 109,
+      "start": 407.0,
+      "end": 410.0,
+      "text": "you'll be given higher priority to other queries."
+    },
+    {
+      "id": 110,
+      "start": 410.0,
+      "end": 414.0,
+      "text": "But a high level is still doing more or less first-come-first serve."
+    },
+    {
+      "id": 111,
+      "start": 414.0,
+      "end": 418.0,
+      "text": "So, in all that queries, they're going to have both parallelizable and non-paralleled"
+    },
+    {
+      "id": 112,
+      "start": 418.0,
+      "end": 420.0,
+      "text": "phases, and we'll see what that looks like in a second."
+    },
+    {
+      "id": 113,
+      "start": 420.0,
+      "end": 423.0,
+      "text": "But the main idea is that we want to keep all our recours,"
+    },
+    {
+      "id": 114,
+      "start": 423.0,
+      "end": 426.0,
+      "text": "all our resources, actually running something."
+    },
+    {
+      "id": 115,
+      "start": 426.0,
+      "end": 430.0,
+      "text": "So, if there's a point where a query has to call us data to a single node,"
+    },
+    {
+      "id": 116,
+      "start": 430.0,
+      "end": 435.0,
+      "text": "like an exchange operator, that changed operator may be running on a single core."
+    },
+    {
+      "id": 117,
+      "start": 435.0,
+      "end": 438.0,
+      "text": "So, we have other cores available to do other things."
+    },
+    {
+      "id": 118,
+      "start": 438.0,
+      "end": 441.0,
+      "text": "And again, this scheduler component is responsible for figuring out"
+    },
+    {
+      "id": 119,
+      "start": 441.0,
+      "end": 444.0,
+      "text": "how to take advantage of all those available resources."
+    },
+    {
+      "id": 120,
+      "start": 444.0,
+      "end": 447.0,
+      "text": "So, we won't go into much detail in this class about how we want to do this"
+    },
+    {
+      "id": 121,
+      "start": 447.0,
+      "end": 449.0,
+      "text": "for inter query parallelism."
+    },
+    {
+      "id": 122,
+      "start": 449.0,
+      "end": 452.0,
+      "text": "There'll be a separate lecture on scheduling queries,"
+    },
+    {
+      "id": 123,
+      "start": 452.0,
+      "end": 455.0,
+      "text": "and then we'll see things like, we'll join algorithms and other things."
+    },
+    {
+      "id": 124,
+      "start": 455.0,
+      "end": 459.0,
+      "text": "How do we handle the cases where we're distributing tasks across different nodes?"
+    },
+    {
+      "id": 125,
+      "start": 459.0,
+      "end": 463.0,
+      "text": "Sorry, different workers, whether or in the same box or not,"
+    },
+    {
+      "id": 126,
+      "start": 463.0,
+      "end": 465.0,
+      "text": "and we need to send data around."
+    },
+    {
+      "id": 127,
+      "start": 465.0,
+      "end": 469.0,
+      "text": "So, we'll cover this in a bit more detail later in the semester."
+    },
+    {
+      "id": 128,
+      "start": 472.0,
+      "end": 476.0,
+      "text": "The thing that motivates you to think about when they say query parallelism is"
+    },
+    {
+      "id": 129,
+      "start": 476.0,
+      "end": 477.0,
+      "text": "inter query parallelism."
+    },
+    {
+      "id": 130,
+      "start": 477.0,
+      "end": 481.0,
+      "text": "The idea is, again, taking a single query and then distributing across multiple"
+    },
+    {
+      "id": 131,
+      "start": 481.0,
+      "end": 484.0,
+      "text": "resources and multiple workers running at the same time."
+    },
+    {
+      "id": 132,
+      "start": 484.0,
+      "end": 487.0,
+      "text": "And this is the beauty of a declarative language like SQL,"
+    },
+    {
+      "id": 133,
+      "start": 487.0,
+      "end": 491.0,
+      "text": "where ideally you don't have to know or care what the"
+    },
+    {
+      "id": 134,
+      "start": 491.0,
+      "end": 496.0,
+      "text": "system architecture looks like, whether it has one node or four nodes or"
+    },
+    {
+      "id": 135,
+      "start": 496.0,
+      "end": 498.0,
+      "text": "10 nodes or 100 nodes, it doesn't matter."
+    },
+    {
+      "id": 136,
+      "start": 498.0,
+      "end": 501.0,
+      "text": "You can get the same SQL query, can then be chopped up into different"
+    },
+    {
+      "id": 137,
+      "start": 501.0,
+      "end": 505.0,
+      "text": "plan fragments or tasks, and then let the system distribute it for you."
+    },
+    {
+      "id": 138,
+      "start": 505.0,
+      "end": 508.0,
+      "text": "So, it's not like you have to debug things locally."
+    },
+    {
+      "id": 139,
+      "start": 508.0,
+      "end": 511.0,
+      "text": "When you maybe debug things locally on the subset of the data,"
+    },
+    {
+      "id": 140,
+      "start": 511.0,
+      "end": 514.0,
+      "text": "and then submit it to the larger machine to run on all the data,"
+    },
+    {
+      "id": 141,
+      "start": 514.0,
+      "end": 516.0,
+      "text": "you have to rewrite everything."
+    },
+    {
+      "id": 142,
+      "start": 516.0,
+      "end": 520.0,
+      "text": "The SQL in theory should just be able to get translated into a distributed"
+    },
+    {
+      "id": 143,
+      "start": 521.0,
+      "end": 525.0,
+      "text": "parallel plan on the system without any changes."
+    },
+    {
+      "id": 144,
+      "start": 525.0,
+      "end": 528.0,
+      "text": "So, the two types of parallelism, the most common one is it can be"
+    },
+    {
+      "id": 145,
+      "start": 528.0,
+      "end": 532.0,
+      "text": "Intraoperative parallelism through what's called Horvathon parallelism."
+    },
+    {
+      "id": 146,
+      "start": 532.0,
+      "end": 536.0,
+      "text": "I think the one the execution engine teams were asking about"
+    },
+    {
+      "id": 147,
+      "start": 536.0,
+      "end": 539.0,
+      "text": "asynchronous IO and doing a technique called vertical parallelism."
+    },
+    {
+      "id": 148,
+      "start": 539.0,
+      "end": 541.0,
+      "text": "So, we'll quickly talk what that looks like."
+    },
+    {
+      "id": 149,
+      "start": 541.0,
+      "end": 543.0,
+      "text": "Say else to all of these things are not machine exclusive."
+    },
+    {
+      "id": 150,
+      "start": 543.0,
+      "end": 548.0,
+      "text": "You can combine these things together and various systems are going to do this in different ways."
+    },
+    {
+      "id": 151,
+      "start": 549.0,
+      "end": 552.0,
+      "text": "But again, the Intraoperative parallelism is way more common."
+    },
+    {
+      "id": 152,
+      "start": 552.0,
+      "end": 555.0,
+      "text": "And then for each of the Intraoperative operators that are out there,"
+    },
+    {
+      "id": 153,
+      "start": 555.0,
+      "end": 557.0,
+      "text": "there's parallel versions of all of them."
+    },
+    {
+      "id": 154,
+      "start": 557.0,
+      "end": 562.0,
+      "text": "And oftentimes that whether or not the operator itself is aware that it's being"
+    },
+    {
+      "id": 155,
+      "start": 562.0,
+      "end": 565.0,
+      "text": "paralyzed or not, depends on the implementation."
+    },
+    {
+      "id": 156,
+      "start": 565.0,
+      "end": 569.0,
+      "text": "And if it's not aware, then you will see an exchange operator in the second where"
+    },
+    {
+      "id": 157,
+      "start": 569.0,
+      "end": 572.0,
+      "text": "you put that above and allow you to combine results with, again, not being aware that"
+    },
+    {
+      "id": 158,
+      "start": 572.0,
+      "end": 575.0,
+      "text": "it may have got found out across multiple tasks."
+    },
+    {
+      "id": 159,
+      "start": 576.0,
+      "end": 579.0,
+      "text": "So, Horvathon parallelism that says in those common one,"
+    },
+    {
+      "id": 160,
+      "start": 579.0,
+      "end": 586.0,
+      "text": "the idea is that we're going to break up an operator in our query plan into independent instances of them"
+    },
+    {
+      "id": 161,
+      "start": 586.0,
+      "end": 591.0,
+      "text": "or operator instances that are basically going to do the exact same function or"
+    },
+    {
+      "id": 162,
+      "start": 591.0,
+      "end": 597.0,
+      "text": "exact same computation on its input as all the other operator instances that it's a copy of."
+    },
+    {
+      "id": 163,
+      "start": 597.0,
+      "end": 600.0,
+      "text": "But it's going to be operating on different pieces of data."
+    }
+  ],
+  "language": "en"
+}

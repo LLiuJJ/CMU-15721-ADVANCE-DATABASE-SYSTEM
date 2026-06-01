@@ -1,0 +1,905 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.24,
+      "text": "You're going, 10th compressing is you're going in the wrong direction."
+    },
+    {
+      "id": 1,
+      "start": 2.24,
+      "end": 8.88,
+      "text": "But then if you do, if you put gzip on top of this, it's going to compress the hell out of it and do fantastic."
+    },
+    {
+      "id": 2,
+      "start": 8.88,
+      "end": 11.0,
+      "text": "So?"
+    },
+    {
+      "id": 3,
+      "start": 11.0,
+      "end": 12.2,
+      "text": "Potentially, yes?"
+    },
+    {
+      "id": 4,
+      "start": 12.2,
+      "end": 15.4,
+      "text": "Maybe it's going to fall out."
+    },
+    {
+      "id": 5,
+      "start": 15.4,
+      "end": 20.0,
+      "text": "But you saw where it happened."
+    },
+    {
+      "id": 6,
+      "start": 20.0,
+      "end": 20.6,
+      "text": "Yes."
+    },
+    {
+      "id": 7,
+      "start": 20.6,
+      "end": 25.28,
+      "text": "Why would gzip look better on approach to the middle of the first one?"
+    },
+    {
+      "id": 8,
+      "start": 25.28,
+      "end": 27.88,
+      "text": "Because there's more things to compress."
+    },
+    {
+      "id": 9,
+      "start": 27.88,
+      "end": 29.88,
+      "text": "There's more bits."
+    },
+    {
+      "id": 10,
+      "start": 29.88,
+      "end": 34.88,
+      "text": "That's what you said."
+    },
+    {
+      "id": 11,
+      "start": 34.88,
+      "end": 37.88,
+      "text": "Well, look at the results on a second."
+    },
+    {
+      "id": 12,
+      "start": 37.88,
+      "end": 38.88,
+      "text": "A second."
+    },
+    {
+      "id": 13,
+      "start": 38.88,
+      "end": 42.88,
+      "text": "I'm doing something going back."
+    },
+    {
+      "id": 14,
+      "start": 42.88,
+      "end": 44.88,
+      "text": "Would you go back further?"
+    },
+    {
+      "id": 15,
+      "start": 44.88,
+      "end": 45.88,
+      "text": "Was that so, Ian?"
+    },
+    {
+      "id": 16,
+      "start": 45.88,
+      "end": 50.88,
+      "text": "So if you run the four-by-trend, four-by-thing, what's it going to look like?"
+    },
+    {
+      "id": 17,
+      "start": 50.88,
+      "end": 53.88,
+      "text": "So, end result, which one will be small?"
+    },
+    {
+      "id": 18,
+      "start": 53.88,
+      "end": 63.88,
+      "text": "The statement is, if you compress the 30-year bits or this versus whatever the six bytes plus the null terminator or the length,"
+    },
+    {
+      "id": 19,
+      "start": 63.88,
+      "end": 65.88,
+      "text": "is that thing ever going to be smaller than this?"
+    },
+    {
+      "id": 20,
+      "start": 65.88,
+      "end": 66.88,
+      "text": "Now."
+    },
+    {
+      "id": 21,
+      "start": 66.88,
+      "end": 69.88,
+      "text": "You might be able to do a dictionary."
+    },
+    {
+      "id": 22,
+      "start": 69.88,
+      "end": 70.88,
+      "text": "It's really good."
+    },
+    {
+      "id": 23,
+      "start": 70.88,
+      "end": 73.88,
+      "text": "The database knows better about how to serialize things."
+    },
+    {
+      "id": 24,
+      "start": 73.88,
+      "end": 77.88,
+      "text": "Rather than just always doing the same text and clothes."
+    },
+    {
+      "id": 25,
+      "start": 77.88,
+      "end": 80.88,
+      "text": "The statement is, the news says we know better whether to serialize this."
+    },
+    {
+      "id": 26,
+      "start": 80.88,
+      "end": 82.88,
+      "text": "Rather than just always doing the same thing."
+    },
+    {
+      "id": 27,
+      "start": 82.88,
+      "end": 84.88,
+      "text": "In theory, yes."
+    },
+    {
+      "id": 28,
+      "start": 84.88,
+      "end": 87.88,
+      "text": "Would you want to spend the time on the server side to do that?"
+    },
+    {
+      "id": 29,
+      "start": 87.88,
+      "end": 91.88,
+      "text": "Figure that out."
+    },
+    {
+      "id": 30,
+      "start": 91.88,
+      "end": 92.88,
+      "text": "All right."
+    },
+    {
+      "id": 31,
+      "start": 92.88,
+      "end": 94.88,
+      "text": "We'll come back to this."
+    },
+    {
+      "id": 32,
+      "start": 94.88,
+      "end": 101.88,
+      "text": "So, if you roll your own, so most of the systems are going to do binary coding, but roll the own,"
+    },
+    {
+      "id": 33,
+      "start": 101.88,
+      "end": 103.88,
+      "text": "and not use one of these missing libraries."
+    },
+    {
+      "id": 34,
+      "start": 103.88,
+      "end": 107.88,
+      "text": "But then it's all the stuff we talked about before when we talked about data file formats."
+    },
+    {
+      "id": 35,
+      "start": 107.88,
+      "end": 114.88,
+      "text": "We have to do the null mass, keep track of data types, the sizes of the data and the messages."
+    },
+    {
+      "id": 36,
+      "start": 114.88,
+      "end": 115.88,
+      "text": "That's fine."
+    },
+    {
+      "id": 37,
+      "start": 115.88,
+      "end": 119.88,
+      "text": "We know how to write that stuff because we haven't do it for storage anyway."
+    },
+    {
+      "id": 38,
+      "start": 119.88,
+      "end": 120.88,
+      "text": "It's just more work."
+    },
+    {
+      "id": 39,
+      "start": 120.88,
+      "end": 123.88,
+      "text": "Whereas, like, protobuf gives you much stuff for free."
+    },
+    {
+      "id": 40,
+      "start": 123.88,
+      "end": 128.88,
+      "text": "But you're all things in CSUK cost."
+    },
+    {
+      "id": 41,
+      "start": 128.88,
+      "end": 129.88,
+      "text": "All right."
+    },
+    {
+      "id": 42,
+      "start": 129.88,
+      "end": 130.88,
+      "text": "This one we've already talked about."
+    },
+    {
+      "id": 43,
+      "start": 130.88,
+      "end": 132.88,
+      "text": "How are you going to represent the length of strings?"
+    },
+    {
+      "id": 44,
+      "start": 132.88,
+      "end": 137.88,
+      "text": "You could do the C-style, have the null-termitter byte at the end."
+    },
+    {
+      "id": 45,
+      "start": 137.88,
+      "end": 142.88,
+      "text": "And then, can the client just scan along until it finds the null-termitter and says,"
+    },
+    {
+      "id": 46,
+      "start": 142.88,
+      "end": 144.88,
+      "text": "okay, I have all the data that I need."
+    },
+    {
+      "id": 47,
+      "start": 144.88,
+      "end": 149.88,
+      "text": "This makes it harder than potentially do jumps into fixed length offsets."
+    },
+    {
+      "id": 48,
+      "start": 149.88,
+      "end": 155.88,
+      "text": "As we talked about before, if you're trying to do store things, sending things over vector batches."
+    },
+    {
+      "id": 49,
+      "start": 155.88,
+      "end": 159.88,
+      "text": "The most common ones we like, like prefix, prefixes, which we talked about before."
+    },
+    {
+      "id": 50,
+      "start": 159.88,
+      "end": 163.88,
+      "text": "And then, some systems, I think this was, I think, menu DB."
+    },
+    {
+      "id": 51,
+      "start": 163.88,
+      "end": 172.88,
+      "text": "They're just going to pat out the string with additional characters to be whatever the max size of the attribute could be."
+    },
+    {
+      "id": 52,
+      "start": 172.88,
+      "end": 177.88,
+      "text": "Like, if I have a, if it's a bar chart of 16, I have a bunch of four character strings."
+    },
+    {
+      "id": 53,
+      "start": 177.88,
+      "end": 180.88,
+      "text": "Just going to pat out the rest with a bunch of spaces."
+    },
+    {
+      "id": 54,
+      "start": 180.88,
+      "end": 181.88,
+      "text": "Yes."
+    },
+    {
+      "id": 55,
+      "start": 181.88,
+      "end": 182.88,
+      "text": "How close do you think of it as a best one?"
+    },
+    {
+      "id": 56,
+      "start": 182.88,
+      "end": 183.88,
+      "text": "Say again."
+    },
+    {
+      "id": 57,
+      "start": 183.88,
+      "end": 185.88,
+      "text": "How close do you think of it as going to be the best one?"
+    },
+    {
+      "id": 58,
+      "start": 185.88,
+      "end": 186.88,
+      "text": "It's the question."
+    },
+    {
+      "id": 59,
+      "start": 186.88,
+      "end": 188.88,
+      "text": "It's the same as it's, it's, approach to the going to be the best."
+    },
+    {
+      "id": 60,
+      "start": 188.88,
+      "end": 189.88,
+      "text": "Why?"
+    },
+    {
+      "id": 61,
+      "start": 189.88,
+      "end": 195.88,
+      "text": "Because if it's fixed length, then if you are patting your patting for you with zeros, so G-sick can take out that."
+    },
+    {
+      "id": 62,
+      "start": 195.88,
+      "end": 196.88,
+      "text": "Yes."
+    },
+    {
+      "id": 63,
+      "start": 196.88,
+      "end": 200.88,
+      "text": "And if it's fixed to it, you can jump around much faster if you want."
+    },
+    {
+      "id": 64,
+      "start": 200.88,
+      "end": 205.88,
+      "text": "The same thing is, if it's fixed length and patting one from zeros, G-sick can compress that."
+    },
+    {
+      "id": 65,
+      "start": 205.88,
+      "end": 208.88,
+      "text": "But then also too, now everything we fixed length, you can jump around as needed."
+    },
+    {
+      "id": 66,
+      "start": 208.88,
+      "end": 212.88,
+      "text": "And you don't need to be caught, like, you don't need to first read the length, then you can use it."
+    },
+    {
+      "id": 67,
+      "start": 212.88,
+      "end": 213.88,
+      "text": "Correct."
+    },
+    {
+      "id": 68,
+      "start": 213.88,
+      "end": 218.88,
+      "text": "So again, depends on, as all things, it depends on what the query wants to do with it."
+    },
+    {
+      "id": 69,
+      "start": 218.88,
+      "end": 226.88,
+      "text": "And furthermore, also too, if the column is like a VAR chart 1024, and I have a bunch of one character strings in it, then that's wasting a ton of space."
+    },
+    {
+      "id": 70,
+      "start": 226.88,
+      "end": 230.88,
+      "text": "My question would be why would, you're just saying that, why would people do that?"
+    },
+    {
+      "id": 71,
+      "start": 230.88,
+      "end": 231.88,
+      "text": "People are stupid."
+    },
+    {
+      "id": 72,
+      "start": 231.88,
+      "end": 233.88,
+      "text": "You see all sorts of crazy things in real databases."
+    },
+    {
+      "id": 73,
+      "start": 233.88,
+      "end": 234.88,
+      "text": "Yes."
+    },
+    {
+      "id": 74,
+      "start": 234.88,
+      "end": 238.88,
+      "text": "Question is, is the first one have any advantages?"
+    },
+    {
+      "id": 75,
+      "start": 238.88,
+      "end": 245.88,
+      "text": "On the server side, you can reuse, like, Lib-C's string functions."
+    },
+    {
+      "id": 76,
+      "start": 245.88,
+      "end": 246.88,
+      "text": "Yeah."
+    },
+    {
+      "id": 77,
+      "start": 246.88,
+      "end": 256.88,
+      "text": "So when we put our first system, like my second or third year at CMU, we did this."
+    },
+    {
+      "id": 78,
+      "start": 256.88,
+      "end": 261.88,
+      "text": "And then of course, then we go over the wire protocol, because you're speaking of the pros, because wire protocol, pros, pros, they didn't want an entrepreneur."
+    },
+    {
+      "id": 79,
+      "start": 261.88,
+      "end": 265.88,
+      "text": "We didn't have a copy of the string and add the length in front of it."
+    },
+    {
+      "id": 80,
+      "start": 265.88,
+      "end": 271.88,
+      "text": "So even if you have like one package and a batch of the column, you're going to hold."
+    },
+    {
+      "id": 81,
+      "start": 271.88,
+      "end": 274.88,
+      "text": "One gz if you get it, if you're bad at everything."
+    },
+    {
+      "id": 82,
+      "start": 274.88,
+      "end": 284.88,
+      "text": "So, six-statement is, if you have the VAR chart 1024, and you pad it out, you know, you need small strings, one gz handle that for you."
+    },
+    {
+      "id": 83,
+      "start": 284.88,
+      "end": 286.88,
+      "text": "If you use gz."
+    },
+    {
+      "id": 84,
+      "start": 286.88,
+      "end": 288.88,
+      "text": "You can use that."
+    },
+    {
+      "id": 85,
+      "start": 288.88,
+      "end": 289.88,
+      "text": "Yes."
+    },
+    {
+      "id": 86,
+      "start": 289.88,
+      "end": 294.88,
+      "text": "It takes time, but it also, if you use it, even snappy, or z-standard will be fast."
+    },
+    {
+      "id": 87,
+      "start": 294.88,
+      "end": 297.88,
+      "text": "But like, you got like not all the data systems that were sported that."
+    },
+    {
+      "id": 88,
+      "start": 297.88,
+      "end": 299.88,
+      "text": "I just said, Postgres doesn't sport this."
+    },
+    {
+      "id": 89,
+      "start": 299.88,
+      "end": 303.88,
+      "text": "Postgres wire protocol itself has no notion of compression."
+    },
+    {
+      "id": 90,
+      "start": 303.88,
+      "end": 310.88,
+      "text": "You can hack it by like tunneling all your traffic over SSH and compress that, but that's actually hop, and that sounds crazy."
+    },
+    {
+      "id": 91,
+      "start": 310.88,
+      "end": 317.88,
+      "text": "But like, the Postgres wire protocol, as far as I know, at least in 2024, does not have like a flag, I'd say this is going to be compressed."
+    },
+    {
+      "id": 92,
+      "start": 317.88,
+      "end": 318.88,
+      "text": "My sequel has it."
+    },
+    {
+      "id": 93,
+      "start": 318.88,
+      "end": 319.88,
+      "text": "Oracle has it."
+    },
+    {
+      "id": 94,
+      "start": 319.88,
+      "end": 323.88,
+      "text": "Not other systems do not."
+    },
+    {
+      "id": 95,
+      "start": 323.88,
+      "end": 331.88,
+      "text": "So, again, sometimes ones can be faster, sometimes twos can be faster, no system is going to do both."
+    },
+    {
+      "id": 96,
+      "start": 331.88,
+      "end": 338.88,
+      "text": "No system is going to try to figure out, okay, based on what your, what the data looks like and what your query looks like, I'm going to give you one versus the other."
+    },
+    {
+      "id": 97,
+      "start": 338.88,
+      "end": 346.88,
+      "text": "Because again, that's more engineering overhead that you got to support now on the server side, and on the client side, and it's just not worth it."
+    },
+    {
+      "id": 98,
+      "start": 347.88,
+      "end": 354.88,
+      "text": "Right? This will be the fastest if your data set size is small. If it's all char ones, this is going to be the fastest."
+    },
+    {
+      "id": 99,
+      "start": 354.88,
+      "end": 359.88,
+      "text": "Because you don't store the length."
+    },
+    {
+      "id": 100,
+      "start": 359.88,
+      "end": 366.88,
+      "text": "Okay, I'm going to show, let's say also too, like, as all things we talked about before, these aren't independent, right?"
+    },
+    {
+      "id": 101,
+      "start": 366.88,
+      "end": 371.88,
+      "text": "Like, if I choose one of these, that'll affect whether, you know, what kind of compression team I want to use."
+    },
+    {
+      "id": 102,
+      "start": 371.88,
+      "end": 375.88,
+      "text": "That's very something to this stuff we talked about when we talked about data on disk."
+    },
+    {
+      "id": 103,
+      "start": 376.88,
+      "end": 384.88,
+      "text": "So I'm going to show two graphs here. So the first is going to be what happens when we just send one tuple from the data system to the client."
+    },
+    {
+      "id": 104,
+      "start": 384.88,
+      "end": 394.88,
+      "text": "And the idea is here just to look at what the overheads go of, like, just all the infrastructure around the messages of sending the query and getting back to the result."
+    },
+    {
+      "id": 105,
+      "start": 395.88,
+      "end": 403.88,
+      "text": "And for all these systems, except for Hive, these are all going to be using ODBC. Hive is going to be using JDBC."
+    },
+    {
+      "id": 106,
+      "start": 403.88,
+      "end": 408.88,
+      "text": "I think, forget the reason why they did that."
+    },
+    {
+      "id": 107,
+      "start": 408.88,
+      "end": 415.88,
+      "text": "So here's the numbers. Right? And they're listed in order of performance."
+    },
+    {
+      "id": 108,
+      "start": 415.88,
+      "end": 422.88,
+      "text": "So the first thing to point out here is that here's a monadb that's using the text encoding thing we talked about before."
+    },
+    {
+      "id": 109,
+      "start": 422.88,
+      "end": 428.88,
+      "text": "They're sending over, converting all the binary data into string form and sending that over."
+    },
+    {
+      "id": 110,
+      "start": 428.88,
+      "end": 432.88,
+      "text": "Right? All the other ones are using binary encoding."
+    },
+    {
+      "id": 111,
+      "start": 432.88,
+      "end": 439.88,
+      "text": "But yet, monadb is the second fastest or third fastest. Right?"
+    },
+    {
+      "id": 112,
+      "start": 439.88,
+      "end": 442.88,
+      "text": "Why?"
+    },
+    {
+      "id": 113,
+      "start": 443.88,
+      "end": 445.88,
+      "text": "Probably with jesus."
+    },
+    {
+      "id": 114,
+      "start": 445.88,
+      "end": 448.88,
+      "text": "You said power jesus."
+    },
+    {
+      "id": 115,
+      "start": 448.88,
+      "end": 451.88,
+      "text": "What's that?"
+    },
+    {
+      "id": 116,
+      "start": 451.88,
+      "end": 455.88,
+      "text": "That's what we're just going to do."
+    },
+    {
+      "id": 117,
+      "start": 455.88,
+      "end": 459.88,
+      "text": "So is jesus helping him here?"
+    },
+    {
+      "id": 118,
+      "start": 459.88,
+      "end": 462.88,
+      "text": "So let's talk about why the other ones are slow."
+    },
+    {
+      "id": 119,
+      "start": 462.88,
+      "end": 465.88,
+      "text": "So the slowest one is Hive."
+    },
+    {
+      "id": 120,
+      "start": 465.88,
+      "end": 470.88,
+      "text": "The reason why that's, according to the paper, why that slow is they're using thrift."
+    },
+    {
+      "id": 121,
+      "start": 470.88,
+      "end": 475.88,
+      "text": "So thrift is going to do, you know, copying things in and out of thrift buffers."
+    },
+    {
+      "id": 122,
+      "start": 475.88,
+      "end": 479.88,
+      "text": "So that additional MAM copies get data onto thrift on the server side."
+    },
+    {
+      "id": 123,
+      "start": 479.88,
+      "end": 483.88,
+      "text": "And then on the client side, copying out of their buffers as well."
+    },
+    {
+      "id": 124,
+      "start": 483.88,
+      "end": 491.88,
+      "text": "And then thrift is also going to, sending over a bunch of different metadata about what the structure of the,"
+    },
+    {
+      "id": 125,
+      "start": 491.88,
+      "end": 496.88,
+      "text": "what the structure of the message is going to be."
+    },
+    {
+      "id": 126,
+      "start": 496.88,
+      "end": 499.88,
+      "text": "So we're sending that over as well."
+    },
+    {
+      "id": 127,
+      "start": 499.88,
+      "end": 506.88,
+      "text": "So the size of the packet, the message, for the same two pool as all those systems is just much, much higher."
+    },
+    {
+      "id": 128,
+      "start": 506.88,
+      "end": 513.88,
+      "text": "DB2 is the second slowest because they're actually, I mean Oracle does this as well, but for some reason it's more"
+    },
+    {
+      "id": 129,
+      "start": 513.88,
+      "end": 516.88,
+      "text": "malicious than this one."
+    },
+    {
+      "id": 130,
+      "start": 516.88,
+      "end": 521.88,
+      "text": "They're actually also basically re-implementing acknowledgments on top of TCP IP."
+    },
+    {
+      "id": 131,
+      "start": 521.88,
+      "end": 525.88,
+      "text": "So TCP IP is arguably doing like sending acts back."
+    },
+    {
+      "id": 132,
+      "start": 525.88,
+      "end": 531.88,
+      "text": "As well above that to make sure that like, okay, I got your message for this, for this, for this, you know,"
+    },
+    {
+      "id": 133,
+      "start": 531.88,
+      "end": 534.88,
+      "text": "I got this packet on ready to give me the next one."
+    },
+    {
+      "id": 134,
+      "start": 534.88,
+      "end": 543.88,
+      "text": "Right? So the protocol itself is just way more chatty because for some reason they're implementing, re-implementing this idea of, you know, of acknowledgments, yes."
+    },
+    {
+      "id": 135,
+      "start": 543.88,
+      "end": 545.88,
+      "text": "Was it based on beauty of the, is that what they mean?"
+    },
+    {
+      "id": 136,
+      "start": 545.88,
+      "end": 548.88,
+      "text": "His question is, is it based on UDP? I have no idea."
+    },
+    {
+      "id": 137,
+      "start": 548.88,
+      "end": 553.88,
+      "text": "Also too, like since it's a proprietary protocol, they can't see the implementation on the server side."
+    },
+    {
+      "id": 138,
+      "start": 553.88,
+      "end": 556.88,
+      "text": "This is what, this is what the payment is speculating. Yes."
+    },
+    {
+      "id": 139,
+      "start": 556.88,
+      "end": 560.88,
+      "text": "How is it possible for the so slow effect?"
+    },
+    {
+      "id": 140,
+      "start": 560.88,
+      "end": 563.88,
+      "text": "For one two, well, how many bits is that?"
+    },
+    {
+      "id": 141,
+      "start": 563.88,
+      "end": 567.88,
+      "text": "At most, let's say, for a TPCH?"
+    },
+    {
+      "id": 142,
+      "start": 567.88,
+      "end": 570.88,
+      "text": "It's less than, let's set a kill light."
+    },
+    {
+      "id": 143,
+      "start": 570.88,
+      "end": 573.88,
+      "text": "So let's take a look at how pretty the whole screen is."
+    },
+    {
+      "id": 144,
+      "start": 573.88,
+      "end": 580.88,
+      "text": "I think also too, like, this is like, I think this is end to end time, right?"
+    },
+    {
+      "id": 145,
+      "start": 580.88,
+      "end": 582.88,
+      "text": "And not like just sending the message."
+    },
+    {
+      "id": 146,
+      "start": 582.88,
+      "end": 591.88,
+      "text": "So like, this is like sending the query and then high basically converts the query into a map-reduced job, then it dispatches that, gets back to the results and sets it back."
+    },
+    {
+      "id": 147,
+      "start": 591.88,
+      "end": 593.88,
+      "text": "So I think it includes that."
+    },
+    {
+      "id": 148,
+      "start": 593.88,
+      "end": 596.88,
+      "text": "But I add up a double check."
+    },
+    {
+      "id": 149,
+      "start": 596.88,
+      "end": 599.88,
+      "text": "So, the client on the same machine as the server."
+    }
+  ],
+  "language": "en"
+}

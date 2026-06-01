@@ -1,0 +1,1343 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.24,
+      "text": "The node itself just knows how to go talk to,"
+    },
+    {
+      "id": 1,
+      "start": 3.24,
+      "end": 5.64,
+      "text": "sorry, that you get a single compute instance,"
+    },
+    {
+      "id": 2,
+      "start": 5.64,
+      "end": 7.68,
+      "text": "but there's also another instance that spins up"
+    },
+    {
+      "id": 3,
+      "start": 7.68,
+      "end": 9.16,
+      "text": "that has this redshift manage storage."
+    },
+    {
+      "id": 4,
+      "start": 9.16,
+      "end": 10.76,
+      "text": "First, as you're saying, is it just something"
+    },
+    {
+      "id": 5,
+      "start": 10.76,
+      "end": 11.96,
+      "text": "sitting right above S3?"
+    },
+    {
+      "id": 6,
+      "start": 11.96,
+      "end": 15.92,
+      "text": "Yeah, it is S3 nodes with just additional code, yes."
+    },
+    {
+      "id": 7,
+      "start": 15.92,
+      "end": 16.76,
+      "text": "OK."
+    },
+    {
+      "id": 8,
+      "start": 18.84,
+      "end": 19.36,
+      "text": "OK."
+    },
+    {
+      "id": 9,
+      "start": 22.76,
+      "end": 26.52,
+      "text": "So when they actually query, the actual engine itself"
+    },
+    {
+      "id": 10,
+      "start": 26.52,
+      "end": 28.84,
+      "text": "is going to be push-based."
+    },
+    {
+      "id": 11,
+      "start": 28.84,
+      "end": 31.24,
+      "text": "The example that they show in the paper"
+    },
+    {
+      "id": 12,
+      "start": 31.24,
+      "end": 33.4,
+      "text": "looks like it'd be pull-based and they even call this out,"
+    },
+    {
+      "id": 13,
+      "start": 33.4,
+      "end": 37.68,
+      "text": "but they talk about how that would be too much state"
+    },
+    {
+      "id": 14,
+      "start": 37.68,
+      "end": 41.28,
+      "text": "to maintain in a pull-based model that they switched"
+    },
+    {
+      "id": 15,
+      "start": 41.28,
+      "end": 46.0,
+      "text": "to push-based, but they'd be careful about where they do"
+    },
+    {
+      "id": 16,
+      "start": 46.0,
+      "end": 48.44,
+      "text": "certain operations to avoid blowing out your CPU"
+    },
+    {
+      "id": 17,
+      "start": 48.44,
+      "end": 48.96,
+      "text": "registers."
+    },
+    {
+      "id": 18,
+      "start": 48.96,
+      "end": 52.12,
+      "text": "So there's a lot of the same things that we talked about before"
+    },
+    {
+      "id": 19,
+      "start": 52.12,
+      "end": 54.0,
+      "text": "in the hyper-paper when they were doing compilation"
+    },
+    {
+      "id": 20,
+      "start": 54.0,
+      "end": 55.68,
+      "text": "that they're trying to be worried about."
+    },
+    {
+      "id": 21,
+      "start": 55.68,
+      "end": 58.82,
+      "text": "But one thing they do differently is that to help"
+    },
+    {
+      "id": 22,
+      "start": 58.82,
+      "end": 62.38,
+      "text": "produce the compilation costs, the compilation time"
+    },
+    {
+      "id": 23,
+      "start": 62.38,
+      "end": 65.02,
+      "text": "of the queries themselves, that they're still going to rely"
+    },
+    {
+      "id": 24,
+      "start": 65.02,
+      "end": 68.18,
+      "text": "on some pre-compiled primitives to do vectorized scans"
+    },
+    {
+      "id": 25,
+      "start": 68.18,
+      "end": 70.5,
+      "text": "and filtering on other things."
+    },
+    {
+      "id": 26,
+      "start": 70.5,
+      "end": 73.46,
+      "text": "So they're not going to do full pre-compiled primitives"
+    },
+    {
+      "id": 27,
+      "start": 73.46,
+      "end": 77.02,
+      "text": "that they vectorized was for the entire query plan."
+    },
+    {
+      "id": 28,
+      "start": 77.02,
+      "end": 79.1,
+      "text": "Is this for the lower portions and the leaves?"
+    },
+    {
+      "id": 29,
+      "start": 79.1,
+      "end": 81.5,
+      "text": "They're going to have things that are pre-compiled"
+    },
+    {
+      "id": 30,
+      "start": 81.5,
+      "end": 84.38,
+      "text": "that have been in line into the compile program."
+    },
+    {
+      "id": 31,
+      "start": 84.38,
+      "end": 87.9,
+      "text": "And as I said, the code that they're generating"
+    },
+    {
+      "id": 32,
+      "start": 87.9,
+      "end": 89.66,
+      "text": "is not going to rely on auto vectorization"
+    },
+    {
+      "id": 33,
+      "start": 89.66,
+      "end": 91.58,
+      "text": "for any of these primitives, everything's"
+    },
+    {
+      "id": 34,
+      "start": 91.58,
+      "end": 97.02,
+      "text": "going to be written from hand using intrinsic."
+    },
+    {
+      "id": 35,
+      "start": 97.02,
+      "end": 99.26,
+      "text": "Another technique that they're going to rely on"
+    },
+    {
+      "id": 36,
+      "start": 99.26,
+      "end": 101.82,
+      "text": "in these scan loops to avoid stalls"
+    },
+    {
+      "id": 37,
+      "start": 101.82,
+      "end": 106.14,
+      "text": "is that they recognize that you don't want"
+    },
+    {
+      "id": 38,
+      "start": 106.14,
+      "end": 109.38,
+      "text": "to do some operation on the tool you're operating right now,"
+    },
+    {
+      "id": 39,
+      "start": 109.38,
+      "end": 112.38,
+      "text": "and then loop back around in the scan kernel"
+    },
+    {
+      "id": 40,
+      "start": 112.38,
+      "end": 117.14,
+      "text": "and then phase a stall because the next record"
+    },
+    {
+      "id": 41,
+      "start": 117.14,
+      "end": 120.1,
+      "text": "you want to retrieve is not in the CPU cache or the CPU"
+    },
+    {
+      "id": 42,
+      "start": 120.1,
+      "end": 121.1,
+      "text": "registers."
+    },
+    {
+      "id": 43,
+      "start": 121.1,
+      "end": 123.22,
+      "text": "So they're going to use software pre-fetching,"
+    },
+    {
+      "id": 44,
+      "start": 123.22,
+      "end": 126.38,
+      "text": "which I think we talked about with vectorization."
+    },
+    {
+      "id": 45,
+      "start": 126.38,
+      "end": 128.7,
+      "text": "You basically can instruct the CPU to say,"
+    },
+    {
+      "id": 46,
+      "start": 128.7,
+      "end": 131.98,
+      "text": "go fetch these next memory addresses,"
+    },
+    {
+      "id": 47,
+      "start": 131.98,
+      "end": 136.26,
+      "text": "bring them into I think it lands in L3,"
+    },
+    {
+      "id": 48,
+      "start": 136.26,
+      "end": 137.7,
+      "text": "or maybe L2, I figured it was one."
+    },
+    {
+      "id": 49,
+      "start": 137.7,
+      "end": 139.3,
+      "text": "But like basically go fetch the next thing."
+    },
+    {
+      "id": 50,
+      "start": 139.3,
+      "end": 141.94,
+      "text": "I know I'm going to read from memory into my CPU caches."
+    },
+    {
+      "id": 51,
+      "start": 141.94,
+      "end": 145.26,
+      "text": "And it's timed in such a way because they control again"
+    },
+    {
+      "id": 52,
+      "start": 145.26,
+      "end": 146.5,
+      "text": "those that they're running on."
+    },
+    {
+      "id": 53,
+      "start": 146.5,
+      "end": 148.46,
+      "text": "They're controlling the code that they're generating."
+    },
+    {
+      "id": 54,
+      "start": 148.46,
+      "end": 151.18,
+      "text": "So they have heuristics to figure out at what point"
+    },
+    {
+      "id": 55,
+      "start": 151.18,
+      "end": 154.46,
+      "text": "you want to invoke that software pre-fetch command"
+    },
+    {
+      "id": 56,
+      "start": 154.46,
+      "end": 157.06,
+      "text": "so that when you come back around and actually need that tool,"
+    },
+    {
+      "id": 57,
+      "start": 157.06,
+      "end": 158.42,
+      "text": "it's actually ready for you."
+    },
+    {
+      "id": 58,
+      "start": 158.42,
+      "end": 161.22,
+      "text": "And they basically use a circular buffer to place these things."
+    },
+    {
+      "id": 59,
+      "start": 161.22,
+      "end": 161.42,
+      "text": "Yes."
+    },
+    {
+      "id": 60,
+      "start": 161.42,
+      "end": 162.7,
+      "text": "Where does source do source mean?"
+    },
+    {
+      "id": 61,
+      "start": 162.7,
+      "end": 164.3,
+      "text": "I mean, it's source to source concept."
+    },
+    {
+      "id": 62,
+      "start": 164.3,
+      "end": 169.66,
+      "text": "So the query plan is the source,"
+    },
+    {
+      "id": 63,
+      "start": 169.66,
+      "end": 172.74,
+      "text": "and then you emit a more source code for it."
+    },
+    {
+      "id": 64,
+      "start": 172.74,
+      "end": 175.98,
+      "text": "Versus like the hyper-style was like taking the query plan"
+    },
+    {
+      "id": 65,
+      "start": 175.98,
+      "end": 179.7,
+      "text": "and thinking of the source and spitting out the IR directly."
+    },
+    {
+      "id": 66,
+      "start": 179.7,
+      "end": 180.22,
+      "text": "Yeah."
+    },
+    {
+      "id": 67,
+      "start": 183.46,
+      "end": 183.82,
+      "text": "Right."
+    },
+    {
+      "id": 68,
+      "start": 183.82,
+      "end": 187.82,
+      "text": "So I think we talked us for with the relaxed operator fusion"
+    },
+    {
+      "id": 69,
+      "start": 187.82,
+      "end": 190.42,
+      "text": "approach where we were introducing buffers"
+    },
+    {
+      "id": 70,
+      "start": 190.42,
+      "end": 192.14,
+      "text": "in between in our pipeline."
+    },
+    {
+      "id": 71,
+      "start": 192.14,
+      "end": 193.3,
+      "text": "It wasn't actually a pipeline breaker."
+    },
+    {
+      "id": 72,
+      "start": 193.3,
+      "end": 195.14,
+      "text": "It was like a soft pipeline breaker."
+    },
+    {
+      "id": 73,
+      "start": 195.14,
+      "end": 195.98,
+      "text": "Right."
+    },
+    {
+      "id": 74,
+      "start": 195.98,
+      "end": 197.46,
+      "text": "It's going to fill up a vector."
+    },
+    {
+      "id": 75,
+      "start": 197.46,
+      "end": 201.42,
+      "text": "And then once that's full, then move on to the next stage"
+    },
+    {
+      "id": 76,
+      "start": 201.42,
+      "end": 203.14,
+      "text": "within my pipeline."
+    },
+    {
+      "id": 77,
+      "start": 203.14,
+      "end": 207.02,
+      "text": "And so the idea was that within that sort of soft pipeline"
+    },
+    {
+      "id": 78,
+      "start": 207.02,
+      "end": 210.82,
+      "text": "breaker, you would inject the pre-fetch commands"
+    },
+    {
+      "id": 79,
+      "start": 210.82,
+      "end": 212.5,
+      "text": "so that you can do a little bit of work."
+    },
+    {
+      "id": 80,
+      "start": 212.5,
+      "end": 214.7,
+      "text": "The harbor go fetch is the pre-fetch is the thing you need."
+    },
+    {
+      "id": 81,
+      "start": 214.7,
+      "end": 218.54,
+      "text": "And then when you come back around, the data is available for you."
+    },
+    {
+      "id": 82,
+      "start": 218.54,
+      "end": 218.62,
+      "text": "Right."
+    },
+    {
+      "id": 83,
+      "start": 218.62,
+      "end": 221.86,
+      "text": "Because if you think about it, if you do too much work,"
+    },
+    {
+      "id": 84,
+      "start": 221.86,
+      "end": 226.02,
+      "text": "then the data might get evicted by the next time you start using it."
+    },
+    {
+      "id": 85,
+      "start": 226.02,
+      "end": 229.74,
+      "text": "If you do too few work inside that before you pre-fetch,"
+    },
+    {
+      "id": 86,
+      "start": 229.74,
+      "end": 231.98,
+      "text": "or after you pre-fetch, then when you actually"
+    },
+    {
+      "id": 87,
+      "start": 231.98,
+      "end": 233.66,
+      "text": "then need the data, it's not available."
+    },
+    {
+      "id": 88,
+      "start": 233.66,
+      "end": 235.46,
+      "text": "And again, because they're doing all the compilations"
+    },
+    {
+      "id": 89,
+      "start": 235.46,
+      "end": 237.98,
+      "text": "up themselves or generating code, they have ways"
+    },
+    {
+      "id": 90,
+      "start": 237.98,
+      "end": 240.54,
+      "text": "to figure out, I'm this far along, and therefore,"
+    },
+    {
+      "id": 91,
+      "start": 240.54,
+      "end": 246.06,
+      "text": "I should inject my pre-fetch commands."
+    },
+    {
+      "id": 92,
+      "start": 246.06,
+      "end": 249.1,
+      "text": "So the one thing that also they came out of the paper too"
+    },
+    {
+      "id": 93,
+      "start": 249.1,
+      "end": 252.5,
+      "text": "is that, given from all the other systems we've talked about,"
+    },
+    {
+      "id": 94,
+      "start": 252.5,
+      "end": 256.18,
+      "text": "they appear to be less aggressive in being adaptive"
+    },
+    {
+      "id": 95,
+      "start": 256.18,
+      "end": 259.34,
+      "text": "compared to BigQuery and Snowflake and others."
+    },
+    {
+      "id": 96,
+      "start": 259.34,
+      "end": 259.86,
+      "text": "Right."
+    },
+    {
+      "id": 97,
+      "start": 259.86,
+      "end": 264.06,
+      "text": "Like Snowflake was trying to aggregate push downs."
+    },
+    {
+      "id": 98,
+      "start": 264.06,
+      "end": 266.14,
+      "text": "I think, photon and BigQuery were trying"
+    },
+    {
+      "id": 99,
+      "start": 266.14,
+      "end": 270.06,
+      "text": "to figure out on the fly what the right data type they should be using."
+    },
+    {
+      "id": 100,
+      "start": 270.06,
+      "end": 272.42,
+      "text": "So what they really only talk about is that they"
+    },
+    {
+      "id": 101,
+      "start": 272.42,
+      "end": 277.94,
+      "text": "have the ability to choose a vectorized implementations"
+    },
+    {
+      "id": 102,
+      "start": 277.94,
+      "end": 280.86,
+      "text": "of different string functions, like upper, lower,"
+    },
+    {
+      "id": 103,
+      "start": 280.86,
+      "end": 284.78,
+      "text": "comparisons, and things like that for when it's asking data."
+    },
+    {
+      "id": 104,
+      "start": 284.78,
+      "end": 287.02,
+      "text": "And then if that's incorrect, then they fall back"
+    },
+    {
+      "id": 105,
+      "start": 287.02,
+      "end": 290.26,
+      "text": "to a slower version that operates on Unicode."
+    },
+    {
+      "id": 106,
+      "start": 290.26,
+      "end": 295.42,
+      "text": "But that's sort of the same trick that the others were doing."
+    },
+    {
+      "id": 107,
+      "start": 295.42,
+      "end": 297.46,
+      "text": "They're not really reorganizing the query plan themselves."
+    },
+    {
+      "id": 108,
+      "start": 297.46,
+      "end": 301.46,
+      "text": "And the other one they talk about is, for the join"
+    },
+    {
+      "id": 109,
+      "start": 301.46,
+      "end": 303.42,
+      "text": "folks who are doing sideways information passing,"
+    },
+    {
+      "id": 110,
+      "start": 303.42,
+      "end": 304.3,
+      "text": "when you're building the balloon"
+    },
+    {
+      "id": 111,
+      "start": 304.3,
+      "end": 306.82,
+      "text": "filter on the build side of a hash join,"
+    },
+    {
+      "id": 112,
+      "start": 306.82,
+      "end": 310.46,
+      "text": "they can recognize that if the hash"
+    },
+    {
+      "id": 113,
+      "start": 310.46,
+      "end": 312.02,
+      "text": "chain was getting too large and it's"
+    },
+    {
+      "id": 114,
+      "start": 312.02,
+      "end": 315.98,
+      "text": "spilling to disk, then you can size the balloon"
+    },
+    {
+      "id": 115,
+      "start": 315.98,
+      "end": 318.46,
+      "text": "filter to be a little bit larger than you normally would,"
+    },
+    {
+      "id": 116,
+      "start": 318.46,
+      "end": 320.66,
+      "text": "because that will increase the likelihood"
+    },
+    {
+      "id": 117,
+      "start": 320.66,
+      "end": 323.5,
+      "text": "that you don't have false positives."
+    },
+    {
+      "id": 118,
+      "start": 323.5,
+      "end": 326.06,
+      "text": "And you don't end up fetching things from disk."
+    },
+    {
+      "id": 119,
+      "start": 326.06,
+      "end": 328.02,
+      "text": "But that's really the only two adaptivity parts"
+    },
+    {
+      "id": 120,
+      "start": 328.02,
+      "end": 329.78,
+      "text": "that they talk about, other than scaling up."
+    },
+    {
+      "id": 121,
+      "start": 329.78,
+      "end": 333.74,
+      "text": "The scaling up thing is more like on a per query basis"
+    },
+    {
+      "id": 122,
+      "start": 333.74,
+      "end": 337.06,
+      "text": "do I need more compute nodes, because my current compute nodes"
+    },
+    {
+      "id": 123,
+      "start": 337.06,
+      "end": 338.38,
+      "text": "are running other queries."
+    },
+    {
+      "id": 124,
+      "start": 342.7,
+      "end": 345.74,
+      "text": "So the compilation piece of this is very fascinating,"
+    },
+    {
+      "id": 125,
+      "start": 345.74,
+      "end": 346.34,
+      "text": "as well."
+    },
+    {
+      "id": 126,
+      "start": 346.34,
+      "end": 350.18,
+      "text": "And it's similar to what Yellowbrick was doing, where"
+    },
+    {
+      "id": 127,
+      "start": 350.18,
+      "end": 352.58,
+      "text": "Yellowbrick talked about, instead of having"
+    },
+    {
+      "id": 128,
+      "start": 352.58,
+      "end": 356.5,
+      "text": "the worker nodes be responsible for compiling the queries"
+    },
+    {
+      "id": 129,
+      "start": 356.5,
+      "end": 359.06,
+      "text": "themselves, Amazon is going to have a separate service"
+    },
+    {
+      "id": 130,
+      "start": 359.06,
+      "end": 362.58,
+      "text": "that's running on the side with dedicated nodes that basically"
+    },
+    {
+      "id": 131,
+      "start": 362.58,
+      "end": 366.38,
+      "text": "call GCC and compile things."
+    },
+    {
+      "id": 132,
+      "start": 366.38,
+      "end": 373.14,
+      "text": "And the idea is that you have different layers of caching"
+    },
+    {
+      "id": 133,
+      "start": 373.14,
+      "end": 374.74,
+      "text": "within the system."
+    },
+    {
+      "id": 134,
+      "start": 374.74,
+      "end": 377.98,
+      "text": "So you have a local cache where you have pre-compile query"
+    },
+    {
+      "id": 135,
+      "start": 377.98,
+      "end": 379.1,
+      "text": "plans or fragments."
+    },
+    {
+      "id": 136,
+      "start": 379.1,
+      "end": 381.66,
+      "text": "And to be identified that the thing you're trying to compile"
+    },
+    {
+      "id": 137,
+      "start": 381.66,
+      "end": 382.82,
+      "text": "right now has already been compiled before,"
+    },
+    {
+      "id": 138,
+      "start": 382.82,
+      "end": 384.18,
+      "text": "you just reuse that."
+    },
+    {
+      "id": 139,
+      "start": 384.18,
+      "end": 387.02,
+      "text": "But then they have a availability, which is, I think,"
+    },
+    {
+      "id": 140,
+      "start": 387.02,
+      "end": 391.18,
+      "text": "ingenious, to maintain a cache across the entire fleet"
+    },
+    {
+      "id": 141,
+      "start": 391.18,
+      "end": 394.26,
+      "text": "of machines across all of Redshift."
+    },
+    {
+      "id": 142,
+      "start": 394.26,
+      "end": 397.62,
+      "text": "So now, like the idea is that if you come across a query"
+    },
+    {
+      "id": 143,
+      "start": 397.62,
+      "end": 399.82,
+      "text": "that your cluster has never seen before,"
+    },
+    {
+      "id": 144,
+      "start": 399.82,
+      "end": 402.42,
+      "text": "it doesn't have the compile query plan in its cache."
+    },
+    {
+      "id": 145,
+      "start": 402.42,
+      "end": 404.78,
+      "text": "In Goldlook and this global cache,"
+    },
+    {
+      "id": 146,
+      "start": 404.78,
+      "end": 407.78,
+      "text": "and see, did somebody else have something that's very similar"
+    },
+    {
+      "id": 147,
+      "start": 407.78,
+      "end": 409.9,
+      "text": "and be able to reuse that shared object,"
+    },
+    {
+      "id": 148,
+      "start": 409.9,
+      "end": 413.9,
+      "text": "that pre-compiled code?"
+    },
+    {
+      "id": 149,
+      "start": 413.9,
+      "end": 416.74,
+      "text": "And again, from a security standpoint,"
+    },
+    {
+      "id": 150,
+      "start": 416.74,
+      "end": 421.26,
+      "text": "there isn't any issue because it's running arbitrary user"
+    },
+    {
+      "id": 151,
+      "start": 421.26,
+      "end": 421.5,
+      "text": "code."
+    },
+    {
+      "id": 152,
+      "start": 421.5,
+      "end": 424.34,
+      "text": "It's literally like scan this table on this type"
+    },
+    {
+      "id": 153,
+      "start": 424.34,
+      "end": 426.06,
+      "text": "with this kind of filter."
+    },
+    {
+      "id": 154,
+      "start": 426.06,
+      "end": 429.06,
+      "text": "And so it doesn't matter whether your table contains"
+    },
+    {
+      "id": 155,
+      "start": 429.06,
+      "end": 431.26,
+      "text": "banking information, and my table contains blog"
+    },
+    {
+      "id": 156,
+      "start": 431.26,
+      "end": 434.22,
+      "text": "information, at the end of the day, a column is a data"
+    },
+    {
+      "id": 157,
+      "start": 434.22,
+      "end": 437.14,
+      "text": "to column of data, and they can reuse that."
+    },
+    {
+      "id": 158,
+      "start": 437.14,
+      "end": 441.14,
+      "text": "So they talk about how the cache hit rate is like 99.95%"
+    },
+    {
+      "id": 159,
+      "start": 441.14,
+      "end": 444.78,
+      "text": "for across all queries and across the entire fleet."
+    },
+    {
+      "id": 160,
+      "start": 444.78,
+      "end": 448.26,
+      "text": "And then in the cases where if you don't have the pre-compiled"
+    },
+    {
+      "id": 161,
+      "start": 448.26,
+      "end": 452.18,
+      "text": "segment on your local cache, 87% of the time"
+    },
+    {
+      "id": 162,
+      "start": 452.18,
+      "end": 455.5,
+      "text": "that when you go to the global cache, it's going to be in there."
+    },
+    {
+      "id": 163,
+      "start": 455.5,
+      "end": 458.5,
+      "text": "So this basically negates the cost of compilation."
+    },
+    {
+      "id": 164,
+      "start": 458.5,
+      "end": 460.7,
+      "text": "The thing we were worried about before,"
+    },
+    {
+      "id": 165,
+      "start": 460.7,
+      "end": 463.42,
+      "text": "when we were talking about how to use this technique."
+    },
+    {
+      "id": 166,
+      "start": 463.42,
+      "end": 466.7,
+      "text": "And again, when we were talking about IQ and MemSQL,"
+    },
+    {
+      "id": 167,
+      "start": 466.7,
+      "end": 468.98,
+      "text": "and other systems like that forked exactly GCC,"
+    },
+    {
+      "id": 168,
+      "start": 468.98,
+      "end": 470.74,
+      "text": "we talked about how it's going to be second-stack"
+    },
+    {
+      "id": 169,
+      "start": 470.74,
+      "end": 471.9,
+      "text": "to compile things."
+    },
+    {
+      "id": 170,
+      "start": 471.9,
+      "end": 474.14,
+      "text": "Even hyper was, in some cases, it was going"
+    },
+    {
+      "id": 171,
+      "start": 474.14,
+      "end": 476.98,
+      "text": "to take hundreds of milliseconds to compile things."
+    },
+    {
+      "id": 172,
+      "start": 476.98,
+      "end": 479.1,
+      "text": "All that goes away because everything's cached."
+    },
+    {
+      "id": 173,
+      "start": 479.1,
+      "end": 479.62,
+      "text": "Yes."
+    },
+    {
+      "id": 174,
+      "start": 479.62,
+      "end": 480.94,
+      "text": "How big is that cache?"
+    },
+    {
+      "id": 175,
+      "start": 480.94,
+      "end": 483.5,
+      "text": "It's question is how big is that cache?"
+    },
+    {
+      "id": 176,
+      "start": 483.5,
+      "end": 487.38,
+      "text": "I mean, it's not going to be petabytes, right?"
+    },
+    {
+      "id": 177,
+      "start": 487.38,
+      "end": 490.66,
+      "text": "But it's probably a couple of hundred gigs, sure."
+    },
+    {
+      "id": 178,
+      "start": 490.94,
+      "end": 491.5,
+      "text": "But who cares?"
+    },
+    {
+      "id": 179,
+      "start": 491.5,
+      "end": 492.38,
+      "text": "Is your Amazon?"
+    },
+    {
+      "id": 180,
+      "start": 492.38,
+      "end": 494.38,
+      "text": "Right?"
+    },
+    {
+      "id": 181,
+      "start": 494.38,
+      "end": 497.02,
+      "text": "Like how big is the S3, total amount of S3 storage?"
+    },
+    {
+      "id": 182,
+      "start": 500.02,
+      "end": 500.54,
+      "text": "A lot."
+    },
+    {
+      "id": 183,
+      "start": 500.54,
+      "end": 501.54,
+      "text": "Yeah."
+    },
+    {
+      "id": 184,
+      "start": 501.54,
+      "end": 506.62,
+      "text": "So who cares if you have this cache query plans?"
+    },
+    {
+      "id": 185,
+      "start": 506.62,
+      "end": 508.42,
+      "text": "And then from their perspective, all set to,"
+    },
+    {
+      "id": 186,
+      "start": 508.42,
+      "end": 512.26,
+      "text": "like, it's a win-win situation because the customers"
+    },
+    {
+      "id": 187,
+      "start": 512.26,
+      "end": 515.18,
+      "text": "are happy because the queries aren't faster."
+    },
+    {
+      "id": 188,
+      "start": 515.18,
+      "end": 519.3,
+      "text": "It's less computationally expensive to fetch something"
+    },
+    {
+      "id": 189,
+      "start": 519.3,
+      "end": 522.94,
+      "text": "from the cache than recompile it."
+    },
+    {
+      "id": 190,
+      "start": 522.94,
+      "end": 526.42,
+      "text": "So for them, this is an over-inter."
+    },
+    {
+      "id": 191,
+      "start": 526.42,
+      "end": 528.74,
+      "text": "And again, this is what you can do when it's in the cloud."
+    },
+    {
+      "id": 192,
+      "start": 528.74,
+      "end": 531.78,
+      "text": "Again, if you're running hyper and it's local on your box,"
+    },
+    {
+      "id": 193,
+      "start": 531.78,
+      "end": 535.18,
+      "text": "you can't phone home to say, you know,"
+    },
+    {
+      "id": 194,
+      "start": 535.18,
+      "end": 536.86,
+      "text": "do you have this compiled query plan?"
+    },
+    {
+      "id": 195,
+      "start": 536.86,
+      "end": 538.3,
+      "text": "Because it's not designed that."
+    },
+    {
+      "id": 196,
+      "start": 538.3,
+      "end": 539.62,
+      "text": "But when it's a service running in the cloud"
+    },
+    {
+      "id": 197,
+      "start": 539.62,
+      "end": 541.74,
+      "text": "when you control everything, you can do this kind of trick."
+    },
+    {
+      "id": 198,
+      "start": 542.02,
+      "end": 552.42,
+      "text": "So I saw a similar idea from, it's a sort of commercial JVM"
+    },
+    {
+      "id": 199,
+      "start": 552.42,
+      "end": 554.98,
+      "text": "company called Azul AZUL."
+    },
+    {
+      "id": 200,
+      "start": 554.98,
+      "end": 557.02,
+      "text": "And they now have a compilation as a service."
+    },
+    {
+      "id": 201,
+      "start": 557.02,
+      "end": 557.78,
+      "text": "I'm going to say like this."
+    },
+    {
+      "id": 202,
+      "start": 557.78,
+      "end": 559.66,
+      "text": "So like if you're running your Java program,"
+    },
+    {
+      "id": 203,
+      "start": 559.66,
+      "end": 565.18,
+      "text": "you can have their compiler, the local JVM say,"
+    },
+    {
+      "id": 204,
+      "start": 565.18,
+      "end": 569.62,
+      "text": "oh, I want a compiled version of this jar file"
+    },
+    {
+      "id": 205,
+      "start": 569.62,
+      "end": 572.1,
+      "text": "and let them run on this hardware."
+    },
+    {
+      "id": 206,
+      "start": 572.1,
+      "end": 576.1,
+      "text": "You can call the service and get cache binaries from them."
+    },
+    {
+      "id": 207,
+      "start": 576.1,
+      "end": 576.58,
+      "text": "Yes."
+    },
+    {
+      "id": 208,
+      "start": 576.58,
+      "end": 578.9,
+      "text": "What I'm most impressed with is that the level of interaction"
+    },
+    {
+      "id": 209,
+      "start": 578.9,
+      "end": 582.54,
+      "text": "of going to the cache isn't as less costly than actually"
+    },
+    {
+      "id": 210,
+      "start": 582.54,
+      "end": 584.54,
+      "text": "compiling."
+    },
+    {
+      "id": 211,
+      "start": 584.54,
+      "end": 587.26,
+      "text": "So your statement is you're more impressed"
+    },
+    {
+      "id": 212,
+      "start": 587.26,
+      "end": 589.42,
+      "text": "that the cost of going to the cache is cheaper"
+    },
+    {
+      "id": 213,
+      "start": 589.42,
+      "end": 590.46,
+      "text": "than just compiling locally?"
+    },
+    {
+      "id": 214,
+      "start": 590.46,
+      "end": 590.82,
+      "text": "Yeah."
+    },
+    {
+      "id": 215,
+      "start": 590.82,
+      "end": 593.78,
+      "text": "Because using compiling locally just like 10 milliseconds"
+    },
+    {
+      "id": 216,
+      "start": 593.78,
+      "end": 597.26,
+      "text": "or 100 milliseconds?"
+    },
+    {
+      "id": 217,
+      "start": 597.26,
+      "end": 598.34,
+      "text": "Seconds."
+    },
+    {
+      "id": 218,
+      "start": 598.34,
+      "end": 599.34,
+      "text": "Seconds, second."
+    },
+    {
+      "id": 219,
+      "start": 599.34,
+      "end": 599.84,
+      "text": "Yeah."
+    },
+    {
+      "id": 220,
+      "start": 599.84,
+      "end": 601.74,
+      "text": "I see."
+    },
+    {
+      "id": 221,
+      "start": 601.74,
+      "end": 603.66,
+      "text": "How large are these pre-compiled?"
+    },
+    {
+      "id": 222,
+      "start": 603.66,
+      "end": 604.18,
+      "text": "Like, let's see."
+    }
+  ],
+  "language": "en"
+}

@@ -1,0 +1,1529 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.92,
+      "text": "And it was a shared nothing system."
+    },
+    {
+      "id": 1,
+      "start": 1.92,
+      "end": 4.2,
+      "text": "So if you want to scale the capacity of the system,"
+    },
+    {
+      "id": 2,
+      "start": 4.2,
+      "end": 5.52,
+      "text": "you have to add more nodes, and now you"
+    },
+    {
+      "id": 3,
+      "start": 5.52,
+      "end": 7.08,
+      "text": "got to start moving data around."
+    },
+    {
+      "id": 4,
+      "start": 7.08,
+      "end": 8.76,
+      "text": "And that's going to be one of the limitations."
+    },
+    {
+      "id": 5,
+      "start": 8.76,
+      "end": 12.52,
+      "text": "We'll see you throughout the semester."
+    },
+    {
+      "id": 6,
+      "start": 12.52,
+      "end": 14.24,
+      "text": "So then we hit the 2010s."
+    },
+    {
+      "id": 7,
+      "start": 14.24,
+      "end": 18.28,
+      "text": "Late 2000s, early 2010s was one of these things took off."
+    },
+    {
+      "id": 8,
+      "start": 18.28,
+      "end": 19.52,
+      "text": "We enter this new era that we're"
+    },
+    {
+      "id": 9,
+      "start": 19.52,
+      "end": 22.64,
+      "text": "certain in today of these shared disk engines."
+    },
+    {
+      "id": 10,
+      "start": 22.64,
+      "end": 26.28,
+      "text": "And the idea here is that instead of having the database"
+    },
+    {
+      "id": 11,
+      "start": 26.28,
+      "end": 29.04,
+      "text": "system manage its own storage layer,"
+    },
+    {
+      "id": 12,
+      "start": 29.04,
+      "end": 32.08,
+      "text": "we're going to offload that to some other piece of software,"
+    },
+    {
+      "id": 13,
+      "start": 32.08,
+      "end": 33.84,
+      "text": "some other service."
+    },
+    {
+      "id": 14,
+      "start": 33.84,
+      "end": 38.16,
+      "text": "And in the cloud setting, it's going to be an object store like S3."
+    },
+    {
+      "id": 15,
+      "start": 38.16,
+      "end": 40.72,
+      "text": "And the idea here is that because we"
+    },
+    {
+      "id": 16,
+      "start": 40.72,
+      "end": 44.04,
+      "text": "know long how to be responsible for managing the storage of data,"
+    },
+    {
+      "id": 17,
+      "start": 44.04,
+      "end": 48.0,
+      "text": "we can optimize the compute layer as much as possible."
+    },
+    {
+      "id": 18,
+      "start": 48.0,
+      "end": 50.76,
+      "text": "We're still going to have proprietary data formats,"
+    },
+    {
+      "id": 19,
+      "start": 50.76,
+      "end": 53.84,
+      "text": "meaning if you're using Snowflake regular Snowflake"
+    },
+    {
+      "id": 20,
+      "start": 53.84,
+      "end": 55.52,
+      "text": "was sort of the first ones in this space,"
+    },
+    {
+      "id": 21,
+      "start": 55.52,
+      "end": 56.8,
+      "text": "Snowflake when you store data into it,"
+    },
+    {
+      "id": 22,
+      "start": 56.8,
+      "end": 58.28,
+      "text": "it's going to store it in the Snowflake format."
+    },
+    {
+      "id": 23,
+      "start": 58.28,
+      "end": 60.12,
+      "text": "That only Snowflake understands."
+    },
+    {
+      "id": 24,
+      "start": 60.12,
+      "end": 61.6,
+      "text": "But it's going to store it in S3."
+    },
+    {
+      "id": 25,
+      "start": 64.6,
+      "end": 66.36,
+      "text": "So that was the first generation of these systems."
+    },
+    {
+      "id": 26,
+      "start": 66.36,
+      "end": 68.2,
+      "text": "They're going to manage all the thousand cells."
+    },
+    {
+      "id": 27,
+      "start": 68.2,
+      "end": 70.08,
+      "text": "The newer generation, and what was in the paper"
+    },
+    {
+      "id": 28,
+      "start": 70.08,
+      "end": 73.08,
+      "text": "that you guys read that sort of fall under this branding"
+    },
+    {
+      "id": 29,
+      "start": 73.08,
+      "end": 75.36,
+      "text": "label or moniker of Lakehouse systems,"
+    },
+    {
+      "id": 30,
+      "start": 75.36,
+      "end": 77.72,
+      "text": "the idea is that it looks just like a shared disk system"
+    },
+    {
+      "id": 31,
+      "start": 77.72,
+      "end": 81.76,
+      "text": "before, but now instead of having always using a proprietary"
+    },
+    {
+      "id": 32,
+      "start": 81.76,
+      "end": 85.32,
+      "text": "storage format and only allowing data to be added to the database"
+    },
+    {
+      "id": 33,
+      "start": 85.32,
+      "end": 87.4,
+      "text": "by going through the database system,"
+    },
+    {
+      "id": 34,
+      "start": 87.4,
+      "end": 90.92,
+      "text": "you allow anybody to write bunch of files out on S3,"
+    },
+    {
+      "id": 35,
+      "start": 90.92,
+      "end": 92.88,
+      "text": "tell the database system the Lakehouse system,"
+    },
+    {
+      "id": 36,
+      "start": 92.88,
+      "end": 94.84,
+      "text": "hey, here's my files, here's what's in them,"
+    },
+    {
+      "id": 37,
+      "start": 94.84,
+      "end": 98.16,
+      "text": "and then now you can run queries on top of that data."
+    },
+    {
+      "id": 38,
+      "start": 98.16,
+      "end": 99.0,
+      "text": "Yes?"
+    },
+    {
+      "id": 39,
+      "start": 99.0,
+      "end": 100.92,
+      "text": "On each slide, you have all these different products"
+    },
+    {
+      "id": 40,
+      "start": 100.92,
+      "end": 101.64,
+      "text": "and companies."
+    },
+    {
+      "id": 41,
+      "start": 101.64,
+      "end": 102.16,
+      "text": "Yes."
+    },
+    {
+      "id": 42,
+      "start": 102.16,
+      "end": 104.32,
+      "text": "I'm curious, what would you say they must be"
+    },
+    {
+      "id": 43,
+      "start": 104.32,
+      "end": 105.92,
+      "text": "going to key on or do they just something"
+    },
+    {
+      "id": 44,
+      "start": 105.92,
+      "end": 106.68,
+      "text": "that they just need?"
+    },
+    {
+      "id": 45,
+      "start": 106.68,
+      "end": 108.16,
+      "text": "Is that that company is?"
+    },
+    {
+      "id": 46,
+      "start": 108.16,
+      "end": 111.24,
+      "text": "Why there's so many options out there?"
+    },
+    {
+      "id": 47,
+      "start": 111.24,
+      "end": 113.64,
+      "text": "So this question is, I'm showing much of these logos"
+    },
+    {
+      "id": 48,
+      "start": 113.64,
+      "end": 115.64,
+      "text": "at the bottom here."
+    },
+    {
+      "id": 49,
+      "start": 115.64,
+      "end": 116.52,
+      "text": "Why are there so many?"
+    },
+    {
+      "id": 50,
+      "start": 116.52,
+      "end": 118.24,
+      "text": "What are they competing on?"
+    },
+    {
+      "id": 51,
+      "start": 118.24,
+      "end": 120.32,
+      "text": "I mean, the reason why there's so many of them,"
+    },
+    {
+      "id": 52,
+      "start": 120.32,
+      "end": 122.76,
+      "text": "because there's so much money in databases, right?"
+    },
+    {
+      "id": 53,
+      "start": 122.76,
+      "end": 125.08,
+      "text": "That's why there's a lot of this, you know,"
+    },
+    {
+      "id": 54,
+      "start": 125.08,
+      "end": 127.52,
+      "text": "there's Linux and then what else?"
+    },
+    {
+      "id": 55,
+      "start": 127.52,
+      "end": 128.52,
+      "text": "Right?"
+    },
+    {
+      "id": 56,
+      "start": 128.52,
+      "end": 130.52,
+      "text": "There's a lot of databases, right?"
+    },
+    {
+      "id": 57,
+      "start": 131.56,
+      "end": 135.4,
+      "text": "So the key difference is going to be in,"
+    },
+    {
+      "id": 58,
+      "start": 135.4,
+      "end": 137.88,
+      "text": "I think, some of these will be hosted services"
+    },
+    {
+      "id": 59,
+      "start": 137.88,
+      "end": 140.4,
+      "text": "that you can only get through a certain cloud provider,"
+    },
+    {
+      "id": 60,
+      "start": 140.4,
+      "end": 141.4,
+      "text": "like an Amazon Redshift."
+    },
+    {
+      "id": 61,
+      "start": 141.4,
+      "end": 145.2,
+      "text": "You can only get Amazon Redshift on Amazon."
+    },
+    {
+      "id": 62,
+      "start": 145.2,
+      "end": 148.12,
+      "text": "With BigQuery, I think they have called Omni something"
+    },
+    {
+      "id": 63,
+      "start": 148.12,
+      "end": 151.16,
+      "text": "or other, you can now run BigQuery stuff on AWS and Azure"
+    },
+    {
+      "id": 64,
+      "start": 151.16,
+      "end": 153.24,
+      "text": "and so forth."
+    },
+    {
+      "id": 65,
+      "start": 153.24,
+      "end": 156.24,
+      "text": "But for whatever reason, people start building the AWS"
+    },
+    {
+      "id": 66,
+      "start": 156.24,
+      "end": 157.76,
+      "text": "systems because they think they can do a better job"
+    },
+    {
+      "id": 67,
+      "start": 157.76,
+      "end": 159.04,
+      "text": "than what already exists."
+    },
+    {
+      "id": 68,
+      "start": 159.04,
+      "end": 160.68,
+      "text": "And oftentimes, some of these projects"
+    },
+    {
+      "id": 69,
+      "start": 160.68,
+      "end": 165.68,
+      "text": "actually spin out of larger tech companies that decided,"
+    },
+    {
+      "id": 70,
+      "start": 165.68,
+      "end": 167.28,
+      "text": "oh, we want to build a stuff in house"
+    },
+    {
+      "id": 71,
+      "start": 167.28,
+      "end": 168.72,
+      "text": "and then turns out to be useful."
+    },
+    {
+      "id": 72,
+      "start": 168.72,
+      "end": 170.36,
+      "text": "And then they converted to an open source project"
+    },
+    {
+      "id": 73,
+      "start": 170.36,
+      "end": 171.64,
+      "text": "and get people to use it outside of it."
+    },
+    {
+      "id": 74,
+      "start": 171.64,
+      "end": 174.48,
+      "text": "So Presto started at Facebook."
+    },
+    {
+      "id": 75,
+      "start": 174.48,
+      "end": 176.32,
+      "text": "Peanows started at LinkedIn."
+    },
+    {
+      "id": 76,
+      "start": 176.32,
+      "end": 179.8,
+      "text": "Trenos and Fork, Presto drew it."
+    },
+    {
+      "id": 77,
+      "start": 179.8,
+      "end": 181.44,
+      "text": "I forget, this came out of something as well."
+    },
+    {
+      "id": 78,
+      "start": 181.44,
+      "end": 184.16,
+      "text": "But for whatever reason, people start building"
+    },
+    {
+      "id": 79,
+      "start": 184.16,
+      "end": 185.2,
+      "text": "these various systems."
+    },
+    {
+      "id": 80,
+      "start": 185.2,
+      "end": 188.84,
+      "text": "And I would say at a high level, for the most part,"
+    },
+    {
+      "id": 81,
+      "start": 188.84,
+      "end": 192.92,
+      "text": "as we'll see throughout the semester,"
+    },
+    {
+      "id": 82,
+      "start": 192.92,
+      "end": 195.4,
+      "text": "the high level, they're all going to be basically the same."
+    },
+    {
+      "id": 83,
+      "start": 195.4,
+      "end": 197.36,
+      "text": "The real difference is going to be the things that actually"
+    },
+    {
+      "id": 84,
+      "start": 197.36,
+      "end": 199.84,
+      "text": "really matter in some cases is going to be the top layer,"
+    },
+    {
+      "id": 85,
+      "start": 199.84,
+      "end": 202.04,
+      "text": "the front end, like what the user experience looks like,"
+    },
+    {
+      "id": 86,
+      "start": 202.04,
+      "end": 203.6,
+      "text": "how good the query optimizer is."
+    },
+    {
+      "id": 87,
+      "start": 203.6,
+      "end": 205.48,
+      "text": "In my opinion, that's the part that really matters."
+    },
+    {
+      "id": 88,
+      "start": 205.48,
+      "end": 208.36,
+      "text": "All the stuff that we're talking about throughout the semester,"
+    },
+    {
+      "id": 89,
+      "start": 208.36,
+      "end": 211.84,
+      "text": "it becomes almost commoditized or comes table stakes."
+    },
+    {
+      "id": 90,
+      "start": 211.84,
+      "end": 213.0,
+      "text": "Everyone has it."
+    },
+    {
+      "id": 91,
+      "start": 213.0,
+      "end": 215.0,
+      "text": "We still want to learn how to build it"
+    },
+    {
+      "id": 92,
+      "start": 215.0,
+      "end": 218.36,
+      "text": "and why they do certain things and why they"
+    },
+    {
+      "id": 93,
+      "start": 218.36,
+      "end": 219.44,
+      "text": "perform in the way they perform."
+    },
+    {
+      "id": 94,
+      "start": 219.44,
+      "end": 221.12,
+      "text": "Like that part is still super important, especially"
+    },
+    {
+      "id": 95,
+      "start": 221.12,
+      "end": 223.4,
+      "text": "if you want to work on the internals of these systems."
+    },
+    {
+      "id": 96,
+      "start": 223.4,
+      "end": 227.4,
+      "text": "But to the average user, it's really the top part that"
+    },
+    {
+      "id": 97,
+      "start": 227.4,
+      "end": 228.88,
+      "text": "really matters."
+    },
+    {
+      "id": 98,
+      "start": 228.88,
+      "end": 231.56,
+      "text": "So another way to say is, are there too many databases?"
+    },
+    {
+      "id": 99,
+      "start": 231.56,
+      "end": 233.76,
+      "text": "Maybe."
+    },
+    {
+      "id": 100,
+      "start": 233.76,
+      "end": 236.44,
+      "text": "Like I said, there's still a lot of money in the marketplace"
+    },
+    {
+      "id": 101,
+      "start": 236.44,
+      "end": 237.16,
+      "text": "for this kind of stuff."
+    },
+    {
+      "id": 102,
+      "start": 237.16,
+      "end": 243.28,
+      "text": "And people, these things don't die."
+    },
+    {
+      "id": 103,
+      "start": 243.28,
+      "end": 246.48,
+      "text": "Impala didn't really take off as much as Snowflake did."
+    },
+    {
+      "id": 104,
+      "start": 246.48,
+      "end": 247.6,
+      "text": "They're still maintaining impala."
+    },
+    {
+      "id": 105,
+      "start": 247.6,
+      "end": 248.84,
+      "text": "Still people are using impala."
+    },
+    {
+      "id": 106,
+      "start": 248.84,
+      "end": 251.12,
+      "text": "Would I recommend anybody starting off using impala?"
+    },
+    {
+      "id": 107,
+      "start": 251.12,
+      "end": 252.44,
+      "text": "No."
+    },
+    {
+      "id": 108,
+      "start": 252.44,
+      "end": 253.16,
+      "text": "But it's still there."
+    },
+    {
+      "id": 109,
+      "start": 256.2,
+      "end": 257.04,
+      "text": "Yes?"
+    },
+    {
+      "id": 110,
+      "start": 257.04,
+      "end": 259.28,
+      "text": "Are these the same or different from data links?"
+    },
+    {
+      "id": 111,
+      "start": 259.36,
+      "end": 263.4,
+      "text": "Because what I read about data links, they have a open file."
+    },
+    {
+      "id": 112,
+      "start": 263.4,
+      "end": 265.52,
+      "text": "Yes, the question is, what I'm describing here,"
+    },
+    {
+      "id": 113,
+      "start": 265.52,
+      "end": 267.2,
+      "text": "the same as a data lake."
+    },
+    {
+      "id": 114,
+      "start": 267.2,
+      "end": 270.76,
+      "text": "The term data lake basically meant to say, OK, here's S3,"
+    },
+    {
+      "id": 115,
+      "start": 270.76,
+      "end": 273.04,
+      "text": "anybody, you store data in there."
+    },
+    {
+      "id": 116,
+      "start": 273.04,
+      "end": 275.84,
+      "text": "But then the lake house architecture,"
+    },
+    {
+      "id": 117,
+      "start": 275.84,
+      "end": 278.12,
+      "text": "we'll see in a second, it does have the ability"
+    },
+    {
+      "id": 118,
+      "start": 278.12,
+      "end": 281.0,
+      "text": "to ingest data through this lake house"
+    },
+    {
+      "id": 119,
+      "start": 281.0,
+      "end": 281.96,
+      "text": "and keep track of things."
+    },
+    {
+      "id": 120,
+      "start": 281.96,
+      "end": 285.24,
+      "text": "But it also provides additional schema control"
+    },
+    {
+      "id": 121,
+      "start": 285.24,
+      "end": 286.28,
+      "text": "and metadata stuff as well."
+    },
+    {
+      "id": 122,
+      "start": 286.76,
+      "end": 290.6,
+      "text": "The data lake, the idea was like, OK, W3,000 S3."
+    },
+    {
+      "id": 123,
+      "start": 290.6,
+      "end": 292.4,
+      "text": "And then whoever did that is also responsible"
+    },
+    {
+      "id": 124,
+      "start": 292.4,
+      "end": 294.88,
+      "text": "for telling the catalog, here's my files."
+    },
+    {
+      "id": 125,
+      "start": 294.88,
+      "end": 296.4,
+      "text": "With the lake house architecture, it's supposed to be"
+    },
+    {
+      "id": 126,
+      "start": 296.4,
+      "end": 300.12,
+      "text": "like a unified front and interface to develop and say, OK,"
+    },
+    {
+      "id": 127,
+      "start": 300.12,
+      "end": 301.28,
+      "text": "here's my new data."
+    },
+    {
+      "id": 128,
+      "start": 301.28,
+      "end": 303.64,
+      "text": "And then the lake house can put it where it wants it."
+    },
+    {
+      "id": 129,
+      "start": 303.64,
+      "end": 305.2,
+      "text": "You can tell it here's where it is and sort of"
+    },
+    {
+      "id": 130,
+      "start": 305.2,
+      "end": 306.44,
+      "text": "keeps track of these things."
+    },
+    {
+      "id": 131,
+      "start": 306.44,
+      "end": 308.96,
+      "text": "So it's not to say you couldn't build,"
+    },
+    {
+      "id": 132,
+      "start": 308.96,
+      "end": 310.48,
+      "text": "ignoring the increment updates."
+    },
+    {
+      "id": 133,
+      "start": 310.48,
+      "end": 311.44,
+      "text": "We'll talk about in a second."
+    },
+    {
+      "id": 134,
+      "start": 311.44,
+      "end": 313.92,
+      "text": "It's not that you couldn't do what a lake house does"
+    },
+    {
+      "id": 135,
+      "start": 313.92,
+      "end": 315.76,
+      "text": "on a data lake."
+    },
+    {
+      "id": 136,
+      "start": 315.76,
+      "end": 317.12,
+      "text": "They're essentially the same thing."
+    },
+    {
+      "id": 137,
+      "start": 317.12,
+      "end": 319.92,
+      "text": "There's more services to help you keep track of what's"
+    },
+    {
+      "id": 138,
+      "start": 319.92,
+      "end": 320.92,
+      "text": "going on."
+    },
+    {
+      "id": 139,
+      "start": 320.92,
+      "end": 322.92,
+      "text": "Or also wondering, when we said shared disk"
+    },
+    {
+      "id": 140,
+      "start": 322.92,
+      "end": 324.72,
+      "text": "can you be data lake or something?"
+    },
+    {
+      "id": 141,
+      "start": 324.72,
+      "end": 327.12,
+      "text": "So data lake would just be like, his question is,"
+    },
+    {
+      "id": 142,
+      "start": 327.12,
+      "end": 328.92,
+      "text": "when I say shared disk, I mean data lake."
+    },
+    {
+      "id": 143,
+      "start": 328.92,
+      "end": 330.48,
+      "text": "I mean shared disk would be the distinction between shared"
+    },
+    {
+      "id": 144,
+      "start": 330.48,
+      "end": 331.8,
+      "text": "nothing."
+    },
+    {
+      "id": 145,
+      "start": 331.8,
+      "end": 333.56,
+      "text": "That you have this separate computing storage"
+    },
+    {
+      "id": 146,
+      "start": 333.56,
+      "end": 336.68,
+      "text": "and you rely on the object store to store your data."
+    },
+    {
+      "id": 147,
+      "start": 336.68,
+      "end": 341.24,
+      "text": "So you could do that in some systems"
+    },
+    {
+      "id": 148,
+      "start": 341.24,
+      "end": 344.0,
+      "text": "before data bricks is the lake house stuff."
+    },
+    {
+      "id": 149,
+      "start": 344.0,
+      "end": 347.0,
+      "text": "But the idea is there's much more manual stuff you have to do."
+    },
+    {
+      "id": 150,
+      "start": 347.0,
+      "end": 350.0,
+      "text": "If you just dump up files in S3, but nobody knows about them,"
+    },
+    {
+      "id": 151,
+      "start": 350.0,
+      "end": 353.08,
+      "text": "then you can't run queries on them."
+    },
+    {
+      "id": 152,
+      "start": 353.08,
+      "end": 355.24,
+      "text": "But so that means you would have to update the files in S3"
+    },
+    {
+      "id": 153,
+      "start": 355.24,
+      "end": 357.28,
+      "text": "and then tell some catalog service,"
+    },
+    {
+      "id": 154,
+      "start": 357.28,
+      "end": 359.96,
+      "text": "here's what my data is so they can then run queries on that."
+    },
+    {
+      "id": 155,
+      "start": 359.96,
+      "end": 361.6,
+      "text": "So it would be like a manual process."
+    },
+    {
+      "id": 156,
+      "start": 361.6,
+      "end": 364.36,
+      "text": "The lake house is trying to do all this automatically for you."
+    },
+    {
+      "id": 157,
+      "start": 367.48,
+      "end": 368.88,
+      "text": "It's a marketing term, something that's"
+    },
+    {
+      "id": 158,
+      "start": 369.44,
+      "end": 373.64,
+      "text": "like the data like just means, here's S3."
+    },
+    {
+      "id": 159,
+      "start": 373.64,
+      "end": 375.2,
+      "text": "Put my files there."
+    },
+    {
+      "id": 160,
+      "start": 375.2,
+      "end": 379.32,
+      "text": "But the important thing about this is what"
+    },
+    {
+      "id": 161,
+      "start": 379.32,
+      "end": 382.0,
+      "text": "this allows you to do because it's going to be a day lake"
+    },
+    {
+      "id": 162,
+      "start": 382.0,
+      "end": 385.72,
+      "text": "or an object store, I don't have to go get approval from the DBA"
+    },
+    {
+      "id": 163,
+      "start": 385.72,
+      "end": 387.56,
+      "text": "to say, I want to store this data."
+    },
+    {
+      "id": 164,
+      "start": 387.56,
+      "end": 389.32,
+      "text": "I think I spend time setting up the schema"
+    },
+    {
+      "id": 165,
+      "start": 389.32,
+      "end": 390.76,
+      "text": "and figuring out what's going to be in there"
+    },
+    {
+      "id": 166,
+      "start": 390.76,
+      "end": 392.12,
+      "text": "and provisioning hardware."
+    },
+    {
+      "id": 167,
+      "start": 392.12,
+      "end": 394.48,
+      "text": "You just start uploading files."
+    },
+    {
+      "id": 168,
+      "start": 394.48,
+      "end": 398.16,
+      "text": "And then for better or worse, that makes it easier"
+    },
+    {
+      "id": 169,
+      "start": 398.32,
+      "end": 399.0,
+      "text": "to put data in there."
+    },
+    {
+      "id": 170,
+      "start": 399.0,
+      "end": 401.8,
+      "text": "But then now someone's got to figure out what's actually in there."
+    },
+    {
+      "id": 171,
+      "start": 401.8,
+      "end": 405.24,
+      "text": "So you're sort of pushing the burden of figuring out"
+    },
+    {
+      "id": 172,
+      "start": 405.24,
+      "end": 408.36,
+      "text": "how to interpret the data in the contents later down"
+    },
+    {
+      "id": 173,
+      "start": 408.36,
+      "end": 409.4,
+      "text": "the pipeline."
+    },
+    {
+      "id": 174,
+      "start": 409.4,
+      "end": 410.68,
+      "text": "And in some cases, that's a good idea."
+    },
+    {
+      "id": 175,
+      "start": 410.68,
+      "end": 411.68,
+      "text": "Sometimes it's a bad idea."
+    },
+    {
+      "id": 176,
+      "start": 416.64,
+      "end": 419.08,
+      "text": "That's what we're talking about, a philosophical discussion."
+    },
+    {
+      "id": 177,
+      "start": 419.08,
+      "end": 421.0,
+      "text": "But the key thing here is that we're separating"
+    },
+    {
+      "id": 178,
+      "start": 421.0,
+      "end": 424.12,
+      "text": "computing storage by using a shared disk architecture."
+    },
+    {
+      "id": 179,
+      "start": 424.12,
+      "end": 427.28,
+      "text": "So we go back to our diagram before."
+    },
+    {
+      "id": 180,
+      "start": 427.28,
+      "end": 428.96,
+      "text": "Now we're all TB databases."
+    },
+    {
+      "id": 181,
+      "start": 428.96,
+      "end": 431.24,
+      "text": "They're going to send all their data to an object store."
+    },
+    {
+      "id": 182,
+      "start": 431.24,
+      "end": 434.0,
+      "text": "And maybe there's an ETL thing or some kind of middleware"
+    },
+    {
+      "id": 183,
+      "start": 434.0,
+      "end": 435.6,
+      "text": "here that's going to do some transformation"
+    },
+    {
+      "id": 184,
+      "start": 435.6,
+      "end": 438.28,
+      "text": "before it puts it in there."
+    },
+    {
+      "id": 185,
+      "start": 438.28,
+      "end": 442.48,
+      "text": "And then we would maybe tell the catalog, here's the files"
+    },
+    {
+      "id": 186,
+      "start": 442.48,
+      "end": 444.28,
+      "text": "that I just put in there and here's their contents."
+    },
+    {
+      "id": 187,
+      "start": 444.28,
+      "end": 446.92,
+      "text": "Or here's the schema that's in there."
+    },
+    {
+      "id": 188,
+      "start": 446.92,
+      "end": 450.12,
+      "text": "And then now, if I want to query the query engine on the side,"
+    },
+    {
+      "id": 189,
+      "start": 450.12,
+      "end": 452.08,
+      "text": "it's not responsible for the storage anymore."
+    },
+    {
+      "id": 190,
+      "start": 452.08,
+      "end": 454.2,
+      "text": "So it has to go to the catalog and say, what data do I actually"
+    },
+    {
+      "id": 191,
+      "start": 454.2,
+      "end": 457.28,
+      "text": "have, where the file is located in S3?"
+    },
+    {
+      "id": 192,
+      "start": 457.28,
+      "end": 458.88,
+      "text": "And then once I have that information,"
+    },
+    {
+      "id": 193,
+      "start": 458.88,
+      "end": 462.8,
+      "text": "then I can run my queries on the object store."
+    },
+    {
+      "id": 194,
+      "start": 462.8,
+      "end": 466.6,
+      "text": "So in this semester, this box here is what we care about."
+    },
+    {
+      "id": 195,
+      "start": 466.6,
+      "end": 469.44,
+      "text": "This is the thing that we're actually going to design."
+    },
+    {
+      "id": 196,
+      "start": 469.44,
+      "end": 472.24,
+      "text": "This is what we call an OLAP system, whether it's a lake house"
+    },
+    {
+      "id": 197,
+      "start": 472.24,
+      "end": 475.08,
+      "text": "system that comes with additional stuff that Databricks"
+    },
+    {
+      "id": 198,
+      "start": 475.08,
+      "end": 475.96,
+      "text": "wants to sell you."
+    },
+    {
+      "id": 199,
+      "start": 475.96,
+      "end": 479.24,
+      "text": "But this is the thing that we're described conceptually"
+    },
+    {
+      "id": 200,
+      "start": 479.24,
+      "end": 482.16,
+      "text": "and how to build."
+    },
+    {
+      "id": 201,
+      "start": 482.16,
+      "end": 484.88,
+      "text": "And this is the way people have been really building the systems"
+    },
+    {
+      "id": 202,
+      "start": 484.88,
+      "end": 488.76,
+      "text": "for about 10 years, about 15 years maybe now."
+    },
+    {
+      "id": 203,
+      "start": 488.76,
+      "end": 490.68,
+      "text": "That started off with Dremel at Google."
+    },
+    {
+      "id": 204,
+      "start": 490.68,
+      "end": 493.36,
+      "text": "And then Snowflake was the one that really commercialized it."
+    },
+    {
+      "id": 205,
+      "start": 493.36,
+      "end": 495.72,
+      "text": "I'm going to call it a classic architecture."
+    },
+    {
+      "id": 206,
+      "start": 495.72,
+      "end": 497.24,
+      "text": "And I realized that you guys are in the 20s."
+    },
+    {
+      "id": 207,
+      "start": 497.24,
+      "end": 500.52,
+      "text": "And I'm saying this 15 years ago, in the script of databases,"
+    },
+    {
+      "id": 208,
+      "start": 500.52,
+      "end": 503.0,
+      "text": "that's actually not a lot of time."
+    },
+    {
+      "id": 209,
+      "start": 503.0,
+      "end": 503.2,
+      "text": "Yes."
+    },
+    {
+      "id": 210,
+      "start": 503.2,
+      "end": 505.08,
+      "text": "We have just one part of the transformation"
+    },
+    {
+      "id": 211,
+      "start": 505.08,
+      "end": 509.04,
+      "text": "for the OLTP services to allow databases"
+    },
+    {
+      "id": 212,
+      "start": 509.04,
+      "end": 510.84,
+      "text": "to type Stanford, here's a phase."
+    },
+    {
+      "id": 213,
+      "start": 510.84,
+      "end": 514.4,
+      "text": "His question is, we were going to talk about this."
+    },
+    {
+      "id": 214,
+      "start": 514.4,
+      "end": 516.52,
+      "text": "It's called changing the capture."
+    },
+    {
+      "id": 215,
+      "start": 516.52,
+      "end": 518.64,
+      "text": "How do we get the updates from this into this?"
+    },
+    {
+      "id": 216,
+      "start": 518.64,
+      "end": 521.08,
+      "text": "We're not going to talk about that specifically,"
+    },
+    {
+      "id": 217,
+      "start": 521.08,
+      "end": 523.04,
+      "text": "what the process to do that."
+    },
+    {
+      "id": 218,
+      "start": 523.04,
+      "end": 524.44,
+      "text": "I can point you to some previous lectures"
+    },
+    {
+      "id": 219,
+      "start": 524.44,
+      "end": 527.32,
+      "text": "that we've had guest speakers talk about this."
+    },
+    {
+      "id": 220,
+      "start": 527.32,
+      "end": 529.08,
+      "text": "We are going to care about what the data is going"
+    },
+    {
+      "id": 221,
+      "start": 529.08,
+      "end": 530.64,
+      "text": "to look like when it goes in there."
+    },
+    {
+      "id": 222,
+      "start": 530.64,
+      "end": 535.04,
+      "text": "And that's the next class, like Parkane or files."
+    },
+    {
+      "id": 223,
+      "start": 535.04,
+      "end": 536.04,
+      "text": "Yes?"
+    },
+    {
+      "id": 224,
+      "start": 536.04,
+      "end": 537.64,
+      "text": "So it's difficult."
+    },
+    {
+      "id": 225,
+      "start": 537.64,
+      "end": 540.24,
+      "text": "Those are the guys' questions."
+    },
+    {
+      "id": 226,
+      "start": 540.24,
+      "end": 542.24,
+      "text": "So look at the extension and the data"
+    },
+    {
+      "id": 227,
+      "start": 542.24,
+      "end": 543.84,
+      "text": "also architecture like that."
+    },
+    {
+      "id": 228,
+      "start": 543.84,
+      "end": 545.4,
+      "text": "Sister called me on stage data."
+    },
+    {
+      "id": 229,
+      "start": 545.4,
+      "end": 550.12,
+      "text": "And that it is updated completely in the office."
+    },
+    {
+      "id": 230,
+      "start": 550.12,
+      "end": 551.12,
+      "text": "Yes."
+    },
+    {
+      "id": 231,
+      "start": 551.12,
+      "end": 552.04,
+      "text": "Next class."
+    },
+    {
+      "id": 232,
+      "start": 552.04,
+      "end": 552.84,
+      "text": "All right, it's our next slide."
+    },
+    {
+      "id": 233,
+      "start": 552.84,
+      "end": 553.68,
+      "text": "Yes."
+    },
+    {
+      "id": 234,
+      "start": 553.68,
+      "end": 556.2,
+      "text": "So our statement is like, oh, in the lake house paper"
+    },
+    {
+      "id": 235,
+      "start": 556.2,
+      "end": 558.16,
+      "text": "from the database guys, they talk about,"
+    },
+    {
+      "id": 236,
+      "start": 558.16,
+      "end": 561.52,
+      "text": "oh, it's a big problem with these data lake systems"
+    },
+    {
+      "id": 237,
+      "start": 561.52,
+      "end": 563.32,
+      "text": "is that you get stale data, right?"
+    },
+    {
+      "id": 238,
+      "start": 563.32,
+      "end": 565.08,
+      "text": "Because again, we're getting continuous updates"
+    },
+    {
+      "id": 239,
+      "start": 565.08,
+      "end": 566.6,
+      "text": "from the operational side of things."
+    },
+    {
+      "id": 240,
+      "start": 566.6,
+      "end": 572.28,
+      "text": "How do we integrate that into our database"
+    },
+    {
+      "id": 241,
+      "start": 572.28,
+      "end": 574.48,
+      "text": "so that we're always trying to look at the freshest data?"
+    },
+    {
+      "id": 242,
+      "start": 574.48,
+      "end": 577.88,
+      "text": "And so what these data lake house systems provide also"
+    },
+    {
+      "id": 243,
+      "start": 577.88,
+      "end": 581.48,
+      "text": "is the ability to do transactional updates,"
+    },
+    {
+      "id": 244,
+      "start": 581.48,
+      "end": 583.92,
+      "text": "creation, deletion updates, insertions"
+    },
+    {
+      "id": 245,
+      "start": 583.92,
+      "end": 585.88,
+      "text": "into those database."
+    },
+    {
+      "id": 246,
+      "start": 585.88,
+      "end": 586.96,
+      "text": "And the way you basically do this"
+    },
+    {
+      "id": 247,
+      "start": 586.96,
+      "end": 588.68,
+      "text": "is that it's the fracture mirror stuff we talked about"
+    },
+    {
+      "id": 248,
+      "start": 588.68,
+      "end": 589.56,
+      "text": "last semester."
+    },
+    {
+      "id": 249,
+      "start": 589.56,
+      "end": 591.92,
+      "text": "You're just doing a log append to a file."
+    },
+    {
+      "id": 250,
+      "start": 591.92,
+      "end": 593.4,
+      "text": "Here's a little bit of latest changes."
+    },
+    {
+      "id": 251,
+      "start": 593.4,
+      "end": 595.52,
+      "text": "And then there's a background job that periodically"
+    },
+    {
+      "id": 252,
+      "start": 595.52,
+      "end": 598.28,
+      "text": "kick that coalesces the combines that removes out stale data."
+    },
+    {
+      "id": 253,
+      "start": 598.28,
+      "end": 601.48,
+      "text": "And then stores it now into a parquet file example for."
+    }
+  ],
+  "language": "en"
+}

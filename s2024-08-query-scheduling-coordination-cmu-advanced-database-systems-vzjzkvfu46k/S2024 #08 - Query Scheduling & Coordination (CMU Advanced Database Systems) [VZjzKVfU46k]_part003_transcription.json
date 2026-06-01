@@ -1,0 +1,1121 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.76,
+      "text": "a global queue and like, give me the next task."
+    },
+    {
+      "id": 1,
+      "start": 2.76,
+      "end": 3.6,
+      "text": "Yes."
+    },
+    {
+      "id": 2,
+      "start": 3.6,
+      "end": 9.28,
+      "text": "It's not necessarily that the data that is needed for that next task is there on the next"
+    },
+    {
+      "id": 3,
+      "start": 9.28,
+      "end": 10.28,
+      "text": "global storage."
+    },
+    {
+      "id": 4,
+      "start": 10.28,
+      "end": 16.28,
+      "text": "And, David, is the pool seems to be done because if the worker is trying to maximize the"
+    },
+    {
+      "id": 5,
+      "start": 16.28,
+      "end": 19.64,
+      "text": "locality of the data and he's access, he can't do that in a pool waste approach."
+    },
+    {
+      "id": 6,
+      "start": 19.64,
+      "end": 20.64,
+      "text": "Why not?"
+    },
+    {
+      "id": 7,
+      "start": 20.64,
+      "end": 22.96,
+      "text": "Because it's just popping the top one."
+    },
+    {
+      "id": 8,
+      "start": 22.96,
+      "end": 23.96,
+      "text": "You didn't know?"
+    },
+    {
+      "id": 9,
+      "start": 23.96,
+      "end": 24.96,
+      "text": "You're not the pop from the top."
+    },
+    {
+      "id": 10,
+      "start": 24.96,
+      "end": 25.96,
+      "text": "What are we doing?"
+    },
+    {
+      "id": 11,
+      "start": 25.96,
+      "end": 27.32,
+      "text": "Well, the hyper does it one way."
+    },
+    {
+      "id": 12,
+      "start": 27.32,
+      "end": 29.12,
+      "text": "We'll see in other ways, in other systems."
+    },
+    {
+      "id": 13,
+      "start": 30.12,
+      "end": 31.12,
+      "text": "All right."
+    },
+    {
+      "id": 14,
+      "start": 31.12,
+      "end": 33.12,
+      "text": "I mean, you have a priority queue."
+    },
+    {
+      "id": 15,
+      "start": 33.12,
+      "end": 35.76,
+      "text": "You don't always have to pop from the top."
+    },
+    {
+      "id": 16,
+      "start": 35.76,
+      "end": 41.12,
+      "text": "Now, if you're doing work-stealing, you may recognize that the thing at the head of the"
+    },
+    {
+      "id": 17,
+      "start": 41.12,
+      "end": 46.12,
+      "text": "queue is not local to you, but you may want to go ahead and run in the anyway because you're"
+    },
+    {
+      "id": 18,
+      "start": 46.12,
+      "end": 47.92,
+      "text": "available."
+    },
+    {
+      "id": 19,
+      "start": 47.92,
+      "end": 48.92,
+      "text": "Hyper does that."
+    },
+    {
+      "id": 20,
+      "start": 48.92,
+      "end": 51.32,
+      "text": "I don't think Umber doesn't."
+    },
+    {
+      "id": 21,
+      "start": 51.32,
+      "end": 52.32,
+      "text": "Hanna doesn't."
+    },
+    {
+      "id": 22,
+      "start": 52.32,
+      "end": 55.32,
+      "text": "Sounds like the party would be different between work-or-cure."
+    },
+    {
+      "id": 23,
+      "start": 55.32,
+      "end": 56.32,
+      "text": "Yeah."
+    },
+    {
+      "id": 24,
+      "start": 56.32,
+      "end": 57.32,
+      "text": "Yeah, absolutely."
+    },
+    {
+      "id": 25,
+      "start": 57.32,
+      "end": 58.32,
+      "text": "Yes."
+    },
+    {
+      "id": 26,
+      "start": 58.32,
+      "end": 66.48,
+      "text": "So it's a global queue in that everyone can see it and manipulate it, but it's not going"
+    },
+    {
+      "id": 27,
+      "start": 66.48,
+      "end": 70.68,
+      "text": "to guarantee faithful ordering of the elements of the queue."
+    },
+    {
+      "id": 28,
+      "start": 70.68,
+      "end": 71.68,
+      "text": "OK."
+    },
+    {
+      "id": 29,
+      "start": 71.68,
+      "end": 74.84,
+      "text": "So it's a priority queue."
+    },
+    {
+      "id": 30,
+      "start": 74.84,
+      "end": 76.68,
+      "text": "In hyper, it's a hash table."
+    },
+    {
+      "id": 31,
+      "start": 76.68,
+      "end": 77.68,
+      "text": "Right."
+    },
+    {
+      "id": 32,
+      "start": 77.68,
+      "end": 78.68,
+      "text": "OK."
+    },
+    {
+      "id": 33,
+      "start": 78.68,
+      "end": 81.2,
+      "text": "I've already said this."
+    },
+    {
+      "id": 34,
+      "start": 81.2,
+      "end": 82.72,
+      "text": "You could have some data systems."
+    },
+    {
+      "id": 35,
+      "start": 82.72,
+      "end": 86.44,
+      "text": "We'll have locally attached storage as a cache."
+    },
+    {
+      "id": 36,
+      "start": 86.44,
+      "end": 90.52,
+      "text": "Again, think of like you spin up an EC2 node, you can get ones with NVMe drives that are"
+    },
+    {
+      "id": 37,
+      "start": 90.52,
+      "end": 92.64,
+      "text": "local to that are really fast."
+    },
+    {
+      "id": 38,
+      "start": 92.64,
+      "end": 94.08,
+      "text": "And so you'd use that as a local cache."
+    },
+    {
+      "id": 39,
+      "start": 94.08,
+      "end": 95.08,
+      "text": "It's a femoral."
+    },
+    {
+      "id": 40,
+      "start": 95.08,
+      "end": 99.12,
+      "text": "So if the node crashes, you don't need to retain anything in there."
+    },
+    {
+      "id": 41,
+      "start": 99.12,
+      "end": 104.0,
+      "text": "But again, while it's available, you could use that set of having to go to S3."
+    },
+    {
+      "id": 42,
+      "start": 104.0,
+      "end": 109.0,
+      "text": "In some systems, again, Snowflake is probably the most aggressive on this because again, they"
+    },
+    {
+      "id": 43,
+      "start": 109.0,
+      "end": 111.16,
+      "text": "don't want to pay Amazon S3 costs."
+    },
+    {
+      "id": 44,
+      "start": 111.16,
+      "end": 113.48,
+      "text": "They can also use other nodes as nearby cache."
+    },
+    {
+      "id": 45,
+      "start": 113.48,
+      "end": 116.64,
+      "text": "So if you know this other node is run for the data and you're running the task, instead"
+    },
+    {
+      "id": 46,
+      "start": 116.64,
+      "end": 120.48,
+      "text": "of going to S3, you could go directly to that node and get it."
+    },
+    {
+      "id": 47,
+      "start": 120.48,
+      "end": 125.0,
+      "text": "But they're actually not going to do that because they don't want to interfere with the"
+    },
+    {
+      "id": 48,
+      "start": 125.0,
+      "end": 127.44,
+      "text": "other node because they might be going slow."
+    },
+    {
+      "id": 49,
+      "start": 127.44,
+      "end": 128.44,
+      "text": "Right."
+    },
+    {
+      "id": 50,
+      "start": 128.44,
+      "end": 131.92,
+      "text": "If you're stealing work that was meant for this other node, it's probably because they're"
+    },
+    {
+      "id": 51,
+      "start": 131.92,
+      "end": 132.92,
+      "text": "slow."
+    },
+    {
+      "id": 52,
+      "start": 132.92,
+      "end": 134.92,
+      "text": "So why go start making requests of them to make them even slower?"
+    },
+    {
+      "id": 53,
+      "start": 134.92,
+      "end": 137.6,
+      "text": "It's sort of the logic there."
+    },
+    {
+      "id": 54,
+      "start": 137.6,
+      "end": 141.56,
+      "text": "And then the new mode versus not uniform memory access stuff we've already talked about,"
+    },
+    {
+      "id": 55,
+      "start": 141.56,
+      "end": 144.96,
+      "text": "local versus remote memory."
+    },
+    {
+      "id": 56,
+      "start": 144.96,
+      "end": 146.96,
+      "text": "Oh, sorry."
+    },
+    {
+      "id": 57,
+      "start": 146.96,
+      "end": 148.2,
+      "text": "Oh yeah, sorry, sorry."
+    },
+    {
+      "id": 58,
+      "start": 148.2,
+      "end": 149.76,
+      "text": "Partitioning replacement."
+    },
+    {
+      "id": 59,
+      "start": 149.76,
+      "end": 156.88,
+      "text": "So in the interclass, we talked about partitioning this idea of how do you take a data set and"
+    },
+    {
+      "id": 60,
+      "start": 156.88,
+      "end": 161.84,
+      "text": "pick some set of columns or some keys and then divide it up based on the values of these"
+    },
+    {
+      "id": 61,
+      "start": 161.84,
+      "end": 165.04,
+      "text": "keys across different files."
+    },
+    {
+      "id": 62,
+      "start": 165.04,
+      "end": 170.8,
+      "text": "And that would allow you to spread out the data evenly, ideally across resources so"
+    },
+    {
+      "id": 63,
+      "start": 170.8,
+      "end": 176.48,
+      "text": "that when a query arrives that can run in parallel, each worker can have the same amount"
+    },
+    {
+      "id": 64,
+      "start": 176.48,
+      "end": 177.88,
+      "text": "of work."
+    },
+    {
+      "id": 65,
+      "start": 177.88,
+      "end": 180.48,
+      "text": "So they're all sort of processing things uniformly."
+    },
+    {
+      "id": 66,
+      "start": 180.48,
+      "end": 183.12,
+      "text": "So there's going to be some policy that you're going to use to say, here's how I want to"
+    },
+    {
+      "id": 67,
+      "start": 183.12,
+      "end": 188.28,
+      "text": "split things up, hash partitioning, round, round, range partitioning, and so forth."
+    },
+    {
+      "id": 68,
+      "start": 188.28,
+      "end": 191.44,
+      "text": "And then there'll be some target objective you're trying to have for it sort of deciding"
+    },
+    {
+      "id": 69,
+      "start": 191.44,
+      "end": 194.88,
+      "text": "how I want the reason why I want to partition things a certain way."
+    },
+    {
+      "id": 70,
+      "start": 194.88,
+      "end": 199.72,
+      "text": "So one thing to be I want to reduce the amount of network traffic when I do a join."
+    },
+    {
+      "id": 71,
+      "start": 199.72,
+      "end": 205.36,
+      "text": "Maybe I want to partition my tables on the things that the join keys so that the joins"
+    },
+    {
+      "id": 72,
+      "start": 205.36,
+      "end": 210.36,
+      "text": "can always be repeated locally rather than have to do a shuffle or a broadcast join."
+    },
+    {
+      "id": 73,
+      "start": 210.36,
+      "end": 215.56,
+      "text": "In our world, in the shared disk, you know, Lake House environment, we're typically going"
+    },
+    {
+      "id": 74,
+      "start": 215.56,
+      "end": 218.64,
+      "text": "to be doing round, round, and based on files."
+    },
+    {
+      "id": 75,
+      "start": 218.64,
+      "end": 221.32,
+      "text": "Because we're not the ones generating these files, right?"
+    },
+    {
+      "id": 76,
+      "start": 221.32,
+      "end": 223.72,
+      "text": "Someone loaded a bunch of stuff in S3, a bunch of parkay or files."
+    },
+    {
+      "id": 77,
+      "start": 223.72,
+      "end": 228.28,
+      "text": "We're not going to have time to go fix them up and put them, you know, partition them"
+    },
+    {
+      "id": 78,
+      "start": 228.28,
+      "end": 232.44,
+      "text": "and rebalance them according to, again, some target objective."
+    },
+    {
+      "id": 79,
+      "start": 232.44,
+      "end": 235.52,
+      "text": "Snowflake will do this, they call micropartitions, but I think they only do it for their internal"
+    },
+    {
+      "id": 80,
+      "start": 235.52,
+      "end": 236.52,
+      "text": "data format."
+    },
+    {
+      "id": 81,
+      "start": 236.52,
+      "end": 241.0,
+      "text": "Meaning, like, if you do insert queries to put data into Snowflake, then they can rebalance"
+    },
+    {
+      "id": 82,
+      "start": 241.0,
+      "end": 242.52,
+      "text": "stuff later on."
+    },
+    {
+      "id": 83,
+      "start": 242.52,
+      "end": 243.52,
+      "text": "Repartition later on."
+    },
+    {
+      "id": 84,
+      "start": 243.52,
+      "end": 247.48,
+      "text": "But again, if it's not your files in S3, you can't rewrite them."
+    },
+    {
+      "id": 85,
+      "start": 247.48,
+      "end": 248.48,
+      "text": "Yes?"
+    },
+    {
+      "id": 86,
+      "start": 248.48,
+      "end": 264.68,
+      "text": "So, your question is for, if you're doing round, round, and partitioning at the file"
+    },
+    {
+      "id": 87,
+      "start": 264.68,
+      "end": 267.44,
+      "text": "level, what is the data you're doing?"
+    },
+    {
+      "id": 88,
+      "start": 267.44,
+      "end": 271.04,
+      "text": "It literally is like, file one, go to you, file two, go to him, file three, go to him."
+    },
+    {
+      "id": 89,
+      "start": 271.04,
+      "end": 272.04,
+      "text": "That's it."
+    },
+    {
+      "id": 90,
+      "start": 272.04,
+      "end": 273.84,
+      "text": "And then they're assumed to do uniform size."
+    },
+    {
+      "id": 91,
+      "start": 273.84,
+      "end": 280.84,
+      "text": "Typically, yeah, I think so, yeah."
+    },
+    {
+      "id": 92,
+      "start": 280.84,
+      "end": 286.08,
+      "text": "I mean, obviously, you can imagine, to generate cases where I have a bunch of one-gay, what"
+    },
+    {
+      "id": 93,
+      "start": 286.08,
+      "end": 289.84,
+      "text": "files I have, one terabyte file, and that was screw things up."
+    },
+    {
+      "id": 94,
+      "start": 289.84,
+      "end": 293.28,
+      "text": "I don't know what they might break that up, so far, right?"
+    },
+    {
+      "id": 95,
+      "start": 293.28,
+      "end": 298.2,
+      "text": "I mean, the way to handle that one also, you could assign the same file to different"
+    },
+    {
+      "id": 96,
+      "start": 298.2,
+      "end": 303.6,
+      "text": "nodes, but then you just, within that file, you say, okay, row group, you know, zero to"
+    },
+    {
+      "id": 97,
+      "start": 303.6,
+      "end": 306.72,
+      "text": "five, goes to this one, you know, six to ten, goes to that one."
+    },
+    {
+      "id": 98,
+      "start": 306.72,
+      "end": 308.72,
+      "text": "You could divide that further, but I don't think they do that."
+    },
+    {
+      "id": 99,
+      "start": 308.72,
+      "end": 311.96,
+      "text": "So, for like, you know, row group makes more sense, because like, at least those are"
+    },
+    {
+      "id": 100,
+      "start": 311.96,
+      "end": 313.72,
+      "text": "couple like similar size."
+    },
+    {
+      "id": 101,
+      "start": 313.72,
+      "end": 314.72,
+      "text": "Yes."
+    },
+    {
+      "id": 102,
+      "start": 314.72,
+      "end": 319.96,
+      "text": "I could walk again, part K's based on number of tuples, or because based on the data size,"
+    },
+    {
+      "id": 103,
+      "start": 319.96,
+      "end": 321.96,
+      "text": "but in the end, roughly about the same, yes."
+    },
+    {
+      "id": 104,
+      "start": 321.96,
+      "end": 327.96,
+      "text": "Sorry, because it's roughly the same question, but I'm trying, like, in the main reason"
+    },
+    {
+      "id": 105,
+      "start": 327.96,
+      "end": 333.0,
+      "text": "that we would split at the file level, when doing round or oven, it's like, split further"
+    },
+    {
+      "id": 106,
+      "start": 333.0,
+      "end": 334.0,
+      "text": "within a file?"
+    },
+    {
+      "id": 107,
+      "start": 334.0,
+      "end": 339.48,
+      "text": "No, no, I like, like, if we have five files, why, one, two, three, four, five, why that's"
+    },
+    {
+      "id": 108,
+      "start": 339.48,
+      "end": 342.64,
+      "text": "split as if some advantage to it beyond just like, it's easy."
+    },
+    {
+      "id": 109,
+      "start": 342.64,
+      "end": 348.8,
+      "text": "His question is, if, if, why do it split based on the file, what, is there any performance"
+    },
+    {
+      "id": 110,
+      "start": 348.8,
+      "end": 349.8,
+      "text": "advantage to it?"
+    },
+    {
+      "id": 111,
+      "start": 349.8,
+      "end": 350.8,
+      "text": "It's easy."
+    },
+    {
+      "id": 112,
+      "start": 350.8,
+      "end": 353.72,
+      "text": "I mean, you maintain less metadata."
+    },
+    {
+      "id": 113,
+      "start": 353.72,
+      "end": 354.72,
+      "text": "I have five files."
+    },
+    {
+      "id": 114,
+      "start": 354.72,
+      "end": 357.36,
+      "text": "I need five entries in my catalog to say where these files are."
+    },
+    {
+      "id": 115,
+      "start": 357.36,
+      "end": 364.24,
+      "text": "If I start doing some division within that, then at the main team, more metadata, which"
+    },
+    {
+      "id": 116,
+      "start": 364.24,
+      "end": 368.8,
+      "text": "some systems can do, right?"
+    },
+    {
+      "id": 117,
+      "start": 368.8,
+      "end": 372.76,
+      "text": "If you're doing range partitioning, yeah, you had to keep track where the ranges are."
+    },
+    {
+      "id": 118,
+      "start": 372.76,
+      "end": 375.72,
+      "text": "If it's hash partitioning, you actually don't need to do any of that, it's even cheaper."
+    },
+    {
+      "id": 119,
+      "start": 375.72,
+      "end": 379.6,
+      "text": "You could just say, here's the column, here's the hash key, you whatever, you know, I want"
+    },
+    {
+      "id": 120,
+      "start": 379.6,
+      "end": 381.96,
+      "text": "to hash on and decide where it goes."
+    },
+    {
+      "id": 121,
+      "start": 381.96,
+      "end": 385.52,
+      "text": "Now if you're doing consistent hashing, which snowflake does on the file level, then you"
+    },
+    {
+      "id": 122,
+      "start": 385.52,
+      "end": 389.04,
+      "text": "got to maintain that data structure to do consistent hashing, but that, we'll cover"
+    },
+    {
+      "id": 123,
+      "start": 389.04,
+      "end": 391.6,
+      "text": "that later."
+    },
+    {
+      "id": 124,
+      "start": 391.6,
+      "end": 393.72,
+      "text": "So partitioning tells you how to split things up."
+    },
+    {
+      "id": 125,
+      "start": 393.72,
+      "end": 398.64,
+      "text": "The placement policy determines where those partitions are actually going to go."
+    },
+    {
+      "id": 126,
+      "start": 398.64,
+      "end": 403.48,
+      "text": "And again, the simplest thing to do is basically, I got five machines, the each get one file."
+    },
+    {
+      "id": 127,
+      "start": 403.48,
+      "end": 406.08,
+      "text": "It's a round robbing that."
+    },
+    {
+      "id": 128,
+      "start": 406.08,
+      "end": 412.44,
+      "text": "You could try to be clever of, you know, breaking things up in more sophisticated ways."
+    },
+    {
+      "id": 129,
+      "start": 412.44,
+      "end": 413.44,
+      "text": "We can ignore that."
+    },
+    {
+      "id": 130,
+      "start": 413.44,
+      "end": 414.88,
+      "text": "This is the easiest way to do it."
+    },
+    {
+      "id": 131,
+      "start": 414.88,
+      "end": 420.84,
+      "text": "The noun or catalog, we say, say, I have these, these sizes and this and this and that"
+    },
+    {
+      "id": 132,
+      "start": 420.84,
+      "end": 425.04,
+      "text": "it, whatever, whatever I was able to clean when it was imported into my system, where I"
+    },
+    {
+      "id": 133,
+      "start": 425.04,
+      "end": 428.68,
+      "text": "was made, I was notified that it existed in S3."
+    },
+    {
+      "id": 134,
+      "start": 428.68,
+      "end": 432.48,
+      "text": "And then I keep track of like, this worker is responsible for it."
+    },
+    {
+      "id": 135,
+      "start": 432.48,
+      "end": 437.12,
+      "text": "So any query that shows up, then has a task, they want to process that file, again, which"
+    },
+    {
+      "id": 136,
+      "start": 437.12,
+      "end": 443.84,
+      "text": "we would determine in the optimized with the catalog, the ideally want the worker that's"
+    },
+    {
+      "id": 137,
+      "start": 443.84,
+      "end": 448.92,
+      "text": "been responsible for that file to process that data."
+    },
+    {
+      "id": 138,
+      "start": 448.92,
+      "end": 452.76,
+      "text": "And whether or not that worker has a local cache or not is a matter."
+    },
+    {
+      "id": 139,
+      "start": 452.76,
+      "end": 457.24,
+      "text": "It's just, we're just saying that rather than everybody read everything, we can get more"
+    },
+    {
+      "id": 140,
+      "start": 457.24,
+      "end": 459.72,
+      "text": "structure and say, you know, this node is going to read, or this worker is going to read"
+    },
+    {
+      "id": 141,
+      "start": 459.72,
+      "end": 461.72,
+      "text": "this file."
+    },
+    {
+      "id": 142,
+      "start": 461.72,
+      "end": 463.52,
+      "text": "All right."
+    },
+    {
+      "id": 143,
+      "start": 463.52,
+      "end": 467.48,
+      "text": "So far, we have a task assignment model."
+    },
+    {
+      "id": 144,
+      "start": 467.48,
+      "end": 472.52,
+      "text": "Basically, how do we assign workers to threads or processes and so forth."
+    },
+    {
+      "id": 145,
+      "start": 472.52,
+      "end": 476.56,
+      "text": "And whether we're going to push versus pool from the scheduler, there are data plays"
+    },
+    {
+      "id": 146,
+      "start": 476.56,
+      "end": 477.56,
+      "text": "on policy."
+    },
+    {
+      "id": 147,
+      "start": 477.56,
+      "end": 482.68,
+      "text": "Again, for our purposes, I'm going to share disk architecture in a modern lake house or"
+    },
+    {
+      "id": 148,
+      "start": 482.68,
+      "end": 488.48,
+      "text": "a data lake system, it's going to be at the file level and round robin distribution."
+    },
+    {
+      "id": 149,
+      "start": 488.48,
+      "end": 492.76,
+      "text": "Then now we've got to say, how do we take a logical query plan and convert it to something"
+    },
+    {
+      "id": 150,
+      "start": 492.76,
+      "end": 494.08,
+      "text": "that we can then execute."
+    },
+    {
+      "id": 151,
+      "start": 494.08,
+      "end": 498.16,
+      "text": "And I've sort of said this, looting us a bit along, like, you know, we know what the"
+    },
+    {
+      "id": 152,
+      "start": 498.16,
+      "end": 502.96,
+      "text": "pipeline breakers are, that's going to be the boundary for our task for the most part."
+    },
+    {
+      "id": 153,
+      "start": 502.96,
+      "end": 506.84,
+      "text": "But then now how do we take those tasks and run them."
+    },
+    {
+      "id": 154,
+      "start": 506.84,
+      "end": 511.52,
+      "text": "So if it's an OLA TV query, this is super easy to do because these queries typically only"
+    },
+    {
+      "id": 155,
+      "start": 511.52,
+      "end": 512.92,
+      "text": "have one pipeline."
+    },
+    {
+      "id": 156,
+      "start": 512.92,
+      "end": 515.48,
+      "text": "Do an index scan, maybe a projection, and that's it, right?"
+    },
+    {
+      "id": 157,
+      "start": 515.48,
+      "end": 518.64,
+      "text": "There's not many operators in it, and there's no dependencies between pipelines, there's"
+    },
+    {
+      "id": 158,
+      "start": 518.64,
+      "end": 519.64,
+      "text": "only one."
+    },
+    {
+      "id": 159,
+      "start": 519.64,
+      "end": 520.64,
+      "text": "So that's easy."
+    },
+    {
+      "id": 160,
+      "start": 520.64,
+      "end": 523.76,
+      "text": "We just pin that out and let them run as fast as possible."
+    },
+    {
+      "id": 161,
+      "start": 523.76,
+      "end": 526.88,
+      "text": "But for OLAB queries, we're complicated because we know there's dependencies between"
+    },
+    {
+      "id": 162,
+      "start": 526.88,
+      "end": 530.56,
+      "text": "these pipelines, so we can't, to avoid false negatives, we can't have one pipeline start"
+    },
+    {
+      "id": 163,
+      "start": 530.56,
+      "end": 534.28,
+      "text": "running if the pipelines that it's dependent on have been completed to produce whatever"
+    },
+    {
+      "id": 164,
+      "start": 534.28,
+      "end": 536.6,
+      "text": "the intermediate results that are needed."
+    },
+    {
+      "id": 165,
+      "start": 536.6,
+      "end": 540.6,
+      "text": "So you can't always paralyze them."
+    },
+    {
+      "id": 166,
+      "start": 540.6,
+      "end": 541.6,
+      "text": "Yes."
+    },
+    {
+      "id": 167,
+      "start": 541.6,
+      "end": 547.92,
+      "text": "Why does the 50s slide say logical query plan is that a physical query plan?"
+    },
+    {
+      "id": 168,
+      "start": 547.92,
+      "end": 550.52,
+      "text": "But how does it say it?"
+    },
+    {
+      "id": 169,
+      "start": 550.52,
+      "end": 551.92,
+      "text": "Like, because there's a lot."
+    },
+    {
+      "id": 170,
+      "start": 551.92,
+      "end": 554.56,
+      "text": "Yeah, you could say physical, yes."
+    },
+    {
+      "id": 171,
+      "start": 554.56,
+      "end": 555.56,
+      "text": "Yes."
+    },
+    {
+      "id": 172,
+      "start": 556.56,
+      "end": 558.32,
+      "text": "If you just get rid of logical, then it's fine."
+    },
+    {
+      "id": 173,
+      "start": 558.32,
+      "end": 558.84,
+      "text": "Yes."
+    },
+    {
+      "id": 174,
+      "start": 558.84,
+      "end": 559.84,
+      "text": "That's a title."
+    },
+    {
+      "id": 175,
+      "start": 559.84,
+      "end": 566.88,
+      "text": "Right, again, the logical query plan says, scan this, I want to read this table."
+    },
+    {
+      "id": 176,
+      "start": 566.88,
+      "end": 568.48,
+      "text": "It doesn't tell you how to do it."
+    },
+    {
+      "id": 177,
+      "start": 568.48,
+      "end": 572.88,
+      "text": "It doesn't tell you how to do a joint, it says joint A and B."
+    },
+    {
+      "id": 178,
+      "start": 572.88,
+      "end": 577.44,
+      "text": "The physical query plan is the actual, it's like the exact algorithms you want to use."
+    },
+    {
+      "id": 179,
+      "start": 577.44,
+      "end": 583.4,
+      "text": "So when we create a query plan, when we convert a query plan to much a task, we're going to"
+    },
+    {
+      "id": 180,
+      "start": 583.4,
+      "end": 586.32,
+      "text": "do that on the physical operators, not the logical ones."
+    },
+    {
+      "id": 181,
+      "start": 586.32,
+      "end": 587.32,
+      "text": "Thank you."
+    },
+    {
+      "id": 182,
+      "start": 587.32,
+      "end": 588.32,
+      "text": "I'll fix that."
+    },
+    {
+      "id": 183,
+      "start": 588.32,
+      "end": 592.48,
+      "text": "All right, so the easiest type of scheduling to do is called static scheduling."
+    },
+    {
+      "id": 184,
+      "start": 592.48,
+      "end": 598.12,
+      "text": "This is where the optimizer figures out, or the scheduler figures out in the very beginning,"
+    },
+    {
+      "id": 185,
+      "start": 598.12,
+      "end": 599.84,
+      "text": "I have this query plan."
+    }
+  ],
+  "language": "en"
+}

@@ -1,0 +1,1013 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.04,
+      "text": "Carnegie Mellon University's Advanced Database Systems course is"
+    },
+    {
+      "id": 1,
+      "start": 6.04,
+      "end": 9.0,
+      "text": "filming front of a live studio audience."
+    },
+    {
+      "id": 2,
+      "start": 9.0,
+      "end": 18.2,
+      "text": "The last lecture of the semester, we'll cover Amazon Redshift."
+    },
+    {
+      "id": 3,
+      "start": 18.2,
+      "end": 23.92,
+      "text": "So the challenge of this lecture is like, I'm not repeating myself because it's a lot"
+    },
+    {
+      "id": 4,
+      "start": 23.92,
+      "end": 27.32,
+      "text": "of these things, or systems are doing the same thing over and over again."
+    },
+    {
+      "id": 5,
+      "start": 27.32,
+      "end": 31.96,
+      "text": "So I'll talk a little bit about some of the pieces that make Redshift unique,"
+    },
+    {
+      "id": 6,
+      "start": 31.96,
+      "end": 33.36,
+      "text": "except for even the others."
+    },
+    {
+      "id": 7,
+      "start": 33.36,
+      "end": 37.48,
+      "text": "I mean, the paper is a good paper in terms of like, it covers a lot of stuff, but isn't"
+    },
+    {
+      "id": 8,
+      "start": 37.48,
+      "end": 39.68,
+      "text": "it cover a lot of stuff in detail how they do it?"
+    },
+    {
+      "id": 9,
+      "start": 39.68,
+      "end": 41.56,
+      "text": "It's like, we do this, this, this, and this."
+    },
+    {
+      "id": 10,
+      "start": 41.56,
+      "end": 45.2,
+      "text": "So I can talk a little bit about what we know from them."
+    },
+    {
+      "id": 11,
+      "start": 45.2,
+      "end": 51.6,
+      "text": "Before we get to that, the, what's on the, again, the finished things up."
+    },
+    {
+      "id": 12,
+      "start": 51.6,
+      "end": 56.04,
+      "text": "Again, the final presentations are going to be next Thursday in this room, 9 a.m."
+    },
+    {
+      "id": 13,
+      "start": 56.04,
+      "end": 60.44,
+      "text": "Again, I haven't checked with the vote callias, but go vote whether you want, what you want"
+    },
+    {
+      "id": 14,
+      "start": 60.44,
+      "end": 62.52,
+      "text": "for breakfast."
+    },
+    {
+      "id": 15,
+      "start": 62.52,
+      "end": 67.76,
+      "text": "And so for this one again, on the webpage, it'll say, you need to email me your slides,"
+    },
+    {
+      "id": 16,
+      "start": 67.76,
+      "end": 70.04,
+      "text": "the final right up for the project."
+    },
+    {
+      "id": 17,
+      "start": 70.04,
+      "end": 74.64,
+      "text": "And then this little JSON file we ask you to fill out, what, yeah, we'll get there."
+    },
+    {
+      "id": 18,
+      "start": 74.64,
+      "end": 81.44,
+      "text": "Well, the little JSON file, like, your name is and your project GitHub URL and everything."
+    },
+    {
+      "id": 19,
+      "start": 81.44,
+      "end": 85.48,
+      "text": "And then we use that to generate the showcase webpage that we then put on the website."
+    },
+    {
+      "id": 20,
+      "start": 85.48,
+      "end": 93.38,
+      "text": "And then again, I've had, I've had people, you know, former students, like they apply for"
+    },
+    {
+      "id": 21,
+      "start": 93.38,
+      "end": 97.04,
+      "text": "a job and they had a database company and they contact me and they want to know what"
+    },
+    {
+      "id": 22,
+      "start": 97.04,
+      "end": 101.84,
+      "text": "you guys did when you're in this class and we have the showcase page, we can show them."
+    },
+    {
+      "id": 23,
+      "start": 101.84,
+      "end": 105.32,
+      "text": "And also too for people like, you know, if you're an international student, you need to"
+    },
+    {
+      "id": 24,
+      "start": 105.32,
+      "end": 110.8,
+      "text": "get what H1B stuff or whatever, a visa, you want to get later on."
+    },
+    {
+      "id": 25,
+      "start": 110.8,
+      "end": 115.32,
+      "text": "Your lawyers will reach out to me, ask me to write a letter, say what you did in my"
+    },
+    {
+      "id": 26,
+      "start": 115.32,
+      "end": 119.12,
+      "text": "class, what the skills you learned and again, the showcase page helps me remember what"
+    },
+    {
+      "id": 27,
+      "start": 119.12,
+      "end": 120.12,
+      "text": "you guys have done."
+    },
+    {
+      "id": 28,
+      "start": 120.12,
+      "end": 125.84,
+      "text": "All right, so that again, so all that's going to be due Thursday morning at 9 AM."
+    },
+    {
+      "id": 29,
+      "start": 125.84,
+      "end": 131.36,
+      "text": "The final exam was going to be due at the same time and I realized, and I forgot that"
+    },
+    {
+      "id": 30,
+      "start": 131.36,
+      "end": 134.08,
+      "text": "I tried to do that last year and it was a bad idea."
+    },
+    {
+      "id": 31,
+      "start": 134.08,
+      "end": 138.4,
+      "text": "So we bumped it now to be Saturday, May 4th at basically midnight."
+    },
+    {
+      "id": 32,
+      "start": 138.4,
+      "end": 139.4,
+      "text": "Thank you."
+    },
+    {
+      "id": 33,
+      "start": 139.4,
+      "end": 140.4,
+      "text": "Yeah, sure, yeah."
+    },
+    {
+      "id": 34,
+      "start": 140.96,
+      "end": 142.76,
+      "text": "Now I should have not done it."
+    },
+    {
+      "id": 35,
+      "start": 142.76,
+      "end": 146.68,
+      "text": "I should have remembered that I tried to dislike it when it was a state."
+    },
+    {
+      "id": 36,
+      "start": 146.68,
+      "end": 151.88,
+      "text": "Yeah, so again, the prompt is on Piazza."
+    },
+    {
+      "id": 37,
+      "start": 151.88,
+      "end": 155.12,
+      "text": "It's basically saying you have to retrofit a new system."
+    },
+    {
+      "id": 38,
+      "start": 155.12,
+      "end": 160.84,
+      "text": "There's retrofits in the existing system and here's a menu of optimizations that you"
+    },
+    {
+      "id": 39,
+      "start": 160.84,
+      "end": 163.68,
+      "text": "could potentially do based on the things that we talked about throughout the entire"
+    },
+    {
+      "id": 40,
+      "start": 163.68,
+      "end": 165.52,
+      "text": "semester and you got to pick three."
+    },
+    {
+      "id": 41,
+      "start": 166.52,
+      "end": 171.24,
+      "text": "And you got to justify why you want to pick those three over others, including with"
+    },
+    {
+      "id": 42,
+      "start": 171.24,
+      "end": 174.76,
+      "text": "citations and other information that we've discussed throughout the entire semester."
+    },
+    {
+      "id": 43,
+      "start": 174.76,
+      "end": 176.32,
+      "text": "Okay?"
+    },
+    {
+      "id": 44,
+      "start": 176.32,
+      "end": 177.32,
+      "text": "So what is this?"
+    },
+    {
+      "id": 45,
+      "start": 177.32,
+      "end": 179.6,
+      "text": "Again, this is grad school, this is CMU."
+    },
+    {
+      "id": 46,
+      "start": 179.6,
+      "end": 183.88,
+      "text": "So there are, how does this?"
+    },
+    {
+      "id": 47,
+      "start": 183.88,
+      "end": 189.36,
+      "text": "I don't say there isn't a wrong answer, there clearly are wrong answers."
+    },
+    {
+      "id": 48,
+      "start": 189.36,
+      "end": 193.6,
+      "text": "But like, you know, if you're debating, it's forcing you to think about, okay, if I can"
+    },
+    {
+      "id": 49,
+      "start": 193.6,
+      "end": 198.12,
+      "text": "only pick three, what is going to be the biggest bang for the buck in terms of getting"
+    },
+    {
+      "id": 50,
+      "start": 198.12,
+      "end": 200.92,
+      "text": "the best performance?"
+    },
+    {
+      "id": 51,
+      "start": 200.92,
+      "end": 205.28,
+      "text": "And you have to also think about, okay, if I choose one optimization, does that mean,"
+    },
+    {
+      "id": 52,
+      "start": 205.28,
+      "end": 208.2,
+      "text": "you know, it doesn't actually do anything unless I choose the other optimization, therefore"
+    },
+    {
+      "id": 53,
+      "start": 208.2,
+      "end": 211.04,
+      "text": "I get to choose two together and that takes away the choices."
+    },
+    {
+      "id": 54,
+      "start": 211.04,
+      "end": 212.04,
+      "text": "Yes."
+    },
+    {
+      "id": 55,
+      "start": 212.04,
+      "end": 216.04,
+      "text": "Is there something specifically up to any point of just like, you know, just performance?"
+    },
+    {
+      "id": 56,
+      "start": 216.04,
+      "end": 218.84,
+      "text": "Yes, and you get a newer engineer in calls."
+    },
+    {
+      "id": 57,
+      "start": 218.84,
+      "end": 219.84,
+      "text": "Right?"
+    },
+    {
+      "id": 58,
+      "start": 220.68,
+      "end": 221.68,
+      "text": "Right?"
+    },
+    {
+      "id": 59,
+      "start": 221.68,
+      "end": 224.52,
+      "text": "Because again, that's relative, like, you know, if you don't have any experience in CIMB,"
+    },
+    {
+      "id": 60,
+      "start": 224.52,
+      "end": 228.16,
+      "text": "oh, that would be very hard versus like, the one in the query optimizer."
+    },
+    {
+      "id": 61,
+      "start": 228.16,
+      "end": 231.52,
+      "text": "Which is hard for everyone, actually."
+    },
+    {
+      "id": 62,
+      "start": 231.52,
+      "end": 238.76,
+      "text": "Yeah, so again, so, you know, we post on Piazza, if you have questions or additional"
+    },
+    {
+      "id": 63,
+      "start": 238.76,
+      "end": 243.12,
+      "text": "clarifications, and then also, I haven't posted this yet, we'll post the URL for the Google"
+    },
+    {
+      "id": 64,
+      "start": 243.12,
+      "end": 245.52,
+      "text": "form, you can fill out to say whether you use ChatGbT or not."
+    },
+    {
+      "id": 65,
+      "start": 245.52,
+      "end": 246.52,
+      "text": "What does that mean?"
+    },
+    {
+      "id": 66,
+      "start": 246.52,
+      "end": 249.8,
+      "text": "Like, you use ChatGbT and like, if you want to, you can use ChatGbT and like, if you want"
+    },
+    {
+      "id": 67,
+      "start": 249.8,
+      "end": 256.8,
+      "text": "to take a copy of the question into ChatGbT and say, write me a four page essay with citations,"
+    },
+    {
+      "id": 68,
+      "start": 256.8,
+      "end": 257.8,
+      "text": "go for it."
+    },
+    {
+      "id": 69,
+      "start": 257.8,
+      "end": 259.28,
+      "text": "What would be like, partially used?"
+    },
+    {
+      "id": 70,
+      "start": 259.28,
+      "end": 260.6,
+      "text": "That's fine."
+    },
+    {
+      "id": 71,
+      "start": 260.6,
+      "end": 263.4,
+      "text": "That's an option when you say, right?"
+    },
+    {
+      "id": 72,
+      "start": 263.4,
+      "end": 266.6,
+      "text": "Did I use ChatGbT or not and then to what degree you did?"
+    },
+    {
+      "id": 73,
+      "start": 266.6,
+      "end": 268.64,
+      "text": "Does it have to be four pages that I can limit?"
+    },
+    {
+      "id": 74,
+      "start": 268.64,
+      "end": 270.12,
+      "text": "At most four pages."
+    },
+    {
+      "id": 75,
+      "start": 270.12,
+      "end": 272.84,
+      "text": "At most four pages."
+    },
+    {
+      "id": 76,
+      "start": 272.84,
+      "end": 276.36,
+      "text": "And again, the justification is K because, because Andy said it was a good idea, right?"
+    },
+    {
+      "id": 77,
+      "start": 276.36,
+      "end": 280.52,
+      "text": "It has to be based on the readings, the basic things that we discussed."
+    },
+    {
+      "id": 78,
+      "start": 280.52,
+      "end": 281.52,
+      "text": "Okay?"
+    },
+    {
+      "id": 79,
+      "start": 281.52,
+      "end": 283.56,
+      "text": "All right."
+    },
+    {
+      "id": 80,
+      "start": 283.56,
+      "end": 286.96,
+      "text": "And then, I can't spell course, right?"
+    },
+    {
+      "id": 81,
+      "start": 286.96,
+      "end": 287.96,
+      "text": "Course evaluation."
+    },
+    {
+      "id": 82,
+      "start": 287.96,
+      "end": 292.16,
+      "text": "I think we'll send out the reminder emails for everyone."
+    },
+    {
+      "id": 83,
+      "start": 292.16,
+      "end": 293.16,
+      "text": "Okay?"
+    },
+    {
+      "id": 84,
+      "start": 293.16,
+      "end": 294.16,
+      "text": "All right."
+    },
+    {
+      "id": 85,
+      "start": 294.16,
+      "end": 298.0,
+      "text": "So, last class, we talked about Yellowbreck."
+    },
+    {
+      "id": 86,
+      "start": 298.0,
+      "end": 300.96,
+      "text": "And as I said, it's not a well-known system."
+    },
+    {
+      "id": 87,
+      "start": 300.96,
+      "end": 305.88,
+      "text": "It's, but it's, to me, it's very fascinating because like, if you just have really hard"
+    },
+    {
+      "id": 88,
+      "start": 305.88,
+      "end": 310.52,
+      "text": "course systems engineers on your team, you know, the sky's the limit of what you can"
+    },
+    {
+      "id": 89,
+      "start": 310.52,
+      "end": 311.84,
+      "text": "do."
+    },
+    {
+      "id": 90,
+      "start": 311.84,
+      "end": 315.48,
+      "text": "And the big thing, as I said, like they're doing all this, trying to avoid the OS as much"
+    },
+    {
+      "id": 91,
+      "start": 315.48,
+      "end": 320.44,
+      "text": "as possible because it's always going to interfere with what the database system wants"
+    },
+    {
+      "id": 92,
+      "start": 320.44,
+      "end": 323.96,
+      "text": "to do when it execute queries in terms of getting better performance and having the most"
+    },
+    {
+      "id": 93,
+      "start": 323.96,
+      "end": 324.96,
+      "text": "control."
+    },
+    {
+      "id": 94,
+      "start": 324.96,
+      "end": 328.92,
+      "text": "So they basically went around it entirely."
+    },
+    {
+      "id": 95,
+      "start": 328.92,
+      "end": 334.56,
+      "text": "It's not a true unit kernel where like, the kernel is running nothing but the database"
+    },
+    {
+      "id": 96,
+      "start": 334.56,
+      "end": 335.56,
+      "text": "system."
+    },
+    {
+      "id": 97,
+      "start": 335.56,
+      "end": 339.04,
+      "text": "The Germans are actually working on a project on related to this."
+    },
+    {
+      "id": 98,
+      "start": 339.04,
+      "end": 340.64,
+      "text": "But it's about as close as you can get."
+    },
+    {
+      "id": 99,
+      "start": 340.64,
+      "end": 341.88,
+      "text": "The system boots up."
+    },
+    {
+      "id": 100,
+      "start": 341.88,
+      "end": 346.48,
+      "text": "They make tenses calls, get everything into user space, and then let the OS only handle"
+    },
+    {
+      "id": 101,
+      "start": 346.48,
+      "end": 347.48,
+      "text": "like logging stuff."
+    },
+    {
+      "id": 102,
+      "start": 347.48,
+      "end": 348.88,
+      "text": "Or the basic things."
+    },
+    {
+      "id": 103,
+      "start": 348.88,
+      "end": 349.88,
+      "text": "All right."
+    },
+    {
+      "id": 104,
+      "start": 349.88,
+      "end": 351.96,
+      "text": "Again, so that's super awesome."
+    },
+    {
+      "id": 105,
+      "start": 351.96,
+      "end": 353.48,
+      "text": "I find it super interesting."
+    },
+    {
+      "id": 106,
+      "start": 353.48,
+      "end": 358.68,
+      "text": "I don't know to how much the other, you know, systems we talked about this semester are"
+    },
+    {
+      "id": 107,
+      "start": 358.68,
+      "end": 360.0,
+      "text": "doing the similar kind of things."
+    },
+    {
+      "id": 108,
+      "start": 360.0,
+      "end": 366.72,
+      "text": "I don't know if anybody is writing through a device driver, so the way they did it."
+    },
+    {
+      "id": 109,
+      "start": 366.72,
+      "end": 367.72,
+      "text": "All right."
+    },
+    {
+      "id": 110,
+      "start": 367.72,
+      "end": 371.4,
+      "text": "So, talking about now Redshift from Amazon."
+    },
+    {
+      "id": 111,
+      "start": 371.4,
+      "end": 378.76,
+      "text": "So the background you understand is that there is a long history of people, of companies"
+    },
+    {
+      "id": 112,
+      "start": 378.76,
+      "end": 383.04,
+      "text": "and open source projects trying to make distributed versions of Postgres."
+    },
+    {
+      "id": 113,
+      "start": 383.04,
+      "end": 386.64,
+      "text": "Again, Postgres came out in the 1980s at a Berkeley."
+    },
+    {
+      "id": 114,
+      "start": 386.64,
+      "end": 389.92,
+      "text": "It was traditionally a single node system."
+    },
+    {
+      "id": 115,
+      "start": 389.92,
+      "end": 394.84,
+      "text": "In the 1990s, there was a commercial version of Postgres called Alastra, which is a completely"
+    },
+    {
+      "id": 116,
+      "start": 394.84,
+      "end": 398.28,
+      "text": "separate code base as far as I know."
+    },
+    {
+      "id": 117,
+      "start": 398.28,
+      "end": 402.48,
+      "text": "And the original academic version of Postgres didn't support SQL, it supported Quell."
+    },
+    {
+      "id": 118,
+      "start": 402.48,
+      "end": 406.2,
+      "text": "And then some Berkeley grad students took the old academic version of Postgres, add a"
+    },
+    {
+      "id": 119,
+      "start": 406.2,
+      "end": 408.4,
+      "text": "SQL to support to it."
+    },
+    {
+      "id": 120,
+      "start": 408.4,
+      "end": 412.48,
+      "text": "That's why it's called Postgres QL, is the official name."
+    },
+    {
+      "id": 121,
+      "start": 412.48,
+      "end": 418.12,
+      "text": "And then as the 2000s came along, people were looking, you know, trying to make it distributed."
+    },
+    {
+      "id": 122,
+      "start": 418.12,
+      "end": 421.72,
+      "text": "And so there's a lot of attempts to do this, and the OTP side is a side of things."
+    },
+    {
+      "id": 123,
+      "start": 421.72,
+      "end": 426.8,
+      "text": "There's Postgres XC, StormDB, which was based on Postgres XC, but then they went under"
+    },
+    {
+      "id": 124,
+      "start": 426.8,
+      "end": 430.08,
+      "text": "or they got bought by Translattis and Translattis had their own thing."
+    },
+    {
+      "id": 125,
+      "start": 430.08,
+      "end": 433.68,
+      "text": "Postgres XL was maybe the one that what people are most excited about."
+    },
+    {
+      "id": 126,
+      "start": 433.68,
+      "end": 438.0,
+      "text": "And that hasn't been updated on anything since 2015, 2016 or something."
+    },
+    {
+      "id": 127,
+      "start": 438.0,
+      "end": 439.0,
+      "text": "All right."
+    },
+    {
+      "id": 128,
+      "start": 439.0,
+      "end": 440.12,
+      "text": "So that project basically has died out."
+    },
+    {
+      "id": 129,
+      "start": 440.12,
+      "end": 446.12,
+      "text": "Now there's systems like UGabyte for example that took the front end of Postgres, then ripped"
+    },
+    {
+      "id": 130,
+      "start": 446.12,
+      "end": 448.0,
+      "text": "out the bottom half and made that distributed."
+    },
+    {
+      "id": 131,
+      "start": 448.0,
+      "end": 449.32,
+      "text": "But it's not exactly the same."
+    },
+    {
+      "id": 132,
+      "start": 449.32,
+      "end": 452.6,
+      "text": "If you were trying to do this, you know, natively inside of Postgres."
+    },
+    {
+      "id": 133,
+      "start": 452.6,
+      "end": 456.04,
+      "text": "And then there's a lot of systems that were doing this for OLAB as well."
+    },
+    {
+      "id": 134,
+      "start": 456.04,
+      "end": 458.68,
+      "text": "Again, the mid 2000s went to sort of a SOCOP."
+    },
+    {
+      "id": 135,
+      "start": 458.68,
+      "end": 463.2,
+      "text": "And this is when the first sort of batch of OLAB systems came into place or came onto the"
+    },
+    {
+      "id": 136,
+      "start": 463.2,
+      "end": 464.2,
+      "text": "market."
+    },
+    {
+      "id": 137,
+      "start": 464.2,
+      "end": 469.44,
+      "text": "Green plumb we talked about, SideS was based on extensions inside of Postgres."
+    },
+    {
+      "id": 138,
+      "start": 469.44,
+      "end": 474.08,
+      "text": "And I got bought by Microsoft and Vertica we talked about from Stoombrick and others."
+    },
+    {
+      "id": 139,
+      "start": 474.08,
+      "end": 478.0,
+      "text": "And then Paracsel is another one that was trying to do this."
+    },
+    {
+      "id": 140,
+      "start": 478.0,
+      "end": 483.8,
+      "text": "So the Paracsel one is interesting for us because this is what Redshift is based on."
+    },
+    {
+      "id": 141,
+      "start": 483.8,
+      "end": 485.6,
+      "text": "And they're completely upfront about this."
+    },
+    {
+      "id": 142,
+      "start": 485.6,
+      "end": 491.16,
+      "text": "This is the original history or this is the lineage of what started Paracsel."
+    },
+    {
+      "id": 143,
+      "start": 491.16,
+      "end": 497.76,
+      "text": "And the sort of the backstory, the rumor is at least that in 2010 with sort of AWS, the"
+    },
+    {
+      "id": 144,
+      "start": 497.76,
+      "end": 503.8,
+      "text": "cloud offering taking services taking off, they were looking at adding a data warehouse"
+    },
+    {
+      "id": 145,
+      "start": 503.8,
+      "end": 509.44,
+      "text": "service that they could include in Amazon web services and sell it as a product."
+    },
+    {
+      "id": 146,
+      "start": 509.44,
+      "end": 512.8,
+      "text": "And then they had this big internal debate whether they should just write a system from"
+    },
+    {
+      "id": 147,
+      "start": 512.8,
+      "end": 520.28,
+      "text": "scratch or should they buy something off the shelf and use one of those."
+    },
+    {
+      "id": 148,
+      "start": 520.28,
+      "end": 525.68,
+      "text": "The prom though around this time, all these, I think, SideS just started in 2010."
+    },
+    {
+      "id": 149,
+      "start": 525.68,
+      "end": 527.56,
+      "text": "So maybe SideS came a bit later."
+    },
+    {
+      "id": 150,
+      "start": 527.56,
+      "end": 532.76,
+      "text": "But like all there was all these sort of first wave of these special purpose OLAP systems,"
+    },
+    {
+      "id": 151,
+      "start": 532.76,
+      "end": 539.36,
+      "text": "like the Greenplongs, Vertica's, Paracsel's, Astrodata's, Data Allegro, all of them had gotten"
+    },
+    {
+      "id": 152,
+      "start": 539.36,
+      "end": 542.4,
+      "text": "bought up by this point except for Paracsel."
+    },
+    {
+      "id": 153,
+      "start": 542.4,
+      "end": 549.6,
+      "text": "Like Greenplum got bought by EMC, Vertica got bought by HP, Data like I got bought by Microsoft."
+    },
+    {
+      "id": 154,
+      "start": 549.6,
+      "end": 553.4,
+      "text": "And then within I think a half a year of looking at the code, they said it was garbage"
+    },
+    {
+      "id": 155,
+      "start": 553.4,
+      "end": 554.4,
+      "text": "and threw it all away."
+    },
+    {
+      "id": 156,
+      "start": 554.56,
+      "end": 557.64,
+      "text": "They paid $100 million for something they never used."
+    },
+    {
+      "id": 157,
+      "start": 557.64,
+      "end": 560.28,
+      "text": "Astrodata got bought by Teradata."
+    },
+    {
+      "id": 158,
+      "start": 560.28,
+      "end": 565.44,
+      "text": "So Paracsel was the only sort of the last one at the dance that hadn't got picked up yet."
+    },
+    {
+      "id": 159,
+      "start": 565.44,
+      "end": 573.64,
+      "text": "And so what Amazon and the doing was instead of buying them, they invested in them."
+    },
+    {
+      "id": 160,
+      "start": 573.64,
+      "end": 575.68,
+      "text": "And like their series E or something like that."
+    },
+    {
+      "id": 161,
+      "start": 575.68,
+      "end": 582.0,
+      "text": "And as part of that investment, they got licensed to the source code to use it."
+    },
+    {
+      "id": 162,
+      "start": 582.0,
+      "end": 583.0,
+      "text": "Anyway, they wanted."
+    },
+    {
+      "id": 163,
+      "start": 583.0,
+      "end": 586.4,
+      "text": "And I think they paid like $20 million for it."
+    },
+    {
+      "id": 164,
+      "start": 586.4,
+      "end": 590.96,
+      "text": "Which is again, for how much money Russia makes now is a steal."
+    },
+    {
+      "id": 165,
+      "start": 590.96,
+      "end": 593.24,
+      "text": "Of course, obviously they put a lot of engineering effort to make it all work."
+    },
+    {
+      "id": 166,
+      "start": 593.24,
+      "end": 597.8,
+      "text": "But they paid $20 million to get the source code versus Vertica got bought for like $100 million."
+    },
+    {
+      "id": 167,
+      "start": 597.8,
+      "end": 599.92,
+      "text": "Data Allegro got bought for it."
+    }
+  ],
+  "language": "en"
+}

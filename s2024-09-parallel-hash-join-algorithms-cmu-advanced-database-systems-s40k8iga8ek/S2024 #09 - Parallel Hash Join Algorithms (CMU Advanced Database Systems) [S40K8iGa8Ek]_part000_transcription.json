@@ -1,0 +1,917 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Carnegie Mellon University's advanced database systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filming front of a live studio audience."
+    },
+    {
+      "id": 2,
+      "start": 9.0,
+      "end": 18.0,
+      "text": "Okay, so a lot to cover hash joins."
+    },
+    {
+      "id": 3,
+      "start": 18.0,
+      "end": 20.0,
+      "text": "We probably can have done this in two lectures,"
+    },
+    {
+      "id": 4,
+      "start": 20.0,
+      "end": 24.0,
+      "text": "but try to cram through as much as we can."
+    },
+    {
+      "id": 5,
+      "start": 24.0,
+      "end": 28.0,
+      "text": "The, where we picked off last class was we showed how to take a"
+    },
+    {
+      "id": 6,
+      "start": 28.0,
+      "end": 32.0,
+      "text": "query plan, identify what data is going to access,"
+    },
+    {
+      "id": 7,
+      "start": 32.0,
+      "end": 35.0,
+      "text": "break that data up into smaller units called morsels."
+    },
+    {
+      "id": 8,
+      "start": 35.0,
+      "end": 39.0,
+      "text": "It's one approach we looked at, and then have them pull from some kind of global queue."
+    },
+    {
+      "id": 9,
+      "start": 39.0,
+      "end": 43.0,
+      "text": "Right? And we said that the pull-based approach was going to be superior than a"
+    },
+    {
+      "id": 10,
+      "start": 43.0,
+      "end": 48.0,
+      "text": "push-based approach for scheduling, and that morsels is, in by itself,"
+    },
+    {
+      "id": 11,
+      "start": 48.0,
+      "end": 52.0,
+      "text": "the techniques of the low-low implementation of it may differ from one system to the next."
+    },
+    {
+      "id": 12,
+      "start": 52.0,
+      "end": 55.0,
+      "text": "But the idea that I'm going to break up large chunks of data in the smaller parts,"
+    },
+    {
+      "id": 13,
+      "start": 55.0,
+      "end": 62.0,
+      "text": "that's not unique to the morsels idea, that's an old idea in parallel system to parallel data systems."
+    },
+    {
+      "id": 14,
+      "start": 62.0,
+      "end": 66.0,
+      "text": "So, and as I said at the end that the, although we ran out of time,"
+    },
+    {
+      "id": 15,
+      "start": 66.0,
+      "end": 71.0,
+      "text": "basically all papers we discussed last class were all single-no data systems,"
+    },
+    {
+      "id": 16,
+      "start": 71.0,
+      "end": 75.0,
+      "text": "but when you go to distributed, it's more or less the same thing."
+    },
+    {
+      "id": 17,
+      "start": 75.0,
+      "end": 79.0,
+      "text": "Right? Just now you made it need to count for a network latency in,"
+    },
+    {
+      "id": 18,
+      "start": 79.0,
+      "end": 83.0,
+      "text": "you know, between nodes rather than just like assume everything's on the same box."
+    },
+    {
+      "id": 19,
+      "start": 83.0,
+      "end": 90.0,
+      "text": "And whether or not you want to have your, your schedule plan individual tasks or course in each single node,"
+    },
+    {
+      "id": 20,
+      "start": 90.0,
+      "end": 93.0,
+      "text": "whether you sort of a hierarchical approach, or say here's the bunch of tasks I want to run,"
+    },
+    {
+      "id": 21,
+      "start": 93.0,
+      "end": 98.0,
+      "text": "send that to a node and the node and the node decides how to divide up two different workers."
+    },
+    {
+      "id": 22,
+      "start": 98.0,
+      "end": 102.0,
+      "text": "Right? The different approaches, there's pros and cons to both of them,"
+    },
+    {
+      "id": 23,
+      "start": 102.0,
+      "end": 104.0,
+      "text": "but we're not going to cover those."
+    },
+    {
+      "id": 24,
+      "start": 104.0,
+      "end": 108.0,
+      "text": "The one thing that we ran out of class, we ran out of time, I would briefly discuss,"
+    },
+    {
+      "id": 25,
+      "start": 108.0,
+      "end": 113.0,
+      "text": "because this is going to come up when we start talking about real-world implementations of systems,"
+    },
+    {
+      "id": 26,
+      "start": 113.0,
+      "end": 117.0,
+      "text": "is the notion between dynamic scaling and work-stealing,"
+    },
+    {
+      "id": 27,
+      "start": 117.0,
+      "end": 123.0,
+      "text": "a way to allow the system to sort of rebalance itself and improve performance rather than getting stuck behind stragglers."
+    },
+    {
+      "id": 28,
+      "start": 123.0,
+      "end": 127.0,
+      "text": "And these are not mutually exclusive, like snowflakes listen to both of these,"
+    },
+    {
+      "id": 29,
+      "start": 127.0,
+      "end": 130.0,
+      "text": "snowflake will do both of these. Some systems will do something, you know,"
+    },
+    {
+      "id": 30,
+      "start": 130.0,
+      "end": 136.0,
+      "text": "if it's a cloud-based system, you can do the dynamic scaling because you have additional resources."
+    },
+    {
+      "id": 31,
+      "start": 136.0,
+      "end": 140.0,
+      "text": "If you're stuck to a single node box, the way the hyper was, you can not."
+    },
+    {
+      "id": 32,
+      "start": 140.0,
+      "end": 145.0,
+      "text": "So dynamic scaling basically says that you recognize that before a query starts running,"
+    },
+    {
+      "id": 33,
+      "start": 145.0,
+      "end": 151.0,
+      "text": "that I maybe have more tasks than I have workers for,"
+    },
+    {
+      "id": 34,
+      "start": 151.0,
+      "end": 155.0,
+      "text": "and I know that can make things slower for me, so therefore maybe I want to temporarily"
+    },
+    {
+      "id": 35,
+      "start": 155.0,
+      "end": 161.0,
+      "text": "include some additional resources to scale it horizontally, add more workers to allow the process that queries,"
+    },
+    {
+      "id": 36,
+      "start": 161.0,
+      "end": 162.0,
+      "text": "so that runs more quickly."
+    },
+    {
+      "id": 37,
+      "start": 162.0,
+      "end": 165.0,
+      "text": "And so what's the reason snowflake will have something called flexible compute,"
+    },
+    {
+      "id": 38,
+      "start": 165.0,
+      "end": 171.0,
+      "text": "where they basically have this side cluster available to all customers for additional workers,"
+    },
+    {
+      "id": 39,
+      "start": 171.0,
+      "end": 176.0,
+      "text": "and that you can occasionally borrow some without paying extra and make your queries run a little bit faster."
+    },
+    {
+      "id": 40,
+      "start": 176.0,
+      "end": 179.0,
+      "text": "Again, we can't do that. It's hard to do that on-prem,"
+    },
+    {
+      "id": 41,
+      "start": 179.0,
+      "end": 185.0,
+      "text": "because you have the provision harbor ahead of time, but in the cloud everything's elastic and it makes it easier."
+    },
+    {
+      "id": 42,
+      "start": 185.0,
+      "end": 188.0,
+      "text": "And then work-stealing again, we covered last time, basically says,"
+    },
+    {
+      "id": 43,
+      "start": 188.0,
+      "end": 191.0,
+      "text": "you allow a worker to take work from another peer."
+    },
+    {
+      "id": 44,
+      "start": 191.0,
+      "end": 198.0,
+      "text": "And then whether or not you want to have that, the worker that's stealing the stealer,"
+    },
+    {
+      "id": 45,
+      "start": 198.0,
+      "end": 205.0,
+      "text": "whether they should go move data from the stealee, the worker that's stealing from,"
+    },
+    {
+      "id": 46,
+      "start": 205.0,
+      "end": 210.0,
+      "text": "get the data from them, or go back to the distributed storage, the S3 or whatever."
+    },
+    {
+      "id": 47,
+      "start": 210.0,
+      "end": 212.0,
+      "text": "Again, depends on the implementation."
+    },
+    {
+      "id": 48,
+      "start": 212.0,
+      "end": 214.0,
+      "text": "Snowflake's going to always go back to the remote storage,"
+    },
+    {
+      "id": 49,
+      "start": 214.0,
+      "end": 217.0,
+      "text": "because they don't want to slow down the worker that's the straggler."
+    },
+    {
+      "id": 50,
+      "start": 217.0,
+      "end": 222.0,
+      "text": "But in case of hyper, we saw that it'll go get it directly from the worker CPU."
+    },
+    {
+      "id": 51,
+      "start": 222.0,
+      "end": 225.0,
+      "text": "In that case, because everything was in memory."
+    },
+    {
+      "id": 52,
+      "start": 225.0,
+      "end": 232.0,
+      "text": "Again, these are just our design decisions we can account for when we build a larger system."
+    },
+    {
+      "id": 53,
+      "start": 232.0,
+      "end": 237.0,
+      "text": "So today I want to focus on joins, because joins are the most important,"
+    },
+    {
+      "id": 54,
+      "start": 237.0,
+      "end": 243.0,
+      "text": "one of the most important operators we would have in a relational database system."
+    },
+    {
+      "id": 55,
+      "start": 243.0,
+      "end": 247.0,
+      "text": "And we're really going to be focused on how we do this in parallel."
+    },
+    {
+      "id": 56,
+      "start": 247.0,
+      "end": 251.0,
+      "text": "And again, we're going to focus on a single node system, because we're going to assume that"
+    },
+    {
+      "id": 57,
+      "start": 251.0,
+      "end": 255.0,
+      "text": "something else above us has already moved the data to where we needed to be."
+    },
+    {
+      "id": 58,
+      "start": 255.0,
+      "end": 259.0,
+      "text": "And again, that's not interesting. That just says, okay, this needs the data to go here,"
+    },
+    {
+      "id": 59,
+      "start": 259.0,
+      "end": 262.0,
+      "text": "and then something moves that."
+    },
+    {
+      "id": 60,
+      "start": 262.0,
+      "end": 265.0,
+      "text": "What we really care about is when we get all the data on a single node,"
+    },
+    {
+      "id": 61,
+      "start": 265.0,
+      "end": 270.0,
+      "text": "assuming that everything fits in memory, how can we run as fast as possible."
+    },
+    {
+      "id": 62,
+      "start": 271.0,
+      "end": 274.0,
+      "text": "So again, we'll talk about the background of what the different sort of parallel join algorithms,"
+    },
+    {
+      "id": 63,
+      "start": 274.0,
+      "end": 278.0,
+      "text": "high performance join algorithms look like for the last 30, 40, 50 years."
+    },
+    {
+      "id": 64,
+      "start": 278.0,
+      "end": 282.0,
+      "text": "Then we'll talk about the basic building blocks to do a parallel hash join."
+    },
+    {
+      "id": 65,
+      "start": 282.0,
+      "end": 284.0,
+      "text": "Then we'll talk about different hash functions, the hash and schemes,"
+    },
+    {
+      "id": 66,
+      "start": 284.0,
+      "end": 291.0,
+      "text": "and the sort of high level overview of the evaluation for the paper you guys read."
+    },
+    {
+      "id": 67,
+      "start": 291.0,
+      "end": 293.0,
+      "text": "Which I understand the paper was a bit inscrutable for some of you,"
+    },
+    {
+      "id": 68,
+      "start": 293.0,
+      "end": 295.0,
+      "text": "because there's some background material you may not have."
+    },
+    {
+      "id": 69,
+      "start": 295.0,
+      "end": 299.0,
+      "text": "I'll try to ask questions. I'll try to cover that as we go along."
+    },
+    {
+      "id": 70,
+      "start": 299.0,
+      "end": 301.0,
+      "text": "Okay?"
+    },
+    {
+      "id": 71,
+      "start": 301.0,
+      "end": 304.0,
+      "text": "All right. So parallel join algorithms."
+    },
+    {
+      "id": 72,
+      "start": 304.0,
+      "end": 308.0,
+      "text": "Again, the basic idea is that we want to be able to take two relations to join together"
+    },
+    {
+      "id": 73,
+      "start": 308.0,
+      "end": 313.0,
+      "text": "across multiple workers at the same time to speed things up."
+    },
+    {
+      "id": 74,
+      "start": 313.0,
+      "end": 316.0,
+      "text": "In the intro class, we didn't discuss threads or workers when we did joins."
+    },
+    {
+      "id": 75,
+      "start": 316.0,
+      "end": 318.0,
+      "text": "We just said, here's the join algorithm,"
+    },
+    {
+      "id": 76,
+      "start": 318.0,
+      "end": 321.0,
+      "text": "and then we computed the complexity of it based on the number of pages"
+    },
+    {
+      "id": 77,
+      "start": 321.0,
+      "end": 323.0,
+      "text": "that had to read right from disk."
+    },
+    {
+      "id": 78,
+      "start": 323.0,
+      "end": 325.0,
+      "text": "Get it? I said, if we assume now everything resides in memory,"
+    },
+    {
+      "id": 79,
+      "start": 325.0,
+      "end": 330.0,
+      "text": "and now we have additional cores, right, because this is 721, not 445, 645."
+    },
+    {
+      "id": 80,
+      "start": 330.0,
+      "end": 332.0,
+      "text": "We have all these additional resources for us."
+    },
+    {
+      "id": 81,
+      "start": 332.0,
+      "end": 335.0,
+      "text": "How can we get this to run as fast as possible?"
+    },
+    {
+      "id": 82,
+      "start": 335.0,
+      "end": 338.0,
+      "text": "So again, will we focus on binary joins or just taking two relations?"
+    },
+    {
+      "id": 83,
+      "start": 338.0,
+      "end": 345.0,
+      "text": "Next class, we'll talk about multi-way joins or three-way joins, three or more."
+    },
+    {
+      "id": 84,
+      "start": 345.0,
+      "end": 348.0,
+      "text": "And the idea is that can you join multiple tables exactly at the same time?"
+    },
+    {
+      "id": 85,
+      "start": 348.0,
+      "end": 350.0,
+      "text": "And we'll see an algorithm to do that."
+    },
+    {
+      "id": 86,
+      "start": 350.0,
+      "end": 353.0,
+      "text": "Most of the times, though, for most queries you want to do a binary join,"
+    },
+    {
+      "id": 87,
+      "start": 353.0,
+      "end": 355.0,
+      "text": "that's going to be faster than the multi-way join."
+    },
+    {
+      "id": 88,
+      "start": 355.0,
+      "end": 359.0,
+      "text": "Well, it's for graph workloads, the multi-way join will be better."
+    },
+    {
+      "id": 89,
+      "start": 359.0,
+      "end": 364.0,
+      "text": "So the two main purges that we're going to care about are hash join and sortmers join."
+    },
+    {
+      "id": 90,
+      "start": 364.0,
+      "end": 369.0,
+      "text": "I'm not teaching sortmers join this year, just because most systems aren't going to implement it."
+    },
+    {
+      "id": 91,
+      "start": 369.0,
+      "end": 374.0,
+      "text": "Nine times out of ten or 99 times out of 100, you're going to want the hash join."
+    },
+    {
+      "id": 92,
+      "start": 374.0,
+      "end": 376.0,
+      "text": "That's always going to be faster."
+    },
+    {
+      "id": 93,
+      "start": 376.0,
+      "end": 379.0,
+      "text": "If the thing's already sorted in the way you want it on the join key,"
+    },
+    {
+      "id": 94,
+      "start": 379.0,
+      "end": 381.0,
+      "text": "then yeah, you can do sortmers join."
+    },
+    {
+      "id": 95,
+      "start": 381.0,
+      "end": 385.0,
+      "text": "And the paper you read about talk about some ways to speed that up using simbdi and other things."
+    },
+    {
+      "id": 96,
+      "start": 385.0,
+      "end": 388.0,
+      "text": "But for now, I don't think it's necessary to know that."
+    },
+    {
+      "id": 97,
+      "start": 388.0,
+      "end": 391.0,
+      "text": "I rather focus on how can we do hash join faster?"
+    },
+    {
+      "id": 98,
+      "start": 391.0,
+      "end": 398.0,
+      "text": "We're also not going to talk about nest loop joins because this is almost always the worst thing to possibly do in an O-lap system."
+    },
+    {
+      "id": 99,
+      "start": 398.0,
+      "end": 402.0,
+      "text": "You would only do this if you know the table has like ten two-poles."
+    },
+    {
+      "id": 100,
+      "start": 403.0,
+      "end": 408.0,
+      "text": "And so again, hash join is always going to be preferable to everything else."
+    },
+    {
+      "id": 101,
+      "start": 408.0,
+      "end": 413.0,
+      "text": "So the goal today is again, how to match my parallelism,"
+    },
+    {
+      "id": 102,
+      "start": 413.0,
+      "end": 416.0,
+      "text": "and part of that is being aware of what the CPU wants from us,"
+    },
+    {
+      "id": 103,
+      "start": 416.0,
+      "end": 420.0,
+      "text": "being aware of what the threads are reading and writing to to voice synchronization costs,"
+    },
+    {
+      "id": 104,
+      "start": 420.0,
+      "end": 425.0,
+      "text": "and understanding the penalties of reading data that's in a different human region,"
+    },
+    {
+      "id": 105,
+      "start": 425.0,
+      "end": 427.0,
+      "text": "or maybe that's unaligned."
+    },
+    {
+      "id": 106,
+      "start": 428.0,
+      "end": 433.0,
+      "text": "So it didn't always use to be that hash join was considered to be superior to everything else."
+    },
+    {
+      "id": 107,
+      "start": 433.0,
+      "end": 441.0,
+      "text": "This is sort of a classic debate in databases where it's gone back and forth between whether sorting is faster for joins versus hashing."
+    },
+    {
+      "id": 108,
+      "start": 441.0,
+      "end": 447.0,
+      "text": "And back in the 1970s in the first database systems that were running on very, very primitive early computers,"
+    },
+    {
+      "id": 109,
+      "start": 447.0,
+      "end": 451.0,
+      "text": "the handle tables that were larger than memory,"
+    },
+    {
+      "id": 110,
+      "start": 452.0,
+      "end": 457.0,
+      "text": "the grace hash join or how to spill joins to disk was an invented yet,"
+    },
+    {
+      "id": 111,
+      "start": 457.0,
+      "end": 460.0,
+      "text": "but they had an external merge short algorithm."
+    },
+    {
+      "id": 112,
+      "start": 460.0,
+      "end": 463.0,
+      "text": "So they said, okay, well, if I need to join two tables that are really big,"
+    },
+    {
+      "id": 113,
+      "start": 463.0,
+      "end": 466.0,
+      "text": "bigger than the amount of memory I have, again, think of like megabytes,"
+    },
+    {
+      "id": 114,
+      "start": 466.0,
+      "end": 469.0,
+      "text": "not terabytes of memory, or kilobytes in some cases,"
+    },
+    {
+      "id": 115,
+      "start": 469.0,
+      "end": 473.0,
+      "text": "that they had a way to then be able to do external merge sort,"
+    },
+    {
+      "id": 116,
+      "start": 473.0,
+      "end": 477.0,
+      "text": "so they could write the sort of data out the disk, bring them in as partitions or chunks,"
+    },
+    {
+      "id": 117,
+      "start": 477.0,
+      "end": 480.0,
+      "text": "and then do the merge pass to join them."
+    },
+    {
+      "id": 118,
+      "start": 480.0,
+      "end": 483.0,
+      "text": "In the 1980s, the hardware got better,"
+    },
+    {
+      "id": 119,
+      "start": 483.0,
+      "end": 489.0,
+      "text": "and then there was this project out of Japan called the Grace database machine,"
+    },
+    {
+      "id": 120,
+      "start": 489.0,
+      "end": 494.0,
+      "text": "and so they invented the Grace hash join, which is a precursor to the partition join we're talking about today,"
+    },
+    {
+      "id": 121,
+      "start": 494.0,
+      "end": 497.0,
+      "text": "and they had to be able to then spill the buckets to disk,"
+    },
+    {
+      "id": 122,
+      "start": 497.0,
+      "end": 502.0,
+      "text": "recursively to bring things up to smaller chunks that could fit in memory."
+    },
+    {
+      "id": 123,
+      "start": 502.0,
+      "end": 506.0,
+      "text": "There was another movement called database machines, which the Grace project was part of,"
+    },
+    {
+      "id": 124,
+      "start": 506.0,
+      "end": 512.0,
+      "text": "and that was like specialized hardware that had custom silicon just to do hash joins."
+    },
+    {
+      "id": 125,
+      "start": 512.0,
+      "end": 515.0,
+      "text": "So they had ways of speed up hash joins back in the day."
+    },
+    {
+      "id": 126,
+      "start": 515.0,
+      "end": 519.0,
+      "text": "In the 1990s, our newly paper came out from Gert's Graphi,"
+    },
+    {
+      "id": 127,
+      "start": 519.0,
+      "end": 522.0,
+      "text": "the guy that invented volcano, the volcano model, the iterator model,"
+    },
+    {
+      "id": 128,
+      "start": 522.0,
+      "end": 525.0,
+      "text": "the guy that invented the exterior operator, the guy that invented Cascades,"
+    },
+    {
+      "id": 129,
+      "start": 525.0,
+      "end": 526.0,
+      "text": "and we'll cover it later on."
+    },
+    {
+      "id": 130,
+      "start": 526.0,
+      "end": 530.0,
+      "text": "He had a paper that basically said these two algorithms were equivalent,"
+    },
+    {
+      "id": 131,
+      "start": 530.0,
+      "end": 533.0,
+      "text": "given the hardware that was available at the time."
+    },
+    {
+      "id": 132,
+      "start": 534.0,
+      "end": 536.0,
+      "text": "But since the 2000s, since the turn of the century,"
+    },
+    {
+      "id": 133,
+      "start": 536.0,
+      "end": 539.0,
+      "text": "hashing has been shown to be preferable,"
+    },
+    {
+      "id": 134,
+      "start": 539.0,
+      "end": 544.0,
+      "text": "and so the question is always now, is it better to partition or not?"
+    },
+    {
+      "id": 135,
+      "start": 544.0,
+      "end": 548.0,
+      "text": "And in the paper you guys read, I think they show partitioning is going to be faster."
+    },
+    {
+      "id": 136,
+      "start": 548.0,
+      "end": 552.0,
+      "text": "There's another paper from the Umbra Germans that said,"
+    },
+    {
+      "id": 137,
+      "start": 552.0,
+      "end": 555.0,
+      "text": "yes, partitioning is faster, but it's really hard to get it right."
+    },
+    {
+      "id": 138,
+      "start": 555.0,
+      "end": 559.0,
+      "text": "So most of the time, you're better off not partitioning."
+    },
+    {
+      "id": 139,
+      "start": 559.0,
+      "end": 562.0,
+      "text": "Sorry, not the partitioning is faster, but you're better off not partitioning,"
+    },
+    {
+      "id": 140,
+      "start": 562.0,
+      "end": 565.0,
+      "text": "because it's good enough for most things."
+    },
+    {
+      "id": 141,
+      "start": 565.0,
+      "end": 569.0,
+      "text": "So this is what we're going to focus on today."
+    },
+    {
+      "id": 142,
+      "start": 569.0,
+      "end": 572.0,
+      "text": "We're going to know our certainers join, and we're really going to discuss"
+    },
+    {
+      "id": 143,
+      "start": 572.0,
+      "end": 574.0,
+      "text": "the partition versus not partition approaches,"
+    },
+    {
+      "id": 144,
+      "start": 574.0,
+      "end": 577.0,
+      "text": "and the modern variants of these things."
+    },
+    {
+      "id": 145,
+      "start": 577.0,
+      "end": 580.0,
+      "text": "For certainers join the paper that they, I think the M-Waste,"
+    },
+    {
+      "id": 146,
+      "start": 580.0,
+      "end": 584.0,
+      "text": "sort of, is joined paper that they cite, the paper you guys read,"
+    },
+    {
+      "id": 147,
+      "start": 584.0,
+      "end": 586.0,
+      "text": "that's from Intel, actually, off-synthesite,"
+    },
+    {
+      "id": 148,
+      "start": 587.0,
+      "end": 591.0,
+      "text": "from Intel oracle, from the 2009,"
+    },
+    {
+      "id": 149,
+      "start": 591.0,
+      "end": 594.0,
+      "text": "and basically you said, hey, short merge will be better than hash join"
+    },
+    {
+      "id": 150,
+      "start": 594.0,
+      "end": 598.0,
+      "text": "if you have SIMD registers that have 512 bits."
+    },
+    {
+      "id": 151,
+      "start": 598.0,
+      "end": 600.0,
+      "text": "Because again, this is 2009."
+    }
+  ],
+  "language": "en"
+}

@@ -1,0 +1,329 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Kaniki Melan University's advanced database systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filming front of a live studio audience."
+    },
+    {
+      "id": 2,
+      "start": 9.0,
+      "end": 16.0,
+      "text": "What's it starting?"
+    },
+    {
+      "id": 3,
+      "start": 16.0,
+      "end": 23.0,
+      "text": "Thought that it was good yesterday and then we'll finish up talking about the proposal presentations coming on this week on Wednesday."
+    },
+    {
+      "id": 4,
+      "start": 23.0,
+      "end": 27.0,
+      "text": "So let's hold off any questions until then."
+    },
+    {
+      "id": 5,
+      "start": 27.0,
+      "end": 35.0,
+      "text": "All right, so today we're going to pick off where we left last class talking about what data files actually look like, what actually data looks like."
+    },
+    {
+      "id": 6,
+      "start": 35.0,
+      "end": 43.0,
+      "text": "And so recall from last class we talked about what these different storage models you'd have NSM or Rostor's DSM column, like pure column store."
+    },
+    {
+      "id": 7,
+      "start": 43.0,
+      "end": 45.0,
+      "text": "And then as I said, everything is pretty much packed these days."
+    },
+    {
+      "id": 8,
+      "start": 45.0,
+      "end": 56.0,
+      "text": "You're going to divide your table up into horizontal partitions, to row groups, and then within each row group you're going to lay all the bits or bytes for each column."
+    },
+    {
+      "id": 9,
+      "start": 56.0,
+      "end": 59.0,
+      "text": "And then you get the column store for each column continuously before jumping to the next column."
+    },
+    {
+      "id": 10,
+      "start": 59.0,
+      "end": 69.0,
+      "text": "So you get the best both. Well, you get the column store, continues values, but also the spatial locality of a Rostor."
+    },
+    {
+      "id": 11,
+      "start": 69.0,
+      "end": 79.0,
+      "text": "We then talk about all right, for the different file formats, what's actually inside of them, what additional things we're going to record beyond just the data itself."
+    },
+    {
+      "id": 12,
+      "start": 79.0,
+      "end": 93.0,
+      "text": "So we talk about the metadata, keeping track of what's in the footer, where they're jumped off sets in the row groups, the format layout specifying again, like, is it Rostor or ComStore, what is the actual the nesting structure within that type system."
+    },
+    {
+      "id": 13,
+      "start": 93.0,
+      "end": 102.0,
+      "text": "We sort of gloss over quickly to say there's some primitive types, logical types coding schemes, we spend a lot of time on and we'll talk about mostly today, different ways to encode the data."
+    },
+    {
+      "id": 14,
+      "start": 102.0,
+      "end": 117.0,
+      "text": "Now, naive block compression or general purpose compression is taking whatever you produce from the in your file, from the lightweight encoding or the these schemes here, and then throw snappy or Z standard or G-Z-bat at it, actually never use G-Z-bat."
+    },
+    {
+      "id": 15,
+      "start": 117.0,
+      "end": 119.0,
+      "text": "Snappy or Z standard."
+    },
+    {
+      "id": 16,
+      "start": 119.0,
+      "end": 133.0,
+      "text": "Z-matting, we've got there, and then we rushed through the shredding stuff, so I'm going to spend a little time beginning today going over that more detail, because again, I think this is a neat idea from the BigQuery Dremel stuff, and we'll see this again later in the semester."
+    },
+    {
+      "id": 17,
+      "start": 133.0,
+      "end": 137.0,
+      "text": "And then we'll kick off the conversation about today's paper."
+    },
+    {
+      "id": 18,
+      "start": 137.0,
+      "end": 144.0,
+      "text": "So again, real world data sets, there's a lot of JSON up there, and if you're Google, a lot of protocol buffers."
+    },
+    {
+      "id": 19,
+      "start": 144.0,
+      "end": 163.0,
+      "text": "And if we distort the JSON document as a varchar, as a text or blob inside of a column, yeah, we can run JSON functions on them to extract out the structure from it, but that's not going to lose all the advantages of having a column store with Pax Layout and be a re-de vectorized execution."
+    },
+    {
+      "id": 20,
+      "start": 163.0,
+      "end": 174.0,
+      "text": "So instead, what we want to do is split up or blow up the JSON document for every single tuple and store the paths within that document as separate columns."
+    },
+    {
+      "id": 21,
+      "start": 174.0,
+      "end": 181.0,
+      "text": "So the no-segal guys talk about, oh, these are schema-less databases, you can define your schema later."
+    },
+    {
+      "id": 22,
+      "start": 181.0,
+      "end": 188.0,
+      "text": "And that just means that you don't have to call create table, and specify here's exactly the columns I have for different types, you just throw JSON on it."
+    },
+    {
+      "id": 23,
+      "start": 188.0,
+      "end": 197.0,
+      "text": "But inherently, there's always a schema, because it doesn't make sense to have random applications writing random documents into a table, because then nobody can make sense of it."
+    },
+    {
+      "id": 24,
+      "start": 197.0,
+      "end": 208.0,
+      "text": "So the documents may be putting in, maybe not have all the same fields, but at least there'll be enough overlap in the structure that we can break things up and then store it as columns."
+    },
+    {
+      "id": 25,
+      "start": 208.0,
+      "end": 217.0,
+      "text": "So again, I'm going to focus on a go-through walk through the record shredding from Dremel, and then we can briefly talk about length and presence encoding."
+    },
+    {
+      "id": 26,
+      "start": 217.0,
+      "end": 235.0,
+      "text": "So the basic idea of shredding is that we're going to store paths in our columns, or sorry, for each path, I'm going to store it as a separate column, and then we'll record how many steps, a DPR into a given document for that hierarchy."
+    },
+    {
+      "id": 27,
+      "start": 235.0,
+      "end": 245.0,
+      "text": "And unlike in length and presence, we'll see in the next slide, if something doesn't exist, doesn't mean we need to always record that it's actually there, where in length and presence you do."
+    },
+    {
+      "id": 28,
+      "start": 245.0,
+      "end": 254.0,
+      "text": "So there's going to be two additional columns we're going to find. I think these are just going to be integer columns that we can then do all the encoding and pressing stuff we talked about before."
+    },
+    {
+      "id": 29,
+      "start": 254.0,
+      "end": 266.0,
+      "text": "So adding additional columns, yes, that's more data restoring per attribute within our JSON document, but again, we can compress these things pretty well and avoid a lot of the bloat of the storage space."
+    },
+    {
+      "id": 30,
+      "start": 267.0,
+      "end": 278.0,
+      "text": "So the first one is going to include the definition level, and that's going to determine how many, or it's going to keep track of how many actual elements existed to get us to the current path we are in our hierarchy."
+    },
+    {
+      "id": 31,
+      "start": 278.0,
+      "end": 287.0,
+      "text": "And the repetition level is going to say if it's a repeated structure, like in our scheme up here, we have two repeated structures, we have the repeated group name and the repeat group language."
+    },
+    {
+      "id": 32,
+      "start": 287.0,
+      "end": 292.0,
+      "text": "So how many times have we seen those repeated groups at that given level repeat?"
+    },
+    {
+      "id": 33,
+      "start": 293.0,
+      "end": 303.0,
+      "text": "So let's walk through the example, there's a simple document here, again, this is roughly what protocol buffer looks like, or think of defining a schema on a JSON document or XML."
+    },
+    {
+      "id": 34,
+      "start": 303.0,
+      "end": 315.0,
+      "text": "So we're going to walk through this document here, and we're going to scan through as if we were loading it into our database system and show how it's going to generate the attributes across the different columns in our shredded model."
+    },
+    {
+      "id": 35,
+      "start": 316.0,
+      "end": 327.0,
+      "text": "So the very beginning, it's easy, we have a document ID, so we have a table that corresponds to the document ID path, that's at the top of the document, so then we just insert a new record there."
+    },
+    {
+      "id": 36,
+      "start": 327.0,
+      "end": 340.0,
+      "text": "But at this point here, there's no repeats before us, so the repetition value is zero, and there's no other things in the path before us, so the definition is zero."
+    },
+    {
+      "id": 37,
+      "start": 340.0,
+      "end": 366.0,
+      "text": "And now as we scan down, we hit the first nested structure, we have name, and within the inside that, we have a repeated group called language, so now we see our first entry for the code here, so we're going to create a new column for our shredded document, where we have the value that's being stored, the repetition value is set to zero, because we're the first language object or group that we've seen at this level in the hierarchy."
+    },
+    {
+      "id": 38,
+      "start": 366.0,
+      "end": 371.0,
+      "text": "So we set the definition to two, because we're two levels deep."
+    },
+    {
+      "id": 39,
+      "start": 371.0,
+      "end": 386.0,
+      "text": "Then we go down to the country, and now we see that we can create a new column, the value is US, that's easy, repetition is zero, because there's nothing before us, and then now we're sort of three elements into our path."
+    },
+    {
+      "id": 40,
+      "start": 386.0,
+      "end": 408.0,
+      "text": "So we're going to go to the next group for language, and so again, we see a code, we insert that here, we're the second, we're getting starting at zero, but it's the second repeated group within this hierarchy, so we set that to one, and then our path that get here is two, just like it was here, because we had to go from name to language to code."
+    },
+    {
+      "id": 41,
+      "start": 408.0,
+      "end": 430.0,
+      "text": "Now we don't have a country, so in this case here, because we at least have something at the group level within the language, we have to put an entry here, again, same as before, we're one into the repetition, and then we have two elements to the path get us here, but again, because there's no value here, we set it to two."
+    },
+    {
+      "id": 42,
+      "start": 430.0,
+      "end": 449.0,
+      "text": "Then we go down to the URL here, and again, repetition is zero, because with the first name in our group, just like we were in document, but then our depth is two, because it went from name to URL, just as we were over here."
+    },
+    {
+      "id": 43,
+      "start": 449.0,
+      "end": 476.0,
+      "text": "Then we down to this group, this is just name, nothing else, so we put, sorry, it's just a name with the URL, and no other attributes for the language, so we add our entry into here, repetition one, because we're the second element in the repeated group, and the path is two to get us there, but now we've got to put placeholders here to say that there wasn't anything within the repeated group for language."
+    },
+    {
+      "id": 44,
+      "start": 476.0,
+      "end": 486.0,
+      "text": "So we're repeated group one, because this is the second group within that level of the name, and then the definition is one to say the path is really one to get there."
+    },
+    {
+      "id": 45,
+      "start": 486.0,
+      "end": 499.0,
+      "text": "It's the same as the path as, actually, what is that, too? Yeah, because it's one down from name, so if you want to know how deep you actually are, as you fall along from this, you could then get that, and see that your actually three levels deep."
+    },
+    {
+      "id": 46,
+      "start": 499.0,
+      "end": 513.0,
+      "text": "Yes? So for under language, you have coding countries, but I don't understand why the country would have a depth is mostly, and that it seemed like the whole of this, but I think it was all too deep."
+    },
+    {
+      "id": 47,
+      "start": 513.0,
+      "end": 528.0,
+      "text": "Yeah, the question is, why is code going back here? Why is the power point of this being stupid? So in this case here, I add English US, the definition for the path is two, but then when I add the country,"
+    },
+    {
+      "id": 48,
+      "start": 528.0,
+      "end": 540.0,
+      "text": "the definition is three, as he said, the code is required, the country is optional. Other question, sorry. Yes?"
+    },
+    {
+      "id": 49,
+      "start": 540.0,
+      "end": 558.0,
+      "text": "The question is, why is the definition two, it is taking place in the same place as the country?"
+    },
+    {
+      "id": 50,
+      "start": 558.0,
+      "end": 572.0,
+      "text": "Because it doesn't exist, I think that's why. Right? You're not moving down even farther. Yes?"
+    },
+    {
+      "id": 51,
+      "start": 572.0,
+      "end": 584.0,
+      "text": "The question is, is it determined in the point of reversal? The definition is, how many steps are you down within the path that gets to where you're at?"
+    },
+    {
+      "id": 52,
+      "start": 584.0,
+      "end": 598.0,
+      "text": "And so if it's not there, it doesn't count. It's my understanding of it. Yes?"
+    },
+    {
+      "id": 53,
+      "start": 598.0,
+      "end": 600.0,
+      "text": "Is there any advantage of..."
+    }
+  ],
+  "language": "en"
+}

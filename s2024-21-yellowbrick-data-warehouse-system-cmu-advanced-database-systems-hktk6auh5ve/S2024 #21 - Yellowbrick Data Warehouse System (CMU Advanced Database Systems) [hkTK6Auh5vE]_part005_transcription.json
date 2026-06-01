@@ -1,0 +1,1307 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.64,
+      "text": "fault ton, and resilient, especially for embedded devices,"
+    },
+    {
+      "id": 1,
+      "start": 2.64,
+      "end": 6.84,
+      "text": "you don't want your car calling Malican failing"
+    },
+    {
+      "id": 2,
+      "start": 6.84,
+      "end": 8.8,
+      "text": "and then drive you off the highway."
+    },
+    {
+      "id": 3,
+      "start": 8.8,
+      "end": 12.52,
+      "text": "So for safety reasons, they do all this allocation up front."
+    },
+    {
+      "id": 4,
+      "start": 12.52,
+      "end": 14.36,
+      "text": "And they're doing this for performance reasons."
+    },
+    {
+      "id": 5,
+      "start": 17.4,
+      "end": 23.08,
+      "text": "So now when I call, I want to get memory from this allocator,"
+    },
+    {
+      "id": 6,
+      "start": 23.08,
+      "end": 27.92,
+      "text": "if the allocations going to fail, you"
+    },
+    {
+      "id": 7,
+      "start": 27.92,
+      "end": 29.44,
+      "text": "could have the allocator implement something"
+    },
+    {
+      "id": 8,
+      "start": 29.8,
+      "end": 30.92,
+      "text": "I know I'm running this query."
+    },
+    {
+      "id": 9,
+      "start": 30.92,
+      "end": 32.08,
+      "text": "It's asked for this memory."
+    },
+    {
+      "id": 10,
+      "start": 32.08,
+      "end": 34.12,
+      "text": "I can't get the memory that it needs."
+    },
+    {
+      "id": 11,
+      "start": 34.12,
+      "end": 35.76,
+      "text": "You could learn another part of the system"
+    },
+    {
+      "id": 12,
+      "start": 35.76,
+      "end": 38.48,
+      "text": "to start spilling other things out the disk."
+    },
+    {
+      "id": 13,
+      "start": 38.48,
+      "end": 40.6,
+      "text": "And we saw something similar in photon."
+    },
+    {
+      "id": 14,
+      "start": 40.6,
+      "end": 43.16,
+      "text": "We're photon had essentialized allocator sitting in the Java"
+    },
+    {
+      "id": 15,
+      "start": 43.16,
+      "end": 46.68,
+      "text": "that could, in Spark SQL, that could then recognize"
+    },
+    {
+      "id": 16,
+      "start": 46.68,
+      "end": 50.16,
+      "text": "you can't allocate memory you need and then decide who"
+    },
+    {
+      "id": 17,
+      "start": 50.16,
+      "end": 51.48,
+      "text": "to start freeing."
+    },
+    {
+      "id": 18,
+      "start": 51.48,
+      "end": 55.12,
+      "text": "So you could do the same thing here."
+    },
+    {
+      "id": 19,
+      "start": 55.12,
+      "end": 56.6,
+      "text": "OK, so quick show of hands."
+    },
+    {
+      "id": 20,
+      "start": 56.6,
+      "end": 59.36,
+      "text": "Who here knows what the huge pages are?"
+    },
+    {
+      "id": 21,
+      "start": 60.32,
+      "end": 60.8,
+      "text": "That's not bad."
+    },
+    {
+      "id": 22,
+      "start": 60.8,
+      "end": 63.36,
+      "text": "So less than half, but more than I thought."
+    },
+    {
+      "id": 23,
+      "start": 63.36,
+      "end": 67.12,
+      "text": "OK, so this is quick diverges."
+    },
+    {
+      "id": 24,
+      "start": 67.12,
+      "end": 69.64,
+      "text": "I don't think we teach this in the intro class,"
+    },
+    {
+      "id": 25,
+      "start": 69.64,
+      "end": 71.0,
+      "text": "but we probably should."
+    },
+    {
+      "id": 26,
+      "start": 71.0,
+      "end": 74.6,
+      "text": "So when we talk about pages in a data system,"
+    },
+    {
+      "id": 27,
+      "start": 74.6,
+      "end": 76.52,
+      "text": "we said there's a hardware page that's"
+    },
+    {
+      "id": 28,
+      "start": 76.52,
+      "end": 77.48,
+      "text": "typically 4KL bytes."
+    },
+    {
+      "id": 29,
+      "start": 77.48,
+      "end": 80.24,
+      "text": "That's the smallest size that you can guarantee,"
+    },
+    {
+      "id": 30,
+      "start": 80.24,
+      "end": 81.56,
+      "text": "or the larger size you can guarantee the hardware"
+    },
+    {
+      "id": 31,
+      "start": 81.56,
+      "end": 83.84,
+      "text": "to write out something atomically, then the OS has"
+    },
+    {
+      "id": 32,
+      "start": 83.84,
+      "end": 86.68,
+      "text": "its own page size and the data system has its page size."
+    },
+    {
+      "id": 33,
+      "start": 86.68,
+      "end": 89.2,
+      "text": "And in an OTB system like Postgres and SQLite,"
+    },
+    {
+      "id": 34,
+      "start": 89.2,
+      "end": 93.24,
+      "text": "my SQL, we're worried about making changes in the page"
+    },
+    {
+      "id": 35,
+      "start": 93.24,
+      "end": 95.16,
+      "text": "and writing it out, so we don't want our pages to be really,"
+    },
+    {
+      "id": 36,
+      "start": 95.16,
+      "end": 97.52,
+      "text": "really big."
+    },
+    {
+      "id": 37,
+      "start": 97.52,
+      "end": 104.32,
+      "text": "But now in the read only system, the 4KLite page size"
+    },
+    {
+      "id": 38,
+      "start": 104.32,
+      "end": 106.52,
+      "text": "is actually kind of small, especially"
+    },
+    {
+      "id": 39,
+      "start": 106.52,
+      "end": 110.08,
+      "text": "if we're processing terabytes of data."
+    },
+    {
+      "id": 40,
+      "start": 110.08,
+      "end": 113.64,
+      "text": "So the reason why this is going to be bad for us"
+    },
+    {
+      "id": 41,
+      "start": 113.64,
+      "end": 117.2,
+      "text": "is because the CPU is going to main its own translation"
+    },
+    {
+      "id": 42,
+      "start": 117.2,
+      "end": 120.72,
+      "text": "local side buffer using some portion of the URL1 cache"
+    },
+    {
+      "id": 43,
+      "start": 120.72,
+      "end": 124.68,
+      "text": "that basically is a mapping from a virtual memory page"
+    },
+    {
+      "id": 44,
+      "start": 124.68,
+      "end": 126.4,
+      "text": "to a physical page."
+    },
+    {
+      "id": 45,
+      "start": 126.4,
+      "end": 129.08,
+      "text": "And so if I have all these 4KLite pages,"
+    },
+    {
+      "id": 46,
+      "start": 129.08,
+      "end": 132.6,
+      "text": "as I'm ripping through, scanning a large chunk of data,"
+    },
+    {
+      "id": 47,
+      "start": 132.6,
+      "end": 134.28,
+      "text": "then that TLAB is going to have a bunch of misses,"
+    },
+    {
+      "id": 48,
+      "start": 134.28,
+      "end": 140.28,
+      "text": "because it has to go fetch things that aren't going to fit."
+    },
+    {
+      "id": 49,
+      "start": 140.28,
+      "end": 145.36,
+      "text": "So with huge pages, you can tell the operating system"
+    },
+    {
+      "id": 50,
+      "start": 145.36,
+      "end": 148.68,
+      "text": "that instead of allocating things in 4KLites,"
+    },
+    {
+      "id": 51,
+      "start": 148.68,
+      "end": 152.92,
+      "text": "I want to allocate memory in larger chunks."
+    },
+    {
+      "id": 52,
+      "start": 152.92,
+      "end": 157.36,
+      "text": "So in Linux, it's going to be 2 megabytes or 1 gigabyte."
+    },
+    {
+      "id": 53,
+      "start": 157.36,
+      "end": 162.52,
+      "text": "And so now on the actual physical hardware,"
+    },
+    {
+      "id": 54,
+      "start": 162.52,
+      "end": 165.92,
+      "text": "these blocks have to be contiguous."
+    },
+    {
+      "id": 55,
+      "start": 165.92,
+      "end": 171.92,
+      "text": "But now I can address a block in my TLB,"
+    },
+    {
+      "id": 56,
+      "start": 171.92,
+      "end": 175.64,
+      "text": "which is a single virtual memory address can now"
+    },
+    {
+      "id": 57,
+      "start": 175.64,
+      "end": 178.84,
+      "text": "point to 2 megabytes instead of 4KLites."
+    },
+    {
+      "id": 58,
+      "start": 178.84,
+      "end": 181.4,
+      "text": "So that's the last pressure on my TLB,"
+    },
+    {
+      "id": 59,
+      "start": 181.4,
+      "end": 184.32,
+      "text": "and that means I'm going to have fewer L1 cache misses in my TLB."
+    },
+    {
+      "id": 60,
+      "start": 184.32,
+      "end": 186.92,
+      "text": "And I can rip through things much, much faster."
+    },
+    {
+      "id": 61,
+      "start": 186.92,
+      "end": 188.56,
+      "text": "So you don't get this by default in Linux."
+    },
+    {
+      "id": 62,
+      "start": 188.56,
+      "end": 191.36,
+      "text": "By Linux default, again, you call Malik,"
+    },
+    {
+      "id": 63,
+      "start": 191.36,
+      "end": 193.12,
+      "text": "you allocate something in an MAP,"
+    },
+    {
+      "id": 64,
+      "start": 193.12,
+      "end": 194.52,
+      "text": "you're going to get 4KLites."
+    },
+    {
+      "id": 65,
+      "start": 194.52,
+      "end": 197.88,
+      "text": "But you can pass flags and say, I want this to be using"
+    },
+    {
+      "id": 66,
+      "start": 197.88,
+      "end": 200.36,
+      "text": "huge pages."
+    },
+    {
+      "id": 67,
+      "start": 200.36,
+      "end": 203.56,
+      "text": "So there's a paper from Google, which I think is two years ago,"
+    },
+    {
+      "id": 68,
+      "start": 203.56,
+      "end": 205.28,
+      "text": "for their custom memory allocator,"
+    },
+    {
+      "id": 69,
+      "start": 205.28,
+      "end": 207.84,
+      "text": "that found that when they switched over to huge pages"
+    },
+    {
+      "id": 70,
+      "start": 207.84,
+      "end": 213.92,
+      "text": "for Spanner, they got a 6.5% improvement,"
+    },
+    {
+      "id": 71,
+      "start": 213.92,
+      "end": 217.72,
+      "text": "just for switching to huge pages."
+    },
+    {
+      "id": 72,
+      "start": 217.72,
+      "end": 220.36,
+      "text": "Again, Spanner is an OTP system."
+    },
+    {
+      "id": 73,
+      "start": 220.36,
+      "end": 222.6,
+      "text": "So it's not like you're doing huge massive table scans."
+    },
+    {
+      "id": 74,
+      "start": 222.6,
+      "end": 225.04,
+      "text": "It's still doing point-query lookups."
+    },
+    {
+      "id": 75,
+      "start": 225.04,
+      "end": 228.2,
+      "text": "But that's a pretty big way for just changing this flag"
+    },
+    {
+      "id": 76,
+      "start": 228.2,
+      "end": 230.36,
+      "text": "in the OS and Linux."
+    },
+    {
+      "id": 77,
+      "start": 230.36,
+      "end": 234.2,
+      "text": "So huge pages are going to make a lot of sense for an LLub"
+    },
+    {
+      "id": 78,
+      "start": 234.2,
+      "end": 237.64,
+      "text": "system like Yellowbick and others that we've talked about."
+    },
+    {
+      "id": 79,
+      "start": 237.64,
+      "end": 242.6,
+      "text": "And so that's why they were setting the page size within a file"
+    },
+    {
+      "id": 80,
+      "start": 242.6,
+      "end": 243.84,
+      "text": "to be two megabytes."
+    },
+    {
+      "id": 81,
+      "start": 243.84,
+      "end": 246.52,
+      "text": "Because that aligns with the two megabyte size"
+    },
+    {
+      "id": 82,
+      "start": 246.52,
+      "end": 250.28,
+      "text": "you would get with huge pages in the OS."
+    },
+    {
+      "id": 83,
+      "start": 250.28,
+      "end": 253.24,
+      "text": "And also, too, it's small enough where it could sit"
+    },
+    {
+      "id": 84,
+      "start": 253.24,
+      "end": 255.48,
+      "text": "around in your L3 cache, because that's"
+    },
+    {
+      "id": 85,
+      "start": 255.48,
+      "end": 258.04,
+      "text": "going to be tens or dozens of megabytes."
+    },
+    {
+      "id": 86,
+      "start": 258.04,
+      "end": 260.92,
+      "text": "So these chunks can sit in your L3 cache on your CPU,"
+    },
+    {
+      "id": 87,
+      "start": 260.92,
+      "end": 263.52,
+      "text": "and you can process it very quickly without going out"
+    },
+    {
+      "id": 88,
+      "start": 263.52,
+      "end": 265.72,
+      "text": "to memory."
+    },
+    {
+      "id": 89,
+      "start": 265.72,
+      "end": 267.44,
+      "text": "So for this reason, that's why they're"
+    },
+    {
+      "id": 90,
+      "start": 267.44,
+      "end": 269.32,
+      "text": "using two megabytes size, and they're"
+    },
+    {
+      "id": 91,
+      "start": 269.32,
+      "end": 274.6,
+      "text": "going to turn on huge pages in the operating system."
+    },
+    {
+      "id": 92,
+      "start": 274.6,
+      "end": 276.56,
+      "text": "And the other papers don't talk about this,"
+    },
+    {
+      "id": 93,
+      "start": 276.56,
+      "end": 281.0,
+      "text": "but a guarantee other systems are doing something very similar."
+    },
+    {
+      "id": 94,
+      "start": 281.0,
+      "end": 283.8,
+      "text": "OK, so half of you have heard of huge pages."
+    },
+    {
+      "id": 95,
+      "start": 283.8,
+      "end": 285.84,
+      "text": "How many of you have heard of transparent huge pages?"
+    },
+    {
+      "id": 96,
+      "start": 288.24,
+      "end": 289.08,
+      "text": "Nobody."
+    },
+    {
+      "id": 97,
+      "start": 289.08,
+      "end": 289.68,
+      "text": "Good."
+    },
+    {
+      "id": 98,
+      "start": 289.68,
+      "end": 290.92,
+      "text": "Excellent."
+    },
+    {
+      "id": 99,
+      "start": 290.92,
+      "end": 294.44,
+      "text": "OK, so do not do this."
+    },
+    {
+      "id": 100,
+      "start": 294.44,
+      "end": 296.56,
+      "text": "I'm putting this warning here, so you don't forget"
+    },
+    {
+      "id": 101,
+      "start": 296.56,
+      "end": 298.56,
+      "text": "in a moment."
+    },
+    {
+      "id": 102,
+      "start": 298.56,
+      "end": 301.04,
+      "text": "This is the worst thing you can do for databases for memory."
+    },
+    {
+      "id": 103,
+      "start": 301.04,
+      "end": 303.0,
+      "text": "Do not do this."
+    },
+    {
+      "id": 104,
+      "start": 303.0,
+      "end": 304.6,
+      "text": "If you do this, and I'm dead, I'll"
+    },
+    {
+      "id": 105,
+      "start": 304.6,
+      "end": 308.28,
+      "text": "haunt you or I'll figure something out."
+    },
+    {
+      "id": 106,
+      "start": 308.28,
+      "end": 311.24,
+      "text": "So Linux had this feature called transparent huge pages."
+    },
+    {
+      "id": 107,
+      "start": 311.24,
+      "end": 316.56,
+      "text": "I came out in, I think, 2007."
+    },
+    {
+      "id": 108,
+      "start": 316.56,
+      "end": 318.64,
+      "text": "But it wasn't on default for a while."
+    },
+    {
+      "id": 109,
+      "start": 318.64,
+      "end": 321.36,
+      "text": "And what this does is the OS in the background"
+    },
+    {
+      "id": 110,
+      "start": 321.36,
+      "end": 323.84,
+      "text": "starts looking at your pages in memory and says,"
+    },
+    {
+      "id": 111,
+      "start": 323.84,
+      "end": 327.8,
+      "text": "oh, I see that these guys are being accessed together"
+    },
+    {
+      "id": 112,
+      "start": 327.8,
+      "end": 328.92,
+      "text": "very frequently."
+    },
+    {
+      "id": 113,
+      "start": 328.92,
+      "end": 330.12,
+      "text": "And they're both 4 kilobytes."
+    },
+    {
+      "id": 114,
+      "start": 330.12,
+      "end": 331.88,
+      "text": "Let me find a bunch of ones that I can stick together"
+    },
+    {
+      "id": 115,
+      "start": 331.88,
+      "end": 335.32,
+      "text": "for your process and to make a 2 megabyte page."
+    },
+    {
+      "id": 116,
+      "start": 335.32,
+      "end": 337.16,
+      "text": "And then underneath the covers, I'll"
+    },
+    {
+      "id": 117,
+      "start": 337.16,
+      "end": 340.0,
+      "text": "actually hide that from you that now the virtual memory"
+    },
+    {
+      "id": 118,
+      "start": 340.0,
+      "end": 342.96,
+      "text": "address now points to this 2 megabyte page instead"
+    },
+    {
+      "id": 119,
+      "start": 342.96,
+      "end": 346.2,
+      "text": "of a bunch of 4 kilobyte pages."
+    },
+    {
+      "id": 120,
+      "start": 346.2,
+      "end": 347.88,
+      "text": "And then it goes even bigger."
+    },
+    {
+      "id": 121,
+      "start": 347.88,
+      "end": 349.68,
+      "text": "It finds a bunch of 2 megabyte pages."
+    },
+    {
+      "id": 122,
+      "start": 349.68,
+      "end": 354.28,
+      "text": "It'll try to put them into one gigabyte pages."
+    },
+    {
+      "id": 123,
+      "start": 354.28,
+      "end": 362.92,
+      "text": "So they turn this on my default at some point in the 2010s."
+    },
+    {
+      "id": 124,
+      "start": 362.92,
+      "end": 365.56,
+      "text": "And then they revert it back in a bunch of things."
+    },
+    {
+      "id": 125,
+      "start": 365.56,
+      "end": 367.32,
+      "text": "Because this is a terrible thing to do."
+    },
+    {
+      "id": 126,
+      "start": 367.32,
+      "end": 369.4,
+      "text": "Because what happens is, when it's"
+    },
+    {
+      "id": 127,
+      "start": 369.4,
+      "end": 372.72,
+      "text": "trying to do this realization, if you"
+    },
+    {
+      "id": 128,
+      "start": 373.2,
+      "end": 376.8,
+      "text": "look up now on that address in memory,"
+    },
+    {
+      "id": 129,
+      "start": 376.8,
+      "end": 378.76,
+      "text": "it's going to block your process because it's"
+    },
+    {
+      "id": 130,
+      "start": 378.76,
+      "end": 382.4,
+      "text": "doing this reorganization and reorganizing things."
+    },
+    {
+      "id": 131,
+      "start": 382.4,
+      "end": 387.6,
+      "text": "Now further, also, if you're doing a bunch of small rights"
+    },
+    {
+      "id": 132,
+      "start": 387.6,
+      "end": 389.44,
+      "text": "into these files, which again, for Olaps and what"
+    },
+    {
+      "id": 133,
+      "start": 389.44,
+      "end": 392.88,
+      "text": "we're not really doing, now you're"
+    },
+    {
+      "id": 134,
+      "start": 392.88,
+      "end": 397.04,
+      "text": "going to have invalidation of the memory across one gigabyte"
+    },
+    {
+      "id": 135,
+      "start": 397.04,
+      "end": 401.04,
+      "text": "file, even though I may have done a small change."
+    },
+    {
+      "id": 136,
+      "start": 401.56,
+      "end": 403.56,
+      "text": "This is a classic example of the operating system"
+    },
+    {
+      "id": 137,
+      "start": 403.56,
+      "end": 405.88,
+      "text": "getting in the way from the database system."
+    },
+    {
+      "id": 138,
+      "start": 405.88,
+      "end": 408.4,
+      "text": "You definitely don't want to do this."
+    },
+    {
+      "id": 139,
+      "start": 408.4,
+      "end": 410.36,
+      "text": "But they thought, OK, for most applications,"
+    },
+    {
+      "id": 140,
+      "start": 410.36,
+      "end": 411.16,
+      "text": "this is OK."
+    },
+    {
+      "id": 141,
+      "start": 411.16,
+      "end": 414.08,
+      "text": "But from a database perspective, this is actually terrible."
+    },
+    {
+      "id": 142,
+      "start": 414.08,
+      "end": 416.84,
+      "text": "Now for Olaps, if everything's read only,"
+    },
+    {
+      "id": 143,
+      "start": 416.84,
+      "end": 420.04,
+      "text": "maybe it might be OK."
+    },
+    {
+      "id": 144,
+      "start": 420.04,
+      "end": 421.72,
+      "text": "Vertica's an Olaps system."
+    },
+    {
+      "id": 145,
+      "start": 421.72,
+      "end": 422.92,
+      "text": "They say you can turn it along if you"
+    },
+    {
+      "id": 146,
+      "start": 422.92,
+      "end": 426.04,
+      "text": "have run newer Linux distros."
+    },
+    {
+      "id": 147,
+      "start": 426.04,
+      "end": 428.48,
+      "text": "The stalling has gotten much less."
+    },
+    {
+      "id": 148,
+      "start": 428.48,
+      "end": 430.64,
+      "text": "But pretty much every single database to them out there,"
+    },
+    {
+      "id": 149,
+      "start": 430.64,
+      "end": 434.84,
+      "text": "we'll tell you to make sure you turn this off."
+    },
+    {
+      "id": 150,
+      "start": 434.84,
+      "end": 442.2,
+      "text": "So if you just Google Transparent Huge Pages,"
+    },
+    {
+      "id": 151,
+      "start": 442.2,
+      "end": 444.28,
+      "text": "so here says one of this, here's one of this,"
+    },
+    {
+      "id": 152,
+      "start": 444.28,
+      "end": 445.36,
+      "text": "here's one of the one."
+    },
+    {
+      "id": 153,
+      "start": 445.36,
+      "end": 448.04,
+      "text": "But in the scroll pass all this, then here's all the database"
+    },
+    {
+      "id": 154,
+      "start": 448.04,
+      "end": 449.76,
+      "text": "vendors saying, hey, don't do this."
+    },
+    {
+      "id": 155,
+      "start": 449.76,
+      "end": 452.28,
+      "text": "Longing to be, disable Trans Huge Pages,"
+    },
+    {
+      "id": 156,
+      "start": 452.28,
+      "end": 455.76,
+      "text": "pincap or TIDB, why we disable Oracle, disable it,"
+    },
+    {
+      "id": 157,
+      "start": 455.76,
+      "end": 458.0,
+      "text": "splunk, disable it."
+    },
+    {
+      "id": 158,
+      "start": 458.08,
+      "end": 460.76,
+      "text": "So this is terrible."
+    },
+    {
+      "id": 159,
+      "start": 460.76,
+      "end": 463.4,
+      "text": "Do not do this."
+    },
+    {
+      "id": 160,
+      "start": 463.4,
+      "end": 466.72,
+      "text": "This is, as I said, this is cancer for databases."
+    },
+    {
+      "id": 161,
+      "start": 466.72,
+      "end": 469.72,
+      "text": "But for regular huge pages, that's OK,"
+    },
+    {
+      "id": 162,
+      "start": 469.72,
+      "end": 470.92,
+      "text": "because we can control that."
+    },
+    {
+      "id": 163,
+      "start": 470.92,
+      "end": 472.68,
+      "text": "And again, we know that the access pattern,"
+    },
+    {
+      "id": 164,
+      "start": 472.68,
+      "end": 474.72,
+      "text": "the query that we're running for this particular data,"
+    },
+    {
+      "id": 165,
+      "start": 474.72,
+      "end": 478.28,
+      "text": "we might be fetching from the object store."
+    },
+    {
+      "id": 166,
+      "start": 478.28,
+      "end": 481.4,
+      "text": "That can be in two megabyte chunks, and that's fine."
+    },
+    {
+      "id": 167,
+      "start": 481.4,
+      "end": 482.64,
+      "text": "And we'll get the win from it."
+    },
+    {
+      "id": 168,
+      "start": 482.64,
+      "end": 485.16,
+      "text": "OK?"
+    },
+    {
+      "id": 169,
+      "start": 485.16,
+      "end": 487.52,
+      "text": "Yeah, this is kind of like, you know,"
+    },
+    {
+      "id": 170,
+      "start": 487.52,
+      "end": 488.56,
+      "text": "made NC17."
+    },
+    {
+      "id": 171,
+      "start": 488.56,
+      "end": 490.44,
+      "text": "So we don't probably want to teach it to the undergrad,"
+    },
+    {
+      "id": 172,
+      "start": 490.44,
+      "end": 491.64,
+      "text": "but for you guys, it's OK."
+    },
+    {
+      "id": 173,
+      "start": 491.64,
+      "end": 492.2,
+      "text": "But don't do it."
+    },
+    {
+      "id": 174,
+      "start": 492.2,
+      "end": 493.2,
+      "text": "OK."
+    },
+    {
+      "id": 175,
+      "start": 493.2,
+      "end": 495.0,
+      "text": "So going back to the Ruffle Manager, as I was saying,"
+    },
+    {
+      "id": 176,
+      "start": 495.0,
+      "end": 498.04,
+      "text": "they're doing a proxy LUK, and they don't say this explicitly,"
+    },
+    {
+      "id": 177,
+      "start": 498.04,
+      "end": 499.48,
+      "text": "but it looks from their description,"
+    },
+    {
+      "id": 178,
+      "start": 499.48,
+      "end": 502.48,
+      "text": "it smells a lot like what MySQL does."
+    },
+    {
+      "id": 179,
+      "start": 502.48,
+      "end": 506.52,
+      "text": "So in the way MySQL does the eviction policy,"
+    },
+    {
+      "id": 180,
+      "start": 506.52,
+      "end": 513.12,
+      "text": "they actually just maintain a single link list of pages"
+    },
+    {
+      "id": 181,
+      "start": 513.12,
+      "end": 515.88,
+      "text": "as they're being accessed, going from newest oldest."
+    },
+    {
+      "id": 182,
+      "start": 515.88,
+      "end": 517.72,
+      "text": "But they're actually going to maintain two heads"
+    },
+    {
+      "id": 183,
+      "start": 517.72,
+      "end": 519.52,
+      "text": "into this link list."
+    },
+    {
+      "id": 184,
+      "start": 519.52,
+      "end": 522.2,
+      "text": "They'll have the young list, and then the oldest."
+    },
+    {
+      "id": 185,
+      "start": 522.2,
+      "end": 525.24,
+      "text": "So the young list would be the ones that are like,"
+    },
+    {
+      "id": 186,
+      "start": 525.24,
+      "end": 527.88,
+      "text": "or have recently been added and recently"
+    },
+    {
+      "id": 187,
+      "start": 527.88,
+      "end": 530.44,
+      "text": "being accessed over and over again."
+    },
+    {
+      "id": 188,
+      "start": 530.44,
+      "end": 533.32,
+      "text": "And then the old list are ones where, once you access it"
+    },
+    {
+      "id": 189,
+      "start": 533.32,
+      "end": 536.24,
+      "text": "the first time, you put it in this old list,"
+    },
+    {
+      "id": 190,
+      "start": 536.24,
+      "end": 538.04,
+      "text": "so that it's more likely to get evicted."
+    },
+    {
+      "id": 191,
+      "start": 538.04,
+      "end": 540.72,
+      "text": "And the idea is that if I read it once,"
+    },
+    {
+      "id": 192,
+      "start": 540.72,
+      "end": 543.28,
+      "text": "but then never read it again, like what"
+    },
+    {
+      "id": 193,
+      "start": 543.28,
+      "end": 546.2,
+      "text": "happened in the Scantial ScanFlood,"
+    },
+    {
+      "id": 194,
+      "start": 546.2,
+      "end": 548.48,
+      "text": "then it'll get evicted more quickly"
+    },
+    {
+      "id": 195,
+      "start": 548.48,
+      "end": 552.32,
+      "text": "than it would otherwise with a regular LRU."
+    },
+    {
+      "id": 196,
+      "start": 552.32,
+      "end": 554.92,
+      "text": "But then if it gets accessed again when it's in the oldest,"
+    },
+    {
+      "id": 197,
+      "start": 554.92,
+      "end": 556.68,
+      "text": "then it gets promoted to the young list,"
+    },
+    {
+      "id": 198,
+      "start": 556.68,
+      "end": 559.16,
+      "text": "because it's more likely to be accessed again."
+    },
+    {
+      "id": 199,
+      "start": 559.16,
+      "end": 561.64,
+      "text": "So here, Query1 touches page 1."
+    },
+    {
+      "id": 200,
+      "start": 561.64,
+      "end": 564.0,
+      "text": "Page 1 is not in our buffer pool."
+    },
+    {
+      "id": 201,
+      "start": 564.0,
+      "end": 567.6,
+      "text": "So we go ahead and put it here at the head of the old list."
+    },
+    {
+      "id": 202,
+      "start": 567.6,
+      "end": 570.92,
+      "text": "Evict page 8, everything slides over, and that's fine."
+    },
+    {
+      "id": 203,
+      "start": 570.92,
+      "end": 572.6,
+      "text": "Query1 goes away, but Q2 shows up."
+    },
+    {
+      "id": 204,
+      "start": 572.6,
+      "end": 573.36,
+      "text": "Query2 shows up."
+    },
+    {
+      "id": 205,
+      "start": 573.36,
+      "end": 574.8,
+      "text": "It accesses page 1 again."
+    },
+    {
+      "id": 206,
+      "start": 574.8,
+      "end": 577.2,
+      "text": "We recognize that it is in our old list."
+    },
+    {
+      "id": 207,
+      "start": 577.2,
+      "end": 578.68,
+      "text": "So we go ahead and now promote it"
+    },
+    {
+      "id": 208,
+      "start": 578.68,
+      "end": 580.8,
+      "text": "to the front of the new list, right?"
+    },
+    {
+      "id": 209,
+      "start": 580.8,
+      "end": 583.68,
+      "text": "And everything is sort of slides over."
+    },
+    {
+      "id": 210,
+      "start": 583.68,
+      "end": 588.4,
+      "text": "So I don't know whether maintaining the oldest"
+    },
+    {
+      "id": 211,
+      "start": 588.4,
+      "end": 590.32,
+      "text": "and the young list, but this is basically what they say."
+    },
+    {
+      "id": 212,
+      "start": 590.32,
+      "end": 595.0,
+      "text": "Every time you access the file the first time in the cache,"
+    },
+    {
+      "id": 213,
+      "start": 595.0,
+      "end": 598.4,
+      "text": "then it's put in this sort of special place where"
+    },
+    {
+      "id": 214,
+      "start": 598.4,
+      "end": 599.52,
+      "text": "it's more likely to get evicted."
+    },
+    {
+      "id": 215,
+      "start": 599.52,
+      "end": 602.0,
+      "text": "But then if it's accessed again while still in the cache,"
+    },
+    {
+      "id": 216,
+      "start": 602.0,
+      "end": 603.0,
+      "text": "then it's..."
+    }
+  ],
+  "language": "en"
+}

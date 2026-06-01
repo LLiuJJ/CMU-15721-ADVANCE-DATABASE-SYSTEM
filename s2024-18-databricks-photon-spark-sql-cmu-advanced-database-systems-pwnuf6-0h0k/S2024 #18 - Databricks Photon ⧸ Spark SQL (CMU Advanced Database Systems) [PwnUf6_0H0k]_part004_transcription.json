@@ -1,0 +1,1319 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.68,
+      "text": "So this cyber running in Java,"
+    },
+    {
+      "id": 1,
+      "start": 2.68,
+      "end": 5.04,
+      "text": "so we use J&I to evoke down in C++,"
+    },
+    {
+      "id": 2,
+      "start": 5.04,
+      "end": 8.8,
+      "text": "and they have some landing area that they call an adapter."
+    },
+    {
+      "id": 3,
+      "start": 8.8,
+      "end": 12.36,
+      "text": "And that's responsible for converting things from"
+    },
+    {
+      "id": 4,
+      "start": 12.36,
+      "end": 16.2,
+      "text": "the row store that's coming in the Java world into the column store."
+    },
+    {
+      "id": 5,
+      "start": 16.2,
+      "end": 19.28,
+      "text": "And then you do all these vectorized processing up through"
+    },
+    {
+      "id": 6,
+      "start": 19.28,
+      "end": 20.36,
+      "text": "FOTAN on this."
+    },
+    {
+      "id": 7,
+      "start": 20.36,
+      "end": 22.72,
+      "text": "And then when you got to go back out to Java,"
+    },
+    {
+      "id": 8,
+      "start": 22.72,
+      "end": 24.32,
+      "text": "they have this transition stage,"
+    },
+    {
+      "id": 9,
+      "start": 24.32,
+      "end": 26.56,
+      "text": "a transition operator that's responsible for converting"
+    },
+    {
+      "id": 10,
+      "start": 26.56,
+      "end": 30.6,
+      "text": "the data back into the form that's expected by the Java code."
+    },
+    {
+      "id": 11,
+      "start": 30.6,
+      "end": 32.28,
+      "text": "So these adapters and transitions,"
+    },
+    {
+      "id": 12,
+      "start": 32.28,
+      "end": 34.4,
+      "text": "these are, you know, they're not hardly expensive,"
+    },
+    {
+      "id": 13,
+      "start": 34.4,
+      "end": 37.52,
+      "text": "but like you're basically pivoting and copying and moving data"
+    },
+    {
+      "id": 14,
+      "start": 37.52,
+      "end": 38.2,
+      "text": "around."
+    },
+    {
+      "id": 15,
+      "start": 38.2,
+      "end": 42.76,
+      "text": "So you want to avoid having to do this as much as possible."
+    },
+    {
+      "id": 16,
+      "start": 42.76,
+      "end": 44.16,
+      "text": "So this is all the Java stuff in the sole,"
+    },
+    {
+      "id": 17,
+      "start": 44.16,
+      "end": 45.08,
+      "text": "it's for the list of."
+    },
+    {
+      "id": 18,
+      "start": 45.08,
+      "end": 47.2,
+      "text": "So again, they take this physical plan,"
+    },
+    {
+      "id": 19,
+      "start": 47.2,
+      "end": 50.2,
+      "text": "they take a pass through it and decide where can they inject"
+    },
+    {
+      "id": 20,
+      "start": 50.2,
+      "end": 51.88,
+      "text": "the FOTAN specific capabilities."
+    },
+    {
+      "id": 21,
+      "start": 51.88,
+      "end": 56.2,
+      "text": "All right."
+    },
+    {
+      "id": 22,
+      "start": 56.2,
+      "end": 59.12,
+      "text": "So the paper also talks about how the sort of the two styles"
+    },
+    {
+      "id": 23,
+      "start": 59.12,
+      "end": 60.68,
+      "text": "that add activity they have."
+    },
+    {
+      "id": 24,
+      "start": 60.68,
+      "end": 63.08,
+      "text": "And they have, they prefer to them as sort of macro micro,"
+    },
+    {
+      "id": 25,
+      "start": 63.08,
+      "end": 65.28,
+      "text": "which is their terms."
+    },
+    {
+      "id": 26,
+      "start": 65.28,
+      "end": 67.4,
+      "text": "So the macro, so the macro the query level at"
+    },
+    {
+      "id": 27,
+      "start": 67.4,
+      "end": 71.16,
+      "text": "adaptivity is the stuff that we talked about before where we can"
+    },
+    {
+      "id": 28,
+      "start": 71.16,
+      "end": 74.36,
+      "text": "take the statistics that we've collected while we're running"
+    },
+    {
+      "id": 29,
+      "start": 74.36,
+      "end": 78.16,
+      "text": "the query at the shuffle stage and decide how we want to modify"
+    },
+    {
+      "id": 30,
+      "start": 78.16,
+      "end": 81.32,
+      "text": "the next stage accordingly by expanding or reducing the number"
+    },
+    {
+      "id": 31,
+      "start": 81.32,
+      "end": 85.2,
+      "text": "of the workers, potentially moving things around."
+    },
+    {
+      "id": 32,
+      "start": 85.2,
+      "end": 87.24,
+      "text": "You're switching from a shuffle joint to a broadcast joint,"
+    },
+    {
+      "id": 33,
+      "start": 87.24,
+      "end": 89.04,
+      "text": "so forth."
+    },
+    {
+      "id": 34,
+      "start": 89.04,
+      "end": 91.88,
+      "text": "And that's basically all the stuff that we talked before"
+    },
+    {
+      "id": 35,
+      "start": 91.88,
+      "end": 94.12,
+      "text": "with Dremel."
+    },
+    {
+      "id": 36,
+      "start": 94.12,
+      "end": 97.12,
+      "text": "But then they have this other style of batch level"
+    },
+    {
+      "id": 37,
+      "start": 97.12,
+      "end": 100.2,
+      "text": "at adaptivity where within an operator,"
+    },
+    {
+      "id": 38,
+      "start": 100.2,
+      "end": 103.52,
+      "text": "like as we're actually running the query plan itself,"
+    },
+    {
+      "id": 39,
+      "start": 103.52,
+      "end": 106.4,
+      "text": "we can decide within a single tuple batch or a vector,"
+    },
+    {
+      "id": 40,
+      "start": 106.4,
+      "end": 110.88,
+      "text": "like do we want to change what implementation of that operator"
+    },
+    {
+      "id": 41,
+      "start": 110.88,
+      "end": 115.4,
+      "text": "we want to use based on the data that we're seeing?"
+    },
+    {
+      "id": 42,
+      "start": 115.4,
+      "end": 117.72,
+      "text": "And this is something the photon just does for you automatically"
+    },
+    {
+      "id": 43,
+      "start": 117.72,
+      "end": 118.92,
+      "text": "on the inside what's running."
+    },
+    {
+      "id": 44,
+      "start": 118.92,
+      "end": 121.2,
+      "text": "This is not something that the query atomizer has to be"
+    },
+    {
+      "id": 45,
+      "start": 121.2,
+      "end": 123.36,
+      "text": "relevant aware of."
+    },
+    {
+      "id": 46,
+      "start": 123.36,
+      "end": 126.0,
+      "text": "So this is going to be very similar to the Veloc optimizations"
+    },
+    {
+      "id": 47,
+      "start": 126.0,
+      "end": 129.04,
+      "text": "that we saw way back in lecture five where like,"
+    },
+    {
+      "id": 48,
+      "start": 129.04,
+      "end": 131.88,
+      "text": "you know, I'll show examples of this, but like identifying my data."
+    },
+    {
+      "id": 49,
+      "start": 131.88,
+      "end": 133.28,
+      "text": "I thought my data was going to look this way,"
+    },
+    {
+      "id": 50,
+      "start": 133.28,
+      "end": 135.8,
+      "text": "but it actually looks another way where like there's no nulls"
+    },
+    {
+      "id": 51,
+      "start": 135.8,
+      "end": 138.68,
+      "text": "or they're asking instead of, you know, unicode."
+    },
+    {
+      "id": 52,
+      "start": 138.68,
+      "end": 141.48,
+      "text": "And I can switch and permute what operator"
+    },
+    {
+      "id": 53,
+      "start": 141.48,
+      "end": 143.0,
+      "text": "implementation I want to use."
+    },
+    {
+      "id": 54,
+      "start": 143.0,
+      "end": 144.44,
+      "text": "In the case of the photon one, you"
+    },
+    {
+      "id": 55,
+      "start": 144.44,
+      "end": 147.68,
+      "text": "have to have the primitive, the variation already pre-compiled,"
+    },
+    {
+      "id": 56,
+      "start": 147.68,
+      "end": 148.44,
+      "text": "right?"
+    },
+    {
+      "id": 57,
+      "start": 148.44,
+      "end": 150.48,
+      "text": "Obviously, because that we can't switch, you know,"
+    },
+    {
+      "id": 58,
+      "start": 150.48,
+      "end": 151.6,
+      "text": "they're not code-genining on the fly."
+    },
+    {
+      "id": 59,
+      "start": 154.32,
+      "end": 159.52,
+      "text": "So this is the basic, whatever it has said,"
+    },
+    {
+      "id": 60,
+      "start": 159.52,
+      "end": 161.64,
+      "text": "the query level optimizations, again,"
+    },
+    {
+      "id": 61,
+      "start": 161.64,
+      "end": 165.48,
+      "text": "before each, after each shovel stage,"
+    },
+    {
+      "id": 62,
+      "start": 165.48,
+      "end": 167.32,
+      "text": "after the shovel phase completes, you're"
+    },
+    {
+      "id": 63,
+      "start": 167.32,
+      "end": 170.88,
+      "text": "going to decide what you want to change later on."
+    },
+    {
+      "id": 64,
+      "start": 170.88,
+      "end": 172.68,
+      "text": "And we've learned about shovel for broadcast drawings"
+    },
+    {
+      "id": 65,
+      "start": 172.68,
+      "end": 174.76,
+      "text": "on current and the Dremel."
+    },
+    {
+      "id": 66,
+      "start": 174.76,
+      "end": 176.72,
+      "text": "Optimizing skewed joins, the idea here"
+    },
+    {
+      "id": 67,
+      "start": 176.72,
+      "end": 182.32,
+      "text": "is that you recognize that the data doesn't, you know,"
+    },
+    {
+      "id": 68,
+      "start": 182.32,
+      "end": 183.68,
+      "text": "has a different distribution."
+    },
+    {
+      "id": 69,
+      "start": 183.68,
+      "end": 185.12,
+      "text": "And then you can change the number of executors"
+    },
+    {
+      "id": 70,
+      "start": 185.12,
+      "end": 187.88,
+      "text": "you would have maybe for one side versus another."
+    },
+    {
+      "id": 71,
+      "start": 187.88,
+      "end": 190.84,
+      "text": "And then they're also going to be able to handle"
+    },
+    {
+      "id": 72,
+      "start": 190.84,
+      "end": 192.68,
+      "text": "overflowing partitions, but I could do something slightly"
+    },
+    {
+      "id": 73,
+      "start": 192.68,
+      "end": 194.32,
+      "text": "different than we saw in the Dremel case."
+    },
+    {
+      "id": 74,
+      "start": 194.32,
+      "end": 197.2,
+      "text": "From the Dremel case was you recognize"
+    },
+    {
+      "id": 75,
+      "start": 197.2,
+      "end": 198.92,
+      "text": "that a partition starts filling up,"
+    },
+    {
+      "id": 76,
+      "start": 198.92,
+      "end": 201.48,
+      "text": "and then you stop, and you do another round of recursive"
+    },
+    {
+      "id": 77,
+      "start": 201.48,
+      "end": 203.04,
+      "text": "partitioning, and you start writing"
+    },
+    {
+      "id": 78,
+      "start": 203.04,
+      "end": 206.44,
+      "text": "two pulls to other partitions that are overflowing it."
+    },
+    {
+      "id": 79,
+      "start": 206.44,
+      "end": 208.2,
+      "text": "They knew something slightly different."
+    },
+    {
+      "id": 80,
+      "start": 208.2,
+      "end": 210.0,
+      "text": "I was showing the next slide."
+    },
+    {
+      "id": 81,
+      "start": 210.0,
+      "end": 211.92,
+      "text": "And again, all this is because in the Lake House"
+    },
+    {
+      "id": 82,
+      "start": 211.92,
+      "end": 214.0,
+      "text": "environment, we don't have any real statistics."
+    },
+    {
+      "id": 83,
+      "start": 216.56,
+      "end": 220.72,
+      "text": "So the way they're going to do overflowing partitions"
+    },
+    {
+      "id": 84,
+      "start": 220.72,
+      "end": 225.12,
+      "text": "is that they actually can't expand the number of partitions."
+    },
+    {
+      "id": 85,
+      "start": 225.12,
+      "end": 226.48,
+      "text": "And I don't know whether there's something fundamental"
+    },
+    {
+      "id": 86,
+      "start": 226.48,
+      "end": 230.56,
+      "text": "about Spark, why you can't do this, or this is just a,"
+    },
+    {
+      "id": 87,
+      "start": 230.56,
+      "end": 232.88,
+      "text": "this is a design choice of why they wouldn't do this path,"
+    },
+    {
+      "id": 88,
+      "start": 232.88,
+      "end": 233.72,
+      "text": "or one time this path."
+    },
+    {
+      "id": 89,
+      "start": 233.72,
+      "end": 237.76,
+      "text": "But to avoid a problem of a partition running out"
+    },
+    {
+      "id": 90,
+      "start": 237.76,
+      "end": 239.84,
+      "text": "of memory or running a space, they just"
+    },
+    {
+      "id": 91,
+      "start": 239.84,
+      "end": 242.88,
+      "text": "allocate a lot of partitions more than you actually"
+    },
+    {
+      "id": 92,
+      "start": 242.88,
+      "end": 246.16,
+      "text": "think you would actually possibly need, right?"
+    },
+    {
+      "id": 93,
+      "start": 246.16,
+      "end": 248.52,
+      "text": "So to say, my worker is filling up the partitions,"
+    },
+    {
+      "id": 94,
+      "start": 248.52,
+      "end": 251.92,
+      "text": "and then I have these three partitions that are underutilized,"
+    },
+    {
+      "id": 95,
+      "start": 251.92,
+      "end": 254.96,
+      "text": "because I've allocated so many of them."
+    },
+    {
+      "id": 96,
+      "start": 254.96,
+      "end": 257.16,
+      "text": "So what they'll do is they'll recognize"
+    },
+    {
+      "id": 97,
+      "start": 257.16,
+      "end": 259.76,
+      "text": "before the partition phase completes that these three are"
+    },
+    {
+      "id": 98,
+      "start": 259.76,
+      "end": 261.8,
+      "text": "underutilized, and they make a new partition,"
+    },
+    {
+      "id": 99,
+      "start": 261.8,
+      "end": 266.76,
+      "text": "and they have these guys just write their data into it,"
+    },
+    {
+      "id": 100,
+      "start": 266.76,
+      "end": 269.28,
+      "text": "and then just carry over the two other ones, and then they,"
+    },
+    {
+      "id": 101,
+      "start": 269.28,
+      "end": 270.88,
+      "text": "oops, sorry."
+    },
+    {
+      "id": 102,
+      "start": 270.88,
+      "end": 274.52,
+      "text": "And then they blow the memory away from the previous partitions,"
+    },
+    {
+      "id": 103,
+      "start": 274.52,
+      "end": 277.68,
+      "text": "3 and 4."
+    },
+    {
+      "id": 104,
+      "start": 277.68,
+      "end": 281.16,
+      "text": "So it's sort of like achieving the same thing as Dremel did,"
+    },
+    {
+      "id": 105,
+      "start": 281.16,
+      "end": 284.0,
+      "text": "but like taking from a different approach."
+    },
+    {
+      "id": 106,
+      "start": 284.0,
+      "end": 288.72,
+      "text": "Dremel is adding partitions dynamically on the fly."
+    },
+    {
+      "id": 107,
+      "start": 288.72,
+      "end": 291.4,
+      "text": "Spark is actually taking partitions away."
+    },
+    {
+      "id": 108,
+      "start": 291.4,
+      "end": 293.0,
+      "text": "So the end result is still the same."
+    },
+    {
+      "id": 109,
+      "start": 293.0,
+      "end": 296.12,
+      "text": "It's just they're doing this slightly different,"
+    },
+    {
+      "id": 110,
+      "start": 296.12,
+      "end": 298.88,
+      "text": "slightly different manner."
+    },
+    {
+      "id": 111,
+      "start": 298.88,
+      "end": 301.64,
+      "text": "I don't know whether one is better than another,"
+    },
+    {
+      "id": 112,
+      "start": 301.64,
+      "end": 303.2,
+      "text": "because the other day, you still have"
+    },
+    {
+      "id": 113,
+      "start": 303.2,
+      "end": 307.8,
+      "text": "an extra step to move data into the new partitions."
+    },
+    {
+      "id": 114,
+      "start": 307.8,
+      "end": 310.6,
+      "text": "And the Dremel case, you had that redistributed operator"
+    },
+    {
+      "id": 115,
+      "start": 310.6,
+      "end": 313.16,
+      "text": "had to run after you've done the progressive partitioning."
+    },
+    {
+      "id": 116,
+      "start": 313.16,
+      "end": 315.24,
+      "text": "In this case here, you've got to funnel these guys"
+    },
+    {
+      "id": 117,
+      "start": 315.24,
+      "end": 317.04,
+      "text": "into the new one afterwards."
+    },
+    {
+      "id": 118,
+      "start": 317.04,
+      "end": 317.88,
+      "text": "So there's no free lunch."
+    },
+    {
+      "id": 119,
+      "start": 317.88,
+      "end": 321.68,
+      "text": "It's not like one is entirely better than another."
+    },
+    {
+      "id": 120,
+      "start": 321.68,
+      "end": 323.12,
+      "text": "I think that there's something,"
+    },
+    {
+      "id": 121,
+      "start": 323.12,
+      "end": 325.24,
+      "text": "some aspect, again, the Spark engineering,"
+    },
+    {
+      "id": 122,
+      "start": 325.24,
+      "end": 328.4,
+      "text": "the Spark runtime that requires them to do it this way,"
+    },
+    {
+      "id": 123,
+      "start": 328.4,
+      "end": 329.88,
+      "text": "rather than then take them away later on."
+    },
+    {
+      "id": 124,
+      "start": 333.64,
+      "end": 335.64,
+      "text": "For the bachelor adaptivity, again,"
+    },
+    {
+      "id": 125,
+      "start": 335.64,
+      "end": 336.96,
+      "text": "a lot of these are going to look like the stuff"
+    },
+    {
+      "id": 126,
+      "start": 336.96,
+      "end": 338.8,
+      "text": "we talked about in VELOX."
+    },
+    {
+      "id": 127,
+      "start": 338.8,
+      "end": 342.2,
+      "text": "The first one is if you recognize that you're"
+    },
+    {
+      "id": 128,
+      "start": 342.2,
+      "end": 345.28,
+      "text": "processing a string column, but the data is all"
+    },
+    {
+      "id": 129,
+      "start": 345.28,
+      "end": 347.36,
+      "text": "ASCII characters instead of Unicode,"
+    },
+    {
+      "id": 130,
+      "start": 347.36,
+      "end": 350.04,
+      "text": "you can switch to a faster implementation"
+    },
+    {
+      "id": 131,
+      "start": 350.04,
+      "end": 353.28,
+      "text": "of your string functions because you're dealing with one"
+    },
+    {
+      "id": 132,
+      "start": 353.28,
+      "end": 355.92,
+      "text": "by ASCII characters instead of up to four"
+    },
+    {
+      "id": 133,
+      "start": 355.92,
+      "end": 358.36,
+      "text": "by Unicode characters."
+    },
+    {
+      "id": 134,
+      "start": 358.36,
+      "end": 360.6,
+      "text": "There's more variability in Unicode."
+    },
+    {
+      "id": 135,
+      "start": 360.6,
+      "end": 362.72,
+      "text": "And so that means more branch-mitted predictions"
+    },
+    {
+      "id": 136,
+      "start": 362.72,
+      "end": 363.72,
+      "text": "than CPUs."
+    },
+    {
+      "id": 137,
+      "start": 363.72,
+      "end": 368.64,
+      "text": "If you have the fast, fast version, you just use that."
+    },
+    {
+      "id": 138,
+      "start": 368.64,
+      "end": 372.64,
+      "text": "For if they recognize that the vectors"
+    },
+    {
+      "id": 139,
+      "start": 372.64,
+      "end": 375.2,
+      "text": "that they're passing up from one upper to the next"
+    },
+    {
+      "id": 140,
+      "start": 375.2,
+      "end": 378.48,
+      "text": "within photon are pretty sparse,"
+    },
+    {
+      "id": 141,
+      "start": 378.48,
+      "end": 381.76,
+      "text": "then you just compact them down to smaller memory sizes."
+    },
+    {
+      "id": 142,
+      "start": 381.76,
+      "end": 384.8,
+      "text": "And this will help when you do a probing on a hash table,"
+    },
+    {
+      "id": 143,
+      "start": 384.8,
+      "end": 387.4,
+      "text": "because now all the data will be co-located."
+    },
+    {
+      "id": 144,
+      "start": 387.4,
+      "end": 389.4,
+      "text": "The relevant data we co-located together,"
+    },
+    {
+      "id": 145,
+      "start": 389.4,
+      "end": 392.28,
+      "text": "and it's all within a single cache line."
+    },
+    {
+      "id": 146,
+      "start": 392.28,
+      "end": 395.72,
+      "text": "And you can put things out more quickly,"
+    },
+    {
+      "id": 147,
+      "start": 395.72,
+      "end": 398.24,
+      "text": "or do the probes more quickly."
+    },
+    {
+      "id": 148,
+      "start": 398.24,
+      "end": 401.32,
+      "text": "They also can leverage the template"
+    },
+    {
+      "id": 149,
+      "start": 401.32,
+      "end": 404.28,
+      "text": "nature of the primitives by identifying"
+    },
+    {
+      "id": 150,
+      "start": 404.28,
+      "end": 405.72,
+      "text": "that they have no nulls in a vector"
+    },
+    {
+      "id": 151,
+      "start": 405.72,
+      "end": 407.96,
+      "text": "and avoid having to check the null vector."
+    },
+    {
+      "id": 152,
+      "start": 407.96,
+      "end": 410.4,
+      "text": "And likewise, if they have no inactive rows,"
+    },
+    {
+      "id": 153,
+      "start": 410.4,
+      "end": 412.32,
+      "text": "they can avoid that look up as well."
+    },
+    {
+      "id": 154,
+      "start": 412.32,
+      "end": 416.16,
+      "text": "So this is the code from the paper."
+    },
+    {
+      "id": 155,
+      "start": 416.16,
+      "end": 419.08,
+      "text": "And so again, it's a template as CPUs function,"
+    },
+    {
+      "id": 156,
+      "start": 419.08,
+      "end": 421.04,
+      "text": "where you have a boolean that tells you"
+    },
+    {
+      "id": 157,
+      "start": 421.04,
+      "end": 424.56,
+      "text": "whether you have any nulls in processing this,"
+    },
+    {
+      "id": 158,
+      "start": 424.56,
+      "end": 428.88,
+      "text": "or you have any, and whether you have any rows that are active."
+    },
+    {
+      "id": 159,
+      "start": 428.88,
+      "end": 431.24,
+      "text": "So this is like, this is the template of function."
+    },
+    {
+      "id": 160,
+      "start": 431.24,
+      "end": 432.88,
+      "text": "You always write this code as is,"
+    },
+    {
+      "id": 161,
+      "start": 432.88,
+      "end": 435.08,
+      "text": "but then at compile time, you would pass true or false"
+    },
+    {
+      "id": 162,
+      "start": 435.08,
+      "end": 436.92,
+      "text": "either of these, and you make different variations"
+    },
+    {
+      "id": 163,
+      "start": 436.92,
+      "end": 438.48,
+      "text": "of the same function."
+    },
+    {
+      "id": 164,
+      "start": 438.48,
+      "end": 440.72,
+      "text": "Then at runtime, you can say, OK, well, if I know"
+    },
+    {
+      "id": 165,
+      "start": 440.72,
+      "end": 443.96,
+      "text": "that I don't have any inactive rows,"
+    },
+    {
+      "id": 166,
+      "start": 443.96,
+      "end": 447.52,
+      "text": "then I would invoke the all active ones."
+    },
+    {
+      "id": 167,
+      "start": 447.52,
+      "end": 449.6,
+      "text": "And then this will just get thrown away."
+    },
+    {
+      "id": 168,
+      "start": 449.6,
+      "end": 451.84,
+      "text": "The check gets thrown away at compile time,"
+    },
+    {
+      "id": 169,
+      "start": 451.84,
+      "end": 454.04,
+      "text": "because you know that it's a compile time constant,"
+    },
+    {
+      "id": 170,
+      "start": 454.04,
+      "end": 455.72,
+      "text": "that this thing is always true."
+    },
+    {
+      "id": 171,
+      "start": 455.72,
+      "end": 458.4,
+      "text": "So you just pick i, right?"
+    },
+    {
+      "id": 172,
+      "start": 458.4,
+      "end": 460.12,
+      "text": "So you just sit row in x i, and you"
+    },
+    {
+      "id": 173,
+      "start": 460.12,
+      "end": 462.44,
+      "text": "don't have to do this look up in the position list."
+    },
+    {
+      "id": 174,
+      "start": 462.44,
+      "end": 464.96,
+      "text": "So it's a low-low optimization."
+    },
+    {
+      "id": 175,
+      "start": 464.96,
+      "end": 467.36,
+      "text": "But if you're doing this for billions of tuples over and over again,"
+    },
+    {
+      "id": 176,
+      "start": 467.36,
+      "end": 471.4,
+      "text": "or billions of batches, this definitely have big savings."
+    },
+    {
+      "id": 177,
+      "start": 471.4,
+      "end": 475.44,
+      "text": "Likewise, for the has nulls, if this thing is always true,"
+    },
+    {
+      "id": 178,
+      "start": 475.44,
+      "end": 478.84,
+      "text": "then you know you don't have to look up in the null offset."
+    },
+    {
+      "id": 179,
+      "start": 482.68,
+      "end": 487.08,
+      "text": "So I think they forget what numbers they talked about for these."
+    },
+    {
+      "id": 180,
+      "start": 487.08,
+      "end": 490.12,
+      "text": "But for this compaction one, I think they do this for joins,"
+    },
+    {
+      "id": 181,
+      "start": 490.12,
+      "end": 493.88,
+      "text": "and it get like a 1.5 x speed up on the probes."
+    },
+    {
+      "id": 182,
+      "start": 493.88,
+      "end": 495.6,
+      "text": "Again, that's just the probes."
+    },
+    {
+      "id": 183,
+      "start": 495.6,
+      "end": 499.76,
+      "text": "There's all much other stuff you're doing when you run a query."
+    },
+    {
+      "id": 184,
+      "start": 499.76,
+      "end": 503.24,
+      "text": "But that's a, it may not be the highest pull in the 10,"
+    },
+    {
+      "id": 185,
+      "start": 503.24,
+      "end": 504.76,
+      "text": "but that's a pretty significant speed up."
+    },
+    {
+      "id": 186,
+      "start": 504.76,
+      "end": 506.92,
+      "text": "So you're just doing the sector step."
+    },
+    {
+      "id": 187,
+      "start": 506.92,
+      "end": 509.08,
+      "text": "I forget what the numbers they say for this one here."
+    },
+    {
+      "id": 188,
+      "start": 513.28,
+      "end": 514.92,
+      "text": "All right, so we show one graph."
+    },
+    {
+      "id": 189,
+      "start": 514.92,
+      "end": 518.4,
+      "text": "This is what they report as the improvements"
+    },
+    {
+      "id": 190,
+      "start": 518.4,
+      "end": 524.28,
+      "text": "you're getting for with photon enabled in Databricks in Spark"
+    },
+    {
+      "id": 191,
+      "start": 524.28,
+      "end": 526.64,
+      "text": "versus the Spark SQL."
+    },
+    {
+      "id": 192,
+      "start": 526.64,
+      "end": 531.56,
+      "text": "And for TPCH, a rather large data size"
+    },
+    {
+      "id": 193,
+      "start": 531.56,
+      "end": 533.08,
+      "text": "got factor 3000."
+    },
+    {
+      "id": 194,
+      "start": 533.08,
+      "end": 536.2,
+      "text": "So across the board, you would see the red is just faster."
+    },
+    {
+      "id": 195,
+      "start": 536.2,
+      "end": 538.4,
+      "text": "In some cases, the performance is quite significant."
+    },
+    {
+      "id": 196,
+      "start": 538.4,
+      "end": 542.56,
+      "text": "For Q1 here, for other ones, maybe less so."
+    },
+    {
+      "id": 197,
+      "start": 542.56,
+      "end": 546.16,
+      "text": "I think Q1 is the simplest one, just ripping, scanning through."
+    },
+    {
+      "id": 198,
+      "start": 546.16,
+      "end": 549.04,
+      "text": "So in that case, I'm assuming most of the operators"
+    },
+    {
+      "id": 199,
+      "start": 549.04,
+      "end": 552.32,
+      "text": "in the query plan are all floated into the, you know,"
+    },
+    {
+      "id": 200,
+      "start": 552.32,
+      "end": 553.4,
+      "text": "to photon."
+    },
+    {
+      "id": 201,
+      "start": 556.52,
+      "end": 558.84,
+      "text": "And again, the way I think in Databricks,"
+    },
+    {
+      "id": 202,
+      "start": 558.84,
+      "end": 561.48,
+      "text": "I think this is still true, I think they charge like 20% more."
+    },
+    {
+      "id": 203,
+      "start": 561.48,
+      "end": 564.0,
+      "text": "You specify whether you want your job to run"
+    },
+    {
+      "id": 204,
+      "start": 564.0,
+      "end": 566.84,
+      "text": "as a photon accelerated query,"
+    },
+    {
+      "id": 205,
+      "start": 566.84,
+      "end": 568.84,
+      "text": "versus like the regular Spark SQL."
+    },
+    {
+      "id": 206,
+      "start": 568.84,
+      "end": 571.32,
+      "text": "And they'll charge you more for it."
+    },
+    {
+      "id": 207,
+      "start": 571.32,
+      "end": 574.48,
+      "text": "Because you're getting better performance."
+    },
+    {
+      "id": 208,
+      "start": 574.48,
+      "end": 575.48,
+      "text": "It's kind of a win-made in for it."
+    },
+    {
+      "id": 209,
+      "start": 575.48,
+      "end": 576.84,
+      "text": "I mean, they had spent the engineering time"
+    },
+    {
+      "id": 210,
+      "start": 576.84,
+      "end": 578.16,
+      "text": "to actually build the thing."
+    },
+    {
+      "id": 211,
+      "start": 578.16,
+      "end": 581.08,
+      "text": "But like your query's gonna run faster."
+    },
+    {
+      "id": 212,
+      "start": 581.08,
+      "end": 584.08,
+      "text": "So it's gonna use less compute resources."
+    },
+    {
+      "id": 213,
+      "start": 584.08,
+      "end": 585.92,
+      "text": "Pi uses about the same amount of memory."
+    },
+    {
+      "id": 214,
+      "start": 585.92,
+      "end": 587.88,
+      "text": "But like, you know, and you pay them more for it."
+    },
+    {
+      "id": 215,
+      "start": 588.4,
+      "end": 592.0,
+      "text": "So, there's a smart move."
+    },
+    {
+      "id": 216,
+      "start": 593.32,
+      "end": 595.56,
+      "text": "So this is TPCH."
+    },
+    {
+      "id": 217,
+      "start": 595.56,
+      "end": 600.16,
+      "text": "TPCH is a precursor to, or the original OLAP benchmark,"
+    },
+    {
+      "id": 218,
+      "start": 600.16,
+      "end": 601.16,
+      "text": "a heaping from..."
+    }
+  ],
+  "language": "en"
+}

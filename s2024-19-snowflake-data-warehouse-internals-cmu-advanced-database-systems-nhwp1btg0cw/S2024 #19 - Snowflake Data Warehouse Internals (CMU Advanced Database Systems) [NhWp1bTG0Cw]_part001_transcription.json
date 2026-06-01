@@ -1,0 +1,1637 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.36,
+      "text": "side caching on the worker nodes themselves."
+    },
+    {
+      "id": 1,
+      "start": 3.36,
+      "end": 6.04,
+      "text": "So since, again, they're not the cloud vendor,"
+    },
+    {
+      "id": 2,
+      "start": 6.04,
+      "end": 9.92,
+      "text": "it costs them real money to go get things from S3, which"
+    },
+    {
+      "id": 3,
+      "start": 9.92,
+      "end": 11.52,
+      "text": "is obviously also very slow as well."
+    },
+    {
+      "id": 4,
+      "start": 11.52,
+      "end": 13.84,
+      "text": "They want to do as much caching as they can on their side"
+    },
+    {
+      "id": 5,
+      "start": 13.84,
+      "end": 17.76,
+      "text": "and knows that they're already paying for to avoid those"
+    },
+    {
+      "id": 6,
+      "start": 17.76,
+      "end": 18.84,
+      "text": "lookups to S3."
+    },
+    {
+      "id": 7,
+      "start": 23.08,
+      "end": 24.12,
+      "text": "The other interesting thing is that,"
+    },
+    {
+      "id": 8,
+      "start": 24.12,
+      "end": 26.28,
+      "text": "rather than doing what most people do today,"
+    },
+    {
+      "id": 9,
+      "start": 26.44,
+      "end": 30.16,
+      "text": "taking the Postgres SQL dialect, the grammar file,"
+    },
+    {
+      "id": 10,
+      "start": 30.16,
+      "end": 33.4,
+      "text": "and using that as the basis to start your,"
+    },
+    {
+      "id": 11,
+      "start": 33.4,
+      "end": 35.08,
+      "text": "what kind of SQL you're going to support,"
+    },
+    {
+      "id": 12,
+      "start": 35.08,
+      "end": 36.88,
+      "text": "they wrote everything from scratch."
+    },
+    {
+      "id": 13,
+      "start": 36.88,
+      "end": 38.88,
+      "text": "And it kind of looks, if you ever look at the documentation"
+    },
+    {
+      "id": 14,
+      "start": 38.88,
+      "end": 41.4,
+      "text": "of S3, it kind of looks a little orically,"
+    },
+    {
+      "id": 15,
+      "start": 41.4,
+      "end": 42.84,
+      "text": "a little enterprisey, right?"
+    },
+    {
+      "id": 16,
+      "start": 42.84,
+      "end": 45.8,
+      "text": "And I think that's sort of the lineage"
+    },
+    {
+      "id": 17,
+      "start": 45.8,
+      "end": 50.56,
+      "text": "of coming from the two French guys coming from Oracle."
+    },
+    {
+      "id": 18,
+      "start": 50.56,
+      "end": 53.16,
+      "text": "So I always have to say this, obviously there's"
+    },
+    {
+      "id": 19,
+      "start": 53.16,
+      "end": 55.6,
+      "text": "not any impropriety, but S3, like actually sponsored"
+    },
+    {
+      "id": 20,
+      "start": 55.6,
+      "end": 58.24,
+      "text": "this class in 721 before they went IPO."
+    },
+    {
+      "id": 21,
+      "start": 58.24,
+      "end": 61.72,
+      "text": "A lot of my best students went there and still worked there."
+    },
+    {
+      "id": 22,
+      "start": 61.72,
+      "end": 65.68,
+      "text": "So a sheet stood literally here and presented"
+    },
+    {
+      "id": 23,
+      "start": 65.68,
+      "end": 67.8,
+      "text": "the snowflake architecture back in the day."
+    },
+    {
+      "id": 24,
+      "start": 67.8,
+      "end": 70.76,
+      "text": "So if you want, you can watch the guest lecture from back then."
+    },
+    {
+      "id": 25,
+      "start": 70.76,
+      "end": 74.28,
+      "text": "And last year when I was putting this lecture together,"
+    },
+    {
+      "id": 26,
+      "start": 74.28,
+      "end": 77.12,
+      "text": "I had a bunch of questions like, it's a closed source system."
+    },
+    {
+      "id": 27,
+      "start": 77.12,
+      "end": 78.92,
+      "text": "You can't always infer exactly what they're doing based"
+    },
+    {
+      "id": 28,
+      "start": 78.92,
+      "end": 81.36,
+      "text": "on the blogs and the documentation."
+    },
+    {
+      "id": 29,
+      "start": 81.36,
+      "end": 82.6,
+      "text": "So I actually had a phone call at the C."
+    },
+    {
+      "id": 30,
+      "start": 82.6,
+      "end": 85.32,
+      "text": "So this is Sunday night, the day before the lecture,"
+    },
+    {
+      "id": 31,
+      "start": 85.32,
+      "end": 86.52,
+      "text": "while he was like cooking in his kitchen,"
+    },
+    {
+      "id": 32,
+      "start": 86.52,
+      "end": 88.04,
+      "text": "he's answering all my snowflake questions."
+    },
+    {
+      "id": 33,
+      "start": 88.04,
+      "end": 90.12,
+      "text": "So the combination of what we're talking about today"
+    },
+    {
+      "id": 34,
+      "start": 90.12,
+      "end": 93.08,
+      "text": "is from the documentation, the paper you guys read."
+    },
+    {
+      "id": 35,
+      "start": 93.08,
+      "end": 94.56,
+      "text": "There's another paper as well,"
+    },
+    {
+      "id": 36,
+      "start": 94.56,
+      "end": 97.0,
+      "text": "some blog articles, and then asking a sheesh"
+    },
+    {
+      "id": 37,
+      "start": 97.0,
+      "end": 100.6,
+      "text": "while he's cooking spaghetti, what does snowflake do?"
+    },
+    {
+      "id": 38,
+      "start": 101.6,
+      "end": 102.92,
+      "text": "These are good dude."
+    },
+    {
+      "id": 39,
+      "start": 102.92,
+      "end": 105.6,
+      "text": "Okay, so again, here's that high level,"
+    },
+    {
+      "id": 40,
+      "start": 105.6,
+      "end": 107.64,
+      "text": "bullet points of all everything that we care about"
+    },
+    {
+      "id": 41,
+      "start": 107.64,
+      "end": 110.64,
+      "text": "in snowflake that related to other systems, right?"
+    },
+    {
+      "id": 42,
+      "start": 110.64,
+      "end": 111.76,
+      "text": "Again, not surprising."
+    },
+    {
+      "id": 43,
+      "start": 111.76,
+      "end": 113.4,
+      "text": "Share this, just like I got to storage."
+    },
+    {
+      "id": 44,
+      "start": 113.4,
+      "end": 115.8,
+      "text": "Again, they were the one of the first systems"
+    },
+    {
+      "id": 45,
+      "start": 115.8,
+      "end": 120.0,
+      "text": "to commercialize this and pursue this."
+    },
+    {
+      "id": 46,
+      "start": 120.0,
+      "end": 121.96,
+      "text": "Again, that's building off a Dremel Don,"
+    },
+    {
+      "id": 47,
+      "start": 121.96,
+      "end": 126.88,
+      "text": "building off of what HGF has to do."
+    },
+    {
+      "id": 48,
+      "start": 126.88,
+      "end": 128.12,
+      "text": "We're doing it at the time."
+    },
+    {
+      "id": 49,
+      "start": 128.12,
+      "end": 130.48,
+      "text": "They're new push-based vectorized query processing."
+    },
+    {
+      "id": 50,
+      "start": 131.6,
+      "end": 133.8,
+      "text": "They're relying on pre-compiled primitives"
+    },
+    {
+      "id": 51,
+      "start": 133.8,
+      "end": 135.36,
+      "text": "similar to vector wise X100."
+    },
+    {
+      "id": 52,
+      "start": 135.36,
+      "end": 136.48,
+      "text": "Again, not surprising."
+    },
+    {
+      "id": 53,
+      "start": 136.48,
+      "end": 139.68,
+      "text": "Marcin was the guy who built vector wise."
+    },
+    {
+      "id": 54,
+      "start": 139.68,
+      "end": 141.12,
+      "text": "They're not gonna do any cogent"
+    },
+    {
+      "id": 55,
+      "start": 141.36,
+      "end": 143.36,
+      "text": "except for serializing the moon of data"
+    },
+    {
+      "id": 56,
+      "start": 146.8,
+      "end": 148.24,
+      "text": "from workers or the other."
+    },
+    {
+      "id": 57,
+      "start": 148.24,
+      "end": 149.48,
+      "text": "They're using LAM for this."
+    },
+    {
+      "id": 58,
+      "start": 149.48,
+      "end": 150.32,
+      "text": "It's very limited."
+    },
+    {
+      "id": 59,
+      "start": 150.32,
+      "end": 153.12,
+      "text": "I had some data I need to serialize"
+    },
+    {
+      "id": 60,
+      "start": 153.12,
+      "end": 155.0,
+      "text": "to a binary format, ship that over the wire,"
+    },
+    {
+      "id": 61,
+      "start": 155.0,
+      "end": 156.6,
+      "text": "send it to another node."
+    },
+    {
+      "id": 62,
+      "start": 156.6,
+      "end": 159.44,
+      "text": "Again, this is like 2013, 2014."
+    },
+    {
+      "id": 63,
+      "start": 159.44,
+      "end": 161.08,
+      "text": "This is a four Apache arrow."
+    },
+    {
+      "id": 64,
+      "start": 161.08,
+      "end": 162.64,
+      "text": "So to make this work fast,"
+    },
+    {
+      "id": 65,
+      "start": 162.64,
+      "end": 164.48,
+      "text": "they would have this little cogent piece"
+    },
+    {
+      "id": 66,
+      "start": 164.48,
+      "end": 168.4,
+      "text": "that could, that you could compile it to send data over."
+    },
+    {
+      "id": 67,
+      "start": 169.24,
+      "end": 171.48,
+      "text": "It's somewhat similar to what Protoboff"
+    },
+    {
+      "id": 68,
+      "start": 171.48,
+      "end": 172.96,
+      "text": "would actually do for you as well."
+    },
+    {
+      "id": 69,
+      "start": 175.16,
+      "end": 176.48,
+      "text": "They're gonna make, they're gonna set up the table data"
+    },
+    {
+      "id": 70,
+      "start": 176.48,
+      "end": 177.8,
+      "text": "from the metadata."
+    },
+    {
+      "id": 71,
+      "start": 177.8,
+      "end": 178.6,
+      "text": "And we'll talk a little bit about this"
+    },
+    {
+      "id": 72,
+      "start": 178.6,
+      "end": 180.16,
+      "text": "because that opens up some opportunities"
+    },
+    {
+      "id": 73,
+      "start": 180.16,
+      "end": 182.28,
+      "text": "for other optimizations."
+    },
+    {
+      "id": 74,
+      "start": 182.28,
+      "end": 184.08,
+      "text": "And it's certainly different than,"
+    },
+    {
+      "id": 75,
+      "start": 184.08,
+      "end": 185.76,
+      "text": "well, I mean, now it's sort of common play scheme"
+    },
+    {
+      "id": 76,
+      "start": 185.76,
+      "end": 187.84,
+      "text": "and run something like Hive catalog or whatever."
+    },
+    {
+      "id": 77,
+      "start": 187.84,
+      "end": 190.4,
+      "text": "Or Databricks has their unique catalog."
+    },
+    {
+      "id": 78,
+      "start": 190.4,
+      "end": 191.44,
+      "text": "But this is certainly different"
+    },
+    {
+      "id": 79,
+      "start": 191.44,
+      "end": 193.4,
+      "text": "from a single node system."
+    },
+    {
+      "id": 80,
+      "start": 193.4,
+      "end": 194.96,
+      "text": "There's not gonna be an explicit buffer pool"
+    },
+    {
+      "id": 81,
+      "start": 194.96,
+      "end": 196.56,
+      "text": "in every single node."
+    },
+    {
+      "id": 82,
+      "start": 196.56,
+      "end": 198.44,
+      "text": "They're basically have ALRU cache aside"
+    },
+    {
+      "id": 83,
+      "start": 198.44,
+      "end": 200.76,
+      "text": "when things move things in and out."
+    },
+    {
+      "id": 84,
+      "start": 200.76,
+      "end": 203.08,
+      "text": "But nothing really, nothing fancy."
+    },
+    {
+      "id": 85,
+      "start": 203.08,
+      "end": 204.6,
+      "text": "Like everyone else, they can use packs,"
+    },
+    {
+      "id": 86,
+      "start": 204.6,
+      "end": 205.88,
+      "text": "I'll come in our storage."
+    },
+    {
+      "id": 87,
+      "start": 205.88,
+      "end": 208.2,
+      "text": "Because again, they started before,"
+    },
+    {
+      "id": 88,
+      "start": 208.2,
+      "end": 212.64,
+      "text": "like Parkane or like a big thing that they are now,"
+    },
+    {
+      "id": 89,
+      "start": 212.64,
+      "end": 214.96,
+      "text": "they're gonna have their own proprietary storage format"
+    },
+    {
+      "id": 90,
+      "start": 214.96,
+      "end": 216.88,
+      "text": "that they'll have for managed data."
+    },
+    {
+      "id": 91,
+      "start": 216.88,
+      "end": 219.48,
+      "text": "But now since the last five years or so,"
+    },
+    {
+      "id": 92,
+      "start": 219.48,
+      "end": 222.16,
+      "text": "they're supporting all the sort of file formats"
+    },
+    {
+      "id": 93,
+      "start": 222.16,
+      "end": 223.88,
+      "text": "that we'd expect."
+    },
+    {
+      "id": 94,
+      "start": 223.88,
+      "end": 225.08,
+      "text": "I think they can use sort of this journey,"
+    },
+    {
+      "id": 95,
+      "start": 225.08,
+      "end": 226.88,
+      "text": "but primarily most of the time they could pick cache join"
+    },
+    {
+      "id": 96,
+      "start": 226.88,
+      "end": 228.68,
+      "text": "as we talked about was always gonna be better."
+    },
+    {
+      "id": 97,
+      "start": 228.68,
+      "end": 231.96,
+      "text": "And then they have a Cascade style query optimizer"
+    },
+    {
+      "id": 98,
+      "start": 231.96,
+      "end": 234.2,
+      "text": "that again tries to leverage the adaptive optimizations"
+    },
+    {
+      "id": 99,
+      "start": 234.2,
+      "end": 235.44,
+      "text": "that we talked about before."
+    },
+    {
+      "id": 100,
+      "start": 235.44,
+      "end": 238.04,
+      "text": "So we're gonna mostly focus on these things"
+    },
+    {
+      "id": 101,
+      "start": 238.04,
+      "end": 239.52,
+      "text": "but I'll sprinkle in discussions"
+    },
+    {
+      "id": 102,
+      "start": 239.52,
+      "end": 241.4,
+      "text": "as we go along for the other topics."
+    },
+    {
+      "id": 103,
+      "start": 243.84,
+      "end": 246.64,
+      "text": "So the first thing is what does the architecture look like?"
+    },
+    {
+      "id": 104,
+      "start": 246.64,
+      "end": 248.92,
+      "text": "So they are obviously, again, they're gonna run"
+    },
+    {
+      "id": 105,
+      "start": 248.92,
+      "end": 250.96,
+      "text": "on a disabled storage."
+    },
+    {
+      "id": 106,
+      "start": 250.96,
+      "end": 254.04,
+      "text": "So this is just using an object store to leverage that."
+    },
+    {
+      "id": 107,
+      "start": 254.04,
+      "end": 257.2,
+      "text": "And again, the paper talks about how they made this decision"
+    },
+    {
+      "id": 108,
+      "start": 257.2,
+      "end": 259.24,
+      "text": "early on when designing Snowflake,"
+    },
+    {
+      "id": 109,
+      "start": 259.24,
+      "end": 262.08,
+      "text": "should they actually spend time building the storage layer"
+    },
+    {
+      "id": 110,
+      "start": 262.08,
+      "end": 264.08,
+      "text": "or should they just give up control"
+    },
+    {
+      "id": 111,
+      "start": 264.08,
+      "end": 268.8,
+      "text": "and let, just use S3 and let Amazon handle that for them."
+    },
+    {
+      "id": 112,
+      "start": 268.8,
+      "end": 270.84,
+      "text": "And part of that decision was,"
+    },
+    {
+      "id": 113,
+      "start": 270.84,
+      "end": 271.92,
+      "text": "it's from engineering efforts."
+    },
+    {
+      "id": 114,
+      "start": 271.92,
+      "end": 272.88,
+      "text": "You can only do so many things"
+    },
+    {
+      "id": 115,
+      "start": 272.88,
+      "end": 275.0,
+      "text": "when you first start building a new system."
+    },
+    {
+      "id": 116,
+      "start": 275.0,
+      "end": 277.48,
+      "text": "They decided they would rather focus on"
+    },
+    {
+      "id": 117,
+      "start": 279.28,
+      "end": 282.32,
+      "text": "the execution engine and leverage client side caching,"
+    },
+    {
+      "id": 118,
+      "start": 282.32,
+      "end": 284.32,
+      "text": "or sorry, worker side caching,"
+    },
+    {
+      "id": 119,
+      "start": 284.32,
+      "end": 287.12,
+      "text": "or compute side caching to speed things up."
+    },
+    {
+      "id": 120,
+      "start": 287.12,
+      "end": 292.12,
+      "text": "And just let Amazon handle all the replication"
+    },
+    {
+      "id": 121,
+      "start": 292.64,
+      "end": 295.44,
+      "text": "in storage durability guarantees you would need."
+    },
+    {
+      "id": 122,
+      "start": 296.48,
+      "end": 298.2,
+      "text": "So I think that turned out to be a smart choice."
+    },
+    {
+      "id": 123,
+      "start": 298.2,
+      "end": 299.2,
+      "text": "I think originally version,"
+    },
+    {
+      "id": 124,
+      "start": 299.2,
+      "end": 301.12,
+      "text": "the original version of the only S3"
+    },
+    {
+      "id": 125,
+      "start": 301.12,
+      "end": 303.36,
+      "text": "and now the support all the other major cloud minors"
+    },
+    {
+      "id": 126,
+      "start": 303.36,
+      "end": 304.2,
+      "text": "for their storage."
+    },
+    {
+      "id": 127,
+      "start": 305.76,
+      "end": 308.72,
+      "text": "So they're gonna have this notion of, yes."
+    },
+    {
+      "id": 128,
+      "start": 309.68,
+      "end": 311.44,
+      "text": "So I think because they're using Amazon"
+    },
+    {
+      "id": 129,
+      "start": 311.44,
+      "end": 314.04,
+      "text": "and all these other companies and they have their own databases,"
+    },
+    {
+      "id": 130,
+      "start": 314.04,
+      "end": 315.84,
+      "text": "wouldn't there be sort of a conflict of interest"
+    },
+    {
+      "id": 131,
+      "start": 315.84,
+      "end": 319.44,
+      "text": "like they can do something just to Snowflake, right?"
+    },
+    {
+      "id": 132,
+      "start": 319.44,
+      "end": 320.96,
+      "text": "His question, the statement is,"
+    },
+    {
+      "id": 133,
+      "start": 320.96,
+      "end": 322.56,
+      "text": "if you're running on Amazon,"
+    },
+    {
+      "id": 134,
+      "start": 322.56,
+      "end": 324.44,
+      "text": "Amazon has a competing product."
+    },
+    {
+      "id": 135,
+      "start": 324.44,
+      "end": 327.68,
+      "text": "Yeah, like, should you be afraid of Amazon"
+    },
+    {
+      "id": 136,
+      "start": 327.68,
+      "end": 329.88,
+      "text": "like trying to like do something to screw you over?"
+    },
+    {
+      "id": 137,
+      "start": 329.88,
+      "end": 332.4,
+      "text": "Yeah, like, it's a big company, that's something."
+    },
+    {
+      "id": 138,
+      "start": 332.4,
+      "end": 334.32,
+      "text": "But I mean Snowflake's a big company too, right?"
+    },
+    {
+      "id": 139,
+      "start": 334.32,
+      "end": 336.0,
+      "text": "I think we're allowed, this is from Snowflake."
+    },
+    {
+      "id": 140,
+      "start": 336.0,
+      "end": 337.32,
+      "text": "Yeah, they make up, so,"
+    },
+    {
+      "id": 141,
+      "start": 339.72,
+      "end": 341.44,
+      "text": "how to say this?"
+    },
+    {
+      "id": 142,
+      "start": 343.36,
+      "end": 345.04,
+      "text": "Think about from a publicity standpoint,"
+    },
+    {
+      "id": 143,
+      "start": 345.04,
+      "end": 347.4,
+      "text": "how terrible that would be for Amazon to be like,"
+    },
+    {
+      "id": 144,
+      "start": 347.4,
+      "end": 349.52,
+      "text": "hey, we just like scoot over our biggest competitors,"
+    },
+    {
+      "id": 145,
+      "start": 349.52,
+      "end": 350.64,
+      "text": "one of our biggest competitors,"
+    },
+    {
+      "id": 146,
+      "start": 352.32,
+      "end": 354.44,
+      "text": "that would immediately panic all the other companies"
+    },
+    {
+      "id": 147,
+      "start": 354.44,
+      "end": 356.4,
+      "text": "that are relying having an Amazon"
+    },
+    {
+      "id": 148,
+      "start": 356.4,
+      "end": 358.88,
+      "text": "and make them go elsewhere."
+    },
+    {
+      "id": 149,
+      "start": 358.88,
+      "end": 361.56,
+      "text": "From a business standpoint, like a short-term gain,"
+    },
+    {
+      "id": 150,
+      "start": 361.56,
+      "end": 365.44,
+      "text": "short-term benefit for long-term problems,"
+    },
+    {
+      "id": 151,
+      "start": 365.44,
+      "end": 366.96,
+      "text": "is just not worth it."
+    },
+    {
+      "id": 152,
+      "start": 366.96,
+      "end": 368.36,
+      "text": "Now there are some companies we've talked to you"
+    },
+    {
+      "id": 153,
+      "start": 368.36,
+      "end": 370.44,
+      "text": "at least in the start-up, where they should have told us,"
+    },
+    {
+      "id": 154,
+      "start": 370.44,
+      "end": 373.68,
+      "text": "we don't run on Amazon because we can see,"
+    },
+    {
+      "id": 155,
+      "start": 373.68,
+      "end": 374.92,
+      "text": "consider them a competitor,"
+    },
+    {
+      "id": 156,
+      "start": 374.92,
+      "end": 378.16,
+      "text": "and so they have to run on GCP or something else."
+    },
+    {
+      "id": 157,
+      "start": 378.16,
+      "end": 380.56,
+      "text": "But again, Amazon's not stupid, they're not gonna let."
+    },
+    {
+      "id": 158,
+      "start": 383.04,
+      "end": 385.92,
+      "text": "I like to think they would not make decisions like that."
+    },
+    {
+      "id": 159,
+      "start": 385.92,
+      "end": 387.6,
+      "text": "Now, so, I will say though,"
+    },
+    {
+      "id": 160,
+      "start": 387.6,
+      "end": 389.48,
+      "text": "the way Amazon's gonna get around this,"
+    },
+    {
+      "id": 161,
+      "start": 389.48,
+      "end": 391.32,
+      "text": "so even though they may not make,"
+    },
+    {
+      "id": 162,
+      "start": 393.6,
+      "end": 396.76,
+      "text": "they may not make S3 slower,"
+    },
+    {
+      "id": 163,
+      "start": 396.76,
+      "end": 398.84,
+      "text": "because it recognizes a snowflake query or something."
+    },
+    {
+      "id": 164,
+      "start": 398.84,
+      "end": 400.08,
+      "text": "That would be terrible, right?"
+    },
+    {
+      "id": 165,
+      "start": 400.08,
+      "end": 401.28,
+      "text": "It's not scalable."
+    },
+    {
+      "id": 166,
+      "start": 401.28,
+      "end": 404.68,
+      "text": "They can do other things like, not so much for,"
+    },
+    {
+      "id": 167,
+      "start": 404.68,
+      "end": 406.2,
+      "text": "well, actually for Redshift, we'll see this,"
+    },
+    {
+      "id": 168,
+      "start": 406.2,
+      "end": 407.96,
+      "text": "they can add hardware accelerators"
+    },
+    {
+      "id": 169,
+      "start": 407.96,
+      "end": 410.96,
+      "text": "and other things above S3, right?"
+    },
+    {
+      "id": 170,
+      "start": 410.96,
+      "end": 412.32,
+      "text": "That's running on the same data center"
+    },
+    {
+      "id": 171,
+      "start": 412.32,
+      "end": 414.36,
+      "text": "that maybe snowflake can't easily do,"
+    },
+    {
+      "id": 172,
+      "start": 414.36,
+      "end": 415.8,
+      "text": "to accelerate certain things."
+    },
+    {
+      "id": 173,
+      "start": 415.8,
+      "end": 418.24,
+      "text": "And they do this for Aurora as well."
+    },
+    {
+      "id": 174,
+      "start": 418.24,
+      "end": 420.68,
+      "text": "They push down, they have a layer above EPS"
+    },
+    {
+      "id": 175,
+      "start": 420.68,
+      "end": 422.96,
+      "text": "that does transactional,"
+    },
+    {
+      "id": 176,
+      "start": 422.96,
+      "end": 425.4,
+      "text": "transaction up-proplications to replicas"
+    },
+    {
+      "id": 177,
+      "start": 425.4,
+      "end": 427.04,
+      "text": "for post-gust in my SQL,"
+    },
+    {
+      "id": 178,
+      "start": 427.04,
+      "end": 430.28,
+      "text": "and you just can't get if you run an external Amazon."
+    },
+    {
+      "id": 179,
+      "start": 430.28,
+      "end": 432.28,
+      "text": "So there's other optimizations you can do."
+    },
+    {
+      "id": 180,
+      "start": 434.28,
+      "end": 437.28,
+      "text": "With regard to adding support for Azure Store"
+    },
+    {
+      "id": 181,
+      "start": 437.28,
+      "end": 439.28,
+      "text": "and go across storage later, etc."
+    },
+    {
+      "id": 182,
+      "start": 439.28,
+      "end": 440.68,
+      "text": "That's something,"
+    },
+    {
+      "id": 183,
+      "start": 440.68,
+      "end": 442.76,
+      "text": "and you're trying to internally,"
+    },
+    {
+      "id": 184,
+      "start": 442.76,
+      "end": 444.84,
+      "text": "they were using S3 to store all the"
+    },
+    {
+      "id": 185,
+      "start": 444.84,
+      "end": 446.68,
+      "text": "troll managed storage,"
+    },
+    {
+      "id": 186,
+      "start": 446.68,
+      "end": 449.12,
+      "text": "and then they switched over to a mix of the three,"
+    },
+    {
+      "id": 187,
+      "start": 449.12,
+      "end": 451.68,
+      "text": "or are you saying something more like,"
+    },
+    {
+      "id": 188,
+      "start": 451.68,
+      "end": 453.12,
+      "text": "they added support for Apache,"
+    },
+    {
+      "id": 189,
+      "start": 453.12,
+      "end": 455.6,
+      "text": "iceberg, and I can use any of these."
+    },
+    {
+      "id": 190,
+      "start": 455.6,
+      "end": 457.2,
+      "text": "This question is, when I say they add a support"
+    },
+    {
+      "id": 191,
+      "start": 457.2,
+      "end": 459.56,
+      "text": "for like, say Google Cloud Storage, or Azure,"
+    },
+    {
+      "id": 192,
+      "start": 459.56,
+      "end": 461.28,
+      "text": "does that mean that,"
+    },
+    {
+      "id": 193,
+      "start": 461.28,
+      "end": 464.48,
+      "text": "like if you're a new customer, you show up,"
+    },
+    {
+      "id": 194,
+      "start": 464.48,
+      "end": 466.32,
+      "text": "and you start storing data into snowflake,"
+    },
+    {
+      "id": 195,
+      "start": 466.32,
+      "end": 467.32,
+      "text": "that little spread of the cross"
+    },
+    {
+      "id": 196,
+      "start": 467.32,
+      "end": 468.92,
+      "text": "to different data centers?"
+    },
+    {
+      "id": 197,
+      "start": 468.92,
+      "end": 470.88,
+      "text": "No, I think you tell them when you sign up,"
+    },
+    {
+      "id": 198,
+      "start": 470.88,
+      "end": 473.24,
+      "text": "like I want to run an AWS, I want to run on this, right?"
+    },
+    {
+      "id": 199,
+      "start": 473.24,
+      "end": 475.04,
+      "text": "But it's still managed to do that."
+    },
+    {
+      "id": 200,
+      "start": 476.16,
+      "end": 478.0,
+      "text": "Who's them?"
+    },
+    {
+      "id": 201,
+      "start": 478.0,
+      "end": 479.84,
+      "text": "So it's still managed storage."
+    },
+    {
+      "id": 202,
+      "start": 479.84,
+      "end": 481.04,
+      "text": "Yes."
+    },
+    {
+      "id": 203,
+      "start": 481.04,
+      "end": 483.96,
+      "text": "So you're just saying like, do this other one."
+    },
+    {
+      "id": 204,
+      "start": 483.96,
+      "end": 486.64,
+      "text": "The library ever choose to use one of the other?"
+    },
+    {
+      "id": 205,
+      "start": 486.64,
+      "end": 488.64,
+      "text": "Like, why would you choose the other cloud vendors?"
+    },
+    {
+      "id": 206,
+      "start": 488.64,
+      "end": 489.96,
+      "text": "I mean, there's companies that,"
+    },
+    {
+      "id": 207,
+      "start": 489.96,
+      "end": 494.4,
+      "text": "we've talked to like a Canadian grocery store,"
+    },
+    {
+      "id": 208,
+      "start": 494.4,
+      "end": 496.04,
+      "text": "like we see Amazon as competitive,"
+    },
+    {
+      "id": 209,
+      "start": 496.04,
+      "end": 499.32,
+      "text": "we don't run on Amazon, we run on Google, right?"
+    },
+    {
+      "id": 210,
+      "start": 499.32,
+      "end": 501.44,
+      "text": "People have various reasons."
+    },
+    {
+      "id": 211,
+      "start": 501.44,
+      "end": 503.52,
+      "text": "But you can't like integrate it with existing data"
+    },
+    {
+      "id": 212,
+      "start": 503.52,
+      "end": 505.16,
+      "text": "on an object store,"
+    },
+    {
+      "id": 213,
+      "start": 505.16,
+      "end": 506.56,
+      "text": "because it's going to be managed, right?"
+    },
+    {
+      "id": 214,
+      "start": 506.56,
+      "end": 508.12,
+      "text": "No, we'll get to that in a second."
+    },
+    {
+      "id": 215,
+      "start": 508.12,
+      "end": 509.36,
+      "text": "And then,"
+    },
+    {
+      "id": 216,
+      "start": 509.36,
+      "end": 510.48,
+      "text": "we're leading up to,"
+    },
+    {
+      "id": 217,
+      "start": 510.48,
+      "end": 512.08,
+      "text": "the original version of Snowflake was like,"
+    },
+    {
+      "id": 218,
+      "start": 512.08,
+      "end": 515.32,
+      "text": "okay, we're going to store things on S3,"
+    },
+    {
+      "id": 219,
+      "start": 515.32,
+      "end": 516.64,
+      "text": "but the data we're storing,"
+    },
+    {
+      "id": 220,
+      "start": 516.64,
+      "end": 518.56,
+      "text": "actually inside the buckets in S3,"
+    },
+    {
+      "id": 221,
+      "start": 518.56,
+      "end": 520.68,
+      "text": "it's our proprietary data format."
+    },
+    {
+      "id": 222,
+      "start": 520.68,
+      "end": 521.6,
+      "text": "Because at the time,"
+    },
+    {
+      "id": 223,
+      "start": 521.6,
+      "end": 523.44,
+      "text": "that's how everyone built these data warehouses."
+    },
+    {
+      "id": 224,
+      "start": 523.44,
+      "end": 525.76,
+      "text": "Dremel was doing its own thing, right?"
+    },
+    {
+      "id": 225,
+      "start": 527.08,
+      "end": 528.08,
+      "text": "But, you know,"
+    },
+    {
+      "id": 226,
+      "start": 529.16,
+      "end": 530.8,
+      "text": "it wasn't until like,"
+    },
+    {
+      "id": 227,
+      "start": 530.8,
+      "end": 532.04,
+      "text": "Parkane, other things came along,"
+    },
+    {
+      "id": 228,
+      "start": 532.04,
+      "end": 532.88,
+      "text": "that people realized,"
+    },
+    {
+      "id": 229,
+      "start": 532.88,
+      "end": 535.04,
+      "text": "oh yeah, like I can have my disparate system"
+    },
+    {
+      "id": 230,
+      "start": 535.04,
+      "end": 536.04,
+      "text": "generate a bunch of these files"
+    },
+    {
+      "id": 231,
+      "start": 536.04,
+      "end": 538.28,
+      "text": "and I want to be able to scan it with my database system."
+    },
+    {
+      "id": 232,
+      "start": 538.28,
+      "end": 541.16,
+      "text": "That precipitated them having to support external tables"
+    },
+    {
+      "id": 233,
+      "start": 541.16,
+      "end": 544.6,
+      "text": "or other things to be able to read data from S3"
+    },
+    {
+      "id": 234,
+      "start": 544.6,
+      "end": 548.12,
+      "text": "that was not ingested through the front of the data system."
+    },
+    {
+      "id": 235,
+      "start": 548.12,
+      "end": 549.76,
+      "text": "Resurrection is going to go through the same transformation"
+    },
+    {
+      "id": 236,
+      "start": 549.76,
+      "end": 550.6,
+      "text": "as well."
+    },
+    {
+      "id": 237,
+      "start": 552.8,
+      "end": 553.96,
+      "text": "That's that was a nice one."
+    },
+    {
+      "id": 238,
+      "start": 553.96,
+      "end": 555.36,
+      "text": "At this point, why do you still think"
+    },
+    {
+      "id": 239,
+      "start": 555.36,
+      "end": 557.04,
+      "text": "that you're going to use this?"
+    },
+    {
+      "id": 240,
+      "start": 557.04,
+      "end": 558.16,
+      "text": "So, actually, the question is,"
+    },
+    {
+      "id": 241,
+      "start": 558.16,
+      "end": 559.0,
+      "text": "at this point,"
+    },
+    {
+      "id": 242,
+      "start": 559.0,
+      "end": 561.0,
+      "text": "why does Snowflake not build the S3?"
+    },
+    {
+      "id": 243,
+      "start": 562.64,
+      "end": 564.32,
+      "text": "Above my pay grade, I don't know."
+    },
+    {
+      "id": 244,
+      "start": 564.32,
+      "end": 565.16,
+      "text": "Like,"
+    },
+    {
+      "id": 245,
+      "start": 565.16,
+      "end": 566.64,
+      "text": "that'd be really hard."
+    },
+    {
+      "id": 246,
+      "start": 566.72,
+      "end": 567.72,
+      "text": "Yeah, the way it looks,"
+    },
+    {
+      "id": 247,
+      "start": 567.72,
+      "end": 568.72,
+      "text": "the way it looks,"
+    },
+    {
+      "id": 248,
+      "start": 568.72,
+      "end": 570.56,
+      "text": "you have to start building data centers."
+    },
+    {
+      "id": 249,
+      "start": 570.56,
+      "end": 571.56,
+      "text": "I'll start from a lot of money."
+    },
+    {
+      "id": 250,
+      "start": 571.56,
+      "end": 572.56,
+      "text": "I'll be expensive."
+    },
+    {
+      "id": 251,
+      "start": 572.56,
+      "end": 573.4,
+      "text": "So what that?"
+    },
+    {
+      "id": 252,
+      "start": 573.4,
+      "end": 574.4,
+      "text": "And like,"
+    },
+    {
+      "id": 253,
+      "start": 575.4,
+      "end": 576.24,
+      "text": "I mean, they're not stupid."
+    },
+    {
+      "id": 254,
+      "start": 576.24,
+      "end": 578.2,
+      "text": "I guarantee they did the back of the envelope calculations."
+    },
+    {
+      "id": 255,
+      "start": 578.2,
+      "end": 579.2,
+      "text": "It's like,"
+    },
+    {
+      "id": 256,
+      "start": 579.2,
+      "end": 580.92,
+      "text": "like does this actually make sense or not, right?"
+    },
+    {
+      "id": 257,
+      "start": 580.92,
+      "end": 582.48,
+      "text": "I think Netflix did something similar."
+    },
+    {
+      "id": 258,
+      "start": 582.48,
+      "end": 583.8,
+      "text": "They realized that like,"
+    },
+    {
+      "id": 259,
+      "start": 584.76,
+      "end": 585.8,
+      "text": "I think they were running on-prem"
+    },
+    {
+      "id": 260,
+      "start": 585.8,
+      "end": 586.64,
+      "text": "and then they went,"
+    },
+    {
+      "id": 261,
+      "start": 586.64,
+      "end": 587.64,
+      "text": "they switched to the data centers."
+    },
+    {
+      "id": 262,
+      "start": 587.64,
+      "end": 589.16,
+      "text": "Like, the big company's always trying to figure out"
+    },
+    {
+      "id": 263,
+      "start": 589.16,
+      "end": 590.4,
+      "text": "is it cheaper to do this."
+    },
+    {
+      "id": 264,
+      "start": 590.4,
+      "end": 591.24,
+      "text": "But, thinking like,"
+    },
+    {
+      "id": 265,
+      "start": 591.24,
+      "end": 592.16,
+      "text": "if you're like Snowflake,"
+    },
+    {
+      "id": 266,
+      "start": 592.16,
+      "end": 593.44,
+      "text": "Snowflake's a huge company, right?"
+    },
+    {
+      "id": 267,
+      "start": 593.44,
+      "end": 594.92,
+      "text": "But it's not as big as Amazon."
+    },
+    {
+      "id": 268,
+      "start": 594.92,
+      "end": 597.4,
+      "text": "And how many data centers is Snowflake building?"
+    },
+    {
+      "id": 269,
+      "start": 598.64,
+      "end": 599.64,
+      "text": "One a year maybe?"
+    },
+    {
+      "id": 270,
+      "start": 599.64,
+      "end": 600.64,
+      "text": "I don't know."
+    },
+    {
+      "id": 271,
+      "start": 600.64,
+      "end": 601.8,
+      "text": "Amazon's probably spinning up."
+    }
+  ],
+  "language": "en"
+}

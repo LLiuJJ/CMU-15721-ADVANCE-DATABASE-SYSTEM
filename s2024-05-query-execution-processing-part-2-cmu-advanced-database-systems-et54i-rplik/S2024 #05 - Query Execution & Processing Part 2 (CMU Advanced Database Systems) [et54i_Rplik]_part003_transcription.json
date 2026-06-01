@@ -1,0 +1,1553 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.76,
+      "text": "you guys read on Monday next week."
+    },
+    {
+      "id": 1,
+      "start": 2.76,
+      "end": 5.32,
+      "text": "But again, just think of like the,"
+    },
+    {
+      "id": 2,
+      "start": 5.32,
+      "end": 8.36,
+      "text": "think of like the, you know, the scanning a table"
+    },
+    {
+      "id": 3,
+      "start": 8.36,
+      "end": 10.0,
+      "text": "where you know a column is gonna be in 32."
+    },
+    {
+      "id": 4,
+      "start": 10.0,
+      "end": 12.04,
+      "text": "They have a compiled version of that."
+    },
+    {
+      "id": 5,
+      "start": 12.04,
+      "end": 13.36,
+      "text": "They have a compiled version for floats"
+    },
+    {
+      "id": 6,
+      "start": 13.36,
+      "end": 14.88,
+      "text": "and all those data types."
+    },
+    {
+      "id": 7,
+      "start": 16.28,
+      "end": 17.8,
+      "text": "There's a book at the battery with Arrow,"
+    },
+    {
+      "id": 8,
+      "start": 17.8,
+      "end": 20.56,
+      "text": "which will cover what Arrow looks like in a second."
+    },
+    {
+      "id": 9,
+      "start": 20.56,
+      "end": 24.16,
+      "text": "They have some support for adaptive query optimization,"
+    },
+    {
+      "id": 10,
+      "start": 24.16,
+      "end": 26.8,
+      "text": "not the full query plan re optimization"
+    },
+    {
+      "id": 11,
+      "start": 26.8,
+      "end": 28.16,
+      "text": "that we'll see later in the semester,"
+    },
+    {
+      "id": 12,
+      "start": 28.16,
+      "end": 29.36,
+      "text": "but they can do some little tricks"
+    },
+    {
+      "id": 13,
+      "start": 29.36,
+      "end": 31.2,
+      "text": "as you're running the scan along data"
+    },
+    {
+      "id": 14,
+      "start": 31.2,
+      "end": 33.48,
+      "text": "to modify how they're gonna buy out expressions"
+    },
+    {
+      "id": 15,
+      "start": 33.48,
+      "end": 34.52,
+      "text": "and so forth."
+    },
+    {
+      "id": 16,
+      "start": 34.52,
+      "end": 37.56,
+      "text": "And then as far as I know, at least when I looked at this before,"
+    },
+    {
+      "id": 17,
+      "start": 37.56,
+      "end": 40.44,
+      "text": "the only support sortmer joins and has joins."
+    },
+    {
+      "id": 18,
+      "start": 40.44,
+      "end": 42.12,
+      "text": "Again, there's no query optimizer,"
+    },
+    {
+      "id": 19,
+      "start": 42.12,
+      "end": 44.8,
+      "text": "there's no networking layer."
+    },
+    {
+      "id": 20,
+      "start": 44.8,
+      "end": 48.72,
+      "text": "All this has to be provided by whatever the encompassing system"
+    },
+    {
+      "id": 21,
+      "start": 48.72,
+      "end": 52.36,
+      "text": "that wants to include, include Bellox."
+    },
+    {
+      "id": 22,
+      "start": 52.36,
+      "end": 55.72,
+      "text": "Again, as he said, data fusion has more of this stuff,"
+    },
+    {
+      "id": 23,
+      "start": 55.72,
+      "end": 58.04,
+      "text": "but even that's not meant to be a focal-pleased system."
+    },
+    {
+      "id": 24,
+      "start": 60.08,
+      "end": 61.28,
+      "text": "So as part of this, again,"
+    },
+    {
+      "id": 25,
+      "start": 61.28,
+      "end": 63.2,
+      "text": "because it's not a focal-pleased system,"
+    },
+    {
+      "id": 26,
+      "start": 63.2,
+      "end": 66.44,
+      "text": "Bellox doesn't have its own proprietary data format."
+    },
+    {
+      "id": 27,
+      "start": 66.44,
+      "end": 68.2,
+      "text": "It doesn't own any of the data,"
+    },
+    {
+      "id": 28,
+      "start": 68.2,
+      "end": 70.12,
+      "text": "similar to this data lake architecture"
+    },
+    {
+      "id": 29,
+      "start": 70.12,
+      "end": 71.92,
+      "text": "we've been talking about where we assume"
+    },
+    {
+      "id": 30,
+      "start": 71.92,
+      "end": 73.52,
+      "text": "there's a bunch of files somewhere,"
+    },
+    {
+      "id": 31,
+      "start": 73.52,
+      "end": 75.56,
+      "text": "on S3 or whatever object store you want,"
+    },
+    {
+      "id": 32,
+      "start": 75.56,
+      "end": 79.08,
+      "text": "and they'll have connectors allow the scan operators"
+    },
+    {
+      "id": 33,
+      "start": 79.08,
+      "end": 81.72,
+      "text": "to retrieve that data and process it,"
+    },
+    {
+      "id": 34,
+      "start": 81.72,
+      "end": 84.84,
+      "text": "but it's not meant to be the,"
+    },
+    {
+      "id": 35,
+      "start": 84.84,
+      "end": 87.4,
+      "text": "at least the library by itself can't control"
+    },
+    {
+      "id": 36,
+      "start": 87.4,
+      "end": 88.28,
+      "text": "the ingestion of data."
+    },
+    {
+      "id": 37,
+      "start": 88.28,
+      "end": 91.24,
+      "text": "So something else has to manage all that."
+    },
+    {
+      "id": 38,
+      "start": 91.24,
+      "end": 94.32,
+      "text": "So the APIs that Bellox provides"
+    },
+    {
+      "id": 39,
+      "start": 94.32,
+      "end": 97.76,
+      "text": "have to keep you wanting to define connectors"
+    },
+    {
+      "id": 40,
+      "start": 97.76,
+      "end": 100.8,
+      "text": "that allow you to retrieve data from other systems."
+    },
+    {
+      "id": 41,
+      "start": 100.8,
+      "end": 102.16,
+      "text": "So connectors are a very common term"
+    },
+    {
+      "id": 42,
+      "start": 102.16,
+      "end": 103.68,
+      "text": "that's used in different systems."
+    },
+    {
+      "id": 43,
+      "start": 103.68,
+      "end": 105.68,
+      "text": "You type in your favorite database and type connector,"
+    },
+    {
+      "id": 44,
+      "start": 105.68,
+      "end": 110.44,
+      "text": "you'll see different capabilities in support"
+    },
+    {
+      "id": 45,
+      "start": 110.44,
+      "end": 111.6,
+      "text": "to talk to other things."
+    },
+    {
+      "id": 46,
+      "start": 111.6,
+      "end": 114.56,
+      "text": "So the one that's applied the most extensible"
+    },
+    {
+      "id": 47,
+      "start": 114.56,
+      "end": 116.24,
+      "text": "is like Treno or Presto,"
+    },
+    {
+      "id": 48,
+      "start": 116.24,
+      "end": 118.56,
+      "text": "which Presto came out of meta as well."
+    },
+    {
+      "id": 49,
+      "start": 118.56,
+      "end": 120.16,
+      "text": "But they have connectors that talk to any possible"
+    },
+    {
+      "id": 50,
+      "start": 120.16,
+      "end": 121.2,
+      "text": "database you would want."
+    },
+    {
+      "id": 51,
+      "start": 121.2,
+      "end": 123.6,
+      "text": "The idea is like it's an API within the system"
+    },
+    {
+      "id": 52,
+      "start": 123.6,
+      "end": 126.04,
+      "text": "that allow you to go talk to some other system,"
+    },
+    {
+      "id": 53,
+      "start": 126.04,
+      "end": 127.72,
+      "text": "whether it's a database or a file system,"
+    },
+    {
+      "id": 54,
+      "start": 127.72,
+      "end": 129.24,
+      "text": "and then pull data in."
+    },
+    {
+      "id": 55,
+      "start": 129.24,
+      "end": 131.8,
+      "text": "So you sort of basically have federated database"
+    },
+    {
+      "id": 56,
+      "start": 131.8,
+      "end": 133.52,
+      "text": "where you make one logical database,"
+    },
+    {
+      "id": 57,
+      "start": 133.52,
+      "end": 135.2,
+      "text": "talk to multiple physical databases,"
+    },
+    {
+      "id": 58,
+      "start": 135.2,
+      "end": 137.12,
+      "text": "and a connector is how they'll do that."
+    },
+    {
+      "id": 59,
+      "start": 137.12,
+      "end": 138.2,
+      "text": "If you're familiar with Postgres,"
+    },
+    {
+      "id": 60,
+      "start": 138.2,
+      "end": 141.92,
+      "text": "the foreign data wrapper API is the same far thing."
+    },
+    {
+      "id": 61,
+      "start": 141.92,
+      "end": 143.52,
+      "text": "It's like DB calls them extensions,"
+    },
+    {
+      "id": 62,
+      "start": 143.52,
+      "end": 146.92,
+      "text": "but the term usually called connector."
+    },
+    {
+      "id": 63,
+      "start": 148.2,
+      "end": 150.64,
+      "text": "And then they have adapters that allow them to decode"
+    },
+    {
+      "id": 64,
+      "start": 150.64,
+      "end": 153.48,
+      "text": "and encode the different storage formats"
+    },
+    {
+      "id": 65,
+      "start": 153.48,
+      "end": 154.76,
+      "text": "that we talked about before."
+    },
+    {
+      "id": 66,
+      "start": 154.76,
+      "end": 159.08,
+      "text": "So Parquet, Ork, Dorf is the extended version,"
+    },
+    {
+      "id": 67,
+      "start": 159.08,
+      "end": 163.28,
+      "text": "eternal version of Ork from meta."
+    },
+    {
+      "id": 68,
+      "start": 163.28,
+      "end": 164.56,
+      "text": "And then Alpha, I think I mentioned before,"
+    },
+    {
+      "id": 69,
+      "start": 164.56,
+      "end": 168.04,
+      "text": "this is something that the developed guys are building,"
+    },
+    {
+      "id": 70,
+      "start": 168.04,
+      "end": 169.88,
+      "text": "but the next version of Ork."
+    },
+    {
+      "id": 71,
+      "start": 172.8,
+      "end": 174.12,
+      "text": "So there's a bunch of components"
+    },
+    {
+      "id": 72,
+      "start": 174.12,
+      "end": 176.44,
+      "text": "that he talked about in the paper."
+    },
+    {
+      "id": 73,
+      "start": 176.44,
+      "end": 177.44,
+      "text": "Some of these devart, I covered,"
+    },
+    {
+      "id": 74,
+      "start": 177.44,
+      "end": 180.08,
+      "text": "some of these I want to spend on today."
+    },
+    {
+      "id": 75,
+      "start": 180.08,
+      "end": 182.32,
+      "text": "So the type system, the response scalers,"
+    },
+    {
+      "id": 76,
+      "start": 182.32,
+      "end": 184.08,
+      "text": "sort of complex nested types,"
+    },
+    {
+      "id": 77,
+      "start": 184.08,
+      "end": 185.92,
+      "text": "the vectors that they're going to operate on"
+    },
+    {
+      "id": 78,
+      "start": 185.92,
+      "end": 188.6,
+      "text": "are going to be arrow compatible with some extensions."
+    },
+    {
+      "id": 79,
+      "start": 188.6,
+      "end": 191.4,
+      "text": "Although some of the extensions they've added"
+    },
+    {
+      "id": 80,
+      "start": 191.4,
+      "end": 194.08,
+      "text": "are now in the mainline arrow codes."
+    },
+    {
+      "id": 81,
+      "start": 194.08,
+      "end": 196.52,
+      "text": "I don't know how much overlap there is today,"
+    },
+    {
+      "id": 82,
+      "start": 196.52,
+      "end": 199.32,
+      "text": "or how much distinction there is between two of them."
+    },
+    {
+      "id": 83,
+      "start": 199.32,
+      "end": 200.84,
+      "text": "They have the ability to find functions."
+    },
+    {
+      "id": 84,
+      "start": 200.84,
+      "end": 204.08,
+      "text": "If you want to have your own version of substring"
+    },
+    {
+      "id": 85,
+      "start": 204.08,
+      "end": 207.24,
+      "text": "or whatever you want that's not in the built-in VeloX library,"
+    },
+    {
+      "id": 86,
+      "start": 207.24,
+      "end": 208.84,
+      "text": "you can send that."
+    },
+    {
+      "id": 87,
+      "start": 208.84,
+      "end": 210.48,
+      "text": "Then there's the engine that actually runs the operators,"
+    },
+    {
+      "id": 88,
+      "start": 210.48,
+      "end": 212.68,
+      "text": "which we've covered a lot, connected to talked about."
+    },
+    {
+      "id": 89,
+      "start": 212.68,
+      "end": 215.28,
+      "text": "And the resource management would be memory pools,"
+    },
+    {
+      "id": 90,
+      "start": 215.28,
+      "end": 217.88,
+      "text": "basically a buffer pool to keep things in memory"
+    },
+    {
+      "id": 91,
+      "start": 217.88,
+      "end": 219.76,
+      "text": "and pull things out as needed."
+    },
+    {
+      "id": 92,
+      "start": 219.76,
+      "end": 221.96,
+      "text": "So today's class, I'm going to talk about these three things,"
+    },
+    {
+      "id": 93,
+      "start": 221.96,
+      "end": 223.12,
+      "text": "because we already thought the type systems"
+    },
+    {
+      "id": 94,
+      "start": 223.12,
+      "end": 226.12,
+      "text": "in the context of Parquet."
+    },
+    {
+      "id": 95,
+      "start": 226.12,
+      "end": 229.2,
+      "text": "Function API, again, it's just, almost like a user"
+    },
+    {
+      "id": 96,
+      "start": 229.2,
+      "end": 231.32,
+      "text": "behind function, and allows you to say, here's this new"
+    },
+    {
+      "id": 97,
+      "start": 231.32,
+      "end": 235.52,
+      "text": "built-in capability, connecting different"
+    },
+    {
+      "id": 98,
+      "start": 235.52,
+      "end": 239.24,
+      "text": "storage devices or whatnot."
+    },
+    {
+      "id": 99,
+      "start": 239.24,
+      "end": 239.84,
+      "text": "That's not really new."
+    },
+    {
+      "id": 100,
+      "start": 239.84,
+      "end": 241.52,
+      "text": "And the resource management stuff will cover"
+    },
+    {
+      "id": 101,
+      "start": 241.52,
+      "end": 242.12,
+      "text": "the semester."
+    },
+    {
+      "id": 102,
+      "start": 242.12,
+      "end": 242.64,
+      "text": "Yes?"
+    },
+    {
+      "id": 103,
+      "start": 242.64,
+      "end": 244.28,
+      "text": "I was going to ask from the release,"
+    },
+    {
+      "id": 104,
+      "start": 244.28,
+      "end": 245.8,
+      "text": "but if you can come up with a question."
+    },
+    {
+      "id": 105,
+      "start": 245.8,
+      "end": 247.6,
+      "text": "What's your question?"
+    },
+    {
+      "id": 106,
+      "start": 247.6,
+      "end": 249.76,
+      "text": "Is there any trade-offs that you do in that?"
+    },
+    {
+      "id": 107,
+      "start": 249.76,
+      "end": 251.96,
+      "text": "Do you know what memory pools are?"
+    },
+    {
+      "id": 108,
+      "start": 251.96,
+      "end": 255.56,
+      "text": "Or is there always a way to have a separate memory"
+    },
+    {
+      "id": 109,
+      "start": 255.56,
+      "end": 261.0,
+      "text": "and do something that you can pull and give back?"
+    },
+    {
+      "id": 110,
+      "start": 261.0,
+      "end": 263.16,
+      "text": "Your question is, is there a good idea"
+    },
+    {
+      "id": 111,
+      "start": 263.16,
+      "end": 264.32,
+      "text": "to manage memory?"
+    },
+    {
+      "id": 112,
+      "start": 264.32,
+      "end": 264.84,
+      "text": "Inside the..."
+    },
+    {
+      "id": 113,
+      "start": 264.84,
+      "end": 267.56,
+      "text": "Is there a way they do?"
+    },
+    {
+      "id": 114,
+      "start": 267.56,
+      "end": 268.52,
+      "text": "With arena pools?"
+    },
+    {
+      "id": 115,
+      "start": 268.52,
+      "end": 269.32,
+      "text": "Yes."
+    },
+    {
+      "id": 116,
+      "start": 269.32,
+      "end": 270.08,
+      "text": "Absolutely, yeah."
+    },
+    {
+      "id": 117,
+      "start": 270.08,
+      "end": 272.24,
+      "text": "Because what's the alternative?"
+    },
+    {
+      "id": 118,
+      "start": 272.24,
+      "end": 274.48,
+      "text": "Well, I don't think Rust has something like that."
+    },
+    {
+      "id": 119,
+      "start": 274.48,
+      "end": 275.72,
+      "text": "Is there Rust?"
+    },
+    {
+      "id": 120,
+      "start": 275.72,
+      "end": 278.48,
+      "text": "No, not for Spirit with it."
+    },
+    {
+      "id": 121,
+      "start": 278.48,
+      "end": 282.52,
+      "text": "For the way you approach the whole data."
+    },
+    {
+      "id": 122,
+      "start": 282.52,
+      "end": 284.2,
+      "text": "Yeah, not the idea."
+    },
+    {
+      "id": 123,
+      "start": 284.2,
+      "end": 285.04,
+      "text": "No, no, no."
+    },
+    {
+      "id": 124,
+      "start": 285.04,
+      "end": 287.08,
+      "text": "You said Rust, like the programming language?"
+    },
+    {
+      "id": 125,
+      "start": 287.08,
+      "end": 288.88,
+      "text": "Yeah, but it doesn't let you do it something."
+    },
+    {
+      "id": 126,
+      "start": 288.88,
+      "end": 290.48,
+      "text": "It is something similar to the way they have."
+    },
+    {
+      "id": 127,
+      "start": 290.48,
+      "end": 293.12,
+      "text": "That's what it does."
+    },
+    {
+      "id": 128,
+      "start": 293.12,
+      "end": 293.88,
+      "text": "I mean, this is like a..."
+    },
+    {
+      "id": 129,
+      "start": 293.88,
+      "end": 295.04,
+      "text": "This is a layer above the programming language."
+    },
+    {
+      "id": 130,
+      "start": 295.04,
+      "end": 296.32,
+      "text": "This is like..."
+    },
+    {
+      "id": 131,
+      "start": 296.32,
+      "end": 297.32,
+      "text": "It's a system, right?"
+    },
+    {
+      "id": 132,
+      "start": 297.32,
+      "end": 299.04,
+      "text": "They have to manage memory."
+    },
+    {
+      "id": 133,
+      "start": 299.04,
+      "end": 301.48,
+      "text": "It's also like a C++ constraint."
+    },
+    {
+      "id": 134,
+      "start": 301.48,
+      "end": 303.04,
+      "text": "In the sense that you need to manage memory,"
+    },
+    {
+      "id": 135,
+      "start": 303.04,
+      "end": 304.92,
+      "text": "C++, you don't need to do it in Rust."
+    },
+    {
+      "id": 136,
+      "start": 304.92,
+      "end": 306.32,
+      "text": "Is there a good idea to do this?"
+    },
+    {
+      "id": 137,
+      "start": 306.32,
+      "end": 307.84,
+      "text": "Oh, is there a storage?"
+    },
+    {
+      "id": 138,
+      "start": 307.84,
+      "end": 308.84,
+      "text": "No, no, no."
+    },
+    {
+      "id": 139,
+      "start": 308.84,
+      "end": 309.84,
+      "text": "No, it's memory."
+    },
+    {
+      "id": 140,
+      "start": 309.84,
+      "end": 312.36,
+      "text": "But..."
+    },
+    {
+      "id": 141,
+      "start": 312.36,
+      "end": 313.48,
+      "text": "I mean, the answer is yes."
+    },
+    {
+      "id": 142,
+      "start": 313.48,
+      "end": 315.08,
+      "text": "So in the..."
+    },
+    {
+      "id": 143,
+      "start": 317.08,
+      "end": 318.16,
+      "text": "Rust has..."
+    },
+    {
+      "id": 144,
+      "start": 318.16,
+      "end": 320.8,
+      "text": "Rust is gonna prevent you from like..."
+    },
+    {
+      "id": 145,
+      "start": 320.8,
+      "end": 324.4,
+      "text": "Handing off memory without keeping track of it, right?"
+    },
+    {
+      "id": 146,
+      "start": 324.4,
+      "end": 326.2,
+      "text": "But like that chunk of memory,"
+    },
+    {
+      "id": 147,
+      "start": 326.2,
+      "end": 327.16,
+      "text": "you wanna be able to like..."
+    },
+    {
+      "id": 148,
+      "start": 327.16,
+      "end": 329.48,
+      "text": "You don't want to go malic every single time, right?"
+    },
+    {
+      "id": 149,
+      "start": 329.48,
+      "end": 330.32,
+      "text": "You wanna..."
+    },
+    {
+      "id": 150,
+      "start": 330.32,
+      "end": 332.12,
+      "text": "You wanna memory pull?"
+    },
+    {
+      "id": 151,
+      "start": 332.12,
+      "end": 333.16,
+      "text": "Yeah, yeah."
+    },
+    {
+      "id": 152,
+      "start": 333.16,
+      "end": 337.04,
+      "text": "So like this is a layer above the programming language."
+    },
+    {
+      "id": 153,
+      "start": 337.04,
+      "end": 340.24,
+      "text": "Again, if it was like Java, like a memory manage,"
+    },
+    {
+      "id": 154,
+      "start": 340.24,
+      "end": 344.72,
+      "text": "like memory manage a programming language,"
+    },
+    {
+      "id": 155,
+      "start": 344.72,
+      "end": 347.84,
+      "text": "like even then you wanna avoid like in the JVM,"
+    },
+    {
+      "id": 156,
+      "start": 347.84,
+      "end": 349.12,
+      "text": "you wanna avoid their garbage collection,"
+    },
+    {
+      "id": 157,
+      "start": 349.12,
+      "end": 351.88,
+      "text": "you wanna allocate your own memory, absolutely yes."
+    },
+    {
+      "id": 158,
+      "start": 351.88,
+      "end": 352.72,
+      "text": "Right?"
+    },
+    {
+      "id": 159,
+      "start": 352.72,
+      "end": 355.36,
+      "text": "Where the data is here, we can do anything better"
+    },
+    {
+      "id": 160,
+      "start": 355.36,
+      "end": 358.68,
+      "text": "than what the OS can do or what the JVM"
+    },
+    {
+      "id": 161,
+      "start": 358.68,
+      "end": 359.72,
+      "text": "or whatever can do."
+    },
+    {
+      "id": 162,
+      "start": 359.72,
+      "end": 362.72,
+      "text": "So you wanna manage everything ourselves."
+    },
+    {
+      "id": 163,
+      "start": 362.72,
+      "end": 364.32,
+      "text": "Okay."
+    },
+    {
+      "id": 164,
+      "start": 364.32,
+      "end": 366.04,
+      "text": "So, all right, the first thing I'm gonna talk about is like,"
+    },
+    {
+      "id": 165,
+      "start": 366.04,
+      "end": 367.36,
+      "text": "okay, what is the..."
+    },
+    {
+      "id": 166,
+      "start": 367.36,
+      "end": 372.36,
+      "text": "What do tuples look like, not necessarily the physical level,"
+    },
+    {
+      "id": 167,
+      "start": 372.88,
+      "end": 374.16,
+      "text": "but like, that's not true either."
+    },
+    {
+      "id": 168,
+      "start": 374.16,
+      "end": 377.32,
+      "text": "But like, how are we putting together"
+    },
+    {
+      "id": 169,
+      "start": 377.32,
+      "end": 380.68,
+      "text": "and sending data from one operator to the next,"
+    },
+    {
+      "id": 170,
+      "start": 380.68,
+      "end": 382.12,
+      "text": "not in terms of what the encoding is,"
+    },
+    {
+      "id": 171,
+      "start": 382.12,
+      "end": 383.96,
+      "text": "does in terms of like..."
+    },
+    {
+      "id": 172,
+      "start": 383.96,
+      "end": 387.2,
+      "text": "Are we including all the data we need or some of the data?"
+    },
+    {
+      "id": 173,
+      "start": 387.2,
+      "end": 388.04,
+      "text": "Right?"
+    },
+    {
+      "id": 174,
+      "start": 388.04,
+      "end": 391.04,
+      "text": "So the operator app is gonna define what is actually"
+    },
+    {
+      "id": 175,
+      "start": 391.04,
+      "end": 393.24,
+      "text": "being passed up from one operator to the next,"
+    },
+    {
+      "id": 176,
+      "start": 393.24,
+      "end": 395.24,
+      "text": "whether it's in the same pipeline or not,"
+    },
+    {
+      "id": 177,
+      "start": 395.6,
+      "end": 398.28,
+      "text": "it matters, but like the..."
+    },
+    {
+      "id": 178,
+      "start": 399.88,
+      "end": 401.68,
+      "text": "The Davison will be able to decide, okay,"
+    },
+    {
+      "id": 179,
+      "start": 401.68,
+      "end": 404.72,
+      "text": "at what point do I wanna materialize everything?"
+    },
+    {
+      "id": 180,
+      "start": 404.72,
+      "end": 407.12,
+      "text": "And the, how we're gonna put things together,"
+    },
+    {
+      "id": 181,
+      "start": 407.12,
+      "end": 409.72,
+      "text": "it's gonna depend on what the processing model is."
+    },
+    {
+      "id": 182,
+      "start": 409.72,
+      "end": 410.68,
+      "text": "So in the vectorized case,"
+    },
+    {
+      "id": 183,
+      "start": 410.68,
+      "end": 413.04,
+      "text": "because we wanna operate on columns,"
+    },
+    {
+      "id": 184,
+      "start": 413.04,
+      "end": 415.36,
+      "text": "we don't wanna materialize maybe all the columns"
+    },
+    {
+      "id": 185,
+      "start": 415.36,
+      "end": 417.4,
+      "text": "all at once, because we know we may not need that"
+    },
+    {
+      "id": 186,
+      "start": 417.4,
+      "end": 418.76,
+      "text": "up in the query plan."
+    },
+    {
+      "id": 187,
+      "start": 418.76,
+      "end": 421.6,
+      "text": "Depends on what, you know, is a row store or column store,"
+    },
+    {
+      "id": 188,
+      "start": 421.6,
+      "end": 422.6,
+      "text": "in our case it's a column store,"
+    },
+    {
+      "id": 189,
+      "start": 422.6,
+      "end": 424.32,
+      "text": "so we wanna do a lay materialization."
+    },
+    {
+      "id": 190,
+      "start": 424.48,
+      "end": 426.16,
+      "text": "And depends on what the data requirements are,"
+    },
+    {
+      "id": 191,
+      "start": 426.16,
+      "end": 431.16,
+      "text": "meaning at what point do I actually need certain pieces"
+    },
+    {
+      "id": 192,
+      "start": 431.16,
+      "end": 432.84,
+      "text": "of data in the query plan?"
+    },
+    {
+      "id": 193,
+      "start": 432.84,
+      "end": 436.52,
+      "text": "And how expensive is it gonna be to go get it again"
+    },
+    {
+      "id": 194,
+      "start": 436.52,
+      "end": 438.16,
+      "text": "versus materialize it at the point"
+    },
+    {
+      "id": 195,
+      "start": 438.16,
+      "end": 439.8,
+      "text": "I'm actually scanning the data file?"
+    },
+    {
+      "id": 196,
+      "start": 441.68,
+      "end": 442.84,
+      "text": "Right, so let's say in the case here,"
+    },
+    {
+      "id": 197,
+      "start": 442.84,
+      "end": 446.0,
+      "text": "we wanna do this join on R and S,"
+    },
+    {
+      "id": 198,
+      "start": 446.0,
+      "end": 448.24,
+      "text": "and there's this, you know, the join clause is RID,"
+    },
+    {
+      "id": 199,
+      "start": 448.24,
+      "end": 453.24,
+      "text": "equals SID, so we know that while we're scanning R and S,"
+    },
+    {
+      "id": 200,
+      "start": 453.24,
+      "end": 455.0,
+      "text": "depending on the number of columns that they have"
+    },
+    {
+      "id": 201,
+      "start": 455.0,
+      "end": 457.36,
+      "text": "and how wide the table actually is,"
+    },
+    {
+      "id": 202,
+      "start": 457.36,
+      "end": 460.52,
+      "text": "we know that we all need certain attributes"
+    },
+    {
+      "id": 203,
+      "start": 460.52,
+      "end": 461.96,
+      "text": "from those tables at this point here,"
+    },
+    {
+      "id": 204,
+      "start": 461.96,
+      "end": 463.88,
+      "text": "so what point do we actually materialize the two pull"
+    },
+    {
+      "id": 205,
+      "start": 463.88,
+      "end": 466.72,
+      "text": "so we can do the join, or do the projection above it?"
+    },
+    {
+      "id": 206,
+      "start": 468.04,
+      "end": 469.76,
+      "text": "So to do, or in the materialization,"
+    },
+    {
+      "id": 207,
+      "start": 469.76,
+      "end": 473.04,
+      "text": "the idea is that you, at the moment you're scanning the data,"
+    },
+    {
+      "id": 208,
+      "start": 473.04,
+      "end": 474.6,
+      "text": "at the leaf nodes and the scan operators,"
+    },
+    {
+      "id": 209,
+      "start": 474.6,
+      "end": 476.0,
+      "text": "or whatever part in the query plan,"
+    },
+    {
+      "id": 210,
+      "start": 476.0,
+      "end": 478.88,
+      "text": "you're gonna put the entire two pull together, right?"
+    },
+    {
+      "id": 211,
+      "start": 478.88,
+      "end": 480.28,
+      "text": "And this is easy to do in a row store"
+    },
+    {
+      "id": 212,
+      "start": 480.28,
+      "end": 482.4,
+      "text": "because when you scan the two pull, right,"
+    },
+    {
+      "id": 213,
+      "start": 482.4,
+      "end": 483.56,
+      "text": "everything's right there."
+    },
+    {
+      "id": 214,
+      "start": 483.56,
+      "end": 486.88,
+      "text": "And even the Pax model, it's all gonna be within"
+    },
+    {
+      "id": 215,
+      "start": 486.88,
+      "end": 488.88,
+      "text": "the sort of same row group and close by,"
+    },
+    {
+      "id": 216,
+      "start": 490.32,
+      "end": 492.08,
+      "text": "but depending on how wide the table is,"
+    },
+    {
+      "id": 217,
+      "start": 492.08,
+      "end": 494.16,
+      "text": "you may not actually wanna put it all together, right?"
+    },
+    {
+      "id": 218,
+      "start": 494.16,
+      "end": 496.68,
+      "text": "Cause that's not free, right?"
+    },
+    {
+      "id": 219,
+      "start": 496.68,
+      "end": 498.32,
+      "text": "So if I'm doing this join, again,"
+    },
+    {
+      "id": 220,
+      "start": 498.32,
+      "end": 499.8,
+      "text": "on our earlier materialization,"
+    },
+    {
+      "id": 221,
+      "start": 499.8,
+      "end": 501.68,
+      "text": "then I'm gonna stitch together the entire two pull"
+    },
+    {
+      "id": 222,
+      "start": 501.68,
+      "end": 505.48,
+      "text": "of the two join operator and have that be my output,"
+    },
+    {
+      "id": 223,
+      "start": 505.48,
+      "end": 507.72,
+      "text": "that's gonna be sent from this operator"
+    },
+    {
+      "id": 224,
+      "start": 507.72,
+      "end": 510.0,
+      "text": "to the next operator, right?"
+    },
+    {
+      "id": 225,
+      "start": 511.28,
+      "end": 513.44,
+      "text": "So again, the idea here is that all of the sub-contin"
+    },
+    {
+      "id": 226,
+      "start": 513.44,
+      "end": 516.16,
+      "text": "operators in the query plan never need to go back"
+    },
+    {
+      "id": 227,
+      "start": 516.16,
+      "end": 518.36,
+      "text": "to get more data because we're passing"
+    },
+    {
+      "id": 228,
+      "start": 518.36,
+      "end": 520.76,
+      "text": "the entire materialized two pull up above."
+    },
+    {
+      "id": 229,
+      "start": 522.56,
+      "end": 525.04,
+      "text": "In late materialization, which is what the VELAS people do"
+    },
+    {
+      "id": 230,
+      "start": 525.04,
+      "end": 526.8,
+      "text": "and most of the left system do,"
+    },
+    {
+      "id": 231,
+      "start": 526.8,
+      "end": 529.48,
+      "text": "the idea is that you only wanna pass up"
+    },
+    {
+      "id": 232,
+      "start": 529.48,
+      "end": 532.96,
+      "text": "the bare middle number attributes you actually need"
+    },
+    {
+      "id": 233,
+      "start": 532.96,
+      "end": 533.8,
+      "text": "in the query plan."
+    },
+    {
+      "id": 234,
+      "start": 533.8,
+      "end": 536.4,
+      "text": "And at any point you need to get more data,"
+    },
+    {
+      "id": 235,
+      "start": 536.4,
+      "end": 540.04,
+      "text": "that operator has the ability to go down and get it."
+    },
+    {
+      "id": 236,
+      "start": 540.04,
+      "end": 542.2,
+      "text": "So again, in this case here, doing the join,"
+    },
+    {
+      "id": 237,
+      "start": 542.2,
+      "end": 546.08,
+      "text": "I only materialize the record ID for R and S,"
+    },
+    {
+      "id": 238,
+      "start": 546.08,
+      "end": 549.12,
+      "text": "and then like a two pull ID or an offset that says,"
+    },
+    {
+      "id": 239,
+      "start": 549.12,
+      "end": 550.8,
+      "text": "do not really go find the other attributes"
+    },
+    {
+      "id": 240,
+      "start": 550.8,
+      "end": 552.04,
+      "text": "within the columns below it."
+    },
+    {
+      "id": 241,
+      "start": 553.0,
+      "end": 555.08,
+      "text": "And so that's what gets passed up here"
+    },
+    {
+      "id": 242,
+      "start": 555.08,
+      "end": 556.6,
+      "text": "in the query plan."
+    },
+    {
+      "id": 243,
+      "start": 556.6,
+      "end": 559.64,
+      "text": "So in case of R, I'm just feeding up the two pull ID"
+    },
+    {
+      "id": 244,
+      "start": 559.64,
+      "end": 562.64,
+      "text": "and RID cause it's all I need to do this out of the join."
+    },
+    {
+      "id": 245,
+      "start": 562.64,
+      "end": 564.32,
+      "text": "And the same thing here, once I get passed"
+    },
+    {
+      "id": 246,
+      "start": 564.32,
+      "end": 569.32,
+      "text": "the filter on value, I only need to pass up the SID."
+    },
+    {
+      "id": 247,
+      "start": 571.04,
+      "end": 572.04,
+      "text": "Right?"
+    },
+    {
+      "id": 248,
+      "start": 572.04,
+      "end": 572.88,
+      "text": "Do you do the join?"
+    },
+    {
+      "id": 249,
+      "start": 572.88,
+      "end": 575.88,
+      "text": "But now up above here, after I do my join,"
+    },
+    {
+      "id": 250,
+      "start": 575.88,
+      "end": 577.96,
+      "text": "I have RID cause I was passed up to me,"
+    },
+    {
+      "id": 251,
+      "start": 577.96,
+      "end": 580.96,
+      "text": "but then I don't have the creation date on the S table."
+    },
+    {
+      "id": 252,
+      "start": 580.96,
+      "end": 582.76,
+      "text": "So in this case here, the operator has the ability to say,"
+    },
+    {
+      "id": 253,
+      "start": 582.76,
+      "end": 585.28,
+      "text": "okay, I need this other attribute,"
+    },
+    {
+      "id": 254,
+      "start": 585.28,
+      "end": 587.6,
+      "text": "and it has the capability to ask the system"
+    },
+    {
+      "id": 255,
+      "start": 587.6,
+      "end": 590.76,
+      "text": "to go fetch it for you and then I can stitch it together."
+    },
+    {
+      "id": 256,
+      "start": 590.76,
+      "end": 595.76,
+      "text": "So in this case, you may not always wanna do it this,"
+    },
+    {
+      "id": 257,
+      "start": 595.76,
+      "end": 599.96,
+      "text": "but it may be the case that the cost of going fetching"
+    }
+  ],
+  "language": "en"
+}

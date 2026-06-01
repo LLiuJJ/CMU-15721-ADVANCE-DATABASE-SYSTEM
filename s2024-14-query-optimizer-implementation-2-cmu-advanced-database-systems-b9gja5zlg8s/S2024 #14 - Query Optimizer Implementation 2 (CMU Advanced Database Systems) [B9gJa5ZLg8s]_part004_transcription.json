@@ -1,0 +1,371 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 9.0,
+      "text": "So, trivia plan shortcut, select one, or select star from table, limit zero, things like that."
+    },
+    {
+      "id": 1,
+      "start": 9.0,
+      "end": 16.0,
+      "text": "Projection normalization, how to identify the stats, sorry, projection normalization, cleaning up what's in the select output."
+    },
+    {
+      "id": 2,
+      "start": 16.0,
+      "end": 24.0,
+      "text": "They do an interesting thing where they identify at this point here that they don't have all the stats they would need to,"
+    },
+    {
+      "id": 3,
+      "start": 24.0,
+      "end": 36.0,
+      "text": "in their cost model to give good estimates, they will actually stop the query planning, go tell the system to go run analyze now, collect the data that it's actually missing,"
+    },
+    {
+      "id": 4,
+      "start": 36.0,
+      "end": 47.0,
+      "text": "imagine the very beginning, if you're just bulk load of table you need something, and then when that's available, then they can come back and start doing some initial card net estimates and then join collapsing when possible."
+    },
+    {
+      "id": 5,
+      "start": 47.0,
+      "end": 61.0,
+      "text": "Then they get to the cost based search, and this can still as we multi-stage where they're going to have the first group of transformations that they're allowed to consider, and then over time is the number of transformations that they're applied,"
+    },
+    {
+      "id": 6,
+      "start": 61.0,
+      "end": 69.0,
+      "text": "because that's how they're keeping track of how long the search is going, but then expand the set of transformations that are looking at to do more complicated things."
+    },
+    {
+      "id": 7,
+      "start": 69.0,
+      "end": 86.0,
+      "text": "So in the very beginning it's for dealing with things like trivial plans, like look ups on a single table where there's primary key index and stuff like that, and then if you still don't find the optimal plan, then you expand that out to a quick estimation on how to do a parallel plan."
+    },
+    {
+      "id": 8,
+      "start": 86.0,
+      "end": 101.0,
+      "text": "Again now you may be looking at joining multiple tables, it's more than going looking up a single table, and then if there's still more time in the clock as you go along, then you can open up to a larger search for the full plan."
+    },
+    {
+      "id": 9,
+      "start": 102.0,
+      "end": 116.0,
+      "text": "And then in the last eight step, and then this is still within the cascade optimizer rules, for all the different database engines or systems that they're trying to run and support through cascades, they would then have engine-specific transformations that they can apply."
+    },
+    {
+      "id": 10,
+      "start": 116.0,
+      "end": 135.0,
+      "text": "So for example, I think for synapses, like distributed data warehouse, based on SQL Server, we'll cover it in the semester, like you want to do distributed joins or broadcast joins and so forth, like all those things can apply separately in this last stage here, because that's building upon the plan you've built up so far."
+    },
+    {
+      "id": 11,
+      "start": 135.0,
+      "end": 136.0,
+      "text": "Yes."
+    },
+    {
+      "id": 12,
+      "start": 136.0,
+      "end": 146.0,
+      "text": "So for this cost-based search and utilization and the pre-exploration phase, I'm not completely sure I understand how you're going to decide how to operate."
+    },
+    {
+      "id": 13,
+      "start": 146.0,
+      "end": 153.0,
+      "text": "I would use the memory table you've probably didn't have got your search, but how do you really don't think things are based on your analysis of the query?"
+    },
+    {
+      "id": 14,
+      "start": 153.0,
+      "end": 157.0,
+      "text": "The question is how do you pre-populate the memory table to see the search ahead of time?"
+    },
+    {
+      "id": 15,
+      "start": 157.0,
+      "end": 163.0,
+      "text": "So it would be populate in the memory table, but also populating the groups you've generated."
+    },
+    {
+      "id": 16,
+      "start": 163.0,
+      "end": 178.0,
+      "text": "For this multi-expression on this, say joining three tables, if I know something in these early stages about, I always want to have this be the outer table in the inner table, I'll see that that transformation ahead of time."
+    },
+    {
+      "id": 17,
+      "start": 179.0,
+      "end": 188.0,
+      "text": "And then if I have the estimate at this point, getting past this step here, then I could put that cost in the memory table right away."
+    },
+    {
+      "id": 18,
+      "start": 190.0,
+      "end": 195.0,
+      "text": "So as I said before, the timeouts are always based on the number of transformations, not the walk-lock time."
+    },
+    {
+      "id": 19,
+      "start": 195.0,
+      "end": 207.0,
+      "text": "And then what's nice about this as they bring up is that, as I said, no matter what hardware you're running on, you could still, you could always generate the same query planning."
+    },
+    {
+      "id": 20,
+      "start": 207.0,
+      "end": 224.0,
+      "text": "And then the same query plan, given the same database. And then if the system gets overloaded, because again, in this environment, it's not a, you know, in traditional SQL Server, it's like, you know, a single system where like the optimizer runs on the same box and the same hardware as, you know, the execution engine."
+    },
+    {
+      "id": 21,
+      "start": 224.0,
+      "end": 233.0,
+      "text": "So if the system gets overloaded, then the time it takes to actually optimize the query is going to take longer because the threads are burning up, burning queries are doing whatever."
+    },
+    {
+      "id": 22,
+      "start": 234.0,
+      "end": 245.0,
+      "text": "So if you, based on walk-lock, if I run the query today and it's the system that overloaded, I run the same query tomorrow, I may get a different plan if it's overloaded if I'm looking at walk-lock time because everything was so much slower."
+    },
+    {
+      "id": 23,
+      "start": 245.0,
+      "end": 251.0,
+      "text": "So this guarantees that, you know, no matter what, I always see the, I always get the best plan for the same plan."
+    },
+    {
+      "id": 24,
+      "start": 252.0,
+      "end": 260.0,
+      "text": "And then as we said before, you wouldn't pre-properly the memo table with useful join orderings. Again, this is just your rules, rules to make sure that things land."
+    },
+    {
+      "id": 25,
+      "start": 260.0,
+      "end": 275.0,
+      "text": "Sorry, that you, you, you seeding the search in a way that you find the best, the best join earlier. And as this is very similar to the Oracle one, the order that they appear in the SQL queries, the order that, you know, they don't get seeded into the memo table."
+    },
+    {
+      "id": 26,
+      "start": 275.0,
+      "end": 280.0,
+      "text": "Which sometimes makes sense, which Oracle did for a long time."
+    },
+    {
+      "id": 27,
+      "start": 280.0,
+      "end": 293.0,
+      "text": "But CalSci and Oracle, I don't want to talk too much about, but I think everyone here is aware of them. Right, these are separate, these are standalone query optimizers as a service."
+    },
+    {
+      "id": 28,
+      "start": 293.0,
+      "end": 301.0,
+      "text": "CalSci is way more, is used way more than, than Oracle. It's written in Java, so that limits how many people actually want to use this."
+    },
+    {
+      "id": 29,
+      "start": 301.0,
+      "end": 318.0,
+      "text": "But the, it's, CalSci is an entity beast because they, I think they have their own, their connectors are able to run queries and things like that. Like it's, it's more than just a query optimizer, but mostly for the SQL parser and, and then the query optimizer. But you basically have to define, it comes with a bunch of existing rules."
+    },
+    {
+      "id": 30,
+      "start": 318.0,
+      "end": 327.0,
+      "text": "But if you want to then extend it to whatever system you want to support, you can then define through their Java code. Here's the rules I want to transform things. Here's how to do call model estimates and so forth."
+    },
+    {
+      "id": 31,
+      "start": 328.0,
+      "end": 340.0,
+      "text": "So this originally came out of a urm he in system called luciddb. This went under, and then they, I think it was a startup and they took the pieces out of this and that became CalSci."
+    },
+    {
+      "id": 32,
+      "start": 340.0,
+      "end": 343.0,
+      "text": "And it's, again, it's user a lot of systems."
+    },
+    {
+      "id": 33,
+      "start": 344.0,
+      "end": 356.0,
+      "text": "Greenplum is the equivalent to CalSci, but maybe the less, it's the less, pluggable focus. Like with CalSci, you say, you have like, here's my snowflake dialect, here's my post-crystallic."
+    },
+    {
+      "id": 34,
+      "start": 356.0,
+      "end": 363.0,
+      "text": "It supports a bunch of different dialects going in, and I think a bunch of different dialects going out. Or, or, or, is, is more focused on this new appear query optimizations."
+    },
+    {
+      "id": 35,
+      "start": 363.0,
+      "end": 378.0,
+      "text": "So this is originally written at, I keep track of, I always track of who bought what? Greenplum got bought by EMC, EMC got bought by Dell or VMware."
+    },
+    {
+      "id": 36,
+      "start": 378.0,
+      "end": 391.0,
+      "text": "And then VMware, and then, nah, no, here, EMC, Greenplum got by EMC, and then VMware bought another company called Pivotal. And so EMC had a database products, and then VMware had data as products, and they didn't know what to do with them."
+    },
+    {
+      "id": 37,
+      "start": 391.0,
+      "end": 402.0,
+      "text": "So they merged the two, they spun out, there's two divisions of these two companies, and then they formed Pivotal, and then Pivotal eventually got bought back by, by VMware."
+    },
+    {
+      "id": 38,
+      "start": 402.0,
+      "end": 410.0,
+      "text": "Jignesh was out there for a while, because his startup got bought by them. Anyway, so they were supporting Greenplum, which is still in this today, is why they use it."
+    },
+    {
+      "id": 39,
+      "start": 410.0,
+      "end": 433.0,
+      "text": "It's a fork of, of Postgres, make like distributed, and run, run, oh that queries. And then they had this thing called Hawk, which there was in the hive, which is Seaco on top of a, a, a, a, a, a, a, a, a, a, a, a, a, do, but then rather building a separate query optimizer for, for Hawk, and if they have a query optimizer for, for Greenplum, they decided let's build a single optimizer as the service, and have support both Hawk and Replum, and whatever system you want to, you want to hook up to it."
+    },
+    {
+      "id": 40,
+      "start": 433.0,
+      "end": 451.0,
+      "text": "Hawk is still around, and nobody actually uses it, Greenplum is still around, and so that's the, the, the, the primary user of Oracle. But it's like CalSight, we're getting you, had this API, you have to implement, here's, here's what my catalog looks like, here's what my logical plans, and physical plans will look like, here's the rules I want you to support, and they, you, you plug all that in, and, and you can use it."
+    },
+    {
+      "id": 41,
+      "start": 451.0,
+      "end": 463.0,
+      "text": "We looked at this, almost 10 years ago, to use it, and it says when we were building, at a time they had like zero documentation, and it was just like, you send a bunch of XML files, and it would spit things out, and we decided not, not to pursue it."
+    },
+    {
+      "id": 42,
+      "start": 463.0,
+      "end": 469.0,
+      "text": "But it's still, it's actually maintained that it, but again, I don't think it's used anywhere outside of Greenplum, CalSight's more, more common."
+    },
+    {
+      "id": 43,
+      "start": 469.0,
+      "end": 477.0,
+      "text": "So there's a paper that they wrote on Oracle, and they talk about a couple interesting things that are relevant through some of the discussions you've had."
+    },
+    {
+      "id": 44,
+      "start": 477.0,
+      "end": 485.0,
+      "text": "Maybe this is less of an issue, if you're running, you're not running, less of an issue, if you're running on the cloud, because you can told the machine, you can told everything, you can see everything."
+    },
+    {
+      "id": 45,
+      "start": 485.0,
+      "end": 499.0,
+      "text": "But at the time for on-prem, this was, this was tricky. So if someone's running your software on the, you know, on, on their hardware, if your optimized crashes are produced as a bad query plan, how do you actually then try to debug that and improve things?"
+    },
+    {
+      "id": 46,
+      "start": 499.0,
+      "end": 506.0,
+      "text": "Right? So if someone sends a support ticket to, hey, my query went slow, you know, you don't have, you, they can give you the SQL query, but if you don't have the right environment,"
+    },
+    {
+      "id": 47,
+      "start": 506.0,
+      "end": 512.0,
+      "text": "if you don't have the right data, and you don't know what, you don't know what choices the optimized made when it was doing the search, it's hard to debug this."
+    },
+    {
+      "id": 48,
+      "start": 512.0,
+      "end": 527.0,
+      "text": "So they had the ability to have the optimizer spit out a complete state of, of its search for a given query, and then send that back to the home base for the developers to then, almost like walk through exactly."
+    },
+    {
+      "id": 49,
+      "start": 527.0,
+      "end": 535.0,
+      "text": "Here's all the decisions that the optimized made to when it generated the query plan. They can use that to figure out, you know, why it made certain choices over another."
+    },
+    {
+      "id": 50,
+      "start": 536.0,
+      "end": 541.0,
+      "text": "Again, if you're running in the cloud, you control everything, you can figure things out, you don't have to do this."
+    },
+    {
+      "id": 51,
+      "start": 541.0,
+      "end": 555.0,
+      "text": "But another interesting thing they do is make sure that the, the cost model estimates are accurate. They would do this thing where they would run a, take a SQL query, run it through the optimizer, and they would keep track of the best plan and the second best plan."
+    },
+    {
+      "id": 52,
+      "start": 556.0,
+      "end": 571.0,
+      "text": "Or maybe the top 10 best plans, and they would, and then in the background they would run all of them, and then see that the relative ordering of what the ROS model thought was the best plans actually matches up with reality when you actually run the queries, and they would use that to then tweak things and improve things."
+    },
+    {
+      "id": 53,
+      "start": 571.0,
+      "end": 572.0,
+      "text": "Yes."
+    },
+    {
+      "id": 54,
+      "start": 573.0,
+      "end": 585.0,
+      "text": "Yes, but for like, but Mongo didn't have, like, had this is, MongoDB doesn't have a, didn't have a cost model. It literally just like, here they are, and then whatever to come back, right?"
+    },
+    {
+      "id": 55,
+      "start": 585.0,
+      "end": 590.0,
+      "text": "This is trying to see whether your cost model is predicting the right, you know, physical costs."
+    },
+    {
+      "id": 56,
+      "start": 590.0,
+      "end": 592.0,
+      "text": "And they adjusted it."
+    },
+    {
+      "id": 57,
+      "start": 592.0,
+      "end": 593.0,
+      "text": "They adjusted it itself."
+    },
+    {
+      "id": 58,
+      "start": 593.0,
+      "end": 601.0,
+      "text": "Right. So yes, at a high level, it's the same as Mongo, but Mongo is not trying to verify whether the cost model estimates are correct."
+    },
+    {
+      "id": 59,
+      "start": 601.0,
+      "end": 603.0,
+      "text": "So there's running it."
+    },
+    {
+      "id": 60,
+      "start": 603.0,
+      "end": 604.0,
+      "text": "Again, I,"
+    }
+  ],
+  "language": "en"
+}

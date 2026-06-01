@@ -1,0 +1,539 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.78,
+      "text": "on Redshift each year, right?"
+    },
+    {
+      "id": 1,
+      "start": 2.78,
+      "end": 4.24,
+      "text": "They don't report this publicly,"
+    },
+    {
+      "id": 2,
+      "start": 4.24,
+      "end": 6.24,
+      "text": "but I think AWS makes,"
+    },
+    {
+      "id": 3,
+      "start": 6.24,
+      "end": 9.88,
+      "text": "I think it's 100 billion a year."
+    },
+    {
+      "id": 4,
+      "start": 9.88,
+      "end": 12.28,
+      "text": "And I know that Redshift was, as the paper talks about,"
+    },
+    {
+      "id": 5,
+      "start": 12.28,
+      "end": 14.76,
+      "text": "was the fastest growing servers"
+    },
+    {
+      "id": 6,
+      "start": 14.76,
+      "end": 16.32,
+      "text": "that they added in AWS."
+    },
+    {
+      "id": 7,
+      "start": 16.32,
+      "end": 18.92,
+      "text": "That I think got replaced by Aurora,"
+    },
+    {
+      "id": 8,
+      "start": 18.92,
+      "end": 21.92,
+      "text": "then that was the newest fastest growing one."
+    },
+    {
+      "id": 9,
+      "start": 21.92,
+      "end": 23.52,
+      "text": "And for all this, and also,"
+    },
+    {
+      "id": 10,
+      "start": 23.52,
+      "end": 24.68,
+      "text": "I don't know what happens to happen there,"
+    },
+    {
+      "id": 11,
+      "start": 24.68,
+      "end": 26.92,
+      "text": "but they're making a ton of money on Redshift."
+    },
+    {
+      "id": 12,
+      "start": 26.92,
+      "end": 29.44,
+      "text": "But like Park Cell, they got acquired"
+    },
+    {
+      "id": 13,
+      "start": 29.44,
+      "end": 33.76,
+      "text": "by Action in 2013 for not much."
+    },
+    {
+      "id": 14,
+      "start": 33.76,
+      "end": 35.76,
+      "text": "And then Action then rebranded"
+    },
+    {
+      "id": 15,
+      "start": 35.76,
+      "end": 38.24,
+      "text": "as this thing called Action Matrix,"
+    },
+    {
+      "id": 16,
+      "start": 38.24,
+      "end": 40.12,
+      "text": "but then they killed off in 2016."
+    },
+    {
+      "id": 17,
+      "start": 40.12,
+      "end": 41.0,
+      "text": "So as I said in the beginning,"
+    },
+    {
+      "id": 18,
+      "start": 41.0,
+      "end": 44.92,
+      "text": "Amazon bought the license to Park Cell"
+    },
+    {
+      "id": 19,
+      "start": 44.92,
+      "end": 46.96,
+      "text": "for maybe 20 million,"
+    },
+    {
+      "id": 20,
+      "start": 46.96,
+      "end": 49.36,
+      "text": "and they're making billions per year off of it."
+    },
+    {
+      "id": 21,
+      "start": 49.36,
+      "end": 51.7,
+      "text": "Now again, there's obviously,"
+    },
+    {
+      "id": 22,
+      "start": 51.7,
+      "end": 54.16,
+      "text": "Harbor Costs, there's labor cost to build this."
+    },
+    {
+      "id": 23,
+      "start": 54.16,
+      "end": 56.24,
+      "text": "But obviously from their perspective,"
+    },
+    {
+      "id": 24,
+      "start": 56.24,
+      "end": 57.32,
+      "text": "that was cut through."
+    },
+    {
+      "id": 25,
+      "start": 58.32,
+      "end": 60.64,
+      "text": "That was a gangster move in their park."
+    },
+    {
+      "id": 26,
+      "start": 62.48,
+      "end": 64.36,
+      "text": "Here it's hard to act in."
+    },
+    {
+      "id": 27,
+      "start": 64.36,
+      "end": 65.24,
+      "text": "Nobody."
+    },
+    {
+      "id": 28,
+      "start": 65.24,
+      "end": 68.24,
+      "text": "Action is what ingress became, or so, ingress is."
+    },
+    {
+      "id": 29,
+      "start": 68.24,
+      "end": 70.12,
+      "text": "So ingress went public,"
+    },
+    {
+      "id": 30,
+      "start": 70.12,
+      "end": 72.88,
+      "text": "and ingress is one of the first relational systems."
+    },
+    {
+      "id": 31,
+      "start": 72.88,
+      "end": 74.16,
+      "text": "It's before Postgres."
+    },
+    {
+      "id": 32,
+      "start": 74.16,
+      "end": 75.88,
+      "text": "They went public in the 80s,"
+    },
+    {
+      "id": 33,
+      "start": 75.88,
+      "end": 78.08,
+      "text": "got bought by computer associates,"
+    },
+    {
+      "id": 34,
+      "start": 78.08,
+      "end": 81.0,
+      "text": "got a hand and all passed around over a couple of years."
+    },
+    {
+      "id": 35,
+      "start": 81.0,
+      "end": 83.4,
+      "text": "They end up being a new holding company"
+    },
+    {
+      "id": 36,
+      "start": 83.4,
+      "end": 87.24,
+      "text": "that they then changed the name from some ingress to Action."
+    },
+    {
+      "id": 37,
+      "start": 87.4,
+      "end": 92.2,
+      "text": "And then now they basically buy up a bunch of these databases"
+    },
+    {
+      "id": 38,
+      "start": 92.2,
+      "end": 94.04,
+      "text": "that are kind of in maintenance mode,"
+    },
+    {
+      "id": 39,
+      "start": 94.04,
+      "end": 95.52,
+      "text": "Park Cell's in one of them."
+    },
+    {
+      "id": 40,
+      "start": 95.52,
+      "end": 97.84,
+      "text": "They actually bought vector wise."
+    },
+    {
+      "id": 41,
+      "start": 97.84,
+      "end": 98.68,
+      "text": "That was in maintenance mode."
+    },
+    {
+      "id": 42,
+      "start": 98.68,
+      "end": 100.04,
+      "text": "That was actually,"
+    },
+    {
+      "id": 43,
+      "start": 100.04,
+      "end": 101.88,
+      "text": "they were trying to do something real with that."
+    },
+    {
+      "id": 44,
+      "start": 101.88,
+      "end": 104.16,
+      "text": "But they bought pervasive."
+    },
+    {
+      "id": 45,
+      "start": 104.16,
+      "end": 105.48,
+      "text": "They buy bunch of these older databases"
+    },
+    {
+      "id": 46,
+      "start": 105.48,
+      "end": 106.72,
+      "text": "and they sort of milked maintenance fees."
+    },
+    {
+      "id": 47,
+      "start": 106.72,
+      "end": 109.52,
+      "text": "Then they got bought by another holding company at India."
+    },
+    {
+      "id": 48,
+      "start": 110.76,
+      "end": 112.92,
+      "text": "And so they still sell ingress."
+    },
+    {
+      "id": 49,
+      "start": 112.92,
+      "end": 114.8,
+      "text": "I think they, I don't know whether they killed,"
+    },
+    {
+      "id": 50,
+      "start": 114.8,
+      "end": 115.92,
+      "text": "I think they still call it ingress."
+    },
+    {
+      "id": 51,
+      "start": 115.92,
+      "end": 116.76,
+      "text": "I might be wrong."
+    },
+    {
+      "id": 52,
+      "start": 117.16,
+      "end": 120.08,
+      "text": "So Park Cell again sold off for 20 million."
+    },
+    {
+      "id": 53,
+      "start": 120.08,
+      "end": 122.36,
+      "text": "So, sold the license for 20 million."
+    },
+    {
+      "id": 54,
+      "start": 122.36,
+      "end": 123.6,
+      "text": "I don't know how much they got bought for,"
+    },
+    {
+      "id": 55,
+      "start": 123.6,
+      "end": 125.6,
+      "text": "but I don't think it was that much."
+    },
+    {
+      "id": 56,
+      "start": 125.6,
+      "end": 126.64,
+      "text": "And then it died."
+    },
+    {
+      "id": 57,
+      "start": 126.64,
+      "end": 127.76,
+      "text": "And then Redshift lives on."
+    },
+    {
+      "id": 58,
+      "start": 129.32,
+      "end": 130.84,
+      "text": "Again, a lot of money and databases."
+    },
+    {
+      "id": 59,
+      "start": 133.08,
+      "end": 135.84,
+      "text": "All right, so that's it for this semester."
+    },
+    {
+      "id": 60,
+      "start": 135.84,
+      "end": 138.12,
+      "text": "This has been fun having you guys."
+    },
+    {
+      "id": 61,
+      "start": 138.12,
+      "end": 141.32,
+      "text": "This is the first semester we've only had one person drop"
+    },
+    {
+      "id": 62,
+      "start": 141.32,
+      "end": 142.16,
+      "text": "into our semester."
+    },
+    {
+      "id": 63,
+      "start": 143.12,
+      "end": 147.76,
+      "text": "And it wasn't for reasons outside of their control."
+    },
+    {
+      "id": 64,
+      "start": 147.76,
+      "end": 150.08,
+      "text": "So again, I appreciate everyone being here."
+    },
+    {
+      "id": 65,
+      "start": 150.08,
+      "end": 153.04,
+      "text": "Thursday, next week we'll do the final presentations."
+    },
+    {
+      "id": 66,
+      "start": 153.04,
+      "end": 154.64,
+      "text": "It'll be random order this time."
+    },
+    {
+      "id": 67,
+      "start": 156.04,
+      "end": 157.56,
+      "text": "You don't want to be this for us."
+    },
+    {
+      "id": 68,
+      "start": 157.56,
+      "end": 158.56,
+      "text": "Yeah."
+    },
+    {
+      "id": 69,
+      "start": 160.28,
+      "end": 161.88,
+      "text": "Hey, randoms random."
+    },
+    {
+      "id": 70,
+      "start": 163.88,
+      "end": 165.72,
+      "text": "And then I would say I didn't take Redshift."
+    },
+    {
+      "id": 71,
+      "start": 165.72,
+      "end": 167.28,
+      "text": "You didn't take Redshift last for any reason"
+    },
+    {
+      "id": 72,
+      "start": 167.28,
+      "end": 168.88,
+      "text": "because it was like the greatest, whatever."
+    },
+    {
+      "id": 73,
+      "start": 168.88,
+      "end": 170.72,
+      "text": "I didn't think it just covers a bunch of stuff"
+    },
+    {
+      "id": 74,
+      "start": 171.4,
+      "end": 173.04,
+      "text": "that we've already covered."
+    },
+    {
+      "id": 75,
+      "start": 173.04,
+      "end": 174.04,
+      "text": "And I want to make sure I include it"
+    },
+    {
+      "id": 76,
+      "start": 174.04,
+      "end": 175.84,
+      "text": "because it's a large system."
+    },
+    {
+      "id": 77,
+      "start": 177.6,
+      "end": 178.52,
+      "text": "I don't have office hours today"
+    },
+    {
+      "id": 78,
+      "start": 178.52,
+      "end": 180.16,
+      "text": "because I got ahead of the airport."
+    },
+    {
+      "id": 79,
+      "start": 180.16,
+      "end": 183.16,
+      "text": "But send any emails that we want to talk personally"
+    },
+    {
+      "id": 80,
+      "start": 183.16,
+      "end": 185.56,
+      "text": "this weekend or send me emails of it."
+    },
+    {
+      "id": 81,
+      "start": 185.56,
+      "end": 189.0,
+      "text": "You want additional information about your presentation"
+    },
+    {
+      "id": 82,
+      "start": 189.0,
+      "end": 189.88,
+      "text": "should be."
+    },
+    {
+      "id": 83,
+      "start": 189.88,
+      "end": 192.68,
+      "text": "And then the final thing, again, the PDF is on Piazza."
+    },
+    {
+      "id": 84,
+      "start": 193.88,
+      "end": 195.12,
+      "text": "If you have any clarification questions,"
+    },
+    {
+      "id": 85,
+      "start": 195.12,
+      "end": 197.24,
+      "text": "post that in the Piazza below."
+    },
+    {
+      "id": 86,
+      "start": 197.24,
+      "end": 198.88,
+      "text": "Okay?"
+    },
+    {
+      "id": 87,
+      "start": 198.88,
+      "end": 200.68,
+      "text": "All right guys, good luck with your extra classes."
+    },
+    {
+      "id": 88,
+      "start": 200.72,
+      "end": 201.56,
+      "text": "See ya."
+    }
+  ],
+  "language": "en"
+}

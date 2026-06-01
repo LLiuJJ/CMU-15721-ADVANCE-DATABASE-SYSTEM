@@ -1,0 +1,1373 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.24,
+      "text": "And people, you have to do this when you don't,"
+    },
+    {
+      "id": 1,
+      "start": 2.24,
+      "end": 5.62,
+      "text": "we can't support DAGs in your query plan."
+    },
+    {
+      "id": 2,
+      "start": 5.62,
+      "end": 7.82,
+      "text": "Again, we'll cover how to do this all"
+    },
+    {
+      "id": 3,
+      "start": 7.82,
+      "end": 10.42,
+      "text": "more thoroughly next week and we'll"
+    },
+    {
+      "id": 4,
+      "start": 10.42,
+      "end": 12.2,
+      "text": "talk about query optimization for the Germans."
+    },
+    {
+      "id": 5,
+      "start": 12.2,
+      "end": 13.56,
+      "text": "Question? Sorry."
+    },
+    {
+      "id": 6,
+      "start": 13.56,
+      "end": 15.62,
+      "text": "Okay. All right."
+    },
+    {
+      "id": 7,
+      "start": 15.62,
+      "end": 17.26,
+      "text": "So rewriting is as I said before,"
+    },
+    {
+      "id": 8,
+      "start": 17.26,
+      "end": 18.54,
+      "text": "we take this guy."
+    },
+    {
+      "id": 9,
+      "start": 18.54,
+      "end": 21.46,
+      "text": "This is some query inside of our warehouse,"
+    },
+    {
+      "id": 10,
+      "start": 21.46,
+      "end": 24.82,
+      "text": "we have an estaquery, and then we can pull this out and"
+    },
+    {
+      "id": 11,
+      "start": 24.82,
+      "end": 28.5,
+      "text": "basically do a join and we see that we're doing a join on"
+    },
+    {
+      "id": 12,
+      "start": 28.5,
+      "end": 31.76,
+      "text": "the order table on the user table."
+    },
+    {
+      "id": 13,
+      "start": 31.76,
+      "end": 32.86,
+      "text": "In this case, this person here,"
+    },
+    {
+      "id": 14,
+      "start": 32.86,
+      "end": 35.7,
+      "text": "we would recognize that we know the relationship between"
+    },
+    {
+      "id": 15,
+      "start": 35.7,
+      "end": 37.3,
+      "text": "the order table and the user table and we realize,"
+    },
+    {
+      "id": 16,
+      "start": 37.3,
+      "end": 39.54,
+      "text": "oh, we don't even need to access the user table because"
+    },
+    {
+      "id": 17,
+      "start": 39.54,
+      "end": 41.66,
+      "text": "everything we need is in the order table itself."
+    },
+    {
+      "id": 18,
+      "start": 41.66,
+      "end": 43.66,
+      "text": "So in this case here, this is the best case scenario that we went"
+    },
+    {
+      "id": 19,
+      "start": 43.66,
+      "end": 44.66,
+      "text": "from a nested query."
+    },
+    {
+      "id": 20,
+      "start": 44.66,
+      "end": 46.38,
+      "text": "Instead of having to invoke this nested query for"
+    },
+    {
+      "id": 21,
+      "start": 46.38,
+      "end": 49.1,
+      "text": "every single row, every single record on the order table,"
+    },
+    {
+      "id": 22,
+      "start": 49.1,
+      "end": 52.14,
+      "text": "we can just remove the accessing the order table entirely."
+    },
+    {
+      "id": 23,
+      "start": 52.14,
+      "end": 53.66,
+      "text": "So the user table entirely."
+    },
+    {
+      "id": 24,
+      "start": 53.66,
+      "end": 54.98,
+      "text": "And that'll be a big win."
+    },
+    {
+      "id": 25,
+      "start": 54.98,
+      "end": 57.98,
+      "text": "All right."
+    },
+    {
+      "id": 26,
+      "start": 57.98,
+      "end": 59.9,
+      "text": "So the other thing we're going to rely on in addition to"
+    },
+    {
+      "id": 27,
+      "start": 59.9,
+      "end": 61.5,
+      "text": "nested queries is through lateral joins."
+    },
+    {
+      "id": 28,
+      "start": 61.5,
+      "end": 63.38,
+      "text": "I think we covered that also in the interclass as well."
+    },
+    {
+      "id": 29,
+      "start": 63.38,
+      "end": 65.78,
+      "text": "I think the first homework required it."
+    },
+    {
+      "id": 30,
+      "start": 65.78,
+      "end": 68.14,
+      "text": "And the idea here, a lateral join is that it's going to allow"
+    },
+    {
+      "id": 31,
+      "start": 68.14,
+      "end": 74.46,
+      "text": "a sub query in our from clause to reference a value or"
+    },
+    {
+      "id": 32,
+      "start": 74.46,
+      "end": 81.02,
+      "text": "attributes in other nested queries at the same sort of"
+    },
+    {
+      "id": 33,
+      "start": 81.02,
+      "end": 82.46,
+      "text": "nesting level."
+    },
+    {
+      "id": 34,
+      "start": 82.46,
+      "end": 83.94,
+      "text": "Again, you can't do this in joins, right?"
+    },
+    {
+      "id": 35,
+      "start": 83.94,
+      "end": 87.62,
+      "text": "Typically, if you have a sub query joined a sub query,"
+    },
+    {
+      "id": 36,
+      "start": 87.62,
+      "end": 91.22,
+      "text": "those two sub queries can't peek into each other and see"
+    },
+    {
+      "id": 37,
+      "start": 91.22,
+      "end": 93.34,
+      "text": "what they're actually what they have."
+    },
+    {
+      "id": 38,
+      "start": 93.34,
+      "end": 95.22,
+      "text": "A lateral join allows you to do that."
+    },
+    {
+      "id": 39,
+      "start": 95.22,
+      "end": 96.98,
+      "text": "And this is how we're going to be able to guarantee that,"
+    },
+    {
+      "id": 40,
+      "start": 96.98,
+      "end": 98.74,
+      "text": "again, we'll execute the queries in the order that they're"
+    },
+    {
+      "id": 41,
+      "start": 98.74,
+      "end": 100.98,
+      "text": "specified in the EDF."
+    },
+    {
+      "id": 42,
+      "start": 100.98,
+      "end": 103.78,
+      "text": "So if this thing of that is like a bunch of sort of four"
+    },
+    {
+      "id": 43,
+      "start": 103.78,
+      "end": 108.54,
+      "text": "loops where for each clause in the lateral join, I'm"
+    },
+    {
+      "id": 44,
+      "start": 108.54,
+      "end": 111.34,
+      "text": "iterating over every single tuple."
+    },
+    {
+      "id": 45,
+      "start": 111.34,
+      "end": 113.98,
+      "text": "And if necessary, I can then invoke and look to look"
+    },
+    {
+      "id": 46,
+      "start": 113.98,
+      "end": 119.42,
+      "text": "at the results on the previous join, the previous table."
+    },
+    {
+      "id": 47,
+      "start": 119.42,
+      "end": 120.82,
+      "text": "So look at example like this."
+    },
+    {
+      "id": 48,
+      "start": 120.82,
+      "end": 124.02,
+      "text": "So here I'm specifying that I have an inner join with a"
+    },
+    {
+      "id": 49,
+      "start": 124.02,
+      "end": 125.06,
+      "text": "lateral."
+    },
+    {
+      "id": 50,
+      "start": 125.06,
+      "end": 128.58,
+      "text": "And then inside of this nested query here, you can see that"
+    },
+    {
+      "id": 51,
+      "start": 128.58,
+      "end": 132.94,
+      "text": "I'm allowed to reference the select query up here."
+    },
+    {
+      "id": 52,
+      "start": 132.94,
+      "end": 137.42,
+      "text": "I can reference like the order user ID and other things up"
+    },
+    {
+      "id": 53,
+      "start": 137.42,
+      "end": 139.74,
+      "text": "and here."
+    },
+    {
+      "id": 54,
+      "start": 139.74,
+      "end": 142.58,
+      "text": "So this reference here, oh, I UICD is this one up here."
+    },
+    {
+      "id": 55,
+      "start": 142.58,
+      "end": 144.14,
+      "text": "And this first order is this one up there."
+    },
+    {
+      "id": 56,
+      "start": 147.82,
+      "end": 151.3,
+      "text": "And again, the query optimizer just knows that, OK, the"
+    },
+    {
+      "id": 57,
+      "start": 151.3,
+      "end": 152.58,
+      "text": "binder needs to figure out, OK, I'm"
+    },
+    {
+      "id": 58,
+      "start": 152.58,
+      "end": 153.78,
+      "text": "referencing these things here."
+    },
+    {
+      "id": 59,
+      "start": 153.78,
+      "end": 156.54,
+      "text": "And a lateral join allows me to get a peak up to the one above"
+    },
+    {
+      "id": 60,
+      "start": 156.54,
+      "end": 157.58,
+      "text": "me and be able to see what they have."
+    },
+    {
+      "id": 61,
+      "start": 160.86,
+      "end": 161.98,
+      "text": "This example is a bit abstract."
+    },
+    {
+      "id": 62,
+      "start": 161.98,
+      "end": 166.14,
+      "text": "When we walk through the UDF, I think it'll make more sense."
+    },
+    {
+      "id": 63,
+      "start": 166.14,
+      "end": 167.9,
+      "text": "All right, let's go through the five steps of fluid."
+    },
+    {
+      "id": 64,
+      "start": 167.9,
+      "end": 170.66,
+      "text": "So the very first thing we did to do is take our UDF and we're"
+    },
+    {
+      "id": 65,
+      "start": 170.66,
+      "end": 173.3,
+      "text": "transform the T-seq statements or PLC statements, whatever"
+    },
+    {
+      "id": 66,
+      "start": 173.3,
+      "end": 176.22,
+      "text": "is written in into SQL queries."
+    },
+    {
+      "id": 67,
+      "start": 176.22,
+      "end": 182.98,
+      "text": "And for everything that's in the SQL standard, some"
+    },
+    {
+      "id": 68,
+      "start": 182.98,
+      "end": 185.54,
+      "text": "exceptions are like, you can't use exceptions, you can't"
+    },
+    {
+      "id": 69,
+      "start": 185.54,
+      "end": 186.54,
+      "text": "use other constructs."
+    },
+    {
+      "id": 70,
+      "start": 186.54,
+      "end": 188.34,
+      "text": "In the case of fluid, they're not being able to have"
+    },
+    {
+      "id": 71,
+      "start": 188.34,
+      "end": 190.38,
+      "text": "wild loops or conditional loops."
+    },
+    {
+      "id": 72,
+      "start": 190.38,
+      "end": 192.54,
+      "text": "But if calls are not things, you've been convert all of those"
+    },
+    {
+      "id": 73,
+      "start": 192.54,
+      "end": 196.5,
+      "text": "things into the corresponding SQL queries, SQL statements."
+    },
+    {
+      "id": 74,
+      "start": 196.5,
+      "end": 199.26,
+      "text": "Then we're going to break our UDF up into regions."
+    },
+    {
+      "id": 75,
+      "start": 199.26,
+      "end": 202.22,
+      "text": "There's a lot of reason about their contents and understand"
+    },
+    {
+      "id": 76,
+      "start": 202.22,
+      "end": 204.06,
+      "text": "the dependencies between these regions."
+    },
+    {
+      "id": 77,
+      "start": 204.06,
+      "end": 206.38,
+      "text": "Because the dependencies are then going to express through"
+    },
+    {
+      "id": 78,
+      "start": 206.38,
+      "end": 208.42,
+      "text": "these lateral joints."
+    },
+    {
+      "id": 79,
+      "start": 208.42,
+      "end": 213.14,
+      "text": "Then we're going to go and merge these expressions based on"
+    },
+    {
+      "id": 80,
+      "start": 213.14,
+      "end": 216.9,
+      "text": "trying to combine the multiple expressions within one region."
+    },
+    {
+      "id": 81,
+      "start": 216.9,
+      "end": 223.1,
+      "text": "And then we're going to link them together with lateral joins."
+    },
+    {
+      "id": 82,
+      "start": 223.1,
+      "end": 226.22,
+      "text": "And then we put together through lateral joints,"
+    },
+    {
+      "id": 83,
+      "start": 226.22,
+      "end": 229.14,
+      "text": "sorry, take our SQL query that we generated with all the"
+    },
+    {
+      "id": 84,
+      "start": 229.14,
+      "end": 230.14,
+      "text": "lateral joins."
+    },
+    {
+      "id": 85,
+      "start": 230.14,
+      "end": 233.34,
+      "text": "But then embed that now into the calling query, the thing that"
+    },
+    {
+      "id": 86,
+      "start": 233.34,
+      "end": 234.22,
+      "text": "was invoking the UDF."
+    },
+    {
+      "id": 87,
+      "start": 234.22,
+      "end": 236.1,
+      "text": "So we're doing it at runtime."
+    },
+    {
+      "id": 88,
+      "start": 236.1,
+      "end": 239.34,
+      "text": "And then we run this now through our query optimizer."
+    },
+    {
+      "id": 89,
+      "start": 239.34,
+      "end": 240.86,
+      "text": "So in all my examples here, I'm going to show it through"
+    },
+    {
+      "id": 90,
+      "start": 240.86,
+      "end": 241.62,
+      "text": "SQL statements."
+    },
+    {
+      "id": 91,
+      "start": 241.62,
+      "end": 246.14,
+      "text": "Or like, the conversions will be from the UDF statements into"
+    },
+    {
+      "id": 92,
+      "start": 246.14,
+      "end": 247.26,
+      "text": "SQL."
+    },
+    {
+      "id": 93,
+      "start": 247.26,
+      "end": 249.46,
+      "text": "As I said, in Freud, they're going to be based on"
+    },
+    {
+      "id": 94,
+      "start": 249.46,
+      "end": 250.42,
+      "text": "relational algebra."
+    },
+    {
+      "id": 95,
+      "start": 250.42,
+      "end": 252.66,
+      "text": "But the op-fell approach we'll see afterwards, they're going"
+    },
+    {
+      "id": 96,
+      "start": 252.66,
+      "end": 254.58,
+      "text": "to do everything at the SQL level."
+    },
+    {
+      "id": 97,
+      "start": 255.54,
+      "end": 259.58,
+      "text": "So this is that example we have in the beginning where"
+    },
+    {
+      "id": 98,
+      "start": 259.58,
+      "end": 264.58,
+      "text": "given some custom ID, we're going to look up and say how"
+    },
+    {
+      "id": 99,
+      "start": 264.58,
+      "end": 266.82,
+      "text": "much money they spent with us and then what customer"
+    },
+    {
+      "id": 100,
+      "start": 266.82,
+      "end": 268.66,
+      "text": "status are we going to give them."
+    },
+    {
+      "id": 101,
+      "start": 268.66,
+      "end": 271.74,
+      "text": "So again, the first step is we're just trying to transform the"
+    },
+    {
+      "id": 102,
+      "start": 271.74,
+      "end": 274.78,
+      "text": "contents of the UDF, literally the lines of code with"
+    },
+    {
+      "id": 103,
+      "start": 274.78,
+      "end": 278.42,
+      "text": "semicolons into corresponding SQL queries."
+    },
+    {
+      "id": 104,
+      "start": 278.42,
+      "end": 281.34,
+      "text": "So in the first case here, we're declaring a variable called"
+    },
+    {
+      "id": 105,
+      "start": 281.34,
+      "end": 284.14,
+      "text": "level and we'll set it the value to regular."
+    },
+    {
+      "id": 106,
+      "start": 284.14,
+      "end": 287.54,
+      "text": "Well, that's just a select query without a from clause where"
+    },
+    {
+      "id": 107,
+      "start": 287.54,
+      "end": 290.54,
+      "text": "we pass the constant string regular and assign it to an"
+    },
+    {
+      "id": 108,
+      "start": 290.54,
+      "end": 291.38,
+      "text": "attribute called level."
+    },
+    {
+      "id": 109,
+      "start": 294.66,
+      "end": 296.42,
+      "text": "Nothing special there."
+    },
+    {
+      "id": 110,
+      "start": 296.42,
+      "end": 300.02,
+      "text": "In this case here, the next query, we're taking the"
+    },
+    {
+      "id": 111,
+      "start": 300.02,
+      "end": 302.7,
+      "text": "computing the aggregation on the order table and we're"
+    },
+    {
+      "id": 112,
+      "start": 302.7,
+      "end": 307.46,
+      "text": "assigned it to the total variable."
+    },
+    {
+      "id": 113,
+      "start": 307.46,
+      "end": 310.86,
+      "text": "That's the same thing as just taking the query in here,"
+    },
+    {
+      "id": 114,
+      "start": 310.86,
+      "end": 314.02,
+      "text": "just nesting it inside of a select query and then just"
+    },
+    {
+      "id": 115,
+      "start": 314.02,
+      "end": 317.22,
+      "text": "assigning the, renaming the output to be total."
+    },
+    {
+      "id": 116,
+      "start": 317.22,
+      "end": 319.02,
+      "text": "Then that assigns it to the variable total."
+    },
+    {
+      "id": 117,
+      "start": 321.54,
+      "end": 325.18,
+      "text": "And the last one here, SQL itself does not have if clauses."
+    },
+    {
+      "id": 118,
+      "start": 325.18,
+      "end": 326.94,
+      "text": "It has case wins."
+    },
+    {
+      "id": 119,
+      "start": 326.94,
+      "end": 328.18,
+      "text": "I think my SQL might break that."
+    },
+    {
+      "id": 120,
+      "start": 328.18,
+      "end": 330.62,
+      "text": "My SQL might have if statements, but case wins in the"
+    },
+    {
+      "id": 121,
+      "start": 330.62,
+      "end": 331.14,
+      "text": "SQL standard."
+    },
+    {
+      "id": 122,
+      "start": 331.14,
+      "end": 336.58,
+      "text": "So I convert this if clause into a case win in total is"
+    },
+    {
+      "id": 123,
+      "start": 336.58,
+      "end": 338.22,
+      "text": "greater than million than to get platinum."
+    },
+    {
+      "id": 124,
+      "start": 338.22,
+      "end": 341.42,
+      "text": "Otherwise, we set the output to null."
+    },
+    {
+      "id": 125,
+      "start": 341.42,
+      "end": 345.54,
+      "text": "And again, then we assign that to the level variable."
+    },
+    {
+      "id": 126,
+      "start": 345.54,
+      "end": 346.06,
+      "text": "Yes."
+    },
+    {
+      "id": 127,
+      "start": 346.06,
+      "end": 347.62,
+      "text": "So we then let them go to all of these."
+    },
+    {
+      "id": 128,
+      "start": 347.62,
+      "end": 348.86,
+      "text": "So questions, do we let them go in all of these?"
+    },
+    {
+      "id": 129,
+      "start": 348.86,
+      "end": 349.78,
+      "text": "Yes, we're not there yet."
+    },
+    {
+      "id": 130,
+      "start": 349.78,
+      "end": 350.3,
+      "text": "Two more steps."
+    },
+    {
+      "id": 131,
+      "start": 354.98,
+      "end": 356.82,
+      "text": "So this part seems pretty simple."
+    },
+    {
+      "id": 132,
+      "start": 356.82,
+      "end": 359.02,
+      "text": "I can conceptually see how I can map things like, oh, a"
+    },
+    {
+      "id": 133,
+      "start": 359.02,
+      "end": 362.46,
+      "text": "variable name of that's just an attribute name in my"
+    },
+    {
+      "id": 134,
+      "start": 362.46,
+      "end": 365.42,
+      "text": "projection output, my select statement."
+    },
+    {
+      "id": 135,
+      "start": 365.42,
+      "end": 369.82,
+      "text": "So in this example here, it's basically one to one mapping"
+    },
+    {
+      "id": 136,
+      "start": 369.82,
+      "end": 372.62,
+      "text": "between a statement in the UDF to a SQL query."
+    },
+    {
+      "id": 137,
+      "start": 372.62,
+      "end": 374.02,
+      "text": "It doesn't have to be that way."
+    },
+    {
+      "id": 138,
+      "start": 374.02,
+      "end": 376.58,
+      "text": "It could be multiple statements could get combined into a"
+    },
+    {
+      "id": 139,
+      "start": 376.58,
+      "end": 378.26,
+      "text": "single SQL query."
+    },
+    {
+      "id": 140,
+      "start": 378.26,
+      "end": 381.62,
+      "text": "Or you could have one SQL statement, sorry, one UDF"
+    },
+    {
+      "id": 141,
+      "start": 381.62,
+      "end": 385.02,
+      "text": "statement, get split out across multiple SQL queries."
+    },
+    {
+      "id": 142,
+      "start": 385.02,
+      "end": 387.02,
+      "text": "For our purposes here to keep it simple, we're just"
+    },
+    {
+      "id": 143,
+      "start": 387.02,
+      "end": 387.7,
+      "text": "assuming one to one."
+    },
+    {
+      "id": 144,
+      "start": 390.74,
+      "end": 393.66,
+      "text": "So next thing is now we want to take this UDF and break"
+    },
+    {
+      "id": 145,
+      "start": 393.66,
+      "end": 396.38,
+      "text": "it up into regions."
+    },
+    {
+      "id": 146,
+      "start": 396.38,
+      "end": 400.26,
+      "text": "And then for each region, we're going to do the transformation"
+    },
+    {
+      "id": 147,
+      "start": 400.26,
+      "end": 403.02,
+      "text": "I just showed where we're converting the statement inside"
+    },
+    {
+      "id": 148,
+      "start": 403.02,
+      "end": 406.62,
+      "text": "that the statement inside of that UDF, or that the statement"
+    },
+    {
+      "id": 149,
+      "start": 406.62,
+      "end": 409.26,
+      "text": "inside that portion of the UDF region into corresponding"
+    },
+    {
+      "id": 150,
+      "start": 409.26,
+      "end": 410.38,
+      "text": "SQL queries."
+    },
+    {
+      "id": 151,
+      "start": 410.38,
+      "end": 413.7,
+      "text": "So in this case here, I declare two variables total and"
+    },
+    {
+      "id": 152,
+      "start": 413.7,
+      "end": 414.5,
+      "text": "level."
+    },
+    {
+      "id": 153,
+      "start": 414.5,
+      "end": 417.78,
+      "text": "And then I have this nested query here where I signed the"
+    },
+    {
+      "id": 154,
+      "start": 417.78,
+      "end": 420.22,
+      "text": "output of the aggregation to the total variable."
+    },
+    {
+      "id": 155,
+      "start": 420.22,
+      "end": 424.66,
+      "text": "Well, that's the same thing as in my, I joined a SQL query"
+    },
+    {
+      "id": 156,
+      "start": 424.66,
+      "end": 429.62,
+      "text": "where first I signed the level variable to null."
+    },
+    {
+      "id": 157,
+      "start": 429.62,
+      "end": 433.78,
+      "text": "And then I have this nested query here where I'm going to"
+    },
+    {
+      "id": 158,
+      "start": 433.78,
+      "end": 434.54,
+      "text": "compute the aggregation."
+    },
+    {
+      "id": 159,
+      "start": 434.54,
+      "end": 436.82,
+      "text": "And then I signed that to total."
+    },
+    {
+      "id": 160,
+      "start": 436.82,
+      "end": 439.7,
+      "text": "And then now for this region, I'm going to assign the output"
+    },
+    {
+      "id": 161,
+      "start": 439.7,
+      "end": 442.58,
+      "text": "of this nested portion of the query to this temp table"
+    },
+    {
+      "id": 162,
+      "start": 442.58,
+      "end": 444.46,
+      "text": "called ER1."
+    },
+    {
+      "id": 163,
+      "start": 444.46,
+      "end": 447.46,
+      "text": "It's an ephemeral temp table in theory should"
+    },
+    {
+      "id": 164,
+      "start": 447.46,
+      "end": 449.98,
+      "text": "reside entirely in memory."
+    },
+    {
+      "id": 165,
+      "start": 449.98,
+      "end": 451.54,
+      "text": "It's not persistent in the catalog."
+    },
+    {
+      "id": 166,
+      "start": 451.54,
+      "end": 453.58,
+      "text": "It disappears once the query is over."
+    },
+    {
+      "id": 167,
+      "start": 453.58,
+      "end": 455.14,
+      "text": "So I can assign it into this."
+    },
+    {
+      "id": 168,
+      "start": 455.14,
+      "end": 458.66,
+      "text": "It's like a table A on this in a query."
+    },
+    {
+      "id": 169,
+      "start": 458.66,
+      "end": 462.3,
+      "text": "Do the same thing with the next region here."
+    },
+    {
+      "id": 170,
+      "start": 462.3,
+      "end": 465.7,
+      "text": "Convert this into the case when statement."
+    },
+    {
+      "id": 171,
+      "start": 465.7,
+      "end": 466.7,
+      "text": "And then do the same thing."
+    },
+    {
+      "id": 172,
+      "start": 466.7,
+      "end": 472.98,
+      "text": "And then sign the output into this temp table ER2."
+    },
+    {
+      "id": 173,
+      "start": 472.98,
+      "end": 478.54,
+      "text": "But notice here now that I had this variable total that I'm"
+    },
+    {
+      "id": 174,
+      "start": 478.54,
+      "end": 484.38,
+      "text": "now referencing in the region above me."
+    },
+    {
+      "id": 175,
+      "start": 484.38,
+      "end": 486.18,
+      "text": "So this is where the lateral join is going to help us."
+    },
+    {
+      "id": 176,
+      "start": 486.18,
+      "end": 489.66,
+      "text": "Because I have basically now two nested queries,"
+    },
+    {
+      "id": 177,
+      "start": 489.66,
+      "end": 491.18,
+      "text": "two separate queries here."
+    },
+    {
+      "id": 178,
+      "start": 491.18,
+      "end": 492.86,
+      "text": "But one of them needs to reference the other one"
+    },
+    {
+      "id": 179,
+      "start": 492.86,
+      "end": 494.54,
+      "text": "as a dependency going up."
+    },
+    {
+      "id": 180,
+      "start": 494.54,
+      "end": 499.06,
+      "text": "So the lateral join is how we're going to connect them together."
+    },
+    {
+      "id": 181,
+      "start": 499.06,
+      "end": 501.86,
+      "text": "Same thing for a level here."
+    },
+    {
+      "id": 182,
+      "start": 501.86,
+      "end": 504.02,
+      "text": "And then I have this next piece here."
+    },
+    {
+      "id": 183,
+      "start": 504.02,
+      "end": 506.38,
+      "text": "Again, the else clause."
+    },
+    {
+      "id": 184,
+      "start": 506.38,
+      "end": 507.46,
+      "text": "And it's just the inverse of that."
+    },
+    {
+      "id": 185,
+      "start": 508.34,
+      "end": 510.98,
+      "text": "If the total is less than a million, less than equal to a million,"
+    },
+    {
+      "id": 186,
+      "start": 510.98,
+      "end": 513.3,
+      "text": "then my status is regular."
+    },
+    {
+      "id": 187,
+      "start": 513.3,
+      "end": 513.9,
+      "text": "Same thing."
+    },
+    {
+      "id": 188,
+      "start": 513.9,
+      "end": 515.62,
+      "text": "Total can reference the one up there."
+    },
+    {
+      "id": 189,
+      "start": 515.62,
+      "end": 517.42,
+      "text": "And then this level here is actually"
+    },
+    {
+      "id": 190,
+      "start": 517.42,
+      "end": 520.82,
+      "text": "referencing what was passed before us in that one."
+    },
+    {
+      "id": 191,
+      "start": 524.62,
+      "end": 527.14,
+      "text": "Are we done at this point?"
+    },
+    {
+      "id": 192,
+      "start": 527.14,
+      "end": 529.34,
+      "text": "What's the last one?"
+    },
+    {
+      "id": 193,
+      "start": 529.34,
+      "end": 529.86,
+      "text": "Return."
+    },
+    {
+      "id": 194,
+      "start": 529.86,
+      "end": 530.06,
+      "text": "Exactly."
+    },
+    {
+      "id": 195,
+      "start": 530.06,
+      "end": 530.86,
+      "text": "Yes."
+    },
+    {
+      "id": 196,
+      "start": 530.86,
+      "end": 534.22,
+      "text": "So how are you handling that?"
+    },
+    {
+      "id": 197,
+      "start": 534.22,
+      "end": 535.46,
+      "text": "Well, what's that?"
+    },
+    {
+      "id": 198,
+      "start": 535.46,
+      "end": 536.18,
+      "text": "The left one."
+    },
+    {
+      "id": 199,
+      "start": 536.18,
+      "end": 536.68,
+      "text": "Finger."
+    },
+    {
+      "id": 200,
+      "start": 536.68,
+      "end": 537.02,
+      "text": "He's a slick level."
+    },
+    {
+      "id": 201,
+      "start": 537.02,
+      "end": 537.54,
+      "text": "Yes."
+    },
+    {
+      "id": 202,
+      "start": 537.54,
+      "end": 539.66,
+      "text": "It's just another nested query."
+    },
+    {
+      "id": 203,
+      "start": 539.66,
+      "end": 541.46,
+      "text": "So we can take all these now regions."
+    },
+    {
+      "id": 204,
+      "start": 541.46,
+      "end": 542.34,
+      "text": "We've turned the SQL statements."
+    },
+    {
+      "id": 205,
+      "start": 542.34,
+      "end": 546.02,
+      "text": "And we put them all together into one giant SQL query now."
+    },
+    {
+      "id": 206,
+      "start": 546.02,
+      "end": 549.02,
+      "text": "And so yes, I know I just talked about lateral joins."
+    },
+    {
+      "id": 207,
+      "start": 549.02,
+      "end": 552.3,
+      "text": "In the SQL standard, it's not lateral join."
+    },
+    {
+      "id": 208,
+      "start": 552.3,
+      "end": 555.34,
+      "text": "The SQL standard is apply or cross apply."
+    },
+    {
+      "id": 209,
+      "start": 555.34,
+      "end": 557.7,
+      "text": "SQL server uses cross apply, postgres,"
+    },
+    {
+      "id": 210,
+      "start": 557.7,
+      "end": 562.58,
+      "text": "and SQL light and Oracle."
+    },
+    {
+      "id": 211,
+      "start": 562.58,
+      "end": 563.9,
+      "text": "They all use lateral join."
+    },
+    {
+      "id": 212,
+      "start": 563.9,
+      "end": 565.46,
+      "text": "They're basically the same thing."
+    },
+    {
+      "id": 213,
+      "start": 566.46,
+      "end": 573.54,
+      "text": "So as she said, the last step was through the return clause."
+    },
+    {
+      "id": 214,
+      "start": 573.54,
+      "end": 575.58,
+      "text": "But again, that's just a return."
+    },
+    {
+      "id": 215,
+      "start": 575.58,
+      "end": 577.3,
+      "text": "Sorry, that's just the output of the select statement"
+    },
+    {
+      "id": 216,
+      "start": 577.3,
+      "end": 579.02,
+      "text": "of above that wraps all this together."
+    },
+    {
+      "id": 217,
+      "start": 579.02,
+      "end": 581.1,
+      "text": "And again, this case here, at the very top,"
+    },
+    {
+      "id": 218,
+      "start": 581.1,
+      "end": 584.5,
+      "text": "I'm referencing ER3, and that's generated down here"
+    },
+    {
+      "id": 219,
+      "start": 584.5,
+      "end": 585.94,
+      "text": "for this nested query here."
+    },
+    {
+      "id": 220,
+      "start": 585.94,
+      "end": 587.94,
+      "text": "And they're linked together through the lateral joins."
+    },
+    {
+      "id": 221,
+      "start": 591.86,
+      "end": 592.86,
+      "text": "Yes."
+    },
+    {
+      "id": 222,
+      "start": 592.86,
+      "end": 595.22,
+      "text": "Why does the else block have different regions?"
+    },
+    {
+      "id": 223,
+      "start": 595.3,
+      "end": 596.5,
+      "text": "This question is, why is the else block"
+    },
+    {
+      "id": 224,
+      "start": 596.5,
+      "end": 597.1,
+      "text": "a different region?"
+    },
+    {
+      "id": 225,
+      "start": 597.1,
+      "end": 598.74,
+      "text": "Because I think basically, I suppose,"
+    },
+    {
+      "id": 226,
+      "start": 598.74,
+      "end": 602.18,
+      "text": "is like, in theory, it should just be this, right?"
+    },
+    {
+      "id": 227,
+      "start": 602.18,
+      "end": 604.78,
+      "text": "Because there's trying to be pedantic in this example."
+    }
+  ],
+  "language": "en"
+}

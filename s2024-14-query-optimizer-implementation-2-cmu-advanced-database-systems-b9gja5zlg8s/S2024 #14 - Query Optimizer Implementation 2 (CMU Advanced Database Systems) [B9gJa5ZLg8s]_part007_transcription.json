@@ -1,0 +1,335 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.0,
+      "text": "and then optimize it like it normally would."
+    },
+    {
+      "id": 1,
+      "start": 4.0,
+      "end": 14.0,
+      "text": "So in this case."
+    },
+    {
+      "id": 2,
+      "start": 30.0,
+      "end": 48.0,
+      "text": "So the left hand side is the look up on the outer table and then now on the other side on the right hand side this is actually the inner query and it's going to be referencing in its filter or for its where clause predicate be referencing the thing on the other side."
+    },
+    {
+      "id": 3,
+      "start": 48.0,
+      "end": 49.0,
+      "text": "Right."
+    },
+    {
+      "id": 4,
+      "start": 49.0,
+      "end": 51.0,
+      "text": "That's what makes it correlated."
+    },
+    {
+      "id": 5,
+      "start": 51.0,
+      "end": 55.0,
+      "text": "So as I said this dependent join isn't actually a new physical operator. It's not something we actually implement in the system."
+    },
+    {
+      "id": 6,
+      "start": 55.0,
+      "end": 66.0,
+      "text": "It's just an extension to relational algebra in our query plan that allows to reason about we know we're doing certain transformations in our query out of the matter because it's a correlated sub query."
+    },
+    {
+      "id": 7,
+      "start": 66.0,
+      "end": 76.0,
+      "text": "Again, so you could just convert this to like a cross join and add a little flag and say, hey, by the way, I'm using this for you know, keep track of dependencies but keep it clean."
+    },
+    {
+      "id": 8,
+      "start": 76.0,
+      "end": 79.0,
+      "text": "So you can see that they define as a separate operator."
+    },
+    {
+      "id": 9,
+      "start": 79.0,
+      "end": 88.0,
+      "text": "So again, all you're doing is that for every single tuple in the left hand side, you're going to read around whatever it is on the right hand side and populate the output and so forth."
+    },
+    {
+      "id": 10,
+      "start": 88.0,
+      "end": 91.0,
+      "text": "So again, it's just like a cross product."
+    },
+    {
+      "id": 11,
+      "start": 91.0,
+      "end": 104.0,
+      "text": "So what they're going to want to try to do now is try to push down the dependent join to the right hand side of the query plan where we have our inner query and you eventually want to try to get it to the bottom and then convert it into a regular join."
+    },
+    {
+      "id": 12,
+      "start": 104.0,
+      "end": 115.0,
+      "text": "And then how you actually do this is going to depend on the semantics of the query and you know of the inner query determine how you actually do these transformations."
+    },
+    {
+      "id": 13,
+      "start": 115.0,
+      "end": 121.0,
+      "text": "So in this case here, I have again the scan on the left hand side and the the the inner query on the right hand side."
+    },
+    {
+      "id": 14,
+      "start": 121.0,
+      "end": 134.0,
+      "text": "So I can move the dependent join down one and then now just do a join a regular join on the outer query and then whatever's coming up to me from the right hand side here."
+    },
+    {
+      "id": 15,
+      "start": 134.0,
+      "end": 141.0,
+      "text": "So for this particular query to make this work, I have to introduce an additional scan that's basically going to do duplicate elimination."
+    },
+    {
+      "id": 16,
+      "start": 141.0,
+      "end": 149.0,
+      "text": "Think of like a select clause where the all the the projection applet list is also my group by."
+    },
+    {
+      "id": 17,
+      "start": 149.0,
+      "end": 158.0,
+      "text": "So there's guarantees that I'm always going to have distinct set of attributes or set of values coming up for all the attributes for given to."
+    },
+    {
+      "id": 18,
+      "start": 158.0,
+      "end": 183.0,
+      "text": "So now with this this this eliminating all the duplicates on this side when I do now a dependent join on this side then this guarantees that I'm only spitting up now the the output that I need to do the join without duplicates as if I was running the the right hand side query once per two pull on the on the outer table."
+    },
+    {
+      "id": 19,
+      "start": 183.0,
+      "end": 194.0,
+      "text": "But again, what am I doing? I'm doing a max on the student score looking up by major so all I really want is for every major what's the max score."
+    },
+    {
+      "id": 20,
+      "start": 194.0,
+      "end": 209.0,
+      "text": "So to avoid duplicates of like okay, because there's there's two people in computer science and I don't want to have two entries one with the same values of computer science and the score the duplicate elimination scan when I do my join will remove all that for me."
+    },
+    {
+      "id": 21,
+      "start": 209.0,
+      "end": 219.0,
+      "text": "Again, this is just a logical I believe keeping track of what the dependencies are from the right hand side left hand side as I'm going down."
+    },
+    {
+      "id": 22,
+      "start": 219.0,
+      "end": 237.0,
+      "text": "So key on the key pushing down the pen and join so at the next stage right I can get rid of the back here I can I can I want to get up below the aggregation so I'm going to move my duplicate and the mission scan down with me but then put the aggregation above me right and again at this point nothing has changed."
+    },
+    {
+      "id": 23,
+      "start": 237.0,
+      "end": 258.0,
+      "text": "So you think sort of the what the the output's going to be like everything's still the same because what am I doing here I'm getting all the unique students by by score major and then I want to join it with the with the scan on the student table here so this is going to produce you know for every single student every single major here's the highest score."
+    },
+    {
+      "id": 24,
+      "start": 258.0,
+      "end": 268.0,
+      "text": "And then when I feed that out of my dependent join thinking that just as a cross product when I now do my group I hear on the major I'm going to get for one major I'm going to get what the max score for yes."
+    },
+    {
+      "id": 25,
+      "start": 268.0,
+      "end": 274.0,
+      "text": "Yes."
+    },
+    {
+      "id": 26,
+      "start": 274.0,
+      "end": 299.0,
+      "text": "So you have to identify to because you have lots to say okay I know that I want to get the I only want to get the the single score per major right so the equipment thing you would do here by putting the aggregation above well I need to make sure that I only get one student per major or one score per major and then you add the group item that happened."
+    },
+    {
+      "id": 27,
+      "start": 299.0,
+      "end": 309.0,
+      "text": "Yes there's logically to be a reason about what the what the intercredit actually wants when you do the joint above to make sure you don't have duplicates."
+    },
+    {
+      "id": 28,
+      "start": 309.0,
+      "end": 328.0,
+      "text": "You know for it's a way to standard that it's in the original paper and then it varies based on what the ware clauses right this is like something equals something if it's less than a greater than knows complicates things to right this makes everything harder."
+    },
+    {
+      "id": 29,
+      "start": 328.0,
+      "end": 333.0,
+      "text": "We're well over time so you have to go please go."
+    },
+    {
+      "id": 30,
+      "start": 333.0,
+      "end": 339.0,
+      "text": "We knew we did last time we can pick up in this last class and beginning of next class."
+    },
+    {
+      "id": 31,
+      "start": 339.0,
+      "end": 357.0,
+      "text": "So we push the aggregation above again we want to go further we want to get this dependent join now below this filter well that's easy to do right because there isn't actually any change to we need to make because it whether or not we put the filter before after the join that's the same thing if it was a regular query."
+    },
+    {
+      "id": 32,
+      "start": 357.0,
+      "end": 367.0,
+      "text": "Right like you can do a join stupidly without a where clause and it's just a cartesian product and then above that then you do the filter same thing here right."
+    },
+    {
+      "id": 33,
+      "start": 367.0,
+      "end": 386.0,
+      "text": "So in this case here it's just a cartesian product for every unique student every unique major I'm going to join against every unique major and a score I'm going to join against all the students table it's going to produce all the output I want you know all possible combinations and then this is going to filter out that I only get where the student from this side is."
+    },
+    {
+      "id": 34,
+      "start": 386.0,
+      "end": 402.0,
+      "text": "So now this point here my dependent join is as far as it can go I can't go below these guys because it's making sense because these are the leaf notes I'm scanning the tables right so now I want to actually do further"
+    },
+    {
+      "id": 35,
+      "start": 402.0,
+      "end": 418.0,
+      "text": "optimizations to actually put into a physical form or sorry put into a form that I know how to optimize like any other query so again these are all still at the logical level we're not doing any none these are physical operators right so I convert this dependent join into what it really is which is just across your in a"
+    },
+    {
+      "id": 36,
+      "start": 418.0,
+      "end": 431.0,
+      "text": "cartesian product right so there's no where clause it's just just you know everything combined with everything on the other side but then now I have as I was saying before I have a filter above a join that's just an"
+    },
+    {
+      "id": 37,
+      "start": 431.0,
+      "end": 448.0,
+      "text": "error join so now I can collapse these two to a single joint operator and just move these guys up right I can go either even further and recognize that well all you know this is basically just for every single major for every single"
+    },
+    {
+      "id": 38,
+      "start": 448.0,
+      "end": 458.0,
+      "text": "student get their major that's all this is doing here right because my group I was going to handle the removing remove the duplications so I can then I can"
+    },
+    {
+      "id": 39,
+      "start": 458.0,
+      "end": 469.0,
+      "text": "convert this now into just a scan on the table as by itself but now to make sure that I I had to rewrite my my join that I had up here because I was referencing that the"
+    },
+    {
+      "id": 40,
+      "start": 469.0,
+      "end": 477.0,
+      "text": "duplication scan on the major I need to get rid of that so I can also have a filter above that to so I can just combine that now into a single"
+    },
+    {
+      "id": 41,
+      "start": 477.0,
+      "end": 486.0,
+      "text": "join where it's the major on this side join the major on that side and score on this side equals the max score that I produced as my output here and because I have the"
+    },
+    {
+      "id": 42,
+      "start": 486.0,
+      "end": 498.0,
+      "text": "group I'm the major clause I'm guaranteeing that for every single major I have I have one score. So this is the easy case right and again there's some details on I'm"
+    },
+    {
+      "id": 43,
+      "start": 498.0,
+      "end": 504.0,
+      "text": "crossing over for example he was asking how do I know that I need to push up the group by again it depends on the examination of the"
+    },
+    {
+      "id": 44,
+      "start": 504.0,
+      "end": 517.0,
+      "text": "where clause in the expression trees so this can then be extended for all possible combinations of of correlated queries and you can you can convert everything into a"
+    },
+    {
+      "id": 45,
+      "start": 517.0,
+      "end": 530.0,
+      "text": "to a joins. Okay well over time as I was saying only hyper umbra and ductyb can do this fully. Data bricks can do some of it I don't know about other"
+    },
+    {
+      "id": 46,
+      "start": 530.0,
+      "end": 538.0,
+      "text": "systems I haven't seen whether they make these things as well. So like this is like if you're going to build me a system today this is this is the way to do it."
+    },
+    {
+      "id": 47,
+      "start": 538.0,
+      "end": 548.0,
+      "text": "It's paper lays out exactly how to do it. Again we will cover the other small cases next class we'll cover also then how they're handing handling joint picking join orders but the other"
+    },
+    {
+      "id": 48,
+      "start": 548.0,
+      "end": 553.5,
+      "text": "thing we already alluded to today is like okay all the things I've talked about is like hey you have a cost that's going to be one"
+    },
+    {
+      "id": 49,
+      "start": 553.5,
+      "end": 559.5,
+      "text": "plan better than other. What if your cost cost estimates are wrong or you just don't know because you haven't even looked at the data"
+    },
+    {
+      "id": 50,
+      "start": 559.5,
+      "end": 566.0,
+      "text": "before in a lake house environment some new file should have an s3 you don't know what's in them what do you do."
+    },
+    {
+      "id": 51,
+      "start": 566.0,
+      "end": 575.0,
+      "text": "So that's what we'll cover on next class. Right how to do a data characterization and the TLDR is going to be I got to join something I got to join some query"
+    },
+    {
+      "id": 52,
+      "start": 575.0,
+      "end": 583.0,
+      "text": "plan because I got to run something but I can put in hooks to keep track of whether my estimates are right or wrong and we'll see how to get"
+    },
+    {
+      "id": 53,
+      "start": 583.0,
+      "end": 590.0,
+      "text": "feedback from when we scan the table feed that that can across models and see whether that helped or not. Okay."
+    },
+    {
+      "id": 54,
+      "start": 590.0,
+      "end": 606.0,
+      "text": "Guys enjoy the weekend. See you."
+    }
+  ],
+  "language": "ba"
+}

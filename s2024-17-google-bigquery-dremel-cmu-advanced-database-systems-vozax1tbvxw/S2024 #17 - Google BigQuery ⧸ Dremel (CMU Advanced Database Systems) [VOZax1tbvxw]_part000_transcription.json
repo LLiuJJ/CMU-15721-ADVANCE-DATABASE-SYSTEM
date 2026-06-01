@@ -1,0 +1,767 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Caniki Mellon University's advanced database systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filming front of a live studio audience."
+    },
+    {
+      "id": 2,
+      "start": 14.0,
+      "end": 15.0,
+      "text": "Alright, yeah."
+    },
+    {
+      "id": 3,
+      "start": 15.0,
+      "end": 18.0,
+      "text": "Just get through this, get out early and go see the clubs."
+    },
+    {
+      "id": 4,
+      "start": 18.0,
+      "end": 22.0,
+      "text": "So, for this point in the semester,"
+    },
+    {
+      "id": 5,
+      "start": 22.0,
+      "end": 27.0,
+      "text": "we're going to start reading papers about individual systems."
+    },
+    {
+      "id": 6,
+      "start": 28.0,
+      "end": 31.0,
+      "text": "Obviously, the paper you guys read today was on Google BigQuery."
+    },
+    {
+      "id": 7,
+      "start": 31.0,
+      "end": 37.0,
+      "text": "But the purpose of this part of the semester is now to examine and look at how"
+    },
+    {
+      "id": 8,
+      "start": 37.0,
+      "end": 41.0,
+      "text": "companies were building real systems based on the technologies and methods and techniques"
+    },
+    {
+      "id": 9,
+      "start": 41.0,
+      "end": 45.0,
+      "text": "and algorithms that we talked about throughout the entire semester."
+    },
+    {
+      "id": 10,
+      "start": 45.0,
+      "end": 51.0,
+      "text": "And the goal of this is to learn how we can read the papers from in industry,"
+    },
+    {
+      "id": 11,
+      "start": 51.0,
+      "end": 55.0,
+      "text": "some of it's a little bit marketing heavy, some of it will be actual true systems discussions,"
+    },
+    {
+      "id": 12,
+      "start": 55.0,
+      "end": 62.0,
+      "text": "but basically understand how they apply the things that we've talked about to solve the real world problems."
+    },
+    {
+      "id": 13,
+      "start": 62.0,
+      "end": 68.0,
+      "text": "And also for you to then be able to interpret and recalibrate maybe how they describe certain things"
+    },
+    {
+      "id": 14,
+      "start": 68.0,
+      "end": 71.0,
+      "text": "based on the fundamentals of what we talked about."
+    },
+    {
+      "id": 15,
+      "start": 71.0,
+      "end": 77.0,
+      "text": "So, for example, sometimes you'll see systems talk about technique ABC and slightly different language"
+    },
+    {
+      "id": 16,
+      "start": 77.0,
+      "end": 80.0,
+      "text": "that we talked about, but then you know because we've read certain papers,"
+    },
+    {
+      "id": 17,
+      "start": 80.0,
+      "end": 82.0,
+      "text": "oh, it's really describing this."
+    },
+    {
+      "id": 18,
+      "start": 83.0,
+      "end": 86.0,
+      "text": "Not to pick on Dremio, we'll see Dremio in a second."
+    },
+    {
+      "id": 19,
+      "start": 86.0,
+      "end": 89.0,
+      "text": "They talk about having these things called reflections."
+    },
+    {
+      "id": 20,
+      "start": 89.0,
+      "end": 91.0,
+      "text": "Like what the hell's reflection? I've never heard of that before."
+    },
+    {
+      "id": 21,
+      "start": 91.0,
+      "end": 93.0,
+      "text": "You go kind of read the definition a bit more."
+    },
+    {
+      "id": 22,
+      "start": 93.0,
+      "end": 95.0,
+      "text": "Oh, it's just materialized views."
+    },
+    {
+      "id": 23,
+      "start": 95.0,
+      "end": 99.0,
+      "text": "So the idea is like, again, now you have this core background knowledge about how"
+    },
+    {
+      "id": 24,
+      "start": 99.0,
+      "end": 103.0,
+      "text": "these real world systems are actually built, then you can cut through the BS and understand what's going on."
+    },
+    {
+      "id": 25,
+      "start": 103.0,
+      "end": 105.0,
+      "text": "They should reflections."
+    },
+    {
+      "id": 26,
+      "start": 105.0,
+      "end": 107.0,
+      "text": "They call reflections."
+    },
+    {
+      "id": 27,
+      "start": 107.0,
+      "end": 108.0,
+      "text": "Yes."
+    },
+    {
+      "id": 28,
+      "start": 109.0,
+      "end": 113.0,
+      "text": "And then also too, now you also have this internal catalog you build to say,"
+    },
+    {
+      "id": 29,
+      "start": 113.0,
+      "end": 116.0,
+      "text": "okay, well, in the good papers, especially in the Databricks one,"
+    },
+    {
+      "id": 30,
+      "start": 116.0,
+      "end": 119.0,
+      "text": "they'll start about, oh, we have this problem, so we solved it this way."
+    },
+    {
+      "id": 31,
+      "start": 119.0,
+      "end": 120.0,
+      "text": "We have this problem solved it that way."
+    },
+    {
+      "id": 32,
+      "start": 120.0,
+      "end": 123.0,
+      "text": "So again, when you go out in a real world, you'll see how, you know,"
+    },
+    {
+      "id": 33,
+      "start": 123.0,
+      "end": 129.0,
+      "text": "apply those same lessons you've learned from reading these papers and other systems to different situations."
+    },
+    {
+      "id": 34,
+      "start": 129.0,
+      "end": 131.0,
+      "text": "And of course, it's always nice to understand that like,"
+    },
+    {
+      "id": 35,
+      "start": 131.0,
+      "end": 135.0,
+      "text": "I didn't just make the stuff up, everything we talk about this semester is real."
+    },
+    {
+      "id": 36,
+      "start": 136.0,
+      "end": 141.0,
+      "text": "So, as I said, we're going to start off with Google Dremel, a big query today."
+    },
+    {
+      "id": 37,
+      "start": 141.0,
+      "end": 145.0,
+      "text": "Wednesday, we'll talk about the Databricks, Spark SQL, and Photon,"
+    },
+    {
+      "id": 38,
+      "start": 145.0,
+      "end": 148.0,
+      "text": "and then Sniff Lake, DougTB, Yellowbrick, and RedShip."
+    },
+    {
+      "id": 39,
+      "start": 148.0,
+      "end": 154.0,
+      "text": "So it became because of the, whatever, the stomach virus we had to drop the last one,"
+    },
+    {
+      "id": 40,
+      "start": 154.0,
+      "end": 158.0,
+      "text": "and I decided to drop the Microsoft paper instead of the Yellowbrick one,"
+    },
+    {
+      "id": 41,
+      "start": 158.0,
+      "end": 161.0,
+      "text": "because as he was asking about before, the Yellowbrick one is wild,"
+    },
+    {
+      "id": 42,
+      "start": 161.0,
+      "end": 164.0,
+      "text": "because they do all sorts of low-level system optimizations."
+    },
+    {
+      "id": 43,
+      "start": 164.0,
+      "end": 167.0,
+      "text": "And they report real numbers in their papers,"
+    },
+    {
+      "id": 44,
+      "start": 167.0,
+      "end": 170.0,
+      "text": "whereas these other papers are not going to see that."
+    },
+    {
+      "id": 45,
+      "start": 170.0,
+      "end": 175.0,
+      "text": "Part of because these big companies don't want any numbers they report in these papers,"
+    },
+    {
+      "id": 46,
+      "start": 175.0,
+      "end": 179.0,
+      "text": "they're used against them in like a judo marketing move by their competitors."
+    },
+    {
+      "id": 47,
+      "start": 179.0,
+      "end": 182.0,
+      "text": "But Yellowbricks, they don't give a f***, they put all the numbers in."
+    },
+    {
+      "id": 48,
+      "start": 182.0,
+      "end": 183.0,
+      "text": "It's awesome."
+    },
+    {
+      "id": 49,
+      "start": 183.0,
+      "end": 188.0,
+      "text": "Okay, so the reoccurring themes we're going to have throughout the entire,"
+    },
+    {
+      "id": 50,
+      "start": 188.0,
+      "end": 193.0,
+      "text": "the papers are going to read, are again, all the things that we've talked about this semester."
+    },
+    {
+      "id": 51,
+      "start": 193.0,
+      "end": 196.0,
+      "text": "So obviously the research to segregation is separate and computing storage."
+    },
+    {
+      "id": 52,
+      "start": 196.0,
+      "end": 200.0,
+      "text": "Like this is the Lake Alice Data Lake model where a bunch of data is on S3,"
+    },
+    {
+      "id": 53,
+      "start": 200.0,
+      "end": 204.0,
+      "text": "whatever your object store is, and then we're putting query engines on top of that."
+    },
+    {
+      "id": 54,
+      "start": 204.0,
+      "end": 207.0,
+      "text": "We're also going to see the challenge of dealing the lack of statistics."
+    },
+    {
+      "id": 55,
+      "start": 207.0,
+      "end": 209.0,
+      "text": "Right, the big query papers certainly talked about this."
+    },
+    {
+      "id": 56,
+      "start": 209.0,
+      "end": 214.0,
+      "text": "We'll see this over and over again, where it's a bunch of files that were uploaded into the object store"
+    },
+    {
+      "id": 57,
+      "start": 214.0,
+      "end": 216.0,
+      "text": "outside of the control of the database system."
+    },
+    {
+      "id": 58,
+      "start": 216.0,
+      "end": 219.0,
+      "text": "So now you get the query shows up, you want to start planning on it."
+    },
+    {
+      "id": 59,
+      "start": 219.0,
+      "end": 225.0,
+      "text": "If a call space optimizer, what are your costs going to be based on if you don't have any statistics?"
+    },
+    {
+      "id": 60,
+      "start": 225.0,
+      "end": 230.0,
+      "text": "Obviously everything is going to be a kilometer, but we also want to handle the non-relational data,"
+    },
+    {
+      "id": 61,
+      "start": 230.0,
+      "end": 234.0,
+      "text": "like the JSON, in the case of the BigQuery, it was the protobuf files,"
+    },
+    {
+      "id": 62,
+      "start": 234.0,
+      "end": 237.0,
+      "text": "and then vectorize execution as we talked about for it."
+    },
+    {
+      "id": 63,
+      "start": 237.0,
+      "end": 241.0,
+      "text": "Again, these are our, like this thing is pretty much standard in every O-lapse system today."
+    },
+    {
+      "id": 64,
+      "start": 241.0,
+      "end": 245.0,
+      "text": "So none of the papers are really going to talk about any unique aspects of what they're doing,"
+    },
+    {
+      "id": 65,
+      "start": 245.0,
+      "end": 248.0,
+      "text": "which is it'll always be that."
+    },
+    {
+      "id": 66,
+      "start": 248.0,
+      "end": 254.0,
+      "text": "All right, so let's talk about now the setup for Google's Dremel BigQuery paper."
+    },
+    {
+      "id": 67,
+      "start": 254.0,
+      "end": 261.0,
+      "text": "So maybe not in, you know, for the people that are younger here, maybe not now,"
+    },
+    {
+      "id": 68,
+      "start": 261.0,
+      "end": 270.0,
+      "text": "you don't think of like Google as the hot tech company, like maybe like OpenAI is what everyone's excited about these days, something like that."
+    },
+    {
+      "id": 69,
+      "start": 271.0,
+      "end": 281.0,
+      "text": "But in the 2000s, Google definitely had a sizable influence on how people thought about and designed and developed the database systems."
+    },
+    {
+      "id": 70,
+      "start": 281.0,
+      "end": 289.0,
+      "text": "And even to this day, I would say their pushes maybe are influence in the menus and not as strong as it used to be,"
+    },
+    {
+      "id": 71,
+      "start": 289.0,
+      "end": 294.0,
+      "text": "certainly because the technologies have been spread out for a little bit much farther."
+    },
+    {
+      "id": 72,
+      "start": 294.0,
+      "end": 296.0,
+      "text": "Now obviously LLMs are the hot thing."
+    },
+    {
+      "id": 73,
+      "start": 297.0,
+      "end": 305.0,
+      "text": "But back then, you know, pretty much any time Google put out a paper, a research paper that said, hey, here's this system we built internally at Google,"
+    },
+    {
+      "id": 74,
+      "start": 305.0,
+      "end": 311.0,
+      "text": "that everyone read it, everyone got really excited, and then people started building open source clones of these things."
+    },
+    {
+      "id": 75,
+      "start": 311.0,
+      "end": 315.0,
+      "text": "Because the mindset in some ways was, well, Google's super successful."
+    },
+    {
+      "id": 76,
+      "start": 315.0,
+      "end": 320.0,
+      "text": "Google can operate at scale if we needed, you know, if our company wants to be successful,"
+    },
+    {
+      "id": 77,
+      "start": 321.0,
+      "end": 326.0,
+      "text": "we need basically the same stuff that they're building. Because Google didn't release their things as open source,"
+    },
+    {
+      "id": 78,
+      "start": 326.0,
+      "end": 329.0,
+      "text": "at least in the beginning didn't release their things as services."
+    },
+    {
+      "id": 79,
+      "start": 329.0,
+      "end": 334.0,
+      "text": "They just like, hey, here's this paper written by Jeff Dean and others, who are obviously very smart people,"
+    },
+    {
+      "id": 80,
+      "start": 334.0,
+      "end": 338.0,
+      "text": "that everyone's like, okay, they scram would then implement everything."
+    },
+    {
+      "id": 81,
+      "start": 338.0,
+      "end": 346.0,
+      "text": "So this is sort of an incomplete list of a bunch of the database systems or data systems that Google has delivered over the years that have been very influential."
+    },
+    {
+      "id": 82,
+      "start": 346.0,
+      "end": 353.0,
+      "text": "And I'm sort of subdivided into two groups. At the top here, you have all the no-seical systems."
+    },
+    {
+      "id": 83,
+      "start": 353.0,
+      "end": 359.0,
+      "text": "Because Google was the, you know, without maybe coming out and saying yes we're a no-seical company,"
+    },
+    {
+      "id": 84,
+      "start": 359.0,
+      "end": 364.0,
+      "text": "but they certainly were at the forefront of the vanguard of the no-seical data movement."
+    },
+    {
+      "id": 85,
+      "start": 364.0,
+      "end": 367.0,
+      "text": "And you saw this in the paper you guys read."
+    },
+    {
+      "id": 86,
+      "start": 367.0,
+      "end": 376.0,
+      "text": "And then there's all these other, these systems in the late early 2000s, you know, in late 2010,"
+    },
+    {
+      "id": 87,
+      "start": 376.0,
+      "end": 385.0,
+      "text": "early 2010s of going forward where Google realized, oh, Sequel was actually a good idea and then started adding, you started building systems around this."
+    },
+    {
+      "id": 88,
+      "start": 385.0,
+      "end": 394.0,
+      "text": "Again, in the paper you guys read, there's this paragraph right here that talks about how the conventionalism Google was Sequel didn't scale."
+    },
+    {
+      "id": 89,
+      "start": 394.0,
+      "end": 400.0,
+      "text": "And then again, everyone else sort of followed along with Bandwagon and was designing systems based on some of these early ideas."
+    },
+    {
+      "id": 90,
+      "start": 400.0,
+      "end": 404.0,
+      "text": "Long goes probably the, you know, one of the biggest ones, right?"
+    },
+    {
+      "id": 91,
+      "start": 404.0,
+      "end": 409.0,
+      "text": "Or people were saying, we don't want to use Sequel, Sequel doesn't scale. We don't want to use joins."
+    },
+    {
+      "id": 92,
+      "start": 409.0,
+      "end": 417.0,
+      "text": "And then now the tide has turned out. And so the Dremel guys talk about how they see themselves as the ones that actually made Google,"
+    },
+    {
+      "id": 93,
+      "start": 417.0,
+      "end": 423.0,
+      "text": "which are made Sequel cool again or important again or matter again in Google."
+    },
+    {
+      "id": 94,
+      "start": 424.0,
+      "end": 431.0,
+      "text": "So a lot of these, these systems have size influence and a bunch of different data systems and other data systems."
+    },
+    {
+      "id": 95,
+      "start": 431.0,
+      "end": 436.0,
+      "text": "And as I said, a lot of these things started off as early research papers that Google put out."
+    },
+    {
+      "id": 96,
+      "start": 436.0,
+      "end": 446.0,
+      "text": "And typically the way industry companies put out papers is usually about two or three, maybe even four or five years behind what actually the state of the art is."
+    },
+    {
+      "id": 97,
+      "start": 447.0,
+      "end": 452.0,
+      "text": "So like they'll build the system, you know, get it up and running, file the patents for it."
+    },
+    {
+      "id": 98,
+      "start": 452.0,
+      "end": 457.0,
+      "text": "And then they'll write the paper by the behind the paper, you know, the paper comes out again, it's a couple years old."
+    },
+    {
+      "id": 99,
+      "start": 457.0,
+      "end": 468.0,
+      "text": "But Matt produced obviously was it was very influential, you know, maybe Hadoop, maybe Spark, Bigtable was cloned as H-based cumulative hyper table and so forth."
+    },
+    {
+      "id": 100,
+      "start": 468.0,
+      "end": 475.0,
+      "text": "Level DB was this deal when they actually didn't open the source, then they got forked off as rocks DB and rocks DB was more common now."
+    },
+    {
+      "id": 101,
+      "start": 475.0,
+      "end": 478.0,
+      "text": "And then there's other examples, they almost down here."
+    },
+    {
+      "id": 102,
+      "start": 478.0,
+      "end": 483.0,
+      "text": "And there's a few other like Priscilla's from YouTube, and there's just the paper that's not on source."
+    },
+    {
+      "id": 103,
+      "start": 483.0,
+      "end": 487.0,
+      "text": "There's a couple of systems like a list here that it sort of forgot or just having it in every room."
+    },
+    {
+      "id": 104,
+      "start": 487.0,
+      "end": 488.0,
+      "text": "Yes."
+    },
+    {
+      "id": 105,
+      "start": 488.0,
+      "end": 492.0,
+      "text": "Why is the, we just look at Dremel and not the other ones, actually, we look at the other ones."
+    },
+    {
+      "id": 106,
+      "start": 492.0,
+      "end": 495.0,
+      "text": "So why are we looking at this one, not these up?"
+    },
+    {
+      "id": 107,
+      "start": 496.0,
+      "end": 501.0,
+      "text": "The question is why we, why do we, why do we care about Dremel in this class and not these other ones?"
+    },
+    {
+      "id": 108,
+      "start": 501.0,
+      "end": 504.0,
+      "text": "Because Dremel is the only one that's doing analytics on the O-Lab stuff."
+    },
+    {
+      "id": 109,
+      "start": 504.0,
+      "end": 513.0,
+      "text": "Megastore was an early shard version of my CO2 transactions, the test is shard in my SQL at a YouTube spanner, I would just know about transaction."
+    },
+    {
+      "id": 110,
+      "start": 513.0,
+      "end": 514.0,
+      "text": "These are all transactional ones."
+    },
+    {
+      "id": 111,
+      "start": 514.0,
+      "end": 522.0,
+      "text": "Napa's sort of getting into the realm of like doing analytics, but it does, well, we can talk a little bit maybe next class."
+    },
+    {
+      "id": 112,
+      "start": 523.0,
+      "end": 534.0,
+      "text": "The context is like Delta Lake or iceberg, but Napa's all about like doing Dremel style analytics on historical data, but I'm also incorporating newly ingested data."
+    },
+    {
+      "id": 113,
+      "start": 534.0,
+      "end": 543.0,
+      "text": "And I can make a trade off between how much do I'm going to read from the, we only pay the cost of re-like the road data, I just inserted versus like the historical data."
+    },
+    {
+      "id": 114,
+      "start": 543.0,
+      "end": 546.0,
+      "text": "And then Delta Lake iceberg, they're all doing something similar."
+    },
+    {
+      "id": 115,
+      "start": 547.0,
+      "end": 551.0,
+      "text": "But again, the prior reason, again, there's a question why we thought we could Dremel."
+    },
+    {
+      "id": 116,
+      "start": 551.0,
+      "end": 553.0,
+      "text": "I mean, this is a very influential paper."
+    },
+    {
+      "id": 117,
+      "start": 553.0,
+      "end": 558.0,
+      "text": "This is pretty much how every, you know, Lake House engines we built today."
+    },
+    {
+      "id": 118,
+      "start": 558.0,
+      "end": 559.0,
+      "text": "Yes."
+    },
+    {
+      "id": 119,
+      "start": 559.0,
+      "end": 561.0,
+      "text": "What do you mean only for market?"
+    },
+    {
+      "id": 120,
+      "start": 561.0,
+      "end": 565.0,
+      "text": "So I have an asterisk for Cochish DB and TideB, only for marketing."
+    },
+    {
+      "id": 121,
+      "start": 565.0,
+      "end": 571.0,
+      "text": "Because when these systems first came out, the Cochish DB guys certainly worked at Google, but they didn't work on spanner."
+    },
+    {
+      "id": 122,
+      "start": 571.0,
+      "end": 576.0,
+      "text": "And then TideB gives had nothing to do with, you know, with, with, with, with spanner."
+    },
+    {
+      "id": 123,
+      "start": 576.0,
+      "end": 585.0,
+      "text": "Spanner was like the hot thing for like, you know, transaction data says, so these guys were maybe they explicitly didn't say it, but others are saying it and they didn't correct them."
+    },
+    {
+      "id": 124,
+      "start": 585.0,
+      "end": 589.0,
+      "text": "That these are open source variants of spanner."
+    },
+    {
+      "id": 125,
+      "start": 589.0,
+      "end": 590.0,
+      "text": "Right?"
+    },
+    {
+      "id": 126,
+      "start": 590.0,
+      "end": 600.0,
+      "text": "But the case of Cochish DB's and TideB's, that's not the case, because spanner relies on this true time service with like GPS clocks and atomic clocks, like, you know, part of the true time hardware service."
+    }
+  ],
+  "language": "en"
+}

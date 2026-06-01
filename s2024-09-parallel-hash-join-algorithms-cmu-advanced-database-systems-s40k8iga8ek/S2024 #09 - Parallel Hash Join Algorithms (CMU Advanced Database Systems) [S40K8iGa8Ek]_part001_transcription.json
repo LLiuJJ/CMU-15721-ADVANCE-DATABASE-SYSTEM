@@ -1,0 +1,1343 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.84,
+      "text": "Because again, this is 2009 before AVX512 came along."
+    },
+    {
+      "id": 1,
+      "start": 3.84,
+      "end": 6.8,
+      "text": "Now if the AVX512 is around and hashing, I think,"
+    },
+    {
+      "id": 2,
+      "start": 6.8,
+      "end": 8.92,
+      "text": "is still considerable."
+    },
+    {
+      "id": 3,
+      "start": 8.92,
+      "end": 11.88,
+      "text": "Now again, if your data's already sorted on the join key,"
+    },
+    {
+      "id": 4,
+      "start": 11.88,
+      "end": 15.0,
+      "text": "then yeah, that's always be faster than hash join."
+    },
+    {
+      "id": 5,
+      "start": 15.0,
+      "end": 17.0,
+      "text": "But most of the times, it's not."
+    },
+    {
+      "id": 6,
+      "start": 17.0,
+      "end": 21.08,
+      "text": "Especially in the lake house or the data lake environment,"
+    },
+    {
+      "id": 7,
+      "start": 21.08,
+      "end": 23.4,
+      "text": "we're talking about where someone is writing out random"
+    },
+    {
+      "id": 8,
+      "start": 23.4,
+      "end": 26.32,
+      "text": "parquet files and it's your job to join them together."
+    },
+    {
+      "id": 9,
+      "start": 26.32,
+      "end": 29.12,
+      "text": "So things almost never going to be sorted on the join key."
+    },
+    {
+      "id": 10,
+      "start": 29.48,
+      "end": 32.56,
+      "text": "There never going to be partition on the join key either."
+    },
+    {
+      "id": 11,
+      "start": 32.56,
+      "end": 34.16,
+      "text": "So that was 2009."
+    },
+    {
+      "id": 12,
+      "start": 34.16,
+      "end": 36.44,
+      "text": "Hashhing was faster if you had, but if you had AVX512,"
+    },
+    {
+      "id": 13,
+      "start": 36.44,
+      "end": 37.92,
+      "text": "you could get better."
+    },
+    {
+      "id": 14,
+      "start": 37.92,
+      "end": 39.64,
+      "text": "And then there was a paper from Wisconsin, actually,"
+    },
+    {
+      "id": 15,
+      "start": 39.64,
+      "end": 41.12,
+      "text": "from Jignesh and his student."
+    },
+    {
+      "id": 16,
+      "start": 41.12,
+      "end": 43.92,
+      "text": "That basically showed how the early work that's"
+    },
+    {
+      "id": 17,
+      "start": 43.92,
+      "end": 46.16,
+      "text": "shown the trade-offs between the partitioning hash"
+    },
+    {
+      "id": 18,
+      "start": 46.16,
+      "end": 49.0,
+      "text": "join versus the non-partitioning hash join."
+    },
+    {
+      "id": 19,
+      "start": 49.0,
+      "end": 50.92,
+      "text": "And in their approach, I think they"
+    },
+    {
+      "id": 20,
+      "start": 50.92,
+      "end": 54.64,
+      "text": "said that the partitioning one was actually was better."
+    },
+    {
+      "id": 21,
+      "start": 54.64,
+      "end": 58.6,
+      "text": "And the hyper guys came out in the next year in 2012"
+    },
+    {
+      "id": 22,
+      "start": 59.28,
+      "end": 60.56,
+      "text": "and said, well, it turns out, Surtmer's joined,"
+    },
+    {
+      "id": 23,
+      "start": 60.56,
+      "end": 63.08,
+      "text": "if you do it our way, is even faster than hash join"
+    },
+    {
+      "id": 24,
+      "start": 63.08,
+      "end": 67.76,
+      "text": "from the Wisconsin people and without requiring AVX512."
+    },
+    {
+      "id": 25,
+      "start": 67.76,
+      "end": 70.04,
+      "text": "Just using the harder to fill out the time with hyper,"
+    },
+    {
+      "id": 26,
+      "start": 70.04,
+      "end": 72.56,
+      "text": "they could do Surtmer's join faster."
+    },
+    {
+      "id": 27,
+      "start": 72.56,
+      "end": 73.72,
+      "text": "But then they came back a year later and said,"
+    },
+    {
+      "id": 28,
+      "start": 73.72,
+      "end": 75.92,
+      "text": "ignore what we said in this paper."
+    },
+    {
+      "id": 29,
+      "start": 75.92,
+      "end": 77.36,
+      "text": "You really want to use hashing."
+    },
+    {
+      "id": 30,
+      "start": 77.36,
+      "end": 81.84,
+      "text": "And here's the way we did it and look how much faster it is."
+    },
+    {
+      "id": 31,
+      "start": 81.84,
+      "end": 83.64,
+      "text": "Then another paper around the same time in 2013"
+    },
+    {
+      "id": 32,
+      "start": 83.64,
+      "end": 88.24,
+      "text": "from other Germans or I guess Swiss Germans"
+    },
+    {
+      "id": 33,
+      "start": 89.0,
+      "end": 91.72,
+      "text": "that they said, here's additional operations you can do."
+    },
+    {
+      "id": 34,
+      "start": 91.72,
+      "end": 93.52,
+      "text": "And here's how to make the rate of hash join, which"
+    },
+    {
+      "id": 35,
+      "start": 93.52,
+      "end": 95.68,
+      "text": "we'll cover today go faster."
+    },
+    {
+      "id": 36,
+      "start": 95.68,
+      "end": 98.72,
+      "text": "Then there's a paper you guys read from different Germans"
+    },
+    {
+      "id": 37,
+      "start": 98.72,
+      "end": 99.36,
+      "text": "at Sarland."
+    },
+    {
+      "id": 38,
+      "start": 99.36,
+      "end": 102.2,
+      "text": "They basically said everybody is showing"
+    },
+    {
+      "id": 39,
+      "start": 102.2,
+      "end": 104.0,
+      "text": "these different numbers and these different results."
+    },
+    {
+      "id": 40,
+      "start": 104.0,
+      "end": 107.44,
+      "text": "And it's really hard to compare an Apple"
+    },
+    {
+      "id": 41,
+      "start": 107.44,
+      "end": 108.88,
+      "text": "comparison between the different approaches."
+    },
+    {
+      "id": 42,
+      "start": 108.88,
+      "end": 110.56,
+      "text": "Because they're measuring different things."
+    },
+    {
+      "id": 43,
+      "start": 110.56,
+      "end": 111.56,
+      "text": "They're different implications."
+    },
+    {
+      "id": 44,
+      "start": 111.56,
+      "end": 112.88,
+      "text": "Running on different harbor, different work"
+    },
+    {
+      "id": 45,
+      "start": 112.88,
+      "end": 114.28,
+      "text": "was different everything."
+    },
+    {
+      "id": 46,
+      "start": 114.28,
+      "end": 117.8,
+      "text": "And the idea was to have a single paper look at all of them."
+    },
+    {
+      "id": 47,
+      "start": 119.08,
+      "end": 126.24,
+      "text": "But again, this is going to be a test-bed system."
+    },
+    {
+      "id": 48,
+      "start": 126.24,
+      "end": 128.24,
+      "text": "So they are going to materialize the tuples"
+    },
+    {
+      "id": 49,
+      "start": 128.24,
+      "end": 129.28,
+      "text": "as if it was a real engine."
+    },
+    {
+      "id": 50,
+      "start": 129.28,
+      "end": 131.92,
+      "text": "But it's not going to have the complete system"
+    },
+    {
+      "id": 51,
+      "start": 131.92,
+      "end": 135.08,
+      "text": "like hyper or umper is going to be."
+    },
+    {
+      "id": 52,
+      "start": 135.08,
+      "end": 137.76,
+      "text": "And then lastly, the most recent paper in the space"
+    },
+    {
+      "id": 53,
+      "start": 137.76,
+      "end": 140.6,
+      "text": "that sort of matters, which I did him you guys read,"
+    },
+    {
+      "id": 54,
+      "start": 140.6,
+      "end": 142.8,
+      "text": "from the Umberg Eyes, which again,"
+    },
+    {
+      "id": 55,
+      "start": 142.8,
+      "end": 145.04,
+      "text": "the same Germans as the hyper Germans."
+    },
+    {
+      "id": 56,
+      "start": 145.04,
+      "end": 146.88,
+      "text": "And they basically said, rate of hash join"
+    },
+    {
+      "id": 57,
+      "start": 146.88,
+      "end": 150.12,
+      "text": "is faster in a larger system and a full system like Umbra."
+    },
+    {
+      "id": 58,
+      "start": 150.12,
+      "end": 152.24,
+      "text": "But the challenge is going to be when"
+    },
+    {
+      "id": 59,
+      "start": 152.24,
+      "end": 153.56,
+      "text": "to know when you actually want to use it."
+    },
+    {
+      "id": 60,
+      "start": 153.56,
+      "end": 158.76,
+      "text": "Because there's these different aspects of the workload"
+    },
+    {
+      "id": 61,
+      "start": 158.76,
+      "end": 162.04,
+      "text": "and the data and the hardware that you have to account for"
+    },
+    {
+      "id": 62,
+      "start": 162.04,
+      "end": 168.76,
+      "text": "when you want to decide how to use rate of hash join correctly."
+    },
+    {
+      "id": 63,
+      "start": 168.76,
+      "end": 171.0,
+      "text": "And most of the systems, as far as I know,"
+    },
+    {
+      "id": 64,
+      "start": 171.0,
+      "end": 172.72,
+      "text": "the real systems that are out there today,"
+    },
+    {
+      "id": 65,
+      "start": 172.72,
+      "end": 175.8,
+      "text": "they're not going to implement the rate of hash join"
+    },
+    {
+      "id": 66,
+      "start": 175.8,
+      "end": 179.2,
+      "text": "versus the partition hash join,"
+    },
+    {
+      "id": 67,
+      "start": 179.2,
+      "end": 180.52,
+      "text": "but the non-partition hash join,"
+    },
+    {
+      "id": 68,
+      "start": 180.52,
+      "end": 181.8,
+      "text": "they're not going to implement usually"
+    },
+    {
+      "id": 69,
+      "start": 181.8,
+      "end": 184.32,
+      "text": "don't implement different hash tables implementations."
+    },
+    {
+      "id": 70,
+      "start": 184.32,
+      "end": 187.8,
+      "text": "Click houses, the exception will cover that in a second."
+    },
+    {
+      "id": 71,
+      "start": 187.8,
+      "end": 191.36,
+      "text": "And so everyone started to pick one and it's good enough."
+    },
+    {
+      "id": 72,
+      "start": 191.36,
+      "end": 194.68,
+      "text": "And in the paper you guys read from the Sarling Germans,"
+    },
+    {
+      "id": 73,
+      "start": 194.68,
+      "end": 196.88,
+      "text": "they basically said, hash join is important,"
+    },
+    {
+      "id": 74,
+      "start": 196.88,
+      "end": 198.24,
+      "text": "but it's not the most, you know,"
+    },
+    {
+      "id": 75,
+      "start": 198.24,
+      "end": 201.28,
+      "text": "it's not really spending all your time in queries."
+    },
+    {
+      "id": 76,
+      "start": 201.28,
+      "end": 204.56,
+      "text": "And so you're probably better optimizing other things,"
+    },
+    {
+      "id": 77,
+      "start": 204.56,
+      "end": 206.44,
+      "text": "which we've been saying throughout the semester,"
+    },
+    {
+      "id": 78,
+      "start": 206.44,
+      "end": 212.32,
+      "text": "that there's not like one, the current state of the research"
+    },
+    {
+      "id": 79,
+      "start": 212.32,
+      "end": 215.8,
+      "text": "and of database systems is that there's not one thing"
+    },
+    {
+      "id": 80,
+      "start": 215.8,
+      "end": 217.2,
+      "text": "you could point to, like this is the biggest problem,"
+    },
+    {
+      "id": 81,
+      "start": 217.2,
+      "end": 219.56,
+      "text": "we got to fix this, it's a combination of a bunch of things."
+    },
+    {
+      "id": 82,
+      "start": 219.56,
+      "end": 221.64,
+      "text": "So yes, if you have a really crappy join hour with them,"
+    },
+    {
+      "id": 83,
+      "start": 221.64,
+      "end": 223.72,
+      "text": "then yeah, that's going to be a dominating cost"
+    },
+    {
+      "id": 84,
+      "start": 223.72,
+      "end": 226.08,
+      "text": "of your system."
+    },
+    {
+      "id": 85,
+      "start": 226.08,
+      "end": 227.36,
+      "text": "But once you start implementing the base"
+    },
+    {
+      "id": 86,
+      "start": 227.36,
+      "end": 229.96,
+      "text": "compromizations that we'll talk about today,"
+    },
+    {
+      "id": 87,
+      "start": 229.96,
+      "end": 232.4,
+      "text": "separate from the partition versus non-partition one,"
+    },
+    {
+      "id": 88,
+      "start": 232.4,
+      "end": 236.88,
+      "text": "like you're not going to shape a large number of more cycles"
+    },
+    {
+      "id": 89,
+      "start": 236.88,
+      "end": 239.16,
+      "text": "or more time in queries, trying to make your hash"
+    },
+    {
+      "id": 90,
+      "start": 239.16,
+      "end": 240.4,
+      "text": "join even faster."
+    },
+    {
+      "id": 91,
+      "start": 240.4,
+      "end": 243.16,
+      "text": "I had my one student, Prashant, my previous PhD student,"
+    },
+    {
+      "id": 92,
+      "start": 243.16,
+      "end": 246.44,
+      "text": "who's now Databricks, working on photon,"
+    },
+    {
+      "id": 93,
+      "start": 246.44,
+      "end": 249.24,
+      "text": "he spent about a half a year looking at some of these"
+    },
+    {
+      "id": 94,
+      "start": 249.24,
+      "end": 251.88,
+      "text": "early works, I'm going to come these guys and these guys,"
+    },
+    {
+      "id": 95,
+      "start": 251.88,
+      "end": 254.0,
+      "text": "like trying to make their hash joins faster."
+    },
+    {
+      "id": 96,
+      "start": 254.0,
+      "end": 255.84,
+      "text": "And we were going, like we were literally counting"
+    },
+    {
+      "id": 97,
+      "start": 255.84,
+      "end": 258.12,
+      "text": "the cycles per tubal, like he got it down from like 12"
+    },
+    {
+      "id": 98,
+      "start": 258.12,
+      "end": 261.0,
+      "text": "cycles per tubal to like 11 cycles per tubal."
+    },
+    {
+      "id": 99,
+      "start": 261.0,
+      "end": 263.48,
+      "text": "And like in the end, it doesn't matter."
+    },
+    {
+      "id": 100,
+      "start": 263.48,
+      "end": 266.32,
+      "text": "And we never published anything about it."
+    },
+    {
+      "id": 101,
+      "start": 266.32,
+      "end": 268.6,
+      "text": "Anyway, so anyway, we'll cover the different approaches"
+    },
+    {
+      "id": 102,
+      "start": 268.6,
+      "end": 269.16,
+      "text": "that we go along."
+    },
+    {
+      "id": 103,
+      "start": 269.16,
+      "end": 271.36,
+      "text": "But the important thing to cover now"
+    },
+    {
+      "id": 104,
+      "start": 271.36,
+      "end": 275.52,
+      "text": "is discusses how we want to design our algorithm"
+    },
+    {
+      "id": 105,
+      "start": 275.52,
+      "end": 277.36,
+      "text": "and what is the overarching theme of how"
+    },
+    {
+      "id": 106,
+      "start": 277.36,
+      "end": 280.52,
+      "text": "we want to make decisions about certain trade-offs"
+    },
+    {
+      "id": 107,
+      "start": 280.52,
+      "end": 282.76,
+      "text": "of our implementation."
+    },
+    {
+      "id": 108,
+      "start": 282.76,
+      "end": 286.76,
+      "text": "And this is going to come down to whether our implementation"
+    },
+    {
+      "id": 109,
+      "start": 286.76,
+      "end": 289.16,
+      "text": "is going to be considered harbor conscious"
+    },
+    {
+      "id": 110,
+      "start": 289.16,
+      "end": 291.08,
+      "text": "or covered oblivious."
+    },
+    {
+      "id": 111,
+      "start": 291.08,
+      "end": 292.6,
+      "text": "And I know what these terms mean."
+    },
+    {
+      "id": 112,
+      "start": 292.6,
+      "end": 295.4,
+      "text": "I think the paper covered it."
+    },
+    {
+      "id": 113,
+      "start": 295.4,
+      "end": 298.8,
+      "text": "What does it mean harbor oblivious?"
+    },
+    {
+      "id": 114,
+      "start": 298.8,
+      "end": 301.24,
+      "text": "What does oblivious mean?"
+    },
+    {
+      "id": 115,
+      "start": 301.24,
+      "end": 302.24,
+      "text": "You don't know."
+    },
+    {
+      "id": 116,
+      "start": 302.24,
+      "end": 302.8,
+      "text": "Yeah."
+    },
+    {
+      "id": 117,
+      "start": 302.8,
+      "end": 304.12,
+      "text": "So meaning like the algorithm doesn't"
+    },
+    {
+      "id": 118,
+      "start": 304.12,
+      "end": 309.2,
+      "text": "know, doesn't care about what the cache size is."
+    },
+    {
+      "id": 119,
+      "start": 309.2,
+      "end": 312.32,
+      "text": "The number of threads are, what the TLB size is."
+    },
+    {
+      "id": 120,
+      "start": 312.32,
+      "end": 314.52,
+      "text": "It's just like sort of, there's a standard algorithm."
+    },
+    {
+      "id": 121,
+      "start": 314.52,
+      "end": 317.4,
+      "text": "You try to do the best you can without tuning"
+    },
+    {
+      "id": 122,
+      "start": 317.4,
+      "end": 319.76,
+      "text": "specific things to the actual hardware."
+    },
+    {
+      "id": 123,
+      "start": 319.76,
+      "end": 321.24,
+      "text": "Harbor conscious is the opposite."
+    },
+    {
+      "id": 124,
+      "start": 321.24,
+      "end": 322.8,
+      "text": "It's saying like, OK, I'm going to try"
+    },
+    {
+      "id": 125,
+      "start": 322.8,
+      "end": 325.92,
+      "text": "to look at all the low-level information specifications"
+    },
+    {
+      "id": 126,
+      "start": 325.92,
+      "end": 327.52,
+      "text": "about the harbor that I'm running on,"
+    },
+    {
+      "id": 127,
+      "start": 327.52,
+      "end": 331.08,
+      "text": "like the cache sizes, like the newer regions and so forth."
+    },
+    {
+      "id": 128,
+      "start": 331.08,
+      "end": 334.32,
+      "text": "And then have my algorithm make decisions"
+    },
+    {
+      "id": 129,
+      "start": 334.32,
+      "end": 337.56,
+      "text": "of how to divide things up and move things around based"
+    },
+    {
+      "id": 130,
+      "start": 337.56,
+      "end": 339.0,
+      "text": "on that."
+    },
+    {
+      "id": 131,
+      "start": 339.0,
+      "end": 339.48,
+      "text": "All right."
+    },
+    {
+      "id": 132,
+      "start": 339.48,
+      "end": 340.36,
+      "text": "There's trade-offs to each of these."
+    },
+    {
+      "id": 133,
+      "start": 340.36,
+      "end": 342.88,
+      "text": "Obviously that, if I'm harbor oblivious,"
+    },
+    {
+      "id": 134,
+      "start": 342.88,
+      "end": 346.84,
+      "text": "then I write it once, and that's good enough for everywhere."
+    },
+    {
+      "id": 135,
+      "start": 346.84,
+      "end": 349.92,
+      "text": "Harbor conscious means that I have specific optimizations"
+    },
+    {
+      "id": 136,
+      "start": 349.92,
+      "end": 353.8,
+      "text": "that may not work anymore as harbor evolves over time."
+    },
+    {
+      "id": 137,
+      "start": 353.8,
+      "end": 358.6,
+      "text": "Or if I go somehow something in X86 is completely different"
+    },
+    {
+      "id": 138,
+      "start": 358.6,
+      "end": 362.88,
+      "text": "than something in ARM, then my algorithms will not scale"
+    },
+    {
+      "id": 139,
+      "start": 362.88,
+      "end": 367.4,
+      "text": "in the other ISA or other architecture."
+    },
+    {
+      "id": 140,
+      "start": 367.4,
+      "end": 369.44,
+      "text": "So within this, we want to have sort of two goals"
+    },
+    {
+      "id": 141,
+      "start": 369.44,
+      "end": 371.28,
+      "text": "of how we want to implement our algorithms."
+    },
+    {
+      "id": 142,
+      "start": 371.28,
+      "end": 373.92,
+      "text": "First of that, we obviously want to minimize synchronization."
+    },
+    {
+      "id": 143,
+      "start": 373.92,
+      "end": 376.0,
+      "text": "And this means that since we're talking about a parallel"
+    },
+    {
+      "id": 144,
+      "start": 376.0,
+      "end": 378.4,
+      "text": "join algorithm, we have to have multiple threads"
+    },
+    {
+      "id": 145,
+      "start": 378.4,
+      "end": 380.32,
+      "text": "or multiple workers running at the same time."
+    },
+    {
+      "id": 146,
+      "start": 380.32,
+      "end": 382.16,
+      "text": "And we want to reduce the amount of communication"
+    },
+    {
+      "id": 147,
+      "start": 382.16,
+      "end": 385.84,
+      "text": "we have between those threads so that one thread can continue"
+    },
+    {
+      "id": 148,
+      "start": 385.84,
+      "end": 389.04,
+      "text": "working and not get blocked on another thread"
+    },
+    {
+      "id": 149,
+      "start": 389.04,
+      "end": 393.32,
+      "text": "filling up some buffer or hash date."
+    },
+    {
+      "id": 150,
+      "start": 393.32,
+      "end": 398.52,
+      "text": "So again, we want our threads to be able to run full speed."
+    },
+    {
+      "id": 151,
+      "start": 398.52,
+      "end": 400.4,
+      "text": "So this doesn't mean that we want to make our implementation"
+    },
+    {
+      "id": 152,
+      "start": 400.4,
+      "end": 402.04,
+      "text": "lock free or latch free, it just means"
+    },
+    {
+      "id": 153,
+      "start": 402.04,
+      "end": 406.4,
+      "text": "that we can be careful about when we actually go acquire latches"
+    },
+    {
+      "id": 154,
+      "start": 406.4,
+      "end": 408.88,
+      "text": "so that it's not everyone trying to clobber each other"
+    },
+    {
+      "id": 155,
+      "start": 408.88,
+      "end": 411.64,
+      "text": "all the time."
+    },
+    {
+      "id": 156,
+      "start": 411.64,
+      "end": 416.96,
+      "text": "The second goal is to minimize the cost of going accessing memory."
+    },
+    {
+      "id": 157,
+      "start": 416.96,
+      "end": 420.0,
+      "text": "And this means that we want the data that any threads"
+    },
+    {
+      "id": 158,
+      "start": 420.0,
+      "end": 422.92,
+      "text": "are going to be operating on and working on to be local to it,"
+    },
+    {
+      "id": 159,
+      "start": 422.92,
+      "end": 426.16,
+      "text": "ideally in its caches."
+    },
+    {
+      "id": 160,
+      "start": 426.16,
+      "end": 429.24,
+      "text": "If not in L1, L2, then L3."
+    },
+    {
+      "id": 161,
+      "start": 429.24,
+      "end": 432.12,
+      "text": "L3 shared across different cores, these in Zians,"
+    },
+    {
+      "id": 162,
+      "start": 432.12,
+      "end": 434.28,
+      "text": "within a single socket."
+    },
+    {
+      "id": 163,
+      "start": 434.28,
+      "end": 436.6,
+      "text": "Or if I can't have things in my last level cache,"
+    },
+    {
+      "id": 164,
+      "start": 436.6,
+      "end": 438.44,
+      "text": "I want to have it in my local memory."
+    },
+    {
+      "id": 165,
+      "start": 438.44,
+      "end": 443.08,
+      "text": "Because I want to avoid having to go over the interconnect"
+    },
+    {
+      "id": 166,
+      "start": 443.08,
+      "end": 444.96,
+      "text": "across different Numa regions."
+    },
+    {
+      "id": 167,
+      "start": 444.96,
+      "end": 446.4,
+      "text": "And so the way we'll design our algorithms"
+    },
+    {
+      "id": 168,
+      "start": 446.4,
+      "end": 449.16,
+      "text": "is very similar to how we design algorithms in the interclass,"
+    },
+    {
+      "id": 169,
+      "start": 449.16,
+      "end": 452.28,
+      "text": "where we were said, when we never bring something in from disk,"
+    },
+    {
+      "id": 170,
+      "start": 452.28,
+      "end": 454.6,
+      "text": "a page from disk into memory, we want"
+    },
+    {
+      "id": 171,
+      "start": 454.6,
+      "end": 457.68,
+      "text": "to do as much work as we can on that piece of data"
+    },
+    {
+      "id": 172,
+      "start": 457.68,
+      "end": 458.92,
+      "text": "before we throw it away."
+    },
+    {
+      "id": 173,
+      "start": 458.92,
+      "end": 461.04,
+      "text": "Because we don't want to go fetch the disk again."
+    },
+    {
+      "id": 174,
+      "start": 461.04,
+      "end": 462.64,
+      "text": "Or it's the same thing we saw with Hyper,"
+    },
+    {
+      "id": 175,
+      "start": 462.64,
+      "end": 465.04,
+      "text": "where they wanted to do as much work as they can for a single"
+    },
+    {
+      "id": 176,
+      "start": 465.04,
+      "end": 468.24,
+      "text": "tuple sitting in a CPU register going up the pipeline"
+    },
+    {
+      "id": 177,
+      "start": 468.24,
+      "end": 470.0,
+      "text": "before they went back and got another tuple."
+    },
+    {
+      "id": 178,
+      "start": 470.0,
+      "end": 472.88,
+      "text": "Because again, the cost of going something"
+    },
+    {
+      "id": 179,
+      "start": 472.88,
+      "end": 475.8,
+      "text": "into memory from CPU cache into the register"
+    },
+    {
+      "id": 180,
+      "start": 475.8,
+      "end": 478.56,
+      "text": "was relatively expensive."
+    },
+    {
+      "id": 181,
+      "start": 478.56,
+      "end": 482.28,
+      "text": "So this idea shouldn't be far into us."
+    },
+    {
+      "id": 182,
+      "start": 482.28,
+      "end": 485.16,
+      "text": "So let's focus how we want to do this."
+    },
+    {
+      "id": 183,
+      "start": 485.16,
+      "end": 489.92,
+      "text": "So what's going to make our query go slow when you have cache"
+    },
+    {
+      "id": 184,
+      "start": 489.92,
+      "end": 491.6,
+      "text": "miss?"
+    },
+    {
+      "id": 185,
+      "start": 491.6,
+      "end": 495.52,
+      "text": "Well, if we just fill up our cache with a bunch of crap,"
+    },
+    {
+      "id": 186,
+      "start": 495.52,
+      "end": 498.84,
+      "text": "a bunch of stuff, a bunch of data, then yeah,"
+    },
+    {
+      "id": 187,
+      "start": 498.84,
+      "end": 501.2,
+      "text": "we're not going to have any space to store new things."
+    },
+    {
+      "id": 188,
+      "start": 501.2,
+      "end": 502.96,
+      "text": "But another challenge is going to be we have to actually"
+    },
+    {
+      "id": 189,
+      "start": 502.96,
+      "end": 505.84,
+      "text": "consider the TLB on the actual CPU."
+    },
+    {
+      "id": 190,
+      "start": 505.84,
+      "end": 509.92,
+      "text": "Because now if we're trying to have our thread address"
+    },
+    {
+      "id": 191,
+      "start": 509.92,
+      "end": 515.48,
+      "text": "a bunch of different cache lines across memory,"
+    },
+    {
+      "id": 192,
+      "start": 515.48,
+      "end": 519.84,
+      "text": "then if I'm dispolluting my cache with all these random cache"
+    },
+    {
+      "id": 193,
+      "start": 519.84,
+      "end": 525.12,
+      "text": "lines, and now when I do another look up for some other cache"
+    },
+    {
+      "id": 194,
+      "start": 525.12,
+      "end": 527.76,
+      "text": "line, now only is it not going to be in my CPU cache,"
+    },
+    {
+      "id": 195,
+      "start": 527.76,
+      "end": 530.44,
+      "text": "because it got the CPU evicted and put it out to memory."
+    },
+    {
+      "id": 196,
+      "start": 530.44,
+      "end": 533.0,
+      "text": "But it's also the entry is not going to be in my TLB."
+    },
+    {
+      "id": 197,
+      "start": 533.0,
+      "end": 535.92,
+      "text": "So now I actually going to pay two cache misses."
+    },
+    {
+      "id": 198,
+      "start": 535.92,
+      "end": 538.24,
+      "text": "I have to do one single look up."
+    },
+    {
+      "id": 199,
+      "start": 538.24,
+      "end": 542.64,
+      "text": "So I want to be careful about how I'm bringing in my data"
+    },
+    {
+      "id": 200,
+      "start": 542.64,
+      "end": 544.52,
+      "text": "and make sure, again, I've reused as much as I can"
+    },
+    {
+      "id": 201,
+      "start": 544.52,
+      "end": 546.04,
+      "text": "before I move on to the next thing."
+    },
+    {
+      "id": 202,
+      "start": 546.04,
+      "end": 548.08,
+      "text": "Basically, I want to avoid doing complete random access."
+    },
+    {
+      "id": 203,
+      "start": 548.08,
+      "end": 551.48,
+      "text": "Even though it's memory, and we said we could do random access,"
+    },
+    {
+      "id": 204,
+      "start": 551.48,
+      "end": 553.56,
+      "text": "we want to still be careful about what we're accessing"
+    },
+    {
+      "id": 205,
+      "start": 553.56,
+      "end": 554.64,
+      "text": "to avoid that issue."
+    },
+    {
+      "id": 206,
+      "start": 554.64,
+      "end": 557.48,
+      "text": "Again, it's just like in a dismay system in the intro class,"
+    },
+    {
+      "id": 207,
+      "start": 557.48,
+      "end": 561.04,
+      "text": "just now we're at the even smaller scale."
+    },
+    {
+      "id": 208,
+      "start": 561.04,
+      "end": 564.8,
+      "text": "But it's still going to matter a lot."
+    },
+    {
+      "id": 209,
+      "start": 564.8,
+      "end": 566.68,
+      "text": "So I've already started to say this."
+    },
+    {
+      "id": 210,
+      "start": 566.68,
+      "end": 568.12,
+      "text": "We want to avoid random access."
+    },
+    {
+      "id": 211,
+      "start": 568.12,
+      "end": 570.84,
+      "text": "We want to try to scan as much as possible."
+    },
+    {
+      "id": 212,
+      "start": 570.84,
+      "end": 572.56,
+      "text": "And then when we do have random access,"
+    },
+    {
+      "id": 213,
+      "start": 572.56,
+      "end": 576.88,
+      "text": "we want to have things be local possible in that way."
+    },
+    {
+      "id": 214,
+      "start": 576.88,
+      "end": 581.44,
+      "text": "We're just hitting our local cache over and over again."
+    },
+    {
+      "id": 215,
+      "start": 581.44,
+      "end": 582.76,
+      "text": "So there's going to be this trade-off with C,"
+    },
+    {
+      "id": 216,
+      "start": 582.76,
+      "end": 584.36,
+      "text": "when we talk about the rate of join,"
+    },
+    {
+      "id": 217,
+      "start": 584.36,
+      "end": 588.76,
+      "text": "where there is going to be the amount of instructions"
+    },
+    {
+      "id": 218,
+      "start": 588.76,
+      "end": 590.68,
+      "text": "we would have to execute to do something,"
+    },
+    {
+      "id": 219,
+      "start": 590.68,
+      "end": 593.0,
+      "text": "versus the amount of memory we may consume,"
+    },
+    {
+      "id": 220,
+      "start": 593.0,
+      "end": 595.4,
+      "text": "and the amount of cycles we may consume."
+    },
+    {
+      "id": 221,
+      "start": 595.4,
+      "end": 597.84,
+      "text": "Again, the idea of this partitioning step"
+    },
+    {
+      "id": 222,
+      "start": 597.84,
+      "end": 601.6,
+      "text": "is that if I pre-process my data on both the builds,"
+    }
+  ],
+  "language": "en"
+}

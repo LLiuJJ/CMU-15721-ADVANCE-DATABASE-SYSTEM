@@ -1,0 +1,1415 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.0,
+      "text": "or compression."
+    },
+    {
+      "id": 1,
+      "start": 2.0,
+      "end": 5.36,
+      "text": "All those things, which is what you need to make a graph query"
+    },
+    {
+      "id": 2,
+      "start": 5.36,
+      "end": 6.44,
+      "text": "run faster."
+    },
+    {
+      "id": 3,
+      "start": 6.44,
+      "end": 8.8,
+      "text": "And that the existing graph databases"
+    },
+    {
+      "id": 4,
+      "start": 8.8,
+      "end": 11.0,
+      "text": "basically ignored all those developments"
+    },
+    {
+      "id": 5,
+      "start": 11.0,
+      "end": 12.56,
+      "text": "and went down their own path."
+    },
+    {
+      "id": 6,
+      "start": 12.56,
+      "end": 15.08,
+      "text": "And they were going to lose out to relational databases."
+    },
+    {
+      "id": 7,
+      "start": 15.08,
+      "end": 16.6,
+      "text": "And I agree to that."
+    },
+    {
+      "id": 8,
+      "start": 16.6,
+      "end": 19.68,
+      "text": "I agree to that statement."
+    },
+    {
+      "id": 9,
+      "start": 19.68,
+      "end": 21.52,
+      "text": "So I'm going to show one optimization that we haven't really"
+    },
+    {
+      "id": 10,
+      "start": 21.52,
+      "end": 21.88,
+      "text": "covered."
+    },
+    {
+      "id": 11,
+      "start": 21.88,
+      "end": 24.36,
+      "text": "It doesn't really fit into other parts of the talk to us."
+    },
+    {
+      "id": 12,
+      "start": 24.36,
+      "end": 25.36,
+      "text": "And you kind of need to understand,"
+    },
+    {
+      "id": 13,
+      "start": 25.36,
+      "end": 28.2,
+      "text": "OK, when you have the balloon up at these inmate results"
+    },
+    {
+      "id": 14,
+      "start": 28.2,
+      "end": 30.84,
+      "text": "in these graph or triangle queries,"
+    },
+    {
+      "id": 15,
+      "start": 30.84,
+      "end": 32.8,
+      "text": "this is when you actually want to apply this technique."
+    },
+    {
+      "id": 16,
+      "start": 32.8,
+      "end": 36.12,
+      "text": "For binary joins, this doesn't make sense."
+    },
+    {
+      "id": 17,
+      "start": 36.12,
+      "end": 38.56,
+      "text": "And so the technique is called factorization."
+    },
+    {
+      "id": 18,
+      "start": 38.56,
+      "end": 39.6,
+      "text": "And the idea is really, really simple."
+    },
+    {
+      "id": 19,
+      "start": 39.6,
+      "end": 43.36,
+      "text": "Basically, rather than materializing duplicate"
+    },
+    {
+      "id": 20,
+      "start": 43.36,
+      "end": 45.72,
+      "text": "tuples over and over again for a join"
+    },
+    {
+      "id": 21,
+      "start": 45.72,
+      "end": 47.6,
+      "text": "or whatever operator you're trying to generate,"
+    },
+    {
+      "id": 22,
+      "start": 47.6,
+      "end": 50.28,
+      "text": "you just figure out here's all the actual unique values"
+    },
+    {
+      "id": 23,
+      "start": 50.28,
+      "end": 53.32,
+      "text": "and maintain a column of a counter."
+    },
+    {
+      "id": 24,
+      "start": 53.32,
+      "end": 57.24,
+      "text": "It says how many times have I seen this tuple?"
+    },
+    {
+      "id": 25,
+      "start": 57.24,
+      "end": 58.72,
+      "text": "So now, going back to my examples I have before,"
+    },
+    {
+      "id": 26,
+      "start": 58.72,
+      "end": 60.88,
+      "text": "when I was doing those joins inmate results"
+    },
+    {
+      "id": 27,
+      "start": 60.88,
+      "end": 63.4,
+      "text": "with blowing up, is that, again, to have"
+    },
+    {
+      "id": 28,
+      "start": 63.4,
+      "end": 64.76,
+      "text": "to materialize all those results, I"
+    },
+    {
+      "id": 29,
+      "start": 64.76,
+      "end": 69.44,
+      "text": "could just store it in a factorized form and have a counter."
+    },
+    {
+      "id": 30,
+      "start": 69.44,
+      "end": 71.76,
+      "text": "But now the challenge is, in my implementation,"
+    },
+    {
+      "id": 31,
+      "start": 71.76,
+      "end": 73.36,
+      "text": "all the operators in my system need"
+    },
+    {
+      "id": 32,
+      "start": 73.36,
+      "end": 76.28,
+      "text": "to be aware that they're operating on factorized tuples"
+    },
+    {
+      "id": 33,
+      "start": 76.28,
+      "end": 78.48,
+      "text": "and be able to account for that."
+    },
+    {
+      "id": 34,
+      "start": 78.48,
+      "end": 81.48,
+      "text": "If I'm running a count query, this can't"
+    },
+    {
+      "id": 35,
+      "start": 81.48,
+      "end": 82.36,
+      "text": "to be something internal."
+    },
+    {
+      "id": 36,
+      "start": 82.36,
+      "end": 84.08,
+      "text": "That's something that just gets synthesized"
+    },
+    {
+      "id": 37,
+      "start": 84.08,
+      "end": 86.0,
+      "text": "and ignored, treated like any other column."
+    },
+    {
+      "id": 38,
+      "start": 86.0,
+      "end": 88.56,
+      "text": "The system needs to know, oh, this is a counter column,"
+    },
+    {
+      "id": 39,
+      "start": 88.56,
+      "end": 91.16,
+      "text": "and adjust the computations accordingly."
+    },
+    {
+      "id": 40,
+      "start": 93.68,
+      "end": 97.32,
+      "text": "Simple trick, nobody does this."
+    },
+    {
+      "id": 41,
+      "start": 97.32,
+      "end": 98.6,
+      "text": "But again, I think this is something"
+    },
+    {
+      "id": 42,
+      "start": 98.6,
+      "end": 103.36,
+      "text": "of the relational guys, well, eventually, I have to add."
+    },
+    {
+      "id": 43,
+      "start": 103.36,
+      "end": 105.6,
+      "text": "So here's some graphs from this, again,"
+    },
+    {
+      "id": 44,
+      "start": 105.6,
+      "end": 107.88,
+      "text": "the paper that I mentioned from the Dr. Nee guys,"
+    },
+    {
+      "id": 45,
+      "start": 107.88,
+      "end": 111.04,
+      "text": "where the comparing is Neo4j."
+    },
+    {
+      "id": 46,
+      "start": 111.04,
+      "end": 113.68,
+      "text": "They're comparing the extended version of duct Db"
+    },
+    {
+      "id": 47,
+      "start": 114.64,
+      "end": 116.56,
+      "text": "with PGQ or SQL PGQ."
+    },
+    {
+      "id": 48,
+      "start": 116.56,
+      "end": 119.96,
+      "text": "And I think they only implemented worst case optimal join."
+    },
+    {
+      "id": 49,
+      "start": 119.96,
+      "end": 122.0,
+      "text": "I don't think, obviously, I already"
+    },
+    {
+      "id": 50,
+      "start": 122.0,
+      "end": 124.64,
+      "text": "have vectorized execution and compression"
+    },
+    {
+      "id": 51,
+      "start": 124.64,
+      "end": 127.76,
+      "text": "and all the stuff that we talked about so far that duct Db has."
+    },
+    {
+      "id": 52,
+      "start": 127.76,
+      "end": 130.96,
+      "text": "And then they compared against Ambra with their tri-hash."
+    },
+    {
+      "id": 53,
+      "start": 130.96,
+      "end": 134.0,
+      "text": "And the main takeaway is that the Neo4j"
+    },
+    {
+      "id": 54,
+      "start": 134.0,
+      "end": 135.2,
+      "text": "basically gets crushed."
+    },
+    {
+      "id": 55,
+      "start": 135.2,
+      "end": 137.56,
+      "text": "These are all log scale, right?"
+    },
+    {
+      "id": 56,
+      "start": 137.56,
+      "end": 141.12,
+      "text": "And so they're running the same queries for this,"
+    },
+    {
+      "id": 57,
+      "start": 142.12,
+      "end": 144.64,
+      "text": "it's the link data benchmark."
+    },
+    {
+      "id": 58,
+      "start": 144.64,
+      "end": 147.76,
+      "text": "This is something that Steve Rui created"
+    },
+    {
+      "id": 59,
+      "start": 147.76,
+      "end": 150.12,
+      "text": "with the other graph Db's."
+    },
+    {
+      "id": 60,
+      "start": 150.12,
+      "end": 153.0,
+      "text": "So this is a bunch of workloads that are trying to do"
+    },
+    {
+      "id": 61,
+      "start": 153.0,
+      "end": 157.28,
+      "text": "pattern matching on graph structures or the logical graph."
+    },
+    {
+      "id": 62,
+      "start": 157.28,
+      "end": 161.0,
+      "text": "And again, just going down the line for different scale factors,"
+    },
+    {
+      "id": 63,
+      "start": 162.0,
+      "end": 163.52,
+      "text": "Neo4j gets crushed."
+    },
+    {
+      "id": 64,
+      "start": 163.52,
+      "end": 165.24,
+      "text": "And I'm not trying to dunk on Neo4j,"
+    },
+    {
+      "id": 65,
+      "start": 165.24,
+      "end": 167.32,
+      "text": "but that's the oldest graph Db's."
+    },
+    {
+      "id": 66,
+      "start": 167.32,
+      "end": 168.48,
+      "text": "They've raised the most money."
+    },
+    {
+      "id": 67,
+      "start": 168.48,
+      "end": 171.68,
+      "text": "I think probably like 200 million, right?"
+    },
+    {
+      "id": 68,
+      "start": 171.68,
+      "end": 173.12,
+      "text": "And this is when you think of graph database,"
+    },
+    {
+      "id": 69,
+      "start": 173.12,
+      "end": 174.32,
+      "text": "people think of Neo4j."
+    },
+    {
+      "id": 70,
+      "start": 175.56,
+      "end": 179.0,
+      "text": "And for millions, millions of dollars,"
+    },
+    {
+      "id": 71,
+      "start": 179.0,
+      "end": 181.64,
+      "text": "they're getting crushed by a rag tag group of Germans,"
+    },
+    {
+      "id": 72,
+      "start": 181.64,
+      "end": 183.08,
+      "text": "although they're the best Germans."
+    },
+    {
+      "id": 73,
+      "start": 185.48,
+      "end": 188.08,
+      "text": "And the duct Db, right?"
+    },
+    {
+      "id": 74,
+      "start": 188.08,
+      "end": 189.48,
+      "text": "And that's because again, the system,"
+    },
+    {
+      "id": 75,
+      "start": 189.48,
+      "end": 191.2,
+      "text": "even though they were not originally designed"
+    },
+    {
+      "id": 76,
+      "start": 191.2,
+      "end": 195.92,
+      "text": "for doing graph analytics, by taking advantage"
+    },
+    {
+      "id": 77,
+      "start": 195.92,
+      "end": 198.36,
+      "text": "of all the oppositions we've talked about so far,"
+    },
+    {
+      "id": 78,
+      "start": 198.36,
+      "end": 200.52,
+      "text": "plus the worst case optimal join,"
+    },
+    {
+      "id": 79,
+      "start": 200.52,
+      "end": 201.72,
+      "text": "they can crush Neo4j."
+    },
+    {
+      "id": 80,
+      "start": 202.8,
+      "end": 205.64,
+      "text": "Neo4j, as far as I know, they store like the,"
+    },
+    {
+      "id": 81,
+      "start": 205.64,
+      "end": 207.16,
+      "text": "there's a severed data structure for the vertices,"
+    },
+    {
+      "id": 82,
+      "start": 207.16,
+      "end": 208.76,
+      "text": "and then you have pointers to another data structure"
+    },
+    {
+      "id": 83,
+      "start": 208.76,
+      "end": 211.24,
+      "text": "that keeps track of edges, right?"
+    },
+    {
+      "id": 84,
+      "start": 211.24,
+      "end": 212.08,
+      "text": "Yes."
+    },
+    {
+      "id": 85,
+      "start": 212.08,
+      "end": 212.92,
+      "text": "I agree, too."
+    },
+    {
+      "id": 86,
+      "start": 212.92,
+      "end": 217.92,
+      "text": "Why is Umbra scale factor 30 slower than the scale factor 100?"
+    },
+    {
+      "id": 87,
+      "start": 218.52,
+      "end": 223.12,
+      "text": "Sorry, it's question is why is Umbra slower"
+    },
+    {
+      "id": 88,
+      "start": 223.12,
+      "end": 227.72,
+      "text": "in scale factor 100 than, so why is it faster here than here?"
+    },
+    {
+      "id": 89,
+      "start": 228.24,
+      "end": 229.6,
+      "text": "I don't know, I have a good look."
+    },
+    {
+      "id": 90,
+      "start": 233.04,
+      "end": 233.88,
+      "text": "Okay."
+    },
+    {
+      "id": 91,
+      "start": 235.04,
+      "end": 239.08,
+      "text": "So this is both a, I think you think,"
+    },
+    {
+      "id": 92,
+      "start": 239.08,
+      "end": 240.96,
+      "text": "both have an average type for why you want"
+    },
+    {
+      "id": 93,
+      "start": 240.96,
+      "end": 241.8,
+      "text": "worst case optimal join,"
+    },
+    {
+      "id": 94,
+      "start": 241.8,
+      "end": 243.56,
+      "text": "you want to support these kind of queries,"
+    },
+    {
+      "id": 95,
+      "start": 243.56,
+      "end": 245.2,
+      "text": "but also like why you don't want to use"
+    },
+    {
+      "id": 96,
+      "start": 245.2,
+      "end": 248.0,
+      "text": "a specialized graph database, all right?"
+    },
+    {
+      "id": 97,
+      "start": 249.36,
+      "end": 252.08,
+      "text": "So this is a very active area of research."
+    },
+    {
+      "id": 98,
+      "start": 253.52,
+      "end": 256.96,
+      "text": "And as I said, only a small number of systems"
+    },
+    {
+      "id": 99,
+      "start": 256.96,
+      "end": 258.76,
+      "text": "actually support worst case optimal joins,"
+    },
+    {
+      "id": 100,
+      "start": 258.76,
+      "end": 260.76,
+      "text": "but I think that's gonna change over time."
+    },
+    {
+      "id": 101,
+      "start": 260.76,
+      "end": 262.8,
+      "text": "And there's new papers coming out all the time."
+    },
+    {
+      "id": 102,
+      "start": 262.8,
+      "end": 266.8,
+      "text": "There's a new paper out of University College of London"
+    },
+    {
+      "id": 103,
+      "start": 269.36,
+      "end": 272.08,
+      "text": "for their sonic join, which beats the hash-ry join,"
+    },
+    {
+      "id": 104,
+      "start": 272.08,
+      "end": 273.24,
+      "text": "I can post a link to that,"
+    },
+    {
+      "id": 105,
+      "start": 273.24,
+      "end": 274.68,
+      "text": "but if this, people are actually working this,"
+    },
+    {
+      "id": 106,
+      "start": 274.68,
+      "end": 275.96,
+      "text": "trying to make this go better."
+    },
+    {
+      "id": 107,
+      "start": 275.96,
+      "end": 279.96,
+      "text": "And I think that industry typically is three or four,"
+    },
+    {
+      "id": 108,
+      "start": 279.96,
+      "end": 282.52,
+      "text": "five years behind academia and this kind of stuff,"
+    },
+    {
+      "id": 109,
+      "start": 282.52,
+      "end": 285.24,
+      "text": "but I think now it'll be, again,"
+    },
+    {
+      "id": 110,
+      "start": 285.96,
+      "end": 288.4,
+      "text": "the SQL extension for graph queries,"
+    },
+    {
+      "id": 111,
+      "start": 288.4,
+      "end": 291.08,
+      "text": "this will get, should start rolling out in more systems."
+    },
+    {
+      "id": 112,
+      "start": 293.2,
+      "end": 296.48,
+      "text": "And I guess that once you support SQL PGQ,"
+    },
+    {
+      "id": 113,
+      "start": 296.48,
+      "end": 298.92,
+      "text": "why would you ever want to use a graph database?"
+    },
+    {
+      "id": 114,
+      "start": 298.92,
+      "end": 300.24,
+      "text": "All right, so next class,"
+    },
+    {
+      "id": 115,
+      "start": 300.24,
+      "end": 302.88,
+      "text": "before we jump into the system profiling stuff,"
+    },
+    {
+      "id": 116,
+      "start": 302.88,
+      "end": 304.4,
+      "text": "again, we're gonna have on Wednesday,"
+    },
+    {
+      "id": 117,
+      "start": 304.4,
+      "end": 306.2,
+      "text": "we're gonna have project presentations,"
+    },
+    {
+      "id": 118,
+      "start": 306.2,
+      "end": 307.48,
+      "text": "everyone's gonna get five minutes,"
+    },
+    {
+      "id": 119,
+      "start": 307.48,
+      "end": 308.8,
+      "text": "we're gonna try to be more strict on the time,"
+    },
+    {
+      "id": 120,
+      "start": 308.8,
+      "end": 310.6,
+      "text": "so everyone gets through this,"
+    },
+    {
+      "id": 121,
+      "start": 310.6,
+      "end": 311.76,
+      "text": "I wonder if we're on reverse order,"
+    },
+    {
+      "id": 122,
+      "start": 311.76,
+      "end": 313.72,
+      "text": "then we went last time, a promise."
+    },
+    {
+      "id": 123,
+      "start": 314.44,
+      "end": 315.6,
+      "text": "And then what we're gonna do is we're gonna record"
+    },
+    {
+      "id": 124,
+      "start": 315.6,
+      "end": 320.08,
+      "text": "and resume the talks so that William and I can then watch it again,"
+    },
+    {
+      "id": 125,
+      "start": 320.08,
+      "end": 321.88,
+      "text": "and then provide you guys notes and feedback,"
+    },
+    {
+      "id": 126,
+      "start": 321.88,
+      "end": 323.48,
+      "text": "because I didn't do that last time,"
+    },
+    {
+      "id": 127,
+      "start": 323.48,
+      "end": 325.24,
+      "text": "we lost track of everything, was there's so much,"
+    },
+    {
+      "id": 128,
+      "start": 325.24,
+      "end": 327.4,
+      "text": "so we're gonna record it on my laptop,"
+    },
+    {
+      "id": 129,
+      "start": 327.4,
+      "end": 328.16,
+      "text": "we won't share it outside,"
+    },
+    {
+      "id": 130,
+      "start": 328.16,
+      "end": 329.6,
+      "text": "we won't post on YouTube,"
+    },
+    {
+      "id": 131,
+      "start": 329.6,
+      "end": 333.52,
+      "text": "and then we'll give you feedback this weekend."
+    },
+    {
+      "id": 132,
+      "start": 333.52,
+      "end": 334.36,
+      "text": "It's not good?"
+    },
+    {
+      "id": 133,
+      "start": 335.24,
+      "end": 338.0,
+      "text": "All right, so there's a quick run through"
+    },
+    {
+      "id": 134,
+      "start": 338.0,
+      "end": 341.56,
+      "text": "of how to basically data system profiling."
+    },
+    {
+      "id": 135,
+      "start": 341.56,
+      "end": 344.12,
+      "text": "And these slides are a few years old,"
+    },
+    {
+      "id": 136,
+      "start": 344.12,
+      "end": 345.8,
+      "text": "but all the techniques are basically work,"
+    },
+    {
+      "id": 137,
+      "start": 345.8,
+      "end": 347.04,
+      "text": "it's gonna be referencing the system"
+    },
+    {
+      "id": 138,
+      "start": 347.04,
+      "end": 348.8,
+      "text": "that the previous system we were building,"
+    },
+    {
+      "id": 139,
+      "start": 348.8,
+      "end": 351.92,
+      "text": "but if the high-level ideas are still the same, okay?"
+    },
+    {
+      "id": 140,
+      "start": 352.92,
+      "end": 354.44,
+      "text": "And this is all being SQL's plus,"
+    },
+    {
+      "id": 141,
+      "start": 354.44,
+      "end": 356.84,
+      "text": "I don't know, assuming Rust works the same way."
+    },
+    {
+      "id": 142,
+      "start": 358.36,
+      "end": 360.28,
+      "text": "All right, so let's say we have some programs,"
+    },
+    {
+      "id": 143,
+      "start": 360.28,
+      "end": 361.6,
+      "text": "so David says we have two functions,"
+    },
+    {
+      "id": 144,
+      "start": 361.6,
+      "end": 363.16,
+      "text": "through and bar,"
+    },
+    {
+      "id": 145,
+      "start": 363.16,
+      "end": 366.44,
+      "text": "and so we wanna be able to speed it up with only debugger."
+    },
+    {
+      "id": 146,
+      "start": 366.44,
+      "end": 369.16,
+      "text": "So, the really simple way to do this"
+    },
+    {
+      "id": 147,
+      "start": 369.16,
+      "end": 373.24,
+      "text": "is open up GDB, run the program,"
+    },
+    {
+      "id": 148,
+      "start": 373.24,
+      "end": 376.12,
+      "text": "and just click, pause it, stop it."
+    },
+    {
+      "id": 149,
+      "start": 376.12,
+      "end": 377.96,
+      "text": "Then do, turn up the stack trace,"
+    },
+    {
+      "id": 150,
+      "start": 377.96,
+      "end": 380.32,
+      "text": "figure out what function you're in,"
+    },
+    {
+      "id": 151,
+      "start": 380.32,
+      "end": 382.4,
+      "text": "and just record it in the spreadsheet."
+    },
+    {
+      "id": 152,
+      "start": 383.4,
+      "end": 385.84,
+      "text": "It's ghetto, but it would work, right?"
+    },
+    {
+      "id": 153,
+      "start": 387.04,
+      "end": 388.64,
+      "text": "So if we do this,"
+    },
+    {
+      "id": 154,
+      "start": 388.64,
+      "end": 392.36,
+      "text": "and say that we pause it 10 times, get the stack trace,"
+    },
+    {
+      "id": 155,
+      "start": 392.36,
+      "end": 393.64,
+      "text": "and then six out of the time times,"
+    },
+    {
+      "id": 156,
+      "start": 393.64,
+      "end": 396.68,
+      "text": "we were in the function FOOT, right?"
+    },
+    {
+      "id": 157,
+      "start": 396.72,
+      "end": 399.24,
+      "text": "So we can basically say that roughly 60% of the time"
+    },
+    {
+      "id": 158,
+      "start": 399.24,
+      "end": 401.84,
+      "text": "is of our program,"
+    },
+    {
+      "id": 159,
+      "start": 401.84,
+      "end": 404.88,
+      "text": "based on the data we collected, is in FOOT."
+    },
+    {
+      "id": 160,
+      "start": 407.72,
+      "end": 411.72,
+      "text": "It's bad, but it would work, right?"
+    },
+    {
+      "id": 161,
+      "start": 411.72,
+      "end": 412.92,
+      "text": "You could just do it more and more,"
+    },
+    {
+      "id": 162,
+      "start": 412.92,
+      "end": 414.32,
+      "text": "and then you get better samples."
+    },
+    {
+      "id": 163,
+      "start": 414.32,
+      "end": 415.72,
+      "text": "It's a purpose, huh?"
+    },
+    {
+      "id": 164,
+      "start": 415.72,
+      "end": 416.96,
+      "text": "It's a purpose, right?"
+    },
+    {
+      "id": 165,
+      "start": 418.8,
+      "end": 422.36,
+      "text": "Okay, basically yes, is this what purpose does?"
+    },
+    {
+      "id": 166,
+      "start": 422.36,
+      "end": 424.84,
+      "text": "Yes, but it has hardware support, not you sitting with,"
+    },
+    {
+      "id": 167,
+      "start": 424.84,
+      "end": 427.08,
+      "text": "you know, the keyboard like this, all right?"
+    },
+    {
+      "id": 168,
+      "start": 428.96,
+      "end": 431.16,
+      "text": "All right, so if we say, all right, well FOOT"
+    },
+    {
+      "id": 169,
+      "start": 431.16,
+      "end": 432.92,
+      "text": "is, we're spending all our time in FOOT,"
+    },
+    {
+      "id": 170,
+      "start": 432.92,
+      "end": 435.56,
+      "text": "we don't make that run faster, what do we do?"
+    },
+    {
+      "id": 171,
+      "start": 436.84,
+      "end": 438.8,
+      "text": "Well, this is Omdos law, right?"
+    },
+    {
+      "id": 172,
+      "start": 438.8,
+      "end": 442.04,
+      "text": "So if we say we're gonna make FOOT run two times faster,"
+    },
+    {
+      "id": 173,
+      "start": 442.04,
+      "end": 443.52,
+      "text": "we wanna compete with the overall potential speed up"
+    },
+    {
+      "id": 174,
+      "start": 443.52,
+      "end": 445.76,
+      "text": "it's gonna be, right?"
+    },
+    {
+      "id": 175,
+      "start": 445.76,
+      "end": 448.68,
+      "text": "So we get 60% of our time, FOOT jobs on half,"
+    },
+    {
+      "id": 176,
+      "start": 448.68,
+      "end": 451.56,
+      "text": "the 4% of time for the function bar we leave alone,"
+    },
+    {
+      "id": 177,
+      "start": 451.56,
+      "end": 454.24,
+      "text": "and so Omdos law basically tells us that,"
+    },
+    {
+      "id": 178,
+      "start": 454.24,
+      "end": 457.32,
+      "text": "you know, it's gonna be whatever the formula here,"
+    },
+    {
+      "id": 179,
+      "start": 457.32,
+      "end": 460.0,
+      "text": "one over the percentage time,"
+    },
+    {
+      "id": 180,
+      "start": 460.0,
+      "end": 461.68,
+      "text": "we're in the thing we're trying to optimize"
+    },
+    {
+      "id": 181,
+      "start": 461.68,
+      "end": 462.96,
+      "text": "while we're speeding up, and then one minus"
+    },
+    {
+      "id": 182,
+      "start": 462.96,
+      "end": 464.2,
+      "text": "the percentage time there."
+    },
+    {
+      "id": 183,
+      "start": 464.2,
+      "end": 465.68,
+      "text": "So do the plug and chuck of the number"
+    },
+    {
+      "id": 184,
+      "start": 465.68,
+      "end": 470.68,
+      "text": "means that our program will run 1.4x faster, right?"
+    },
+    {
+      "id": 185,
+      "start": 471.12,
+      "end": 473.44,
+      "text": "Back your mind Omdos law actually works,"
+    },
+    {
+      "id": 186,
+      "start": 473.44,
+      "end": 474.4,
+      "text": "and keep this in mind, you know,"
+    },
+    {
+      "id": 187,
+      "start": 474.4,
+      "end": 476.88,
+      "text": "you wanna keep this in mind when you try to figure out"
+    },
+    {
+      "id": 188,
+      "start": 476.88,
+      "end": 479.08,
+      "text": "what you actually wanna optimize for."
+    },
+    {
+      "id": 189,
+      "start": 479.08,
+      "end": 481.6,
+      "text": "So now the question is, how do we actually do something"
+    },
+    {
+      "id": 190,
+      "start": 481.6,
+      "end": 483.92,
+      "text": "better than hitting with the keyboard, right?"
+    },
+    {
+      "id": 191,
+      "start": 485.04,
+      "end": 487.6,
+      "text": "And a high level, there's two approaches,"
+    },
+    {
+      "id": 192,
+      "start": 487.6,
+      "end": 489.96,
+      "text": "there's me Valgrind and Perf."
+    },
+    {
+      "id": 193,
+      "start": 489.96,
+      "end": 495.04,
+      "text": "So Valgrind is a heavyweight instrumentation"
+    },
+    {
+      "id": 194,
+      "start": 495.04,
+      "end": 499.48,
+      "text": "of the actual binary itself to basically introduce"
+    },
+    {
+      "id": 195,
+      "start": 501.52,
+      "end": 504.84,
+      "text": "some timers, if you will, for different function calls,"
+    },
+    {
+      "id": 196,
+      "start": 504.84,
+      "end": 506.08,
+      "text": "and that it's just gonna collect this"
+    },
+    {
+      "id": 197,
+      "start": 506.08,
+      "end": 509.32,
+      "text": "of what wildlife actual program runs in user space,"
+    },
+    {
+      "id": 198,
+      "start": 509.32,
+      "end": 511.48,
+      "text": "and then at the end, it spits out of a report,"
+    },
+    {
+      "id": 199,
+      "start": 511.48,
+      "end": 513.68,
+      "text": "you can then visualize and figure out what's going on."
+    },
+    {
+      "id": 200,
+      "start": 513.68,
+      "end": 514.52,
+      "text": "Yes."
+    },
+    {
+      "id": 201,
+      "start": 514.52,
+      "end": 516.72,
+      "text": "And what would you do for code coverage as well?"
+    },
+    {
+      "id": 202,
+      "start": 516.72,
+      "end": 518.12,
+      "text": "More or less, yes."
+    },
+    {
+      "id": 203,
+      "start": 518.12,
+      "end": 519.8,
+      "text": "But code coverage will tell you what lines"
+    },
+    {
+      "id": 204,
+      "start": 519.8,
+      "end": 521.32,
+      "text": "are at being executed."
+    },
+    {
+      "id": 205,
+      "start": 521.32,
+      "end": 523.64,
+      "text": "It's not gonna tell you where you're spending the time."
+    },
+    {
+      "id": 206,
+      "start": 523.64,
+      "end": 525.56,
+      "text": "This is the idea is, you wanna know what the time is,"
+    },
+    {
+      "id": 207,
+      "start": 525.56,
+      "end": 526.4,
+      "text": "that's what this is."
+    },
+    {
+      "id": 208,
+      "start": 528.16,
+      "end": 531.36,
+      "text": "And in Perf is gonna basically be a better version of this"
+    },
+    {
+      "id": 209,
+      "start": 531.36,
+      "end": 533.04,
+      "text": "that's gonna use hardware counters,"
+    },
+    {
+      "id": 210,
+      "start": 533.04,
+      "end": 535.96,
+      "text": "which again, the CPU is maintaining these encounters"
+    },
+    {
+      "id": 211,
+      "start": 535.96,
+      "end": 537.72,
+      "text": "about like everything."
+    },
+    {
+      "id": 212,
+      "start": 537.72,
+      "end": 540.28,
+      "text": "L1, L2, L3, catch misses, how many times"
+    },
+    {
+      "id": 213,
+      "start": 541.28,
+      "end": 545.28,
+      "text": "how many branch predictions, cycles per instruction,"
+    },
+    {
+      "id": 214,
+      "start": 545.28,
+      "end": 548.08,
+      "text": "number of instructions, way more things."
+    },
+    {
+      "id": 215,
+      "start": 548.08,
+      "end": 550.24,
+      "text": "The hardware is collecting all this information,"
+    },
+    {
+      "id": 216,
+      "start": 550.24,
+      "end": 553.68,
+      "text": "so you can actually get it for your program on its running,"
+    },
+    {
+      "id": 217,
+      "start": 553.68,
+      "end": 556.08,
+      "text": "and if you compile a symbols, you can then have it"
+    },
+    {
+      "id": 218,
+      "start": 556.08,
+      "end": 560.36,
+      "text": "in the Perf report, actually see what the lines are of code,"
+    },
+    {
+      "id": 219,
+      "start": 560.36,
+      "end": 562.28,
+      "text": "and how many times you're running them,"
+    },
+    {
+      "id": 220,
+      "start": 562.28,
+      "end": 564.4,
+      "text": "and how much time you're spending in them."
+    },
+    {
+      "id": 221,
+      "start": 565.4,
+      "end": 567.64,
+      "text": "So, Valgrin would be a,"
+    },
+    {
+      "id": 222,
+      "start": 568.6,
+      "end": 571.08,
+      "text": "Valgrin is what you use back in the day,"
+    },
+    {
+      "id": 223,
+      "start": 571.08,
+      "end": 573.88,
+      "text": "it's, sometimes the visualization is a lot better,"
+    },
+    {
+      "id": 224,
+      "start": 573.88,
+      "end": 575.56,
+      "text": "it tends on the tool, and the purpose"
+    },
+    {
+      "id": 225,
+      "start": 575.56,
+      "end": 578.36,
+      "text": "of what you wanna use in a modern systems,"
+    },
+    {
+      "id": 226,
+      "start": 578.36,
+      "end": 581.32,
+      "text": "but it's good at least look at both of them."
+    },
+    {
+      "id": 227,
+      "start": 581.32,
+      "end": 584.76,
+      "text": "So Valgrin is actually a collection of tools"
+    },
+    {
+      "id": 228,
+      "start": 584.76,
+      "end": 586.68,
+      "text": "that you can use to do dynamic analysis."
+    },
+    {
+      "id": 229,
+      "start": 587.92,
+      "end": 590.48,
+      "text": "Memchack would be, again, looking for leaks,"
+    },
+    {
+      "id": 230,
+      "start": 590.48,
+      "end": 591.96,
+      "text": "call grinds, which you wanna use to figure out"
+    },
+    {
+      "id": 231,
+      "start": 591.96,
+      "end": 594.0,
+      "text": "how much time you're spending in different parts of the code,"
+    },
+    {
+      "id": 232,
+      "start": 594.0,
+      "end": 595.68,
+      "text": "and then if you wanted to keep track of like,"
+    },
+    {
+      "id": 233,
+      "start": 595.68,
+      "end": 598.76,
+      "text": "what parts of the code are allocating this memory"
+    },
+    {
+      "id": 234,
+      "start": 598.76,
+      "end": 600.76,
+      "text": "over time, you would use the tool."
+    }
+  ],
+  "language": "en"
+}

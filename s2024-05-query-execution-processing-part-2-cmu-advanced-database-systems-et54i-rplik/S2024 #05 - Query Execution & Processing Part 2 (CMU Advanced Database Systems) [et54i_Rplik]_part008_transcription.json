@@ -1,0 +1,281 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.12,
+      "text": "different string functions on the UTF-8 version versus the ASCII version,"
+    },
+    {
+      "id": 1,
+      "start": 4.12,
+      "end": 9.42,
+      "text": "right? It's ordered by two difference between some of these functions, right?"
+    },
+    {
+      "id": 2,
+      "start": 9.42,
+      "end": 12.52,
+      "text": "This is a really simple check. So you made the idea is that you always run with"
+    },
+    {
+      "id": 3,
+      "start": 12.52,
+      "end": 16.2,
+      "text": "the UTF-8 one first, then if you recognize that you're scanning,"
+    },
+    {
+      "id": 4,
+      "start": 16.2,
+      "end": 19.72,
+      "text": "hey, this is all ASCII, then you just run the ASCII version."
+    },
+    {
+      "id": 5,
+      "start": 19.72,
+      "end": 24.68,
+      "text": "Right? And if you get it wrong, or a board and roll back, yes."
+    },
+    {
+      "id": 6,
+      "start": 24.68,
+      "end": 28.24,
+      "text": "So other than the predicate, we are doing all of three of these are something that you"
+    },
+    {
+      "id": 7,
+      "start": 28.24,
+      "end": 32.52,
+      "text": "would do, no, while you're doing the query, but something that you would know about the query,"
+    },
+    {
+      "id": 8,
+      "start": 32.52,
+      "end": 35.84,
+      "text": "so there are no no in this one or that, you know, that you've been done asking."
+    },
+    {
+      "id": 9,
+      "start": 35.84,
+      "end": 38.2,
+      "text": "No, no, no, you don't know anything."
+    },
+    {
+      "id": 10,
+      "start": 38.2,
+      "end": 44.72,
+      "text": "So while I'm running it, I'm just asking actors by assuming that only ASCII, is that how it's good?"
+    },
+    {
+      "id": 11,
+      "start": 44.72,
+      "end": 49.64,
+      "text": "Like for this one here, like I'm running, so I'm giving, hey, here's your string column."
+    },
+    {
+      "id": 12,
+      "start": 49.64,
+      "end": 53.48,
+      "text": "Right? And I don't think Parkay or tell you whether it's UTF-8 or ASCII,"
+    },
+    {
+      "id": 13,
+      "start": 53.48,
+      "end": 59.84,
+      "text": "just, or it's not even Parkay file, it's a, you're parsing a log file, or CSV, right?"
+    },
+    {
+      "id": 14,
+      "start": 59.84,
+      "end": 63.84,
+      "text": "So if you recognize that, hey, this is all ASCII, I can run the faster ASCII version,"
+    },
+    {
+      "id": 15,
+      "start": 63.84,
+      "end": 67.88,
+      "text": "but I need to see some of it a little bit first, make the decision."
+    },
+    {
+      "id": 16,
+      "start": 67.88,
+      "end": 68.92,
+      "text": "That's the basic idea."
+    },
+    {
+      "id": 17,
+      "start": 68.92,
+      "end": 71.44,
+      "text": "What if you get it wrong with some of the, yeah."
+    },
+    {
+      "id": 18,
+      "start": 71.44,
+      "end": 74.44,
+      "text": "So I think, they have a fault about mannequins, I'm for this, I think if you're wrong."
+    },
+    {
+      "id": 19,
+      "start": 75.44,
+      "end": 77.44,
+      "text": "How do you recognize it?"
+    },
+    {
+      "id": 20,
+      "start": 77.44,
+      "end": 80.44,
+      "text": "I think for ASCII, uh..."
+    },
+    {
+      "id": 21,
+      "start": 81.44,
+      "end": 87.44,
+      "text": "So if you see something with it for, like a one-dig set, yeah, yeah, yeah, yes, yes, yes."
+    },
+    {
+      "id": 22,
+      "start": 87.44,
+      "end": 91.44,
+      "text": "So then ASCII, so it's gonna be backwards compatible with UTF-8."
+    },
+    {
+      "id": 23,
+      "start": 91.44,
+      "end": 93.44,
+      "text": "But with the notes, you're trying to, what?"
+    },
+    {
+      "id": 24,
+      "start": 93.44,
+      "end": 95.44,
+      "text": "But now you're gonna do that."
+    },
+    {
+      "id": 25,
+      "start": 95.44,
+      "end": 97.44,
+      "text": "Like if you have another, and you're trying to know another pop count."
+    },
+    {
+      "id": 26,
+      "start": 97.44,
+      "end": 100.44,
+      "text": "Yeah, but like, but you, like, you have a null vector ahead of time."
+    },
+    {
+      "id": 27,
+      "start": 100.44,
+      "end": 102.44,
+      "text": "Right?"
+    },
+    {
+      "id": 28,
+      "start": 102.44,
+      "end": 107.44,
+      "text": "So you just do pop count as any bit set to, at the one, if no, run the null."
+    },
+    {
+      "id": 29,
+      "start": 107.44,
+      "end": 110.44,
+      "text": "We're over time here, sorry."
+    },
+    {
+      "id": 30,
+      "start": 110.44,
+      "end": 117.44,
+      "text": "One last trick I wanna show is, like, they also have the ability to, which I like, is if you recognize that the,"
+    },
+    {
+      "id": 31,
+      "start": 117.44,
+      "end": 120.44,
+      "text": "the, whatever operation you're trying to do in the expression tree on a string data,"
+    },
+    {
+      "id": 32,
+      "start": 120.44,
+      "end": 123.44,
+      "text": "is, can just overwrite whatever data you're given."
+    },
+    {
+      "id": 33,
+      "start": 123.44,
+      "end": 127.44,
+      "text": "Again, think of like, I have my original data files, I've turned from parquet to arrow."
+    },
+    {
+      "id": 34,
+      "start": 127.44,
+      "end": 129.44,
+      "text": "Now I'm just passing them on memory chunks from one over to the next."
+    },
+    {
+      "id": 35,
+      "start": 130.44,
+      "end": 137.44,
+      "text": "If I recognize that, oh, I use overwrite the memory of this, of this column, of this data,"
+    },
+    {
+      "id": 36,
+      "start": 137.44,
+      "end": 143.44,
+      "text": "with whatever the operation I wanna do on it, I don't have to, I don't call them maloch or allocate memory to put new output in."
+    },
+    {
+      "id": 37,
+      "start": 143.44,
+      "end": 148.44,
+      "text": "So again, if you're running that upper function, all that's doing is taking the characters given and uppercasing them."
+    },
+    {
+      "id": 38,
+      "start": 148.44,
+      "end": 155.44,
+      "text": "You can write that back over the original, the original value, and reuse the same buffer that you then sent up to the, to the next operat."
+    },
+    {
+      "id": 39,
+      "start": 156.44,
+      "end": 168.44,
+      "text": "So they show, like, if you do that trick, you shave off another, another 25%, nearly 25% to the 40%, on your runtime, by reuse the buffers."
+    },
+    {
+      "id": 40,
+      "start": 168.44,
+      "end": 176.44,
+      "text": "So this is the baseline using the UTF version, there's the ASCII version, and then you get even more using, using, using buffers."
+    },
+    {
+      "id": 41,
+      "start": 176.44,
+      "end": 178.44,
+      "text": "That's a nice little trick, I like that."
+    },
+    {
+      "id": 42,
+      "start": 178.44,
+      "end": 208.44,
+      "text": "So, just to finish up. So today's lecture was basically a quick overview"
+    },
+    {
+      "id": 43,
+      "start": 208.44,
+      "end": 238.44,
+      "text": ""
+    },
+    {
+      "id": 44,
+      "start": 238.44,
+      "end": 247.44,
+      "text": "of how to use ADX512's features to optimize and vectorize, you know, relational operators."
+    },
+    {
+      "id": 45,
+      "start": 247.44,
+      "end": 250.44,
+      "text": "Okay? Have a good weekend, enjoy the unusually warm weather."
+    }
+  ],
+  "language": "en"
+}

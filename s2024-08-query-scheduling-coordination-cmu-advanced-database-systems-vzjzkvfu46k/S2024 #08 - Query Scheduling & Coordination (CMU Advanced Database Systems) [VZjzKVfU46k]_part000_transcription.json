@@ -1,0 +1,737 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Canneke Mellon University's advanced database systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filmed in front of a live studio audience?"
+    },
+    {
+      "id": 2,
+      "start": 14.0,
+      "end": 16.0,
+      "text": "It's still a hotpot."
+    },
+    {
+      "id": 3,
+      "start": 16.0,
+      "end": 20.0,
+      "text": "We covered Bristol scale, we covered diarrhea, we covered..."
+    },
+    {
+      "id": 4,
+      "start": 20.0,
+      "end": 22.0,
+      "text": "What else? Behavioral interviews."
+    },
+    {
+      "id": 5,
+      "start": 22.0,
+      "end": 25.0,
+      "text": "Okay, let's talk about databases."
+    },
+    {
+      "id": 6,
+      "start": 25.0,
+      "end": 30.0,
+      "text": "So today we're going to talk about how to take the query plans that we've been given"
+    },
+    {
+      "id": 7,
+      "start": 30.0,
+      "end": 34.0,
+      "text": "and actually start running them on our system."
+    },
+    {
+      "id": 8,
+      "start": 34.0,
+      "end": 42.0,
+      "text": "So recall that the last couple lectures we've had were focusing on how to actually optimize the"
+    },
+    {
+      "id": 9,
+      "start": 42.0,
+      "end": 47.0,
+      "text": "the kind of joins you see in the intro class and even in the last lecture we just had about parallel hashed joins."
+    },
+    {
+      "id": 10,
+      "start": 47.0,
+      "end": 53.0,
+      "text": "And we'll sort of see sort of see, sort of motivate why we want to motivate why we want to do this discuss the first,"
+    },
+    {
+      "id": 11,
+      "start": 53.0,
+      "end": 57.0,
+      "text": "sort of that last class. In the case of query compilation there was two high level approaches."
+    },
+    {
+      "id": 12,
+      "start": 57.0,
+      "end": 59.0,
+      "text": "There was transpilation or source to source compilation."
+    },
+    {
+      "id": 13,
+      "start": 59.0,
+      "end": 64.0,
+      "text": "That's like you have your C++ code, emit C++ code that then gets compiled."
+    },
+    {
+      "id": 14,
+      "start": 64.0,
+      "end": 68.0,
+      "text": "And then the alternative was from the hyper paper that you guys read was"
+    },
+    {
+      "id": 15,
+      "start": 68.0,
+      "end": 75.0,
+      "text": "compilation by generating like a load level IR for the actual instructions you want to execute for that query plan"
+    },
+    {
+      "id": 16,
+      "start": 75.0,
+      "end": 79.0,
+      "text": "and then using something like ASNJ or LLVM to compile it."
+    },
+    {
+      "id": 17,
+      "start": 79.0,
+      "end": 87.0,
+      "text": "And again, as I said, the main takeaway that from, you know, at least from the, since the seminal papers and vectorization"
+    },
+    {
+      "id": 18,
+      "start": 87.0,
+      "end": 93.0,
+      "text": "and the compilation come out over the last decade is that most of the systems that we're going to read about in the,"
+    },
+    {
+      "id": 19,
+      "start": 93.0,
+      "end": 98.0,
+      "text": "near the end of the semester, are going to choose vectorization with SIMD and often kind of,"
+    },
+    {
+      "id": 20,
+      "start": 98.0,
+      "end": 103.0,
+      "text": "it's combination of auto vectorization and, and, and, with the transics, but they're going to choose that over compilation"
+    },
+    {
+      "id": 21,
+      "start": 103.0,
+      "end": 111.0,
+      "text": "just because the engineering overhead to maintain, to build a maintain a jit compile data extension is super high."
+    },
+    {
+      "id": 22,
+      "start": 111.0,
+      "end": 114.0,
+      "text": "They will read this in the photon paper from Databricks. They explicitly call out,"
+    },
+    {
+      "id": 23,
+      "start": 114.0,
+      "end": 122.0,
+      "text": "it's better off having a bunch of people try to optimize the SIMD stuff because then you can reach parity to the compilation,"
+    },
+    {
+      "id": 24,
+      "start": 122.0,
+      "end": 128.0,
+      "text": "compilation implementation versus like if you go down the jit path, there's a small number of people that,"
+    },
+    {
+      "id": 25,
+      "start": 128.0,
+      "end": 131.0,
+      "text": "that actually can work on it."
+    },
+    {
+      "id": 26,
+      "start": 132.0,
+      "end": 138.0,
+      "text": "All right, so again, today we're talking about scheduling of how do you take a query plan and divide it up amongst the different,"
+    },
+    {
+      "id": 27,
+      "start": 138.0,
+      "end": 143.0,
+      "text": "different workers in our system. And so again, just make sure that we're using the right, the right terminology."
+    },
+    {
+      "id": 28,
+      "start": 143.0,
+      "end": 148.0,
+      "text": "We're going to say that a query plan is going to be a dag of operators and then, you know, relational operators."
+    },
+    {
+      "id": 29,
+      "start": 148.0,
+      "end": 154.0,
+      "text": "And then the operator instance is going to be a new location of that operator on some portion of,"
+    },
+    {
+      "id": 30,
+      "start": 154.0,
+      "end": 158.0,
+      "text": "of the data that we're trying to scan, so we're trying to read a table, you know, if it's broken up to row groups,"
+    },
+    {
+      "id": 31,
+      "start": 159.0,
+      "end": 165.0,
+      "text": "we would have an operator instance be responsible for scanning a single row group and processing that."
+    },
+    {
+      "id": 32,
+      "start": 165.0,
+      "end": 172.0,
+      "text": "And then a task is going to be some computational piece of work that's going to contain multiple operator instances,"
+    },
+    {
+      "id": 33,
+      "start": 172.0,
+      "end": 177.0,
+      "text": "typically in the same pipeline, that we want to then hand out to our workers to execute."
+    },
+    {
+      "id": 34,
+      "start": 177.0,
+      "end": 182.0,
+      "text": "And then a task set, sometimes called a resource set, and some of the papers,"
+    },
+    {
+      "id": 35,
+      "start": 183.0,
+      "end": 189.0,
+      "text": "this is going to be the collection of the tasks that we need, or the collection of the tasks that we have for"
+    },
+    {
+      "id": 36,
+      "start": 189.0,
+      "end": 194.0,
+      "text": "given query that we need to execute. And the idea is that we know where the pipeline breakers are,"
+    },
+    {
+      "id": 37,
+      "start": 194.0,
+      "end": 201.0,
+      "text": "because where the data system, where the one building the query plan, so the idea is to convert these pipelines into individual tasks"
+    },
+    {
+      "id": 38,
+      "start": 201.0,
+      "end": 211.0,
+      "text": "that we can then farm out and execute. And so today's class is really discussing figuring out how do we sign these tasks to workers in our system,"
+    },
+    {
+      "id": 39,
+      "start": 211.0,
+      "end": 218.0,
+      "text": "and loosely define, you know, reason the term worker generically, but you can think of it as either a core or a thread or a process,"
+    },
+    {
+      "id": 40,
+      "start": 218.0,
+      "end": 225.0,
+      "text": "it doesn't matter, or a node. And then keeping track of where the data they need access is coming from,"
+    },
+    {
+      "id": 41,
+      "start": 225.0,
+      "end": 229.0,
+      "text": "and where is any intermediate results at the generating, where is that going to go."
+    },
+    {
+      "id": 42,
+      "start": 231.0,
+      "end": 237.0,
+      "text": "So this is basically what I said, the idea of the scheduler system is that we want to know for given query,"
+    },
+    {
+      "id": 43,
+      "start": 237.0,
+      "end": 242.0,
+      "text": "how many tasks should we use, right? Because if you want to take advantage of all the parallel,"
+    },
+    {
+      "id": 44,
+      "start": 242.0,
+      "end": 248.0,
+      "text": "of course, we have a bill of us, also the parallel operations within SIMD, or that's usually below,"
+    },
+    {
+      "id": 45,
+      "start": 248.0,
+      "end": 253.0,
+      "text": "then what we're actually going to schedule for. But keeping track of how many tasks we want to use,"
+    },
+    {
+      "id": 46,
+      "start": 253.0,
+      "end": 262.0,
+      "text": "how many CPU cores we want to farm them out on, and then when a task generates some kind of output that either,"
+    },
+    {
+      "id": 47,
+      "start": 263.0,
+      "end": 267.0,
+      "text": "you know, if needs go to a next task, where should we actually store that?"
+    },
+    {
+      "id": 48,
+      "start": 267.0,
+      "end": 271.0,
+      "text": "Because in some cases, if it's stored at local loss, it may be the task that's going to read it,"
+    },
+    {
+      "id": 49,
+      "start": 271.0,
+      "end": 276.0,
+      "text": "it may be remote, so it might be better to push the data to where the next task is going to need it,"
+    },
+    {
+      "id": 50,
+      "start": 276.0,
+      "end": 279.0,
+      "text": "but you might not know when that task is going to be."
+    },
+    {
+      "id": 51,
+      "start": 279.0,
+      "end": 284.0,
+      "text": "So we'll see this as we go along, but the paper I had you guys read from Hyper,"
+    },
+    {
+      "id": 52,
+      "start": 284.0,
+      "end": 287.0,
+      "text": "it's about single node execution."
+    },
+    {
+      "id": 53,
+      "start": 288.0,
+      "end": 294.0,
+      "text": "We'll see how we tie this all later at the end of the class, but the three different implementations of a schedule we're going to look at,"
+    },
+    {
+      "id": 54,
+      "start": 294.0,
+      "end": 298.0,
+      "text": "they're all also going to be all single node systems."
+    },
+    {
+      "id": 55,
+      "start": 298.0,
+      "end": 301.0,
+      "text": "And so the reason why I'm focusing on this, rather than the distributed system,"
+    },
+    {
+      "id": 56,
+      "start": 301.0,
+      "end": 306.0,
+      "text": "because they think the problem is the same. It doesn't matter whether it's a single node or multi-threaded,"
+    },
+    {
+      "id": 57,
+      "start": 306.0,
+      "end": 312.0,
+      "text": "or multiple nodes that are each single threaded, like it really is, the high load problem trying to solve is,"
+    },
+    {
+      "id": 58,
+      "start": 312.0,
+      "end": 317.0,
+      "text": "what task we want to run where, and where should the output results go."
+    },
+    {
+      "id": 59,
+      "start": 317.0,
+      "end": 322.0,
+      "text": "And the main takeaway is going to be that we're always going to want to do this ourselves,"
+    },
+    {
+      "id": 60,
+      "start": 322.0,
+      "end": 325.0,
+      "text": "especially on a single node, and not the operating system."
+    },
+    {
+      "id": 61,
+      "start": 325.0,
+      "end": 330.0,
+      "text": "I think in the Hyper paper, guys, read, I think the distributed between Postgres,"
+    },
+    {
+      "id": 62,
+      "start": 330.0,
+      "end": 333.0,
+      "text": "Postgres is just letting the OS do all the scheduling, because it's just, you know,"
+    },
+    {
+      "id": 63,
+      "start": 333.0,
+      "end": 336.0,
+      "text": "for full processes."
+    },
+    {
+      "id": 64,
+      "start": 336.0,
+      "end": 341.0,
+      "text": "And I don't think they even play games like, you know, process priorities, so forth."
+    },
+    {
+      "id": 65,
+      "start": 341.0,
+      "end": 347.0,
+      "text": "But so instead, with the exception of Postgres, every day, the system is going to want to do all the scheduling stuff itself."
+    },
+    {
+      "id": 66,
+      "start": 347.0,
+      "end": 353.0,
+      "text": "So we can talk about how to do it on a single node, and then you'll see how that maps to a distributed environment."
+    },
+    {
+      "id": 67,
+      "start": 353.0,
+      "end": 356.0,
+      "text": "Although it'll be some things we can do in a distributed environment that we're not going to cover today,"
+    },
+    {
+      "id": 68,
+      "start": 356.0,
+      "end": 362.0,
+      "text": "but we'll see this later on, like in BigQuery Dremel, they're going to have shuffle stage after every pipeline breaker."
+    },
+    {
+      "id": 69,
+      "start": 362.0,
+      "end": 367.0,
+      "text": "And that allows them to reorganize and recalibrate the workers later on."
+    },
+    {
+      "id": 70,
+      "start": 367.0,
+      "end": 370.0,
+      "text": "But we'll cover that later."
+    },
+    {
+      "id": 71,
+      "start": 370.0,
+      "end": 374.0,
+      "text": "All right, so what are our goals for building a high performance schedule for a data system?"
+    },
+    {
+      "id": 72,
+      "start": 374.0,
+      "end": 376.0,
+      "text": "So obviously, we want to maximize throughput."
+    },
+    {
+      "id": 73,
+      "start": 376.0,
+      "end": 381.0,
+      "text": "We want to be able to process as many queries as possible in our system, you know,"
+    },
+    {
+      "id": 74,
+      "start": 381.0,
+      "end": 386.0,
+      "text": "just sort of keep the thing always running and always consuming comforts also producing, producing output."
+    },
+    {
+      "id": 75,
+      "start": 386.0,
+      "end": 390.0,
+      "text": "We're going to maintain some notion of fairness."
+    },
+    {
+      "id": 76,
+      "start": 390.0,
+      "end": 395.0,
+      "text": "And again, this is subjective of what fairness means to sort of one query to another query."
+    },
+    {
+      "id": 77,
+      "start": 395.0,
+      "end": 401.0,
+      "text": "But at the high level is that at the end of the day, we need to ensure that no query gets started for resources."
+    },
+    {
+      "id": 78,
+      "start": 401.0,
+      "end": 406.0,
+      "text": "So even though we may delay the priority, and we'll talk about what that means, why we want to do that as we go along,"
+    },
+    {
+      "id": 79,
+      "start": 406.0,
+      "end": 415.0,
+      "text": "but even if you get a lower priority, or you're a long running query, the end of the day we still want you to complete."
+    },
+    {
+      "id": 80,
+      "start": 415.0,
+      "end": 420.0,
+      "text": "And then the flip side of this is that we want to make sure that the system seems to be responsive,"
+    },
+    {
+      "id": 81,
+      "start": 420.0,
+      "end": 426.0,
+      "text": "that's reducing the tail latency, like the P999 latency of queries if we can."
+    },
+    {
+      "id": 82,
+      "start": 426.0,
+      "end": 430.0,
+      "text": "But this will matter a lot for short queries."
+    },
+    {
+      "id": 83,
+      "start": 430.0,
+      "end": 434.0,
+      "text": "And so the idea here is that we want our short queries to complete as fast as possible,"
+    },
+    {
+      "id": 84,
+      "start": 434.0,
+      "end": 437.0,
+      "text": "because that's something someone is going to notice."
+    },
+    {
+      "id": 85,
+      "start": 437.0,
+      "end": 444.0,
+      "text": "At the shortest scales of a query execution, like if your query goes from, you know, 100 milliseconds to 1000 milliseconds,"
+    },
+    {
+      "id": 86,
+      "start": 444.0,
+      "end": 446.0,
+      "text": "then you would notice that."
+    },
+    {
+      "id": 87,
+      "start": 446.0,
+      "end": 449.0,
+      "text": "So you want to get these short queries out as quickly as possible."
+    },
+    {
+      "id": 88,
+      "start": 449.0,
+      "end": 456.0,
+      "text": "But if you're like your query is running for 10 minutes, and it takes 20 seconds longer, no one's going to notice that."
+    },
+    {
+      "id": 89,
+      "start": 456.0,
+      "end": 461.0,
+      "text": "So the system's going to appear by responsive if you get the shorter queries out more quickly."
+    },
+    {
+      "id": 90,
+      "start": 461.0,
+      "end": 469.0,
+      "text": "And the case of the morsel stuff, they don't have a specific way to actually handle that."
+    },
+    {
+      "id": 91,
+      "start": 469.0,
+      "end": 471.0,
+      "text": "They're sort of treating everyone."
+    },
+    {
+      "id": 92,
+      "start": 471.0,
+      "end": 476.0,
+      "text": "And the worst thing that they was suggesting that might be in the subsequent paper."
+    },
+    {
+      "id": 93,
+      "start": 476.0,
+      "end": 478.0,
+      "text": "In the umbra one."
+    },
+    {
+      "id": 94,
+      "start": 478.0,
+      "end": 480.0,
+      "text": "It wasn't the hyperbid, the one that we did."
+    },
+    {
+      "id": 95,
+      "start": 480.0,
+      "end": 485.0,
+      "text": "There was something in the conclusion that they would like to do it."
+    },
+    {
+      "id": 96,
+      "start": 485.0,
+      "end": 487.0,
+      "text": "I don't know why they didn't hyper."
+    },
+    {
+      "id": 97,
+      "start": 487.0,
+      "end": 488.0,
+      "text": "They do it in umbra."
+    },
+    {
+      "id": 98,
+      "start": 488.0,
+      "end": 492.0,
+      "text": "We'll cover that in a second."
+    },
+    {
+      "id": 99,
+      "start": 492.0,
+      "end": 499.0,
+      "text": "Yeah, so I mean, but the morsel's one is again, that sets the foundation for this idea of how to divide up the work."
+    },
+    {
+      "id": 100,
+      "start": 499.0,
+      "end": 502.0,
+      "text": "And they're going to do a static assignment of tasks to morsels."
+    },
+    {
+      "id": 101,
+      "start": 502.0,
+      "end": 504.0,
+      "text": "And we'll see in umbra how they can break that."
+    },
+    {
+      "id": 102,
+      "start": 504.0,
+      "end": 507.0,
+      "text": "The umbra one is more sophisticated."
+    },
+    {
+      "id": 103,
+      "start": 507.0,
+      "end": 511.0,
+      "text": "And the last one, of course, is that we want our scheduler to have low overhead."
+    },
+    {
+      "id": 104,
+      "start": 511.0,
+      "end": 519.0,
+      "text": "Like it doesn't help us ever running this super complex computation to figure out the optimal schedule for all our tasks."
+    },
+    {
+      "id": 105,
+      "start": 519.0,
+      "end": 523.0,
+      "text": "That takes 20 minutes, and a query can finish up in a few milliseconds."
+    },
+    {
+      "id": 106,
+      "start": 523.0,
+      "end": 533.0,
+      "text": "So we want to have most of our system spending time, uh, your computing queries, because that's what people, you know, end of the day really care about."
+    },
+    {
+      "id": 107,
+      "start": 533.0,
+      "end": 536.0,
+      "text": "So I'm going to just talk about some quick background in the beginning."
+    },
+    {
+      "id": 108,
+      "start": 536.0,
+      "end": 542.0,
+      "text": "Again, this will be a, uh, quick reminder of the things we talked about in the intro class."
+    },
+    {
+      "id": 109,
+      "start": 542.0,
+      "end": 544.0,
+      "text": "But first I'm going to like, what is actually a worker?"
+    },
+    {
+      "id": 110,
+      "start": 544.0,
+      "end": 549.0,
+      "text": "Like how are we defining the scope of a competition, you know, where is it actually located in our system?"
+    },
+    {
+      "id": 111,
+      "start": 549.0,
+      "end": 553.0,
+      "text": "Where briefly talk about what data placement actually means in the context of partitioning?"
+    },
+    {
+      "id": 112,
+      "start": 553.0,
+      "end": 558.0,
+      "text": "And that basically just, if I've already divided the data up in some way, where should I put that data?"
+    },
+    {
+      "id": 113,
+      "start": 558.0,
+      "end": 562.0,
+      "text": "And the two are linked together, but we'll discuss that."
+    },
+    {
+      "id": 114,
+      "start": 562.0,
+      "end": 570.0,
+      "text": "And then that's the one of the things that the morsels paper spent a lot of time talking about was this notion between, uh, you know, local memory and remote memory in a new architecture."
+    },
+    {
+      "id": 115,
+      "start": 570.0,
+      "end": 575.0,
+      "text": "And they were trying to schedule things so that, uh, you're always processing stuff that was local to you."
+    },
+    {
+      "id": 116,
+      "start": 575.0,
+      "end": 587.0,
+      "text": "Again, the same idea applies in an distributed system, ideally, our workers are on a lot of node processing data that's local to it, rather than having to go over the network, you know, to some far stories."
+    },
+    {
+      "id": 117,
+      "start": 587.0,
+      "end": 590.0,
+      "text": "And then we'll talk about three implications of schedulers."
+    },
+    {
+      "id": 118,
+      "start": 590.0,
+      "end": 593.0,
+      "text": "We'll talk about the morsels and hyper. We'll talk about the follow up and umbra."
+    },
+    {
+      "id": 119,
+      "start": 593.0,
+      "end": 596.0,
+      "text": "And then we'll talk about an alternative from the SAP HANA guys."
+    },
+    {
+      "id": 120,
+      "start": 596.0,
+      "end": 599.0,
+      "text": "Um, and then we'll finish off again."
+    },
+    {
+      "id": 121,
+      "start": 599.0,
+      "end": 601.0,
+      "text": "Pretty"
+    }
+  ],
+  "language": "en"
+}

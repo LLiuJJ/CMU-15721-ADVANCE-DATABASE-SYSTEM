@@ -1,0 +1,1529 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.98,
+      "text": "They might have 32-bit ins one way,"
+    },
+    {
+      "id": 1,
+      "start": 1.98,
+      "end": 4.32,
+      "text": "or then all in 20, 60-bit widths, and so on."
+    },
+    {
+      "id": 2,
+      "start": 4.32,
+      "end": 6.12,
+      "text": "Fixpoint Desmos is another challenge."
+    },
+    {
+      "id": 3,
+      "start": 6.12,
+      "end": 10.08,
+      "text": "How they actually store the data itself can become"
+    },
+    {
+      "id": 4,
+      "start": 10.08,
+      "end": 12.96,
+      "text": "jumbled up and difficult."
+    },
+    {
+      "id": 5,
+      "start": 12.96,
+      "end": 14.52,
+      "text": "Let's talk about file formats like NASCLASS."
+    },
+    {
+      "id": 6,
+      "start": 14.52,
+      "end": 17.6,
+      "text": "And then again, we'll talk about execution engines."
+    },
+    {
+      "id": 7,
+      "start": 17.6,
+      "end": 19.52,
+      "text": "And it's kind of a little execution fabric."
+    },
+    {
+      "id": 8,
+      "start": 19.52,
+      "end": 22.8,
+      "text": "So think of Apache Ray, that kind of stuff."
+    },
+    {
+      "id": 9,
+      "start": 22.8,
+      "end": 25.32,
+      "text": "We'll talk about that in the semester as well."
+    },
+    {
+      "id": 10,
+      "start": 25.32,
+      "end": 27.6,
+      "text": "But there's a bunch of these stuff."
+    },
+    {
+      "id": 11,
+      "start": 27.6,
+      "end": 29.64,
+      "text": "And people have talked about, hey,"
+    },
+    {
+      "id": 12,
+      "start": 29.64,
+      "end": 30.84,
+      "text": "there's all these existing things."
+    },
+    {
+      "id": 13,
+      "start": 30.84,
+      "end": 33.52,
+      "text": "Could I just copper together a Java database using all"
+    },
+    {
+      "id": 14,
+      "start": 33.52,
+      "end": 35.32,
+      "text": "this Java stuff."
+    },
+    {
+      "id": 15,
+      "start": 35.32,
+      "end": 36.6,
+      "text": "None of them ever really taken off."
+    },
+    {
+      "id": 16,
+      "start": 36.6,
+      "end": 40.72,
+      "text": "I think they've only been like toy exercises."
+    },
+    {
+      "id": 17,
+      "start": 40.72,
+      "end": 43.48,
+      "text": "And this paper here that I'm referring to is optional."
+    },
+    {
+      "id": 18,
+      "start": 43.48,
+      "end": 47.84,
+      "text": "This is from the Facebook guys, the Voltron people."
+    },
+    {
+      "id": 19,
+      "start": 47.84,
+      "end": 49.72,
+      "text": "Basically, they're arguing that this is"
+    },
+    {
+      "id": 20,
+      "start": 49.72,
+      "end": 51.4,
+      "text": "how people should be building data systems today."
+    },
+    {
+      "id": 21,
+      "start": 51.4,
+      "end": 56.04,
+      "text": "They've had these standalone components that interop."
+    },
+    {
+      "id": 22,
+      "start": 56.04,
+      "end": 58.96,
+      "text": "So here's a high level overview of what"
+    },
+    {
+      "id": 23,
+      "start": 58.96,
+      "end": 61.36,
+      "text": "the internals of one of these OLAP systems look like,"
+    },
+    {
+      "id": 24,
+      "start": 61.36,
+      "end": 62.88,
+      "text": "given the context I just described."
+    },
+    {
+      "id": 25,
+      "start": 62.88,
+      "end": 64.68,
+      "text": "And essentially, it's going to mirror how we're"
+    },
+    {
+      "id": 26,
+      "start": 64.68,
+      "end": 66.2,
+      "text": "sort of envisioning the projects are going to work out"
+    },
+    {
+      "id": 27,
+      "start": 66.2,
+      "end": 67.64,
+      "text": "this semester."
+    },
+    {
+      "id": 28,
+      "start": 67.64,
+      "end": 69.72,
+      "text": "So at the very top, you have some user."
+    },
+    {
+      "id": 29,
+      "start": 69.72,
+      "end": 71.64,
+      "text": "They're going to send a query assuming it's"
+    },
+    {
+      "id": 30,
+      "start": 71.64,
+      "end": 75.16,
+      "text": "SQL to a front end part of the system."
+    },
+    {
+      "id": 31,
+      "start": 75.16,
+      "end": 77.28,
+      "text": "And this will have a language parser that's"
+    },
+    {
+      "id": 32,
+      "start": 77.28,
+      "end": 80.2,
+      "text": "going to convert the SQL query into a bunch of tokens,"
+    },
+    {
+      "id": 33,
+      "start": 80.2,
+      "end": 82.52,
+      "text": "especially by its form."
+    },
+    {
+      "id": 34,
+      "start": 82.52,
+      "end": 84.72,
+      "text": "And then now we're going to send this"
+    },
+    {
+      "id": 35,
+      "start": 84.72,
+      "end": 89.44,
+      "text": "in-air to the representation of the SQL query to some planner."
+    },
+    {
+      "id": 36,
+      "start": 89.44,
+      "end": 91.04,
+      "text": "And the planner is going to have a bunch of different parts."
+    },
+    {
+      "id": 37,
+      "start": 91.04,
+      "end": 92.24,
+      "text": "They have the binder."
+    },
+    {
+      "id": 38,
+      "start": 92.24,
+      "end": 94.24,
+      "text": "That's going to respond to what we're figuring out."
+    },
+    {
+      "id": 39,
+      "start": 94.24,
+      "end": 95.0,
+      "text": "There's a token."
+    },
+    {
+      "id": 40,
+      "start": 95.0,
+      "end": 96.28,
+      "text": "There's a table name."
+    },
+    {
+      "id": 41,
+      "start": 96.28,
+      "end": 98.84,
+      "text": "Did that table exist in my catalog?"
+    },
+    {
+      "id": 42,
+      "start": 98.84,
+      "end": 102.4,
+      "text": "Can I do some rewriting of the query"
+    },
+    {
+      "id": 43,
+      "start": 102.4,
+      "end": 105.44,
+      "text": "to put it into a better canonical form?"
+    },
+    {
+      "id": 44,
+      "start": 105.44,
+      "end": 106.72,
+      "text": "And then I'll have an optimizer that"
+    },
+    {
+      "id": 45,
+      "start": 106.72,
+      "end": 108.96,
+      "text": "could do a cost-based search using cost models"
+    },
+    {
+      "id": 46,
+      "start": 108.96,
+      "end": 110.44,
+      "text": "that are derived from the data itself"
+    },
+    {
+      "id": 47,
+      "start": 110.44,
+      "end": 113.04,
+      "text": "to help figure out what's in those optimal plan."
+    },
+    {
+      "id": 48,
+      "start": 113.04,
+      "end": 114.2,
+      "text": "And so for this part of the planner,"
+    },
+    {
+      "id": 49,
+      "start": 114.2,
+      "end": 116.56,
+      "text": "we've got to call it to the catalog."
+    },
+    {
+      "id": 50,
+      "start": 116.56,
+      "end": 118.64,
+      "text": "Because we've got to say, OK, again, I have this token."
+    },
+    {
+      "id": 51,
+      "start": 118.64,
+      "end": 119.6,
+      "text": "It's table-foo."
+    },
+    {
+      "id": 52,
+      "start": 119.6,
+      "end": 120.44,
+      "text": "Is this really a table?"
+    },
+    {
+      "id": 53,
+      "start": 120.44,
+      "end": 121.36,
+      "text": "And what columns does it have?"
+    },
+    {
+      "id": 54,
+      "start": 121.36,
+      "end": 122.24,
+      "text": "What's the data type?"
+    },
+    {
+      "id": 55,
+      "start": 122.24,
+      "end": 124.76,
+      "text": "Where's this data actually being stored?"
+    },
+    {
+      "id": 56,
+      "start": 124.76,
+      "end": 127.04,
+      "text": "Do I have any statistics about that data"
+    },
+    {
+      "id": 57,
+      "start": 127.04,
+      "end": 130.28,
+      "text": "that I can then feed into my cost models?"
+    },
+    {
+      "id": 58,
+      "start": 130.28,
+      "end": 137.16,
+      "text": "Then now I have a physical plan that I can actually execute in my system."
+    },
+    {
+      "id": 59,
+      "start": 137.16,
+      "end": 138.88,
+      "text": "I've got to hand that off to a scheduler."
+    },
+    {
+      "id": 60,
+      "start": 138.88,
+      "end": 141.28,
+      "text": "Again, represent it in some intermediate form."
+    },
+    {
+      "id": 61,
+      "start": 141.28,
+      "end": 143.68,
+      "text": "And the scheduler can look at that and say, OK, well,"
+    },
+    {
+      "id": 62,
+      "start": 143.68,
+      "end": 146.4,
+      "text": "you want to run this plan for this data."
+    },
+    {
+      "id": 63,
+      "start": 146.4,
+      "end": 147.64,
+      "text": "Let me go to the catalog and figure out"
+    },
+    {
+      "id": 64,
+      "start": 147.64,
+      "end": 150.72,
+      "text": "whether the data is actually located physically,"
+    },
+    {
+      "id": 65,
+      "start": 150.72,
+      "end": 154.8,
+      "text": "or who's responsible in my cluster for actually executing that data."
+    },
+    {
+      "id": 66,
+      "start": 154.8,
+      "end": 158.04,
+      "text": "And then I now dispatch it to an execution engine,"
+    },
+    {
+      "id": 67,
+      "start": 158.04,
+      "end": 161.52,
+      "text": "ignoring how I distribute the query out,"
+    },
+    {
+      "id": 68,
+      "start": 161.52,
+      "end": 164.44,
+      "text": "who's responsible for making sure that compute nodes are always running,"
+    },
+    {
+      "id": 69,
+      "start": 164.44,
+      "end": 166.8,
+      "text": "all that we can ignore."
+    },
+    {
+      "id": 70,
+      "start": 166.8,
+      "end": 169.16,
+      "text": "And then as I'm actually my query plans,"
+    },
+    {
+      "id": 71,
+      "start": 169.16,
+      "end": 173.32,
+      "text": "my operators, I may have requests that go get data from storage."
+    },
+    {
+      "id": 72,
+      "start": 173.32,
+      "end": 177.2,
+      "text": "And so I'd have an I.O. service that I would make requests to."
+    },
+    {
+      "id": 73,
+      "start": 177.2,
+      "end": 179.04,
+      "text": "And then that I.O. service is responsible."
+    },
+    {
+      "id": 74,
+      "start": 179.04,
+      "end": 182.52,
+      "text": "We're going out to storage, not saying or defining what it is."
+    },
+    {
+      "id": 75,
+      "start": 182.52,
+      "end": 185.04,
+      "text": "OK, assuming it's S3, assuming some distributive file system,"
+    },
+    {
+      "id": 76,
+      "start": 185.04,
+      "end": 188.4,
+      "text": "could be a local disk, doesn't matter."
+    },
+    {
+      "id": 77,
+      "start": 188.4,
+      "end": 189.72,
+      "text": "And then it's going to go fetch this box,"
+    },
+    {
+      "id": 78,
+      "start": 189.72,
+      "end": 192.6,
+      "text": "and then hand it back up to the execution engine,"
+    },
+    {
+      "id": 79,
+      "start": 192.6,
+      "end": 195.64,
+      "text": "to then compute whatever it is that it wants to compute."
+    },
+    {
+      "id": 80,
+      "start": 195.64,
+      "end": 197.76,
+      "text": "And then when I produce my final answer,"
+    },
+    {
+      "id": 81,
+      "start": 197.76,
+      "end": 202.2,
+      "text": "then it goes all the way back up the stack to the end user."
+    },
+    {
+      "id": 82,
+      "start": 202.2,
+      "end": 203.88,
+      "text": "There's other two things that are happening at the same time."
+    },
+    {
+      "id": 83,
+      "start": 203.88,
+      "end": 205.88,
+      "text": "Again, the catalog is super important."
+    },
+    {
+      "id": 84,
+      "start": 205.88,
+      "end": 207.56,
+      "text": "The execution engine, as it's scanning data,"
+    },
+    {
+      "id": 85,
+      "start": 207.56,
+      "end": 210.84,
+      "text": "is someone asked on Slack, should my query planner actually"
+    },
+    {
+      "id": 86,
+      "start": 210.84,
+      "end": 213.72,
+      "text": "be responsible for looking at the files and figuring out"
+    },
+    {
+      "id": 87,
+      "start": 213.72,
+      "end": 215.12,
+      "text": "what's actually in them?"
+    },
+    {
+      "id": 88,
+      "start": 215.12,
+      "end": 216.0,
+      "text": "No, right?"
+    },
+    {
+      "id": 89,
+      "start": 216.0,
+      "end": 217.36,
+      "text": "Because then you have to have duplicate code,"
+    },
+    {
+      "id": 90,
+      "start": 217.36,
+      "end": 221.04,
+      "text": "redundant code, have the ability to scan data."
+    },
+    {
+      "id": 91,
+      "start": 221.04,
+      "end": 222.64,
+      "text": "The execution engine can just do this."
+    },
+    {
+      "id": 92,
+      "start": 222.64,
+      "end": 226.32,
+      "text": "Because an analyzed command in SQL is just a sequential scan."
+    },
+    {
+      "id": 93,
+      "start": 226.32,
+      "end": 231.04,
+      "text": "But then it can update the result to the catalog."
+    },
+    {
+      "id": 94,
+      "start": 231.04,
+      "end": 232.56,
+      "text": "Now, whether or not it goes through the schedule,"
+    },
+    {
+      "id": 95,
+      "start": 232.56,
+      "end": 235.84,
+      "text": "or whatever the coordinator sends back over, doesn't matter."
+    },
+    {
+      "id": 96,
+      "start": 235.84,
+      "end": 237.48,
+      "text": "But I'm just showing that the execution"
+    },
+    {
+      "id": 97,
+      "start": 237.48,
+      "end": 240.36,
+      "text": "can derive a new information that isn't just for the query,"
+    },
+    {
+      "id": 98,
+      "start": 240.36,
+      "end": 242.76,
+      "text": "it's actually for the contents of the files,"
+    },
+    {
+      "id": 99,
+      "start": 242.76,
+      "end": 244.04,
+      "text": "and go to the catalog."
+    },
+    {
+      "id": 100,
+      "start": 244.04,
+      "end": 244.64,
+      "text": "Yes?"
+    },
+    {
+      "id": 101,
+      "start": 244.64,
+      "end": 246.92,
+      "text": "I'm sure that you don't need to automatically"
+    },
+    {
+      "id": 102,
+      "start": 246.92,
+      "end": 250.04,
+      "text": "know what the system is going to go."
+    },
+    {
+      "id": 103,
+      "start": 250.04,
+      "end": 251.04,
+      "text": "Sure, yes."
+    },
+    {
+      "id": 104,
+      "start": 251.04,
+      "end": 252.04,
+      "text": "Yeah."
+    },
+    {
+      "id": 105,
+      "start": 252.04,
+      "end": 253.04,
+      "text": "But that's."
+    },
+    {
+      "id": 106,
+      "start": 253.04,
+      "end": 254.04,
+      "text": "What's the problem?"
+    },
+    {
+      "id": 107,
+      "start": 254.04,
+      "end": 257.12,
+      "text": "Is writing a code that's going to be a code?"
+    },
+    {
+      "id": 108,
+      "start": 257.12,
+      "end": 258.88,
+      "text": "I mean, it's a command, right?"
+    },
+    {
+      "id": 109,
+      "start": 258.88,
+      "end": 261.4,
+      "text": "Let's say I have some files."
+    },
+    {
+      "id": 110,
+      "start": 261.4,
+      "end": 263.68,
+      "text": "I don't know what's in them."
+    },
+    {
+      "id": 111,
+      "start": 263.68,
+      "end": 266.0,
+      "text": "Schedule, go tell someone to do it for me."
+    },
+    {
+      "id": 112,
+      "start": 266.0,
+      "end": 267.88,
+      "text": "It's another query."
+    },
+    {
+      "id": 113,
+      "start": 267.88,
+      "end": 269.48,
+      "text": "And the query, but the query is coming from this,"
+    },
+    {
+      "id": 114,
+      "start": 269.48,
+      "end": 270.88,
+      "text": "not from somebody at their desk."
+    },
+    {
+      "id": 115,
+      "start": 274.72,
+      "end": 275.24,
+      "text": "Yes?"
+    },
+    {
+      "id": 116,
+      "start": 275.24,
+      "end": 278.72,
+      "text": "So all I've given out there is putting this step"
+    },
+    {
+      "id": 117,
+      "start": 278.72,
+      "end": 280.44,
+      "text": "only, step only, step only."
+    },
+    {
+      "id": 118,
+      "start": 280.44,
+      "end": 282.36,
+      "text": "OK, let's cover that after class."
+    },
+    {
+      "id": 119,
+      "start": 282.36,
+      "end": 282.96,
+      "text": "Yeah."
+    },
+    {
+      "id": 120,
+      "start": 282.96,
+      "end": 283.96,
+      "text": "OK."
+    },
+    {
+      "id": 121,
+      "start": 283.96,
+      "end": 284.48,
+      "text": "Other questions?"
+    },
+    {
+      "id": 122,
+      "start": 285.48,
+      "end": 287.48,
+      "text": "OK."
+    },
+    {
+      "id": 123,
+      "start": 287.48,
+      "end": 287.76,
+      "text": "All right."
+    },
+    {
+      "id": 124,
+      "start": 287.76,
+      "end": 290.0,
+      "text": "So again, same thing, IoService."
+    },
+    {
+      "id": 125,
+      "start": 290.0,
+      "end": 292.56,
+      "text": "How are we actually going to find out what files are in there?"
+    },
+    {
+      "id": 126,
+      "start": 292.56,
+      "end": 293.84,
+      "text": "Again, you could have a command that"
+    },
+    {
+      "id": 127,
+      "start": 293.84,
+      "end": 297.96,
+      "text": "go through the front end and tell the catalog, maybe the IoService"
+    },
+    {
+      "id": 128,
+      "start": 297.96,
+      "end": 300.64,
+      "text": "could see some stuff and can send it over."
+    },
+    {
+      "id": 129,
+      "start": 300.64,
+      "end": 303.2,
+      "text": "Depends on the implementation."
+    },
+    {
+      "id": 130,
+      "start": 303.2,
+      "end": 305.44,
+      "text": "But I was, again, just going back to the comment I said before."
+    },
+    {
+      "id": 131,
+      "start": 305.44,
+      "end": 306.68,
+      "text": "The thing that's responsible, we're actually"
+    },
+    {
+      "id": 132,
+      "start": 306.68,
+      "end": 309.72,
+      "text": "knowing what's inside of the blocks that I'm getting from"
+    },
+    {
+      "id": 133,
+      "start": 309.72,
+      "end": 311.96,
+      "text": "from from disk or my object store, is going to be the"
+    },
+    {
+      "id": 134,
+      "start": 311.96,
+      "end": 313.2,
+      "text": "next use gender."
+    },
+    {
+      "id": 135,
+      "start": 313.2,
+      "end": 314.8,
+      "text": "Because otherwise, you have a bunch of redundant code."
+    },
+    {
+      "id": 136,
+      "start": 314.8,
+      "end": 318.52,
+      "text": "People running some stuff to go a bunch of threads up here"
+    },
+    {
+      "id": 137,
+      "start": 318.52,
+      "end": 319.72,
+      "text": "are sort of reading data."
+    },
+    {
+      "id": 138,
+      "start": 319.72,
+      "end": 322.2,
+      "text": "And that can may interfere with what's going on down here."
+    },
+    {
+      "id": 139,
+      "start": 326.68,
+      "end": 328.68,
+      "text": "How do I, I don't think we're reading any paper"
+    },
+    {
+      "id": 140,
+      "start": 328.68,
+      "end": 330.0,
+      "text": "or scissors about the catalog."
+    },
+    {
+      "id": 141,
+      "start": 330.0,
+      "end": 332.12,
+      "text": "We'll see how, as we go through this master,"
+    },
+    {
+      "id": 142,
+      "start": 332.12,
+      "end": 333.56,
+      "text": "I'm going to implement this."
+    },
+    {
+      "id": 143,
+      "start": 333.56,
+      "end": 336.24,
+      "text": "Like, Snowflake uses a whole nother database system."
+    },
+    {
+      "id": 144,
+      "start": 336.24,
+      "end": 337.68,
+      "text": "They use FoundationDB to do this."
+    },
+    {
+      "id": 145,
+      "start": 337.68,
+      "end": 339.64,
+      "text": "This is basically a whole nother database system."
+    },
+    {
+      "id": 146,
+      "start": 339.64,
+      "end": 340.96,
+      "text": "You want to be transactional."
+    },
+    {
+      "id": 147,
+      "start": 340.96,
+      "end": 341.8,
+      "text": "You want to be failsafe."
+    },
+    {
+      "id": 148,
+      "start": 341.8,
+      "end": 343.28,
+      "text": "You want to be high performance."
+    },
+    {
+      "id": 149,
+      "start": 343.28,
+      "end": 346.24,
+      "text": "This is a whole nother problem in itself."
+    },
+    {
+      "id": 150,
+      "start": 346.24,
+      "end": 348.44,
+      "text": "And I want to talk about how we do this first."
+    },
+    {
+      "id": 151,
+      "start": 348.44,
+      "end": 350.8,
+      "text": "Again, before we do the lake house stuff"
+    },
+    {
+      "id": 152,
+      "start": 350.8,
+      "end": 353.72,
+      "text": "to do updates on top of that."
+    },
+    {
+      "id": 153,
+      "start": 353.72,
+      "end": 355.6,
+      "text": "Because once you build that, this thing,"
+    },
+    {
+      "id": 154,
+      "start": 355.6,
+      "end": 358.16,
+      "text": "then you can build that additional incremental update"
+    },
+    {
+      "id": 155,
+      "start": 358.16,
+      "end": 358.36,
+      "text": "part."
+    },
+    {
+      "id": 156,
+      "start": 363.28,
+      "end": 364.04,
+      "text": "So let's talk about a high low."
+    },
+    {
+      "id": 157,
+      "start": 364.04,
+      "end": 366.16,
+      "text": "OK, that's the context of the concept"
+    },
+    {
+      "id": 158,
+      "start": 366.16,
+      "end": 367.84,
+      "text": "of what one of these systems looked like."
+    },
+    {
+      "id": 159,
+      "start": 367.84,
+      "end": 369.4,
+      "text": "Well, what actually happens when I actually"
+    },
+    {
+      "id": 160,
+      "start": 369.4,
+      "end": 371.0,
+      "text": "want one of these queries?"
+    },
+    {
+      "id": 161,
+      "start": 371.0,
+      "end": 373.88,
+      "text": "So for this semester, although we're"
+    },
+    {
+      "id": 162,
+      "start": 373.88,
+      "end": 377.36,
+      "text": "going to be just the high level context of what"
+    },
+    {
+      "id": 163,
+      "start": 377.36,
+      "end": 378.88,
+      "text": "the system were describing, it's"
+    },
+    {
+      "id": 164,
+      "start": 378.88,
+      "end": 381.0,
+      "text": "going to soon be distributed."
+    },
+    {
+      "id": 165,
+      "start": 381.0,
+      "end": 382.56,
+      "text": "Snowflake distributed, Redshift distributed,"
+    },
+    {
+      "id": 166,
+      "start": 382.56,
+      "end": 384.16,
+      "text": "all of these systems that we're showing,"
+    },
+    {
+      "id": 167,
+      "start": 384.16,
+      "end": 387.36,
+      "text": "throw scale out distributed database systems."
+    },
+    {
+      "id": 168,
+      "start": 387.36,
+      "end": 389.24,
+      "text": "But we want to walk before we run."
+    },
+    {
+      "id": 169,
+      "start": 389.24,
+      "end": 391.48,
+      "text": "So most of the papers, almost all papers"
+    },
+    {
+      "id": 170,
+      "start": 391.48,
+      "end": 394.48,
+      "text": "are going to read, are really about single node execution."
+    },
+    {
+      "id": 171,
+      "start": 394.48,
+      "end": 397.04,
+      "text": "Because at a high level, distributed query execution"
+    },
+    {
+      "id": 172,
+      "start": 397.04,
+      "end": 399.36,
+      "text": "is the same thing as you would do in a single node."
+    },
+    {
+      "id": 173,
+      "start": 400.36,
+      "end": 402.8,
+      "text": "Modern CPUs have a bunch of cores."
+    },
+    {
+      "id": 174,
+      "start": 402.8,
+      "end": 404.04,
+      "text": "Sometimes you have multiple sockets."
+    },
+    {
+      "id": 175,
+      "start": 404.04,
+      "end": 405.6,
+      "text": "And you have to care about the number regions,"
+    },
+    {
+      "id": 176,
+      "start": 405.6,
+      "end": 407.0,
+      "text": "where are the actual memories being located"
+    },
+    {
+      "id": 177,
+      "start": 407.0,
+      "end": 408.68,
+      "text": "for each socket?"
+    },
+    {
+      "id": 178,
+      "start": 408.68,
+      "end": 410.92,
+      "text": "So all that is still going to be the same."
+    },
+    {
+      "id": 179,
+      "start": 410.92,
+      "end": 413.72,
+      "text": "Which is when you go distributed, there's a bit more"
+    },
+    {
+      "id": 180,
+      "start": 413.72,
+      "end": 416.04,
+      "text": "extra work to say, OK, well now I need to send data"
+    },
+    {
+      "id": 181,
+      "start": 416.04,
+      "end": 418.24,
+      "text": "from this node to another node."
+    },
+    {
+      "id": 182,
+      "start": 418.24,
+      "end": 420.68,
+      "text": "Well, that's no different than sending from this CPU core"
+    },
+    {
+      "id": 183,
+      "start": 420.68,
+      "end": 422.6,
+      "text": "to this CPU core."
+    },
+    {
+      "id": 184,
+      "start": 422.6,
+      "end": 428.24,
+      "text": "It's obviously potentially slower than going over the network."
+    },
+    {
+      "id": 185,
+      "start": 428.36,
+      "end": 430.68,
+      "text": "But at a high level, the key concepts"
+    },
+    {
+      "id": 186,
+      "start": 430.68,
+      "end": 432.48,
+      "text": "that we're describing, I thought this master,"
+    },
+    {
+      "id": 187,
+      "start": 432.48,
+      "end": 435.32,
+      "text": "are the same on a single node as distributed node."
+    },
+    {
+      "id": 188,
+      "start": 435.32,
+      "end": 438.36,
+      "text": "Single node versus multiple nodes."
+    },
+    {
+      "id": 189,
+      "start": 438.36,
+      "end": 440.88,
+      "text": "So the query plan is going to be ideally a DAG"
+    },
+    {
+      "id": 190,
+      "start": 440.88,
+      "end": 444.28,
+      "text": "of physical operators."
+    },
+    {
+      "id": 191,
+      "start": 444.28,
+      "end": 447.8,
+      "text": "So some systems and data fusion is one of them."
+    },
+    {
+      "id": 192,
+      "start": 447.8,
+      "end": 450.28,
+      "text": "It's actually not a DAG, it's a tree."
+    },
+    {
+      "id": 193,
+      "start": 450.28,
+      "end": 451.36,
+      "text": "And we'll see later in this semester,"
+    },
+    {
+      "id": 194,
+      "start": 451.36,
+      "end": 453.08,
+      "text": "well that's going to cause problems when we need to do"
+    },
+    {
+      "id": 195,
+      "start": 453.08,
+      "end": 454.64,
+      "text": "nested queries, the subqueries."
+    },
+    {
+      "id": 196,
+      "start": 454.64,
+      "end": 456.32,
+      "text": "Because you want to be able to rewrite or maybe reuse"
+    },
+    {
+      "id": 197,
+      "start": 456.32,
+      "end": 459.16,
+      "text": "computation from one part of the query for another query."
+    },
+    {
+      "id": 198,
+      "start": 459.16,
+      "end": 461.0,
+      "text": "But if it's a tree, you can't do that."
+    },
+    {
+      "id": 199,
+      "start": 461.0,
+      "end": 462.44,
+      "text": "So ideally, want things to be a DAG."
+    },
+    {
+      "id": 200,
+      "start": 462.44,
+      "end": 465.0,
+      "text": "And not all systems actually do that."
+    },
+    {
+      "id": 201,
+      "start": 465.0,
+      "end": 468.72,
+      "text": "And then the data system is going to look at the query plan,"
+    },
+    {
+      "id": 202,
+      "start": 468.72,
+      "end": 470.48,
+      "text": "figure out what data needs to access,"
+    },
+    {
+      "id": 203,
+      "start": 470.48,
+      "end": 472.56,
+      "text": "where it's coming into an operator,"
+    },
+    {
+      "id": 204,
+      "start": 472.56,
+      "end": 474.72,
+      "text": "and where it needs to go next."
+    },
+    {
+      "id": 205,
+      "start": 474.72,
+      "end": 478.2,
+      "text": "And so we're going to figure that out all ahead of time"
+    },
+    {
+      "id": 206,
+      "start": 478.2,
+      "end": 481.28,
+      "text": "so that when you run the query, it knows exactly how to"
+    },
+    {
+      "id": 207,
+      "start": 481.28,
+      "end": 484.96,
+      "text": "orchestrate and schedule things and where to send stuff."
+    },
+    {
+      "id": 208,
+      "start": 484.96,
+      "end": 486.56,
+      "text": "We'll see a little bit how we sprinkle some ad"
+    },
+    {
+      "id": 209,
+      "start": 486.56,
+      "end": 491.08,
+      "text": "activity in this process where we can make changes on the fly"
+    },
+    {
+      "id": 210,
+      "start": 491.08,
+      "end": 493.56,
+      "text": "to the query plan and how we move data or maybe scale things"
+    },
+    {
+      "id": 211,
+      "start": 493.56,
+      "end": 496.48,
+      "text": "up and down based on what we see in the data."
+    },
+    {
+      "id": 212,
+      "start": 496.48,
+      "end": 498.12,
+      "text": "Because that's going to be a big theme throughout the semester."
+    },
+    {
+      "id": 213,
+      "start": 498.12,
+      "end": 501.52,
+      "text": "Again, in this data lake or lake house world,"
+    },
+    {
+      "id": 214,
+      "start": 501.52,
+      "end": 503.56,
+      "text": "with the object store world, you may not actually"
+    },
+    {
+      "id": 215,
+      "start": 503.56,
+      "end": 506.68,
+      "text": "know what's actually in the files."
+    },
+    {
+      "id": 216,
+      "start": 506.68,
+      "end": 508.4,
+      "text": "Because you haven't done the scan on it yet."
+    },
+    {
+      "id": 217,
+      "start": 508.4,
+      "end": 509.8,
+      "text": "So your estimations might be wrong."
+    },
+    {
+      "id": 218,
+      "start": 509.8,
+      "end": 512.44,
+      "text": "So maybe you underestimate overestimated different parts,"
+    },
+    {
+      "id": 219,
+      "start": 512.44,
+      "end": 515.4,
+      "text": "and you want your system to adapt a little bit."
+    },
+    {
+      "id": 220,
+      "start": 515.4,
+      "end": 515.9,
+      "text": "Yes?"
+    },
+    {
+      "id": 221,
+      "start": 515.9,
+      "end": 519.72,
+      "text": "If a query plan comes in, what is the query?"
+    },
+    {
+      "id": 222,
+      "start": 519.72,
+      "end": 522.72,
+      "text": "Tree."
+    },
+    {
+      "id": 223,
+      "start": 522.72,
+      "end": 524.04,
+      "text": "Post goes as a tree."
+    },
+    {
+      "id": 224,
+      "start": 524.04,
+      "end": 524.54,
+      "text": "Yes."
+    },
+    {
+      "id": 225,
+      "start": 524.54,
+      "end": 527.04,
+      "text": "What do you mean, like, what does the tree look like?"
+    },
+    {
+      "id": 226,
+      "start": 527.04,
+      "end": 529.04,
+      "text": "Like where is the dog?"
+    },
+    {
+      "id": 227,
+      "start": 529.04,
+      "end": 531.8,
+      "text": "So like a dog, you could have one part go to another one."
+    },
+    {
+      "id": 228,
+      "start": 531.8,
+      "end": 534.96,
+      "text": "Yeah, tree where you only have one parent."
+    },
+    {
+      "id": 229,
+      "start": 534.96,
+      "end": 537.24,
+      "text": "Or a dog, you can do some computation here for a nest"
+    },
+    {
+      "id": 230,
+      "start": 537.24,
+      "end": 540.96,
+      "text": "of query, and then send it to two different parts of the tree."
+    },
+    {
+      "id": 231,
+      "start": 541.48,
+      "end": 542.64,
+      "text": "Or the query plan."
+    },
+    {
+      "id": 232,
+      "start": 548.56,
+      "end": 552.4,
+      "text": "So again, this will be a high level overview of what"
+    },
+    {
+      "id": 233,
+      "start": 552.4,
+      "end": 553.92,
+      "text": "is going to actually happen now in the execution"
+    },
+    {
+      "id": 234,
+      "start": 553.92,
+      "end": 557.32,
+      "text": "engine with the I-O servers when we execute a query."
+    },
+    {
+      "id": 235,
+      "start": 557.32,
+      "end": 559.72,
+      "text": "So again, these are our worker nodes."
+    },
+    {
+      "id": 236,
+      "start": 559.72,
+      "end": 562.8,
+      "text": "They'll have local CPU, local memory, local disk."
+    },
+    {
+      "id": 237,
+      "start": 562.8,
+      "end": 566.16,
+      "text": "And then they're going to retrieve when the query starts."
+    },
+    {
+      "id": 238,
+      "start": 566.16,
+      "end": 568.08,
+      "text": "You know, think of the leaf nodes of the query plan,"
+    },
+    {
+      "id": 239,
+      "start": 568.08,
+      "end": 569.52,
+      "text": "like, sequential scans and so forth."
+    },
+    {
+      "id": 240,
+      "start": 569.52,
+      "end": 572.32,
+      "text": "That's going to go at what we're going to call persistent data."
+    },
+    {
+      "id": 241,
+      "start": 572.32,
+      "end": 575.44,
+      "text": "This is the underlying tuples that are in our tables"
+    },
+    {
+      "id": 242,
+      "start": 575.44,
+      "end": 578.08,
+      "text": "in our database."
+    },
+    {
+      "id": 243,
+      "start": 578.08,
+      "end": 580.84,
+      "text": "So again, whether this comes from the I-O service"
+    },
+    {
+      "id": 244,
+      "start": 580.84,
+      "end": 583.04,
+      "text": "through local disk or from the object store,"
+    },
+    {
+      "id": 245,
+      "start": 583.04,
+      "end": 585.2,
+      "text": "at this point, it doesn't matter."
+    },
+    {
+      "id": 246,
+      "start": 585.2,
+      "end": 586.52,
+      "text": "So all now the worker nodes are going"
+    },
+    {
+      "id": 247,
+      "start": 586.52,
+      "end": 588.56,
+      "text": "to do some computation for our query plan,"
+    },
+    {
+      "id": 248,
+      "start": 588.56,
+      "end": 590.72,
+      "text": "and they're going to produce intermediate results."
+    },
+    {
+      "id": 249,
+      "start": 590.72,
+      "end": 591.92,
+      "text": "So these intermediate results, again,"
+    },
+    {
+      "id": 250,
+      "start": 591.92,
+      "end": 595.08,
+      "text": "are the artifacts that the operator generates that"
+    },
+    {
+      "id": 251,
+      "start": 595.08,
+      "end": 597.56,
+      "text": "needs to go to the next stage of the query plan."
+    },
+    {
+      "id": 252,
+      "start": 597.56,
+      "end": 601.36,
+      "text": "Again, we'll talk about this throughout the semester."
+    },
+    {
+      "id": 253,
+      "start": 601.36,
+      "end": 604.56,
+      "text": "We'll assume that the unit of work for our worker nodes."
+    }
+  ],
+  "language": "en"
+}

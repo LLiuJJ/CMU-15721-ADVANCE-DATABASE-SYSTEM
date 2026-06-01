@@ -1,0 +1,1379 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.52,
+      "text": "because of bitmap."
+    },
+    {
+      "id": 1,
+      "start": 2.52,
+      "end": 4.48,
+      "text": "So in this example here, what I have,"
+    },
+    {
+      "id": 2,
+      "start": 4.48,
+      "end": 6.32,
+      "text": "2 to the 16 different values."
+    },
+    {
+      "id": 3,
+      "start": 6.32,
+      "end": 9.96,
+      "text": "So I need a bit, and I need to store 2 to the 16 bits"
+    },
+    {
+      "id": 4,
+      "start": 9.96,
+      "end": 10.96,
+      "text": "that I can set to true."
+    },
+    {
+      "id": 5,
+      "start": 10.96,
+      "end": 12.36,
+      "text": "It's true, you can just like, dynamic,"
+    },
+    {
+      "id": 6,
+      "start": 12.36,
+      "end": 14.04,
+      "text": "do you have to allocate it to a true?"
+    },
+    {
+      "id": 7,
+      "start": 14.04,
+      "end": 15.4,
+      "text": "That's expensive."
+    },
+    {
+      "id": 8,
+      "start": 15.4,
+      "end": 16.24,
+      "text": "Right?"
+    },
+    {
+      "id": 9,
+      "start": 18.92,
+      "end": 22.76,
+      "text": "So David, if I say I have 2 to the 16,"
+    },
+    {
+      "id": 10,
+      "start": 22.76,
+      "end": 26.0,
+      "text": "and I now go beyond that, all of the remalook."
+    },
+    {
+      "id": 11,
+      "start": 26.0,
+      "end": 28.76,
+      "text": "So you're going to know, you can start smaller."
+    },
+    {
+      "id": 12,
+      "start": 28.76,
+      "end": 31.76,
+      "text": "Then you can do that."
+    },
+    {
+      "id": 13,
+      "start": 31.76,
+      "end": 35.44,
+      "text": "You could do that, sure, but then it's,"
+    },
+    {
+      "id": 14,
+      "start": 35.44,
+      "end": 37.0,
+      "text": "well, you could do that."
+    },
+    {
+      "id": 15,
+      "start": 37.0,
+      "end": 43.0,
+      "text": "But for some values, if you're treating everyone the same."
+    },
+    {
+      "id": 16,
+      "start": 43.0,
+      "end": 45.92,
+      "text": "And so maybe the case that your data structure is,"
+    },
+    {
+      "id": 17,
+      "start": 45.92,
+      "end": 48.96,
+      "text": "sorry, the domain range is wide."
+    },
+    {
+      "id": 18,
+      "start": 48.96,
+      "end": 51.88,
+      "text": "But within that, it's sparse."
+    },
+    {
+      "id": 19,
+      "start": 51.88,
+      "end": 54.16,
+      "text": "So now I'm jumping to different cache lines,"
+    },
+    {
+      "id": 20,
+      "start": 54.16,
+      "end": 55.56,
+      "text": "or different chunk of memory, just to go"
+    },
+    {
+      "id": 21,
+      "start": 55.56,
+      "end": 57.6,
+      "text": "to see what this thing set to true, where it's a bit"
+    },
+    {
+      "id": 22,
+      "start": 57.6,
+      "end": 62.12,
+      "text": "pack array, which I can then compress it again."
+    },
+    {
+      "id": 23,
+      "start": 62.12,
+      "end": 65.2,
+      "text": "This is better."
+    },
+    {
+      "id": 24,
+      "start": 65.2,
+      "end": 66.2,
+      "text": "Yes?"
+    },
+    {
+      "id": 25,
+      "start": 66.2,
+      "end": 68.04,
+      "text": "Did you have the idea of the domain?"
+    },
+    {
+      "id": 26,
+      "start": 68.04,
+      "end": 70.88,
+      "text": "No, this is from a French-Canadian guy, Daniel Lamar."
+    },
+    {
+      "id": 27,
+      "start": 70.88,
+      "end": 74.0,
+      "text": "As you've been a lot of systems use this."
+    },
+    {
+      "id": 28,
+      "start": 74.0,
+      "end": 74.8,
+      "text": "For bitmaps."
+    },
+    {
+      "id": 29,
+      "start": 79.8,
+      "end": 80.32,
+      "text": "I got a bit."
+    },
+    {
+      "id": 30,
+      "start": 80.32,
+      "end": 88.08,
+      "text": "It's actually takes inspiration from paper"
+    },
+    {
+      "id": 31,
+      "start": 88.08,
+      "end": 89.28,
+      "text": "from the Germans called art, which"
+    },
+    {
+      "id": 32,
+      "start": 89.28,
+      "end": 89.84,
+      "text": "are not going to cover."
+    },
+    {
+      "id": 33,
+      "start": 89.84,
+      "end": 91.8,
+      "text": "It's basically Adaptive Red X Tri, where"
+    },
+    {
+      "id": 34,
+      "start": 91.8,
+      "end": 94.44,
+      "text": "they can keep track of the population"
+    },
+    {
+      "id": 35,
+      "start": 94.44,
+      "end": 97.0,
+      "text": "within some sort of path down into the tri,"
+    },
+    {
+      "id": 36,
+      "start": 97.0,
+      "end": 100.72,
+      "text": "and they'll change the size of the note."
+    },
+    {
+      "id": 37,
+      "start": 100.72,
+      "end": 101.72,
+      "text": "It's sort of the same idea."
+    },
+    {
+      "id": 38,
+      "start": 101.72,
+      "end": 102.22,
+      "text": "Yes?"
+    },
+    {
+      "id": 39,
+      "start": 102.22,
+      "end": 104.96,
+      "text": "Someone tried to repeat this exact thing for a level down"
+    },
+    {
+      "id": 40,
+      "start": 104.96,
+      "end": 105.48,
+      "text": "as well."
+    },
+    {
+      "id": 41,
+      "start": 105.48,
+      "end": 106.36,
+      "text": "So you have chunk of memory."
+    },
+    {
+      "id": 42,
+      "start": 106.36,
+      "end": 109.16,
+      "text": "So you have to do it by changing it again."
+    },
+    {
+      "id": 43,
+      "start": 109.16,
+      "end": 111.6,
+      "text": "Question is, because anybody tried to do a hierarchal"
+    },
+    {
+      "id": 44,
+      "start": 111.6,
+      "end": 112.68,
+      "text": "chunking?"
+    },
+    {
+      "id": 45,
+      "start": 112.68,
+      "end": 113.28,
+      "text": "Yes."
+    },
+    {
+      "id": 46,
+      "start": 113.28,
+      "end": 116.28,
+      "text": "There is hierarchal bitmaps."
+    },
+    {
+      "id": 47,
+      "start": 116.28,
+      "end": 118.44,
+      "text": "You get screwed on super scalars CPUs."
+    },
+    {
+      "id": 48,
+      "start": 118.44,
+      "end": 121.72,
+      "text": "It's just too much in direction."
+    },
+    {
+      "id": 49,
+      "start": 121.72,
+      "end": 123.8,
+      "text": "I have a slide for that, but we're not covering that"
+    },
+    {
+      "id": 50,
+      "start": 123.8,
+      "end": 124.48,
+      "text": "this semester."
+    },
+    {
+      "id": 51,
+      "start": 124.48,
+      "end": 125.96,
+      "text": "That's like an idea from the 90s."
+    },
+    {
+      "id": 52,
+      "start": 125.96,
+      "end": 128.92,
+      "text": "No one does that anymore."
+    },
+    {
+      "id": 53,
+      "start": 128.92,
+      "end": 130.4,
+      "text": "In that case, also, too, which you're proposing"
+    },
+    {
+      "id": 54,
+      "start": 130.4,
+      "end": 132.64,
+      "text": "why bother doing the extra level?"
+    },
+    {
+      "id": 55,
+      "start": 132.64,
+      "end": 137.16,
+      "text": "Just make the top level larger."
+    },
+    {
+      "id": 56,
+      "start": 137.16,
+      "end": 137.66,
+      "text": "Yes?"
+    },
+    {
+      "id": 57,
+      "start": 137.66,
+      "end": 140.26,
+      "text": "So it's set again?"
+    },
+    {
+      "id": 58,
+      "start": 140.26,
+      "end": 143.38,
+      "text": "How do I interpret the bits?"
+    },
+    {
+      "id": 59,
+      "start": 143.38,
+      "end": 144.66,
+      "text": "It's a bit mavenx, right?"
+    },
+    {
+      "id": 60,
+      "start": 144.66,
+      "end": 151.74,
+      "text": "So you want to say, is this key set the true?"
+    },
+    {
+      "id": 61,
+      "start": 151.74,
+      "end": 154.14,
+      "text": "So after doing the division to figure out"
+    },
+    {
+      "id": 62,
+      "start": 154.14,
+      "end": 158.5,
+      "text": "I'm going down this path, I know that whatever the position"
+    },
+    {
+      "id": 63,
+      "start": 158.5,
+      "end": 162.34,
+      "text": "is, what bit position in this is the offset,"
+    },
+    {
+      "id": 64,
+      "start": 162.34,
+      "end": 168.78,
+      "text": "if the original key is this value plus the offset"
+    },
+    {
+      "id": 65,
+      "start": 168.78,
+      "end": 171.78,
+      "text": "to reverse it back, not the key, but the actual starting"
+    },
+    {
+      "id": 66,
+      "start": 171.78,
+      "end": 174.3,
+      "text": "point of the range."
+    },
+    {
+      "id": 67,
+      "start": 174.3,
+      "end": 176.78,
+      "text": "So now, within this, again, so say, I"
+    },
+    {
+      "id": 68,
+      "start": 176.78,
+      "end": 178.14,
+      "text": "forget how many things I have in here."
+    },
+    {
+      "id": 69,
+      "start": 178.14,
+      "end": 182.54,
+      "text": "But if I want to know, is position 50 set the true?"
+    },
+    {
+      "id": 70,
+      "start": 182.54,
+      "end": 183.3,
+      "text": "Sorry."
+    },
+    {
+      "id": 71,
+      "start": 183.3,
+      "end": 186.58,
+      "text": "At position 50, I know that corresponds to my key here."
+    },
+    {
+      "id": 72,
+      "start": 186.58,
+      "end": 190.58,
+      "text": "I can then check whether that bit set the true or not."
+    },
+    {
+      "id": 73,
+      "start": 190.58,
+      "end": 192.26,
+      "text": "In this, I mean, it's a PowerPoint."
+    },
+    {
+      "id": 74,
+      "start": 192.26,
+      "end": 194.98,
+      "text": "I don't know."
+    },
+    {
+      "id": 75,
+      "start": 194.98,
+      "end": 195.98,
+      "text": "Yeah."
+    },
+    {
+      "id": 76,
+      "start": 195.98,
+      "end": 196.9,
+      "text": "It's a bit mavenx."
+    },
+    {
+      "id": 77,
+      "start": 196.9,
+      "end": 199.3,
+      "text": "I think we covered it in the interclass."
+    },
+    {
+      "id": 78,
+      "start": 199.3,
+      "end": 200.86,
+      "text": "We're basically, again, if I want to know,"
+    },
+    {
+      "id": 79,
+      "start": 200.86,
+      "end": 207.38,
+      "text": "if the value at 2,5 set to something,"
+    },
+    {
+      "id": 80,
+      "start": 207.38,
+      "end": 209.98,
+      "text": "we're ignoring how this actually gets mapped to something,"
+    },
+    {
+      "id": 81,
+      "start": 209.98,
+      "end": 212.74,
+      "text": "I can then look to see whether a bit that corresponds"
+    },
+    {
+      "id": 82,
+      "start": 212.74,
+      "end": 215.02,
+      "text": "to position 5 is set to true."
+    },
+    {
+      "id": 83,
+      "start": 215.02,
+      "end": 216.62,
+      "text": "And then some higher level part of the system,"
+    },
+    {
+      "id": 84,
+      "start": 216.62,
+      "end": 219.3,
+      "text": "then interprets what does that mean?"
+    },
+    {
+      "id": 85,
+      "start": 219.3,
+      "end": 220.7,
+      "text": "I just like I would imagine where"
+    },
+    {
+      "id": 86,
+      "start": 220.7,
+      "end": 222.06,
+      "text": "you would look in the first place."
+    },
+    {
+      "id": 87,
+      "start": 222.06,
+      "end": 226.18,
+      "text": "This question is just a rudimentary version of a Blimp filter."
+    },
+    {
+      "id": 88,
+      "start": 226.18,
+      "end": 228.06,
+      "text": "Blimp filter is more than one bit."
+    },
+    {
+      "id": 89,
+      "start": 228.06,
+      "end": 230.7,
+      "text": "But so a Blimp filter is a public data structure"
+    },
+    {
+      "id": 90,
+      "start": 230.7,
+      "end": 232.06,
+      "text": "where you can get false positives."
+    },
+    {
+      "id": 91,
+      "start": 232.06,
+      "end": 233.42,
+      "text": "This, you don't get false positives."
+    },
+    {
+      "id": 92,
+      "start": 233.42,
+      "end": 234.5,
+      "text": "You want to know something's in there?"
+    },
+    {
+      "id": 93,
+      "start": 234.5,
+      "end": 235.9,
+      "text": "This will tell you, yes or no?"
+    },
+    {
+      "id": 94,
+      "start": 235.9,
+      "end": 238.94,
+      "text": "Could you have more than one data value that"
+    },
+    {
+      "id": 95,
+      "start": 238.94,
+      "end": 241.54,
+      "text": "matches the same index?"
+    },
+    {
+      "id": 96,
+      "start": 241.54,
+      "end": 243.18,
+      "text": "This question is, can you have more than one"
+    },
+    {
+      "id": 97,
+      "start": 243.18,
+      "end": 246.1,
+      "text": "value mapped to the same index?"
+    },
+    {
+      "id": 98,
+      "start": 246.1,
+      "end": 247.5,
+      "text": "No."
+    },
+    {
+      "id": 99,
+      "start": 247.5,
+      "end": 249.26,
+      "text": "Because we're dividing it by 2 to the 16"
+    },
+    {
+      "id": 100,
+      "start": 249.26,
+      "end": 250.62,
+      "text": "to figure out what position we go to."
+    },
+    {
+      "id": 101,
+      "start": 250.62,
+      "end": 252.86,
+      "text": "And then we take the mod, which is basically the remainder of that,"
+    },
+    {
+      "id": 102,
+      "start": 252.86,
+      "end": 254.38,
+      "text": "to figure out what bit it was in that."
+    },
+    {
+      "id": 103,
+      "start": 254.38,
+      "end": 255.9,
+      "text": "So you won't have any overlap."
+    },
+    {
+      "id": 104,
+      "start": 255.9,
+      "end": 256.58,
+      "text": "What is the value?"
+    },
+    {
+      "id": 105,
+      "start": 256.58,
+      "end": 258.58,
+      "text": "I don't know if it's the same index?"
+    },
+    {
+      "id": 106,
+      "start": 258.58,
+      "end": 260.46,
+      "text": "This question is, what if it's the same key again?"
+    },
+    {
+      "id": 107,
+      "start": 260.46,
+      "end": 260.98,
+      "text": "What again?"
+    },
+    {
+      "id": 108,
+      "start": 260.98,
+      "end": 261.46,
+      "text": "What is that?"
+    },
+    {
+      "id": 109,
+      "start": 261.46,
+      "end": 264.06,
+      "text": "What are you trying to do with it?"
+    },
+    {
+      "id": 110,
+      "start": 264.06,
+      "end": 270.1,
+      "text": "Again, so the thing of like, if I'm storing the null bit map,"
+    },
+    {
+      "id": 111,
+      "start": 270.1,
+      "end": 271.94,
+      "text": "I can store it as this."
+    },
+    {
+      "id": 112,
+      "start": 271.94,
+      "end": 278.22,
+      "text": "And then I'm not going to set the 2-pool at offset 50"
+    },
+    {
+      "id": 113,
+      "start": 278.22,
+      "end": 279.06,
+      "text": "null multiple times."
+    },
+    {
+      "id": 114,
+      "start": 279.06,
+      "end": 280.74,
+      "text": "This doesn't make sense."
+    },
+    {
+      "id": 115,
+      "start": 280.74,
+      "end": 283.1,
+      "text": "It's not accounting data structure."
+    },
+    {
+      "id": 116,
+      "start": 283.1,
+      "end": 284.26,
+      "text": "It's just a set membership."
+    },
+    {
+      "id": 117,
+      "start": 288.98,
+      "end": 289.48,
+      "text": "OK."
+    },
+    {
+      "id": 118,
+      "start": 292.22,
+      "end": 292.42,
+      "text": "All right."
+    },
+    {
+      "id": 119,
+      "start": 292.42,
+      "end": 297.38,
+      "text": "So the better blocks, parking, or generate variable length"
+    },
+    {
+      "id": 120,
+      "start": 297.38,
+      "end": 302.46,
+      "text": "runs of values, better blocks is less susceptible to this."
+    },
+    {
+      "id": 121,
+      "start": 302.46,
+      "end": 307.98,
+      "text": "But you could still have that within across the column chunks."
+    },
+    {
+      "id": 122,
+      "start": 307.98,
+      "end": 312.26,
+      "text": "And then better blocks explicitly avoided delta encoding."
+    },
+    {
+      "id": 123,
+      "start": 312.26,
+      "end": 315.66,
+      "text": "But again, you have this problem where the value of 1 given"
+    },
+    {
+      "id": 124,
+      "start": 315.66,
+      "end": 317.94,
+      "text": "2-pool would depend on the preceding value."
+    },
+    {
+      "id": 125,
+      "start": 317.94,
+      "end": 321.9,
+      "text": "And again, you can't use SIMD for that."
+    },
+    {
+      "id": 126,
+      "start": 321.9,
+      "end": 323.94,
+      "text": "So in the case of better blocks, they're always"
+    },
+    {
+      "id": 127,
+      "start": 323.94,
+      "end": 326.82,
+      "text": "going to use run length encoding the vectors."
+    },
+    {
+      "id": 128,
+      "start": 326.82,
+      "end": 330.42,
+      "text": "Even if the data is the, would you end up encoding a small"
+    },
+    {
+      "id": 129,
+      "start": 330.42,
+      "end": 332.7,
+      "text": "than the number of lanes you have in the SIMD register?"
+    },
+    {
+      "id": 130,
+      "start": 332.7,
+      "end": 337.7,
+      "text": "And so the thing of like, if I can, in my SIMD registers,"
+    },
+    {
+      "id": 131,
+      "start": 337.7,
+      "end": 339.34,
+      "text": "I can put 16 values."
+    },
+    {
+      "id": 132,
+      "start": 339.34,
+      "end": 342.86,
+      "text": "But I only have 12 values."
+    },
+    {
+      "id": 133,
+      "start": 342.86,
+      "end": 346.54,
+      "text": "They're still going to use all 16 positions in the SIMD register."
+    },
+    {
+      "id": 134,
+      "start": 346.54,
+      "end": 348.18,
+      "text": "And then the last four are just garbage."
+    },
+    {
+      "id": 135,
+      "start": 348.18,
+      "end": 351.46,
+      "text": "And they'll clean that up afterwards."
+    },
+    {
+      "id": 136,
+      "start": 351.46,
+      "end": 353.26,
+      "text": "And in the case of fast lines, we'll see in a second."
+    },
+    {
+      "id": 137,
+      "start": 353.26,
+      "end": 355.74,
+      "text": "They align things such a way that you're always guaranteed"
+    },
+    {
+      "id": 138,
+      "start": 355.74,
+      "end": 359.82,
+      "text": "to always be doing useful work in your SIMD registers."
+    },
+    {
+      "id": 139,
+      "start": 359.82,
+      "end": 362.46,
+      "text": "So fast lines is not a complete file format in the same way"
+    },
+    {
+      "id": 140,
+      "start": 362.46,
+      "end": 364.1,
+      "text": "that better blocks is."
+    },
+    {
+      "id": 141,
+      "start": 364.1,
+      "end": 366.62,
+      "text": "It's just a low-level coding scheme"
+    },
+    {
+      "id": 142,
+      "start": 366.62,
+      "end": 369.98,
+      "text": "that is going to achieve better data parallelism"
+    },
+    {
+      "id": 143,
+      "start": 369.98,
+      "end": 372.1,
+      "text": "through reordering the tuples in such a way"
+    },
+    {
+      "id": 144,
+      "start": 372.1,
+      "end": 374.98,
+      "text": "that can you're always guaranteeing or always maximizing"
+    },
+    {
+      "id": 145,
+      "start": 374.98,
+      "end": 378.82,
+      "text": "the amount of useful work you're doing in your SIMD"
+    },
+    {
+      "id": 146,
+      "start": 378.82,
+      "end": 381.38,
+      "text": "registers or SIMD instructions."
+    },
+    {
+      "id": 147,
+      "start": 381.38,
+      "end": 383.78,
+      "text": "So they're going to have all the same encoding schemes"
+    },
+    {
+      "id": 148,
+      "start": 383.78,
+      "end": 384.74,
+      "text": "as better blocks."
+    },
+    {
+      "id": 149,
+      "start": 384.74,
+      "end": 387.62,
+      "text": "But again, with the addition of delta encoding."
+    },
+    {
+      "id": 150,
+      "start": 387.62,
+      "end": 390.14,
+      "text": "And we're truly wild about this papers that, as I said,"
+    },
+    {
+      "id": 151,
+      "start": 390.14,
+      "end": 394.82,
+      "text": "they were rather than designing it for one instance"
+    },
+    {
+      "id": 152,
+      "start": 394.82,
+      "end": 399.66,
+      "text": "or configuration of SIMD for one CPU vendor,"
+    },
+    {
+      "id": 153,
+      "start": 399.66,
+      "end": 403.1,
+      "text": "they basically say, hey, we're going to make our own virtual ISA."
+    },
+    {
+      "id": 154,
+      "start": 403.1,
+      "end": 406.5,
+      "text": "And that's going to have 1024 SIMD registers."
+    },
+    {
+      "id": 155,
+      "start": 406.5,
+      "end": 408.58,
+      "text": "Again, even though that hardware does not exist,"
+    },
+    {
+      "id": 156,
+      "start": 408.58,
+      "end": 414.06,
+      "text": "well, they allude to, I think M1 has 1024 cache lines"
+    },
+    {
+      "id": 157,
+      "start": 414.06,
+      "end": 416.38,
+      "text": "and so forth, right?"
+    },
+    {
+      "id": 158,
+      "start": 416.38,
+      "end": 420.66,
+      "text": "It's a way to the pretending or seeing the,"
+    },
+    {
+      "id": 159,
+      "start": 420.66,
+      "end": 423.74,
+      "text": "foreshadowing the arrival of 1024 SIMD registers."
+    },
+    {
+      "id": 160,
+      "start": 423.74,
+      "end": 426.14,
+      "text": "I remember seeing some talk from somebody"
+    },
+    {
+      "id": 161,
+      "start": 426.14,
+      "end": 428.7,
+      "text": "at Intel saying, this is not happening anytime soon,"
+    },
+    {
+      "id": 162,
+      "start": 428.7,
+      "end": 431.3,
+      "text": "but that was a few years ago, maybe things had changed."
+    },
+    {
+      "id": 163,
+      "start": 431.3,
+      "end": 432.34,
+      "text": "But again, the idea is they're going"
+    },
+    {
+      "id": 164,
+      "start": 432.34,
+      "end": 435.46,
+      "text": "to define all the operations on basic constructs"
+    },
+    {
+      "id": 165,
+      "start": 435.46,
+      "end": 439.02,
+      "text": "on this virtual ISA."
+    },
+    {
+      "id": 166,
+      "start": 439.02,
+      "end": 440.26,
+      "text": "And then they can show how you can then"
+    },
+    {
+      "id": 167,
+      "start": 440.26,
+      "end": 443.26,
+      "text": "map that to either scalar SISD code, which apparently"
+    },
+    {
+      "id": 168,
+      "start": 443.26,
+      "end": 446.82,
+      "text": "still runs really well, or an existing SIMD instructions"
+    },
+    {
+      "id": 169,
+      "start": 446.82,
+      "end": 449.26,
+      "text": "app."
+    },
+    {
+      "id": 170,
+      "start": 449.26,
+      "end": 451.46,
+      "text": "So the key, key-quarter thing that they're"
+    },
+    {
+      "id": 171,
+      "start": 451.74,
+      "end": 454.06,
+      "text": "doing is with the Cine4Transport layout."
+    },
+    {
+      "id": 172,
+      "start": 454.06,
+      "end": 455.54,
+      "text": "And again, the idea is that you're"
+    },
+    {
+      "id": 173,
+      "start": 455.54,
+      "end": 460.46,
+      "text": "going to reorder the values in a column, the 2% in the column,"
+    },
+    {
+      "id": 174,
+      "start": 460.46,
+      "end": 463.46,
+      "text": "in such a way that you can do as much work as you can"
+    },
+    {
+      "id": 175,
+      "start": 463.46,
+      "end": 465.58,
+      "text": "entirely on SIMD."
+    },
+    {
+      "id": 176,
+      "start": 465.58,
+      "end": 468.18,
+      "text": "And the reason why we can get away with this, as I said before,"
+    },
+    {
+      "id": 177,
+      "start": 468.18,
+      "end": 469.54,
+      "text": "is because we have this independence"
+    },
+    {
+      "id": 178,
+      "start": 469.54,
+      "end": 471.18,
+      "text": "between the physical layer and the logical layer."
+    },
+    {
+      "id": 179,
+      "start": 471.18,
+      "end": 475.98,
+      "text": "The relational model is based on unordered sets."
+    },
+    {
+      "id": 180,
+      "start": 475.98,
+      "end": 477.86,
+      "text": "So you, as the application program,"
+    },
+    {
+      "id": 181,
+      "start": 477.86,
+      "end": 479.66,
+      "text": "when you put data into a database,"
+    },
+    {
+      "id": 182,
+      "start": 479.66,
+      "end": 485.9,
+      "text": "you should not expect that the data will come back to you"
+    },
+    {
+      "id": 183,
+      "start": 485.9,
+      "end": 489.86,
+      "text": "in your queries in the same way that you inserted it."
+    },
+    {
+      "id": 184,
+      "start": 489.86,
+      "end": 493.98,
+      "text": "Most of the time, for some cases, depending on the system,"
+    },
+    {
+      "id": 185,
+      "start": 493.98,
+      "end": 495.5,
+      "text": "you'll usually get that."
+    },
+    {
+      "id": 186,
+      "start": 495.5,
+      "end": 498.18,
+      "text": "But in case of Postgres, as soon as you run the auto vacuum,"
+    },
+    {
+      "id": 187,
+      "start": 498.18,
+      "end": 499.5,
+      "text": "that's going to start moving two pulls around."
+    },
+    {
+      "id": 188,
+      "start": 499.5,
+      "end": 502.5,
+      "text": "And there's no guarantee that you end up with the same ordering."
+    },
+    {
+      "id": 189,
+      "start": 502.5,
+      "end": 504.66,
+      "text": "If you cared about ordering, you would explicitly"
+    },
+    {
+      "id": 190,
+      "start": 504.66,
+      "end": 506.02,
+      "text": "have an order by calls."
+    },
+    {
+      "id": 191,
+      "start": 506.86,
+      "end": 508.7,
+      "text": "Right?"
+    },
+    {
+      "id": 192,
+      "start": 508.7,
+      "end": 509.98,
+      "text": "Because also, if you think about it too,"
+    },
+    {
+      "id": 193,
+      "start": 509.98,
+      "end": 515.66,
+      "text": "what's the optimal ordering for a set of column,"
+    },
+    {
+      "id": 194,
+      "start": 515.66,
+      "end": 517.3,
+      "text": "for one given column versus another,"
+    },
+    {
+      "id": 195,
+      "start": 517.3,
+      "end": 520.7,
+      "text": "that could depend based on what the query actually wants to do."
+    },
+    {
+      "id": 196,
+      "start": 520.7,
+      "end": 522.22,
+      "text": "So instead, they're going to make the choices."
+    },
+    {
+      "id": 197,
+      "start": 522.22,
+      "end": 525.58,
+      "text": "We'll store this in the best way for us to process the data,"
+    },
+    {
+      "id": 198,
+      "start": 525.58,
+      "end": 527.58,
+      "text": "and then let the query engine above it"
+    },
+    {
+      "id": 199,
+      "start": 527.58,
+      "end": 530.74,
+      "text": "figure out how to do the stitch things back together."
+    },
+    {
+      "id": 200,
+      "start": 530.74,
+      "end": 533.14,
+      "text": "If you wanted to record the order that things were inserted,"
+    },
+    {
+      "id": 201,
+      "start": 533.14,
+      "end": 535.18,
+      "text": "you could add a selection vector that basically"
+    },
+    {
+      "id": 202,
+      "start": 535.18,
+      "end": 537.54,
+      "text": "keeps track of the position of two pulls when they arrived,"
+    },
+    {
+      "id": 203,
+      "start": 537.54,
+      "end": 539.82,
+      "text": "but you ever had it that sort of negates"
+    },
+    {
+      "id": 204,
+      "start": 539.82,
+      "end": 542.02,
+      "text": "any of the benefits you're getting."
+    },
+    {
+      "id": 205,
+      "start": 542.02,
+      "end": 544.34,
+      "text": "So again, all the algorithms are going to define."
+    },
+    {
+      "id": 206,
+      "start": 544.34,
+      "end": 547.06,
+      "text": "We're going to be based on this virtual ISA,"
+    },
+    {
+      "id": 207,
+      "start": 547.06,
+      "end": 548.38,
+      "text": "and then they just either emulate it"
+    },
+    {
+      "id": 208,
+      "start": 548.38,
+      "end": 550.9,
+      "text": "on AVX512 or scale instructions."
+    },
+    {
+      "id": 209,
+      "start": 550.9,
+      "end": 551.86,
+      "text": "So in the second time, I'm just going"
+    },
+    {
+      "id": 210,
+      "start": 551.86,
+      "end": 556.78,
+      "text": "to show one example of how this works using a column that"
+    },
+    {
+      "id": 211,
+      "start": 556.78,
+      "end": 559.34,
+      "text": "will convert into a run length encoding,"
+    },
+    {
+      "id": 212,
+      "start": 559.34,
+      "end": 561.34,
+      "text": "and then we'll convert that to dictionary encoding"
+    },
+    {
+      "id": 213,
+      "start": 561.34,
+      "end": 562.5,
+      "text": "with deltas."
+    },
+    {
+      "id": 214,
+      "start": 562.5,
+      "end": 565.66,
+      "text": "And we'll see how to do everything in a vectorized way"
+    },
+    {
+      "id": 215,
+      "start": 565.66,
+      "end": 567.7,
+      "text": "with a reordering."
+    },
+    {
+      "id": 216,
+      "start": 567.7,
+      "end": 568.98,
+      "text": "So say there's our original column,"
+    },
+    {
+      "id": 217,
+      "start": 568.98,
+      "end": 571.66,
+      "text": "there are a bunch of extreme characters here."
+    },
+    {
+      "id": 218,
+      "start": 571.66,
+      "end": 575.06,
+      "text": "And so we can first convert this to run length encoding."
+    },
+    {
+      "id": 219,
+      "start": 575.06,
+      "end": 579.22,
+      "text": "So we have our original dictionary values here, cbca,"
+    },
+    {
+      "id": 220,
+      "start": 579.22,
+      "end": 582.66,
+      "text": "our bcba, and then for each of those,"
+    },
+    {
+      "id": 221,
+      "start": 582.66,
+      "end": 584.9,
+      "text": "you specify the run length as separate integers."
+    },
+    {
+      "id": 222,
+      "start": 584.9,
+      "end": 586.1,
+      "text": "And the numbers on the bottom are just telling you"
+    },
+    {
+      "id": 223,
+      "start": 586.1,
+      "end": 590.74,
+      "text": "the positions within the vector where they correspond to."
+    },
+    {
+      "id": 224,
+      "start": 590.74,
+      "end": 593.5,
+      "text": "So for this one now, we knew delton coding."
+    },
+    {
+      "id": 225,
+      "start": 593.5,
+      "end": 596.5,
+      "text": "So we would have the starting base value here is 0."
+    },
+    {
+      "id": 226,
+      "start": 596.5,
+      "end": 598.74,
+      "text": "And then you could sort of read this as going across"
+    },
+    {
+      "id": 227,
+      "start": 598.74,
+      "end": 601.98,
+      "text": "that we're just taking the delton, whatever,"
+    },
+    {
+      "id": 228,
+      "start": 601.98,
+      "end": 602.98,
+      "text": "the bcba."
+    }
+  ],
+  "language": "en"
+}

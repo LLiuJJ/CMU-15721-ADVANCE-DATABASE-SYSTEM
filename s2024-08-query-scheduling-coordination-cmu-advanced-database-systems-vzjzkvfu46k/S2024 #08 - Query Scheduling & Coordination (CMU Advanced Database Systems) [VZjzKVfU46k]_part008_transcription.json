@@ -1,0 +1,629 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.56,
+      "text": "or for non-pienter threads, get you on."
+    },
+    {
+      "id": 1,
+      "start": 4.56,
+      "end": 6.04,
+      "text": "Covertines."
+    },
+    {
+      "id": 2,
+      "start": 6.04,
+      "end": 7.38,
+      "text": "Same idea, right?"
+    },
+    {
+      "id": 3,
+      "start": 8.36,
+      "end": 13.36,
+      "text": "Where you have a thread that you're managing"
+    },
+    {
+      "id": 4,
+      "start": 13.36,
+      "end": 17.0,
+      "text": "threading, multi-threading within the database system itself,"
+    },
+    {
+      "id": 5,
+      "start": 17.0,
+      "end": 19.72,
+      "text": "but since it's not preemptive, like preemptive means"
+    },
+    {
+      "id": 6,
+      "start": 19.72,
+      "end": 22.88,
+      "text": "the OS can go steal you, take your harbor thread"
+    },
+    {
+      "id": 7,
+      "start": 22.88,
+      "end": 24.44,
+      "text": "and give it to somebody else."
+    },
+    {
+      "id": 8,
+      "start": 24.44,
+      "end": 26.08,
+      "text": "It's, we're all running, all these threads"
+    },
+    {
+      "id": 9,
+      "start": 26.08,
+      "end": 27.12,
+      "text": "are running within the database themselves,"
+    },
+    {
+      "id": 10,
+      "start": 27.12,
+      "end": 27.96,
+      "text": "so we can't do that."
+    },
+    {
+      "id": 11,
+      "start": 27.96,
+      "end": 29.84,
+      "text": "We can't send it in or up to ourselves."
+    },
+    {
+      "id": 12,
+      "start": 29.84,
+      "end": 31.16,
+      "text": "Like that, right?"
+    },
+    {
+      "id": 13,
+      "start": 31.16,
+      "end": 33.44,
+      "text": "So that means that in our code itself,"
+    },
+    {
+      "id": 14,
+      "start": 33.44,
+      "end": 35.88,
+      "text": "we're gonna have to go put explicit instructions"
+    },
+    {
+      "id": 15,
+      "start": 35.88,
+      "end": 37.96,
+      "text": "to yield back to the scheduler to say,"
+    },
+    {
+      "id": 16,
+      "start": 37.96,
+      "end": 40.32,
+      "text": "hey, by the way, go check to see whether something else"
+    },
+    {
+      "id": 17,
+      "start": 40.32,
+      "end": 42.32,
+      "text": "could be running instead of me."
+    },
+    {
+      "id": 18,
+      "start": 42.32,
+      "end": 44.04,
+      "text": "I mean, they did this on two back in 2006,"
+    },
+    {
+      "id": 19,
+      "start": 44.04,
+      "end": 47.56,
+      "text": "before C++ and go and other programming languages"
+    },
+    {
+      "id": 20,
+      "start": 47.56,
+      "end": 50.12,
+      "text": "now have built-in support for Covertines."
+    },
+    {
+      "id": 21,
+      "start": 50.12,
+      "end": 53.28,
+      "text": "So there's a great article here at how they built it."
+    },
+    {
+      "id": 22,
+      "start": 53.28,
+      "end": 56.48,
+      "text": "I used to say that C++ allowed Microsoft to make it,"
+    },
+    {
+      "id": 23,
+      "start": 57.48,
+      "end": 60.48,
+      "text": "to get C++ over to run on Linux."
+    },
+    {
+      "id": 24,
+      "start": 62.04,
+      "end": 66.52,
+      "text": "And again, abstracted the OS layer,"
+    },
+    {
+      "id": 25,
+      "start": 66.52,
+      "end": 68.16,
+      "text": "the guy that built C++ then called me and said,"
+    },
+    {
+      "id": 26,
+      "start": 68.16,
+      "end": 70.04,
+      "text": "that's not true, actually, they're attempt"
+    },
+    {
+      "id": 27,
+      "start": 70.04,
+      "end": 72.04,
+      "text": "to kind of get C++ over running in Docker"
+    },
+    {
+      "id": 28,
+      "start": 72.04,
+      "end": 74.6,
+      "text": "or turn out to be what got them to be able to support it."
+    },
+    {
+      "id": 29,
+      "start": 74.6,
+      "end": 76.56,
+      "text": "But there's a good article that talks about it."
+    },
+    {
+      "id": 30,
+      "start": 76.56,
+      "end": 78.56,
+      "text": "Again, real quickly, let me show you what it looks like."
+    },
+    {
+      "id": 31,
+      "start": 78.56,
+      "end": 79.76,
+      "text": "So you have some C++ like this,"
+    },
+    {
+      "id": 32,
+      "start": 79.76,
+      "end": 81.84,
+      "text": "they can set their quantum to four milliseconds."
+    },
+    {
+      "id": 33,
+      "start": 81.84,
+      "end": 85.56,
+      "text": "So say you wanna do a screenshot scan on this data,"
+    },
+    {
+      "id": 34,
+      "start": 85.56,
+      "end": 87.24,
+      "text": "again, approximate query plan would look like this,"
+    },
+    {
+      "id": 35,
+      "start": 87.24,
+      "end": 88.84,
+      "text": "evalopratic it, admit it."
+    },
+    {
+      "id": 36,
+      "start": 88.84,
+      "end": 91.56,
+      "text": "What they're literally gonna do is keep track of the time,"
+    },
+    {
+      "id": 37,
+      "start": 91.56,
+      "end": 94.4,
+      "text": "a different parts of the operator while they run,"
+    },
+    {
+      "id": 38,
+      "start": 94.4,
+      "end": 96.56,
+      "text": "and they check to see whether the elapsed time"
+    },
+    {
+      "id": 39,
+      "start": 96.56,
+      "end": 99.32,
+      "text": "since they started running is greater than the quantum"
+    },
+    {
+      "id": 40,
+      "start": 99.32,
+      "end": 102.04,
+      "text": "for milliseconds if yes, they yield back."
+    },
+    {
+      "id": 41,
+      "start": 102.96,
+      "end": 105.0,
+      "text": "Now, this is pseudo code, you would not wanna do this."
+    },
+    {
+      "id": 42,
+      "start": 105.0,
+      "end": 107.32,
+      "text": "It's like, you know, going check in the system clock"
+    },
+    {
+      "id": 43,
+      "start": 107.32,
+      "end": 108.72,
+      "text": "is expensive, don't do that."
+    },
+    {
+      "id": 44,
+      "start": 108.72,
+      "end": 111.72,
+      "text": "There's hardware instructions to hide that for you."
+    },
+    {
+      "id": 45,
+      "start": 111.72,
+      "end": 114.32,
+      "text": "But basically, again, if I know I'm running longer"
+    },
+    {
+      "id": 46,
+      "start": 114.32,
+      "end": 116.0,
+      "text": "than I need to, I'll go yield."
+    },
+    {
+      "id": 47,
+      "start": 116.0,
+      "end": 118.4,
+      "text": "You can do this for other things in your data system too."
+    },
+    {
+      "id": 48,
+      "start": 118.4,
+      "end": 120.56,
+      "text": "Like if you're gonna go try to acquire a lock,"
+    },
+    {
+      "id": 49,
+      "start": 120.56,
+      "end": 121.88,
+      "text": "the lock's not available,"
+    },
+    {
+      "id": 50,
+      "start": 121.88,
+      "end": 123.36,
+      "text": "set it your thread spinning and waiting to try"
+    },
+    {
+      "id": 51,
+      "start": 123.36,
+      "end": 125.44,
+      "text": "to acquire that lock, you yield back."
+    },
+    {
+      "id": 52,
+      "start": 125.44,
+      "end": 127.44,
+      "text": "But again, because the data system controls everything,"
+    },
+    {
+      "id": 53,
+      "start": 127.44,
+      "end": 129.92,
+      "text": "we yield back with not just like, you know,"
+    },
+    {
+      "id": 54,
+      "start": 129.92,
+      "end": 132.68,
+      "text": "if you yield to the OS, what do you say, yield, that's it."
+    },
+    {
+      "id": 55,
+      "start": 132.68,
+      "end": 133.92,
+      "text": "And the database is, if we can say,"
+    },
+    {
+      "id": 56,
+      "start": 133.92,
+      "end": 135.28,
+      "text": "I'm yielding back to the scheduler,"
+    },
+    {
+      "id": 57,
+      "start": 135.28,
+      "end": 137.36,
+      "text": "and oh, by the way, I need this lock,"
+    },
+    {
+      "id": 58,
+      "start": 137.36,
+      "end": 140.48,
+      "text": "don't schedule me until that lock is now available."
+    },
+    {
+      "id": 59,
+      "start": 140.48,
+      "end": 142.52,
+      "text": "And when it does, the OS can put you back."
+    },
+    {
+      "id": 60,
+      "start": 143.36,
+      "end": 145.0,
+      "text": "So again, complete control of everything"
+    },
+    {
+      "id": 61,
+      "start": 145.0,
+      "end": 146.56,
+      "text": "if we do this ourselves."
+    },
+    {
+      "id": 62,
+      "start": 146.56,
+      "end": 148.44,
+      "text": "So SQLS is probably the first one that did this."
+    },
+    {
+      "id": 63,
+      "start": 148.44,
+      "end": 149.96,
+      "text": "There's other systems that do this now."
+    },
+    {
+      "id": 64,
+      "start": 149.96,
+      "end": 152.36,
+      "text": "CeliaDB does has this framework called C-star."
+    },
+    {
+      "id": 65,
+      "start": 152.36,
+      "end": 154.04,
+      "text": "FaunaDB is a poor man's version of this,"
+    },
+    {
+      "id": 66,
+      "start": 154.04,
+      "end": 156.08,
+      "text": "basically every time before they read something from disk,"
+    },
+    {
+      "id": 67,
+      "start": 156.08,
+      "end": 157.24,
+      "text": "they just yield."
+    },
+    {
+      "id": 68,
+      "start": 157.24,
+      "end": 158.24,
+      "text": "That's it."
+    },
+    {
+      "id": 69,
+      "start": 158.24,
+      "end": 159.08,
+      "text": "Right?"
+    },
+    {
+      "id": 70,
+      "start": 159.08,
+      "end": 160.52,
+      "text": "And the core base is a experimental system"
+    },
+    {
+      "id": 71,
+      "start": 160.52,
+      "end": 162.52,
+      "text": "out of Simon Fraser University"
+    },
+    {
+      "id": 72,
+      "start": 162.52,
+      "end": 164.96,
+      "text": "that explicitly does built-in TITLE-CURRETINS."
+    },
+    {
+      "id": 73,
+      "start": 164.96,
+      "end": 167.4,
+      "text": "And there's a video from the CeliaDB guys"
+    },
+    {
+      "id": 74,
+      "start": 167.4,
+      "end": 170.6,
+      "text": "from a few years ago that talks about the C-star thing."
+    },
+    {
+      "id": 75,
+      "start": 171.6,
+      "end": 173.2,
+      "text": "OK, we're well over time."
+    },
+    {
+      "id": 76,
+      "start": 176.72,
+      "end": 178.56,
+      "text": "Distribute scheduling, basically,"
+    },
+    {
+      "id": 77,
+      "start": 178.56,
+      "end": 179.56,
+      "text": "all the same problems."
+    },
+    {
+      "id": 78,
+      "start": 179.56,
+      "end": 181.64,
+      "text": "We're now over the network."
+    },
+    {
+      "id": 79,
+      "start": 181.64,
+      "end": 183.12,
+      "text": "No, I mean, you laugh."
+    },
+    {
+      "id": 80,
+      "start": 183.12,
+      "end": 185.44,
+      "text": "That's really what it is."
+    },
+    {
+      "id": 81,
+      "start": 185.44,
+      "end": 187.48,
+      "text": "And then we'll cover work list DNA with scaling later."
+    },
+    {
+      "id": 82,
+      "start": 187.48,
+      "end": 190.28,
+      "text": "But we'll see this snowflake can do both."
+    },
+    {
+      "id": 83,
+      "start": 190.28,
+      "end": 192.56,
+      "text": "So systems can do ones versus the other."
+    },
+    {
+      "id": 84,
+      "start": 192.56,
+      "end": 194.24,
+      "text": "All right, may take a way."
+    },
+    {
+      "id": 85,
+      "start": 194.24,
+      "end": 196.24,
+      "text": "Data bases are beautiful."
+    },
+    {
+      "id": 86,
+      "start": 196.24,
+      "end": 198.36,
+      "text": "Don't let the operating system toss you around."
+    },
+    {
+      "id": 87,
+      "start": 198.36,
+      "end": 200.4,
+      "text": "Don't let the operating system try to do anything."
+    },
+    {
+      "id": 88,
+      "start": 200.4,
+      "end": 201.52,
+      "text": "You want to do everything yourself."
+    },
+    {
+      "id": 89,
+      "start": 201.52,
+      "end": 202.96,
+      "text": "I think the C-go-S approach is probably"
+    },
+    {
+      "id": 90,
+      "start": 202.96,
+      "end": 203.88,
+      "text": "the right way to do it."
+    },
+    {
+      "id": 91,
+      "start": 203.88,
+      "end": 206.0,
+      "text": "I think it's overkill for what we're doing in this class."
+    },
+    {
+      "id": 92,
+      "start": 206.0,
+      "end": 209.08,
+      "text": "But it's beautiful."
+    },
+    {
+      "id": 93,
+      "start": 209.08,
+      "end": 210.96,
+      "text": "OK, what's that?"
+    },
+    {
+      "id": 94,
+      "start": 210.96,
+      "end": 212.04,
+      "text": "Strongwill, too, yes."
+    },
+    {
+      "id": 95,
+      "start": 212.04,
+      "end": 214.68,
+      "text": "Next class, we'll do nothing but hash joins."
+    },
+    {
+      "id": 96,
+      "start": 214.68,
+      "end": 217.4,
+      "text": "And then on Monday next week, we'll do multi-way joins."
+    },
+    {
+      "id": 97,
+      "start": 217.4,
+      "end": 219.96,
+      "text": "We'll do a quick overview of performance counters"
+    },
+    {
+      "id": 98,
+      "start": 219.96,
+      "end": 220.96,
+      "text": "that we talked about."
+    },
+    {
+      "id": 99,
+      "start": 220.96,
+      "end": 221.96,
+      "text": "There's somebody had a question about."
+    },
+    {
+      "id": 100,
+      "start": 221.96,
+      "end": 223.28,
+      "text": "We'll do that next week on Monday."
+    },
+    {
+      "id": 101,
+      "start": 223.28,
+      "end": 226.4,
+      "text": "And then Wednesday next week will be the project status"
+    },
+    {
+      "id": 102,
+      "start": 226.4,
+      "end": 227.4,
+      "text": "updates."
+    },
+    {
+      "id": 103,
+      "start": 227.4,
+      "end": 228.4,
+      "text": "OK?"
+    }
+  ],
+  "language": "en"
+}

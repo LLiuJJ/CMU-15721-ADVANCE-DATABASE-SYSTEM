@@ -1,0 +1,1241 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 5.92,
+      "text": "So, like I said, I'm only bringing this up to the bottom one."
+    },
+    {
+      "id": 1,
+      "start": 5.92,
+      "end": 7.76,
+      "text": "I'm saying, don't do this."
+    },
+    {
+      "id": 2,
+      "start": 7.76,
+      "end": 9.48,
+      "text": "I'm only bringing up because there are some systems to do it."
+    },
+    {
+      "id": 3,
+      "start": 9.48,
+      "end": 13.36,
+      "text": "And as far as I know, it's only done in cases where it was like a"
+    },
+    {
+      "id": 4,
+      "start": 13.36,
+      "end": 14.96,
+      "text": "row store system."
+    },
+    {
+      "id": 5,
+      "start": 14.96,
+      "end": 17.44,
+      "text": "And then they added like a little specialized storage manager or"
+    },
+    {
+      "id": 6,
+      "start": 17.44,
+      "end": 20.4,
+      "text": "storage engine and say, oh yeah, we also have a column store piece."
+    },
+    {
+      "id": 7,
+      "start": 20.4,
+      "end": 23.84,
+      "text": "And they need to be able to sort of handle the need to reuse"
+    },
+    {
+      "id": 8,
+      "start": 23.84,
+      "end": 27.92,
+      "text": "some of the existing components that they had to, you know,"
+    },
+    {
+      "id": 9,
+      "start": 27.92,
+      "end": 29.12,
+      "text": "even to process some column store data."
+    },
+    {
+      "id": 10,
+      "start": 29.12,
+      "end": 32.24,
+      "text": "So they add these two more ideas."
+    },
+    {
+      "id": 11,
+      "start": 32.24,
+      "end": 33.28,
+      "text": "But this is what you want to do."
+    },
+    {
+      "id": 12,
+      "start": 33.28,
+      "end": 34.64,
+      "text": "You want to use the fixed line, right?"
+    },
+    {
+      "id": 13,
+      "start": 34.64,
+      "end": 36.4,
+      "text": "And in Parkane or if they're all fixed line."
+    },
+    {
+      "id": 14,
+      "start": 39.12,
+      "end": 41.04,
+      "text": "And so basically what he asked me was, how do I handle"
+    },
+    {
+      "id": 15,
+      "start": 41.04,
+      "end": 41.88,
+      "text": "the error length data?"
+    },
+    {
+      "id": 16,
+      "start": 41.88,
+      "end": 43.04,
+      "text": "The answer is going to be dictionary."
+    },
+    {
+      "id": 17,
+      "start": 43.04,
+      "end": 43.84,
+      "text": "Yes, question."
+    },
+    {
+      "id": 18,
+      "start": 43.84,
+      "end": 44.36,
+      "text": "All right, yeah."
+    },
+    {
+      "id": 19,
+      "start": 44.36,
+      "end": 45.08,
+      "text": "Just read it."
+    },
+    {
+      "id": 20,
+      "start": 45.08,
+      "end": 46.08,
+      "text": "Read it."
+    },
+    {
+      "id": 21,
+      "start": 46.08,
+      "end": 48.08,
+      "text": "So do you do the running length?"
+    },
+    {
+      "id": 22,
+      "start": 48.08,
+      "end": 51.72,
+      "text": "You know, you do have to manage all the things."
+    },
+    {
+      "id": 23,
+      "start": 51.72,
+      "end": 53.92,
+      "text": "So this question is, or say it is, if I'm doing run length and"
+    },
+    {
+      "id": 24,
+      "start": 53.92,
+      "end": 57.68,
+      "text": "coding, do I still have the advantage of fixed length?"
+    },
+    {
+      "id": 25,
+      "start": 57.68,
+      "end": 58.68,
+      "text": "Yeah, why wouldn't you?"
+    },
+    {
+      "id": 26,
+      "start": 58.68,
+      "end": 63.68,
+      "text": "Do you pick up, like, there'd be no, they off that."
+    },
+    {
+      "id": 27,
+      "start": 63.68,
+      "end": 65.68,
+      "text": "Like, if they're going to need the final."
+    },
+    {
+      "id": 28,
+      "start": 65.68,
+      "end": 69.68,
+      "text": "Yeah, so it's, we won't tell how to process run length and coding today."
+    },
+    {
+      "id": 29,
+      "start": 69.68,
+      "end": 73.76,
+      "text": "But the basic idea is that you do have to, like, you scan through to know where to jump."
+    },
+    {
+      "id": 30,
+      "start": 73.76,
+      "end": 76.48,
+      "text": "Like, okay, I'm looking for this value."
+    },
+    {
+      "id": 31,
+      "start": 76.48,
+      "end": 82.4,
+      "text": "I scan through and I know that if I'm looking for a two point, this offset,"
+    },
+    {
+      "id": 32,
+      "start": 82.4,
+      "end": 87.56,
+      "text": "I keep scanning until I find the run length and coding entry"
+    },
+    {
+      "id": 33,
+      "start": 87.56,
+      "end": 88.56,
+      "text": "that covers my offset."
+    },
+    {
+      "id": 34,
+      "start": 88.56,
+      "end": 92.56,
+      "text": "Yeah, but you need to scan through all the files."
+    },
+    {
+      "id": 35,
+      "start": 92.56,
+      "end": 93.56,
+      "text": "Right."
+    },
+    {
+      "id": 36,
+      "start": 93.56,
+      "end": 96.32,
+      "text": "So you just scan through all the file."
+    },
+    {
+      "id": 37,
+      "start": 96.32,
+      "end": 99.52,
+      "text": "Again, we'll break this in pure DSM."
+    },
+    {
+      "id": 38,
+      "start": 99.52,
+      "end": 101.04,
+      "text": "Yes, you would have that problem."
+    },
+    {
+      "id": 39,
+      "start": 101.04,
+      "end": 103.72,
+      "text": "Like, worst case scenario, you get the scan to the very bottom."
+    },
+    {
+      "id": 40,
+      "start": 103.72,
+      "end": 107.16,
+      "text": "Because the thing you look for is at the very bottom, right?"
+    },
+    {
+      "id": 41,
+      "start": 107.16,
+      "end": 109.96,
+      "text": "This is why another reason why I want to use packs, because it's basically going to"
+    },
+    {
+      "id": 42,
+      "start": 109.96,
+      "end": 112.44,
+      "text": "break things up to the row groups."
+    },
+    {
+      "id": 43,
+      "start": 112.44,
+      "end": 115.44,
+      "text": "So that in worst case scenario, yes, we have the scan in the entire column."
+    },
+    {
+      "id": 44,
+      "start": 115.44,
+      "end": 117.32,
+      "text": "It's early and compressed."
+    },
+    {
+      "id": 45,
+      "start": 117.32,
+      "end": 121.12,
+      "text": "But like, it's only going to be, you know, 10 megs or something like that."
+    },
+    {
+      "id": 46,
+      "start": 121.12,
+      "end": 122.44,
+      "text": "It's not that big."
+    },
+    {
+      "id": 47,
+      "start": 122.44,
+      "end": 123.44,
+      "text": "Right."
+    },
+    {
+      "id": 48,
+      "start": 123.44,
+      "end": 131.16,
+      "text": "Again, so what are you dictionary encoding?"
+    },
+    {
+      "id": 49,
+      "start": 131.16,
+      "end": 134.44,
+      "text": "And that allows cover very well linked data into fixed length files."
+    },
+    {
+      "id": 50,
+      "start": 134.44,
+      "end": 138.64,
+      "text": "And if you read the paper, if you pick this up, parquet is very aggressive actually on the"
+    },
+    {
+      "id": 51,
+      "start": 138.64,
+      "end": 139.64,
+      "text": "dictionary encoding."
+    },
+    {
+      "id": 52,
+      "start": 139.64,
+      "end": 141.92,
+      "text": "And their dictionary encode everything."
+    },
+    {
+      "id": 53,
+      "start": 141.92,
+      "end": 142.92,
+      "text": "Even it's already fixed length."
+    },
+    {
+      "id": 54,
+      "start": 142.92,
+      "end": 143.92,
+      "text": "Right."
+    },
+    {
+      "id": 55,
+      "start": 143.92,
+      "end": 147.52,
+      "text": "And then it does this for strings, for very long things."
+    },
+    {
+      "id": 56,
+      "start": 147.52,
+      "end": 151.04,
+      "text": "But then it turns out parquet does pretty good still."
+    },
+    {
+      "id": 57,
+      "start": 151.04,
+      "end": 155.2,
+      "text": "Because there is still, you can convert dictionary coding in a second."
+    },
+    {
+      "id": 58,
+      "start": 155.2,
+      "end": 161.04,
+      "text": "You're going to allow you to convert data that may be in a really large domain down to"
+    },
+    {
+      "id": 59,
+      "start": 161.04,
+      "end": 162.36,
+      "text": "a much smaller domain."
+    },
+    {
+      "id": 60,
+      "start": 162.36,
+      "end": 165.48,
+      "text": "And then you can apply additional compression techniques on top of that."
+    },
+    {
+      "id": 61,
+      "start": 165.48,
+      "end": 166.48,
+      "text": "And you still get a win."
+    },
+    {
+      "id": 62,
+      "start": 166.48,
+      "end": 167.48,
+      "text": "Right."
+    },
+    {
+      "id": 63,
+      "start": 167.48,
+      "end": 169.44,
+      "text": "It seems counter-tuned that I would want to compress flow."
+    },
+    {
+      "id": 64,
+      "start": 169.44,
+      "end": 170.36,
+      "text": "It says dictionary encodes."
+    },
+    {
+      "id": 65,
+      "start": 170.36,
+      "end": 173.2,
+      "text": "But we found that actually works."
+    },
+    {
+      "id": 66,
+      "start": 174.08,
+      "end": 178.08,
+      "text": "This doesn't solve the problem of how to handle semi-structured data in this world."
+    },
+    {
+      "id": 67,
+      "start": 178.08,
+      "end": 183.44,
+      "text": "The dumbest thing you do would be just treat semi-structured data as a text field."
+    },
+    {
+      "id": 68,
+      "start": 183.44,
+      "end": 184.44,
+      "text": "All right."
+    },
+    {
+      "id": 69,
+      "start": 184.44,
+      "end": 189.8,
+      "text": "And just have the query engine do parse the JSON or whatever it is as it goes along."
+    },
+    {
+      "id": 70,
+      "start": 189.8,
+      "end": 190.8,
+      "text": "That's going to be super slow."
+    },
+    {
+      "id": 71,
+      "start": 190.8,
+      "end": 192.96,
+      "text": "Again, we'll see how to handle that in a second."
+    },
+    {
+      "id": 72,
+      "start": 192.96,
+      "end": 195.64,
+      "text": "Well, we can't convert everything to columns."
+    },
+    {
+      "id": 73,
+      "start": 195.64,
+      "end": 196.64,
+      "text": "Right."
+    },
+    {
+      "id": 74,
+      "start": 196.64,
+      "end": 202.0,
+      "text": "And if there's string fields in the values of the nested data, the JSON values, again,"
+    },
+    {
+      "id": 75,
+      "start": 202.0,
+      "end": 204.24,
+      "text": "we'll just dictionary code that to treat it like a regular column."
+    },
+    {
+      "id": 76,
+      "start": 208.32,
+      "end": 208.6,
+      "text": "All right."
+    },
+    {
+      "id": 77,
+      "start": 208.6,
+      "end": 213.08,
+      "text": "So as I said, the most O-Lat queries are never going to access a single column in a table"
+    },
+    {
+      "id": 78,
+      "start": 213.08,
+      "end": 214.08,
+      "text": "by itself."
+    },
+    {
+      "id": 79,
+      "start": 214.08,
+      "end": 215.08,
+      "text": "Right."
+    },
+    {
+      "id": 80,
+      "start": 215.08,
+      "end": 220.88,
+      "text": "It's very rare to say like select some average single column without any where clause,"
+    },
+    {
+      "id": 81,
+      "start": 220.88,
+      "end": 224.12,
+      "text": "without any group by, without any sorting, anything like that."
+    },
+    {
+      "id": 82,
+      "start": 224.12,
+      "end": 225.12,
+      "text": "Right."
+    },
+    {
+      "id": 83,
+      "start": 225.12,
+      "end": 230.64,
+      "text": "So single, I'm not saying that single column queries don't exist."
+    },
+    {
+      "id": 84,
+      "start": 230.64,
+      "end": 235.72,
+      "text": "I'm saying they're not that common, or not as common as multi-column queries."
+    },
+    {
+      "id": 85,
+      "start": 235.72,
+      "end": 243.72,
+      "text": "So if we do the decomposition storage model where we're storing single files per column,"
+    },
+    {
+      "id": 86,
+      "start": 243.72,
+      "end": 247.64,
+      "text": "then I'm going to have to jump through different files if I need to start putting things back together"
+    },
+    {
+      "id": 87,
+      "start": 247.64,
+      "end": 248.96,
+      "text": "in order to process my query."
+    },
+    {
+      "id": 88,
+      "start": 248.96,
+      "end": 253.08,
+      "text": "My where clause might reference four columns, I've got to go jump to those four files"
+    },
+    {
+      "id": 89,
+      "start": 253.08,
+      "end": 256.88,
+      "text": "at different offsets and go give the data that I need."
+    },
+    {
+      "id": 90,
+      "start": 256.88,
+      "end": 263.88,
+      "text": "So we want a way to get all the benefits we get from having columnar data, either through"
+    },
+    {
+      "id": 91,
+      "start": 263.88,
+      "end": 268.08,
+      "text": "getting better compression, we're also doing vectorized execution."
+    },
+    {
+      "id": 92,
+      "start": 268.08,
+      "end": 275.2,
+      "text": "We still want all that, but we don't want the downsides of having separate files."
+    },
+    {
+      "id": 93,
+      "start": 275.2,
+      "end": 278.68,
+      "text": "So this is what packs is going to solve for us."
+    },
+    {
+      "id": 94,
+      "start": 278.68,
+      "end": 281.48,
+      "text": "So this was invented, actually I think here."
+    },
+    {
+      "id": 95,
+      "start": 281.48,
+      "end": 284.24,
+      "text": "So this is the paper is from Natasa Elamaki."
+    },
+    {
+      "id": 96,
+      "start": 284.24,
+      "end": 288.24,
+      "text": "She was the database professor before I was."
+    },
+    {
+      "id": 97,
+      "start": 288.24,
+      "end": 291.76,
+      "text": "Before I showed up, she was teaching 721 in 2006."
+    },
+    {
+      "id": 98,
+      "start": 291.76,
+      "end": 293.76,
+      "text": "Then she left to go to ETFL."
+    },
+    {
+      "id": 99,
+      "start": 293.76,
+      "end": 296.16,
+      "text": "And I revised 721 when I showed up."
+    },
+    {
+      "id": 100,
+      "start": 296.16,
+      "end": 300.96,
+      "text": "But there's a paper she wrote in 2002 that basically recognized that there is this problem"
+    },
+    {
+      "id": 101,
+      "start": 300.96,
+      "end": 306.44,
+      "text": "if you have a lot of memory, then you don't want to pay this penalty of, sorry, not that"
+    },
+    {
+      "id": 102,
+      "start": 306.44,
+      "end": 307.44,
+      "text": "they have a lot of memory."
+    },
+    {
+      "id": 103,
+      "start": 307.44,
+      "end": 309.6,
+      "text": "You don't want to pay this penalty, you haven't jumped between these different columnar"
+    },
+    {
+      "id": 104,
+      "start": 309.6,
+      "end": 312.2,
+      "text": "files to put things back together."
+    },
+    {
+      "id": 105,
+      "start": 312.2,
+      "end": 317.84,
+      "text": "If you have enough memory to bring in a big chunk of data, you can still keep things in"
+    },
+    {
+      "id": 106,
+      "start": 317.84,
+      "end": 319.92,
+      "text": "a columnar format."
+    },
+    {
+      "id": 107,
+      "start": 319.92,
+      "end": 325.0,
+      "text": "But then now the data for a, that's related to a single tuple will be close to each other."
+    },
+    {
+      "id": 108,
+      "start": 325.0,
+      "end": 326.0,
+      "text": "Right?"
+    },
+    {
+      "id": 109,
+      "start": 326.0,
+      "end": 329.32,
+      "text": "So again, we get all the benefit of a columnar storage, but still maintain the spatial"
+    },
+    {
+      "id": 110,
+      "start": 329.32,
+      "end": 331.96,
+      "text": "locality of the row store."
+    },
+    {
+      "id": 111,
+      "start": 331.96,
+      "end": 333.96,
+      "text": "Right?"
+    },
+    {
+      "id": 112,
+      "start": 333.96,
+      "end": 337.68,
+      "text": "So the way this is going to work is that we have our example table before."
+    },
+    {
+      "id": 113,
+      "start": 337.68,
+      "end": 343.08,
+      "text": "So we're going to horizontally partition the table into row groups."
+    },
+    {
+      "id": 114,
+      "start": 343.08,
+      "end": 346.6,
+      "text": "And the size of the row group will vary per implementation."
+    },
+    {
+      "id": 115,
+      "start": 346.6,
+      "end": 352.0,
+      "text": "For now, just assume that we did some fixed number of tuples, like three tuples."
+    },
+    {
+      "id": 116,
+      "start": 352.0,
+      "end": 355.56,
+      "text": "Then now within that row group, we're going to have a header, of course, that's going"
+    },
+    {
+      "id": 117,
+      "start": 355.56,
+      "end": 358.48,
+      "text": "to tell us information on what's in this row group."
+    },
+    {
+      "id": 118,
+      "start": 358.48,
+      "end": 362.8,
+      "text": "But then now we're going to lay out the data for a single columnar, single attribute,"
+    },
+    {
+      "id": 119,
+      "start": 362.8,
+      "end": 364.6,
+      "text": "sequentially or contiguously."
+    },
+    {
+      "id": 120,
+      "start": 364.6,
+      "end": 370.04,
+      "text": "And then once we're done for all the tuples in that column, then we jump to the next one."
+    },
+    {
+      "id": 121,
+      "start": 370.04,
+      "end": 372.04,
+      "text": "So we're going to call this piece here within the row group."
+    },
+    {
+      "id": 122,
+      "start": 372.04,
+      "end": 373.8,
+      "text": "We're going to call this a column chunk."
+    },
+    {
+      "id": 123,
+      "start": 373.8,
+      "end": 379.0,
+      "text": "I think the work paper calls them, or the work system calls them stripes."
+    },
+    {
+      "id": 124,
+      "start": 379.0,
+      "end": 382.52,
+      "text": "Rogops and column chunks are what's in parquet."
+    },
+    {
+      "id": 125,
+      "start": 382.52,
+      "end": 383.52,
+      "text": "What does use that?"
+    },
+    {
+      "id": 126,
+      "start": 383.52,
+      "end": 384.52,
+      "text": "Right?"
+    },
+    {
+      "id": 127,
+      "start": 384.52,
+      "end": 387.28,
+      "text": "And then once we lay everything out for the first row group, then we do the same thing"
+    },
+    {
+      "id": 128,
+      "start": 387.28,
+      "end": 388.76,
+      "text": "for the other."
+    },
+    {
+      "id": 129,
+      "start": 388.76,
+      "end": 391.8,
+      "text": "And then in the photo, we're going to have metadata that's going to tell us what's"
+    },
+    {
+      "id": 130,
+      "start": 391.8,
+      "end": 393.08,
+      "text": "in this file."
+    },
+    {
+      "id": 131,
+      "start": 393.08,
+      "end": 394.08,
+      "text": "Yes."
+    },
+    {
+      "id": 132,
+      "start": 394.08,
+      "end": 399.16,
+      "text": "So what's the reason that we have multiple row groups instead of having different multiple"
+    },
+    {
+      "id": 133,
+      "start": 399.16,
+      "end": 400.16,
+      "text": "files?"
+    },
+    {
+      "id": 134,
+      "start": 400.16,
+      "end": 401.16,
+      "text": "This question."
+    },
+    {
+      "id": 135,
+      "start": 401.16,
+      "end": 405.76,
+      "text": "What's the reason for having different row groups versus having a row group be a single"
+    },
+    {
+      "id": 136,
+      "start": 405.76,
+      "end": 406.76,
+      "text": "file?"
+    },
+    {
+      "id": 137,
+      "start": 406.76,
+      "end": 407.76,
+      "text": "Yeah."
+    },
+    {
+      "id": 138,
+      "start": 407.76,
+      "end": 410.44,
+      "text": "So you could have a, right?"
+    },
+    {
+      "id": 139,
+      "start": 410.44,
+      "end": 415.8,
+      "text": "So you could define your parquet or you could say, I want my file to only have one row"
+    },
+    {
+      "id": 140,
+      "start": 415.8,
+      "end": 416.8,
+      "text": "group."
+    },
+    {
+      "id": 141,
+      "start": 416.8,
+      "end": 417.8,
+      "text": "Right?"
+    },
+    {
+      "id": 142,
+      "start": 417.8,
+      "end": 422.04,
+      "text": "And now you basically have a bunch of metadata that's very narrow just for that one row group."
+    },
+    {
+      "id": 143,
+      "start": 422.04,
+      "end": 426.2,
+      "text": "So the idea here is that if I put a bunch of row groups, the right amount, again, it's"
+    },
+    {
+      "id": 144,
+      "start": 426.2,
+      "end": 428.48,
+      "text": "probably the empty complete problem, right?"
+    },
+    {
+      "id": 145,
+      "start": 428.48,
+      "end": 429.84,
+      "text": "It's difficult to know."
+    },
+    {
+      "id": 146,
+      "start": 429.84,
+      "end": 433.88,
+      "text": "The right amount of row groups to have the right granularity for the scope of the zone"
+    },
+    {
+      "id": 147,
+      "start": 433.88,
+      "end": 436.6,
+      "text": "map and other metadata you're maintaining, it's hard to know."
+    },
+    {
+      "id": 148,
+      "start": 436.6,
+      "end": 442.48,
+      "text": "I guess my question is, what's the benefit of having these multiple within a single file?"
+    },
+    {
+      "id": 149,
+      "start": 442.48,
+      "end": 445.32,
+      "text": "Within a single file versus just having like just multiple files?"
+    },
+    {
+      "id": 150,
+      "start": 445.32,
+      "end": 449.92,
+      "text": "So I could have a zone map in the footer, the metadata, that tells me within my row groups,"
+    },
+    {
+      "id": 151,
+      "start": 449.92,
+      "end": 452.0,
+      "text": "here's the data that I have, right?"
+    },
+    {
+      "id": 152,
+      "start": 452.0,
+      "end": 457.88,
+      "text": "Or I could have it for like, you know, for some columns and the date."
+    },
+    {
+      "id": 153,
+      "start": 457.88,
+      "end": 462.64,
+      "text": "Here's the min and the max value for all the values in that single column across all the"
+    },
+    {
+      "id": 154,
+      "start": 462.64,
+      "end": 463.64,
+      "text": "row groups."
+    },
+    {
+      "id": 155,
+      "start": 463.64,
+      "end": 466.64,
+      "text": "So like you have that like, like the bottom of the data inside."
+    },
+    {
+      "id": 156,
+      "start": 466.64,
+      "end": 467.64,
+      "text": "Right."
+    },
+    {
+      "id": 157,
+      "start": 467.64,
+      "end": 471.04,
+      "text": "Now what I'm saying is, so now like, if I want to go, if I'm looking for all the orders"
+    },
+    {
+      "id": 158,
+      "start": 471.04,
+      "end": 477.6,
+      "text": "from this month and my files have been sort of squentially based on time, now I just go"
+    },
+    {
+      "id": 159,
+      "start": 477.6,
+      "end": 482.0,
+      "text": "read this and I can figure out, oh, this thing contains all the orders from 2023."
+    },
+    {
+      "id": 160,
+      "start": 482.0,
+      "end": 483.0,
+      "text": "I don't need anything in there."
+    },
+    {
+      "id": 161,
+      "start": 483.0,
+      "end": 485.0,
+      "text": "I'm looking for, you know, January 2024."
+    },
+    {
+      "id": 162,
+      "start": 485.0,
+      "end": 486.52,
+      "text": "So I can skip it entirely."
+    },
+    {
+      "id": 163,
+      "start": 486.52,
+      "end": 490.72,
+      "text": "If I do what you're proposing, then I have to go read this header from every single, you"
+    },
+    {
+      "id": 164,
+      "start": 490.72,
+      "end": 491.72,
+      "text": "know, from multiple files."
+    },
+    {
+      "id": 165,
+      "start": 491.72,
+      "end": 492.72,
+      "text": "So there's another level of granularity."
+    },
+    {
+      "id": 166,
+      "start": 492.72,
+      "end": 493.72,
+      "text": "There's another level of granularity."
+    },
+    {
+      "id": 167,
+      "start": 493.72,
+      "end": 497.64,
+      "text": "But again, when I'm saying, it's like, like, what's the right size?"
+    },
+    {
+      "id": 168,
+      "start": 497.64,
+      "end": 498.64,
+      "text": "It depends."
+    },
+    {
+      "id": 169,
+      "start": 498.64,
+      "end": 499.64,
+      "text": "Which is a cop out answer database."
+    },
+    {
+      "id": 170,
+      "start": 499.64,
+      "end": 500.64,
+      "text": "This is big means for a lot of things."
+    },
+    {
+      "id": 171,
+      "start": 500.64,
+      "end": 504.32,
+      "text": "It depends on the query, it depends on the data, it depends on what you're trying to do."
+    },
+    {
+      "id": 172,
+      "start": 504.32,
+      "end": 509.36,
+      "text": "So is the row group, one single row group, going to be one four kilobytes of data?"
+    },
+    {
+      "id": 173,
+      "start": 509.36,
+      "end": 510.36,
+      "text": "Yeah."
+    },
+    {
+      "id": 174,
+      "start": 510.36,
+      "end": 513.2,
+      "text": "So his question is, is a row group one four kilobytes of data?"
+    },
+    {
+      "id": 175,
+      "start": 513.2,
+      "end": 514.2,
+      "text": "No."
+    },
+    {
+      "id": 176,
+      "start": 514.2,
+      "end": 516.2,
+      "text": "It's going to be tens of megabytes."
+    },
+    {
+      "id": 177,
+      "start": 516.2,
+      "end": 517.2,
+      "text": "Okay."
+    },
+    {
+      "id": 178,
+      "start": 517.2,
+      "end": 518.2,
+      "text": "Yeah."
+    },
+    {
+      "id": 179,
+      "start": 518.2,
+      "end": 519.72,
+      "text": "Again, it's the same thing he brought up."
+    },
+    {
+      "id": 180,
+      "start": 519.72,
+      "end": 522.2,
+      "text": "It's the granularity of this, right?"
+    },
+    {
+      "id": 181,
+      "start": 522.2,
+      "end": 526.44,
+      "text": "If I'm storing just four kilobytes of data, but I have to have this metadata thing and"
+    },
+    {
+      "id": 182,
+      "start": 526.44,
+      "end": 530.44,
+      "text": "say the metadata is, I don't know, half a kilobytes, or sorry, kilobytes."
+    },
+    {
+      "id": 183,
+      "start": 530.44,
+      "end": 534.04,
+      "text": "Then I can find three kilobytes of data in a row group."
+    },
+    {
+      "id": 184,
+      "start": 534.04,
+      "end": 537.52,
+      "text": "And now I basically have a bunch of overhead, there's metadata that I don't actually"
+    },
+    {
+      "id": 185,
+      "start": 537.52,
+      "end": 538.52,
+      "text": "need."
+    },
+    {
+      "id": 186,
+      "start": 538.52,
+      "end": 539.52,
+      "text": "Yes?"
+    },
+    {
+      "id": 187,
+      "start": 539.52,
+      "end": 543.84,
+      "text": "Then when there really is a bit of moment, like you want me to just write to be at least"
+    },
+    {
+      "id": 188,
+      "start": 543.84,
+      "end": 548.32,
+      "text": "one page, and you pull that column, and get that in a fit of not pulling in data that"
+    },
+    {
+      "id": 189,
+      "start": 548.32,
+      "end": 552.28,
+      "text": "you don't need, do you just do a subset of columns that you're querying over?"
+    },
+    {
+      "id": 190,
+      "start": 552.28,
+      "end": 556.44,
+      "text": "So your question is, shouldn't the size of the column group or the size of the row group"
+    },
+    {
+      "id": 191,
+      "start": 556.44,
+      "end": 557.44,
+      "text": "be a certain size, or what?"
+    },
+    {
+      "id": 192,
+      "start": 557.44,
+      "end": 561.64,
+      "text": "Like a single strike, like a single column strike should be at least a page."
+    },
+    {
+      "id": 193,
+      "start": 561.64,
+      "end": 563.64,
+      "text": "At least a page, yes."
+    },
+    {
+      "id": 194,
+      "start": 563.64,
+      "end": 564.64,
+      "text": "Yeah."
+    },
+    {
+      "id": 195,
+      "start": 564.64,
+      "end": 565.64,
+      "text": "Yes."
+    },
+    {
+      "id": 196,
+      "start": 565.64,
+      "end": 570.48,
+      "text": "So what does zone map be in the photo of the entire file, and you didn't manage it out of"
+    },
+    {
+      "id": 197,
+      "start": 570.48,
+      "end": 571.48,
+      "text": "each row of the row?"
+    },
+    {
+      "id": 198,
+      "start": 571.48,
+      "end": 573.28,
+      "text": "Well, we'll cover about, in the zone map, it's done in a second."
+    },
+    {
+      "id": 199,
+      "start": 573.28,
+      "end": 577.28,
+      "text": "But there will be a zone map per row group in this metadata thing."
+    },
+    {
+      "id": 200,
+      "start": 577.28,
+      "end": 583.36,
+      "text": "And then optionally, you would have a zone map that covers the columns in the metadata."
+    },
+    {
+      "id": 201,
+      "start": 583.36,
+      "end": 588.2,
+      "text": "This is actually one of the problems of parking, or is that like they added this later, a bunch"
+    },
+    {
+      "id": 202,
+      "start": 588.2,
+      "end": 590.36,
+      "text": "of limitations don't actually support it."
+    },
+    {
+      "id": 203,
+      "start": 590.36,
+      "end": 596.48,
+      "text": "So like it's like it's in the specs as there, but it may not actually be there."
+    },
+    {
+      "id": 204,
+      "start": 596.48,
+      "end": 597.48,
+      "text": "Yes?"
+    },
+    {
+      "id": 205,
+      "start": 597.48,
+      "end": 598.48,
+      "text": "Yes."
+    }
+  ],
+  "language": "en"
+}

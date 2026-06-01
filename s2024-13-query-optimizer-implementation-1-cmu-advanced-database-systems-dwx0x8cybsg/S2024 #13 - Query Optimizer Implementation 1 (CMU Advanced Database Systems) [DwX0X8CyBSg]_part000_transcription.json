@@ -1,0 +1,707 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Canneke Mellon University's advanced database systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filming front of a live studio audience."
+    },
+    {
+      "id": 2,
+      "start": 9.0,
+      "end": 10.0,
+      "text": "Hi."
+    },
+    {
+      "id": 3,
+      "start": 10.0,
+      "end": 12.0,
+      "text": "Hi."
+    },
+    {
+      "id": 4,
+      "start": 12.0,
+      "end": 20.0,
+      "text": "So today's class, I'm going to try to get as much as I can into today's lecture."
+    },
+    {
+      "id": 5,
+      "start": 20.0,
+      "end": 24.0,
+      "text": "It might spill over a little bit into next class, but this is it."
+    },
+    {
+      "id": 6,
+      "start": 24.0,
+      "end": 26.0,
+      "text": "We've been talking about this for a long time."
+    },
+    {
+      "id": 7,
+      "start": 26.0,
+      "end": 30.0,
+      "text": "We're finally getting to discussing how we actually want to build the query optimizer,"
+    },
+    {
+      "id": 8,
+      "start": 30.0,
+      "end": 34.0,
+      "text": "which is the arguably most important part of a data's minimum system."
+    },
+    {
+      "id": 9,
+      "start": 34.0,
+      "end": 40.0,
+      "text": "Every year I debate whether to even bother teaching 721 and just teach a topic course on query optimization."
+    },
+    {
+      "id": 10,
+      "start": 40.0,
+      "end": 43.0,
+      "text": "Admittedly, this is the part of data business that I know the least about."
+    },
+    {
+      "id": 11,
+      "start": 43.0,
+      "end": 46.0,
+      "text": "For people that are actually working on the query optimizer here,"
+    },
+    {
+      "id": 12,
+      "start": 46.0,
+      "end": 49.0,
+      "text": "at this point you guys probably know more than I do."
+    },
+    {
+      "id": 13,
+      "start": 49.0,
+      "end": 53.0,
+      "text": "But this is the hardest piece because obviously we can build the fastest engine,"
+    },
+    {
+      "id": 14,
+      "start": 53.0,
+      "end": 59.0,
+      "text": "but if our query plans are terrible, then it's all wasted."
+    },
+    {
+      "id": 15,
+      "start": 59.0,
+      "end": 61.0,
+      "text": "You okay?"
+    },
+    {
+      "id": 16,
+      "start": 61.0,
+      "end": 62.0,
+      "text": "Okay."
+    },
+    {
+      "id": 17,
+      "start": 62.0,
+      "end": 64.0,
+      "text": "All right."
+    },
+    {
+      "id": 18,
+      "start": 64.0,
+      "end": 69.0,
+      "text": "So this refresher last class we were talking about networking protocols."
+    },
+    {
+      "id": 19,
+      "start": 69.0,
+      "end": 74.0,
+      "text": "And again, the main takeaway from this discussion was it looks and smells a lot like"
+    },
+    {
+      "id": 20,
+      "start": 74.0,
+      "end": 76.0,
+      "text": "when we talked about storage on disk."
+    },
+    {
+      "id": 21,
+      "start": 76.0,
+      "end": 80.0,
+      "text": "If we have a, if our application is going on queries,"
+    },
+    {
+      "id": 22,
+      "start": 80.0,
+      "end": 85.0,
+      "text": "it really cares about a small number of tuples, then a row-oriented API or network protocol"
+    },
+    {
+      "id": 23,
+      "start": 85.0,
+      "end": 93.0,
+      "text": "that's going over a row-oriented API or row-oriented network protocol that's being accessed through a row-oriented API,"
+    },
+    {
+      "id": 24,
+      "start": 93.0,
+      "end": 96.0,
+      "text": "like ODBC or GDBC, that's going to be sufficient."
+    },
+    {
+      "id": 25,
+      "start": 96.0,
+      "end": 101.0,
+      "text": "But when we start doing queries that want to get a lot of data out of the data system or doing bulk export,"
+    },
+    {
+      "id": 26,
+      "start": 101.0,
+      "end": 106.0,
+      "text": "then we want to use something that looks, that's a column art, take advantage,"
+    },
+    {
+      "id": 27,
+      "start": 106.0,
+      "end": 108.0,
+      "text": "all the other things we talked about before."
+    },
+    {
+      "id": 28,
+      "start": 108.0,
+      "end": 113.0,
+      "text": "And as I said, the arrow data connectivity library is one to facilitate that."
+    },
+    {
+      "id": 29,
+      "start": 113.0,
+      "end": 119.0,
+      "text": "I think that's the future of overlap systems are all going to support this if they don't already."
+    },
+    {
+      "id": 30,
+      "start": 119.0,
+      "end": 122.0,
+      "text": "And so as I said already, the next two weeks is related to our query optimization."
+    },
+    {
+      "id": 31,
+      "start": 122.0,
+      "end": 129.0,
+      "text": "So today's class and next class we'll be talking about how you want to implement the optimizer itself at a high level,"
+    },
+    {
+      "id": 32,
+      "start": 129.0,
+      "end": 136.0,
+      "text": "like how you're going to define the rules, how do you then do the search to figure out what transformations you want to apply to optimize things."
+    },
+    {
+      "id": 33,
+      "start": 137.0,
+      "end": 141.0,
+      "text": "We'll talk a little bit about query writing and obviously planing the variation as part of this."
+    },
+    {
+      "id": 34,
+      "start": 141.0,
+      "end": 143.0,
+      "text": "Cost models will discuss more next week."
+    },
+    {
+      "id": 35,
+      "start": 143.0,
+      "end": 152.0,
+      "text": "Next class will be, sorry, next week will then talk about, sorry, next class will be further into the dynamic programming approach"
+    },
+    {
+      "id": 36,
+      "start": 152.0,
+      "end": 155.0,
+      "text": "that's used by hyper and umbra from the Germans."
+    },
+    {
+      "id": 37,
+      "start": 155.0,
+      "end": 160.0,
+      "text": "And then on Monday next week we'll talk about doing adaptive query optimization, like the query runs for bit,"
+    },
+    {
+      "id": 38,
+      "start": 160.0,
+      "end": 162.0,
+      "text": "and you make decisions on the fly whether it's changed things."
+    },
+    {
+      "id": 39,
+      "start": 162.0,
+      "end": 164.0,
+      "text": "And then that'll feed into the cost model discussion in next week."
+    },
+    {
+      "id": 40,
+      "start": 165.0,
+      "end": 171.0,
+      "text": "So the next two weeks is getting purely on um on query optimization because again, it's super important."
+    },
+    {
+      "id": 41,
+      "start": 171.0,
+      "end": 173.0,
+      "text": "So what do we care about in this scope?"
+    },
+    {
+      "id": 42,
+      "start": 173.0,
+      "end": 180.0,
+      "text": "So this is obviously a refresher from the intro class, but the goal of the DB systems query optimizer sometimes called the query planner,"
+    },
+    {
+      "id": 43,
+      "start": 180.0,
+      "end": 185.0,
+      "text": "sometimes called the query compiler if you're an older system or an old person, right?"
+    },
+    {
+      "id": 44,
+      "start": 185.0,
+      "end": 192.0,
+      "text": "Because that's a remnant of the 1970s when the racial model came along by the idea of taking a high level language like SQL"
+    },
+    {
+      "id": 45,
+      "start": 192.0,
+      "end": 199.0,
+      "text": "and converting it into a low level, not assembly, but execution instructions to run the query."
+    },
+    {
+      "id": 46,
+      "start": 199.0,
+      "end": 205.0,
+      "text": "Like they saw that being akin to writing a high level language like C, because C was considered a super high level back in the day,"
+    },
+    {
+      "id": 47,
+      "start": 205.0,
+      "end": 209.0,
+      "text": "and converting that into a low level assembly or machine code."
+    },
+    {
+      "id": 48,
+      "start": 209.0,
+      "end": 220.0,
+      "text": "So the idea of the query optimizer is that we want to generate a for a given query, we want to generate a correct physical plan that will execute that query"
+    },
+    {
+      "id": 49,
+      "start": 220.0,
+      "end": 223.0,
+      "text": "ideally with the lowest cost."
+    },
+    {
+      "id": 50,
+      "start": 223.0,
+      "end": 229.0,
+      "text": "And I'm underlying the word correct here because obviously it doesn't matter if we have this super fast query plan,"
+    },
+    {
+      "id": 51,
+      "start": 229.0,
+      "end": 234.0,
+      "text": "if it does not actually produce the result that we want, then it's useless."
+    },
+    {
+      "id": 52,
+      "start": 234.0,
+      "end": 238.0,
+      "text": "For that one, we get an or approximate query processing stuff, right?"
+    },
+    {
+      "id": 53,
+      "start": 238.0,
+      "end": 242.0,
+      "text": "We really want an exact match, we're given SQL query, we want to do the exact output."
+    },
+    {
+      "id": 54,
+      "start": 242.0,
+      "end": 249.0,
+      "text": "And the cost is in quotes because as we'll see next week, this is going to be a relative term that's going to change"
+    },
+    {
+      "id": 55,
+      "start": 249.0,
+      "end": 254.0,
+      "text": "depending on a system itself that's actually implementing this."
+    },
+    {
+      "id": 56,
+      "start": 254.0,
+      "end": 263.0,
+      "text": "So the cost is going to be some internal metric that we can use to compare one plan to another and decide this one's better than another based on"
+    },
+    {
+      "id": 57,
+      "start": 263.0,
+      "end": 268.0,
+      "text": "number of tuples red or CPUs instructions used or network traffic."
+    },
+    {
+      "id": 58,
+      "start": 268.0,
+      "end": 271.0,
+      "text": "Again, that's going to change from one system to the next."
+    },
+    {
+      "id": 59,
+      "start": 271.0,
+      "end": 277.0,
+      "text": "And typically this cost is not usually mapped to something in the real world like runtime."
+    },
+    {
+      "id": 60,
+      "start": 277.0,
+      "end": 285.0,
+      "text": "Some of the enterprise systems I know DB2 can do this where they're actually spit out, this query is expected to run this long."
+    },
+    {
+      "id": 61,
+      "start": 285.0,
+      "end": 290.0,
+      "text": "But here it looks like Post-Dresses output of explain analyze or SQLite or other systems."
+    },
+    {
+      "id": 62,
+      "start": 290.0,
+      "end": 296.0,
+      "text": "It's always going to be some number that does that's meaningless outside of that system."
+    },
+    {
+      "id": 63,
+      "start": 296.0,
+      "end": 300.0,
+      "text": "So the, as I said before, this is going to be the hardest part of the system."
+    },
+    {
+      "id": 64,
+      "start": 300.0,
+      "end": 303.0,
+      "text": "Just picking the joiner is proving to be, I think, empty hard."
+    },
+    {
+      "id": 65,
+      "start": 303.0,
+      "end": 308.0,
+      "text": "But the whole problem of figuring out what's the optimal query plan is, is empty complete."
+    },
+    {
+      "id": 66,
+      "start": 308.0,
+      "end": 314.0,
+      "text": "And so that means that despite the name optimizer, we're never, almost never going to really find the true optimal plan."
+    },
+    {
+      "id": 67,
+      "start": 314.0,
+      "end": 318.0,
+      "text": "Right? If it's something really stupid, like select one, semi colon."
+    },
+    {
+      "id": 68,
+      "start": 318.0,
+      "end": 321.0,
+      "text": "Right? That one, actually that, that's usually letting you get past the optimizer."
+    },
+    {
+      "id": 69,
+      "start": 321.0,
+      "end": 324.0,
+      "text": "Some systems will recognize that and immediately send you back to result."
+    },
+    {
+      "id": 70,
+      "start": 324.0,
+      "end": 328.0,
+      "text": "It doesn't even execute it. Like they, they're a little short circuit it."
+    },
+    {
+      "id": 71,
+      "start": 328.0,
+      "end": 333.0,
+      "text": "Or for things like looking up on a single index on one table, like yeah, that'll be optimal."
+    },
+    {
+      "id": 72,
+      "start": 333.0,
+      "end": 335.0,
+      "text": "Because we know how to find exactly what we want."
+    },
+    {
+      "id": 73,
+      "start": 335.0,
+      "end": 341.0,
+      "text": "But once we start adding joins, that's when things get really tricky."
+    },
+    {
+      "id": 74,
+      "start": 341.0,
+      "end": 346.0,
+      "text": "And so because we can't find the, we're not, we can't do an exhaustive search to find optimal plan."
+    },
+    {
+      "id": 75,
+      "start": 346.0,
+      "end": 353.0,
+      "text": "We're going to have to use a bunch of methods to, to, to trim down the number of choices we had to consider"
+    },
+    {
+      "id": 76,
+      "start": 353.0,
+      "end": 358.0,
+      "text": "and try to guide the optimizer towards a, a good plan."
+    },
+    {
+      "id": 77,
+      "start": 358.0,
+      "end": 361.0,
+      "text": "Right? Because we can't, we can't prove that it's going to be optimal."
+    },
+    {
+      "id": 78,
+      "start": 361.0,
+      "end": 366.0,
+      "text": "And then because it, it's too expensive to, for all these possible choices we could have,"
+    },
+    {
+      "id": 79,
+      "start": 366.0,
+      "end": 369.0,
+      "text": "to actually run them to see whether they, you know, what their cost actually is,"
+    },
+    {
+      "id": 80,
+      "start": 369.0,
+      "end": 372.0,
+      "text": "this is where the cost model is going to help us speed things up."
+    },
+    {
+      "id": 81,
+      "start": 372.0,
+      "end": 380.0,
+      "text": "But it's going to be an estimation of what we think the, the, the systems actually going to do when it encounters real data that, that you're targeting."
+    },
+    {
+      "id": 82,
+      "start": 380.0,
+      "end": 385.0,
+      "text": "So this is going to be super, super hard. And I'll try to sort of break it down and walk through the different approaches"
+    },
+    {
+      "id": 83,
+      "start": 385.0,
+      "end": 389.0,
+      "text": "that were discussed in the paper you guys were assigned."
+    },
+    {
+      "id": 84,
+      "start": 389.0,
+      "end": 395.0,
+      "text": "And the old joke for query optimization is like, if, say you want to be a rocket scientist, sorry, other way around."
+    },
+    {
+      "id": 85,
+      "start": 395.0,
+      "end": 399.0,
+      "text": "If you want to be a, work on query optimizers and you can't hack it and it doesn't work out,"
+    },
+    {
+      "id": 86,
+      "start": 399.0,
+      "end": 404.0,
+      "text": "then the backup plan could be rocket science. Because query optimization is considered harder than rocket science."
+    },
+    {
+      "id": 87,
+      "start": 405.0,
+      "end": 410.0,
+      "text": "Of course, you know, database don't blow things up in the air, so maybe that's a debate."
+    },
+    {
+      "id": 88,
+      "start": 410.0,
+      "end": 418.0,
+      "text": "Okay. So the important thing that I'm saying, that's the two is the distinction between a logical plan and the physical plan."
+    },
+    {
+      "id": 89,
+      "start": 418.0,
+      "end": 425.0,
+      "text": "And the terms are going to be sometimes conflated in the earlier optimizer, optimizer implementators we're going to see,"
+    },
+    {
+      "id": 90,
+      "start": 425.0,
+      "end": 432.0,
+      "text": "because they may not even have logical plans. They'll go immediately from like a SQL query into physical op plans."
+    },
+    {
+      "id": 91,
+      "start": 432.0,
+      "end": 437.0,
+      "text": "But the Cascades approach and the stratified search from Starbursts that we'll see in a second,"
+    },
+    {
+      "id": 92,
+      "start": 437.0,
+      "end": 440.0,
+      "text": "they'll have a clean distinction between the logical and the physical plan."
+    },
+    {
+      "id": 93,
+      "start": 440.0,
+      "end": 451.0,
+      "text": "And so the idea of the logical plan is the high level operators we want to execute for a query based on something that looks like relational algebra."
+    },
+    {
+      "id": 94,
+      "start": 451.0,
+      "end": 460.0,
+      "text": "Like, I want to scan this table, I want to join these two tables. But it's not specifying what actual algorithmally you want to use to execute those different operators."
+    },
+    {
+      "id": 95,
+      "start": 461.0,
+      "end": 473.0,
+      "text": "So the optimizer is going to take a, the parse tree from the SQL query that shows up, do some transformation to convert that into logical plans that represent what that SQL query was trying to do."
+    },
+    {
+      "id": 96,
+      "start": 473.0,
+      "end": 480.0,
+      "text": "And then now it can do further optimizations or further transformations of those logical plans into new logical plans."
+    },
+    {
+      "id": 97,
+      "start": 480.0,
+      "end": 487.0,
+      "text": "Or it can convert the logical plans into physical operators, a physical plan that will define how we actually want to execute things."
+    },
+    {
+      "id": 98,
+      "start": 488.0,
+      "end": 493.0,
+      "text": "And this physical plan can oftentimes depend on what the data actually looks like on disk."
+    },
+    {
+      "id": 99,
+      "start": 493.0,
+      "end": 497.0,
+      "text": "Do we expect things to be sorted? Is it going to be processed a certain way?"
+    },
+    {
+      "id": 100,
+      "start": 497.0,
+      "end": 504.0,
+      "text": "And the, you know, it will specify also again what algorithm want to use to produce that result."
+    },
+    {
+      "id": 101,
+      "start": 504.0,
+      "end": 508.0,
+      "text": "So we're not always going to have a one-to-one mapping from a logical operator to a physical operator."
+    },
+    {
+      "id": 102,
+      "start": 508.0,
+      "end": 515.0,
+      "text": "Like you could have a logical join, a logical order by, could be combined together into a physical sort merge join."
+    },
+    {
+      "id": 103,
+      "start": 516.0,
+      "end": 522.0,
+      "text": "But once you're in a physical form, you typically don't, like a physical operator form, you typically don't convert that back to logical."
+    },
+    {
+      "id": 104,
+      "start": 522.0,
+      "end": 527.0,
+      "text": "That doesn't make sense. And that sort of explodes in search base if you actually want to consider stuff like that."
+    },
+    {
+      "id": 105,
+      "start": 527.0,
+      "end": 532.0,
+      "text": "So it's mostly logical to logical or logical to physical."
+    },
+    {
+      "id": 106,
+      "start": 532.0,
+      "end": 541.0,
+      "text": "And this I've already said, but again, the cost estimation is how we're going to use, what we're going to use internally to figure out what whether one query plan is going to be better than another during our search process."
+    },
+    {
+      "id": 107,
+      "start": 541.0,
+      "end": 546.0,
+      "text": "Again, we'll talk about this next week. But basically, it's going to be a combination of these different metrics."
+    },
+    {
+      "id": 108,
+      "start": 546.0,
+      "end": 557.0,
+      "text": "Like how much data I think I'm going to read from disk or read from my, from my child operator, how much data I'm going to spit out based on the selectivity or the cardinality of any operations I'm doing on that data as it comes in."
+    },
+    {
+      "id": 109,
+      "start": 557.0,
+      "end": 561.0,
+      "text": "Is the data skewed, is it compressed, you know, where it's actually physically located, right?"
+    },
+    {
+      "id": 110,
+      "start": 561.0,
+      "end": 566.0,
+      "text": "All of these things we have to consider to have a true cost estimate. But it's never going to be exactly perfect."
+    },
+    {
+      "id": 111,
+      "start": 566.0,
+      "end": 575.0,
+      "text": "And the paper you guys read next week from the Germans will show you that once you do like two joins, then all these estimates get way out of whack."
+    },
+    {
+      "id": 112,
+      "start": 575.0,
+      "end": 583.0,
+      "text": "And the query optimizer, the cost model estimates are going to be woefully underestimating the amount of tubos that are coming out."
+    },
+    {
+      "id": 113,
+      "start": 583.0,
+      "end": 587.0,
+      "text": "And so again, it'll lead it to choose an incorrect plan."
+    },
+    {
+      "id": 114,
+      "start": 587.0,
+      "end": 592.0,
+      "text": "So today, I'm going to try to get through all five hundred approaches you could have. We'll see how far we can get."
+    },
+    {
+      "id": 115,
+      "start": 592.0,
+      "end": 596.0,
+      "text": "We don't get to randomize search as fine because nobody actually does this except for Postgres."
+    },
+    {
+      "id": 116,
+      "start": 596.0,
+      "end": 600.0,
+      "text": "And Postgres only does it. But if you have 13 tables in your join or in your table."
+    }
+  ],
+  "language": "en"
+}

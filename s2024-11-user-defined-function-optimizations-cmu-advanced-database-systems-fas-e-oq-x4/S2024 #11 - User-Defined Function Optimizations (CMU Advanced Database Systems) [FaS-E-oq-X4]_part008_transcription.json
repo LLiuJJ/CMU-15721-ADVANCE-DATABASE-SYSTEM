@@ -1,0 +1,65 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.0,
+      "text": "Cat, my first attack on the bottle"
+    },
+    {
+      "id": 1,
+      "start": 2.0,
+      "end": 4.0,
+      "text": "Throw my three in the freezer so I can kill it"
+    },
+    {
+      "id": 2,
+      "start": 4.0,
+      "end": 6.0,
+      "text": "Careful with the bottle baby, you can still kill it"
+    },
+    {
+      "id": 3,
+      "start": 6.0,
+      "end": 8.0,
+      "text": "Cause ain't ours to say, the pain I was wet"
+    },
+    {
+      "id": 4,
+      "start": 8.0,
+      "end": 10.0,
+      "text": "You drink it down with the gals of the bottle"
+    },
+    {
+      "id": 5,
+      "start": 10.0,
+      "end": 12.0,
+      "text": "Head, take back the pack of drugs"
+    },
+    {
+      "id": 6,
+      "start": 12.0,
+      "end": 14.0,
+      "text": "You gon' get your soul saved now"
+    },
+    {
+      "id": 7,
+      "start": 14.0,
+      "end": 16.0,
+      "text": "So drink it till it's yours"
+    },
+    {
+      "id": 8,
+      "start": 16.0,
+      "end": 18.0,
+      "text": "Billy Dains just till he takes it down with the weak guys"
+    },
+    {
+      "id": 9,
+      "start": 18.0,
+      "end": 20.0,
+      "text": "Be a man to get a cat, a safe heart"
+    }
+  ],
+  "language": "en"
+}

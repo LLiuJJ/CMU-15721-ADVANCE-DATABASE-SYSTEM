@@ -1,0 +1,1535 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 5.0,
+      "text": "or are there any data based on how things are correlated?"
+    },
+    {
+      "id": 1,
+      "start": 6.72,
+      "end": 8.32,
+      "text": "A question is, are row groups random?"
+    },
+    {
+      "id": 2,
+      "start": 8.32,
+      "end": 9.76,
+      "text": "What do you mean like random?"
+    },
+    {
+      "id": 3,
+      "start": 9.76,
+      "end": 10.76,
+      "text": "Like, are there just,"
+    },
+    {
+      "id": 4,
+      "start": 10.76,
+      "end": 11.8,
+      "text": "the boundaries, you mean?"
+    },
+    {
+      "id": 5,
+      "start": 11.8,
+      "end": 12.64,
+      "text": "Yeah."
+    },
+    {
+      "id": 6,
+      "start": 14.56,
+      "end": 15.8,
+      "text": "We'll cover that in a second."
+    },
+    {
+      "id": 7,
+      "start": 15.8,
+      "end": 19.72,
+      "text": "There's a sizing protocol that they have."
+    },
+    {
+      "id": 8,
+      "start": 19.72,
+      "end": 20.8,
+      "text": "For these different formats, they'll say,"
+    },
+    {
+      "id": 9,
+      "start": 20.8,
+      "end": 22.76,
+      "text": "like, I want my row group to be least this size"
+    },
+    {
+      "id": 10,
+      "start": 22.76,
+      "end": 24.08,
+      "text": "or this number of two pulls,"
+    },
+    {
+      "id": 11,
+      "start": 24.08,
+      "end": 26.48,
+      "text": "and there's trade-offs for them, for these choices."
+    },
+    {
+      "id": 12,
+      "start": 27.44,
+      "end": 28.28,
+      "text": "Yes?"
+    },
+    {
+      "id": 13,
+      "start": 28.56,
+      "end": 31.52,
+      "text": "Actually, these are the same length and cost of different chunks."
+    },
+    {
+      "id": 14,
+      "start": 31.52,
+      "end": 34.12,
+      "text": "These are the same length that cost different chunks."
+    },
+    {
+      "id": 15,
+      "start": 34.12,
+      "end": 35.12,
+      "text": "Yes."
+    },
+    {
+      "id": 16,
+      "start": 35.12,
+      "end": 36.48,
+      "text": "Let me think about that."
+    },
+    {
+      "id": 17,
+      "start": 39.52,
+      "end": 41.44,
+      "text": "I think you can actually have different,"
+    },
+    {
+      "id": 18,
+      "start": 41.44,
+      "end": 44.28,
+      "text": "within a row group, I think you can vary the encoding scheme"
+    },
+    {
+      "id": 19,
+      "start": 44.28,
+      "end": 45.52,
+      "text": "you're using."
+    },
+    {
+      "id": 20,
+      "start": 45.52,
+      "end": 47.0,
+      "text": "So I think they could be different."
+    },
+    {
+      "id": 21,
+      "start": 47.0,
+      "end": 49.04,
+      "text": "But since I have my metadata,"
+    },
+    {
+      "id": 22,
+      "start": 49.04,
+      "end": 50.52,
+      "text": "what encoding scheme I'm using,"
+    },
+    {
+      "id": 23,
+      "start": 50.52,
+      "end": 53.24,
+      "text": "if I say I want two-board offset six,"
+    },
+    {
+      "id": 24,
+      "start": 53.24,
+      "end": 54.8,
+      "text": "like logical offset six,"
+    },
+    {
+      "id": 25,
+      "start": 54.8,
+      "end": 57.36,
+      "text": "and I jump to this row group,"
+    },
+    {
+      "id": 26,
+      "start": 57.36,
+      "end": 58.96,
+      "text": "I know it's in here,"
+    },
+    {
+      "id": 27,
+      "start": 58.96,
+      "end": 60.52,
+      "text": "I use the metadata and then figure,"
+    },
+    {
+      "id": 28,
+      "start": 60.52,
+      "end": 63.32,
+      "text": "okay, the size of the attributes is,"
+    },
+    {
+      "id": 29,
+      "start": 63.32,
+      "end": 65.76,
+      "text": "for this column is this,"
+    },
+    {
+      "id": 30,
+      "start": 65.76,
+      "end": 67.52,
+      "text": "therefore I can do my math to go find that."
+    },
+    {
+      "id": 31,
+      "start": 67.52,
+      "end": 69.16,
+      "text": "So it could be different for row group,"
+    },
+    {
+      "id": 32,
+      "start": 69.16,
+      "end": 71.04,
+      "text": "and certainly different for file,"
+    },
+    {
+      "id": 33,
+      "start": 71.04,
+      "end": 73.0,
+      "text": "but again, I just do the same arithmetic that I before."
+    },
+    {
+      "id": 34,
+      "start": 73.0,
+      "end": 74.28,
+      "text": "But in the column group,"
+    },
+    {
+      "id": 35,
+      "start": 74.28,
+      "end": 75.8,
+      "text": "they all be the same size,"
+    },
+    {
+      "id": 36,
+      "start": 75.8,
+      "end": 77.04,
+      "text": "or the column chunk."
+    },
+    {
+      "id": 37,
+      "start": 81.0,
+      "end": 81.84,
+      "text": "Okay."
+    },
+    {
+      "id": 38,
+      "start": 83.24,
+      "end": 84.24,
+      "text": "Let me just say,"
+    },
+    {
+      "id": 39,
+      "start": 84.24,
+      "end": 86.96,
+      "text": "his question here is there's a global metadata"
+    },
+    {
+      "id": 40,
+      "start": 86.96,
+      "end": 89.36,
+      "text": "that can tell me what's in my file,"
+    },
+    {
+      "id": 41,
+      "start": 89.36,
+      "end": 90.4,
+      "text": "how things are encoded."
+    },
+    {
+      "id": 42,
+      "start": 92.28,
+      "end": 93.68,
+      "text": "You would think,"
+    },
+    {
+      "id": 43,
+      "start": 93.68,
+      "end": 94.8,
+      "text": "it's essentially the header,"
+    },
+    {
+      "id": 44,
+      "start": 94.8,
+      "end": 97.6,
+      "text": "remembering the slot of pages stuff from last semester,"
+    },
+    {
+      "id": 45,
+      "start": 97.6,
+      "end": 98.88,
+      "text": "that was literally in the header,"
+    },
+    {
+      "id": 46,
+      "start": 98.88,
+      "end": 100.64,
+      "text": "the beginning bytes of a page."
+    },
+    {
+      "id": 47,
+      "start": 100.64,
+      "end": 102.72,
+      "text": "They're putting this at the bottom."
+    },
+    {
+      "id": 48,
+      "start": 102.72,
+      "end": 103.84,
+      "text": "I'm gonna take a guess why."
+    },
+    {
+      "id": 49,
+      "start": 109.32,
+      "end": 111.52,
+      "text": "He says the size is not fixed."
+    },
+    {
+      "id": 50,
+      "start": 111.52,
+      "end": 112.36,
+      "text": "Size of what?"
+    },
+    {
+      "id": 51,
+      "start": 114.44,
+      "end": 116.08,
+      "text": "Since the size of the metadata is not fixed."
+    },
+    {
+      "id": 52,
+      "start": 116.48,
+      "end": 119.48,
+      "text": "So, again, these files are big,"
+    },
+    {
+      "id": 53,
+      "start": 120.68,
+      "end": 124.96,
+      "text": "and I don't know what the metadata is gonna be,"
+    },
+    {
+      "id": 54,
+      "start": 124.96,
+      "end": 126.48,
+      "text": "like what's the minmax value,"
+    },
+    {
+      "id": 55,
+      "start": 126.48,
+      "end": 128.44,
+      "text": "for all the data that I have,"
+    },
+    {
+      "id": 56,
+      "start": 128.44,
+      "end": 130.04,
+      "text": "until I process all the data."
+    },
+    {
+      "id": 57,
+      "start": 131.8,
+      "end": 133.52,
+      "text": "And then also, the reason why they're putting it"
+    },
+    {
+      "id": 58,
+      "start": 133.52,
+      "end": 134.84,
+      "text": "at the end and at the beginning,"
+    },
+    {
+      "id": 59,
+      "start": 134.84,
+      "end": 137.04,
+      "text": "because this comes from the Hadoop world,"
+    },
+    {
+      "id": 60,
+      "start": 137.04,
+      "end": 140.24,
+      "text": "or HGFS world, from 10 years ago,"
+    },
+    {
+      "id": 61,
+      "start": 140.24,
+      "end": 141.96,
+      "text": "which is a pen-only file system."
+    },
+    {
+      "id": 62,
+      "start": 141.96,
+      "end": 144.4,
+      "text": "I mean, I can't make in place updates"
+    },
+    {
+      "id": 63,
+      "start": 144.4,
+      "end": 145.44,
+      "text": "to the file without rewriting it."
+    },
+    {
+      "id": 64,
+      "start": 145.44,
+      "end": 146.56,
+      "text": "So, if I have them out,"
+    },
+    {
+      "id": 65,
+      "start": 146.56,
+      "end": 147.84,
+      "text": "if I'm bulk loading much of data"
+    },
+    {
+      "id": 66,
+      "start": 147.84,
+      "end": 149.56,
+      "text": "to generate a Parkay and Ork file,"
+    },
+    {
+      "id": 67,
+      "start": 149.56,
+      "end": 150.88,
+      "text": "I gotta scan through all the data,"
+    },
+    {
+      "id": 68,
+      "start": 150.88,
+      "end": 153.36,
+      "text": "and I'm writing up these row groups incrementally."
+    },
+    {
+      "id": 69,
+      "start": 153.36,
+      "end": 154.48,
+      "text": "And then when I'm done,"
+    },
+    {
+      "id": 70,
+      "start": 154.48,
+      "end": 156.24,
+      "text": "all right, let me close the file,"
+    },
+    {
+      "id": 71,
+      "start": 156.24,
+      "end": 160.28,
+      "text": "the metadata, you can't go back and put it back up here,"
+    },
+    {
+      "id": 72,
+      "start": 160.28,
+      "end": 162.68,
+      "text": "because you've already written out the beginning of the file."
+    },
+    {
+      "id": 73,
+      "start": 164.2,
+      "end": 165.92,
+      "text": "S3 is the same thing, right?"
+    },
+    {
+      "id": 74,
+      "start": 165.92,
+      "end": 168.36,
+      "text": "It's, you can't do in-place updates,"
+    },
+    {
+      "id": 75,
+      "start": 168.36,
+      "end": 171.48,
+      "text": "you have to basically overwrite something entirely."
+    },
+    {
+      "id": 76,
+      "start": 171.48,
+      "end": 172.32,
+      "text": "And that would be expensive,"
+    },
+    {
+      "id": 77,
+      "start": 172.32,
+      "end": 175.16,
+      "text": "because then basically, if I wrote out a 1G by Parkay file,"
+    },
+    {
+      "id": 78,
+      "start": 175.16,
+      "end": 177.4,
+      "text": "I don't want to have to go write it back out again,"
+    },
+    {
+      "id": 79,
+      "start": 177.4,
+      "end": 180.08,
+      "text": "just to update the metadata."
+    },
+    {
+      "id": 80,
+      "start": 180.08,
+      "end": 181.44,
+      "text": "So they always put it at the bottom."
+    },
+    {
+      "id": 81,
+      "start": 184.92,
+      "end": 186.56,
+      "text": "The Zoom apps are actually in the bottom,"
+    },
+    {
+      "id": 82,
+      "start": 186.56,
+      "end": 187.84,
+      "text": "for Parkay here."
+    },
+    {
+      "id": 83,
+      "start": 187.84,
+      "end": 189.0,
+      "text": "Again, I think the paper talks,"
+    },
+    {
+      "id": 84,
+      "start": 189.0,
+      "end": 190.64,
+      "text": "talks about that was added,"
+    },
+    {
+      "id": 85,
+      "start": 190.64,
+      "end": 193.4,
+      "text": "wow, 2018, 2019."
+    },
+    {
+      "id": 86,
+      "start": 193.4,
+      "end": 194.6,
+      "text": "That was actually my student at Claudette,"
+    },
+    {
+      "id": 87,
+      "start": 194.6,
+      "end": 195.84,
+      "text": "or the ad of that."
+    },
+    {
+      "id": 88,
+      "start": 195.84,
+      "end": 197.56,
+      "text": "She took this class."
+    },
+    {
+      "id": 89,
+      "start": 197.56,
+      "end": 201.44,
+      "text": "Now she's a teacher student at University of Maryland."
+    },
+    {
+      "id": 90,
+      "start": 201.44,
+      "end": 204.2,
+      "text": "So there's some connection there with the 721."
+    },
+    {
+      "id": 91,
+      "start": 204.2,
+      "end": 205.04,
+      "text": "All right."
+    },
+    {
+      "id": 92,
+      "start": 206.0,
+      "end": 211.0,
+      "text": "So up until again 10 years ago, sorry, yes."
+    },
+    {
+      "id": 93,
+      "start": 211.0,
+      "end": 213.56,
+      "text": "So since the metadata is at the end of the file,"
+    },
+    {
+      "id": 94,
+      "start": 213.56,
+      "end": 215.08,
+      "text": "how do you, like, if it's just dripping"
+    },
+    {
+      "id": 95,
+      "start": 215.08,
+      "end": 216.4,
+      "text": "through the metadata on two pages,"
+    },
+    {
+      "id": 96,
+      "start": 216.4,
+      "end": 219.04,
+      "text": "and it's getting on, what do you need to do?"
+    },
+    {
+      "id": 97,
+      "start": 219.04,
+      "end": 221.0,
+      "text": "You just go to the end and file and bring the last couple"
+    },
+    {
+      "id": 98,
+      "start": 221.0,
+      "end": 222.6,
+      "text": "of pages and get this made."
+    },
+    {
+      "id": 99,
+      "start": 222.6,
+      "end": 224.92,
+      "text": "Yeah, it's question is, like, if it's at the end,"
+    },
+    {
+      "id": 100,
+      "start": 225.92,
+      "end": 227.92,
+      "text": "how do I start processing the file?"
+    },
+    {
+      "id": 101,
+      "start": 227.92,
+      "end": 230.72,
+      "text": "Yeah, so the entry point for the file is the footer."
+    },
+    {
+      "id": 102,
+      "start": 230.72,
+      "end": 232.96,
+      "text": "So I think the way it works is that the last"
+    },
+    {
+      "id": 103,
+      "start": 233.72,
+      "end": 237.08,
+      "text": "32 bits of the file is the length of the footer."
+    },
+    {
+      "id": 104,
+      "start": 237.08,
+      "end": 239.32,
+      "text": "So you read that, and that'll tell you,"
+    },
+    {
+      "id": 105,
+      "start": 240.12,
+      "end": 242.56,
+      "text": "how much back you read to get the complete view"
+    },
+    {
+      "id": 106,
+      "start": 242.56,
+      "end": 243.68,
+      "text": "of the metadata."
+    },
+    {
+      "id": 107,
+      "start": 244.76,
+      "end": 245.6,
+      "text": "Yes."
+    },
+    {
+      "id": 108,
+      "start": 245.6,
+      "end": 247.24,
+      "text": "You're saying this is this kind of file"
+    },
+    {
+      "id": 109,
+      "start": 247.24,
+      "end": 248.56,
+      "text": "is basically similar to a log structure,"
+    },
+    {
+      "id": 110,
+      "start": 248.56,
+      "end": 250.24,
+      "text": "is it more tree or?"
+    },
+    {
+      "id": 111,
+      "start": 250.24,
+      "end": 251.44,
+      "text": "Is there a question that my saying this is"
+    },
+    {
+      "id": 112,
+      "start": 251.44,
+      "end": 252.6,
+      "text": "like a log structure, a nursery?"
+    },
+    {
+      "id": 113,
+      "start": 252.6,
+      "end": 253.72,
+      "text": "No."
+    },
+    {
+      "id": 114,
+      "start": 253.72,
+      "end": 254.56,
+      "text": "Why would I say that?"
+    },
+    {
+      "id": 115,
+      "start": 256.32,
+      "end": 259.24,
+      "text": "What we mentioned in the context of the do,"
+    },
+    {
+      "id": 116,
+      "start": 259.24,
+      "end": 262.08,
+      "text": "and the panel only, I thought this."
+    },
+    {
+      "id": 117,
+      "start": 262.08,
+      "end": 263.88,
+      "text": "So a pen only means like in Hadoop,"
+    },
+    {
+      "id": 118,
+      "start": 263.88,
+      "end": 265.64,
+      "text": "the file simply only allows for like,"
+    },
+    {
+      "id": 119,
+      "start": 265.64,
+      "end": 268.36,
+      "text": "like, open a file and there's a pen bytes to it."
+    },
+    {
+      "id": 120,
+      "start": 268.36,
+      "end": 270.12,
+      "text": "So like, but like Hadoop doesn't know"
+    },
+    {
+      "id": 121,
+      "start": 270.12,
+      "end": 273.24,
+      "text": "which are storing, it just sees bytes, right?"
+    },
+    {
+      "id": 122,
+      "start": 273.24,
+      "end": 276.32,
+      "text": "The, this would not be, like, this is not LSM."
+    },
+    {
+      "id": 123,
+      "start": 276.32,
+      "end": 278.88,
+      "text": "This is literally like, there's one version"
+    },
+    {
+      "id": 124,
+      "start": 278.88,
+      "end": 281.88,
+      "text": "of a piece of data of Tupel,"
+    },
+    {
+      "id": 125,
+      "start": 281.88,
+      "end": 283.52,
+      "text": "and I'm just writing it out sequentially as I go,"
+    },
+    {
+      "id": 126,
+      "start": 283.52,
+      "end": 285.56,
+      "text": "but I'm gonna organize it in this pack format."
+    },
+    {
+      "id": 127,
+      "start": 285.56,
+      "end": 290.56,
+      "text": "Okay, so prior to 10 years ago,"
+    },
+    {
+      "id": 128,
+      "start": 293.08,
+      "end": 294.48,
+      "text": "even the early comms or systems,"
+    },
+    {
+      "id": 129,
+      "start": 294.48,
+      "end": 296.72,
+      "text": "like the verticals, the green plums and so forth,"
+    },
+    {
+      "id": 130,
+      "start": 296.72,
+      "end": 300.8,
+      "text": "they were, they had their own proprietary data format."
+    },
+    {
+      "id": 131,
+      "start": 300.8,
+      "end": 301.92,
+      "text": "And then I mentioned this last class,"
+    },
+    {
+      "id": 132,
+      "start": 301.92,
+      "end": 304.28,
+      "text": "like most data systems you can think about,"
+    },
+    {
+      "id": 133,
+      "start": 304.28,
+      "end": 306.88,
+      "text": "SQL life, Postgres, MySQL, Oracle, and so forth,"
+    },
+    {
+      "id": 134,
+      "start": 306.88,
+      "end": 310.08,
+      "text": "they, like, when they put bits down on disk,"
+    },
+    {
+      "id": 135,
+      "start": 310.08,
+      "end": 311.84,
+      "text": "the format is gonna be proprietary"
+    },
+    {
+      "id": 136,
+      "start": 311.84,
+      "end": 314.12,
+      "text": "to that database system, right?"
+    },
+    {
+      "id": 137,
+      "start": 314.12,
+      "end": 316.72,
+      "text": "Like the systems designed to, to read and write that data."
+    },
+    {
+      "id": 138,
+      "start": 316.72,
+      "end": 318.4,
+      "text": "Now there are some systems, like, like,"
+    },
+    {
+      "id": 139,
+      "start": 318.4,
+      "end": 319.56,
+      "text": "DuckDB is really good about this."
+    },
+    {
+      "id": 140,
+      "start": 319.56,
+      "end": 321.04,
+      "text": "They can read SQL life database files."
+    },
+    {
+      "id": 141,
+      "start": 321.04,
+      "end": 322.56,
+      "text": "They can read other data files, right?"
+    },
+    {
+      "id": 142,
+      "start": 322.56,
+      "end": 324.76,
+      "text": "But most systems don't do that, right?"
+    },
+    {
+      "id": 143,
+      "start": 325.8,
+      "end": 327.6,
+      "text": "And so the problem with this is that,"
+    },
+    {
+      "id": 144,
+      "start": 327.6,
+      "end": 328.76,
+      "text": "since all of these different data systems"
+    },
+    {
+      "id": 145,
+      "start": 328.76,
+      "end": 331.16,
+      "text": "have their own proprietary data format,"
+    },
+    {
+      "id": 146,
+      "start": 331.16,
+      "end": 333.92,
+      "text": "you can't share data across different disparate systems."
+    },
+    {
+      "id": 147,
+      "start": 333.92,
+      "end": 336.76,
+      "text": "Like I can't take a Postgres data directory files"
+    },
+    {
+      "id": 148,
+      "start": 336.76,
+      "end": 338.88,
+      "text": "and plop it down and let MySQL read it."
+    },
+    {
+      "id": 149,
+      "start": 338.88,
+      "end": 340.88,
+      "text": "Again, DuckDB is trying to be like a Swiss Army knife"
+    },
+    {
+      "id": 150,
+      "start": 340.88,
+      "end": 342.44,
+      "text": "kind of thing, we can ignore that,"
+    },
+    {
+      "id": 151,
+      "start": 342.44,
+      "end": 344.56,
+      "text": "but that's not how most systems work."
+    },
+    {
+      "id": 152,
+      "start": 344.56,
+      "end": 347.24,
+      "text": "So that means the only way I could get data out of one system"
+    },
+    {
+      "id": 153,
+      "start": 347.24,
+      "end": 350.12,
+      "text": "and put it into another system is to write a SQL query"
+    },
+    {
+      "id": 154,
+      "start": 350.12,
+      "end": 354.52,
+      "text": "and dump it out and then convert it to CSV,"
+    },
+    {
+      "id": 155,
+      "start": 354.52,
+      "end": 357.56,
+      "text": "TSE or JSON XML file, some other format,"
+    },
+    {
+      "id": 156,
+      "start": 357.56,
+      "end": 361.68,
+      "text": "and then do bulk insertion for the other naming system"
+    },
+    {
+      "id": 157,
+      "start": 361.68,
+      "end": 362.88,
+      "text": "to then convert it into, you know,"
+    },
+    {
+      "id": 158,
+      "start": 362.88,
+      "end": 364.08,
+      "text": "their own proprietary format."
+    },
+    {
+      "id": 159,
+      "start": 365.04,
+      "end": 367.0,
+      "text": "But again, with the Hadoop and the Cloud stuff"
+    },
+    {
+      "id": 160,
+      "start": 367.0,
+      "end": 370.56,
+      "text": "taking off in early 2010s, you had now,"
+    },
+    {
+      "id": 161,
+      "start": 370.56,
+      "end": 371.72,
+      "text": "as I showed in the last class,"
+    },
+    {
+      "id": 162,
+      "start": 371.72,
+      "end": 373.48,
+      "text": "you had all these operational databases"
+    },
+    {
+      "id": 163,
+      "start": 373.48,
+      "end": 375.44,
+      "text": "that want to start writing data out"
+    },
+    {
+      "id": 164,
+      "start": 375.44,
+      "end": 377.12,
+      "text": "so that you could read it into your data warehouse,"
+    },
+    {
+      "id": 165,
+      "start": 377.12,
+      "end": 378.48,
+      "text": "but again, you don't want to do this conversion."
+    },
+    {
+      "id": 166,
+      "start": 378.48,
+      "end": 380.84,
+      "text": "I just want to put things out to my object store"
+    },
+    {
+      "id": 167,
+      "start": 380.84,
+      "end": 384.08,
+      "text": "and not worry about having to do additional conversions."
+    },
+    {
+      "id": 168,
+      "start": 384.92,
+      "end": 388.2,
+      "text": "So this is where the Parkane org stuff comes into the play"
+    },
+    {
+      "id": 169,
+      "start": 388.2,
+      "end": 390.2,
+      "text": "because that's the problem they were trying to solve."
+    },
+    {
+      "id": 170,
+      "start": 390.2,
+      "end": 393.24,
+      "text": "They're trying to be a universal file format"
+    },
+    {
+      "id": 171,
+      "start": 393.24,
+      "end": 397.48,
+      "text": "that one application or some other thing upstream"
+    },
+    {
+      "id": 172,
+      "start": 397.48,
+      "end": 399.68,
+      "text": "in your applications stack could generate,"
+    },
+    {
+      "id": 173,
+      "start": 399.68,
+      "end": 401.0,
+      "text": "and then you wouldn't have to do that conversion"
+    },
+    {
+      "id": 174,
+      "start": 401.28,
+      "end": 402.6,
+      "text": "to be able to read it."
+    },
+    {
+      "id": 175,
+      "start": 402.6,
+      "end": 405.52,
+      "text": "And you would get all the benefits of a binary encoding scheme"
+    },
+    {
+      "id": 176,
+      "start": 405.52,
+      "end": 407.08,
+      "text": "that you would want in like a column store"
+    },
+    {
+      "id": 177,
+      "start": 407.08,
+      "end": 410.32,
+      "text": "or a PAX layout without having to revert it"
+    },
+    {
+      "id": 178,
+      "start": 410.32,
+      "end": 412.0,
+      "text": "to a text format like this."
+    },
+    {
+      "id": 179,
+      "start": 412.0,
+      "end": 413.32,
+      "text": "Like CSV, the worst thing you could do"
+    },
+    {
+      "id": 180,
+      "start": 413.32,
+      "end": 415.0,
+      "text": "because now basically all your binary data"
+    },
+    {
+      "id": 181,
+      "start": 415.0,
+      "end": 416.72,
+      "text": "could convert it into ASCII characters."
+    },
+    {
+      "id": 182,
+      "start": 418.04,
+      "end": 419.64,
+      "text": "And you're gonna parse that and deal with that"
+    },
+    {
+      "id": 183,
+      "start": 419.64,
+      "end": 422.0,
+      "text": "when you load it back in, same thing with JSON."
+    },
+    {
+      "id": 184,
+      "start": 423.2,
+      "end": 426.52,
+      "text": "So the idea is that you define a spec,"
+    },
+    {
+      "id": 185,
+      "start": 426.52,
+      "end": 428.24,
+      "text": "well here's what the file format is,"
+    },
+    {
+      "id": 186,
+      "start": 428.24,
+      "end": 430.44,
+      "text": "and then whatever system wants to be able to read it,"
+    },
+    {
+      "id": 187,
+      "start": 430.52,
+      "end": 432.92,
+      "text": "either use an off-the-shelf implementation of it,"
+    },
+    {
+      "id": 188,
+      "start": 432.92,
+      "end": 435.44,
+      "text": "which they have questionable quality"
+    },
+    {
+      "id": 189,
+      "start": 435.44,
+      "end": 439.84,
+      "text": "or write the run, which again, of questionable quality."
+    },
+    {
+      "id": 190,
+      "start": 439.84,
+      "end": 440.36,
+      "text": "All right?"
+    },
+    {
+      "id": 191,
+      "start": 441.36,
+      "end": 445.44,
+      "text": "So this is not entirely a new idea,"
+    },
+    {
+      "id": 192,
+      "start": 445.44,
+      "end": 447.8,
+      "text": "but it actually goes back to the 1990s."
+    },
+    {
+      "id": 193,
+      "start": 447.8,
+      "end": 449.6,
+      "text": "In the high performance computing world"
+    },
+    {
+      "id": 194,
+      "start": 449.6,
+      "end": 451.08,
+      "text": "of the scientific community,"
+    },
+    {
+      "id": 195,
+      "start": 451.08,
+      "end": 453.28,
+      "text": "there was this thing called HDF5,"
+    },
+    {
+      "id": 196,
+      "start": 453.28,
+      "end": 454.6,
+      "text": "that means there was four, three, two, one,"
+    },
+    {
+      "id": 197,
+      "start": 454.6,
+      "end": 455.96,
+      "text": "there was previous versions to this,"
+    },
+    {
+      "id": 198,
+      "start": 455.96,
+      "end": 458.44,
+      "text": "but five is the current one I'm still uses."
+    },
+    {
+      "id": 199,
+      "start": 458.44,
+      "end": 462.28,
+      "text": "But this was a binary format to store compressed"
+    },
+    {
+      "id": 200,
+      "start": 462.28,
+      "end": 463.68,
+      "text": "multidimensional arrays."
+    },
+    {
+      "id": 201,
+      "start": 463.68,
+      "end": 465.84,
+      "text": "And then you could have whatever random 4chan program"
+    },
+    {
+      "id": 202,
+      "start": 465.84,
+      "end": 468.84,
+      "text": "you had to do processing on the data"
+    },
+    {
+      "id": 203,
+      "start": 468.84,
+      "end": 471.08,
+      "text": "from scientific instruments or satellite data,"
+    },
+    {
+      "id": 204,
+      "start": 471.08,
+      "end": 472.6,
+      "text": "you could use this universal file"
+    },
+    {
+      "id": 205,
+      "start": 472.6,
+      "end": 474.76,
+      "text": "for use for different experiments."
+    },
+    {
+      "id": 206,
+      "start": 474.76,
+      "end": 476.92,
+      "text": "But this is almost entirely ignored"
+    },
+    {
+      "id": 207,
+      "start": 476.92,
+      "end": 478.52,
+      "text": "by the database community, right?"
+    },
+    {
+      "id": 208,
+      "start": 479.64,
+      "end": 482.76,
+      "text": "So 2009, people recognized that,"
+    },
+    {
+      "id": 209,
+      "start": 482.76,
+      "end": 484.92,
+      "text": "oh, Hadoop wants to generate a bunch of these files"
+    },
+    {
+      "id": 210,
+      "start": 484.92,
+      "end": 488.24,
+      "text": "that we want to be used for different purposes,"
+    },
+    {
+      "id": 211,
+      "start": 488.24,
+      "end": 491.16,
+      "text": "and so the original version of the data format in Hadoop,"
+    },
+    {
+      "id": 212,
+      "start": 491.16,
+      "end": 493.4,
+      "text": "which is a thing called sequential sequence files,"
+    },
+    {
+      "id": 213,
+      "start": 493.4,
+      "end": 495.52,
+      "text": "is literally key value pairs, right?"
+    },
+    {
+      "id": 214,
+      "start": 495.52,
+      "end": 500.12,
+      "text": "Serialized value strings that only the function"
+    },
+    {
+      "id": 215,
+      "start": 500.12,
+      "end": 501.56,
+      "text": "of the Hadoop code knew how to process"
+    },
+    {
+      "id": 216,
+      "start": 501.56,
+      "end": 502.72,
+      "text": "like your application code,"
+    },
+    {
+      "id": 217,
+      "start": 503.64,
+      "end": 505.76,
+      "text": "there was no embedded scheme information."
+    },
+    {
+      "id": 218,
+      "start": 505.76,
+      "end": 508.36,
+      "text": "So they replaced this with this thing called Avro,"
+    },
+    {
+      "id": 219,
+      "start": 508.36,
+      "end": 511.2,
+      "text": "and I think this came out of maybe CloudDero"
+    },
+    {
+      "id": 220,
+      "start": 511.2,
+      "end": 512.64,
+      "text": "of the Hadoop project,"
+    },
+    {
+      "id": 221,
+      "start": 512.64,
+      "end": 513.96,
+      "text": "but if this was still row oriented,"
+    },
+    {
+      "id": 222,
+      "start": 513.96,
+      "end": 518.2,
+      "text": "so even though the commsource systems existed at the time,"
+    },
+    {
+      "id": 223,
+      "start": 518.32,
+      "end": 519.96,
+      "text": "Hadoop was still writing things out"
+    },
+    {
+      "id": 224,
+      "start": 519.96,
+      "end": 522.72,
+      "text": "and processing data as rows, which sucked."
+    },
+    {
+      "id": 225,
+      "start": 522.72,
+      "end": 526.0,
+      "text": "So then in, there was another version before Park K"
+    },
+    {
+      "id": 226,
+      "start": 526.0,
+      "end": 529.44,
+      "text": "called RC file, actually before Ork from Meta,"
+    },
+    {
+      "id": 227,
+      "start": 529.44,
+      "end": 532.76,
+      "text": "but then at the same time in 2013,"
+    },
+    {
+      "id": 228,
+      "start": 532.76,
+      "end": 535.04,
+      "text": "CloudDero and Twitter working on Paola,"
+    },
+    {
+      "id": 229,
+      "start": 535.04,
+      "end": 538.16,
+      "text": "they put out Park K, and then Meta put out Ork"
+    },
+    {
+      "id": 230,
+      "start": 538.16,
+      "end": 540.56,
+      "text": "for Apache Hive."
+    },
+    {
+      "id": 231,
+      "start": 540.56,
+      "end": 542.68,
+      "text": "Hive is basically a SQL engine,"
+    },
+    {
+      "id": 232,
+      "start": 542.68,
+      "end": 545.52,
+      "text": "a SQL query engine on top of Hadoop or Matt Produce,"
+    },
+    {
+      "id": 233,
+      "start": 545.52,
+      "end": 547.72,
+      "text": "so it converts your SQL queries to Matt Produce jobs,"
+    },
+    {
+      "id": 234,
+      "start": 547.72,
+      "end": 550.28,
+      "text": "they're still around today, but you don't want to use it."
+    },
+    {
+      "id": 235,
+      "start": 551.56,
+      "end": 554.44,
+      "text": "So in Park K and Ork is the dominant ones,"
+    },
+    {
+      "id": 236,
+      "start": 554.44,
+      "end": 557.08,
+      "text": "but at this point, they're over 10 years old,"
+    },
+    {
+      "id": 237,
+      "start": 557.08,
+      "end": 558.64,
+      "text": "and they're still widely used today."
+    },
+    {
+      "id": 238,
+      "start": 558.64,
+      "end": 561.2,
+      "text": "Carbon data is an extension of Park K from Huala."
+    },
+    {
+      "id": 239,
+      "start": 562.44,
+      "end": 563.84,
+      "text": "It adds additional metadata"
+    },
+    {
+      "id": 240,
+      "start": 563.84,
+      "end": 566.44,
+      "text": "for the keeping track of the schema versions and so forth."
+    },
+    {
+      "id": 241,
+      "start": 567.44,
+      "end": 569.68,
+      "text": "I don't know if anybody uses this other than Huala,"
+    },
+    {
+      "id": 242,
+      "start": 569.68,
+      "end": 570.92,
+      "text": "the open source version that we tried,"
+    },
+    {
+      "id": 243,
+      "start": 570.92,
+      "end": 573.36,
+      "text": "it doesn't work, it doesn't compile,"
+    },
+    {
+      "id": 244,
+      "start": 573.36,
+      "end": 575.44,
+      "text": "but somebody's still working on it."
+    },
+    {
+      "id": 245,
+      "start": 575.44,
+      "end": 577.12,
+      "text": "And then Arrow, again, I mentioned this before,"
+    },
+    {
+      "id": 246,
+      "start": 577.12,
+      "end": 578.92,
+      "text": "this is gonna be an in memory,"
+    },
+    {
+      "id": 247,
+      "start": 578.92,
+      "end": 581.28,
+      "text": "thinking this is like, I'm just in memory version of Park K,"
+    },
+    {
+      "id": 248,
+      "start": 582.32,
+      "end": 583.92,
+      "text": "and it's gonna allow me to do change data"
+    },
+    {
+      "id": 249,
+      "start": 583.92,
+      "end": 586.56,
+      "text": "between different processes over the network"
+    },
+    {
+      "id": 250,
+      "start": 586.56,
+      "end": 589.08,
+      "text": "or in memory on the same box,"
+    },
+    {
+      "id": 251,
+      "start": 589.08,
+      "end": 592.08,
+      "text": "and this came out of Dremio and from the Paners guy."
+    },
+    {
+      "id": 252,
+      "start": 593.12,
+      "end": 596.04,
+      "text": "So again, for this class, we're only focused on these two,"
+    },
+    {
+      "id": 253,
+      "start": 597.52,
+      "end": 598.8,
+      "text": "and then there's a bunch of other ones I think,"
+    },
+    {
+      "id": 254,
+      "start": 598.8,
+      "end": 600.6,
+      "text": "mentioned the paper, there's an extension."
+    }
+  ],
+  "language": "en"
+}

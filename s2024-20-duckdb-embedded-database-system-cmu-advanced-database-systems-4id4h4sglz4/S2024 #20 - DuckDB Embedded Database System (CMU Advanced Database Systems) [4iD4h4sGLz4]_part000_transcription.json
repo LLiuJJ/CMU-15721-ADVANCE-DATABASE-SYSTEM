@@ -1,0 +1,905 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Carnegie Mellon University's Advanced Database Systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filmed in front of a live studio audience."
+    },
+    {
+      "id": 2,
+      "start": 9.0,
+      "end": 11.0,
+      "text": "Hi, I'm so out of one, I'm getting a hug."
+    },
+    {
+      "id": 3,
+      "start": 11.0,
+      "end": 13.0,
+      "text": "Hi, I'm getting a hug."
+    },
+    {
+      "id": 4,
+      "start": 13.0,
+      "end": 14.0,
+      "text": "Thank you so much."
+    },
+    {
+      "id": 5,
+      "start": 14.0,
+      "end": 18.0,
+      "text": "Let's jump into the discussion today on Dr. D."
+    },
+    {
+      "id": 6,
+      "start": 18.0,
+      "end": 21.0,
+      "text": "And again, as I said last time, this is going to be a lot different"
+    },
+    {
+      "id": 7,
+      "start": 21.0,
+      "end": 24.0,
+      "text": "than all the other systems that we've been talking about,"
+    },
+    {
+      "id": 8,
+      "start": 24.0,
+      "end": 27.0,
+      "text": "at least in the last week or so, because all of those"
+    },
+    {
+      "id": 9,
+      "start": 27.0,
+      "end": 30.0,
+      "text": "of these giant, distributed, or without warehouses running in the cloud,"
+    },
+    {
+      "id": 10,
+      "start": 30.0,
+      "end": 33.0,
+      "text": "and then now I had to read a paper about WB"
+    },
+    {
+      "id": 11,
+      "start": 33.0,
+      "end": 36.0,
+      "text": "who's most of them running on a single node."
+    },
+    {
+      "id": 12,
+      "start": 36.0,
+      "end": 38.0,
+      "text": "But we'll talk about Mother Duck at the end, how they,"
+    },
+    {
+      "id": 13,
+      "start": 38.0,
+      "end": 41.0,
+      "text": "not necessarily go distributed, meaning fanning out,"
+    },
+    {
+      "id": 14,
+      "start": 41.0,
+      "end": 45.0,
+      "text": "scaling out the queries themselves, but at least now be able to leverage"
+    },
+    {
+      "id": 15,
+      "start": 45.0,
+      "end": 49.0,
+      "text": "cloud compute infrastructure for query execution."
+    },
+    {
+      "id": 16,
+      "start": 49.0,
+      "end": 51.0,
+      "text": "But we'll see that at the end."
+    },
+    {
+      "id": 17,
+      "start": 51.0,
+      "end": 54.0,
+      "text": "All right, so last class we were talking about the Smith Lake Data Warehouse."
+    },
+    {
+      "id": 18,
+      "start": 54.0,
+      "end": 57.0,
+      "text": "And as I said, this was along with Dremel,"
+    },
+    {
+      "id": 19,
+      "start": 57.0,
+      "end": 62.0,
+      "text": "so that one of the first, this is what I call classical cloud native"
+    },
+    {
+      "id": 20,
+      "start": 62.0,
+      "end": 65.0,
+      "text": "OLAP engine, that did all the various things we talked about through the entire semester."
+    },
+    {
+      "id": 21,
+      "start": 65.0,
+      "end": 70.0,
+      "text": "Precompala primitive, push-based execution,"
+    },
+    {
+      "id": 22,
+      "start": 70.0,
+      "end": 73.0,
+      "text": "separating computing storage, all those nice things."
+    },
+    {
+      "id": 23,
+      "start": 73.0,
+      "end": 76.0,
+      "text": "And so this showed up, actually I think yesterday,"
+    },
+    {
+      "id": 24,
+      "start": 76.0,
+      "end": 79.0,
+      "text": "which I think worth this looking at, because I think somebody else asked me like,"
+    },
+    {
+      "id": 25,
+      "start": 79.0,
+      "end": 81.0,
+      "text": "okay, well like all these systems that I highly look at the same,"
+    },
+    {
+      "id": 26,
+      "start": 81.0,
+      "end": 82.0,
+      "text": "how do you pick them?"
+    },
+    {
+      "id": 27,
+      "start": 83.0,
+      "end": 85.0,
+      "text": "So data engineering subreddit is actually really good,"
+    },
+    {
+      "id": 28,
+      "start": 85.0,
+      "end": 88.0,
+      "text": "because there's people who actually using the systems and talking about like the pros and cons of them."
+    },
+    {
+      "id": 29,
+      "start": 88.0,
+      "end": 90.0,
+      "text": "So I highly recommend it."
+    },
+    {
+      "id": 30,
+      "start": 90.0,
+      "end": 92.0,
+      "text": "And so somebody's asking, hey, how do I pick between snowflake,"
+    },
+    {
+      "id": 31,
+      "start": 92.0,
+      "end": 94.0,
+      "text": "Databricks, BigQuery, and Redshift?"
+    },
+    {
+      "id": 32,
+      "start": 94.0,
+      "end": 96.0,
+      "text": "We haven't talked about Redshift yet."
+    },
+    {
+      "id": 33,
+      "start": 96.0,
+      "end": 98.0,
+      "text": "That'll be next week."
+    },
+    {
+      "id": 34,
+      "start": 98.0,
+      "end": 102.0,
+      "text": "And this boot basically says like, hey, don't worry about the native good details."
+    },
+    {
+      "id": 35,
+      "start": 102.0,
+      "end": 105.0,
+      "text": "The way to really think about whether you want one system and another is,"
+    },
+    {
+      "id": 36,
+      "start": 105.0,
+      "end": 107.0,
+      "text": "first of all, what cloud are you already running on?"
+    },
+    {
+      "id": 37,
+      "start": 107.0,
+      "end": 111.0,
+      "text": "If you're already running on GCP or Google, then just use BigQuery."
+    },
+    {
+      "id": 38,
+      "start": 111.0,
+      "end": 115.0,
+      "text": "If you're already running on AWS, you could probably just use Redshift or otherwise."
+    },
+    {
+      "id": 39,
+      "start": 115.0,
+      "end": 119.0,
+      "text": "And then if you're already using Spark, use Databricks."
+    },
+    {
+      "id": 40,
+      "start": 119.0,
+      "end": 125.0,
+      "text": "And then if you have a lot of money, and looking for a good time, then that's snowflake."
+    },
+    {
+      "id": 41,
+      "start": 125.0,
+      "end": 130.0,
+      "text": "And I would say that's one of the differentiators I think that snowflake has done really well,"
+    },
+    {
+      "id": 42,
+      "start": 130.0,
+      "end": 135.0,
+      "text": "that separates them from the other systems, is just that the user experience is much,"
+    },
+    {
+      "id": 43,
+      "start": 135.0,
+      "end": 140.0,
+      "text": "much better and cleaner than these other cloud systems."
+    },
+    {
+      "id": 44,
+      "start": 140.0,
+      "end": 144.0,
+      "text": "And so even though, again, the core architecture might still be the same underneath the covers"
+    },
+    {
+      "id": 45,
+      "start": 144.0,
+      "end": 147.0,
+      "text": "at a high level, based on the things that we talked about, you know,"
+    },
+    {
+      "id": 46,
+      "start": 147.0,
+      "end": 150.0,
+      "text": "as I said before, the user experience is going to last matter a lot."
+    },
+    {
+      "id": 47,
+      "start": 150.0,
+      "end": 153.0,
+      "text": "And also the, you know, how good the query optimizer is."
+    },
+    {
+      "id": 48,
+      "start": 153.0,
+      "end": 156.0,
+      "text": "Is there like no tuning in snowflake, is that right?"
+    },
+    {
+      "id": 49,
+      "start": 156.0,
+      "end": 158.0,
+      "text": "It's question is there's no tuning snowflake?"
+    },
+    {
+      "id": 50,
+      "start": 158.0,
+      "end": 162.0,
+      "text": "Yeah, they don't, they don't expose really any knobs, you can't even do query plant ends."
+    },
+    {
+      "id": 51,
+      "start": 162.0,
+      "end": 164.0,
+      "text": "There's one knob, right?"
+    },
+    {
+      "id": 52,
+      "start": 164.0,
+      "end": 167.0,
+      "text": "I think there's one knob you can jack up the compute size."
+    },
+    {
+      "id": 53,
+      "start": 167.0,
+      "end": 171.0,
+      "text": "You can turn off auto scaling as, like, I think there's three things."
+    },
+    {
+      "id": 54,
+      "start": 171.0,
+      "end": 175.0,
+      "text": "Now, that doesn't mean in the actual implementation itself, there aren't a bunch of other knobs,"
+    },
+    {
+      "id": 55,
+      "start": 175.0,
+      "end": 178.0,
+      "text": "and they've told me this. They're like, yeah, we have hundreds of knobs on the inside."
+    },
+    {
+      "id": 56,
+      "start": 178.0,
+      "end": 180.0,
+      "text": "They don't expose them to the users."
+    },
+    {
+      "id": 57,
+      "start": 180.0,
+      "end": 185.0,
+      "text": "So then, typically what happens is, they said, if somebody calls a sales engineer,"
+    },
+    {
+      "id": 58,
+      "start": 185.0,
+      "end": 188.0,
+      "text": "says my query is running slow, the sales engineer can then get in touch,"
+    },
+    {
+      "id": 59,
+      "start": 188.0,
+      "end": 192.0,
+      "text": "or the customer service can get in touch with a database system engineer,"
+    },
+    {
+      "id": 60,
+      "start": 192.0,
+      "end": 196.0,
+      "text": "and then they'll recommend like, hey, tune these three four knobs for this one particular customer."
+    },
+    {
+      "id": 61,
+      "start": 196.0,
+      "end": 200.0,
+      "text": "But it's very at hawk, at least this is what they told me a few years ago."
+    },
+    {
+      "id": 62,
+      "start": 200.0,
+      "end": 203.0,
+      "text": "So underneath the covers, there's all the tuning knobs that they would expect,"
+    },
+    {
+      "id": 63,
+      "start": 203.0,
+      "end": 208.0,
+      "text": "but they don't, to make it your life easier as the user of it, they don't expose it to you."
+    },
+    {
+      "id": 64,
+      "start": 208.0,
+      "end": 210.0,
+      "text": "So how are they actually tuning it themselves?"
+    },
+    {
+      "id": 65,
+      "start": 210.0,
+      "end": 212.0,
+      "text": "It must be really hard to do that, right?"
+    },
+    {
+      "id": 66,
+      "start": 212.0,
+      "end": 214.0,
+      "text": "The question is how are they actually tuning it themselves?"
+    },
+    {
+      "id": 67,
+      "start": 214.0,
+      "end": 216.0,
+      "text": "What do you mean, like, how are they tuning themselves?"
+    },
+    {
+      "id": 68,
+      "start": 216.0,
+      "end": 217.0,
+      "text": "I mean, they have tons of knobs, right?"
+    },
+    {
+      "id": 69,
+      "start": 217.0,
+      "end": 218.0,
+      "text": "Yes."
+    },
+    {
+      "id": 70,
+      "start": 218.0,
+      "end": 219.0,
+      "text": "And like, getting those values done is..."
+    },
+    {
+      "id": 71,
+      "start": 219.0,
+      "end": 223.0,
+      "text": "They, so their sort of design philosophy would be like, you want things to be adaptive."
+    },
+    {
+      "id": 72,
+      "start": 224.0,
+      "end": 229.0,
+      "text": "And so, again, it's hard to quantify this, say how much it is actually adaptive,"
+    },
+    {
+      "id": 73,
+      "start": 229.0,
+      "end": 233.0,
+      "text": "but you can think about it like, instead of being lazy, not lazy another right word,"
+    },
+    {
+      "id": 74,
+      "start": 233.0,
+      "end": 237.0,
+      "text": "but instead of saying, okay, here's some value for a knob I need to know about"
+    },
+    {
+      "id": 75,
+      "start": 237.0,
+      "end": 239.0,
+      "text": "how to set correctly for the workload."
+    },
+    {
+      "id": 76,
+      "start": 239.0,
+      "end": 243.0,
+      "text": "Instead of just saying, all right, let's pound to find somebody else that's set it for me,"
+    },
+    {
+      "id": 77,
+      "start": 243.0,
+      "end": 245.0,
+      "text": "you could, there's ways to make, try to make things adaptive."
+    },
+    {
+      "id": 78,
+      "start": 245.0,
+      "end": 248.0,
+      "text": "It's more engineering, certainly, but it makes you more robust."
+    },
+    {
+      "id": 79,
+      "start": 248.0,
+      "end": 249.0,
+      "text": "Yes."
+    },
+    {
+      "id": 80,
+      "start": 250.0,
+      "end": 254.0,
+      "text": "The question is, why is Retchive Not a Positive Experience?"
+    },
+    {
+      "id": 81,
+      "start": 254.0,
+      "end": 258.0,
+      "text": "We'll come to that next week."
+    },
+    {
+      "id": 82,
+      "start": 258.0,
+      "end": 260.0,
+      "text": "Hey, it's not..."
+    },
+    {
+      "id": 83,
+      "start": 260.0,
+      "end": 265.0,
+      "text": "Again, I think there's nothing particularly wrong with the architecture itself,"
+    },
+    {
+      "id": 84,
+      "start": 265.0,
+      "end": 267.0,
+      "text": "because they fixed a lot of it."
+    },
+    {
+      "id": 85,
+      "start": 267.0,
+      "end": 272.0,
+      "text": "Again, it's the user experience, and that's hard to quantify, right?"
+    },
+    {
+      "id": 86,
+      "start": 272.0,
+      "end": 274.0,
+      "text": "It could be like, okay, my query went slow."
+    },
+    {
+      "id": 87,
+      "start": 274.0,
+      "end": 277.0,
+      "text": "I did the right tools for me to figure out why it ran slow."
+    },
+    {
+      "id": 88,
+      "start": 278.0,
+      "end": 281.0,
+      "text": "Or is it how it stable is the system in terms of performance."
+    },
+    {
+      "id": 89,
+      "start": 281.0,
+      "end": 286.0,
+      "text": "I run the query today, I run it tomorrow, and it's an order mag to difference of performance."
+    },
+    {
+      "id": 90,
+      "start": 286.0,
+      "end": 288.0,
+      "text": "Is that what people are seeing?"
+    },
+    {
+      "id": 91,
+      "start": 288.0,
+      "end": 291.0,
+      "text": "Again, this is purely anecdotal, right?"
+    },
+    {
+      "id": 92,
+      "start": 291.0,
+      "end": 296.0,
+      "text": "I just thought it was an interesting quip, and like I said, the data engineering,"
+    },
+    {
+      "id": 93,
+      "start": 296.0,
+      "end": 300.0,
+      "text": "this is where you see a lot of people at the sort of bleeding edge talking about how using these systems,"
+    },
+    {
+      "id": 94,
+      "start": 300.0,
+      "end": 304.0,
+      "text": "and also the ecosystems around it, like airflow, DBT, and things like that,"
+    },
+    {
+      "id": 95,
+      "start": 304.0,
+      "end": 307.0,
+      "text": "and how they integrate with these cloud unders."
+    },
+    {
+      "id": 96,
+      "start": 307.0,
+      "end": 310.0,
+      "text": "Okay?"
+    },
+    {
+      "id": 97,
+      "start": 310.0,
+      "end": 315.0,
+      "text": "All right, so for today's discussion, we needed to go back a time,"
+    },
+    {
+      "id": 98,
+      "start": 315.0,
+      "end": 321.0,
+      "text": "and just a little bit, to talk about what led to the creation of DuckDB."
+    },
+    {
+      "id": 99,
+      "start": 321.0,
+      "end": 328.0,
+      "text": "And you actually already read one of the papers that was a precursor or a catalyst for what,"
+    },
+    {
+      "id": 100,
+      "start": 328.0,
+      "end": 331.0,
+      "text": "you know, what set off the development of DuckDB,"
+    },
+    {
+      "id": 101,
+      "start": 331.0,
+      "end": 335.0,
+      "text": "and that was the networking paper, like don't hold my data hostage."
+    },
+    {
+      "id": 102,
+      "start": 335.0,
+      "end": 339.0,
+      "text": "Right, and that paper came out of this project they were building at CWI,"
+    },
+    {
+      "id": 103,
+      "start": 339.0,
+      "end": 343.0,
+      "text": "to make an embedded version of MoNDB called MoNDB Lite."
+    },
+    {
+      "id": 104,
+      "start": 343.0,
+      "end": 346.0,
+      "text": "Basically, MoNDB, again, was one of these early column store systems,"
+    },
+    {
+      "id": 105,
+      "start": 346.0,
+      "end": 351.0,
+      "text": "had academia, had a CWI, that then it was open source and people were actually using."
+    },
+    {
+      "id": 106,
+      "start": 351.0,
+      "end": 354.0,
+      "text": "And, but it was like, you know, it was like a post-gress or any other sort of shared everything system."
+    },
+    {
+      "id": 107,
+      "start": 354.0,
+      "end": 360.0,
+      "text": "You had to prop it up, configure it, set it up, and you would connect to it through JDBC over the network."
+    },
+    {
+      "id": 108,
+      "start": 360.0,
+      "end": 368.0,
+      "text": "And so what they were trying to do was to make it faster or easier for data scientists to use a database system"
+    },
+    {
+      "id": 109,
+      "start": 368.0,
+      "end": 373.0,
+      "text": "inside of like Python Pandas, or R, I think there's explicitly for R, they were doing this."
+    },
+    {
+      "id": 110,
+      "start": 373.0,
+      "end": 376.0,
+      "text": "They tried to make an embedded version that ran in process."
+    },
+    {
+      "id": 111,
+      "start": 376.0,
+      "end": 379.0,
+      "text": "I haven't really talked about what an embedded database system looks like,"
+    },
+    {
+      "id": 112,
+      "start": 379.0,
+      "end": 385.0,
+      "text": "but basically, it's, you know, there's no main function, like you would starting the post-gress or my SQL,"
+    },
+    {
+      "id": 113,
+      "start": 385.0,
+      "end": 393.0,
+      "text": "it's running, it only runs whenever the hosting app process then invokes insight down into it."
+    },
+    {
+      "id": 114,
+      "start": 393.0,
+      "end": 401.0,
+      "text": "Now, it can spin up a certain thread in the background and do other stuff, but like it's not something you would just start,"
+    },
+    {
+      "id": 115,
+      "start": 401.0,
+      "end": 405.0,
+      "text": "like as a demon on your server and just run all the time."
+    },
+    {
+      "id": 116,
+      "start": 405.0,
+      "end": 411.0,
+      "text": "So they were trying to make this run directly inside of the R runtime or Pandas runtime,"
+    },
+    {
+      "id": 117,
+      "start": 411.0,
+      "end": 420.0,
+      "text": "and they were trying to reduce the cost of going back and forth between the R-Lang infrastructure and the database system."
+    },
+    {
+      "id": 118,
+      "start": 420.0,
+      "end": 426.0,
+      "text": "Because typically, very often how data scientists use databases is they just grab a giant CSV or a parquet file,"
+    },
+    {
+      "id": 119,
+      "start": 426.0,
+      "end": 432.0,
+      "text": "whatever, from the server itself, bring that down to your local laptop and do all the crunching on that."
+    },
+    {
+      "id": 120,
+      "start": 432.0,
+      "end": 436.0,
+      "text": "And so they're not leveraging the database system to do all the fast calculations and stuff that, you know,"
+    },
+    {
+      "id": 121,
+      "start": 436.0,
+      "end": 442.0,
+      "text": "we know how to do really well, they're basically rolling all that crap themselves inside of their set of user code."
+    },
+    {
+      "id": 122,
+      "start": 442.0,
+      "end": 448.0,
+      "text": "Pandas isn't particularly known to be very, very swift or fast."
+    },
+    {
+      "id": 123,
+      "start": 448.0,
+      "end": 452.0,
+      "text": "So that was the goal. They're trying to have an embedded version of Modi B-Lite that got all the advantages of the column store,"
+    },
+    {
+      "id": 124,
+      "start": 452.0,
+      "end": 461.0,
+      "text": "that would expose that to the data scientists, but the problem Modi B, you know, at this point it was 15, 20 years old,"
+    },
+    {
+      "id": 125,
+      "start": 461.0,
+      "end": 474.0,
+      "text": "and it had too much sort of legacy infrastructure and legacy code that it was too much to rip things out and strip it down to get it to be a more simplistic package that you could then embed."
+    },
+    {
+      "id": 126,
+      "start": 474.0,
+      "end": 478.0,
+      "text": "So that's what led the C-DRI researchers to develop DuckDB."
+    },
+    {
+      "id": 127,
+      "start": 478.0,
+      "end": 486.0,
+      "text": "It's basically the time that the efforts that they took for Modi B-Lite, they learned a bunch of lessons from that and said,"
+    },
+    {
+      "id": 128,
+      "start": 486.0,
+      "end": 495.0,
+      "text": "okay, we should build a system from scratch, specifically design from the beginning to be embedded inside of, you know, other applications."
+    },
+    {
+      "id": 129,
+      "start": 495.0,
+      "end": 501.0,
+      "text": "So you could call this an embedded data system, sometimes it's called in process, you could technically call it serverless, right,"
+    },
+    {
+      "id": 130,
+      "start": 501.0,
+      "end": 504.0,
+      "text": "because again, it's not a demon that's always running."
+    },
+    {
+      "id": 131,
+      "start": 504.0,
+      "end": 513.0,
+      "text": "But the idea is that they're trying to be a, provide a fast SQL execution engine on any possible data file you could find."
+    },
+    {
+      "id": 132,
+      "start": 513.0,
+      "end": 522.0,
+      "text": "They, they, they, you possibly want to query, right, again, this is sort of the same idea and Dremel, they want to take any data file that someone may have in their object store,"
+    },
+    {
+      "id": 133,
+      "start": 522.0,
+      "end": 525.0,
+      "text": "anybody would run queries real fast on it."
+    },
+    {
+      "id": 134,
+      "start": 525.0,
+      "end": 529.0,
+      "text": "So there's the, the SQL dialect they're just support is based on postgres."
+    },
+    {
+      "id": 135,
+      "start": 529.0,
+      "end": 532.0,
+      "text": "They did what we did in an hourly system."
+    },
+    {
+      "id": 136,
+      "start": 532.0,
+      "end": 536.0,
+      "text": "We took the postgres grammar file and just embedded that inside of our system."
+    },
+    {
+      "id": 137,
+      "start": 536.0,
+      "end": 543.0,
+      "text": "But then over the years, what I've liked is that, well, this is how you get, you know, there's, there isn't a single SQL standard."
+    },
+    {
+      "id": 138,
+      "start": 543.0,
+      "end": 548.0,
+      "text": "They've added some nice quality of life enhancements that are specific to duct Db."
+    },
+    {
+      "id": 139,
+      "start": 548.0,
+      "end": 552.0,
+      "text": "Like you just kind of from and then the table name and that does the same thing as the select star, things like that."
+    },
+    {
+      "id": 140,
+      "start": 552.0,
+      "end": 562.0,
+      "text": "And the pitch, which I think is fantastic from a marketing standpoint to really understand what duct Db is trying to be, is, is trying to be the SQL light of for analytics."
+    },
+    {
+      "id": 141,
+      "start": 562.0,
+      "end": 569.0,
+      "text": "Right, SQL light is the most widely deployed embedded database system that's on all your phones and your laptops right here right now."
+    },
+    {
+      "id": 142,
+      "start": 569.0,
+      "end": 572.0,
+      "text": "It's running satellites in space. It's in every plane."
+    },
+    {
+      "id": 143,
+      "start": 572.0,
+      "end": 575.0,
+      "text": "And it's designed to do transactions."
+    },
+    {
+      "id": 144,
+      "start": 575.0,
+      "end": 581.0,
+      "text": "And so they wanted to sort of have the same ubiquity of SQL light, the proliferation of it being used by everyone,"
+    },
+    {
+      "id": 145,
+      "start": 581.0,
+      "end": 584.0,
+      "text": "but specifically for doing fast analytics."
+    },
+    {
+      "id": 146,
+      "start": 584.0,
+      "end": 588.0,
+      "text": "Now, Jignesh has a paper with his students, I think, came out two or three years ago."
+    },
+    {
+      "id": 147,
+      "start": 588.0,
+      "end": 594.0,
+      "text": "They've added some enhancements to SQL light to improve the, you know, it's support to do analytics."
+    },
+    {
+      "id": 148,
+      "start": 594.0,
+      "end": 598.0,
+      "text": "But I don't think it comes close to what duct Db can do."
+    },
+    {
+      "id": 149,
+      "start": 598.0,
+      "end": 600.0,
+      "text": "So another important design."
+    }
+  ],
+  "language": "en"
+}

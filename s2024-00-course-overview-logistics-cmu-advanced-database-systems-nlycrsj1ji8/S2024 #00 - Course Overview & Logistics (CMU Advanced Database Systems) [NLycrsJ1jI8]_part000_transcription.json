@@ -1,0 +1,359 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Caniki Mellon University's advanced database systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filming front of a live studio audience."
+    },
+    {
+      "id": 2,
+      "start": 9.0,
+      "end": 37.0,
+      "text": "Kaniki"
+    },
+    {
+      "id": 3,
+      "start": 69.0,
+      "end": 99.0,
+      "text": ""
+    },
+    {
+      "id": 4,
+      "start": 99.0,
+      "end": 115.0,
+      "text": "Mellon University's advanced"
+    },
+    {
+      "id": 5,
+      "start": 159.0,
+      "end": 187.0,
+      "text": "database systems"
+    },
+    {
+      "id": 6,
+      "start": 217.0,
+      "end": 224.0,
+      "text": "The goal is to understand all the methods and techniques of how people build a modern and analytical database system."
+    },
+    {
+      "id": 7,
+      "start": 224.0,
+      "end": 231.0,
+      "text": "You'll learn how to write good code, how to write a good report, how to write a document and testing plans for that code."
+    },
+    {
+      "id": 8,
+      "start": 231.0,
+      "end": 242.0,
+      "text": "It's not just right. Here's our project we're done. When we have full-fledged testing methods and ways to ensure that things are operating correctly or producing correct results."
+    },
+    {
+      "id": 9,
+      "start": 242.0,
+      "end": 247.0,
+      "text": "There will be a little bit of code reviews during the semester and then obviously working on a large code base."
+    },
+    {
+      "id": 10,
+      "start": 247.0,
+      "end": 256.0,
+      "text": "Maybe not entirely true for these projects in the beginning, but since we're doing semester-long projects this year, your code base is going to get quite large by the end."
+    },
+    {
+      "id": 11,
+      "start": 257.0,
+      "end": 266.0,
+      "text": "We're really focusing here on studio topics. We're not going to be rehashing stuff that we covered in the intro class or going through the textbook."
+    },
+    {
+      "id": 12,
+      "start": 266.0,
+      "end": 277.0,
+      "text": "It's really about looking at the latest research paper and the latest literature on building a modern system and then seeing how we can apply that to our..."
+    },
+    {
+      "id": 13,
+      "start": 278.0,
+      "end": 284.0,
+      "text": "At its core, the overarching model of the database system will be trying to build a developed..."
+    },
+    {
+      "id": 14,
+      "start": 284.0,
+      "end": 289.0,
+      "text": "Well, at high level look a lot like the stuff we covered in the intro class, a classic database system."
+    },
+    {
+      "id": 15,
+      "start": 289.0,
+      "end": 297.0,
+      "text": "It's really about how do we then infuse these ideas and these methods that are developed for the last 10 years or so to accelerate query execution."
+    },
+    {
+      "id": 16,
+      "start": 298.0,
+      "end": 307.0,
+      "text": "So on that topic, these are the main ideas or sections we're going to cover throughout the semester."
+    },
+    {
+      "id": 17,
+      "start": 307.0,
+      "end": 319.0,
+      "text": "So first we're going to talk about what the data actually should look like, the data formats, how we're doing coding compression in such a way that it will speed up data access and but also reduce the footprint of our databases."
+    },
+    {
+      "id": 18,
+      "start": 320.0,
+      "end": 324.0,
+      "text": "We've been talking about different methods to accelerate query processing."
+    },
+    {
+      "id": 19,
+      "start": 324.0,
+      "end": 333.0,
+      "text": "So doing vectorized query execution or co-generation and query compilation, we had to take a query plan, physical query plan and execute it most efficiently on the data."
+    },
+    {
+      "id": 20,
+      "start": 333.0,
+      "end": 346.0,
+      "text": "Then we'll look at a lot of larger view of the system of how we handle scheduling within a single query itself and over across the entire workload."
+    },
+    {
+      "id": 21,
+      "start": 347.0,
+      "end": 349.0,
+      "text": "How do we do..."
+    },
+    {
+      "id": 22,
+      "start": 349.0,
+      "end": 356.0,
+      "text": "We had to run journalism sufficiently, how do we handle network protocols between the nodes and between the nodes and the client."
+    },
+    {
+      "id": 23,
+      "start": 356.0,
+      "end": 365.0,
+      "text": "We spent a lot of time talking about query optimization because again, it doesn't matter how fast we've got our database system, if our query plan is sub optimal, just garbage."
+    },
+    {
+      "id": 24,
+      "start": 365.0,
+      "end": 370.0,
+      "text": "Then all the stuff we're going to do before then doesn't actually matter. That's wasted time."
+    },
+    {
+      "id": 25,
+      "start": 371.0,
+      "end": 381.0,
+      "text": "Then we're going to spend a significant third of the lecture, a quarter of the lecture, a semester talking about or looking at real implementations of data systems."
+    },
+    {
+      "id": 26,
+      "start": 381.0,
+      "end": 393.0,
+      "text": "And this by reading the papers from the major players in industry and startups and sort of seeing how we can then apply or how they're applying all the techniques that we've been discussing in their particular systems."
+    },
+    {
+      "id": 27,
+      "start": 393.0,
+      "end": 403.0,
+      "text": "And essentially form a taxonomy, it'll say, okay, a system can do xyz and we then see how snowflake does things or yellow bits does things."
+    },
+    {
+      "id": 28,
+      "start": 403.0,
+      "end": 407.0,
+      "text": "So we'll cover that throughout the entire semester."
+    },
+    {
+      "id": 29,
+      "start": 407.0,
+      "end": 417.0,
+      "text": "So for this course, I'm assuming you are already taking the intercourse at CMU, 15445, 645 or something equipment in your undergraduate background."
+    },
+    {
+      "id": 30,
+      "start": 417.0,
+      "end": 421.0,
+      "text": "This is a graduate level course on modern database systems."
+    },
+    {
+      "id": 31,
+      "start": 421.0,
+      "end": 430.0,
+      "text": "We're talking about the classic algorithms, like how to do a hash join, but what's up with how to do it in a modern setting on today's hardware."
+    },
+    {
+      "id": 32,
+      "start": 430.0,
+      "end": 437.0,
+      "text": "So there's a bunch of things I'm not going to go over as background, a relational algebra, storage models, basic memory management, muffle pulls, and so forth."
+    },
+    {
+      "id": 33,
+      "start": 437.0,
+      "end": 446.0,
+      "text": "Like all those things we're not going to discuss, I'm going to assume you already know them and it's really going to be about, okay, how do you do a high performance modern parallel hash join?"
+    },
+    {
+      "id": 34,
+      "start": 446.0,
+      "end": 454.0,
+      "text": "That's cash conscience or so forth. So that's the flavor for the discussion throughout the semester."
+    },
+    {
+      "id": 35,
+      "start": 454.0,
+      "end": 459.0,
+      "text": "For the course policies and schedule, please always refer to the course webpage."
+    },
+    {
+      "id": 36,
+      "start": 459.0,
+      "end": 465.0,
+      "text": "I've posted that this week and these we updated a little bit with some of the readings later this semester will get changed up a little bit."
+    },
+    {
+      "id": 37,
+      "start": 465.0,
+      "end": 470.0,
+      "text": "But for at least the first couple of weeks, the schedule is pretty set."
+    },
+    {
+      "id": 38,
+      "start": 470.0,
+      "end": 475.0,
+      "text": "And then the we'll talk about what's required for you are deliverables throughout the semester."
+    },
+    {
+      "id": 39,
+      "start": 475.0,
+      "end": 482.0,
+      "text": "But again, I'll just say as we go along, obviously don't don't plagiarize. Don't try to steal things. Don't cheat."
+    },
+    {
+      "id": 40,
+      "start": 482.0,
+      "end": 489.0,
+      "text": "And if you're not sure, please, please come talk to me. If you do catch you cheating in some kind of way, which can for a graduate level course, this should not be an issue."
+    },
+    {
+      "id": 41,
+      "start": 489.0,
+      "end": 495.0,
+      "text": "Then we hope that we're referred you to Warner Hall. And that's not that's not good for anybody."
+    },
+    {
+      "id": 42,
+      "start": 495.0,
+      "end": 502.0,
+      "text": "I'm going to have my office hours twice a week immediately after class 330 or 430 in my office and then I floor engage."
+    },
+    {
+      "id": 43,
+      "start": 502.0,
+      "end": 509.0,
+      "text": "If there's this is this time is not convenient for you, send me an email and then we can try to figure out something else."
+    },
+    {
+      "id": 44,
+      "start": 509.0,
+      "end": 513.0,
+      "text": "So, you know, I'll say this every semester, what can we talk about when you come to office hours with me?"
+    },
+    {
+      "id": 45,
+      "start": 513.0,
+      "end": 518.0,
+      "text": "Well, we talk about, you know, your status on the project, how that's going."
+    },
+    {
+      "id": 46,
+      "start": 518.0,
+      "end": 526.0,
+      "text": "If you have questions about the papers, I want to know more about the particular topic that go beyond the things we discussed in class, happy to talk about those things."
+    },
+    {
+      "id": 47,
+      "start": 526.0,
+      "end": 530.0,
+      "text": "A lot of you are going to want to get database jobs and the semester. So we're talking about how we can facilitate that."
+    },
+    {
+      "id": 48,
+      "start": 530.0,
+      "end": 536.0,
+      "text": "And like I said, like I know how to handle the police to so extent."
+    },
+    {
+      "id": 49,
+      "start": 536.0,
+      "end": 543.0,
+      "text": "Obviously, if you're, if you try to, if you try to run from that, I can't help with that. But whatever."
+    },
+    {
+      "id": 50,
+      "start": 543.0,
+      "end": 549.0,
+      "text": "And if you're going to build databases, you're going to be end up in a parking lot, teaching classes at some point or doing something."
+    },
+    {
+      "id": 51,
+      "start": 549.0,
+      "end": 554.0,
+      "text": "So by all means, talk to me before we have problems later on."
+    },
+    {
+      "id": 52,
+      "start": 554.0,
+      "end": 560.0,
+      "text": "We have one teaching assistant this semester. That's my number one PGA student William Zhang."
+    },
+    {
+      "id": 53,
+      "start": 560.0,
+      "end": 572.0,
+      "text": "So he's actually seeing you on a grad. I think he graduated 4.0. He actually took this class when he was a sophomore and crushed it in the way that's suspiciously good for a sophomore."
+    },
+    {
+      "id": 54,
+      "start": 572.0,
+      "end": 580.0,
+      "text": "But he's legit. So we asked him to stick around and he's continued this PhD after spending a little time at single store."
+    },
+    {
+      "id": 55,
+      "start": 580.0,
+      "end": 584.0,
+      "text": "He's a database company and you know, he's working with us now. He's fantastic."
+    },
+    {
+      "id": 56,
+      "start": 584.0,
+      "end": 596.0,
+      "text": "So he's the TA for as good further along the projects. He might, he might help me to come into us when we help each group with their implementations."
+    },
+    {
+      "id": 57,
+      "start": 596.0,
+      "end": 598.0,
+      "text": "He's Canadian."
+    },
+    {
+      "id": 58,
+      "start": 598.0,
+      "end": 600.0,
+      "text": "You know, it's."
+    }
+  ],
+  "language": "en"
+}

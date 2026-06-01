@@ -1,0 +1,1355 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.3,
+      "text": "stupid, meaning like you would never want to do this today,"
+    },
+    {
+      "id": 1,
+      "start": 3.3,
+      "end": 5.2,
+      "text": "but given the constraints that they had at the time"
+    },
+    {
+      "id": 2,
+      "start": 5.2,
+      "end": 7.16,
+      "text": "and the harder they were working with,"
+    },
+    {
+      "id": 3,
+      "start": 7.16,
+      "end": 10.48,
+      "text": "without having a cost model, a career optimizer,"
+    },
+    {
+      "id": 4,
+      "start": 10.48,
+      "end": 13.0,
+      "text": "it's actually kind of clever."
+    },
+    {
+      "id": 5,
+      "start": 13.0,
+      "end": 14.2,
+      "text": "So the dirty secret about ingress,"
+    },
+    {
+      "id": 6,
+      "start": 14.2,
+      "end": 15.68,
+      "text": "these the first version of it is,"
+    },
+    {
+      "id": 7,
+      "start": 15.68,
+      "end": 17.12,
+      "text": "it actually couldn't do joints."
+    },
+    {
+      "id": 8,
+      "start": 18.32,
+      "end": 21.56,
+      "text": "Yes, first version of ingress in like 1974ish,"
+    },
+    {
+      "id": 9,
+      "start": 21.56,
+      "end": 24.56,
+      "text": "threeish, could, five, couldn't do joints."
+    },
+    {
+      "id": 10,
+      "start": 24.56,
+      "end": 26.52,
+      "text": "This was five years ago."
+    },
+    {
+      "id": 11,
+      "start": 27.52,
+      "end": 28.6,
+      "text": "They couldn't even do that."
+    },
+    {
+      "id": 12,
+      "start": 30.16,
+      "end": 33.48,
+      "text": "Okay, well, yeah, it ought to be stuff, back in the day."
+    },
+    {
+      "id": 13,
+      "start": 33.48,
+      "end": 34.48,
+      "text": "We'll see how they,"
+    },
+    {
+      "id": 14,
+      "start": 34.48,
+      "end": 36.68,
+      "text": "but they want to support the query like this."
+    },
+    {
+      "id": 15,
+      "start": 36.68,
+      "end": 37.88,
+      "text": "The example they always have in the old papers"
+    },
+    {
+      "id": 16,
+      "start": 37.88,
+      "end": 39.64,
+      "text": "is like employer employee salary,"
+    },
+    {
+      "id": 17,
+      "start": 39.64,
+      "end": 42.72,
+      "text": "like, or department, like they,"
+    },
+    {
+      "id": 18,
+      "start": 42.72,
+      "end": 43.56,
+      "text": "yeah, they're all pulling up."
+    },
+    {
+      "id": 19,
+      "start": 43.56,
+      "end": 44.56,
+      "text": "Let's see how they do this, right?"
+    },
+    {
+      "id": 20,
+      "start": 44.56,
+      "end": 46.4,
+      "text": "So to say we had the same query before,"
+    },
+    {
+      "id": 21,
+      "start": 46.4,
+      "end": 48.64,
+      "text": "so three-way joint on artists appears at Alumn,"
+    },
+    {
+      "id": 22,
+      "start": 48.64,
+      "end": 50.04,
+      "text": "but now I'm gonna throw in this order by clause"
+    },
+    {
+      "id": 23,
+      "start": 50.04,
+      "end": 51.44,
+      "text": "for the artist's ID."
+    },
+    {
+      "id": 24,
+      "start": 51.44,
+      "end": 53.12,
+      "text": "So the first thing they're gonna do"
+    },
+    {
+      "id": 25,
+      "start": 53.12,
+      "end": 55.0,
+      "text": "is they're gonna rewrite the SQL query"
+    },
+    {
+      "id": 26,
+      "start": 55.0,
+      "end": 58.64,
+      "text": "into single value queries, meaning the,"
+    },
+    {
+      "id": 27,
+      "start": 58.64,
+      "end": 60.32,
+      "text": "in the second case of the first one here,"
+    },
+    {
+      "id": 28,
+      "start": 60.32,
+      "end": 62.64,
+      "text": "I take the first query, I extract out"
+    },
+    {
+      "id": 29,
+      "start": 62.64,
+      "end": 67.04,
+      "text": "and move out the lookup on an artist and appears,"
+    },
+    {
+      "id": 30,
+      "start": 67.04,
+      "end": 69.28,
+      "text": "and I have a singular query looking up on the album"
+    },
+    {
+      "id": 31,
+      "start": 69.28,
+      "end": 70.96,
+      "text": "based on the album name."
+    },
+    {
+      "id": 32,
+      "start": 70.96,
+      "end": 74.2,
+      "text": "But then I'm gonna materialize the output into temp1,"
+    },
+    {
+      "id": 33,
+      "start": 74.2,
+      "end": 75.88,
+      "text": "some table here."
+    },
+    {
+      "id": 34,
+      "start": 75.88,
+      "end": 78.88,
+      "text": "Now I'm gonna further decompose query two"
+    },
+    {
+      "id": 35,
+      "start": 78.88,
+      "end": 82.24,
+      "text": "into two new queries, where the first one does a lookup"
+    },
+    {
+      "id": 36,
+      "start": 82.24,
+      "end": 86.56,
+      "text": "on a peers and a join with temp1,"
+    },
+    {
+      "id": 37,
+      "start": 86.56,
+      "end": 88.08,
+      "text": "and the second one's gonna do a lookup on artists"
+    },
+    {
+      "id": 38,
+      "start": 88.08,
+      "end": 89.0,
+      "text": "and a join with temp2."
+    },
+    {
+      "id": 39,
+      "start": 89.0,
+      "end": 92.68,
+      "text": "Again, this one is materializing the output into temp2."
+    },
+    {
+      "id": 40,
+      "start": 92.68,
+      "end": 95.28,
+      "text": "So now what I'm gonna do is gonna run the queries"
+    },
+    {
+      "id": 41,
+      "start": 95.28,
+      "end": 98.12,
+      "text": "one by one, starting from the top to the bottom,"
+    },
+    {
+      "id": 42,
+      "start": 98.12,
+      "end": 101.6,
+      "text": "and whatever the result is, I then inject that"
+    },
+    {
+      "id": 43,
+      "start": 101.6,
+      "end": 104.2,
+      "text": "into the next query I'm gonna execute."
+    },
+    {
+      "id": 44,
+      "start": 104.2,
+      "end": 105.64,
+      "text": "So if I run this first query, query1,"
+    },
+    {
+      "id": 45,
+      "start": 105.64,
+      "end": 107.96,
+      "text": "look up the album based on the name,"
+    },
+    {
+      "id": 46,
+      "start": 107.96,
+      "end": 110.92,
+      "text": "it's gonna produce album ID 999."
+    },
+    {
+      "id": 47,
+      "start": 110.92,
+      "end": 114.44,
+      "text": "So then I take that, map that into the rewrite and query"
+    },
+    {
+      "id": 48,
+      "start": 114.44,
+      "end": 116.76,
+      "text": "on the appears table, and substitute"
+    },
+    {
+      "id": 49,
+      "start": 116.76,
+      "end": 121.0,
+      "text": "what would have been the join clause on the artist table,"
+    },
+    {
+      "id": 50,
+      "start": 121.0,
+      "end": 124.4,
+      "text": "or sort of the album table, and now inject 99999."
+    },
+    {
+      "id": 51,
+      "start": 125.36,
+      "end": 128.32,
+      "text": "And then this thing produces a result, two results here,"
+    },
+    {
+      "id": 52,
+      "start": 128.32,
+      "end": 130.12,
+      "text": "and then I'm just gonna do a four of the upon that"
+    },
+    {
+      "id": 53,
+      "start": 130.12,
+      "end": 132.04,
+      "text": "and run each of those queries one by one."
+    },
+    {
+      "id": 54,
+      "start": 134.88,
+      "end": 135.72,
+      "text": "Yes."
+    },
+    {
+      "id": 55,
+      "start": 135.72,
+      "end": 138.08,
+      "text": "Is there any reason we should upgrade to?"
+    },
+    {
+      "id": 56,
+      "start": 138.08,
+      "end": 139.48,
+      "text": "Going back here."
+    },
+    {
+      "id": 57,
+      "start": 139.48,
+      "end": 141.72,
+      "text": "Now query two got rewritten into,"
+    },
+    {
+      "id": 58,
+      "start": 141.72,
+      "end": 144.16,
+      "text": "so query two got rewritten ahead of three by join,"
+    },
+    {
+      "id": 59,
+      "start": 144.16,
+      "end": 145.92,
+      "text": "or two of the two of artisan peers,"
+    },
+    {
+      "id": 60,
+      "start": 145.92,
+      "end": 147.6,
+      "text": "and that gets rewritten into three and four."
+    },
+    {
+      "id": 61,
+      "start": 151.52,
+      "end": 152.36,
+      "text": "No question, yes."
+    },
+    {
+      "id": 62,
+      "start": 152.36,
+      "end": 154.08,
+      "text": "What's the definition of a single value"
+    },
+    {
+      "id": 63,
+      "start": 154.08,
+      "end": 155.76,
+      "text": "for this one table?"
+    },
+    {
+      "id": 64,
+      "start": 155.76,
+      "end": 158.28,
+      "text": "Yes, what is the definition of a single value query?"
+    },
+    {
+      "id": 65,
+      "start": 158.28,
+      "end": 161.16,
+      "text": "To like one tuple for one table."
+    },
+    {
+      "id": 66,
+      "start": 162.08,
+      "end": 162.92,
+      "text": "Yeah."
+    },
+    {
+      "id": 67,
+      "start": 166.44,
+      "end": 169.32,
+      "text": "Right, so like, well, in this case here, you would run it,"
+    },
+    {
+      "id": 68,
+      "start": 169.32,
+      "end": 171.0,
+      "text": "well, I could be for one table,"
+    },
+    {
+      "id": 69,
+      "start": 171.0,
+      "end": 173.12,
+      "text": "so you would get this query would run once,"
+    },
+    {
+      "id": 70,
+      "start": 173.12,
+      "end": 174.68,
+      "text": "you get two results."
+    },
+    {
+      "id": 71,
+      "start": 174.68,
+      "end": 177.92,
+      "text": "They could support multiple tuples in the output."
+    },
+    {
+      "id": 72,
+      "start": 177.92,
+      "end": 179.64,
+      "text": "And then now you take these two values,"
+    },
+    {
+      "id": 73,
+      "start": 179.64,
+      "end": 182.36,
+      "text": "then just expand that out into different instances"
+    },
+    {
+      "id": 74,
+      "start": 182.36,
+      "end": 183.2,
+      "text": "of the same query."
+    },
+    {
+      "id": 75,
+      "start": 183.2,
+      "end": 184.8,
+      "text": "What's that?"
+    },
+    {
+      "id": 76,
+      "start": 184.8,
+      "end": 188.8,
+      "text": "I mean, one table queries, single table queries."
+    },
+    {
+      "id": 77,
+      "start": 194.36,
+      "end": 195.48,
+      "text": "So I'm showing this at the SQL level,"
+    },
+    {
+      "id": 78,
+      "start": 195.48,
+      "end": 197.08,
+      "text": "but they did this all at the logical level,"
+    },
+    {
+      "id": 79,
+      "start": 197.08,
+      "end": 198.96,
+      "text": "which is logical query plans,"
+    },
+    {
+      "id": 80,
+      "start": 198.96,
+      "end": 200.52,
+      "text": "and then they would just sort of run this."
+    },
+    {
+      "id": 81,
+      "start": 200.52,
+      "end": 203.44,
+      "text": "And so what I say this is like stupidly clever is,"
+    },
+    {
+      "id": 82,
+      "start": 203.44,
+      "end": 205.08,
+      "text": "you're actually running the query optimizer"
+    },
+    {
+      "id": 83,
+      "start": 205.08,
+      "end": 208.16,
+      "text": "every single time you generate one of these queries."
+    },
+    {
+      "id": 84,
+      "start": 208.16,
+      "end": 211.04,
+      "text": "So for whatever reason, if like for this"
+    },
+    {
+      "id": 85,
+      "start": 211.04,
+      "end": 213.0,
+      "text": "artist ID equals one, two, three,"
+    },
+    {
+      "id": 86,
+      "start": 213.0,
+      "end": 215.36,
+      "text": "if there was a better way to execute that"
+    },
+    {
+      "id": 87,
+      "start": 215.36,
+      "end": 219.48,
+      "text": "than doing lookup in 4.56, you could actually support that,"
+    },
+    {
+      "id": 88,
+      "start": 219.48,
+      "end": 221.2,
+      "text": "because you would take this query plan,"
+    },
+    {
+      "id": 89,
+      "start": 221.2,
+      "end": 221.96,
+      "text": "run it through the planter,"
+    },
+    {
+      "id": 90,
+      "start": 221.96,
+      "end": 224.2,
+      "text": "and might choose a different execution path"
+    },
+    {
+      "id": 91,
+      "start": 224.2,
+      "end": 225.92,
+      "text": "than this other one here."
+    },
+    {
+      "id": 92,
+      "start": 225.92,
+      "end": 228.04,
+      "text": "And because it's choosing on a per single value"
+    },
+    {
+      "id": 93,
+      "start": 228.04,
+      "end": 230.92,
+      "text": "within the lookup, what's the best thing to do?"
+    },
+    {
+      "id": 94,
+      "start": 230.92,
+      "end": 233.36,
+      "text": "So it's a sort of early example of adaptive query"
+    },
+    {
+      "id": 95,
+      "start": 233.36,
+      "end": 234.72,
+      "text": "optimization, which we'll see next week."
+    },
+    {
+      "id": 96,
+      "start": 234.72,
+      "end": 236.6,
+      "text": "But like, because you're running the optimizer"
+    },
+    {
+      "id": 97,
+      "start": 236.6,
+      "end": 239.2,
+      "text": "on a per query basis, but obviously, this would be super slow."
+    },
+    {
+      "id": 98,
+      "start": 239.2,
+      "end": 241.2,
+      "text": "You wouldn't actually want to do this."
+    },
+    {
+      "id": 99,
+      "start": 244.32,
+      "end": 249.4,
+      "text": "So again, it's a nice, to me, it's a nice historical curiosity."
+    },
+    {
+      "id": 100,
+      "start": 249.4,
+      "end": 251.72,
+      "text": "So the RISBEC optimization is the easiest"
+    },
+    {
+      "id": 101,
+      "start": 251.72,
+      "end": 253.6,
+      "text": "implement in debug, because again, it's just"
+    },
+    {
+      "id": 102,
+      "start": 253.6,
+      "end": 256.32,
+      "text": "bunch of if-and-eluses, this is pretty much everyone does."
+    },
+    {
+      "id": 103,
+      "start": 256.32,
+      "end": 258.28,
+      "text": "And for simple queries, you're not"
+    },
+    {
+      "id": 104,
+      "start": 258.28,
+      "end": 259.92,
+      "text": "going to get any faster than this,"
+    },
+    {
+      "id": 105,
+      "start": 259.92,
+      "end": 261.56,
+      "text": "because you don't mean any taining state."
+    },
+    {
+      "id": 106,
+      "start": 261.56,
+      "end": 265.64,
+      "text": "You're not doing any lookup in the queries against the cross"
+    },
+    {
+      "id": 107,
+      "start": 265.64,
+      "end": 267.36,
+      "text": "model, do estimations."
+    },
+    {
+      "id": 108,
+      "start": 267.36,
+      "end": 268.92,
+      "text": "It's like boom, boom, boom."
+    },
+    {
+      "id": 109,
+      "start": 268.92,
+      "end": 271.68,
+      "text": "And then here's the query and run it."
+    },
+    {
+      "id": 110,
+      "start": 271.68,
+      "end": 273.4,
+      "text": "Obviously, the downside is going to be this"
+    },
+    {
+      "id": 111,
+      "start": 273.4,
+      "end": 275.52,
+      "text": "is going to be a nightmare to expand."
+    },
+    {
+      "id": 112,
+      "start": 275.52,
+      "end": 277.56,
+      "text": "Wouldn't you want to start doing more complicated things?"
+    },
+    {
+      "id": 113,
+      "start": 277.56,
+      "end": 278.88,
+      "text": "It's going to rely on magic constants"
+    },
+    {
+      "id": 114,
+      "start": 278.88,
+      "end": 282.12,
+      "text": "to say, how much better really is something than another?"
+    },
+    {
+      "id": 115,
+      "start": 282.12,
+      "end": 284.88,
+      "text": "If you start weighing in the number of tools,"
+    },
+    {
+      "id": 116,
+      "start": 284.88,
+      "end": 286.24,
+      "text": "this operator is going to spit out"
+    },
+    {
+      "id": 117,
+      "start": 286.24,
+      "end": 289.04,
+      "text": "if you're flipping one versus another."
+    },
+    {
+      "id": 118,
+      "start": 289.04,
+      "end": 290.96,
+      "text": "And then any time you have a nested query and then"
+    },
+    {
+      "id": 119,
+      "start": 290.96,
+      "end": 295.0,
+      "text": "that becomes a trainback."
+    },
+    {
+      "id": 120,
+      "start": 295.0,
+      "end": 297.2,
+      "text": "And most obviously, actually not in just nest queries,"
+    },
+    {
+      "id": 121,
+      "start": 297.2,
+      "end": 299.2,
+      "text": "you don't even have joins to figure out"
+    },
+    {
+      "id": 122,
+      "start": 299.2,
+      "end": 303.56,
+      "text": "what the right join ordering would be a total nightmare."
+    },
+    {
+      "id": 123,
+      "start": 303.56,
+      "end": 306.48,
+      "text": "Going back to this one here, the reason why we started"
+    },
+    {
+      "id": 124,
+      "start": 306.48,
+      "end": 311.08,
+      "text": "with query 1 on the out-my-d, because that's"
+    },
+    {
+      "id": 125,
+      "start": 311.08,
+      "end": 312.76,
+      "text": "the only input we have to the query."
+    },
+    {
+      "id": 126,
+      "start": 312.76,
+      "end": 315.0,
+      "text": "So we know what the starting point is."
+    },
+    {
+      "id": 127,
+      "start": 315.0,
+      "end": 318.0,
+      "text": "But if it was just a join across the tables without any input,"
+    },
+    {
+      "id": 128,
+      "start": 318.0,
+      "end": 319.76,
+      "text": "then you have to pick what is the starting point,"
+    },
+    {
+      "id": 129,
+      "start": 319.76,
+      "end": 321.92,
+      "text": "which is the first table you want to put"
+    },
+    {
+      "id": 130,
+      "start": 321.92,
+      "end": 327.16,
+      "text": "you part of the join, and then it all falls apart."
+    },
+    {
+      "id": 131,
+      "start": 327.16,
+      "end": 330.12,
+      "text": "So I said, this is roughly what Ingress and Oracle did back"
+    },
+    {
+      "id": 132,
+      "start": 330.12,
+      "end": 330.96,
+      "text": "in the day."
+    },
+    {
+      "id": 133,
+      "start": 330.96,
+      "end": 332.52,
+      "text": "System R we'll see in the next two slides."
+    },
+    {
+      "id": 134,
+      "start": 332.52,
+      "end": 336.48,
+      "text": "They're going to have a call space search for the joins."
+    },
+    {
+      "id": 135,
+      "start": 336.48,
+      "end": 340.2,
+      "text": "If you read the unofficial biography of Larry Ellison,"
+    },
+    {
+      "id": 136,
+      "start": 340.2,
+      "end": 341.76,
+      "text": "there's this nice little paragraph here."
+    },
+    {
+      "id": 137,
+      "start": 341.76,
+      "end": 344.6,
+      "text": "Somewhere where Stemberger talks about the Oracle's"
+    },
+    {
+      "id": 138,
+      "start": 344.6,
+      "end": 347.04,
+      "text": "query optimizer, again, this is about the mid-19,"
+    },
+    {
+      "id": 139,
+      "start": 347.04,
+      "end": 349.28,
+      "text": "but this book came out in the 1990s,"
+    },
+    {
+      "id": 140,
+      "start": 349.28,
+      "end": 354.28,
+      "text": "but he's talking about the race between Oracle and Ingress"
+    },
+    {
+      "id": 141,
+      "start": 354.28,
+      "end": 355.44,
+      "text": "in the 1980s."
+    },
+    {
+      "id": 142,
+      "start": 355.44,
+      "end": 358.28,
+      "text": "And he talks about how Ingress actually"
+    },
+    {
+      "id": 143,
+      "start": 358.28,
+      "end": 361.0,
+      "text": "built a query optimizer that's going to look like IBM's,"
+    },
+    {
+      "id": 144,
+      "start": 361.0,
+      "end": 363.56,
+      "text": "but Oracle was kept going on in how that was actually"
+    },
+    {
+      "id": 145,
+      "start": 363.56,
+      "end": 365.12,
+      "text": "the wrong way to do it, and the right way to do it"
+    },
+    {
+      "id": 146,
+      "start": 365.12,
+      "end": 367.52,
+      "text": "is what Oracle did."
+    },
+    {
+      "id": 147,
+      "start": 367.52,
+      "end": 370.28,
+      "text": "And instead of calling it a heuristic based optimizer,"
+    },
+    {
+      "id": 148,
+      "start": 370.28,
+      "end": 372.96,
+      "text": "they call it a semantic optimizer, because they couldn't"
+    },
+    {
+      "id": 149,
+      "start": 372.96,
+      "end": 376.64,
+      "text": "do cross-based search, so to figure out the join order,"
+    },
+    {
+      "id": 150,
+      "start": 376.64,
+      "end": 379.44,
+      "text": "so the join order was whatever the order that the tables"
+    },
+    {
+      "id": 151,
+      "start": 379.44,
+      "end": 381.84,
+      "text": "appeared in the actual SQL string."
+    },
+    {
+      "id": 152,
+      "start": 381.84,
+      "end": 384.36,
+      "text": "And they call that, Larry Ellison would call that a semantic"
+    },
+    {
+      "id": 153,
+      "start": 384.36,
+      "end": 387.36,
+      "text": "optimizer."
+    },
+    {
+      "id": 154,
+      "start": 387.36,
+      "end": 388.44,
+      "text": "So good marketing."
+    },
+    {
+      "id": 155,
+      "start": 388.44,
+      "end": 390.6,
+      "text": "And then, like I said, Oracle's going to be right there"
+    },
+    {
+      "id": 156,
+      "start": 390.6,
+      "end": 393.56,
+      "text": "as in the 1990s and make it more state of the art."
+    },
+    {
+      "id": 157,
+      "start": 396.28,
+      "end": 399.92,
+      "text": "So at the same time, the Ingress and Oracle guys"
+    },
+    {
+      "id": 158,
+      "start": 399.92,
+      "end": 402.44,
+      "text": "are building their heuristic based optimizers."
+    },
+    {
+      "id": 159,
+      "start": 402.44,
+      "end": 405.8,
+      "text": "IBM researcher, IBM was building System R,"
+    },
+    {
+      "id": 160,
+      "start": 405.8,
+      "end": 408.66,
+      "text": "and they ended up building the first cost-based"
+    },
+    {
+      "id": 161,
+      "start": 408.66,
+      "end": 411.0,
+      "text": "query optimizer."
+    },
+    {
+      "id": 162,
+      "start": 411.0,
+      "end": 413.76,
+      "text": "And the idea is that it's going to use a heuristic stage"
+    },
+    {
+      "id": 163,
+      "start": 413.76,
+      "end": 416.26,
+      "text": "just like we saw before, where you can do the logical,"
+    },
+    {
+      "id": 164,
+      "start": 416.26,
+      "end": 417.96,
+      "text": "logical optimizations."
+    },
+    {
+      "id": 165,
+      "start": 417.96,
+      "end": 420.8,
+      "text": "But then they're going to plan a new relation"
+    },
+    {
+      "id": 166,
+      "start": 420.8,
+      "end": 425.96,
+      "text": "and transform physical operators, actually, that's backwards."
+    },
+    {
+      "id": 167,
+      "start": 425.96,
+      "end": 427.28,
+      "text": "It should be logical to physical and not physical,"
+    },
+    {
+      "id": 168,
+      "start": 427.28,
+      "end": 428.92,
+      "text": "logical."
+    },
+    {
+      "id": 169,
+      "start": 428.92,
+      "end": 431.88,
+      "text": "They would transfer logical to physical operators"
+    },
+    {
+      "id": 170,
+      "start": 431.88,
+      "end": 434.08,
+      "text": "and try to find one with the lowest cost."
+    },
+    {
+      "id": 171,
+      "start": 435.8,
+      "end": 437.92,
+      "text": "And obviously, to do this, you need a cost model,"
+    },
+    {
+      "id": 172,
+      "start": 437.92,
+      "end": 441.76,
+      "text": "you need estimates, but each operator is going to spit out."
+    },
+    {
+      "id": 173,
+      "start": 441.76,
+      "end": 446.2,
+      "text": "But the guarantee that you're going to find the optimal plan,"
+    },
+    {
+      "id": 174,
+      "start": 446.2,
+      "end": 448.4,
+      "text": "but there's things they do would try to at least get to a good"
+    },
+    {
+      "id": 175,
+      "start": 448.4,
+      "end": 450.56,
+      "text": "plan, like only choosing left-deep trees,"
+    },
+    {
+      "id": 176,
+      "start": 450.56,
+      "end": 451.88,
+      "text": "instead of bushing trees."
+    },
+    {
+      "id": 177,
+      "start": 451.88,
+      "end": 453.88,
+      "text": "There's a cut down the search base."
+    },
+    {
+      "id": 178,
+      "start": 453.88,
+      "end": 456.64,
+      "text": "So this is what System R did in the very beginning."
+    },
+    {
+      "id": 179,
+      "start": 456.64,
+      "end": 459.28,
+      "text": "This is what IBM DB2, at least in the early 1980s,"
+    },
+    {
+      "id": 180,
+      "start": 459.28,
+      "end": 461.68,
+      "text": "because that was the first commercialization"
+    },
+    {
+      "id": 181,
+      "start": 461.68,
+      "end": 464.36,
+      "text": "of a relational database at IBM."
+    },
+    {
+      "id": 182,
+      "start": 464.36,
+      "end": 465.92,
+      "text": "They did something based on this."
+    },
+    {
+      "id": 183,
+      "start": 465.92,
+      "end": 467.44,
+      "text": "And then most of the other storage database systems"
+    },
+    {
+      "id": 184,
+      "start": 467.44,
+      "end": 471.64,
+      "text": "are out today, Postgres, MySQL, SQL Lite."
+    },
+    {
+      "id": 185,
+      "start": 471.64,
+      "end": 471.96,
+      "text": "They're going to"
+    },
+    {
+      "id": 186,
+      "start": 471.96,
+      "end": 477.02,
+      "text": "to take this materialization app you've done the reverse"
+    },
+    {
+      "id": 187,
+      "start": 477.02,
+      "end": 479.56,
+      "text": "the delta encoding to then tell you what"
+    },
+    {
+      "id": 188,
+      "start": 479.56,
+      "end": 481.04,
+      "text": "the actual symbols symbols symbols symbols symbols that you want to get back."
+    },
+    {
+      "id": 189,
+      "start": 481.04,
+      "end": 484.88,
+      "text": "symbol that you want to get back."
+    },
+    {
+      "id": 190,
+      "start": 484.88,
+      "end": 487.24,
+      "text": "So they'll set things up like this."
+    },
+    {
+      "id": 191,
+      "start": 487.24,
+      "end": 489.64,
+      "text": "But then they go ahead and take this delta encoded vector."
+    },
+    {
+      "id": 192,
+      "start": 489.64,
+      "end": 492.8,
+      "text": "Because the index vector you don't actually use, you just materialize it."
+    },
+    {
+      "id": 193,
+      "start": 492.8,
+      "end": 493.76,
+      "text": "It's going to be located."
+    },
+    {
+      "id": 194,
+      "start": 493.76,
+      "end": 496.0,
+      "text": "All this is related to the cost model stuff"
+    },
+    {
+      "id": 195,
+      "start": 496.0,
+      "end": 497.48,
+      "text": "that we talked about before."
+    },
+    {
+      "id": 196,
+      "start": 497.48,
+      "end": 499.72,
+      "text": "And we'll talk about more next week."
+    },
+    {
+      "id": 197,
+      "start": 499.72,
+      "end": 503.28,
+      "text": "So to numerate the plans, there's two categories."
+    },
+    {
+      "id": 198,
+      "start": 503.28,
+      "end": 505.84,
+      "text": "And this is going to be similar to the debate"
+    },
+    {
+      "id": 199,
+      "start": 505.84,
+      "end": 508.92,
+      "text": "between do I want to partition my hash join or not?"
+    },
+    {
+      "id": 200,
+      "start": 508.92,
+      "end": 512.52,
+      "text": "Like the people go back and forth in this."
+    },
+    {
+      "id": 201,
+      "start": 512.52,
+      "end": 515.72,
+      "text": "But for query optimization, the question is going to be do I want to"
+    },
+    {
+      "id": 202,
+      "start": 515.72,
+      "end": 520.52,
+      "text": "enumerate plans and build things up the physical plan from the bottom"
+    },
+    {
+      "id": 203,
+      "start": 520.52,
+      "end": 524.64,
+      "text": "of the query plan to the top or from the top to the bottom?"
+    },
+    {
+      "id": 204,
+      "start": 524.64,
+      "end": 527.24,
+      "text": "Or another way to think about this is am I going to use a generative approach"
+    },
+    {
+      "id": 205,
+      "start": 527.24,
+      "end": 529.8,
+      "text": "or transform it a representative approach?"
+    },
+    {
+      "id": 206,
+      "start": 529.8,
+      "end": 533.12,
+      "text": "So a generative approach would be I start with nothing."
+    },
+    {
+      "id": 207,
+      "start": 533.12,
+      "end": 536.12,
+      "text": "Like I have no physical operators in my query plan."
+    },
+    {
+      "id": 208,
+      "start": 536.12,
+      "end": 539.96,
+      "text": "And then I'm going to iteratively assemble and inject new physical"
+    },
+    {
+      "id": 209,
+      "start": 539.96,
+      "end": 544.64,
+      "text": "operators to work myself up to the final output, the root of the query plan,"
+    },
+    {
+      "id": 210,
+      "start": 544.64,
+      "end": 546.96,
+      "text": "that's going to produce the final result."
+    },
+    {
+      "id": 211,
+      "start": 546.96,
+      "end": 551.48,
+      "text": "And I can do cost-based selection as I go from one level to the next."
+    },
+    {
+      "id": 212,
+      "start": 551.48,
+      "end": 553.12,
+      "text": "So this is what system R is going to do."
+    },
+    {
+      "id": 213,
+      "start": 553.12,
+      "end": 556.96,
+      "text": "This is what Starburst, which is the query optimizer that IBM built later on"
+    },
+    {
+      "id": 214,
+      "start": 556.96,
+      "end": 558.56,
+      "text": "in the 1980s, early 1990s."
+    },
+    {
+      "id": 215,
+      "start": 558.56,
+      "end": 562.08,
+      "text": "This is what they're going to do as well."
+    },
+    {
+      "id": 216,
+      "start": 562.08,
+      "end": 566.72,
+      "text": "The alternative approach is to do the top down transformation"
+    },
+    {
+      "id": 217,
+      "start": 566.72,
+      "end": 570.8,
+      "text": "where I start with the goal that I want, which is the root of the query plan."
+    },
+    {
+      "id": 218,
+      "start": 570.8,
+      "end": 576.28,
+      "text": "Like I want my final output of my query plan to look like this."
+    },
+    {
+      "id": 219,
+      "start": 576.28,
+      "end": 580.28,
+      "text": "I'm joining these tables, it's sort of this way, or whatever it is that's what I want."
+    },
+    {
+      "id": 220,
+      "start": 580.28,
+      "end": 587.52,
+      "text": "And then I'm going to permute it the query plan going down and adding new"
+    },
+    {
+      "id": 221,
+      "start": 587.52,
+      "end": 593.0,
+      "text": "operators that will then feed into my root to then produce the final result that I want."
+    },
+    {
+      "id": 222,
+      "start": 593.0,
+      "end": 598.52,
+      "text": "And it sort of seems like I'm just making hand gestures and going up and down like this."
+    },
+    {
+      "id": 223,
+      "start": 598.52,
+      "end": 599.44,
+      "text": "It's making any sense."
+    },
+    {
+      "id": 224,
+      "start": 599.44,
+      "end": 603.16,
+      "text": "But it does have implications for the scope in which"
+    }
+  ],
+  "language": "en"
+}

@@ -1,0 +1,917 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Carnegie Mellon University's Advanced Database Systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filmed in front of a live studio audience."
+    },
+    {
+      "id": 2,
+      "start": 9.0,
+      "end": 11.0,
+      "text": "Hi, I'm so out of one, I'm getting close."
+    },
+    {
+      "id": 3,
+      "start": 11.0,
+      "end": 13.0,
+      "text": "Hi, I'm getting close."
+    },
+    {
+      "id": 4,
+      "start": 13.0,
+      "end": 15.0,
+      "text": "Hey, I'm off to the studio."
+    },
+    {
+      "id": 5,
+      "start": 15.0,
+      "end": 17.0,
+      "text": "Ah, damn it."
+    },
+    {
+      "id": 6,
+      "start": 17.0,
+      "end": 21.0,
+      "text": "All right, so today we're going to talk about Yellowbric."
+    },
+    {
+      "id": 7,
+      "start": 21.0,
+      "end": 25.0,
+      "text": "And to me, this is a very, very fascinating system."
+    },
+    {
+      "id": 8,
+      "start": 25.0,
+      "end": 28.0,
+      "text": "I probably recognize that they're not a really well-known company."
+    },
+    {
+      "id": 9,
+      "start": 28.0,
+      "end": 32.0,
+      "text": "And I was, you might have come give a talk two years ago."
+    },
+    {
+      "id": 10,
+      "start": 32.0,
+      "end": 34.0,
+      "text": "And then I told the CTO, like, you guys got to write a paper"
+    },
+    {
+      "id": 11,
+      "start": 34.0,
+      "end": 39.0,
+      "text": "with all this great stuff, and being the cider paper you guys are reading."
+    },
+    {
+      "id": 12,
+      "start": 39.0,
+      "end": 41.0,
+      "text": "And it's just, it's wild, right?"
+    },
+    {
+      "id": 13,
+      "start": 41.0,
+      "end": 43.0,
+      "text": "It does bunch of stuff that nobody else does."
+    },
+    {
+      "id": 14,
+      "start": 43.0,
+      "end": 46.0,
+      "text": "And I think it's a good way to think about, like, you know,"
+    },
+    {
+      "id": 15,
+      "start": 46.0,
+      "end": 51.0,
+      "text": "like, for you guys to say, oh, like, yeah, you can just write your own PCIe driver, right?"
+    },
+    {
+      "id": 16,
+      "start": 51.0,
+      "end": 53.0,
+      "text": "Like, insane things like that."
+    },
+    {
+      "id": 17,
+      "start": 53.0,
+      "end": 57.0,
+      "text": "And so from a system perspective, I think it's super fascinating."
+    },
+    {
+      "id": 18,
+      "start": 57.0,
+      "end": 60.0,
+      "text": "But before we jump into that, again, for the administrative stuff,"
+    },
+    {
+      "id": 19,
+      "start": 60.0,
+      "end": 62.0,
+      "text": "this is the last week, last week classes."
+    },
+    {
+      "id": 20,
+      "start": 62.0,
+      "end": 64.0,
+      "text": "Again, the final presentations for the project."
+    },
+    {
+      "id": 21,
+      "start": 64.0,
+      "end": 67.0,
+      "text": "So be next Thursday in this room at 9 a.m."
+    },
+    {
+      "id": 22,
+      "start": 67.0,
+      "end": 70.0,
+      "text": "And then if you go to this post on the outside that I put out last night,"
+    },
+    {
+      "id": 23,
+      "start": 70.0,
+      "end": 75.0,
+      "text": "there's a poll there, select what you want for breakfast on Thursday."
+    },
+    {
+      "id": 24,
+      "start": 75.0,
+      "end": 78.0,
+      "text": "And there'll be information that'll link to the course website that says,"
+    },
+    {
+      "id": 25,
+      "start": 78.0,
+      "end": 82.0,
+      "text": "what's expected or what the deliverables are required for the,"
+    },
+    {
+      "id": 26,
+      "start": 82.0,
+      "end": 84.0,
+      "text": "when you show up on that day."
+    },
+    {
+      "id": 27,
+      "start": 84.0,
+      "end": 85.0,
+      "text": "Okay?"
+    },
+    {
+      "id": 28,
+      "start": 85.0,
+      "end": 88.0,
+      "text": "And the presentations will be 10 minutes."
+    },
+    {
+      "id": 29,
+      "start": 88.0,
+      "end": 91.0,
+      "text": "As those be like a lighthearted thing, we can have fun."
+    },
+    {
+      "id": 30,
+      "start": 91.0,
+      "end": 95.0,
+      "text": "And then the final exam, I'll give it out in class this Wednesday."
+    },
+    {
+      "id": 31,
+      "start": 95.0,
+      "end": 102.0,
+      "text": "And then it'll be due the same day on the final presentation."
+    },
+    {
+      "id": 32,
+      "start": 102.0,
+      "end": 107.0,
+      "text": "I haven't decided whether I should do show with the PDF or email me a PDF or print it out."
+    },
+    {
+      "id": 33,
+      "start": 107.0,
+      "end": 111.0,
+      "text": "I'll probably do PDFs, but I'll clarify on Wednesday."
+    },
+    {
+      "id": 34,
+      "start": 111.0,
+      "end": 112.0,
+      "text": "Okay?"
+    },
+    {
+      "id": 35,
+      "start": 113.0,
+      "end": 115.0,
+      "text": "Any questions about any of this?"
+    },
+    {
+      "id": 36,
+      "start": 115.0,
+      "end": 116.0,
+      "text": "Yes."
+    },
+    {
+      "id": 37,
+      "start": 116.0,
+      "end": 118.0,
+      "text": "How long is the final exam?"
+    },
+    {
+      "id": 38,
+      "start": 118.0,
+      "end": 121.0,
+      "text": "Questions, how long is the final exam?"
+    },
+    {
+      "id": 39,
+      "start": 121.0,
+      "end": 124.0,
+      "text": "It's take home, right?"
+    },
+    {
+      "id": 40,
+      "start": 124.0,
+      "end": 127.0,
+      "text": "So if you do it while you're watching TV, maybe it takes longer."
+    },
+    {
+      "id": 41,
+      "start": 127.0,
+      "end": 128.0,
+      "text": "Right?"
+    },
+    {
+      "id": 42,
+      "start": 128.0,
+      "end": 129.0,
+      "text": "Yeah."
+    },
+    {
+      "id": 43,
+      "start": 129.0,
+      "end": 133.0,
+      "text": "But it's not, again, it's not questions like, what does this paper say?"
+    },
+    {
+      "id": 44,
+      "start": 133.0,
+      "end": 134.0,
+      "text": "What does that paper say?"
+    },
+    {
+      "id": 45,
+      "start": 134.0,
+      "end": 136.0,
+      "text": "Because that's just wrote memorization."
+    },
+    {
+      "id": 46,
+      "start": 136.0,
+      "end": 139.0,
+      "text": "It's really internalizing the various things we've talked about,"
+    },
+    {
+      "id": 47,
+      "start": 139.0,
+      "end": 143.0,
+      "text": "and then seeing in different contexts and then applying it to new situations."
+    },
+    {
+      "id": 48,
+      "start": 143.0,
+      "end": 145.0,
+      "text": "That's what I care about."
+    },
+    {
+      "id": 49,
+      "start": 145.0,
+      "end": 148.0,
+      "text": "Okay, any other questions?"
+    },
+    {
+      "id": 50,
+      "start": 148.0,
+      "end": 154.0,
+      "text": "All right, so, right in the final last class, last Wednesday, we talked about DuckDB,"
+    },
+    {
+      "id": 51,
+      "start": 154.0,
+      "end": 160.0,
+      "text": "which is a fascinating system that's been widely used, but it's obviously not a sort of scale-out,"
+    },
+    {
+      "id": 52,
+      "start": 160.0,
+      "end": 164.0,
+      "text": "OLAP system as we talked about this entire semester."
+    },
+    {
+      "id": 53,
+      "start": 164.0,
+      "end": 168.0,
+      "text": "And then someone suggested, oh, can't they, well, the mother duck stuff,"
+    },
+    {
+      "id": 54,
+      "start": 168.0,
+      "end": 171.0,
+      "text": "can't they take the fragments and scale it out across multiple nodes?"
+    },
+    {
+      "id": 55,
+      "start": 171.0,
+      "end": 174.0,
+      "text": "Again, looking back on mother duck, as far as they can tell, they're not doing that."
+    },
+    {
+      "id": 56,
+      "start": 174.0,
+      "end": 181.0,
+      "text": "They rather scale vertically than horizontally in, in for DuckDB running on the cloud."
+    },
+    {
+      "id": 57,
+      "start": 181.0,
+      "end": 186.0,
+      "text": "All right, so today to sort of lead us into the discussion about Yelabric,"
+    },
+    {
+      "id": 58,
+      "start": 186.0,
+      "end": 192.0,
+      "text": "we haven't really talked about specialized hologram for databases."
+    },
+    {
+      "id": 59,
+      "start": 193.0,
+      "end": 198.0,
+      "text": "But there are databases that are run on GPUs, databases that are run on FPGAs,"
+    },
+    {
+      "id": 60,
+      "start": 198.0,
+      "end": 202.0,
+      "text": "Yelabric is actually one of them, and then we'll see in Redshift next week,"
+    },
+    {
+      "id": 61,
+      "start": 202.0,
+      "end": 206.0,
+      "text": "they'll have their own, because this Amazon, they've fad their own hardware called Aqua,"
+    },
+    {
+      "id": 62,
+      "start": 206.0,
+      "end": 208.0,
+      "text": "where they have custom silicon that they're using."
+    },
+    {
+      "id": 63,
+      "start": 208.0,
+      "end": 213.0,
+      "text": "At least, I think they've discontinued it, though, to accelerate queries."
+    },
+    {
+      "id": 64,
+      "start": 213.0,
+      "end": 215.0,
+      "text": "We'll see how they're doing that."
+    },
+    {
+      "id": 65,
+      "start": 215.0,
+      "end": 220.0,
+      "text": "But there's a long history for databases going back to the 1970s,"
+    },
+    {
+      "id": 66,
+      "start": 220.0,
+      "end": 228.0,
+      "text": "where vendors have tried to rely on hardware accelerators to make the databases go faster."
+    },
+    {
+      "id": 67,
+      "start": 228.0,
+      "end": 232.0,
+      "text": "In the 1970s and the 1980s, these were called the 80s machines,"
+    },
+    {
+      "id": 68,
+      "start": 232.0,
+      "end": 237.0,
+      "text": "thinking like, again, fad, fad and custom chips to make queries run faster,"
+    },
+    {
+      "id": 69,
+      "start": 237.0,
+      "end": 239.0,
+      "text": "or network communication run faster."
+    },
+    {
+      "id": 70,
+      "start": 239.0,
+      "end": 242.0,
+      "text": "The challenge in the 1980s was that if you built custom hardware,"
+    },
+    {
+      "id": 71,
+      "start": 242.0,
+      "end": 246.0,
+      "text": "by the time you designed it, fad it, and put it out for customers,"
+    },
+    {
+      "id": 72,
+      "start": 246.0,
+      "end": 252.0,
+      "text": "the next version of the Motorola 680,000, or Intel's next CPU came out,"
+    },
+    {
+      "id": 73,
+      "start": 252.0,
+      "end": 255.0,
+      "text": "and all the benefits you got from custom hardware were defeated."
+    },
+    {
+      "id": 74,
+      "start": 255.0,
+      "end": 258.0,
+      "text": "And so people haven't really tried custom,"
+    },
+    {
+      "id": 75,
+      "start": 258.0,
+      "end": 262.0,
+      "text": "I got them in the major cloud vendors, there's not a lot of people fadding custom hardware today."
+    },
+    {
+      "id": 76,
+      "start": 262.0,
+      "end": 269.0,
+      "text": "Typically, you see people leveraging FPGAs and GPUs, right, commodity hardware accelerators."
+    },
+    {
+      "id": 77,
+      "start": 269.0,
+      "end": 275.0,
+      "text": "But another way to put together databases and sell them on a prem"
+    },
+    {
+      "id": 78,
+      "start": 275.0,
+      "end": 277.0,
+      "text": "are what are called appliances."
+    },
+    {
+      "id": 79,
+      "start": 277.0,
+      "end": 280.0,
+      "text": "And basically, think of like, you're buying rack units where,"
+    },
+    {
+      "id": 80,
+      "start": 280.0,
+      "end": 284.0,
+      "text": "even though maybe using off-the-shelf hardware, like SSDs or CPUs and so forth,"
+    },
+    {
+      "id": 81,
+      "start": 284.0,
+      "end": 291.0,
+      "text": "but it's set up and tuned and configured such a way that the data is designed to be optimized for it."
+    },
+    {
+      "id": 82,
+      "start": 291.0,
+      "end": 295.0,
+      "text": "So as a bunch of vendors that will sell you big rack units that look like this,"
+    },
+    {
+      "id": 83,
+      "start": 295.0,
+      "end": 301.0,
+      "text": "Oracle's pie the strongest one in this game with something like X-Data or their data's appliance."
+    },
+    {
+      "id": 84,
+      "start": 302.0,
+      "end": 308.0,
+      "text": "And again, it's like you buy the hardware from them and the data system has been optimized and tuned specifically for the machine-ger running one."
+    },
+    {
+      "id": 85,
+      "start": 308.0,
+      "end": 317.0,
+      "text": "Versus like, just downloading the binary, setting it up, and hoping you can configure it correctly on whatever you're running on."
+    },
+    {
+      "id": 86,
+      "start": 317.0,
+      "end": 322.0,
+      "text": "So this is how Yellowbrick started, right? Yellowbrick was an appliance."
+    },
+    {
+      "id": 87,
+      "start": 322.0,
+      "end": 325.0,
+      "text": "So this is from the TTO, the author of the paper you guys read."
+    },
+    {
+      "id": 88,
+      "start": 325.0,
+      "end": 330.0,
+      "text": "He gave a talk with us at CMU a few years ago, and he's had a screenshot here of like,"
+    },
+    {
+      "id": 89,
+      "start": 330.0,
+      "end": 334.0,
+      "text": "this is the Yellowbrick appliance, obviously the things with the yellow."
+    },
+    {
+      "id": 90,
+      "start": 334.0,
+      "end": 339.0,
+      "text": "So a bunch of SSDs and a bunch of CPUs, and the system was designed specifically around it."
+    },
+    {
+      "id": 91,
+      "start": 339.0,
+      "end": 344.0,
+      "text": "And one of the things they did that was really fastening, again, it wasn't just off-the-shelf,"
+    },
+    {
+      "id": 92,
+      "start": 344.0,
+      "end": 349.0,
+      "text": "or it was all off-the-shelf hardware, but it wasn't just like CPU disk and memory,"
+    },
+    {
+      "id": 93,
+      "start": 349.0,
+      "end": 355.0,
+      "text": "they actually used FPGA accelerations built inside of it to do things like,"
+    },
+    {
+      "id": 94,
+      "start": 356.0,
+      "end": 362.0,
+      "text": "do hashing for Bloomfeltters, do decompression of the data coming off the disk,"
+    },
+    {
+      "id": 95,
+      "start": 362.0,
+      "end": 367.0,
+      "text": "to do transposing from the data from rows and columns."
+    },
+    {
+      "id": 96,
+      "start": 367.0,
+      "end": 372.0,
+      "text": "So in the paper you guys read, that was the cloud version."
+    },
+    {
+      "id": 97,
+      "start": 372.0,
+      "end": 377.0,
+      "text": "And the reason why I'm bringing up this up, I think you can still buy this on-prem hardware,"
+    },
+    {
+      "id": 98,
+      "start": 377.0,
+      "end": 380.0,
+      "text": "this appliance from Yellowbrick, the reason why I'm bringing this up,"
+    },
+    {
+      "id": 99,
+      "start": 380.0,
+      "end": 386.0,
+      "text": "because the motivation of the paper, why they did all the insane engineering stuff that they did,"
+    },
+    {
+      "id": 100,
+      "start": 386.0,
+      "end": 394.0,
+      "text": "was they were trying to transition their system from an on-prem custom hardware to a cloud setting"
+    },
+    {
+      "id": 101,
+      "start": 394.0,
+      "end": 401.0,
+      "text": "and still get all the benefits of acceleration that they were getting when they were running their own silicon."
+    },
+    {
+      "id": 102,
+      "start": 401.0,
+      "end": 404.0,
+      "text": "So that's the background of what Yellowbrick is."
+    },
+    {
+      "id": 103,
+      "start": 404.0,
+      "end": 408.0,
+      "text": "So even though, again, the company and the product started in 2014,"
+    },
+    {
+      "id": 104,
+      "start": 408.0,
+      "end": 413.0,
+      "text": "I think the cloud version came out in 2020 or 2021."
+    },
+    {
+      "id": 105,
+      "start": 413.0,
+      "end": 416.0,
+      "text": "So again, I find this system very, very fascinating."
+    },
+    {
+      "id": 106,
+      "start": 416.0,
+      "end": 422.0,
+      "text": "To me, when I first started learning about it, Yellowbrick, when they came out of stealth,"
+    },
+    {
+      "id": 107,
+      "start": 422.0,
+      "end": 426.0,
+      "text": "it reminded me also when I first saw a click house, when you read the things that they were like,"
+    },
+    {
+      "id": 108,
+      "start": 426.0,
+      "end": 428.0,
+      "text": "oh, we do this, this, this, this, this, and this."
+    },
+    {
+      "id": 109,
+      "start": 428.0,
+      "end": 431.0,
+      "text": "And it's like, this is insane, they're doing so many different things."
+    },
+    {
+      "id": 110,
+      "start": 431.0,
+      "end": 433.0,
+      "text": "And that was back when they were just doing FPGA stuff."
+    },
+    {
+      "id": 111,
+      "start": 433.0,
+      "end": 437.0,
+      "text": "And then when the cloud version came out and they were like, oh yeah,"
+    },
+    {
+      "id": 112,
+      "start": 437.0,
+      "end": 441.0,
+      "text": "we're doing kernel bypass with this and custom device drivers for that."
+    },
+    {
+      "id": 113,
+      "start": 441.0,
+      "end": 443.0,
+      "text": "Like, that's insane."
+    },
+    {
+      "id": 114,
+      "start": 443.0,
+      "end": 446.0,
+      "text": "It's almost wonderful sometimes that whether it's actually true,"
+    },
+    {
+      "id": 115,
+      "start": 446.0,
+      "end": 449.0,
+      "text": "and then you meet the people, understand what's actually going on."
+    },
+    {
+      "id": 116,
+      "start": 449.0,
+      "end": 453.0,
+      "text": "And then you see that it is actually all real."
+    },
+    {
+      "id": 117,
+      "start": 453.0,
+      "end": 458.0,
+      "text": "And it's unclear whether the other major do these vendors,"
+    },
+    {
+      "id": 118,
+      "start": 458.0,
+      "end": 462.0,
+      "text": "particularly the Amazon's, the Oracle's, the Microsoft's,"
+    },
+    {
+      "id": 119,
+      "start": 462.0,
+      "end": 466.0,
+      "text": "whether they're doing the same kind of low-level system notmizations"
+    },
+    {
+      "id": 120,
+      "start": 466.0,
+      "end": 468.0,
+      "text": "that Yellowbrick is doing."
+    },
+    {
+      "id": 121,
+      "start": 468.0,
+      "end": 471.0,
+      "text": "For some things, I know that Microsoft makes heavy use of running FPGA's"
+    },
+    {
+      "id": 122,
+      "start": 471.0,
+      "end": 475.0,
+      "text": "or down on the Nix to do filtering and other things."
+    },
+    {
+      "id": 123,
+      "start": 475.0,
+      "end": 481.0,
+      "text": "But again, I don't know whether anybody else is doing the amount of work that they've done."
+    },
+    {
+      "id": 124,
+      "start": 481.0,
+      "end": 483.0,
+      "text": "And certainly, it's risky."
+    },
+    {
+      "id": 125,
+      "start": 483.0,
+      "end": 485.0,
+      "text": "Like, if you're like a brand new database startup to say,"
+    },
+    {
+      "id": 126,
+      "start": 485.0,
+      "end": 490.0,
+      "text": "I'm going to write my own PCIU drivers, it's not something I would actually recommend,"
+    },
+    {
+      "id": 127,
+      "start": 490.0,
+      "end": 491.0,
+      "text": "but they pulled it off."
+    },
+    {
+      "id": 128,
+      "start": 491.0,
+      "end": 494.0,
+      "text": "All right, so it's an O-Lap database system."
+    },
+    {
+      "id": 129,
+      "start": 495.0,
+      "end": 500.0,
+      "text": "That was originally designed for a sort of classic shared nothing architecture."
+    },
+    {
+      "id": 130,
+      "start": 500.0,
+      "end": 504.0,
+      "text": "And then when they transitioned to the cloud, they obviously had to switch to a shared"
+    },
+    {
+      "id": 131,
+      "start": 504.0,
+      "end": 505.0,
+      "text": "disk architecture."
+    },
+    {
+      "id": 132,
+      "start": 505.0,
+      "end": 510.0,
+      "text": "And they're going to employ a client-side caching mechanism similar to what we saw in Snowflake."
+    },
+    {
+      "id": 133,
+      "start": 510.0,
+      "end": 512.0,
+      "text": "So everything's in C++."
+    },
+    {
+      "id": 134,
+      "start": 512.0,
+      "end": 515.0,
+      "text": "It's C++ as a fork of Postgres 9.5."
+    },
+    {
+      "id": 135,
+      "start": 515.0,
+      "end": 520.0,
+      "text": "So they're still going to use the Postgres front end for the ODBC, GDBC, wire protocol."
+    },
+    {
+      "id": 136,
+      "start": 520.0,
+      "end": 525.0,
+      "text": "They're still going to use the Postgres parser and the catalog and basically handle all the incoming"
+    },
+    {
+      "id": 137,
+      "start": 525.0,
+      "end": 526.0,
+      "text": "SQL queries."
+    },
+    {
+      "id": 138,
+      "start": 526.0,
+      "end": 533.0,
+      "text": "But then once you get past the parser, they still use remnants of the Postgres query optimizer,"
+    },
+    {
+      "id": 139,
+      "start": 533.0,
+      "end": 540.0,
+      "text": "but they're going to inject their own optimization passes in there to handle the yellow brick specific things."
+    },
+    {
+      "id": 140,
+      "start": 540.0,
+      "end": 546.0,
+      "text": "And then they hand it off to the compiler, we'll get to that in a second."
+    },
+    {
+      "id": 141,
+      "start": 547.0,
+      "end": 554.0,
+      "text": "So the other thing about it in this paper is that, and we sort of speculated it before when we talked about Dremel or Snowflake,"
+    },
+    {
+      "id": 142,
+      "start": 554.0,
+      "end": 559.0,
+      "text": "like, oh, I wonder if they're using Kubernetes or how they're actually running the actual worker nodes themselves."
+    },
+    {
+      "id": 143,
+      "start": 559.0,
+      "end": 562.0,
+      "text": "They're heavily based on Kubernetes."
+    },
+    {
+      "id": 144,
+      "start": 562.0,
+      "end": 572.0,
+      "text": "Like, at all the components in running inside of the system, I'm going to set up as services running in Kubernetes."
+    },
+    {
+      "id": 145,
+      "start": 572.0,
+      "end": 576.0,
+      "text": "And again, the paper talks about how they were surprised to see that even though they were running containers,"
+    },
+    {
+      "id": 146,
+      "start": 576.0,
+      "end": 579.0,
+      "text": "they still could have the low level control over the system hardware."
+    },
+    {
+      "id": 147,
+      "start": 579.0,
+      "end": 584.0,
+      "text": "They do the kind of optimizations that they want to do that they'll still all available to them,"
+    },
+    {
+      "id": 148,
+      "start": 584.0,
+      "end": 588.0,
+      "text": "even though it was running in containers."
+    },
+    {
+      "id": 149,
+      "start": 588.0,
+      "end": 591.0,
+      "text": "So again, everything we'll talk about today will be the cloud version."
+    },
+    {
+      "id": 150,
+      "start": 591.0,
+      "end": 596.0,
+      "text": "So we're not going to talk about the FBGA, we're not going to talk about the other,"
+    },
+    {
+      "id": 151,
+      "start": 596.0,
+      "end": 600.0,
+      "text": "the customers that they were doing on the..."
+    }
+  ],
+  "language": "en"
+}

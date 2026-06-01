@@ -1,0 +1,1055 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.32,
+      "text": "from Caldera as an extension to Impala,"
+    },
+    {
+      "id": 1,
+      "start": 4.32,
+      "end": 5.84,
+      "text": "this thing called QDU."
+    },
+    {
+      "id": 2,
+      "start": 5.84,
+      "end": 7.16,
+      "text": "It was basically the same idea,"
+    },
+    {
+      "id": 3,
+      "start": 7.16,
+      "end": 9.44,
+      "text": "although I don't think they were writing exactly to Park A."
+    },
+    {
+      "id": 4,
+      "start": 9.44,
+      "end": 11.56,
+      "text": "I think they had that run for Park A format."
+    },
+    {
+      "id": 5,
+      "start": 11.56,
+      "end": 16.2,
+      "text": "But same thing, you had this system that could do"
+    },
+    {
+      "id": 6,
+      "start": 16.2,
+      "end": 21.72,
+      "text": "fast updates into a distributed file system."
+    },
+    {
+      "id": 7,
+      "start": 21.72,
+      "end": 24.4,
+      "text": "And they collect the statistics about when the data"
+    },
+    {
+      "id": 8,
+      "start": 24.4,
+      "end": 26.32,
+      "text": "was being ingested, and they then"
+    },
+    {
+      "id": 9,
+      "start": 26.32,
+      "end": 28.64,
+      "text": "threw that mechanical log in and feed that to the choreopimizer"
+    },
+    {
+      "id": 10,
+      "start": 28.64,
+      "end": 32.36,
+      "text": "that you could then access through Impala."
+    },
+    {
+      "id": 11,
+      "start": 32.36,
+      "end": 34.6,
+      "text": "This one, again, I think in Delta Lake,"
+    },
+    {
+      "id": 12,
+      "start": 34.6,
+      "end": 35.96,
+      "text": "I think you can run SQL queries on it."
+    },
+    {
+      "id": 13,
+      "start": 35.96,
+      "end": 40.16,
+      "text": "I know in Houdy and Iceberg, you can using other systems."
+    },
+    {
+      "id": 14,
+      "start": 40.16,
+      "end": 41.48,
+      "text": "But this one was like a really low level"
+    },
+    {
+      "id": 15,
+      "start": 41.48,
+      "end": 45.68,
+      "text": "like getting set interface to do these things."
+    },
+    {
+      "id": 16,
+      "start": 45.68,
+      "end": 47.6,
+      "text": "And then if you ever want to run SQL,"
+    },
+    {
+      "id": 17,
+      "start": 47.6,
+      "end": 51.72,
+      "text": "they would tell you to overrun it on Impala."
+    },
+    {
+      "id": 18,
+      "start": 51.72,
+      "end": 56.16,
+      "text": "So again, this is 2015, well before Delta Lake came along"
+    },
+    {
+      "id": 19,
+      "start": 56.16,
+      "end": 61.2,
+      "text": "as a way to help sell Impala from Cloud Daryl."
+    },
+    {
+      "id": 20,
+      "start": 61.2,
+      "end": 64.36,
+      "text": "So again, the same way, I think we've already said this."
+    },
+    {
+      "id": 21,
+      "start": 64.36,
+      "end": 66.84,
+      "text": "In the same way, Databricks is the huge company,"
+    },
+    {
+      "id": 22,
+      "start": 66.84,
+      "end": 69.12,
+      "text": "database data company now."
+    },
+    {
+      "id": 23,
+      "start": 69.12,
+      "end": 71.36,
+      "text": "That was Cloud Daryl 10 years ago."
+    },
+    {
+      "id": 24,
+      "start": 71.36,
+      "end": 72.8,
+      "text": "But most you probably never heard of Cloud Daryl"
+    },
+    {
+      "id": 25,
+      "start": 72.8,
+      "end": 74.52,
+      "text": "before we started talking about it here."
+    },
+    {
+      "id": 26,
+      "start": 74.52,
+      "end": 76.52,
+      "text": "Right?"
+    },
+    {
+      "id": 27,
+      "start": 76.52,
+      "end": 77.56,
+      "text": "Actually, who here is Cloud Daryl"
+    },
+    {
+      "id": 28,
+      "start": 77.56,
+      "end": 79.56,
+      "text": "before this class?"
+    },
+    {
+      "id": 29,
+      "start": 79.56,
+      "end": 81.24,
+      "text": "Nobody."
+    },
+    {
+      "id": 30,
+      "start": 81.24,
+      "end": 82.36,
+      "text": "That was the hottest company."
+    },
+    {
+      "id": 31,
+      "start": 82.36,
+      "end": 85.0,
+      "text": "They were huge."
+    },
+    {
+      "id": 32,
+      "start": 85.0,
+      "end": 88.4,
+      "text": "And it sort of shows you how quickly things can change"
+    },
+    {
+      "id": 33,
+      "start": 88.4,
+      "end": 90.72,
+      "text": "in technology."
+    },
+    {
+      "id": 34,
+      "start": 90.72,
+      "end": 92.68,
+      "text": "There's other alternatives to this."
+    },
+    {
+      "id": 35,
+      "start": 92.68,
+      "end": 98.56,
+      "text": "Apache Houdy came out of, I think, Uber in 2016."
+    },
+    {
+      "id": 36,
+      "start": 98.56,
+      "end": 99.72,
+      "text": "And a lot of this text is basically"
+    },
+    {
+      "id": 37,
+      "start": 99.72,
+      "end": 103.72,
+      "text": "saying the same thing that I said for Delta Lake and Cudu."
+    },
+    {
+      "id": 38,
+      "start": 103.72,
+      "end": 107.32,
+      "text": "It's a service where you can ingest data."
+    },
+    {
+      "id": 39,
+      "start": 107.32,
+      "end": 110.96,
+      "text": "I think Houdy can support parking or files generating those."
+    },
+    {
+      "id": 40,
+      "start": 110.96,
+      "end": 113.24,
+      "text": "But they're in a class statistics about the data"
+    },
+    {
+      "id": 41,
+      "start": 113.24,
+      "end": 115.16,
+      "text": "as it arrives, sort of in a catalog,"
+    },
+    {
+      "id": 42,
+      "start": 115.16,
+      "end": 119.0,
+      "text": "and then expose it through different sources."
+    },
+    {
+      "id": 43,
+      "start": 119.0,
+      "end": 121.76,
+      "text": "And so this is actually the diagram they have on their homepage."
+    },
+    {
+      "id": 44,
+      "start": 121.76,
+      "end": 124.16,
+      "text": "And it shows you exactly what I've been saying."
+    },
+    {
+      "id": 45,
+      "start": 124.16,
+      "end": 125.88,
+      "text": "Here's all your front-end stuff."
+    },
+    {
+      "id": 46,
+      "start": 125.88,
+      "end": 128.32,
+      "text": "You have these updates coming in from your operational database"
+    },
+    {
+      "id": 47,
+      "start": 128.32,
+      "end": 130.24,
+      "text": "and upstream for your application."
+    },
+    {
+      "id": 48,
+      "start": 130.24,
+      "end": 134.24,
+      "text": "They're feeding into Houdy the updates of to the log."
+    },
+    {
+      "id": 49,
+      "start": 134.24,
+      "end": 135.8,
+      "text": "They'll write them out to what they call the Lakehouse"
+    },
+    {
+      "id": 50,
+      "start": 135.8,
+      "end": 136.28,
+      "text": "platform."
+    },
+    {
+      "id": 51,
+      "start": 136.28,
+      "end": 142.04,
+      "text": "But this is basically HTFS, S3, the Google Cloud Storage,"
+    },
+    {
+      "id": 52,
+      "start": 142.04,
+      "end": 143.0,
+      "text": "and so forth."
+    },
+    {
+      "id": 53,
+      "start": 143.28,
+      "end": 145.24,
+      "text": "Write your object store here."
+    },
+    {
+      "id": 54,
+      "start": 145.24,
+      "end": 148.24,
+      "text": "And then you update the catalog."
+    },
+    {
+      "id": 55,
+      "start": 148.24,
+      "end": 150.76,
+      "text": "I think that's Amazon Glue."
+    },
+    {
+      "id": 56,
+      "start": 150.76,
+      "end": 151.76,
+      "text": "I forget what that one is."
+    },
+    {
+      "id": 57,
+      "start": 151.76,
+      "end": 153.32,
+      "text": "That's high of the Hive catalog."
+    },
+    {
+      "id": 58,
+      "start": 153.32,
+      "end": 154.28,
+      "text": "Each catalog."
+    },
+    {
+      "id": 59,
+      "start": 154.28,
+      "end": 155.52,
+      "text": "You update the meta store, the catalog,"
+    },
+    {
+      "id": 60,
+      "start": 155.52,
+      "end": 156.52,
+      "text": "like here's what my data looks like."
+    },
+    {
+      "id": 61,
+      "start": 156.52,
+      "end": 157.96,
+      "text": "Here's the statistics about it."
+    },
+    {
+      "id": 62,
+      "start": 157.96,
+      "end": 160.24,
+      "text": "And then you have the various query engines"
+    },
+    {
+      "id": 63,
+      "start": 160.24,
+      "end": 161.24,
+      "text": "that we've been talking about."
+    },
+    {
+      "id": 64,
+      "start": 161.24,
+      "end": 164.92,
+      "text": "Be able to read from the catalog, figure out what's in there,"
+    },
+    {
+      "id": 65,
+      "start": 164.92,
+      "end": 167.08,
+      "text": "use the statistics that they generated,"
+    },
+    {
+      "id": 66,
+      "start": 167.08,
+      "end": 172.88,
+      "text": "and then process the data from that the service has generated."
+    },
+    {
+      "id": 67,
+      "start": 172.88,
+      "end": 175.32,
+      "text": "So that's how these things fit into this."
+    },
+    {
+      "id": 68,
+      "start": 175.32,
+      "end": 177.96,
+      "text": "We've been talking about all the stuff back over here."
+    },
+    {
+      "id": 69,
+      "start": 177.96,
+      "end": 180.36,
+      "text": "This is just a way to get the data into the system,"
+    },
+    {
+      "id": 70,
+      "start": 180.36,
+      "end": 183.96,
+      "text": "rather than just writing it directly to the object stores."
+    },
+    {
+      "id": 71,
+      "start": 186.68,
+      "end": 188.64,
+      "text": "The next one, again, that we've been talking about,"
+    },
+    {
+      "id": 72,
+      "start": 188.64,
+      "end": 190.6,
+      "text": "that the catalog teams have been working on,"
+    },
+    {
+      "id": 73,
+      "start": 190.6,
+      "end": 191.92,
+      "text": "is Apache Iceberg."
+    },
+    {
+      "id": 74,
+      "start": 191.92,
+      "end": 194.2,
+      "text": "This one came out of Netflix in 2017."
+    },
+    {
+      "id": 75,
+      "start": 194.2,
+      "end": 196.56,
+      "text": "And again, it's basically the same thing as I just said."
+    },
+    {
+      "id": 76,
+      "start": 196.56,
+      "end": 202.68,
+      "text": "You're ingesting data into the system, collecting stats."
+    },
+    {
+      "id": 77,
+      "start": 202.68,
+      "end": 206.2,
+      "text": "And exposing it to the query engines."
+    },
+    {
+      "id": 78,
+      "start": 206.2,
+      "end": 208.92,
+      "text": "So we'll see next class, when we talk about snowflake,"
+    },
+    {
+      "id": 79,
+      "start": 208.92,
+      "end": 210.64,
+      "text": "this is the only way snowflake is actually"
+    },
+    {
+      "id": 80,
+      "start": 210.64,
+      "end": 215.32,
+      "text": "going to be able to support ingesting or querying data"
+    },
+    {
+      "id": 81,
+      "start": 215.32,
+      "end": 217.64,
+      "text": "that isn't stored in their managed storage."
+    },
+    {
+      "id": 82,
+      "start": 217.64,
+      "end": 219.68,
+      "text": "So they add a support for this in 2021."
+    },
+    {
+      "id": 83,
+      "start": 219.68,
+      "end": 222.8,
+      "text": "Because prior to this, the only way you could query data"
+    },
+    {
+      "id": 84,
+      "start": 222.8,
+      "end": 225.2,
+      "text": "in snowflake is you had to insert it into snowflake."
+    },
+    {
+      "id": 85,
+      "start": 225.2,
+      "end": 228.4,
+      "text": "But now with Iceberg, they can actually feed that"
+    },
+    {
+      "id": 86,
+      "start": 228.4,
+      "end": 230.12,
+      "text": "into their own system."
+    },
+    {
+      "id": 87,
+      "start": 230.12,
+      "end": 232.72,
+      "text": "I forget whether they do wholesale copies,"
+    },
+    {
+      "id": 88,
+      "start": 232.72,
+      "end": 236.12,
+      "text": "or they can access the data where it resides."
+    },
+    {
+      "id": 89,
+      "start": 236.12,
+      "end": 237.88,
+      "text": "We'll see the same transition with Redshift,"
+    },
+    {
+      "id": 90,
+      "start": 237.88,
+      "end": 240.44,
+      "text": "where Redshift only had managed to storage."
+    },
+    {
+      "id": 91,
+      "start": 240.44,
+      "end": 242.08,
+      "text": "They weren't sporting Iceberg, but then they"
+    },
+    {
+      "id": 92,
+      "start": 242.08,
+      "end": 246.84,
+      "text": "added support to read arbitrary files, alpha S3 later on."
+    },
+    {
+      "id": 93,
+      "start": 246.84,
+      "end": 247.36,
+      "text": "OK?"
+    },
+    {
+      "id": 94,
+      "start": 249.8,
+      "end": 253.8,
+      "text": "So again, I think photon is a really interesting system."
+    },
+    {
+      "id": 95,
+      "start": 253.8,
+      "end": 257.48,
+      "text": "Because again, rather than just like what?"
+    },
+    {
+      "id": 96,
+      "start": 258.44,
+      "end": 259.12,
+      "text": "Oh, yeah."
+    },
+    {
+      "id": 97,
+      "start": 259.12,
+      "end": 260.96,
+      "text": "Yeah."
+    },
+    {
+      "id": 98,
+      "start": 260.96,
+      "end": 262.12,
+      "text": "It's true."
+    },
+    {
+      "id": 99,
+      "start": 262.12,
+      "end": 263.28,
+      "text": "So photon is a really interesting system."
+    },
+    {
+      "id": 100,
+      "start": 263.28,
+      "end": 265.36,
+      "text": "But you see the lengths that they had to go to,"
+    },
+    {
+      "id": 101,
+      "start": 265.36,
+      "end": 269.92,
+      "text": "like dealing with the legacy code that they had to support."
+    },
+    {
+      "id": 102,
+      "start": 269.92,
+      "end": 272.28,
+      "text": "And from a business decision, I think it's the right move"
+    },
+    {
+      "id": 103,
+      "start": 272.28,
+      "end": 274.96,
+      "text": "to like don't throw away, which is already working,"
+    },
+    {
+      "id": 104,
+      "start": 274.96,
+      "end": 277.16,
+      "text": "and you're making a lot of money on for your existing customers,"
+    },
+    {
+      "id": 105,
+      "start": 277.16,
+      "end": 280.08,
+      "text": "improve it by being more fine-grained"
+    },
+    {
+      "id": 106,
+      "start": 280.08,
+      "end": 283.24,
+      "text": "and how you integrate the new technologies and new capabilities"
+    },
+    {
+      "id": 107,
+      "start": 283.24,
+      "end": 285.64,
+      "text": "based on all the things we talked about throughout"
+    },
+    {
+      "id": 108,
+      "start": 285.64,
+      "end": 287.44,
+      "text": "the entire semester."
+    },
+    {
+      "id": 109,
+      "start": 287.44,
+      "end": 291.0,
+      "text": "But certainly, if you were going to build a system from scratch"
+    },
+    {
+      "id": 110,
+      "start": 291.0,
+      "end": 294.4,
+      "text": "today, you wouldn't want to go down that path of like taking"
+    },
+    {
+      "id": 111,
+      "start": 294.4,
+      "end": 299.04,
+      "text": "some JVM monster and trying to work around it."
+    },
+    {
+      "id": 112,
+      "start": 299.04,
+      "end": 301.64,
+      "text": "Does make sense to build anything in Java these days."
+    },
+    {
+      "id": 113,
+      "start": 301.64,
+      "end": 303.12,
+      "text": "Yes, Java is getting better."
+    },
+    {
+      "id": 114,
+      "start": 303.12,
+      "end": 304.0,
+      "text": "The GBM is getting not better."
+    },
+    {
+      "id": 115,
+      "start": 304.0,
+      "end": 306.88,
+      "text": "The new garbage collector that just came out a year or two ago"
+    },
+    {
+      "id": 116,
+      "start": 306.88,
+      "end": 309.52,
+      "text": "way better than it used to be."
+    },
+    {
+      "id": 117,
+      "start": 309.52,
+      "end": 312.48,
+      "text": "There are proprietary JVMs that you can get."
+    },
+    {
+      "id": 118,
+      "start": 312.48,
+      "end": 315.84,
+      "text": "That's something like a Zool that's faster than like OpenJDK"
+    },
+    {
+      "id": 119,
+      "start": 315.84,
+      "end": 317.56,
+      "text": "or the one from Oracle."
+    },
+    {
+      "id": 120,
+      "start": 317.56,
+      "end": 320.36,
+      "text": "This is what all the high-frequency traders use."
+    },
+    {
+      "id": 121,
+      "start": 320.36,
+      "end": 321.92,
+      "text": "But again, if you're trying to run something at scale,"
+    },
+    {
+      "id": 122,
+      "start": 321.92,
+      "end": 323.28,
+      "text": "you don't want to pay a license for everything"
+    },
+    {
+      "id": 123,
+      "start": 323.28,
+      "end": 326.84,
+      "text": "or no to use that proprietary JVM."
+    },
+    {
+      "id": 124,
+      "start": 326.84,
+      "end": 331.64,
+      "text": "So building something in Rust, C++, ZIG is probably"
+    },
+    {
+      "id": 125,
+      "start": 331.64,
+      "end": 334.72,
+      "text": "going to be the right choice."
+    },
+    {
+      "id": 126,
+      "start": 334.72,
+      "end": 336.96,
+      "text": "Not the JVM."
+    },
+    {
+      "id": 127,
+      "start": 336.96,
+      "end": 338.84,
+      "text": "But again, there's a lot of systems that are in this path."
+    },
+    {
+      "id": 128,
+      "start": 338.84,
+      "end": 343.2,
+      "text": "We saw this with we mentioned Presto and Trino."
+    },
+    {
+      "id": 129,
+      "start": 343.2,
+      "end": 346.48,
+      "text": "Presto, the one that is at a Facebook,"
+    },
+    {
+      "id": 130,
+      "start": 346.48,
+      "end": 350.04,
+      "text": "they're replacing their Java runtime with Velox."
+    },
+    {
+      "id": 131,
+      "start": 350.04,
+      "end": 351.36,
+      "text": "And again, that's a whole lot of replacing"
+    },
+    {
+      "id": 132,
+      "start": 351.36,
+      "end": 353.56,
+      "text": "with the entire query engine rather than the fine-grained thing"
+    },
+    {
+      "id": 133,
+      "start": 353.56,
+      "end": 354.72,
+      "text": "that FOTON does."
+    },
+    {
+      "id": 134,
+      "start": 354.72,
+      "end": 357.04,
+      "text": "Whereas the Trino guys are just going to deal with,"
+    },
+    {
+      "id": 135,
+      "start": 357.04,
+      "end": 360.04,
+      "text": "they're going to stick with Java."
+    },
+    {
+      "id": 136,
+      "start": 360.04,
+      "end": 362.76,
+      "text": "Legacy code."
+    },
+    {
+      "id": 137,
+      "start": 362.76,
+      "end": 365.6,
+      "text": "All right, so again, next class on Monday,"
+    },
+    {
+      "id": 138,
+      "start": 365.6,
+      "end": 368.04,
+      "text": "we're talking about Snowflake."
+    },
+    {
+      "id": 139,
+      "start": 368.04,
+      "end": 372.4,
+      "text": "And the Snowflake architecture is going to look like Jummel."
+    },
+    {
+      "id": 140,
+      "start": 372.4,
+      "end": 374.48,
+      "text": "The paper you're going to read from 2016"
+    },
+    {
+      "id": 141,
+      "start": 374.48,
+      "end": 376.6,
+      "text": "is we more about the managed storage"
+    },
+    {
+      "id": 142,
+      "start": 376.6,
+      "end": 379.4,
+      "text": "that they provide where the data sets and controls everything."
+    },
+    {
+      "id": 143,
+      "start": 379.4,
+      "end": 382.52,
+      "text": "But then we'll talk about how they integrate with iceberg"
+    },
+    {
+      "id": 144,
+      "start": 382.52,
+      "end": 387.04,
+      "text": "and be able to handle updates in the newer versions of Snowflake."
+    },
+    {
+      "id": 145,
+      "start": 387.04,
+      "end": 388.56,
+      "text": "But again, the high level architecture is going to look"
+    },
+    {
+      "id": 146,
+      "start": 388.56,
+      "end": 389.48,
+      "text": "like the same."
+    },
+    {
+      "id": 147,
+      "start": 389.48,
+      "end": 391.8,
+      "text": "It's going to smell a lot like vector-wise in X100"
+    },
+    {
+      "id": 148,
+      "start": 391.8,
+      "end": 394.56,
+      "text": "because one of the co-founders of Snowflake"
+    },
+    {
+      "id": 149,
+      "start": 394.56,
+      "end": 398.4,
+      "text": "was the guy that wrote X100 at a CWI."
+    },
+    {
+      "id": 150,
+      "start": 398.4,
+      "end": 401.64,
+      "text": "So we'll see a lot of similarities of the systems"
+    },
+    {
+      "id": 151,
+      "start": 401.64,
+      "end": 403.6,
+      "text": "except that the vector-wise stuff we talked about"
+    },
+    {
+      "id": 152,
+      "start": 403.6,
+      "end": 405.96,
+      "text": "was running on-prem where the paper you guys"
+    },
+    {
+      "id": 153,
+      "start": 405.96,
+      "end": 408.48,
+      "text": "read about running in the cloud has a service."
+    },
+    {
+      "id": 154,
+      "start": 408.48,
+      "end": 409.48,
+      "text": "OK?"
+    },
+    {
+      "id": 155,
+      "start": 409.48,
+      "end": 411.0,
+      "text": "Take out your own great hiding."
+    },
+    {
+      "id": 156,
+      "start": 411.0,
+      "end": 413.28,
+      "text": "You got a belt to get the 40-ounce bottle."
+    },
+    {
+      "id": 157,
+      "start": 413.28,
+      "end": 416.08,
+      "text": "Get a grip, take a sip, and you'll be picking up bottles."
+    },
+    {
+      "id": 158,
+      "start": 416.08,
+      "end": 417.44,
+      "text": "Ain't ain't no puzzle, I just a cousin,"
+    },
+    {
+      "id": 159,
+      "start": 417.44,
+      "end": 418.08,
+      "text": "because I'm more a man."
+    },
+    {
+      "id": 160,
+      "start": 418.08,
+      "end": 420.84,
+      "text": "I'm telling the 40, I'm a 40-ounce store can."
+    },
+    {
+      "id": 161,
+      "start": 420.84,
+      "end": 422.88,
+      "text": "Stack the six-packed soda table."
+    },
+    {
+      "id": 162,
+      "start": 422.88,
+      "end": 425.16,
+      "text": "And I'm able to see Santa's on the label."
+    },
+    {
+      "id": 163,
+      "start": 425.16,
+      "end": 427.12,
+      "text": "No sure, put the cloths, you know what got them."
+    },
+    {
+      "id": 164,
+      "start": 427.12,
+      "end": 429.72,
+      "text": "I take off the cap, my first on tap on the bottle."
+    },
+    {
+      "id": 165,
+      "start": 429.72,
+      "end": 431.64,
+      "text": "Throw my three in the freezer, throw my controller."
+    },
+    {
+      "id": 166,
+      "start": 431.64,
+      "end": 432.88,
+      "text": "Careful with the bottle, baby."
+    },
+    {
+      "id": 167,
+      "start": 432.88,
+      "end": 434.24,
+      "text": "You can still spill it."
+    },
+    {
+      "id": 168,
+      "start": 434.24,
+      "end": 436.44,
+      "text": "Go say now, since it says the paint lies wet,"
+    },
+    {
+      "id": 169,
+      "start": 436.44,
+      "end": 438.76,
+      "text": "you drink it down with the gauze that it's had."
+    },
+    {
+      "id": 170,
+      "start": 438.76,
+      "end": 440.48,
+      "text": "Take back the pack of drugs."
+    },
+    {
+      "id": 171,
+      "start": 440.48,
+      "end": 443.28,
+      "text": "It won't get you some safe knives to drink it to the front."
+    },
+    {
+      "id": 172,
+      "start": 443.28,
+      "end": 444.48,
+      "text": "Billy Danes, the chili tea,"
+    },
+    {
+      "id": 173,
+      "start": 444.48,
+      "end": 445.88,
+      "text": "she's telling the weak guys."
+    },
+    {
+      "id": 174,
+      "start": 445.88,
+      "end": 448.0,
+      "text": "Be a man to get a can of plain thought."
+    }
+  ],
+  "language": "en"
+}

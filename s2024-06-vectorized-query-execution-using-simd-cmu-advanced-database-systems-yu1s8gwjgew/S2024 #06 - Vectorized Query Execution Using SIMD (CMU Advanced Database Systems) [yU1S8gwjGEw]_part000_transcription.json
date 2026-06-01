@@ -1,0 +1,827 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Caniki Mellon University's advanced database systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filmed in front of a live studio audience?"
+    },
+    {
+      "id": 2,
+      "start": 14.0,
+      "end": 18.0,
+      "text": "So today we're going to talk about vectorized query execution."
+    },
+    {
+      "id": 3,
+      "start": 18.0,
+      "end": 21.0,
+      "text": "Again, this has been the thing we've been leading up to the entire semester."
+    },
+    {
+      "id": 4,
+      "start": 21.0,
+      "end": 25.0,
+      "text": "Like we've been saying this is the one of the ways that a modern"
+    },
+    {
+      "id": 5,
+      "start": 25.0,
+      "end": 27.0,
+      "text": "OLAP system is going to get good query performance."
+    },
+    {
+      "id": 6,
+      "start": 27.0,
+      "end": 30.0,
+      "text": "We'll see why and why and why it doesn't always do this."
+    },
+    {
+      "id": 7,
+      "start": 30.0,
+      "end": 35.0,
+      "text": "So last class we talked about how to take a query plan,"
+    },
+    {
+      "id": 8,
+      "start": 35.0,
+      "end": 38.0,
+      "text": "divide it up into pipelines and run them in parallel."
+    },
+    {
+      "id": 9,
+      "start": 38.0,
+      "end": 42.0,
+      "text": "So this is a method of task parallelization."
+    },
+    {
+      "id": 10,
+      "start": 42.0,
+      "end": 46.0,
+      "text": "So how to take a query plan, bring up the task, and run"
+    },
+    {
+      "id": 11,
+      "start": 46.0,
+      "end": 50.0,
+      "text": "run it as much as I can in about query compilation and co-generation."
+    },
+    {
+      "id": 12,
+      "start": 50.0,
+      "end": 52.0,
+      "text": "And again, sort of like the vectorization stuff."
+    },
+    {
+      "id": 13,
+      "start": 52.0,
+      "end": 56.0,
+      "text": "It's another technique we can use to make our queries run faster and run faster and run better."
+    },
+    {
+      "id": 14,
+      "start": 56.0,
+      "end": 60.0,
+      "text": "So the high level we understand we could run things in parallel with the co-less things with exchange operators."
+    },
+    {
+      "id": 15,
+      "start": 60.0,
+      "end": 65.0,
+      "text": "And then we also discussed how the database system can actually evaluate any kind of expressions"
+    },
+    {
+      "id": 16,
+      "start": 65.0,
+      "end": 69.0,
+      "text": "and aware clause or a join clause."
+    },
+    {
+      "id": 17,
+      "start": 69.0,
+      "end": 76.0,
+      "text": "And we saw this as being a sort of preview to query compilation stuff that we'll talk about on"
+    },
+    {
+      "id": 18,
+      "start": 76.0,
+      "end": 80.0,
+      "text": "or just in compilation and the co-generation stuff we'll talk about on Wednesday this week."
+    },
+    {
+      "id": 19,
+      "start": 80.0,
+      "end": 83.0,
+      "text": "And then we also introduced the idea of query at adaptivity."
+    },
+    {
+      "id": 20,
+      "start": 83.0,
+      "end": 87.0,
+      "text": "We're not going to push in this too much just yet, but it's the idea that the optimizer"
+    },
+    {
+      "id": 21,
+      "start": 87.0,
+      "end": 91.0,
+      "text": "spits out a query plan and then it run time while the database system is executing that query,"
+    },
+    {
+      "id": 22,
+      "start": 91.0,
+      "end": 96.0,
+      "text": "it can decide whether that query plan was a good idea or not and can make some changes"
+    },
+    {
+      "id": 23,
+      "start": 96.0,
+      "end": 101.0,
+      "text": "either to change the ordering that it checks predicates,"
+    },
+    {
+      "id": 24,
+      "start": 101.0,
+      "end": 104.0,
+      "text": "what co-path would use to do certain things."
+    },
+    {
+      "id": 25,
+      "start": 104.0,
+      "end": 109.0,
+      "text": "But then we'll see later in the semester how to do bigger things like change the actual query plan"
+    },
+    {
+      "id": 26,
+      "start": 109.0,
+      "end": 112.0,
+      "text": "on the fly while we're running."
+    },
+    {
+      "id": 27,
+      "start": 113.0,
+      "end": 118.0,
+      "text": "So today's task or today's class is going to be about vectorization."
+    },
+    {
+      "id": 28,
+      "start": 118.0,
+      "end": 124.0,
+      "text": "And the idea here is that we want to take the scalar algorithms that we discussed in the introduction class"
+    },
+    {
+      "id": 29,
+      "start": 124.0,
+      "end": 130.0,
+      "text": "where we're going to operate on a single tuple at a time and in some cases,"
+    },
+    {
+      "id": 30,
+      "start": 130.0,
+      "end": 132.0,
+      "text": "even a single operand at a time."
+    },
+    {
+      "id": 31,
+      "start": 132.0,
+      "end": 138.0,
+      "text": "And we're going to convert them into a vectorized form and rely on a simpede instructions"
+    },
+    {
+      "id": 32,
+      "start": 139.0,
+      "end": 146.0,
+      "text": "that the CPUs provide for us to be able to run multiple operations within an operator"
+    },
+    {
+      "id": 33,
+      "start": 146.0,
+      "end": 150.0,
+      "text": "or expression, whatever we're trying to do, at the same time."
+    },
+    {
+      "id": 34,
+      "start": 150.0,
+      "end": 153.0,
+      "text": "And so this is to be notion as data parallelization."
+    },
+    {
+      "id": 35,
+      "start": 153.0,
+      "end": 159.0,
+      "text": "We're going to have multiple computations occurring at the same time for multiple pieces of data."
+    },
+    {
+      "id": 36,
+      "start": 159.0,
+      "end": 163.0,
+      "text": "And then simpede is going to achieve this."
+    },
+    {
+      "id": 37,
+      "start": 163.0,
+      "end": 166.0,
+      "text": "So why does this matter?"
+    },
+    {
+      "id": 38,
+      "start": 166.0,
+      "end": 172.0,
+      "text": "Well, again, the same way that scaling out across multiple threads, processes, or nodes,"
+    },
+    {
+      "id": 39,
+      "start": 172.0,
+      "end": 178.0,
+      "text": "it's going to give us additional improvement performance because we're not restricted to what a single thread on a single core can do."
+    },
+    {
+      "id": 40,
+      "start": 178.0,
+      "end": 185.0,
+      "text": "In some cases, we can get even bigger speed up because of SIMD because that also can run parallel across multiple cores."
+    },
+    {
+      "id": 41,
+      "start": 185.0,
+      "end": 189.0,
+      "text": "And then the speed up we'll get will be multiplicative."
+    },
+    {
+      "id": 42,
+      "start": 189.0,
+      "end": 195.0,
+      "text": "So every core we can have a data parallel algorithm and across all those cores, they're all running at the same time."
+    },
+    {
+      "id": 43,
+      "start": 196.0,
+      "end": 206.0,
+      "text": "So let's say that on a machine that has 32 cores, assuming I can scale out perfectly linearly, then I can divide my task up into 32 discrete tasks."
+    },
+    {
+      "id": 44,
+      "start": 206.0,
+      "end": 208.0,
+      "text": "So that's a 32x speed up."
+    },
+    {
+      "id": 45,
+      "start": 208.0,
+      "end": 219.0,
+      "text": "And then if I can have a portion of that computation, ignoring how we get 2ples in and out for now, that can run on using SIMD and can do process 4 2ples at a time."
+    },
+    {
+      "id": 46,
+      "start": 219.0,
+      "end": 221.0,
+      "text": "So then it's 32x times 4x."
+    },
+    {
+      "id": 47,
+      "start": 221.0,
+      "end": 228.0,
+      "text": "So in theory, for this scenario here, we could get up to 128x improvement in performance."
+    },
+    {
+      "id": 48,
+      "start": 228.0,
+      "end": 231.0,
+      "text": "And that's just on a single node. And that's pretty significant."
+    },
+    {
+      "id": 49,
+      "start": 231.0,
+      "end": 235.0,
+      "text": "Anything that's, you know, at least an order magnitude is a huge win."
+    },
+    {
+      "id": 50,
+      "start": 235.0,
+      "end": 238.0,
+      "text": "Two orders magnitude would be unheard of."
+    },
+    {
+      "id": 51,
+      "start": 238.0,
+      "end": 248.0,
+      "text": "Now, we're never going to come close to this because as I was saying, there's a bunch of stuff we have to do to get things in and out of the registers, in and out between operators, copying things from disk, sending things over the network."
+    },
+    {
+      "id": 52,
+      "start": 248.0,
+      "end": 251.0,
+      "text": "Like this, we're never even going to come close."
+    },
+    {
+      "id": 53,
+      "start": 251.0,
+      "end": 259.0,
+      "text": "And in some best cases scenario, when we look at some vectorized algorithms, we might get 1.4x speed up if we're lucky."
+    },
+    {
+      "id": 54,
+      "start": 259.0,
+      "end": 262.0,
+      "text": "Right?"
+    },
+    {
+      "id": 55,
+      "start": 262.0,
+      "end": 264.0,
+      "text": "All right, but that doesn't mean we shouldn't be doing this."
+    },
+    {
+      "id": 56,
+      "start": 264.0,
+      "end": 269.0,
+      "text": "All right, so we covered this, I think early in the semester, I did a quick preview of what SIMD actually is."
+    },
+    {
+      "id": 57,
+      "start": 269.0,
+      "end": 271.0,
+      "text": "So I don't want to spend too much time in it."
+    },
+    {
+      "id": 58,
+      "start": 271.0,
+      "end": 277.0,
+      "text": "And the idea goes back to this notion of this classification of what these instructions are actually going to be."
+    },
+    {
+      "id": 59,
+      "start": 277.0,
+      "end": 279.0,
+      "text": "Goes back to the 1960s."
+    },
+    {
+      "id": 60,
+      "start": 279.0,
+      "end": 283.0,
+      "text": "There was this thing called Flynn's taxonomy where he described what system instructions are."
+    },
+    {
+      "id": 61,
+      "start": 283.0,
+      "end": 286.0,
+      "text": "SIMD, and I think MIMD as well."
+    },
+    {
+      "id": 62,
+      "start": 286.0,
+      "end": 290.0,
+      "text": "And I think at the time they're all theoretical, like, you know, you could have these things in the 60s."
+    },
+    {
+      "id": 63,
+      "start": 290.0,
+      "end": 295.0,
+      "text": "But obviously now in the 2020s, you know, these things have been around for quite a while."
+    },
+    {
+      "id": 64,
+      "start": 295.0,
+      "end": 299.0,
+      "text": "So we can exploit them and use them inside of our database systems."
+    },
+    {
+      "id": 65,
+      "start": 299.0,
+      "end": 309.0,
+      "text": "So SIMD is going to be a class of CPU instructions that can allow, again, our processor to do multiple, to do the same operation on multiple pieces of data at the same time."
+    },
+    {
+      "id": 66,
+      "start": 309.0,
+      "end": 317.0,
+      "text": "And the way this is going to work is that we're going to rely on these special SIMD registers as a way to get things into these instructions and out of these instructions."
+    },
+    {
+      "id": 67,
+      "start": 317.0,
+      "end": 325.0,
+      "text": "And the overall goal as we go through is that we want to keep things out in the SIMD registers for as long as possible, do as much processing as we can."
+    },
+    {
+      "id": 68,
+      "start": 325.0,
+      "end": 331.0,
+      "text": "And then tape you guys read talked about because ADX 512, we can achieve this now better than we used to."
+    },
+    {
+      "id": 69,
+      "start": 331.0,
+      "end": 341.0,
+      "text": "You want to keep things out in the SIMD registers as long as possible and only bring it out to the CPU cache or memory when we're done with whatever it is what we're going to do."
+    },
+    {
+      "id": 70,
+      "start": 341.0,
+      "end": 344.0,
+      "text": "So we're going to focus most of this lecture on ADX 512."
+    },
+    {
+      "id": 71,
+      "start": 344.0,
+      "end": 349.0,
+      "text": "But this is showing here that there's every other ISA has their own variants of them."
+    },
+    {
+      "id": 72,
+      "start": 349.0,
+      "end": 355.0,
+      "text": "And in the case of Intel, it goes back to the 1990s when they first put up these MMX stuff."
+    },
+    {
+      "id": 73,
+      "start": 355.0,
+      "end": 356.0,
+      "text": "Yes."
+    },
+    {
+      "id": 74,
+      "start": 356.0,
+      "end": 359.0,
+      "text": "Is PowerPC still a thing?"
+    },
+    {
+      "id": 75,
+      "start": 359.0,
+      "end": 362.0,
+      "text": "The question is PowerPC still a thing?"
+    },
+    {
+      "id": 76,
+      "start": 362.0,
+      "end": 365.0,
+      "text": "I mean, what do you mean still a thing?"
+    },
+    {
+      "id": 77,
+      "start": 365.0,
+      "end": 367.0,
+      "text": "Like, does it exist? Yes, or people are paying a lot of money?"
+    },
+    {
+      "id": 78,
+      "start": 367.0,
+      "end": 369.0,
+      "text": "You can share like one step target."
+    },
+    {
+      "id": 79,
+      "start": 369.0,
+      "end": 373.0,
+      "text": "Oh, what's the market share? A PowerPC for databases? I mean, pretty small."
+    },
+    {
+      "id": 80,
+      "start": 373.0,
+      "end": 378.0,
+      "text": "But there's enough legacy software that's running on some really old steam."
+    },
+    {
+      "id": 81,
+      "start": 378.0,
+      "end": 381.0,
+      "text": "And systems need to run on PowerPC."
+    },
+    {
+      "id": 82,
+      "start": 381.0,
+      "end": 385.0,
+      "text": "I mean, I am asked to still like the number one."
+    },
+    {
+      "id": 83,
+      "start": 385.0,
+      "end": 387.0,
+      "text": "I think I'm going to just tell you."
+    },
+    {
+      "id": 84,
+      "start": 387.0,
+      "end": 392.0,
+      "text": "I saw some reports saying IBM makes most of its money on from IMS more than any other piece of software."
+    },
+    {
+      "id": 85,
+      "start": 392.0,
+      "end": 394.0,
+      "text": "And they invented that for the Apollo Moon mission in the 60s."
+    },
+    {
+      "id": 86,
+      "start": 394.0,
+      "end": 397.0,
+      "text": "Because there's all these banks that are still running on this stuff."
+    },
+    {
+      "id": 87,
+      "start": 397.0,
+      "end": 400.0,
+      "text": "Again, if it's mission critical, you don't want to mess around."
+    },
+    {
+      "id": 88,
+      "start": 400.0,
+      "end": 403.0,
+      "text": "Like, let me just switch to something else."
+    },
+    {
+      "id": 89,
+      "start": 403.0,
+      "end": 406.0,
+      "text": "Because there's the major engineering effort."
+    },
+    {
+      "id": 90,
+      "start": 406.0,
+      "end": 409.0,
+      "text": "And if it fails, then your business is screwed."
+    },
+    {
+      "id": 91,
+      "start": 409.0,
+      "end": 415.0,
+      "text": "PowerPC has some other advantages over X86 for writing things."
+    },
+    {
+      "id": 92,
+      "start": 415.0,
+      "end": 418.0,
+      "text": "Yeah, if you were to go bring a new startup today, would you use PowerPC?"
+    },
+    {
+      "id": 93,
+      "start": 418.0,
+      "end": 419.0,
+      "text": "No."
+    },
+    {
+      "id": 94,
+      "start": 419.0,
+      "end": 423.0,
+      "text": "I mean, you can't get it from any of the cloud vendors."
+    },
+    {
+      "id": 95,
+      "start": 423.0,
+      "end": 429.0,
+      "text": "Okay."
+    },
+    {
+      "id": 96,
+      "start": 430.0,
+      "end": 431.0,
+      "text": "Right, yes."
+    },
+    {
+      "id": 97,
+      "start": 431.0,
+      "end": 438.0,
+      "text": "Again, this is just saying that there's other categories, not really categories,"
+    },
+    {
+      "id": 98,
+      "start": 438.0,
+      "end": 444.0,
+      "text": "or releases of SIMD instructions for different platforms, ISAs, not just the AVX stuff."
+    },
+    {
+      "id": 99,
+      "start": 444.0,
+      "end": 450.0,
+      "text": "But again, we're going to focus on this because when they re-intil put this out,"
+    },
+    {
+      "id": 100,
+      "start": 450.0,
+      "end": 454.0,
+      "text": "they added some additional things that make it better for database systems in a way that we didn't have before."
+    },
+    {
+      "id": 101,
+      "start": 454.0,
+      "end": 457.0,
+      "text": "Or we have to emulate stuff ourselves."
+    },
+    {
+      "id": 102,
+      "start": 457.0,
+      "end": 460.0,
+      "text": "So this is the example that I showed before."
+    },
+    {
+      "id": 103,
+      "start": 460.0,
+      "end": 464.0,
+      "text": "We want to do a simple operation, take two matrices, X plus Y, add them together,"
+    },
+    {
+      "id": 104,
+      "start": 464.0,
+      "end": 467.0,
+      "text": "and produce the new matrix, Z."
+    },
+    {
+      "id": 105,
+      "start": 467.0,
+      "end": 471.0,
+      "text": "So again, if you're going to write this with scalar code or using system instructions,"
+    },
+    {
+      "id": 106,
+      "start": 471.0,
+      "end": 475.0,
+      "text": "you just have a for loop that iterates over every element of X and I,"
+    },
+    {
+      "id": 107,
+      "start": 475.0,
+      "end": 477.0,
+      "text": "and then write out the Z."
+    },
+    {
+      "id": 108,
+      "start": 477.0,
+      "end": 483.0,
+      "text": "So your literally scaling or going through the each element of the two arrays, one by one,"
+    },
+    {
+      "id": 109,
+      "start": 483.0,
+      "end": 489.0,
+      "text": "running one instruction, adding together, and then one store instruction to put it out into the output buffer Z."
+    },
+    {
+      "id": 110,
+      "start": 489.0,
+      "end": 490.0,
+      "text": "Right."
+    },
+    {
+      "id": 111,
+      "start": 490.0,
+      "end": 496.0,
+      "text": "And you know, the compiler can be smart about this, it can unroll it, right, to speed things up."
+    },
+    {
+      "id": 112,
+      "start": 496.0,
+      "end": 501.0,
+      "text": "But for now, at the end of the day, it's still going to execute a single instruction to add two numbers together,"
+    },
+    {
+      "id": 113,
+      "start": 501.0,
+      "end": 505.0,
+      "text": "to write it out to another register, or another write it out to memory."
+    },
+    {
+      "id": 114,
+      "start": 505.0,
+      "end": 511.0,
+      "text": "So SIMD, what we can do is we can take a vector of values,"
+    },
+    {
+      "id": 115,
+      "start": 511.0,
+      "end": 517.0,
+      "text": "and assuming here we're doing 32 bit numbers for elements, so it's a 120 bit bit register,"
+    },
+    {
+      "id": 116,
+      "start": 517.0,
+      "end": 521.0,
+      "text": "can A, V, X, 5, 12, it's going to be 512 bit registers, so we can put more things in there."
+    },
+    {
+      "id": 117,
+      "start": 521.0,
+      "end": 526.0,
+      "text": "So now it's going to be one SIMD instruction to add up the offsets,"
+    },
+    {
+      "id": 118,
+      "start": 526.0,
+      "end": 529.0,
+      "text": "the matching offsets across the two registers, and produce a single output."
+    },
+    {
+      "id": 119,
+      "start": 529.0,
+      "end": 532.0,
+      "text": "And then do the same thing for the other one, add it together and produce the output."
+    },
+    {
+      "id": 120,
+      "start": 532.0,
+      "end": 536.0,
+      "text": "So what took before eight instructions, to do eight addition instructions,"
+    },
+    {
+      "id": 121,
+      "start": 536.0,
+      "end": 538.0,
+      "text": "now we can do it down to two."
+    },
+    {
+      "id": 122,
+      "start": 538.0,
+      "end": 540.0,
+      "text": "Right."
+    },
+    {
+      "id": 123,
+      "start": 540.0,
+      "end": 543.0,
+      "text": "This is why this is going to be important, obviously for databases,"
+    },
+    {
+      "id": 124,
+      "start": 543.0,
+      "end": 546.0,
+      "text": "if we're trying to rip through columns and columns of billions and tuples,"
+    },
+    {
+      "id": 125,
+      "start": 546.0,
+      "end": 549.0,
+      "text": "we want to be able to take advantage of this."
+    },
+    {
+      "id": 126,
+      "start": 551.0,
+      "end": 556.0,
+      "text": "So there's two type of vectorization we can have in our system, in our data system."
+    },
+    {
+      "id": 127,
+      "start": 556.0,
+      "end": 562.0,
+      "text": "The first is what I just showed, or the first would be what is called horizontal vectorization,"
+    },
+    {
+      "id": 128,
+      "start": 562.0,
+      "end": 568.0,
+      "text": "where the idea is that you're going to have some instruction that's going to take all the elements within a SIMD register,"
+    },
+    {
+      "id": 129,
+      "start": 568.0,
+      "end": 570.0,
+      "text": "and then produce a single scalar output."
+    },
+    {
+      "id": 130,
+      "start": 570.0,
+      "end": 576.0,
+      "text": "Like if I want to get the summation of all the elements within this four-lane register here,"
+    },
+    {
+      "id": 131,
+      "start": 576.0,
+      "end": 580.0,
+      "text": "there's some instruction that can do that, and then produces some scalar output there."
+    },
+    {
+      "id": 132,
+      "start": 582.0,
+      "end": 584.0,
+      "text": "Early CPUs don't support this."
+    },
+    {
+      "id": 133,
+      "start": 584.0,
+      "end": 588.0,
+      "text": "It's mostly found in the newer CPUs that can do, or at least on the x86,"
+    },
+    {
+      "id": 134,
+      "start": 588.0,
+      "end": 592.0,
+      "text": "that can do AVX2, which is the precursor to the AVX512."
+    },
+    {
+      "id": 135,
+      "start": 592.0,
+      "end": 596.0,
+      "text": "But this is not going to be entirely useful for the stuff we want to do in databases."
+    },
+    {
+      "id": 136,
+      "start": 596.0,
+      "end": 600.0,
+      "text": "The one we care about is vertical vectorization, where the i..."
+    }
+  ],
+  "language": "en"
+}

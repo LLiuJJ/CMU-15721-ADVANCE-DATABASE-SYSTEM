@@ -1,0 +1,1397 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.4,
+      "text": "you actually need."
+    },
+    {
+      "id": 1,
+      "start": 1.4,
+      "end": 4.88,
+      "text": "But in x86, you actually can pass hints to the CPU and say,"
+    },
+    {
+      "id": 2,
+      "start": 4.88,
+      "end": 8.2,
+      "text": "hey, I'm going to need this memory region pretty soon."
+    },
+    {
+      "id": 3,
+      "start": 8.2,
+      "end": 10.76,
+      "text": "It's not required to actually obey your request."
+    },
+    {
+      "id": 4,
+      "start": 10.76,
+      "end": 13.0,
+      "text": "It's like a hint."
+    },
+    {
+      "id": 5,
+      "start": 13.0,
+      "end": 16.72,
+      "text": "But in some cases, it actually can make a big, big difference."
+    },
+    {
+      "id": 6,
+      "start": 16.72,
+      "end": 18.64,
+      "text": "And this stage is stuff because it's"
+    },
+    {
+      "id": 7,
+      "start": 18.64,
+      "end": 21.28,
+      "text": "sent, you know, it's sent, it's written one pipeline."
+    },
+    {
+      "id": 8,
+      "start": 21.28,
+      "end": 23.04,
+      "text": "So you're breaking up to these sub stages."
+    },
+    {
+      "id": 9,
+      "start": 23.04,
+      "end": 24.56,
+      "text": "It's sort of a nice natural boundary"
+    },
+    {
+      "id": 10,
+      "start": 24.56,
+      "end": 26.08,
+      "text": "for prefetching operations."
+    },
+    {
+      "id": 11,
+      "start": 26.64,
+      "end": 31.4,
+      "text": "So again, this is sort of jumping ahead to do query compilation"
+    },
+    {
+      "id": 12,
+      "start": 31.4,
+      "end": 33.32,
+      "text": "stuff that we talked about before."
+    },
+    {
+      "id": 13,
+      "start": 33.32,
+      "end": 35.88,
+      "text": "But this is showing you that if you do holistic query"
+    },
+    {
+      "id": 14,
+      "start": 35.88,
+      "end": 40.6,
+      "text": "compilation in the same way that hyper does, which"
+    },
+    {
+      "id": 15,
+      "start": 40.6,
+      "end": 42.88,
+      "text": "will read about x class, but then you also introduce"
+    },
+    {
+      "id": 16,
+      "start": 42.88,
+      "end": 46.88,
+      "text": "these relaxed operator fusion stages."
+    },
+    {
+      "id": 17,
+      "start": 46.88,
+      "end": 48.84,
+      "text": "You can get a pretty, pretty good formance."
+    },
+    {
+      "id": 18,
+      "start": 48.84,
+      "end": 51.08,
+      "text": "In this case here, software prefetching doesn't help"
+    },
+    {
+      "id": 19,
+      "start": 51.08,
+      "end": 52.24,
+      "text": "because there's no join."
+    },
+    {
+      "id": 20,
+      "start": 52.24,
+      "end": 54.32,
+      "text": "There wasn't really a good place to say, OK, let me go on"
+    },
+    {
+      "id": 21,
+      "start": 54.32,
+      "end": 55.32,
+      "text": "prefetch."
+    },
+    {
+      "id": 22,
+      "start": 55.32,
+      "end": 57.44,
+      "text": "But in over here, this does make a big difference"
+    },
+    {
+      "id": 23,
+      "start": 57.44,
+      "end": 59.4,
+      "text": "because this query 19 can be broken up"
+    },
+    {
+      "id": 24,
+      "start": 59.4,
+      "end": 61.92,
+      "text": "to these sub stages."
+    },
+    {
+      "id": 25,
+      "start": 61.92,
+      "end": 63.32,
+      "text": "So I think you want to have the highest"
+    },
+    {
+      "id": 26,
+      "start": 63.32,
+      "end": 65.88,
+      "text": "electricity that's going to be the lot of the lot."
+    },
+    {
+      "id": 27,
+      "start": 65.88,
+      "end": 67.28,
+      "text": "Yes, it's going to be the least correct."
+    },
+    {
+      "id": 28,
+      "start": 67.28,
+      "end": 68.24,
+      "text": "Q1 is a high selectivity."
+    },
+    {
+      "id": 29,
+      "start": 68.24,
+      "end": 69.68,
+      "text": "So you're not discarding."
+    },
+    {
+      "id": 30,
+      "start": 69.68,
+      "end": 70.76,
+      "text": "It's basically taking everything."
+    },
+    {
+      "id": 31,
+      "start": 77.04,
+      "end": 77.52,
+      "text": "Let me skip this."
+    },
+    {
+      "id": 32,
+      "start": 77.52,
+      "end": 78.52,
+      "text": "I want to get the hashings."
+    },
+    {
+      "id": 33,
+      "start": 78.52,
+      "end": 81.0,
+      "text": "But basically, this is the old palaton system."
+    },
+    {
+      "id": 34,
+      "start": 81.0,
+      "end": 82.16,
+      "text": "So the interpretive, our interpret engine"
+    },
+    {
+      "id": 35,
+      "start": 82.16,
+      "end": 82.84,
+      "text": "was told crap."
+    },
+    {
+      "id": 36,
+      "start": 83.2,
+      "end": 84.92,
+      "text": "It was garbage."
+    },
+    {
+      "id": 37,
+      "start": 84.92,
+      "end": 86.6,
+      "text": "We converted it to compilation."
+    },
+    {
+      "id": 38,
+      "start": 86.6,
+      "end": 88.48,
+      "text": "So you got this amount of improvement."
+    },
+    {
+      "id": 39,
+      "start": 88.48,
+      "end": 90.08,
+      "text": "And then we're playing RATS-operative fusion with CIMD"
+    },
+    {
+      "id": 40,
+      "start": 90.08,
+      "end": 93.08,
+      "text": "plus RAT-operative fusion CIMD plus pre-fetching."
+    },
+    {
+      "id": 41,
+      "start": 93.08,
+      "end": 94.64,
+      "text": "You get a pretty difficult one."
+    },
+    {
+      "id": 42,
+      "start": 94.64,
+      "end": 96.88,
+      "text": "So again, this will be next week."
+    },
+    {
+      "id": 43,
+      "start": 96.88,
+      "end": 100.24,
+      "text": "But going from a, this is not really like, I don't want"
+    },
+    {
+      "id": 44,
+      "start": 100.24,
+      "end": 102.16,
+      "text": "to get impression that, oh, we searched a compilation."
+    },
+    {
+      "id": 45,
+      "start": 102.16,
+      "end": 103.6,
+      "text": "You're going to get 97 improvement."
+    },
+    {
+      "id": 46,
+      "start": 103.6,
+      "end": 106.72,
+      "text": "This is like crappy student code to like high-end"
+    },
+    {
+      "id": 47,
+      "start": 106.72,
+      "end": 108.96,
+      "text": "per shunt code, who's now a Databricks."
+    },
+    {
+      "id": 48,
+      "start": 108.96,
+      "end": 112.52,
+      "text": "Like that, I'll get you 97% ended in data the week."
+    },
+    {
+      "id": 49,
+      "start": 112.52,
+      "end": 114.76,
+      "text": "The thing I really care about is going down here."
+    },
+    {
+      "id": 50,
+      "start": 114.76,
+      "end": 116.64,
+      "text": "Again, that you can still get a pretty significant bump"
+    },
+    {
+      "id": 51,
+      "start": 116.64,
+      "end": 119.0,
+      "text": "by introducing these stages and vectorizing"
+    },
+    {
+      "id": 52,
+      "start": 119.0,
+      "end": 121.16,
+      "text": "as much as possible."
+    },
+    {
+      "id": 53,
+      "start": 121.16,
+      "end": 124.2,
+      "text": "The newer version of hyper and umbra before this paper"
+    },
+    {
+      "id": 54,
+      "start": 124.2,
+      "end": 126.92,
+      "text": "come out can actually use CIMD and vectorization."
+    },
+    {
+      "id": 55,
+      "start": 126.92,
+      "end": 130.24,
+      "text": "But at the time in 2017 or 2016, they didn't support that,"
+    },
+    {
+      "id": 56,
+      "start": 130.24,
+      "end": 135.6,
+      "text": "because they were doing the push-based execution"
+    },
+    {
+      "id": 57,
+      "start": 135.6,
+      "end": 137.04,
+      "text": "with complete compilation of the queries."
+    },
+    {
+      "id": 58,
+      "start": 137.04,
+      "end": 141.76,
+      "text": "All right, so this is one way to go,"
+    },
+    {
+      "id": 59,
+      "start": 141.76,
+      "end": 145.16,
+      "text": "sort of making sure that we're always utilizing all our buffers."
+    },
+    {
+      "id": 60,
+      "start": 145.16,
+      "end": 147.76,
+      "text": "But again, we did this before ADX 512."
+    },
+    {
+      "id": 61,
+      "start": 147.76,
+      "end": 149.48,
+      "text": "Um, and then the paper you guys read,"
+    },
+    {
+      "id": 62,
+      "start": 149.48,
+      "end": 152.2,
+      "text": "they called this materialization approach."
+    },
+    {
+      "id": 63,
+      "start": 152.2,
+      "end": 155.04,
+      "text": "They also generally discussed two different algorithms"
+    },
+    {
+      "id": 64,
+      "start": 155.04,
+      "end": 159.04,
+      "text": "you could use that try to be clever about deciding when to go back"
+    },
+    {
+      "id": 65,
+      "start": 159.04,
+      "end": 162.0,
+      "text": "and get more tubeless from the, the operator below you."
+    },
+    {
+      "id": 66,
+      "start": 162.0,
+      "end": 163.16,
+      "text": "I think somebody asked a question about this,"
+    },
+    {
+      "id": 67,
+      "start": 163.16,
+      "end": 164.92,
+      "text": "and I said, most systems don't do this,"
+    },
+    {
+      "id": 68,
+      "start": 164.92,
+      "end": 166.32,
+      "text": "but this is one way to do it."
+    },
+    {
+      "id": 69,
+      "start": 166.32,
+      "end": 169.24,
+      "text": "Um, and the challenge course is going to be the bookkeeping"
+    },
+    {
+      "id": 70,
+      "start": 169.24,
+      "end": 171.72,
+      "text": "to keep track of like where, you know,"
+    },
+    {
+      "id": 71,
+      "start": 171.72,
+      "end": 173.72,
+      "text": "where do I leave off from the operator below me"
+    },
+    {
+      "id": 72,
+      "start": 173.72,
+      "end": 175.76,
+      "text": "and where can I write results into."
+    },
+    {
+      "id": 73,
+      "start": 175.76,
+      "end": 178.0,
+      "text": "And they can do this in ADX 512,"
+    },
+    {
+      "id": 74,
+      "start": 178.0,
+      "end": 179.4,
+      "text": "because there's a lot more registers now."
+    },
+    {
+      "id": 75,
+      "start": 179.4,
+      "end": 182.44,
+      "text": "So the idea is that while my operator's running,"
+    },
+    {
+      "id": 76,
+      "start": 182.44,
+      "end": 185.36,
+      "text": "if I realize that I have unutilized lanes,"
+    },
+    {
+      "id": 77,
+      "start": 185.36,
+      "end": 189.04,
+      "text": "I can just leave that, leave all that data in that register,"
+    },
+    {
+      "id": 78,
+      "start": 189.04,
+      "end": 191.68,
+      "text": "go then execute another part of the query"
+    },
+    {
+      "id": 79,
+      "start": 191.68,
+      "end": 193.8,
+      "text": "and have that write to other registers."
+    },
+    {
+      "id": 80,
+      "start": 193.8,
+      "end": 195.08,
+      "text": "And then once that thing gets full,"
+    },
+    {
+      "id": 81,
+      "start": 195.08,
+      "end": 197.24,
+      "text": "then I can combine the two of them together."
+    },
+    {
+      "id": 82,
+      "start": 197.24,
+      "end": 198.72,
+      "text": "At a high level of that, that's what they're doing"
+    },
+    {
+      "id": 83,
+      "start": 198.72,
+      "end": 199.88,
+      "text": "for these real four algorithms."
+    },
+    {
+      "id": 84,
+      "start": 199.88,
+      "end": 201.56,
+      "text": "The question is whether you do,"
+    },
+    {
+      "id": 85,
+      "start": 201.56,
+      "end": 204.44,
+      "text": "you go get more tubeless within your own operator"
+    },
+    {
+      "id": 86,
+      "start": 204.44,
+      "end": 207.16,
+      "text": "by iterating over the loop again,"
+    },
+    {
+      "id": 87,
+      "start": 207.16,
+      "end": 208.4,
+      "text": "or you jump out of that operator,"
+    },
+    {
+      "id": 88,
+      "start": 208.4,
+      "end": 210.04,
+      "text": "go below you in the query plan,"
+    },
+    {
+      "id": 89,
+      "start": 210.04,
+      "end": 211.96,
+      "text": "and let the operator below you now start producing"
+    },
+    {
+      "id": 90,
+      "start": 211.96,
+      "end": 213.88,
+      "text": "tubeless off the query of land."
+    },
+    {
+      "id": 91,
+      "start": 213.88,
+      "end": 215.76,
+      "text": "So the buffered one is the one where you stay"
+    },
+    {
+      "id": 92,
+      "start": 215.76,
+      "end": 217.76,
+      "text": "in the same operator."
+    },
+    {
+      "id": 93,
+      "start": 217.76,
+      "end": 219.36,
+      "text": "And the idea is that you use addition registers"
+    },
+    {
+      "id": 94,
+      "start": 219.36,
+      "end": 221.04,
+      "text": "as just sort of stage results,"
+    },
+    {
+      "id": 95,
+      "start": 221.04,
+      "end": 223.28,
+      "text": "and so that the next iteration doesn't overwrite them,"
+    },
+    {
+      "id": 96,
+      "start": 223.28,
+      "end": 224.96,
+      "text": "which is right into another register,"
+    },
+    {
+      "id": 97,
+      "start": 225.04,
+      "end": 226.04,
+      "text": "and then once that gets full,"
+    },
+    {
+      "id": 98,
+      "start": 226.04,
+      "end": 228.44,
+      "text": "you can then use send me instructions to compile them."
+    },
+    {
+      "id": 99,
+      "start": 228.44,
+      "end": 231.16,
+      "text": "The partial one is where they basically spit out"
+    },
+    {
+      "id": 100,
+      "start": 231.16,
+      "end": 233.4,
+      "text": "all the results within the current operator"
+    },
+    {
+      "id": 101,
+      "start": 233.4,
+      "end": 234.68,
+      "text": "to a bunch of registers,"
+    },
+    {
+      "id": 102,
+      "start": 234.68,
+      "end": 236.92,
+      "text": "go down below to another operator,"
+    },
+    {
+      "id": 103,
+      "start": 236.92,
+      "end": 238.08,
+      "text": "have it produce more results"
+    },
+    {
+      "id": 104,
+      "start": 238.08,
+      "end": 239.96,
+      "text": "up to the query plan, pushing it up,"
+    },
+    {
+      "id": 105,
+      "start": 239.96,
+      "end": 243.96,
+      "text": "and then once that's full,"
+    },
+    {
+      "id": 106,
+      "start": 243.96,
+      "end": 246.04,
+      "text": "then you can combine the two of them together."
+    },
+    {
+      "id": 107,
+      "start": 246.04,
+      "end": 249.2,
+      "text": "So you think that the top one is more simple,"
+    },
+    {
+      "id": 108,
+      "start": 249.2,
+      "end": 251.52,
+      "text": "because it's like, okay, let me just call it,"
+    },
+    {
+      "id": 109,
+      "start": 252.32,
+      "end": 256.32,
+      "text": "next on my loop within my same operator,"
+    },
+    {
+      "id": 110,
+      "start": 256.32,
+      "end": 257.44,
+      "text": "but I just make sure that I don't write"
+    },
+    {
+      "id": 111,
+      "start": 257.44,
+      "end": 259.32,
+      "text": "the same register that I wrote before,"
+    },
+    {
+      "id": 112,
+      "start": 259.32,
+      "end": 262.96,
+      "text": "and I don't need to keep track of where I'm actually writing to,"
+    },
+    {
+      "id": 113,
+      "start": 262.96,
+      "end": 265.2,
+      "text": "other than I don't write where I'm right before."
+    },
+    {
+      "id": 114,
+      "start": 265.2,
+      "end": 267.28,
+      "text": "And this one, you're trying to be clever and like,"
+    },
+    {
+      "id": 115,
+      "start": 267.28,
+      "end": 269.36,
+      "text": "okay, I know that there's things up above"
+    },
+    {
+      "id": 116,
+      "start": 269.36,
+      "end": 271.04,
+      "text": "that I could write into, but I can't right now,"
+    },
+    {
+      "id": 117,
+      "start": 271.04,
+      "end": 272.68,
+      "text": "because these leads are being occupied,"
+    },
+    {
+      "id": 118,
+      "start": 272.68,
+      "end": 275.52,
+      "text": "so it's trying to fill things in at a more fine-grained level."
+    },
+    {
+      "id": 119,
+      "start": 277.04,
+      "end": 279.28,
+      "text": "So again, other than Umbra,"
+    },
+    {
+      "id": 120,
+      "start": 279.28,
+      "end": 281.32,
+      "text": "I don't think anybody actually does this."
+    },
+    {
+      "id": 121,
+      "start": 281.32,
+      "end": 285.76,
+      "text": "I think everyone just naively carries along the unused buffers,"
+    },
+    {
+      "id": 122,
+      "start": 285.76,
+      "end": 290.76,
+      "text": "carry along the dead tuples,"
+    },
+    {
+      "id": 123,
+      "start": 291.36,
+      "end": 293.6,
+      "text": "and then just, because it's just easier at the end."
+    },
+    {
+      "id": 124,
+      "start": 296.24,
+      "end": 299.76,
+      "text": "Okay, so so far we covered selection scans,"
+    },
+    {
+      "id": 125,
+      "start": 299.76,
+      "end": 301.92,
+      "text": "a vector refills, I wanna quickly go through two versions"
+    },
+    {
+      "id": 126,
+      "start": 301.92,
+      "end": 304.52,
+      "text": "of hash tables, and then finish up with partition his grips."
+    },
+    {
+      "id": 127,
+      "start": 306.16,
+      "end": 310.08,
+      "text": "So in hash tables, the challenge here is that"
+    },
+    {
+      "id": 128,
+      "start": 310.08,
+      "end": 313.92,
+      "text": "we have this data structure, this hash table,"
+    },
+    {
+      "id": 129,
+      "start": 313.92,
+      "end": 317.6,
+      "text": "that Khan is not really Cindy friendly, right?"
+    },
+    {
+      "id": 130,
+      "start": 317.6,
+      "end": 320.64,
+      "text": "Because it's this long stride of memory,"
+    },
+    {
+      "id": 131,
+      "start": 320.64,
+      "end": 322.48,
+      "text": "but then we need to be able to do comparisons"
+    },
+    {
+      "id": 132,
+      "start": 322.48,
+      "end": 326.92,
+      "text": "within in continuous regions of memory,"
+    },
+    {
+      "id": 133,
+      "start": 326.92,
+      "end": 330.36,
+      "text": "and not within different lanes at the same time,"
+    },
+    {
+      "id": 134,
+      "start": 330.36,
+      "end": 333.16,
+      "text": "and contain different elements, right?"
+    },
+    {
+      "id": 135,
+      "start": 333.16,
+      "end": 336.24,
+      "text": "So the scalar approach would be, you have some input key,"
+    },
+    {
+      "id": 136,
+      "start": 336.24,
+      "end": 337.8,
+      "text": "you hash it with some hash function,"
+    },
+    {
+      "id": 137,
+      "start": 337.8,
+      "end": 339.96,
+      "text": "pretty sure the hash offset, you jump to that offset,"
+    },
+    {
+      "id": 138,
+      "start": 339.96,
+      "end": 342.84,
+      "text": "and then now you just do a linear scan,"
+    },
+    {
+      "id": 139,
+      "start": 342.84,
+      "end": 345.64,
+      "text": "looking at all the keys within the hash table,"
+    },
+    {
+      "id": 140,
+      "start": 345.64,
+      "end": 347.84,
+      "text": "so you find your match and then you're done, right?"
+    },
+    {
+      "id": 141,
+      "start": 349.0,
+      "end": 352.92,
+      "text": "So, the way to use horizontal vectorization"
+    },
+    {
+      "id": 142,
+      "start": 352.92,
+      "end": 355.04,
+      "text": "to make this run faster is that,"
+    },
+    {
+      "id": 143,
+      "start": 356.52,
+      "end": 359.48,
+      "text": "within each offset within the hash table,"
+    },
+    {
+      "id": 144,
+      "start": 359.48,
+      "end": 361.56,
+      "text": "we're actually gonna store four keys,"
+    },
+    {
+      "id": 145,
+      "start": 361.56,
+      "end": 364.08,
+      "text": "with four corresponding values."
+    },
+    {
+      "id": 146,
+      "start": 364.08,
+      "end": 368.24,
+      "text": "So now when I do a look up on a single key, I hash it,"
+    },
+    {
+      "id": 147,
+      "start": 369.08,
+      "end": 371.88,
+      "text": "and mod it by the numbers buckets or slots,"
+    },
+    {
+      "id": 148,
+      "start": 371.88,
+      "end": 373.92,
+      "text": "and then now I land it some memory address,"
+    },
+    {
+      "id": 149,
+      "start": 373.92,
+      "end": 375.24,
+      "text": "now I get four keys,"
+    },
+    {
+      "id": 150,
+      "start": 376.8,
+      "end": 379.0,
+      "text": "and now if I wanna compare, see what I have in match,"
+    },
+    {
+      "id": 151,
+      "start": 379.0,
+      "end": 382.48,
+      "text": "I just duplicate this key in a single register,"
+    },
+    {
+      "id": 152,
+      "start": 382.48,
+      "end": 384.08,
+      "text": "make four copies of it,"
+    },
+    {
+      "id": 153,
+      "start": 384.08,
+      "end": 385.92,
+      "text": "and then do the Cindy comparison,"
+    },
+    {
+      "id": 154,
+      "start": 385.92,
+      "end": 387.88,
+      "text": "and that's gonna produce a bit mask"
+    },
+    {
+      "id": 155,
+      "start": 387.88,
+      "end": 390.12,
+      "text": "that says whether I have a match or not,"
+    },
+    {
+      "id": 156,
+      "start": 390.12,
+      "end": 392.4,
+      "text": "and then whether or not you do the rank,"
+    },
+    {
+      "id": 157,
+      "start": 392.4,
+      "end": 394.4,
+      "text": "see whether these are all zeros or all one,"
+    },
+    {
+      "id": 158,
+      "start": 394.4,
+      "end": 396.24,
+      "text": "then you just do the same thing going down,"
+    },
+    {
+      "id": 159,
+      "start": 396.24,
+      "end": 397.96,
+      "text": "to use leap around, right?"
+    },
+    {
+      "id": 160,
+      "start": 399.76,
+      "end": 401.56,
+      "text": "So that's kinda cute, that's kinda clever."
+    },
+    {
+      "id": 161,
+      "start": 403.04,
+      "end": 404.52,
+      "text": "The problem with this one though is like,"
+    },
+    {
+      "id": 162,
+      "start": 409.84,
+      "end": 411.96,
+      "text": "that like it's, you know, how does this?"
+    },
+    {
+      "id": 163,
+      "start": 415.8,
+      "end": 417.28,
+      "text": "Like what if it's not,"
+    },
+    {
+      "id": 164,
+      "start": 417.28,
+      "end": 420.32,
+      "text": "you know, these keys, these slots might be empty,"
+    },
+    {
+      "id": 165,
+      "start": 420.32,
+      "end": 422.84,
+      "text": "and so I may be going fetching some location,"
+    },
+    {
+      "id": 166,
+      "start": 422.84,
+      "end": 426.04,
+      "text": "and there's like two out of the four keys there,"
+    },
+    {
+      "id": 167,
+      "start": 426.04,
+      "end": 428.76,
+      "text": "so I can't guarantee that I'm always doing"
+    },
+    {
+      "id": 168,
+      "start": 428.76,
+      "end": 430.4,
+      "text": "all my lanes are fully utilized"
+    },
+    {
+      "id": 169,
+      "start": 430.4,
+      "end": 432.36,
+      "text": "when I do the comparison."
+    },
+    {
+      "id": 170,
+      "start": 433.88,
+      "end": 436.4,
+      "text": "So the alternative is to do vertical vectorization,"
+    },
+    {
+      "id": 171,
+      "start": 436.4,
+      "end": 439.44,
+      "text": "and the idea is now, I wanna compare four keys"
+    },
+    {
+      "id": 172,
+      "start": 439.44,
+      "end": 442.44,
+      "text": "at the same time, my hash table is just like before,"
+    },
+    {
+      "id": 173,
+      "start": 442.44,
+      "end": 444.4,
+      "text": "before I do the,"
+    },
+    {
+      "id": 174,
+      "start": 444.4,
+      "end": 446.52,
+      "text": "I have multiple elements which are each slot,"
+    },
+    {
+      "id": 175,
+      "start": 446.52,
+      "end": 450.12,
+      "text": "now it's just again a single key per slot."
+    },
+    {
+      "id": 176,
+      "start": 450.12,
+      "end": 453.56,
+      "text": "So I take my four keys, there's Cindy operations,"
+    },
+    {
+      "id": 177,
+      "start": 453.56,
+      "end": 455.44,
+      "text": "or Cindy instructions, or Cindy hash functions,"
+    },
+    {
+      "id": 178,
+      "start": 455.44,
+      "end": 457.76,
+      "text": "you can use murmur two, I think there's a Cindy version"
+    },
+    {
+      "id": 179,
+      "start": 457.76,
+      "end": 459.88,
+      "text": "of that vector wise use, and then now I'm gonna"
+    },
+    {
+      "id": 180,
+      "start": 459.88,
+      "end": 464.32,
+      "text": "use some hash vector, then I use my Cindy gather"
+    },
+    {
+      "id": 181,
+      "start": 464.32,
+      "end": 466.36,
+      "text": "to go grab these different memory regions,"
+    },
+    {
+      "id": 182,
+      "start": 466.36,
+      "end": 470.32,
+      "text": "put it into now Cindy vector, then do my Cindy compare"
+    },
+    {
+      "id": 183,
+      "start": 470.32,
+      "end": 473.8,
+      "text": "to see whether I have any matches, right?"
+    },
+    {
+      "id": 184,
+      "start": 475.0,
+      "end": 476.64,
+      "text": "Of course now the challenge is gonna be,"
+    },
+    {
+      "id": 185,
+      "start": 476.64,
+      "end": 477.96,
+      "text": "some of these two boys are gonna match,"
+    },
+    {
+      "id": 186,
+      "start": 477.96,
+      "end": 479.96,
+      "text": "some of these two boys aren't gonna match."
+    },
+    {
+      "id": 187,
+      "start": 479.96,
+      "end": 482.04,
+      "text": "So then now in the next iteration,"
+    },
+    {
+      "id": 188,
+      "start": 482.04,
+      "end": 484.12,
+      "text": "I need to, for the ones that don't match,"
+    },
+    {
+      "id": 189,
+      "start": 484.12,
+      "end": 486.68,
+      "text": "they need to all go down by one in my hash table"
+    },
+    {
+      "id": 190,
+      "start": 486.68,
+      "end": 488.28,
+      "text": "to figure out whether there's a match."
+    },
+    {
+      "id": 191,
+      "start": 488.28,
+      "end": 489.44,
+      "text": "But again, I don't wanna keep,"
+    },
+    {
+      "id": 192,
+      "start": 489.44,
+      "end": 491.68,
+      "text": "be doing the same computation over there again,"
+    },
+    {
+      "id": 193,
+      "start": 491.68,
+      "end": 493.12,
+      "text": "for two boys that didn't match."
+    },
+    {
+      "id": 194,
+      "start": 494.36,
+      "end": 497.84,
+      "text": "So I wanna go back and get two new keys"
+    },
+    {
+      "id": 195,
+      "start": 497.84,
+      "end": 500.24,
+      "text": "to fill in the spots that they did match before,"
+    },
+    {
+      "id": 196,
+      "start": 500.24,
+      "end": 503.36,
+      "text": "and then now another round, and I just need to keep track"
+    },
+    {
+      "id": 197,
+      "start": 503.36,
+      "end": 506.28,
+      "text": "of which lane as I'm going along,"
+    },
+    {
+      "id": 198,
+      "start": 506.28,
+      "end": 508.24,
+      "text": "you know, what iteration are they at?"
+    },
+    {
+      "id": 199,
+      "start": 508.24,
+      "end": 512.12,
+      "text": "What location in my hash table do they need to go look at?"
+    },
+    {
+      "id": 200,
+      "start": 512.12,
+      "end": 514.16,
+      "text": "So maybe this thing is sort of waste of computation"
+    },
+    {
+      "id": 201,
+      "start": 514.16,
+      "end": 516.88,
+      "text": "for the middle guys, but that might be okay,"
+    },
+    {
+      "id": 202,
+      "start": 516.88,
+      "end": 519.24,
+      "text": "that might be enough, right?"
+    },
+    {
+      "id": 203,
+      "start": 519.24,
+      "end": 522.2,
+      "text": "So then do the same thing, go do, sorry,"
+    },
+    {
+      "id": 204,
+      "start": 522.2,
+      "end": 525.96,
+      "text": "do the gather to go bring them into Cindy registers"
+    },
+    {
+      "id": 205,
+      "start": 525.96,
+      "end": 528.64,
+      "text": "and do the comparison, until I all might,"
+    },
+    {
+      "id": 206,
+      "start": 528.64,
+      "end": 530.36,
+      "text": "I satisfy all my checks."
+    },
+    {
+      "id": 207,
+      "start": 531.36,
+      "end": 532.84,
+      "text": "What is it that is fairly better than I,"
+    },
+    {
+      "id": 208,
+      "start": 532.84,
+      "end": 536.92,
+      "text": "or is it, is it, is it vertical clearly better?"
+    },
+    {
+      "id": 209,
+      "start": 536.92,
+      "end": 537.92,
+      "text": "Most times yes."
+    },
+    {
+      "id": 210,
+      "start": 539.96,
+      "end": 541.12,
+      "text": "That's it."
+    },
+    {
+      "id": 211,
+      "start": 541.12,
+      "end": 544.12,
+      "text": "So what is the benefit of the horizontal one?"
+    },
+    {
+      "id": 212,
+      "start": 544.12,
+      "end": 546.4,
+      "text": "I feel like you're just doing it."
+    },
+    {
+      "id": 213,
+      "start": 546.4,
+      "end": 549.4,
+      "text": "This question is, what is the benefit of the horizontal one?"
+    },
+    {
+      "id": 214,
+      "start": 549.4,
+      "end": 552.56,
+      "text": "What is the benefit of the horizontal one?"
+    },
+    {
+      "id": 215,
+      "start": 552.56,
+      "end": 554.88,
+      "text": "Again, the paper basically trying,"
+    },
+    {
+      "id": 216,
+      "start": 554.88,
+      "end": 557.84,
+      "text": "for every single core operator in a Davis system,"
+    },
+    {
+      "id": 217,
+      "start": 557.84,
+      "end": 560.32,
+      "text": "they had a vertical and horizontal variant of them,"
+    },
+    {
+      "id": 218,
+      "start": 560.32,
+      "end": 563.48,
+      "text": "to show that you could do it, right?"
+    },
+    {
+      "id": 219,
+      "start": 563.48,
+      "end": 566.08,
+      "text": "And then the measurements of the term,"
+    },
+    {
+      "id": 220,
+      "start": 566.08,
+      "end": 569.24,
+      "text": "oh yeah, the vertical one is always better."
+    },
+    {
+      "id": 221,
+      "start": 571.36,
+      "end": 573.08,
+      "text": "There's something else though that's tricky about this,"
+    },
+    {
+      "id": 222,
+      "start": 573.08,
+      "end": 575.16,
+      "text": "that may not be obvious."
+    },
+    {
+      "id": 223,
+      "start": 577.36,
+      "end": 581.48,
+      "text": "And that is the, there's not always be a guarantee"
+    },
+    {
+      "id": 224,
+      "start": 581.48,
+      "end": 585.12,
+      "text": "that the output two-pots are always gonna be"
+    },
+    {
+      "id": 225,
+      "start": 585.12,
+      "end": 588.64,
+      "text": "in the same order, every single time you run this algorithm,"
+    },
+    {
+      "id": 226,
+      "start": 588.64,
+      "end": 589.48,
+      "text": "right?"
+    },
+    {
+      "id": 227,
+      "start": 590.68,
+      "end": 595.68,
+      "text": "Because the, you're sort of reading the keys"
+    },
+    {
+      "id": 228,
+      "start": 596.48,
+      "end": 598.28,
+      "text": "in a different order, sorry,"
+    },
+    {
+      "id": 229,
+      "start": 598.28,
+      "end": 599.92,
+      "text": "that the output is gonna be in a different order"
+    },
+    {
+      "id": 230,
+      "start": 599.92,
+      "end": 602.72,
+      "text": "than the keys as they come into the operator."
+    },
+    {
+      "id": 231,
+      "start": 603.48,
+      "end": 604.0,
+      "text": "And,"
+    }
+  ],
+  "language": "en"
+}

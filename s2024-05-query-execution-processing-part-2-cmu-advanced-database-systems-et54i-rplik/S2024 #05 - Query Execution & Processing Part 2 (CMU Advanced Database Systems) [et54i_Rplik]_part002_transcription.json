@@ -1,0 +1,953 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 7.0,
+      "text": "here? Like, is it like sorting? No. Could it do?"
+    },
+    {
+      "id": 1,
+      "start": 7.0,
+      "end": 14.0,
+      "text": "Actually, it could be like sort of like maps like this specific amount of the third operator"
+    },
+    {
+      "id": 2,
+      "start": 14.0,
+      "end": 18.0,
+      "text": "to the first thing thing out. It's not a good idea. Yeah, doing that would be a bad idea."
+    },
+    {
+      "id": 3,
+      "start": 18.0,
+      "end": 22.0,
+      "text": "So I'm just taking a bunch of things in like, okay, I'm just going to randomly decide what"
+    },
+    {
+      "id": 4,
+      "start": 22.0,
+      "end": 29.0,
+      "text": "you're not randomly deciding. It's really cool. I'm sorry. It means it's really cool, right?"
+    },
+    {
+      "id": 5,
+      "start": 29.0,
+      "end": 33.0,
+      "text": "I mean, the amount of work that goes to each one. Ideally, but you can't guarantee that."
+    },
+    {
+      "id": 6,
+      "start": 33.0,
+      "end": 37.0,
+      "text": "So like, again, thinking of this case here, it's thinking like, I take something and put in,"
+    },
+    {
+      "id": 7,
+      "start": 37.0,
+      "end": 41.0,
+      "text": "and then I'm going to hash it from some key and then read it from the hash key."
+    },
+    {
+      "id": 8,
+      "start": 41.0,
+      "end": 47.0,
+      "text": "So in that case, again, if I recognize that everything's skewed and it's all going to this operator,"
+    },
+    {
+      "id": 9,
+      "start": 47.0,
+      "end": 50.0,
+      "text": "then maybe I want to do another round of hashing and read it."
+    },
+    {
+      "id": 10,
+      "start": 50.0,
+      "end": 54.0,
+      "text": "But then re-portage him that operator is running one single node."
+    },
+    {
+      "id": 11,
+      "start": 54.0,
+      "end": 57.0,
+      "text": "No. No, not necessarily."
+    },
+    {
+      "id": 12,
+      "start": 57.0,
+      "end": 61.0,
+      "text": "Yeah. Again, BigQuery, this is like, we'll leave it. Yeah, no, it's not necessarily."
+    },
+    {
+      "id": 13,
+      "start": 61.0,
+      "end": 66.0,
+      "text": "BigQuery is going to run a whole separate service that just does shuffle, that just does this."
+    },
+    {
+      "id": 14,
+      "start": 66.0,
+      "end": 72.0,
+      "text": "It's the specific implementation of this specific re-portation that determines it."
+    },
+    {
+      "id": 15,
+      "start": 72.0,
+      "end": 74.0,
+      "text": "So there's no general rule."
+    },
+    {
+      "id": 16,
+      "start": 74.0,
+      "end": 78.0,
+      "text": "Yeah, so his question is, like, okay, this is PowerPoint."
+    },
+    {
+      "id": 17,
+      "start": 78.0,
+      "end": 80.0,
+      "text": "This boxes with arrows is going in, right?"
+    },
+    {
+      "id": 18,
+      "start": 80.0,
+      "end": 84.0,
+      "text": "I'm just giving you the idea that, like, you could have three inputs in and then two inputs coming out."
+    },
+    {
+      "id": 19,
+      "start": 84.0,
+      "end": 87.0,
+      "text": "Very. That logically could build this, right?"
+    },
+    {
+      "id": 20,
+      "start": 87.0,
+      "end": 92.0,
+      "text": "I'm sorry, you could build this based on this other idea and the sophistication of the different limitations"
+    },
+    {
+      "id": 21,
+      "start": 92.0,
+      "end": 94.0,
+      "text": "are going to depend on the various systems."
+    },
+    {
+      "id": 22,
+      "start": 94.0,
+      "end": 101.0,
+      "text": "BigQuery, they fabricate hardware to make this go as fast as possible, right?"
+    },
+    {
+      "id": 23,
+      "start": 101.0,
+      "end": 104.0,
+      "text": "Microsoft doesn't do that. Other people don't do that."
+    },
+    {
+      "id": 24,
+      "start": 104.0,
+      "end": 108.0,
+      "text": "Other people don't actually know, BigQuery is always going to do this."
+    },
+    {
+      "id": 25,
+      "start": 108.0,
+      "end": 115.0,
+      "text": "And it gives them, you know, it seems like it would be expensive, but it opens up a lot of opportunities to do adaptivity later on."
+    },
+    {
+      "id": 26,
+      "start": 118.0,
+      "end": 125.0,
+      "text": "Okay, so, again, you can obviously see how this is just generalization of the other two."
+    },
+    {
+      "id": 27,
+      "start": 125.0,
+      "end": 130.0,
+      "text": "And I'm saying re-portation, again, this is Microsoft's terminology."
+    },
+    {
+      "id": 28,
+      "start": 130.0,
+      "end": 132.0,
+      "text": "Google is going to call it shuffle."
+    },
+    {
+      "id": 29,
+      "start": 132.0,
+      "end": 135.0,
+      "text": "Jeremy, BigQuery is going to call it shuffle."
+    },
+    {
+      "id": 30,
+      "start": 135.0,
+      "end": 139.0,
+      "text": "I forget would thing Databricks might call it shuffle too."
+    },
+    {
+      "id": 31,
+      "start": 139.0,
+      "end": 143.0,
+      "text": "From Matt Reduce to the Hadoop world, they would call this shuffle, right?"
+    },
+    {
+      "id": 32,
+      "start": 143.0,
+      "end": 145.0,
+      "text": "But the idea is more or less the same."
+    },
+    {
+      "id": 33,
+      "start": 145.0,
+      "end": 149.0,
+      "text": "And the question is, again, statement isn't just copying Matt Reduce,"
+    },
+    {
+      "id": 34,
+      "start": 149.0,
+      "end": 151.0,
+      "text": "although around Matt Reduce is copying databases."
+    },
+    {
+      "id": 35,
+      "start": 151.0,
+      "end": 154.0,
+      "text": "And I have a paper that talks about that."
+    },
+    {
+      "id": 36,
+      "start": 154.0,
+      "end": 158.0,
+      "text": "Yes. We can take that one off line."
+    },
+    {
+      "id": 37,
+      "start": 159.0,
+      "end": 164.0,
+      "text": "All right. So, the last type of parallelism is interoperable parallelism."
+    },
+    {
+      "id": 38,
+      "start": 164.0,
+      "end": 171.0,
+      "text": "And the idea here is that within a single query plan itself,"
+    },
+    {
+      "id": 39,
+      "start": 171.0,
+      "end": 175.0,
+      "text": "we could have multiple pipelines running at the same time."
+    },
+    {
+      "id": 40,
+      "start": 175.0,
+      "end": 181.0,
+      "text": "And you sort of think of this like an asynchronous model where you have one pipeline always running,"
+    },
+    {
+      "id": 41,
+      "start": 181.0,
+      "end": 184.0,
+      "text": "but it's producing two flows, and that two flows get fed into some other operator,"
+    },
+    {
+      "id": 42,
+      "start": 184.0,
+      "end": 187.0,
+      "text": "sorry, some other pipeline that's always running as well, right?"
+    },
+    {
+      "id": 43,
+      "start": 187.0,
+      "end": 192.0,
+      "text": "And so you may still need to exchange operators to combine any results from different segments."
+    },
+    {
+      "id": 44,
+      "start": 192.0,
+      "end": 196.0,
+      "text": "But if your query plan allows this, and not all of them do,"
+    },
+    {
+      "id": 45,
+      "start": 196.0,
+      "end": 199.0,
+      "text": "you could get better speed up because now you don't want to run one pipeline,"
+    },
+    {
+      "id": 46,
+      "start": 199.0,
+      "end": 201.0,
+      "text": "and when that's done, then switch over to another one."
+    },
+    {
+      "id": 47,
+      "start": 201.0,
+      "end": 205.0,
+      "text": "You can start running higher parts of the query plan as soon as you have two flows."
+    },
+    {
+      "id": 48,
+      "start": 205.0,
+      "end": 207.0,
+      "text": "Again, when it's allowed."
+    },
+    {
+      "id": 49,
+      "start": 207.0,
+      "end": 209.0,
+      "text": "This is sometimes called pipeline parallelism."
+    },
+    {
+      "id": 50,
+      "start": 209.0,
+      "end": 211.0,
+      "text": "You'll see this mostly in the stream-post-using systems,"
+    },
+    {
+      "id": 51,
+      "start": 211.0,
+      "end": 214.0,
+      "text": "which are not going to talk about this semester."
+    },
+    {
+      "id": 52,
+      "start": 214.0,
+      "end": 219.0,
+      "text": "Examples of that would be Spark streaming,"
+    },
+    {
+      "id": 53,
+      "start": 219.0,
+      "end": 224.0,
+      "text": "not sans pulsars, another one."
+    },
+    {
+      "id": 54,
+      "start": 224.0,
+      "end": 229.0,
+      "text": "There's that one guy who came here for a year, rising wave, right?"
+    },
+    {
+      "id": 55,
+      "start": 229.0,
+      "end": 234.0,
+      "text": "There's a bunch of these systems that are designed as Kafka is probably the biggest example of this."
+    },
+    {
+      "id": 56,
+      "start": 234.0,
+      "end": 238.0,
+      "text": "Yeah, I blanked out on Kafka. Kafka is the big one."
+    },
+    {
+      "id": 57,
+      "start": 238.0,
+      "end": 242.0,
+      "text": "All right, so what we have is again, this unusual query."
+    },
+    {
+      "id": 58,
+      "start": 242.0,
+      "end": 247.0,
+      "text": "It's basically Cartesian product across four tables,"
+    },
+    {
+      "id": 59,
+      "start": 247.0,
+      "end": 250.0,
+      "text": "with no wear clause."
+    },
+    {
+      "id": 60,
+      "start": 250.0,
+      "end": 257.0,
+      "text": "In each of these, I can run each of the pipelines at the same time."
+    },
+    {
+      "id": 61,
+      "start": 257.0,
+      "end": 260.0,
+      "text": "This one up here, and the two ones up here,"
+    },
+    {
+      "id": 62,
+      "start": 260.0,
+      "end": 265.0,
+      "text": "I'm going to be blocked waiting for whatever comes out of these two down here."
+    },
+    {
+      "id": 63,
+      "start": 265.0,
+      "end": 269.0,
+      "text": "As this thing is running, it's sending two pulls up,"
+    },
+    {
+      "id": 64,
+      "start": 269.0,
+      "end": 274.0,
+      "text": "and then it can merely start doing the join on other things once it's available."
+    },
+    {
+      "id": 65,
+      "start": 274.0,
+      "end": 277.0,
+      "text": "I think in Cartesian product, you're trying to match everybody with everybody."
+    },
+    {
+      "id": 66,
+      "start": 277.0,
+      "end": 283.0,
+      "text": "So there's no, you won't have any false negatives,"
+    },
+    {
+      "id": 67,
+      "start": 283.0,
+      "end": 285.0,
+      "text": "because you're just waiting for things to come up,"
+    },
+    {
+      "id": 68,
+      "start": 285.0,
+      "end": 287.0,
+      "text": "and as soon as it comes, you can start matching and producing the output."
+    },
+    {
+      "id": 69,
+      "start": 287.0,
+      "end": 289.0,
+      "text": "Again, this is a stupid example,"
+    },
+    {
+      "id": 70,
+      "start": 289.0,
+      "end": 292.0,
+      "text": "but it gives you the idea that you could run these things at the same time,"
+    },
+    {
+      "id": 71,
+      "start": 292.0,
+      "end": 294.0,
+      "text": "and it's a producer-critical consumer model."
+    },
+    {
+      "id": 72,
+      "start": 294.0,
+      "end": 296.0,
+      "text": "This thing's producing two pulls that it sends up,"
+    },
+    {
+      "id": 73,
+      "start": 296.0,
+      "end": 298.0,
+      "text": "and then that guy's waiting for it for those results."
+    },
+    {
+      "id": 74,
+      "start": 298.0,
+      "end": 303.0,
+      "text": "But again, this is not that common."
+    },
+    {
+      "id": 75,
+      "start": 303.0,
+      "end": 308.0,
+      "text": "Okay, so now let's talk about the paper that I had you guys read."
+    },
+    {
+      "id": 76,
+      "start": 308.0,
+      "end": 314.0,
+      "text": "And the reason I had you guys read the Velox paper is because,"
+    },
+    {
+      "id": 77,
+      "start": 314.0,
+      "end": 317.0,
+      "text": "as I sort of mentioned in the second lecture,"
+    },
+    {
+      "id": 78,
+      "start": 317.0,
+      "end": 321.0,
+      "text": "for the first lecture, that there's this trend now,"
+    },
+    {
+      "id": 79,
+      "start": 321.0,
+      "end": 325.0,
+      "text": "where people have recognized that the elegant O-lap execution engine"
+    },
+    {
+      "id": 80,
+      "start": 325.0,
+      "end": 328.0,
+      "text": "has sort of become a commodity,"
+    },
+    {
+      "id": 81,
+      "start": 328.0,
+      "end": 334.0,
+      "text": "and that there really hasn't been groundbreaking changes in hardware"
+    },
+    {
+      "id": 82,
+      "start": 334.0,
+      "end": 337.0,
+      "text": "that requires to rethink how we want to build everything."
+    },
+    {
+      "id": 83,
+      "start": 337.0,
+      "end": 340.0,
+      "text": "Certainly there's optimizations and improvements over the years,"
+    },
+    {
+      "id": 84,
+      "start": 340.0,
+      "end": 343.0,
+      "text": "but at a high level, like it's a vectorized push-based system,"
+    },
+    {
+      "id": 85,
+      "start": 343.0,
+      "end": 347.0,
+      "text": "well that's what Snowflake invented in 2013, 2012,"
+    },
+    {
+      "id": 86,
+      "start": 347.0,
+      "end": 352.0,
+      "text": "and that's actually what the MooneyDB X100 system was doing back in the day,"
+    },
+    {
+      "id": 87,
+      "start": 352.0,
+      "end": 354.0,
+      "text": "or they weren't doing push-based."
+    },
+    {
+      "id": 88,
+      "start": 354.0,
+      "end": 357.0,
+      "text": "So there's a bunch of these different products that are out there"
+    },
+    {
+      "id": 89,
+      "start": 357.0,
+      "end": 360.0,
+      "text": "that are all more or less doing the same thing,"
+    },
+    {
+      "id": 90,
+      "start": 360.0,
+      "end": 362.0,
+      "text": "and you can sort of think of now,"
+    },
+    {
+      "id": 91,
+      "start": 362.0,
+      "end": 364.0,
+      "text": "instead of if you're going to build a new system from scratch,"
+    },
+    {
+      "id": 92,
+      "start": 364.0,
+      "end": 367.0,
+      "text": "although we are doing that here as part of the class,"
+    },
+    {
+      "id": 93,
+      "start": 367.0,
+      "end": 371.0,
+      "text": "like instead of having to build all the low-level details you would need"
+    },
+    {
+      "id": 94,
+      "start": 371.0,
+      "end": 374.0,
+      "text": "or the functionality for an execution engine,"
+    },
+    {
+      "id": 95,
+      "start": 374.0,
+      "end": 377.0,
+      "text": "it'd be nice if there was something off the shelf we could use"
+    },
+    {
+      "id": 96,
+      "start": 377.0,
+      "end": 381.0,
+      "text": "that could provide this basic functionality for us."
+    },
+    {
+      "id": 97,
+      "start": 381.0,
+      "end": 387.0,
+      "text": "And so that's the idea of these composable libraries for building database systems,"
+    },
+    {
+      "id": 98,
+      "start": 387.0,
+      "end": 391.0,
+      "text": "and that you could, instead of building everything from scratch"
+    },
+    {
+      "id": 99,
+      "start": 391.0,
+      "end": 394.0,
+      "text": "for every new environment, every new workload, or whatever,"
+    },
+    {
+      "id": 100,
+      "start": 394.0,
+      "end": 397.0,
+      "text": "you could just use these things and modify them, extend them for whatever the hardware,"
+    },
+    {
+      "id": 101,
+      "start": 397.0,
+      "end": 400.0,
+      "text": "whatever the application wanted to support."
+    },
+    {
+      "id": 102,
+      "start": 400.0,
+      "end": 402.0,
+      "text": "So the Velox One is probably the most famous one,"
+    },
+    {
+      "id": 103,
+      "start": 402.0,
+      "end": 404.0,
+      "text": "again, at a meta, which we'll cover in a second."
+    },
+    {
+      "id": 104,
+      "start": 404.0,
+      "end": 407.0,
+      "text": "Data Fusion, we're also aware of, which is part of the Aero project,"
+    },
+    {
+      "id": 105,
+      "start": 407.0,
+      "end": 409.0,
+      "text": "which is, I don't feel like it should be a separate thing,"
+    },
+    {
+      "id": 106,
+      "start": 409.0,
+      "end": 412.0,
+      "text": "but that's another story. There's this OAP thing from Intel,"
+    },
+    {
+      "id": 107,
+      "start": 412.0,
+      "end": 415.0,
+      "text": "Polarist is another one, where, again, they're all trying to be these libraries"
+    },
+    {
+      "id": 108,
+      "start": 415.0,
+      "end": 418.0,
+      "text": "to go plot down that are execution engines. Yes."
+    },
+    {
+      "id": 109,
+      "start": 418.0,
+      "end": 420.0,
+      "text": "Data Fusion is close up front and ten, all right?"
+    },
+    {
+      "id": 110,
+      "start": 420.0,
+      "end": 422.0,
+      "text": "We'll get that in a second, yes."
+    },
+    {
+      "id": 111,
+      "start": 422.0,
+      "end": 424.0,
+      "text": "His statement is Data Fusion includes a front end, Velox doesn't."
+    },
+    {
+      "id": 112,
+      "start": 424.0,
+      "end": 427.0,
+      "text": "Yes. But you don't have to use the Data Fusion front end."
+    },
+    {
+      "id": 113,
+      "start": 427.0,
+      "end": 432.0,
+      "text": "You could just use the execution ended, right?"
+    },
+    {
+      "id": 114,
+      "start": 433.0,
+      "end": 438.0,
+      "text": "So Velox is, is again, came out of a meta."
+    },
+    {
+      "id": 115,
+      "start": 438.0,
+      "end": 442.0,
+      "text": "And when I liked about the paper, they talked about how the digital motivation for this was,"
+    },
+    {
+      "id": 116,
+      "start": 442.0,
+      "end": 445.0,
+      "text": "they looked across the entire organization of meta,"
+    },
+    {
+      "id": 117,
+      "start": 445.0,
+      "end": 450.0,
+      "text": "and they saw people reinventing the wheel over and over again building these custom"
+    },
+    {
+      "id": 118,
+      "start": 450.0,
+      "end": 453.0,
+      "text": "execution engines that were at a high level all doing the same thing."
+    },
+    {
+      "id": 119,
+      "start": 453.0,
+      "end": 458.0,
+      "text": "And it was a bunch of wasted effort where everyone's trying to do the same"
+    },
+    {
+      "id": 120,
+      "start": 459.0,
+      "end": 462.0,
+      "text": "snowflake style optimizations to all these execution engines."
+    },
+    {
+      "id": 121,
+      "start": 462.0,
+      "end": 467.0,
+      "text": "And they would end up having different semantics and understanding"
+    },
+    {
+      "id": 122,
+      "start": 467.0,
+      "end": 472.0,
+      "text": "and data types and other capabilities, and it would be really hard to sort of transfer"
+    },
+    {
+      "id": 123,
+      "start": 472.0,
+      "end": 475.0,
+      "text": "any one from one workload running on one system to another system."
+    },
+    {
+      "id": 124,
+      "start": 475.0,
+      "end": 479.0,
+      "text": "Or the one example he mentions in the paper is that they did a survey"
+    },
+    {
+      "id": 125,
+      "start": 479.0,
+      "end": 483.0,
+      "text": "and they found 12 different implementations of the substring function in all of the meta,"
+    },
+    {
+      "id": 126,
+      "start": 483.0,
+      "end": 486.0,
+      "text": "where sometimes they started with zero, sometimes they started with one,"
+    },
+    {
+      "id": 127,
+      "start": 487.0,
+      "end": 489.0,
+      "text": "sometimes they took null, sometimes they threw exceptions,"
+    },
+    {
+      "id": 128,
+      "start": 489.0,
+      "end": 491.0,
+      "text": "everything was completely different."
+    },
+    {
+      "id": 129,
+      "start": 491.0,
+      "end": 495.0,
+      "text": "And so they were trying to unify this or having Velox be this,"
+    },
+    {
+      "id": 130,
+      "start": 495.0,
+      "end": 502.0,
+      "text": "again, this low level execution engine library that could you could extend for"
+    },
+    {
+      "id": 131,
+      "start": 502.0,
+      "end": 506.0,
+      "text": "the different categories of workloads or different environments that they want to support across meta."
+    },
+    {
+      "id": 132,
+      "start": 506.0,
+      "end": 511.0,
+      "text": "And then have a small team make that one really, really fast instead of random people"
+    },
+    {
+      "id": 133,
+      "start": 512.0,
+      "end": 514.0,
+      "text": "trying to re-event the wheel."
+    },
+    {
+      "id": 134,
+      "start": 514.0,
+      "end": 521.0,
+      "text": "So as he said, in Velox, it's not something you just plop down and immediately use."
+    },
+    {
+      "id": 135,
+      "start": 521.0,
+      "end": 525.0,
+      "text": "There's no front end, there's no SQL parser, there's no query optimizer,"
+    },
+    {
+      "id": 136,
+      "start": 525.0,
+      "end": 528.0,
+      "text": "there's no metadata catalog, there's nothing to keep track of what tables you have."
+    },
+    {
+      "id": 137,
+      "start": 528.0,
+      "end": 533.0,
+      "text": "It literally is just just the execution engine that implements the operators."
+    },
+    {
+      "id": 138,
+      "start": 533.0,
+      "end": 538.0,
+      "text": "They have a little bit more things that can do the, they have some memory management,"
+    },
+    {
+      "id": 139,
+      "start": 538.0,
+      "end": 544.0,
+      "text": "thread management, they have connectors to read data from different sources."
+    },
+    {
+      "id": 140,
+      "start": 544.0,
+      "end": 548.0,
+      "text": "But I mean, that's the core, the really thing that try to optimize essentially"
+    },
+    {
+      "id": 141,
+      "start": 548.0,
+      "end": 552.0,
+      "text": "to be running these operators in parallel in a vectorized manner."
+    },
+    {
+      "id": 142,
+      "start": 552.0,
+      "end": 555.0,
+      "text": "So the input is going to be a physical plan, a data operators,"
+    },
+    {
+      "id": 143,
+      "start": 555.0,
+      "end": 558.0,
+      "text": "and then it's going to produce some output wherever you tell it to go."
+    },
+    {
+      "id": 144,
+      "start": 558.0,
+      "end": 562.0,
+      "text": "And again, it's not like you just, you know, it's an excuse of you run,"
+    },
+    {
+      "id": 145,
+      "start": 562.0,
+      "end": 565.0,
+      "text": "you have to build this in the context of a larger system."
+    },
+    {
+      "id": 146,
+      "start": 565.0,
+      "end": 568.0,
+      "text": "Right?"
+    },
+    {
+      "id": 147,
+      "start": 568.0,
+      "end": 572.0,
+      "text": "So for all the systems we're going to cover throughout the semester,"
+    },
+    {
+      "id": 148,
+      "start": 572.0,
+      "end": 576.0,
+      "text": "we'll try to do this quick summary to say, here's the core features that they have."
+    },
+    {
+      "id": 149,
+      "start": 576.0,
+      "end": 579.0,
+      "text": "And then you have this mental check lesson, say, okay, I have a high,"
+    },
+    {
+      "id": 150,
+      "start": 579.0,
+      "end": 581.0,
+      "text": "high level understanding of what they're actually doing."
+    },
+    {
+      "id": 151,
+      "start": 581.0,
+      "end": 584.0,
+      "text": "So when we talk about the A to Bix photon and Snowflake and other things,"
+    },
+    {
+      "id": 152,
+      "start": 584.0,
+      "end": 586.0,
+      "text": "we'll try to do the same things like, here's the key things that they have"
+    },
+    {
+      "id": 153,
+      "start": 586.0,
+      "end": 589.0,
+      "text": "based on everything we talked about this semester."
+    },
+    {
+      "id": 154,
+      "start": 589.0,
+      "end": 592.0,
+      "text": "So Velox is me a push-based vectorized query processing engine."
+    },
+    {
+      "id": 155,
+      "start": 592.0,
+      "end": 597.0,
+      "text": "They're going to use pre-compared primitives and co-gen for expressions in C++."
+    },
+    {
+      "id": 156,
+      "start": 597.0,
+      "end": 599.0,
+      "text": "Again, we haven't discussed what this is."
+    },
+    {
+      "id": 157,
+      "start": 599.0,
+      "end": 601.0,
+      "text": "That'll be the paper."
+    }
+  ],
+  "language": "en"
+}

@@ -1,0 +1,983 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.82,
+      "text": "in the order by, you can put a select statement inside the"
+    },
+    {
+      "id": 1,
+      "start": 2.82,
+      "end": 5.1,
+      "text": "order by clause, in some cases, but I don't think it"
+    },
+    {
+      "id": 2,
+      "start": 5.1,
+      "end": 6.1,
+      "text": "actually works."
+    },
+    {
+      "id": 3,
+      "start": 6.1,
+      "end": 9.0,
+      "text": "Right? And the way to think of a nested query or subquery is"
+    },
+    {
+      "id": 4,
+      "start": 9.0,
+      "end": 11.74,
+      "text": "that it's basically like a function that like I have some"
+    },
+    {
+      "id": 5,
+      "start": 11.74,
+      "end": 14.34,
+      "text": "outer query, I'm going to poke into it and maybe pass in some"
+    },
+    {
+      "id": 6,
+      "start": 14.34,
+      "end": 17.5,
+      "text": "information or not about what the outer query is, the two"
+    },
+    {
+      "id": 7,
+      "start": 17.5,
+      "end": 20.18,
+      "text": "I'm looking at in the outer query, and then I'm going to"
+    },
+    {
+      "id": 8,
+      "start": 20.18,
+      "end": 23.98,
+      "text": "produce some, some, some result that I can then use for,"
+    },
+    {
+      "id": 9,
+      "start": 23.98,
+      "end": 26.46,
+      "text": "for my outer query. And this is important because this"
+    },
+    {
+      "id": 10,
+      "start": 26.46,
+      "end": 29.7,
+      "text": "allows people to write more expensive things in a single"
+    },
+    {
+      "id": 11,
+      "start": 29.7,
+      "end": 32.9,
+      "text": "query rather than have to run multiple queries, stage it in"
+    },
+    {
+      "id": 12,
+      "start": 32.9,
+      "end": 38.1,
+      "text": "temp tables or whatever, and then put it all together at the"
+    },
+    {
+      "id": 13,
+      "start": 38.1,
+      "end": 41.1,
+      "text": "end. So there's this key distinction that's going to matter"
+    },
+    {
+      "id": 14,
+      "start": 41.1,
+      "end": 43.5,
+      "text": "a lot between uncorrelated and correlated subquers. And the"
+    },
+    {
+      "id": 15,
+      "start": 43.5,
+      "end": 47.1,
+      "text": "TLDR is that uncorrelated ones are easy. Most data systems"
+    },
+    {
+      "id": 16,
+      "start": 47.1,
+      "end": 49.7,
+      "text": "will be able to handle those. It's the correlated ones that"
+    },
+    {
+      "id": 17,
+      "start": 49.7,
+      "end": 53.3,
+      "text": "are going to cause problems. The uncorrelated ones basically"
+    },
+    {
+      "id": 18,
+      "start": 53.3,
+      "end": 56.8,
+      "text": "means that the, whatever my subquery is, doesn't depend on"
+    },
+    {
+      "id": 19,
+      "start": 57.0,
+      "end": 60.64,
+      "text": "anything on the outer query. I'm not using any information or any"
+    },
+    {
+      "id": 20,
+      "start": 60.64,
+      "end": 63.72,
+      "text": "attributes, any tuple data from the outer query to run that"
+    },
+    {
+      "id": 21,
+      "start": 63.72,
+      "end": 68.32,
+      "text": "inner query. So I only need to logically execute this inner"
+    },
+    {
+      "id": 22,
+      "start": 68.32,
+      "end": 70.64,
+      "text": "query once. Whether or not the data system is smart enough to"
+    },
+    {
+      "id": 23,
+      "start": 70.64,
+      "end": 74.32,
+      "text": "do that depends on the implementation. But the ones we can"
+    },
+    {
+      "id": 24,
+      "start": 74.32,
+      "end": 78.52,
+      "text": "will look at, we can talk about, we'll handle this. So in this"
+    },
+    {
+      "id": 25,
+      "start": 78.52,
+      "end": 82.8,
+      "text": "example here, I want to get the all the students that have the"
+    },
+    {
+      "id": 26,
+      "start": 82.8,
+      "end": 85.44,
+      "text": "or get finding the student, the name of the student that has the"
+    },
+    {
+      "id": 27,
+      "start": 85.72,
+      "end": 89.6,
+      "text": "highest grade in some class or across all students. So this"
+    },
+    {
+      "id": 28,
+      "start": 89.6,
+      "end": 94.44,
+      "text": "inner query on the select max score from students doesn't rely"
+    },
+    {
+      "id": 29,
+      "start": 94.44,
+      "end": 98.44,
+      "text": "on anything from the outer query on students. So I can run this"
+    },
+    {
+      "id": 30,
+      "start": 98.44,
+      "end": 104.04,
+      "text": "once, materialize result, and be able to substitute that in"
+    },
+    {
+      "id": 31,
+      "start": 104.04,
+      "end": 107.04,
+      "text": "for every tuple I'm looking at from the outer query. Again, I"
+    },
+    {
+      "id": 32,
+      "start": 107.04,
+      "end": 110.56,
+      "text": "think for no systems that they should be able to handle all"
+    },
+    {
+      "id": 33,
+      "start": 110.56,
+      "end": 115.24,
+      "text": "cases for this. Actually, that's not true. There are some cases"
+    },
+    {
+      "id": 34,
+      "start": 115.64,
+      "end": 118.48,
+      "text": "they can't they can't hit on the correlated sub query. The"
+    },
+    {
+      "id": 35,
+      "start": 118.48,
+      "end": 120.76,
+      "text": "basic idea what you're trying to do is basically come, you want"
+    },
+    {
+      "id": 36,
+      "start": 120.76,
+      "end": 126.76,
+      "text": "to move this up and get this to be a join up above. Yes."
+    },
+    {
+      "id": 37,
+      "start": 126.76,
+      "end": 130.0,
+      "text": "What one?"
+    },
+    {
+      "id": 38,
+      "start": 130.0,
+      "end": 134.36,
+      "text": "Yeah, there's a deal. It does not thank you. Yes."
+    },
+    {
+      "id": 39,
+      "start": 134.36,
+      "end": 138.12,
+      "text": "I will fix. All right. Again, so correlated sub queries are the"
+    },
+    {
+      "id": 40,
+      "start": 138.12,
+      "end": 141.68,
+      "text": "ones we care about. Again, this is where the inner query, the"
+    },
+    {
+      "id": 41,
+      "start": 141.68,
+      "end": 144.08,
+      "text": "sub query, is going to reference something in the outer query"
+    },
+    {
+      "id": 42,
+      "start": 144.08,
+      "end": 148.24,
+      "text": "here. So now if we do modify a query to say, give me all the"
+    },
+    {
+      "id": 43,
+      "start": 148.24,
+      "end": 153.76,
+      "text": "students that have the highest grade in their major across all"
+    },
+    {
+      "id": 44,
+      "start": 153.76,
+      "end": 157.36,
+      "text": "the students in the same major. Then the basic idea is that for"
+    },
+    {
+      "id": 45,
+      "start": 157.36,
+      "end": 160.56,
+      "text": "this, I'm going to have a for loop that's going to be the"
+    },
+    {
+      "id": 46,
+      "start": 160.56,
+      "end": 164.4,
+      "text": "going over every single tuple in my outer query. And for each"
+    },
+    {
+      "id": 47,
+      "start": 164.4,
+      "end": 168.4,
+      "text": "of those tuples, I need to do a complete sequential scan or"
+    },
+    {
+      "id": 48,
+      "start": 168.4,
+      "end": 173.12,
+      "text": "scan on the on the on the inner table, the inner sub queries results."
+    },
+    {
+      "id": 49,
+      "start": 173.12,
+      "end": 176.8,
+      "text": "Right. So let's say if I start my outer outer query, the first"
+    },
+    {
+      "id": 50,
+      "start": 176.8,
+      "end": 180.28,
+      "text": "one I will look at is the first tuple which is a and these major"
+    },
+    {
+      "id": 51,
+      "start": 180.28,
+      "end": 184.88,
+      "text": "computer science. So then now when I invoke the inner query, I'm"
+    },
+    {
+      "id": 52,
+      "start": 184.88,
+      "end": 188.32,
+      "text": "going to scan through and then now do that join where I take the"
+    },
+    {
+      "id": 53,
+      "start": 188.32,
+      "end": 192.32,
+      "text": "outer queries major, match it against the inner queries major,"
+    },
+    {
+      "id": 54,
+      "start": 192.32,
+      "end": 195.32,
+      "text": "and then and then get the max score. So I'm going to run this"
+    },
+    {
+      "id": 55,
+      "start": 195.32,
+      "end": 199.48,
+      "text": "entirely and produce a max score of 90. And I'm going to pop"
+    },
+    {
+      "id": 56,
+      "start": 199.48,
+      "end": 203.24,
+      "text": "it as my output result here. Next quit. For the next one, again,"
+    },
+    {
+      "id": 57,
+      "start": 203.24,
+      "end": 206.2,
+      "text": "for RISC, also in comp sign, do the same thing. Start from"
+    },
+    {
+      "id": 58,
+      "start": 206.2,
+      "end": 209.32,
+      "text": "beginning scan begin, get max score of 90. That doesn't match"
+    },
+    {
+      "id": 59,
+      "start": 209.32,
+      "end": 214.68,
+      "text": "what the RISC score is. Yeah, RISC score. So therefore, that"
+    },
+    {
+      "id": 60,
+      "start": 214.68,
+      "end": 217.08,
+      "text": "does not produce the output for ODB. He's the only one majoring"
+    },
+    {
+      "id": 61,
+      "start": 217.08,
+      "end": 220.84,
+      "text": "in streets. So again, start beginning scan through, it matches"
+    },
+    {
+      "id": 62,
+      "start": 220.84,
+      "end": 224.52,
+      "text": "produce my output like that. Right. So what I just showed here is"
+    },
+    {
+      "id": 63,
+      "start": 224.52,
+      "end": 227.28,
+      "text": "like the worst thing you could possibly do because for every single"
+    },
+    {
+      "id": 64,
+      "start": 227.28,
+      "end": 233.48,
+      "text": "tuple in the outer table, I'm rerunning that that join query"
+    },
+    {
+      "id": 65,
+      "start": 233.48,
+      "end": 236.88,
+      "text": "over again for an inner table. Yes."
+    },
+    {
+      "id": 66,
+      "start": 236.88,
+      "end": 241.32,
+      "text": "Is this going to go on how to be in the wearer clause or"
+    },
+    {
+      "id": 67,
+      "start": 241.32,
+      "end": 245.48,
+      "text": "could be having an in the cabinet? Yes, question is like, can"
+    },
+    {
+      "id": 68,
+      "start": 245.48,
+      "end": 249.24,
+      "text": "you have this inner query in a wearer clause? Give it anywhere."
+    },
+    {
+      "id": 69,
+      "start": 249.24,
+      "end": 251.48,
+      "text": "Right. I can have it as the from clause. I could have it"
+    },
+    {
+      "id": 70,
+      "start": 251.48,
+      "end": 257.0,
+      "text": "get the projection output. Correct, yes. I can put like"
+    },
+    {
+      "id": 71,
+      "start": 257.0,
+      "end": 261.0,
+      "text": "again, you can have it in limits. You can have it in, you"
+    },
+    {
+      "id": 72,
+      "start": 261.0,
+      "end": 263.56,
+      "text": "can have nest queries in limits. Actually, I don't think you've"
+    },
+    {
+      "id": 73,
+      "start": 263.56,
+      "end": 265.4,
+      "text": "referenced the outer query. I don't think you can correlate"
+    },
+    {
+      "id": 74,
+      "start": 265.4,
+      "end": 267.8,
+      "text": "a sub query in limit clauses. They have and can do it"
+    },
+    {
+      "id": 75,
+      "start": 267.8,
+      "end": 271.64,
+      "text": "like anywhere. You don't know how a correlated one from either"
+    },
+    {
+      "id": 76,
+      "start": 271.64,
+      "end": 275.16,
+      "text": "right? They in from how could it be called? Ladle join."
+    },
+    {
+      "id": 77,
+      "start": 275.16,
+      "end": 279.56,
+      "text": "Right. It's basically the same thing."
+    },
+    {
+      "id": 78,
+      "start": 279.56,
+      "end": 285.48,
+      "text": "All right. So the paper you guys read, we'll get to see how"
+    },
+    {
+      "id": 79,
+      "start": 285.48,
+      "end": 288.12,
+      "text": "they do. The goal is to begin basically, we want to lift up"
+    },
+    {
+      "id": 80,
+      "start": 288.12,
+      "end": 292.6,
+      "text": "this this inner query to be at the same level of the outer"
+    },
+    {
+      "id": 81,
+      "start": 292.6,
+      "end": 295.56,
+      "text": "query. Because then we can then convert it into a join and"
+    },
+    {
+      "id": 82,
+      "start": 295.56,
+      "end": 297.48,
+      "text": "we know how to run those officially. You know how to optimize"
+    },
+    {
+      "id": 83,
+      "start": 297.48,
+      "end": 300.36,
+      "text": "those. Right. And then we know how to give me what we talked"
+    },
+    {
+      "id": 84,
+      "start": 300.36,
+      "end": 301.96,
+      "text": "about last two classes. We know how to pick the right best"
+    },
+    {
+      "id": 85,
+      "start": 301.96,
+      "end": 304.92,
+      "text": "join order for these things as well. So for this query here,"
+    },
+    {
+      "id": 86,
+      "start": 304.92,
+      "end": 310.04,
+      "text": "ideally, we want to move the we want to move the inner query to be now"
+    },
+    {
+      "id": 87,
+      "start": 310.04,
+      "end": 313.88,
+      "text": "be in the join clause and the from clause against the outer"
+    },
+    {
+      "id": 88,
+      "start": 313.88,
+      "end": 318.12,
+      "text": "query here. But now we got to be mindful that yes, we need the"
+    },
+    {
+      "id": 89,
+      "start": 318.12,
+      "end": 323.24,
+      "text": "score of the students. That should not be yes to give it"
+    },
+    {
+      "id": 90,
+      "start": 323.24,
+      "end": 325.88,
+      "text": "to that. Sorry. But now we want to group by major."
+    },
+    {
+      "id": 91,
+      "start": 325.88,
+      "end": 329.24,
+      "text": "Because that's how we're going to do our join down here."
+    },
+    {
+      "id": 92,
+      "start": 329.24,
+      "end": 333.24,
+      "text": "Because we want to see is for my fun. What's the best score for my"
+    },
+    {
+      "id": 93,
+      "start": 333.24,
+      "end": 338.84,
+      "text": "outer tuple? I give a good major and is it my score."
+    },
+    {
+      "id": 94,
+      "start": 338.84,
+      "end": 343.96,
+      "text": "Right. So for this example, yeah, we can look at this and say, okay,"
+    },
+    {
+      "id": 95,
+      "start": 343.96,
+      "end": 348.68,
+      "text": "we could write something recently. Easily to do this kind of"
+    },
+    {
+      "id": 96,
+      "start": 348.68,
+      "end": 350.68,
+      "text": "manipulation. You know, they're saying since these"
+    },
+    {
+      "id": 97,
+      "start": 350.68,
+      "end": 354.28,
+      "text": "nest queries can appear anywhere. And in this case here, it's"
+    },
+    {
+      "id": 98,
+      "start": 354.28,
+      "end": 357.08,
+      "text": "it's a straight-of-quality predicate. You can imagine like"
+    },
+    {
+      "id": 99,
+      "start": 357.08,
+      "end": 360.2,
+      "text": "equals any exists less than greater than"
+    },
+    {
+      "id": 100,
+      "start": 360.28,
+      "end": 362.76,
+      "text": "anti-join semi-join. Like you can have all different common"
+    },
+    {
+      "id": 101,
+      "start": 362.76,
+      "end": 366.76,
+      "text": "combinations and it's very difficult to to to to write the rules to"
+    },
+    {
+      "id": 102,
+      "start": 366.76,
+      "end": 369.96,
+      "text": "capture everything. But this is what basically people have been"
+    },
+    {
+      "id": 103,
+      "start": 369.96,
+      "end": 373.0,
+      "text": "doing for the last 30 years. Yes, quick question."
+    },
+    {
+      "id": 104,
+      "start": 373.0,
+      "end": 377.96,
+      "text": "So in the paper, when they specify join, they don't actually use a"
+    },
+    {
+      "id": 105,
+      "start": 377.96,
+      "end": 381.48,
+      "text": "join. Is that just a difference in that? The question is in the paper, they don't"
+    },
+    {
+      "id": 106,
+      "start": 381.48,
+      "end": 384.84,
+      "text": "specify join if they're a quidlin. Modern SQL standards says you"
+    },
+    {
+      "id": 107,
+      "start": 384.84,
+      "end": 389.16,
+      "text": "use join. But like, yeah, you could just have this be"
+    },
+    {
+      "id": 108,
+      "start": 389.16,
+      "end": 394.04,
+      "text": "yakama and then this is the wear clause. From from the that's that"
+    },
+    {
+      "id": 109,
+      "start": 394.04,
+      "end": 398.44,
+      "text": "normalization step that I talked about in in like SQL server."
+    },
+    {
+      "id": 110,
+      "start": 398.44,
+      "end": 400.92,
+      "text": "Like they'll they won't they'll figure out what's in the wear"
+    },
+    {
+      "id": 111,
+      "start": 400.92,
+      "end": 403.56,
+      "text": "clause and move, you know, what's in the wear"
+    },
+    {
+      "id": 112,
+      "start": 403.56,
+      "end": 405.32,
+      "text": "clause that should be part of the join and move that to be part of the"
+    },
+    {
+      "id": 113,
+      "start": 405.32,
+      "end": 410.04,
+      "text": "join clause. But they're quidlin."
+    },
+    {
+      "id": 114,
+      "start": 410.04,
+      "end": 413.48,
+      "text": "All right. So again, for the last, I mean the first paper on nested"
+    },
+    {
+      "id": 115,
+      "start": 413.48,
+      "end": 417.96,
+      "text": "queries is like 83, 84. I think the SQL standard ended it."
+    },
+    {
+      "id": 116,
+      "start": 417.96,
+      "end": 423.64,
+      "text": "I think a SQL 99. But since then, people begin writing much of rules and"
+    },
+    {
+      "id": 117,
+      "start": 423.64,
+      "end": 426.52,
+      "text": "handle all puzzle in different combinations that they're aware of."
+    },
+    {
+      "id": 118,
+      "start": 426.52,
+      "end": 429.32,
+      "text": "Right. So this is from the SQL server paper from 2001."
+    },
+    {
+      "id": 119,
+      "start": 429.32,
+      "end": 432.2,
+      "text": "That roughly defines the rules that they apply. I'm not going to go through"
+    },
+    {
+      "id": 120,
+      "start": 432.2,
+      "end": 435.48,
+      "text": "all of them. But this is how they decide what to"
+    },
+    {
+      "id": 121,
+      "start": 435.48,
+      "end": 439.88,
+      "text": "when they can decore the nested queries. In SQL server, you look at the"
+    },
+    {
+      "id": 122,
+      "start": 439.88,
+      "end": 444.04,
+      "text": "documentation, they basically have up to 22 rules."
+    },
+    {
+      "id": 123,
+      "start": 444.04,
+      "end": 447.56,
+      "text": "It's bunch of this. Like if it does this and this and this and this."
+    },
+    {
+      "id": 124,
+      "start": 447.64,
+      "end": 451.24,
+      "text": "This is defines how they they're going to do."
+    },
+    {
+      "id": 125,
+      "start": 451.24,
+      "end": 454.36,
+      "text": "You know, unnesting. But again, all these are going to be"
+    },
+    {
+      "id": 126,
+      "start": 454.36,
+      "end": 459.16,
+      "text": "strong in heuristics and rules. So on the plus side is these are"
+    },
+    {
+      "id": 127,
+      "start": 459.16,
+      "end": 466.12,
+      "text": "somewhat easy to write if you know the pattern that you're looking for."
+    },
+    {
+      "id": 128,
+      "start": 466.12,
+      "end": 468.84,
+      "text": "And because you can have complete control of like when things get moving, how"
+    },
+    {
+      "id": 129,
+      "start": 468.84,
+      "end": 472.44,
+      "text": "they get moved. But I was saying like it handle all possible"
+    },
+    {
+      "id": 130,
+      "start": 472.44,
+      "end": 475.08,
+      "text": "edge cases that you got to deal with it. All possible wear clauses and any kind of"
+    },
+    {
+      "id": 131,
+      "start": 475.08,
+      "end": 478.12,
+      "text": "combinations of of these nested queries."
+    },
+    {
+      "id": 132,
+      "start": 478.12,
+      "end": 481.4,
+      "text": "Ladder joins is another thing that's complicated."
+    },
+    {
+      "id": 133,
+      "start": 481.4,
+      "end": 486.84,
+      "text": "Then writing these rules by hand is simply to an effective."
+    },
+    {
+      "id": 134,
+      "start": 486.84,
+      "end": 490.76,
+      "text": "So this is where the Germans show up in this paper in 2015. So there's actually"
+    },
+    {
+      "id": 135,
+      "start": 490.76,
+      "end": 494.84,
+      "text": "two papers in the read list. This is the first one. There's a fault one in 2017"
+    },
+    {
+      "id": 136,
+      "start": 494.84,
+      "end": 499.24,
+      "text": "that covers more about how how they handle joins or other things."
+    },
+    {
+      "id": 137,
+      "start": 499.24,
+      "end": 501.8,
+      "text": "But I just wanted to focus on this one because it's it's an easy read"
+    },
+    {
+      "id": 138,
+      "start": 501.8,
+      "end": 505.96,
+      "text": "issue on how to do this correlated sub queries."
+    },
+    {
+      "id": 139,
+      "start": 505.96,
+      "end": 510.44,
+      "text": "But they actually provide the first general purpose method"
+    },
+    {
+      "id": 140,
+      "start": 510.44,
+      "end": 517.24,
+      "text": "to be able to take all correlated sub queries and rewrite them into"
+    },
+    {
+      "id": 141,
+      "start": 517.24,
+      "end": 521.72,
+      "text": "direct to regular queries without the nesting."
+    },
+    {
+      "id": 142,
+      "start": 521.72,
+      "end": 525.96,
+      "text": "And the goal is basically when convert all of these these"
+    },
+    {
+      "id": 143,
+      "start": 525.96,
+      "end": 530.44,
+      "text": "sub queries into joins. Regular like inner joins,"
+    },
+    {
+      "id": 144,
+      "start": 530.44,
+      "end": 533.4,
+      "text": "outer joins, whatever whatever whatever this has to be. Because again we know how"
+    },
+    {
+      "id": 145,
+      "start": 533.4,
+      "end": 536.52,
+      "text": "to optimize those. And the best case scenario we can go from some doing"
+    },
+    {
+      "id": 146,
+      "start": 536.52,
+      "end": 539.56,
+      "text": "something really stupid like running the that nested query for"
+    },
+    {
+      "id": 147,
+      "start": 539.56,
+      "end": 542.52,
+      "text": "everything with two on the outer out of query which you know could be"
+    },
+    {
+      "id": 148,
+      "start": 542.52,
+      "end": 545.8,
+      "text": "and squared costs in a nested loop join. We can now convert this into"
+    },
+    {
+      "id": 149,
+      "start": 545.8,
+      "end": 550.12,
+      "text": "you know like an oh and hash join look up."
+    },
+    {
+      "id": 150,
+      "start": 550.12,
+      "end": 553.88,
+      "text": "So let me quickly go through one example. Again we can cover more of the"
+    },
+    {
+      "id": 151,
+      "start": 553.88,
+      "end": 558.12,
+      "text": "hyper stuff next class. So here's that same query that we have before."
+    },
+    {
+      "id": 152,
+      "start": 558.12,
+      "end": 563.88,
+      "text": "We want to find all the students and their major if they have the"
+    },
+    {
+      "id": 153,
+      "start": 563.88,
+      "end": 567.96,
+      "text": "if they have the highest grade for their major. So the key idea that they're"
+    },
+    {
+      "id": 154,
+      "start": 567.96,
+      "end": 570.92,
+      "text": "going to they're going to have in this paper they're going to use this this"
+    },
+    {
+      "id": 155,
+      "start": 570.92,
+      "end": 574.52,
+      "text": "logical concept or a logical operator called independent join."
+    },
+    {
+      "id": 156,
+      "start": 574.52,
+      "end": 579.16,
+      "text": "And it's basically a cross product join or a cross join except that"
+    },
+    {
+      "id": 157,
+      "start": 579.16,
+      "end": 584.04,
+      "text": "it's a there's a demarcation or it's a marker to say"
+    },
+    {
+      "id": 158,
+      "start": 584.04,
+      "end": 588.84,
+      "text": "this thing is specifically being used because it's I'm doing a"
+    },
+    {
+      "id": 159,
+      "start": 588.84,
+      "end": 593.64,
+      "text": "correlated sub query. And the whole goal or what the the process thing we're"
+    },
+    {
+      "id": 160,
+      "start": 593.64,
+      "end": 597.0,
+      "text": "going to do is try to get rid of that dependent join convert it regular to"
+    },
+    {
+      "id": 161,
+      "start": 597.0,
+      "end": 601.8,
+      "text": "regga joins and then optimize it like it like it normally would."
+    },
+    {
+      "id": 162,
+      "start": 601.8,
+      "end": 603.8,
+      "text": "So in this case"
+    }
+  ],
+  "language": "en"
+}

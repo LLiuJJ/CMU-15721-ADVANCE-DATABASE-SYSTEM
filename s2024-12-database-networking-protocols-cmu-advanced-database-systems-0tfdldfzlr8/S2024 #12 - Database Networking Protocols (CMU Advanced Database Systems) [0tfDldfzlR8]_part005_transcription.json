@@ -1,0 +1,1283 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.0,
+      "text": "is a server."
+    },
+    {
+      "id": 1,
+      "start": 3.0,
+      "end": 4.0,
+      "text": "Let's see what else they say."
+    },
+    {
+      "id": 2,
+      "start": 4.0,
+      "end": 6.0,
+      "text": "The Minimums query execs each time."
+    },
+    {
+      "id": 3,
+      "start": 6.0,
+      "end": 7.0,
+      "text": "They would query multiple times."
+    },
+    {
+      "id": 4,
+      "start": 7.0,
+      "end": 10.0,
+      "text": "The Davies system would cache the query plant and the result."
+    },
+    {
+      "id": 5,
+      "start": 10.0,
+      "end": 11.0,
+      "text": "I came back to what I said."
+    },
+    {
+      "id": 6,
+      "start": 11.0,
+      "end": 12.0,
+      "text": "It wasn't running the MapDrews job."
+    },
+    {
+      "id": 7,
+      "start": 12.0,
+      "end": 15.0,
+      "text": "In literally, it's just like how to get data in and out."
+    },
+    {
+      "id": 8,
+      "start": 15.0,
+      "end": 16.0,
+      "text": "It's not as possible."
+    },
+    {
+      "id": 9,
+      "start": 16.0,
+      "end": 17.0,
+      "text": "Okay."
+    },
+    {
+      "id": 10,
+      "start": 17.0,
+      "end": 19.0,
+      "text": "Okay, it's one second."
+    },
+    {
+      "id": 11,
+      "start": 19.0,
+      "end": 20.0,
+      "text": "It's long."
+    },
+    {
+      "id": 12,
+      "start": 21.0,
+      "end": 23.0,
+      "text": "How does not a great system?"
+    },
+    {
+      "id": 13,
+      "start": 23.0,
+      "end": 24.0,
+      "text": "I'm not, yeah."
+    },
+    {
+      "id": 14,
+      "start": 24.0,
+      "end": 26.0,
+      "text": "There's a reason why you're not, you know,"
+    },
+    {
+      "id": 15,
+      "start": 26.0,
+      "end": 28.0,
+      "text": "Facebook ditched it and rewrote,"
+    },
+    {
+      "id": 16,
+      "start": 28.0,
+      "end": 30.0,
+      "text": "and rewrote, repressed it."
+    },
+    {
+      "id": 17,
+      "start": 30.0,
+      "end": 31.0,
+      "text": "Right?"
+    },
+    {
+      "id": 18,
+      "start": 31.0,
+      "end": 37.0,
+      "text": "Hi, it was the stopgap solution in the late 2000s when,"
+    },
+    {
+      "id": 19,
+      "start": 37.0,
+      "end": 39.0,
+      "text": "and I was sort of part of this, like,"
+    },
+    {
+      "id": 20,
+      "start": 39.0,
+      "end": 42.0,
+      "text": "the Hadoop came out, the MapDrews paper came out from Google."
+    },
+    {
+      "id": 21,
+      "start": 42.0,
+      "end": 46.0,
+      "text": "Yahoo took it, sort of re-impleanted the ideas as Hadoop."
+    },
+    {
+      "id": 22,
+      "start": 46.0,
+      "end": 48.0,
+      "text": "Hadoop was like the hot thing."
+    },
+    {
+      "id": 23,
+      "start": 48.0,
+      "end": 49.0,
+      "text": "I was like, this is amazing."
+    },
+    {
+      "id": 24,
+      "start": 49.0,
+      "end": 52.0,
+      "text": "This is how you should be doing analytics and big data stuff."
+    },
+    {
+      "id": 25,
+      "start": 52.0,
+      "end": 55.0,
+      "text": "The relational database people, which I was a part of,"
+    },
+    {
+      "id": 26,
+      "start": 56.0,
+      "end": 58.0,
+      "text": "we were like, you guys are all doing it wrong."
+    },
+    {
+      "id": 27,
+      "start": 58.0,
+      "end": 59.0,
+      "text": "You're reinventing stuff."
+    },
+    {
+      "id": 28,
+      "start": 59.0,
+      "end": 61.0,
+      "text": "It was the end of the 90s for parallel databases,"
+    },
+    {
+      "id": 29,
+      "start": 61.0,
+      "end": 62.0,
+      "text": "distributed databases."
+    },
+    {
+      "id": 30,
+      "start": 62.0,
+      "end": 66.0,
+      "text": "And then, like, declarative languages like SQL is a good idea."
+    },
+    {
+      "id": 31,
+      "start": 66.0,
+      "end": 71.0,
+      "text": "You know, processing data on partition tables."
+    },
+    {
+      "id": 32,
+      "start": 71.0,
+      "end": 72.0,
+      "text": "That's a good idea."
+    },
+    {
+      "id": 33,
+      "start": 72.0,
+      "end": 74.0,
+      "text": "And then people realize, oh, yeah,"
+    },
+    {
+      "id": 34,
+      "start": 74.0,
+      "end": 76.0,
+      "text": "writing these MapDrews jobs in Java sucks."
+    },
+    {
+      "id": 35,
+      "start": 76.0,
+      "end": 78.0,
+      "text": "Be nice we had SQL."
+    },
+    {
+      "id": 36,
+      "start": 78.0,
+      "end": 81.0,
+      "text": "So then they built high, which is basically a translator"
+    },
+    {
+      "id": 37,
+      "start": 81.0,
+      "end": 84.0,
+      "text": "from SQL, and it would then cogent a MapDrews Java program."
+    },
+    {
+      "id": 38,
+      "start": 85.0,
+      "end": 87.0,
+      "text": "So, yeah, you're making faces."
+    },
+    {
+      "id": 39,
+      "start": 87.0,
+      "end": 89.0,
+      "text": "I'm not saying it's a good idea."
+    },
+    {
+      "id": 40,
+      "start": 91.0,
+      "end": 92.0,
+      "text": "Yeah, because for this, again,"
+    },
+    {
+      "id": 41,
+      "start": 92.0,
+      "end": 94.0,
+      "text": "they were supposed to provide the household DB2 bugs,"
+    },
+    {
+      "id": 42,
+      "start": 94.0,
+      "end": 96.0,
+      "text": "again, as you were saying, it's such a small amount of data."
+    },
+    {
+      "id": 43,
+      "start": 96.0,
+      "end": 99.0,
+      "text": "But again, I think the protocol is just so chatting."
+    },
+    {
+      "id": 44,
+      "start": 99.0,
+      "end": 100.0,
+      "text": "Right?"
+    },
+    {
+      "id": 45,
+      "start": 101.0,
+      "end": 104.0,
+      "text": "All right, so let's now look, we'll send more data."
+    },
+    {
+      "id": 46,
+      "start": 104.0,
+      "end": 107.0,
+      "text": "So for this one, we're going to send a million tables from TPCH."
+    },
+    {
+      "id": 47,
+      "start": 107.0,
+      "end": 111.0,
+      "text": "And what they're going to do is they're going to scale along the X-axis."
+    },
+    {
+      "id": 48,
+      "start": 112.0,
+      "end": 114.0,
+      "text": "They're going to officially slow down what the network latency is"
+    },
+    {
+      "id": 49,
+      "start": 114.0,
+      "end": 116.0,
+      "text": "between the client and the server."
+    },
+    {
+      "id": 50,
+      "start": 116.0,
+      "end": 117.0,
+      "text": "Right?"
+    },
+    {
+      "id": 51,
+      "start": 117.0,
+      "end": 121.0,
+      "text": "And so the first line I want to show is just for my SQL with GZIP"
+    },
+    {
+      "id": 52,
+      "start": 121.0,
+      "end": 123.0,
+      "text": "and my SQL without GZIP."
+    },
+    {
+      "id": 53,
+      "start": 123.0,
+      "end": 126.0,
+      "text": "So this basically corroborates what we talked about before"
+    },
+    {
+      "id": 54,
+      "start": 126.0,
+      "end": 129.0,
+      "text": "with storage, getting things again from S3 or the object store,"
+    },
+    {
+      "id": 55,
+      "start": 129.0,
+      "end": 130.0,
+      "text": "or whatever."
+    },
+    {
+      "id": 56,
+      "start": 130.0,
+      "end": 133.0,
+      "text": "When the network's really fast, you don't want to compress the data"
+    },
+    {
+      "id": 57,
+      "start": 133.0,
+      "end": 136.0,
+      "text": "because the CPU cost of doing that digital compression"
+    },
+    {
+      "id": 58,
+      "start": 136.0,
+      "end": 138.0,
+      "text": "is just not worth the penalty,"
+    },
+    {
+      "id": 59,
+      "start": 139.0,
+      "end": 141.0,
+      "text": "it's not worth it because the network is so fast."
+    },
+    {
+      "id": 60,
+      "start": 141.0,
+      "end": 143.0,
+      "text": "And so that's why you see this gap here when the network's"
+    },
+    {
+      "id": 61,
+      "start": 143.0,
+      "end": 146.0,
+      "text": "really fast, not using compression is the better way to go,"
+    },
+    {
+      "id": 62,
+      "start": 146.0,
+      "end": 148.0,
+      "text": "even though you are sending more bytes."
+    },
+    {
+      "id": 63,
+      "start": 148.0,
+      "end": 151.0,
+      "text": "But then even though we are long scale here,"
+    },
+    {
+      "id": 64,
+      "start": 151.0,
+      "end": 155.0,
+      "text": "but as we get to a slower speed, so 100 milliseconds for the latency,"
+    },
+    {
+      "id": 65,
+      "start": 155.0,
+      "end": 159.0,
+      "text": "again, we're long scale, but the compression one actually"
+    },
+    {
+      "id": 66,
+      "start": 159.0,
+      "end": 161.0,
+      "text": "is slightly better."
+    },
+    {
+      "id": 67,
+      "start": 161.0,
+      "end": 162.0,
+      "text": "Right?"
+    },
+    {
+      "id": 68,
+      "start": 162.0,
+      "end": 166.0,
+      "text": "Because in that case, the CPU overhead is not the dominating factor"
+    },
+    {
+      "id": 69,
+      "start": 166.0,
+      "end": 168.0,
+      "text": "of getting the data out."
+    },
+    {
+      "id": 70,
+      "start": 170.0,
+      "end": 173.0,
+      "text": "The compression overhead is bad when the tradeoff"
+    },
+    {
+      "id": 71,
+      "start": 173.0,
+      "end": 174.0,
+      "text": "of the network is fast."
+    },
+    {
+      "id": 72,
+      "start": 174.0,
+      "end": 176.0,
+      "text": "So now we bring back all the other ones."
+    },
+    {
+      "id": 73,
+      "start": 177.0,
+      "end": 181.0,
+      "text": "And they all basically convert or moving along the same way"
+    },
+    {
+      "id": 74,
+      "start": 181.0,
+      "end": 182.0,
+      "text": "as expected."
+    },
+    {
+      "id": 75,
+      "start": 182.0,
+      "end": 187.0,
+      "text": "The time it takes to get the data out of the database server"
+    },
+    {
+      "id": 76,
+      "start": 187.0,
+      "end": 189.0,
+      "text": "goes up as the network gets slower."
+    },
+    {
+      "id": 77,
+      "start": 189.0,
+      "end": 193.0,
+      "text": "But what's surprising here is that you kind of see that"
+    },
+    {
+      "id": 78,
+      "start": 194.0,
+      "end": 197.0,
+      "text": "in the case of Oracle, they're one of the faster ones"
+    },
+    {
+      "id": 79,
+      "start": 197.0,
+      "end": 200.0,
+      "text": "when the network gets fast, but then as the network gets slower,"
+    },
+    {
+      "id": 80,
+      "start": 200.0,
+      "end": 202.0,
+      "text": "they're now the second slowest."
+    },
+    {
+      "id": 81,
+      "start": 202.0,
+      "end": 203.0,
+      "text": "Right?"
+    },
+    {
+      "id": 82,
+      "start": 203.0,
+      "end": 204.0,
+      "text": "DB2 is always the slowest."
+    },
+    {
+      "id": 83,
+      "start": 204.0,
+      "end": 207.0,
+      "text": "Hi, I've actually beat, yeah, Hi, I've actually beat in DB2"
+    },
+    {
+      "id": 84,
+      "start": 207.0,
+      "end": 208.0,
+      "text": "when the slower network."
+    },
+    {
+      "id": 85,
+      "start": 210.0,
+      "end": 215.0,
+      "text": "And so the Oracle is a, Oracle is a proprietary protocol."
+    },
+    {
+      "id": 86,
+      "start": 215.0,
+      "end": 218.0,
+      "text": "We can't see the implementation of it, but they speculate,"
+    },
+    {
+      "id": 87,
+      "start": 218.0,
+      "end": 221.0,
+      "text": "they speculate again just like in the case of DB2,"
+    },
+    {
+      "id": 88,
+      "start": 221.0,
+      "end": 224.0,
+      "text": "Oracle is also sending their own acknowledgments back and forth"
+    },
+    {
+      "id": 89,
+      "start": 224.0,
+      "end": 229.0,
+      "text": "and it becomes more dominating cost with the network gets slower."
+    },
+    {
+      "id": 90,
+      "start": 230.0,
+      "end": 232.0,
+      "text": "So again, all of these except for high,"
+    },
+    {
+      "id": 91,
+      "start": 232.0,
+      "end": 239.0,
+      "text": "sorry except for MoneDB are binary protocols,"
+    },
+    {
+      "id": 92,
+      "start": 239.0,
+      "end": 242.0,
+      "text": "but MoneDB is actually what?"
+    },
+    {
+      "id": 93,
+      "start": 242.0,
+      "end": 245.0,
+      "text": "Is the third best after my SQL and my SQL GZIP?"
+    },
+    {
+      "id": 94,
+      "start": 248.0,
+      "end": 250.0,
+      "text": "Because it's simple, yes."
+    },
+    {
+      "id": 95,
+      "start": 250.0,
+      "end": 253.0,
+      "text": "Is the benefit from compression of those white daughter's"
+    },
+    {
+      "id": 96,
+      "start": 253.0,
+      "end": 256.0,
+      "text": "is that, other than my SQL?"
+    },
+    {
+      "id": 97,
+      "start": 256.0,
+      "end": 259.0,
+      "text": "This question is, do you get the same benefit of compression"
+    },
+    {
+      "id": 98,
+      "start": 259.0,
+      "end": 261.0,
+      "text": "for the other system as my SQL?"
+    },
+    {
+      "id": 99,
+      "start": 261.0,
+      "end": 264.0,
+      "text": "I would assume yes, like Oracle, you could test it."
+    },
+    {
+      "id": 100,
+      "start": 264.0,
+      "end": 267.0,
+      "text": "I would say yes, because the Oracle wire protocol,"
+    },
+    {
+      "id": 101,
+      "start": 267.0,
+      "end": 271.0,
+      "text": "it's, the actual bits themselves may be different than what my SQL is,"
+    },
+    {
+      "id": 102,
+      "start": 271.0,
+      "end": 274.0,
+      "text": "but it's a binary based protocol like my SQL."
+    },
+    {
+      "id": 103,
+      "start": 274.0,
+      "end": 276.0,
+      "text": "So it'd probably be at the same."
+    },
+    {
+      "id": 104,
+      "start": 276.0,
+      "end": 279.0,
+      "text": "Why do they only, if you want to, make it up?"
+    },
+    {
+      "id": 105,
+      "start": 279.0,
+      "end": 280.0,
+      "text": "Why?"
+    },
+    {
+      "id": 106,
+      "start": 280.0,
+      "end": 282.0,
+      "text": "Excession, why do they only turn on GZIP for my SQL?"
+    },
+    {
+      "id": 107,
+      "start": 282.0,
+      "end": 283.0,
+      "text": "I don't know."
+    },
+    {
+      "id": 108,
+      "start": 283.0,
+      "end": 284.0,
+      "text": "Yeah."
+    },
+    {
+      "id": 109,
+      "start": 287.0,
+      "end": 288.0,
+      "text": "Okay."
+    },
+    {
+      "id": 110,
+      "start": 288.0,
+      "end": 291.0,
+      "text": "So I'm going to show another result from a different paper."
+    },
+    {
+      "id": 111,
+      "start": 291.0,
+      "end": 295.0,
+      "text": "This is a paper we wrote with one of my former master students,"
+    },
+    {
+      "id": 112,
+      "start": 295.0,
+      "end": 297.0,
+      "text": "now a PhD student at MIT,"
+    },
+    {
+      "id": 113,
+      "start": 297.0,
+      "end": 299.0,
+      "text": "and then West McKinney, the guy from Apache Arrow."
+    },
+    {
+      "id": 114,
+      "start": 299.0,
+      "end": 303.0,
+      "text": "So for this one, this is from our older system,"
+    },
+    {
+      "id": 115,
+      "start": 303.0,
+      "end": 308.0,
+      "text": "Peloton or Noise page, and the idea was how fast can we get the line item table"
+    },
+    {
+      "id": 116,
+      "start": 308.0,
+      "end": 311.0,
+      "text": "out of, the older line table out in TPCC."
+    },
+    {
+      "id": 117,
+      "start": 311.0,
+      "end": 312.0,
+      "text": "So I'll get, okay."
+    },
+    {
+      "id": 118,
+      "start": 312.0,
+      "end": 316.0,
+      "text": "Probably send seven gigabyte data, how can we fast clean get it to the client?"
+    },
+    {
+      "id": 119,
+      "start": 316.0,
+      "end": 319.0,
+      "text": "So the client isn't doing any, any, any computation on it,"
+    },
+    {
+      "id": 120,
+      "start": 319.0,
+      "end": 321.0,
+      "text": "it's just how fast can you get it?"
+    },
+    {
+      "id": 121,
+      "start": 321.0,
+      "end": 324.0,
+      "text": "And so the, our system is supported,"
+    },
+    {
+      "id": 122,
+      "start": 324.0,
+      "end": 326.0,
+      "text": "the Postgres wire protocol, so this is like,"
+    },
+    {
+      "id": 123,
+      "start": 326.0,
+      "end": 329.0,
+      "text": "this is the default, like, Postgres wire protocol without compression,"
+    },
+    {
+      "id": 124,
+      "start": 329.0,
+      "end": 332.0,
+      "text": "row base, this is how fast you can get the data out."
+    },
+    {
+      "id": 125,
+      "start": 332.0,
+      "end": 337.0,
+      "text": "So natively our system was storing everything as Apache Arrow tables."
+    },
+    {
+      "id": 126,
+      "start": 337.0,
+      "end": 340.0,
+      "text": "So that, in our system, you can do transactions, then over time,"
+    },
+    {
+      "id": 127,
+      "start": 340.0,
+      "end": 344.0,
+      "text": "as the data got cold and you weren't modifying anymore,"
+    },
+    {
+      "id": 128,
+      "start": 344.0,
+      "end": 346.0,
+      "text": "it would just dim flips and bits around, and then it would,"
+    },
+    {
+      "id": 129,
+      "start": 346.0,
+      "end": 349.0,
+      "text": "nearly, we would be natively sorting Apache Arrow."
+    },
+    {
+      "id": 130,
+      "start": 349.0,
+      "end": 353.0,
+      "text": "So this next bar here is what you get from what they were posing in the,"
+    },
+    {
+      "id": 131,
+      "start": 353.0,
+      "end": 356.0,
+      "text": "in the paper you guys read, of like,"
+    },
+    {
+      "id": 132,
+      "start": 356.0,
+      "end": 360.0,
+      "text": "here's the vectorized version of the, of the Postgres wire protocol,"
+    },
+    {
+      "id": 133,
+      "start": 360.0,
+      "end": 364.0,
+      "text": "you're sending things as a Pax format rather than, as road warring to it."
+    },
+    {
+      "id": 134,
+      "start": 364.0,
+      "end": 368.0,
+      "text": "But then the next approach is using, early precursor to ADBC,"
+    },
+    {
+      "id": 135,
+      "start": 368.0,
+      "end": 372.0,
+      "text": "the Arrow connectivity stuff, where this is like,"
+    },
+    {
+      "id": 136,
+      "start": 372.0,
+      "end": 378.0,
+      "text": "natively sending out a, the Apache Arrow data in its form"
+    },
+    {
+      "id": 137,
+      "start": 378.0,
+      "end": 379.0,
+      "text": "without doing any translations,"
+    },
+    {
+      "id": 138,
+      "start": 379.0,
+      "end": 382.0,
+      "text": "it's natively shoving that to the Python application."
+    },
+    {
+      "id": 139,
+      "start": 382.0,
+      "end": 386.0,
+      "text": "And so it's faster because there's no conversion over the,"
+    },
+    {
+      "id": 140,
+      "start": 386.0,
+      "end": 388.0,
+      "text": "to convert it into a different form, right?"
+    },
+    {
+      "id": 141,
+      "start": 388.0,
+      "end": 390.0,
+      "text": "It's exactly for what, you know, we're sending the data,"
+    },
+    {
+      "id": 142,
+      "start": 390.0,
+      "end": 392.0,
+      "text": "we're storing natively memory, we're just storing that,"
+    },
+    {
+      "id": 143,
+      "start": 392.0,
+      "end": 394.0,
+      "text": "shoving that, there's bytes right out."
+    },
+    {
+      "id": 144,
+      "start": 394.0,
+      "end": 398.0,
+      "text": "And so now the last one is RDMA, I'll cover what that is in the second."
+    },
+    {
+      "id": 145,
+      "start": 398.0,
+      "end": 401.0,
+      "text": "Basically this is like a network accelerator to do kernel bypass,"
+    },
+    {
+      "id": 146,
+      "start": 401.0,
+      "end": 403.0,
+      "text": "to, to, to literally get the data out of memory,"
+    },
+    {
+      "id": 147,
+      "start": 403.0,
+      "end": 407.0,
+      "text": "put it on the nick and send it out without having to copy things into the CPU first."
+    },
+    {
+      "id": 148,
+      "start": 407.0,
+      "end": 412.0,
+      "text": "And I forget we use, I think we used a fan of bandwidth for this one."
+    },
+    {
+      "id": 149,
+      "start": 412.0,
+      "end": 415.0,
+      "text": "But again, this one also is just sending out native Arrow,"
+    },
+    {
+      "id": 150,
+      "start": 415.0,
+      "end": 418.0,
+      "text": "Arrow blocks rather than doing the conversion."
+    },
+    {
+      "id": 151,
+      "start": 418.0,
+      "end": 422.0,
+      "text": "So again, even though the paper you guys read didn't, didn't implement,"
+    },
+    {
+      "id": 152,
+      "start": 422.0,
+      "end": 426.0,
+      "text": "you know, didn't have, you know, Arrow at the time to send, send it out,"
+    },
+    {
+      "id": 153,
+      "start": 426.0,
+      "end": 430.0,
+      "text": "the, the performance difference, I think, would look like this."
+    },
+    {
+      "id": 154,
+      "start": 430.0,
+      "end": 433.0,
+      "text": "So again, so I'm saying, something that you can see,"
+    },
+    {
+      "id": 155,
+      "start": 433.0,
+      "end": 435.0,
+      "text": "just shoving data out as Arrow is, is the right way to go,"
+    },
+    {
+      "id": 156,
+      "start": 435.0,
+      "end": 437.0,
+      "text": "if you're building a modern system today."
+    },
+    {
+      "id": 157,
+      "start": 437.0,
+      "end": 438.0,
+      "text": "Yes?"
+    },
+    {
+      "id": 158,
+      "start": 438.0,
+      "end": 445.0,
+      "text": "Is there a cost of convert, whatever, postgres is into Arrow?"
+    },
+    {
+      "id": 159,
+      "start": 445.0,
+      "end": 446.0,
+      "text": "Yes."
+    },
+    {
+      "id": 160,
+      "start": 446.0,
+      "end": 447.0,
+      "text": "I mean, certainly yes."
+    },
+    {
+      "id": 161,
+      "start": 447.0,
+      "end": 452.0,
+      "text": "So does it, does it have one 50, like, that shows the cost of converting,"
+    },
+    {
+      "id": 162,
+      "start": 452.0,
+      "end": 455.0,
+      "text": "like, postgres, to whatever format the paper is?"
+    },
+    {
+      "id": 163,
+      "start": 455.0,
+      "end": 459.0,
+      "text": "No, this is the cost of converting Arrow into the,"
+    },
+    {
+      "id": 164,
+      "start": 459.0,
+      "end": 464.0,
+      "text": "a postgres compatible protocol that sends things in a vectorized format."
+    },
+    {
+      "id": 165,
+      "start": 465.0,
+      "end": 471.0,
+      "text": "This is like, I don't do any copying, I do literally shut the bytes out."
+    },
+    {
+      "id": 166,
+      "start": 471.0,
+      "end": 476.0,
+      "text": "And then the paper talks about it like, to do, like, to do something like this,"
+    },
+    {
+      "id": 167,
+      "start": 476.0,
+      "end": 479.0,
+      "text": "to rewrite your Rye Protocol, it'd be very unlikely that the,"
+    },
+    {
+      "id": 168,
+      "start": 479.0,
+      "end": 482.0,
+      "text": "you're storing that data in a way anyway."
+    },
+    {
+      "id": 169,
+      "start": 482.0,
+      "end": 486.0,
+      "text": "So you, if you just have things, to convert things to Arrow,"
+    },
+    {
+      "id": 170,
+      "start": 486.0,
+      "end": 490.0,
+      "text": "or have things already be Arrow internally, then that's a better way to do this."
+    },
+    {
+      "id": 171,
+      "start": 490.0,
+      "end": 493.0,
+      "text": "That's why you see some systems, like, the animated results going from one operator"
+    },
+    {
+      "id": 172,
+      "start": 493.0,
+      "end": 496.0,
+      "text": "to the next, to the query planner, how they exchange data between the different workers,"
+    },
+    {
+      "id": 173,
+      "start": 496.0,
+      "end": 505.0,
+      "text": "if everything's in Arrow, then, like, you have the infrastructure to shut the data like that."
+    },
+    {
+      "id": 174,
+      "start": 505.0,
+      "end": 506.0,
+      "text": "Okay."
+    },
+    {
+      "id": 175,
+      "start": 506.0,
+      "end": 512.0,
+      "text": "So, these, these, these, these members should show here, the,"
+    },
+    {
+      "id": 176,
+      "start": 512.0,
+      "end": 515.0,
+      "text": "we talked about how, like, okay, the, the network protocol, like,"
+    },
+    {
+      "id": 177,
+      "start": 515.0,
+      "end": 518.0,
+      "text": "you can press things, is it, how are you encoding the serialization format,"
+    },
+    {
+      "id": 178,
+      "start": 518.0,
+      "end": 520.0,
+      "text": "how much metadata you're sending around?"
+    },
+    {
+      "id": 179,
+      "start": 520.0,
+      "end": 522.0,
+      "text": "Like, that was what we focused on,"
+    },
+    {
+      "id": 180,
+      "start": 522.0,
+      "end": 527.0,
+      "text": "but that isn't always going to be the, the major slowdown of sending things over the network."
+    },
+    {
+      "id": 181,
+      "start": 527.0,
+      "end": 528.0,
+      "text": "Right?"
+    },
+    {
+      "id": 182,
+      "start": 528.0,
+      "end": 531.0,
+      "text": "And as I said many times, the OS is going to be a problem for us."
+    },
+    {
+      "id": 183,
+      "start": 531.0,
+      "end": 535.0,
+      "text": "It's always going to try to ruin our lives, make things harder for us, break up our marriages,"
+    },
+    {
+      "id": 184,
+      "start": 535.0,
+      "end": 536.0,
+      "text": "and whatever."
+    },
+    {
+      "id": 185,
+      "start": 536.0,
+      "end": 540.0,
+      "text": "Right? And in particular, TCPIP stack, it's just going to be super slow,"
+    },
+    {
+      "id": 186,
+      "start": 540.0,
+      "end": 543.0,
+      "text": "and ideally, we want to try to avoid it."
+    },
+    {
+      "id": 187,
+      "start": 543.0,
+      "end": 544.0,
+      "text": "So why is it slow?"
+    },
+    {
+      "id": 188,
+      "start": 544.0,
+      "end": 548.0,
+      "text": "Well, it's, it's, you know, it's, the networking implementation is,"
+    },
+    {
+      "id": 189,
+      "start": 549.0,
+      "end": 551.0,
+      "text": "is based on this model of interrupts."
+    },
+    {
+      "id": 190,
+      "start": 551.0,
+      "end": 554.0,
+      "text": "So, like, you know, they're requiring, they're assuming these interrupts are going to come along,"
+    },
+    {
+      "id": 191,
+      "start": 554.0,
+      "end": 557.0,
+      "text": "and that's how it's going to trigger things like, hey, bites are ready to go in and out,"
+    },
+    {
+      "id": 192,
+      "start": 557.0,
+      "end": 559.0,
+      "text": "and that, you know, you know, you're going to do a context switch,"
+    },
+    {
+      "id": 193,
+      "start": 559.0,
+      "end": 561.0,
+      "text": "like, all that becomes super expensive."
+    },
+    {
+      "id": 194,
+      "start": 561.0,
+      "end": 564.0,
+      "text": "Then you get data coming on the Nick, the OS wants to copy that"
+    },
+    {
+      "id": 195,
+      "start": 564.0,
+      "end": 568.0,
+      "text": "and its own internal kernel buffers, and then, before it hands you that memory,"
+    },
+    {
+      "id": 196,
+      "start": 568.0,
+      "end": 570.0,
+      "text": "it's going to copy into your user space buffers."
+    },
+    {
+      "id": 197,
+      "start": 570.0,
+      "end": 571.0,
+      "text": "Right?"
+    },
+    {
+      "id": 198,
+      "start": 571.0,
+      "end": 572.0,
+      "text": "What was that face?"
+    },
+    {
+      "id": 199,
+      "start": 572.0,
+      "end": 573.0,
+      "text": "What was that?"
+    },
+    {
+      "id": 200,
+      "start": 573.0,
+      "end": 574.0,
+      "text": "What was wrong?"
+    },
+    {
+      "id": 201,
+      "start": 574.0,
+      "end": 575.0,
+      "text": "Sorry."
+    },
+    {
+      "id": 202,
+      "start": 576.0,
+      "end": 579.0,
+      "text": "This is a, when you were kind of, yeah, this sucks."
+    },
+    {
+      "id": 203,
+      "start": 579.0,
+      "end": 580.0,
+      "text": "Yeah."
+    },
+    {
+      "id": 204,
+      "start": 580.0,
+      "end": 581.0,
+      "text": "This is terrible."
+    },
+    {
+      "id": 205,
+      "start": 581.0,
+      "end": 584.0,
+      "text": "Furthermore, all right, so the kernel has got a bunch of threads coming down,"
+    },
+    {
+      "id": 206,
+      "start": 584.0,
+      "end": 586.0,
+      "text": "and they're handling the interrupts, they're handling things coming over the,"
+    },
+    {
+      "id": 207,
+      "start": 586.0,
+      "end": 588.0,
+      "text": "the, the Nicks and, hardware and so forth."
+    },
+    {
+      "id": 208,
+      "start": 588.0,
+      "end": 590.0,
+      "text": "Well, they, those have to be scheduled."
+    },
+    {
+      "id": 209,
+      "start": 590.0,
+      "end": 593.0,
+      "text": "They have to maintain their own latches for their own internal data structures."
+    },
+    {
+      "id": 210,
+      "start": 593.0,
+      "end": 596.0,
+      "text": "All that is going to be problematic, right?"
+    },
+    {
+      "id": 211,
+      "start": 596.0,
+      "end": 601.0,
+      "text": "So, we want to figure out a way that we can avoid the OS as much as possible."
+    },
+    {
+      "id": 212,
+      "start": 601.0,
+      "end": 603.0,
+      "text": "Yeah, we need it."
+    }
+  ],
+  "language": "en"
+}

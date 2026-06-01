@@ -1,0 +1,593 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Can Eeky Melon University's advanced database systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filmed in front of a live studio audience?"
+    },
+    {
+      "id": 2,
+      "start": 9.0,
+      "end": 19.0,
+      "text": "I have one to chips in my office for some reason."
+    },
+    {
+      "id": 3,
+      "start": 19.0,
+      "end": 22.0,
+      "text": "They took me on a boat on Hawaii and they're like,"
+    },
+    {
+      "id": 4,
+      "start": 22.0,
+      "end": 25.0,
+      "text": "here's a burnt out chip for a spark that has, you know,"
+    },
+    {
+      "id": 5,
+      "start": 25.0,
+      "end": 27.0,
+      "text": "oracle compression built inside of it."
+    },
+    {
+      "id": 6,
+      "start": 27.0,
+      "end": 30.0,
+      "text": "Okay, I have it. I don't want to do it."
+    },
+    {
+      "id": 7,
+      "start": 30.0,
+      "end": 33.0,
+      "text": "Anyway, sorry. Enough."
+    },
+    {
+      "id": 8,
+      "start": 33.0,
+      "end": 36.0,
+      "text": "We can go over."
+    },
+    {
+      "id": 9,
+      "start": 36.0,
+      "end": 38.0,
+      "text": "Databases. Courtyard of the musician."
+    },
+    {
+      "id": 10,
+      "start": 38.0,
+      "end": 41.0,
+      "text": "Last class, we didn't get through everything."
+    },
+    {
+      "id": 11,
+      "start": 41.0,
+      "end": 44.0,
+      "text": "We'll go over this again."
+    },
+    {
+      "id": 12,
+      "start": 44.0,
+      "end": 46.0,
+      "text": "I'll go a bit slower than maybe the day last time."
+    },
+    {
+      "id": 13,
+      "start": 46.0,
+      "end": 48.0,
+      "text": "I'll just walk through what Cascades is doing."
+    },
+    {
+      "id": 14,
+      "start": 48.0,
+      "end": 51.0,
+      "text": "Then we'll finish up with randomized search before we jump into what today's paper is about."
+    },
+    {
+      "id": 15,
+      "start": 51.0,
+      "end": 55.0,
+      "text": "But again, the things we discussed last class"
+    },
+    {
+      "id": 16,
+      "start": 55.0,
+      "end": 59.0,
+      "text": "was going through this progression of how to do more sophisticated things"
+    },
+    {
+      "id": 17,
+      "start": 59.0,
+      "end": 63.0,
+      "text": "with the courier after might as a starting from just if the analysis rules looking for patterns"
+    },
+    {
+      "id": 18,
+      "start": 63.0,
+      "end": 68.0,
+      "text": "that then do some kind of rewrites, which is everyone uses when they first start out."
+    },
+    {
+      "id": 19,
+      "start": 68.0,
+      "end": 74.0,
+      "text": "And then we saw how system R in the 1970s introduced this cost-based joint search"
+    },
+    {
+      "id": 20,
+      "start": 74.0,
+      "end": 79.0,
+      "text": "and that's sort of the backbone of how the ratified search and unified search came along."
+    },
+    {
+      "id": 21,
+      "start": 79.0,
+      "end": 83.0,
+      "text": "And then randomized search will be the variation of this."
+    },
+    {
+      "id": 22,
+      "start": 83.0,
+      "end": 88.0,
+      "text": "So the distinction we were talking about last time was again the stratified search and the unified search."
+    },
+    {
+      "id": 23,
+      "start": 88.0,
+      "end": 90.0,
+      "text": "And as I was saying, the lines are kind of blurry."
+    },
+    {
+      "id": 24,
+      "start": 90.0,
+      "end": 95.0,
+      "text": "We're like, okay, Cascades in sickle server is technically a unified search,"
+    },
+    {
+      "id": 25,
+      "start": 95.0,
+      "end": 100.0,
+      "text": "but the way they invoke some of the rules, the transformation rules, as we'll see in a second,"
+    },
+    {
+      "id": 26,
+      "start": 100.0,
+      "end": 103.0,
+      "text": "it's basically doing it without a cost-based search."
+    },
+    {
+      "id": 27,
+      "start": 103.0,
+      "end": 107.0,
+      "text": "Like they're doing transformations that you always want to do first,"
+    },
+    {
+      "id": 28,
+      "start": 107.0,
+      "end": 111.0,
+      "text": "and then they do something that is more exploratory search, like you would see in Cascades."
+    },
+    {
+      "id": 29,
+      "start": 111.0,
+      "end": 118.0,
+      "text": "And so the thing that maybe matters the most is that we want to be able to define the transformation rules"
+    },
+    {
+      "id": 30,
+      "start": 118.0,
+      "end": 122.0,
+      "text": "ideally in the same dialect or DSL, whatever you want to call it,"
+    },
+    {
+      "id": 31,
+      "start": 122.0,
+      "end": 127.0,
+      "text": "that allow us to then be able to decide, do I want to move stuff to be always in this front phase"
+    },
+    {
+      "id": 32,
+      "start": 127.0,
+      "end": 131.0,
+      "text": "that I always want to run or the second phase, why do you do more exploration stuff?"
+    },
+    {
+      "id": 33,
+      "start": 131.0,
+      "end": 135.0,
+      "text": "So the stratified search is having two separate phases, one with just heuristics,"
+    },
+    {
+      "id": 34,
+      "start": 135.0,
+      "end": 139.0,
+      "text": "sorry, one using the rules, but without a cost model, the second one is doing cost-based search."
+    },
+    {
+      "id": 35,
+      "start": 139.0,
+      "end": 143.0,
+      "text": "And then the unified search is the idea is like you just do everything all at once,"
+    },
+    {
+      "id": 36,
+      "start": 143.0,
+      "end": 147.0,
+      "text": "and you avoid a bunch of expensive transformations or getting stuck in infinite loops,"
+    },
+    {
+      "id": 37,
+      "start": 147.0,
+      "end": 151.0,
+      "text": "we saw again how the memo table is going to help with that."
+    },
+    {
+      "id": 38,
+      "start": 151.0,
+      "end": 154.0,
+      "text": "So, less so about maybe the stratified search for the unified search,"
+    },
+    {
+      "id": 39,
+      "start": 154.0,
+      "end": 160.0,
+      "text": "the thing that really matters when we understand is that it is going to be top down versus bottom up."
+    },
+    {
+      "id": 40,
+      "start": 160.0,
+      "end": 165.0,
+      "text": "So the Cascades approach is top down, meaning I start with the outcome that I want,"
+    },
+    {
+      "id": 41,
+      "start": 165.0,
+      "end": 167.0,
+      "text": "like this is the final output I want for my query."
+    },
+    {
+      "id": 42,
+      "start": 167.0,
+      "end": 172.0,
+      "text": "I don't know how I got there in my query plan, but I'm going to go down the tree"
+    },
+    {
+      "id": 43,
+      "start": 172.0,
+      "end": 178.0,
+      "text": "and assemble the pieces or assemble the operators I need to then feed me into my final output."
+    },
+    {
+      "id": 44,
+      "start": 178.0,
+      "end": 182.0,
+      "text": "Whereas in the bottom optimization, which is what the system R guys started with,"
+    },
+    {
+      "id": 45,
+      "start": 182.0,
+      "end": 190.0,
+      "text": "is that you start with nothing and you then add the operators you need to get you up to the goal that you want."
+    },
+    {
+      "id": 46,
+      "start": 190.0,
+      "end": 194.0,
+      "text": "And again, me standing up here and making hand gestures like this and this,"
+    },
+    {
+      "id": 47,
+      "start": 194.0,
+      "end": 200.0,
+      "text": "maybe doesn't really think and mean anything, but there are certain amnesty you can apply more easily in one versus another."
+    },
+    {
+      "id": 48,
+      "start": 200.0,
+      "end": 205.0,
+      "text": "At a high level they are composable, they're communicative, they could use one versus another,"
+    },
+    {
+      "id": 49,
+      "start": 205.0,
+      "end": 209.0,
+      "text": "but there are some optimizations you can do in the top down one that maybe you can't do in bottom up,"
+    },
+    {
+      "id": 50,
+      "start": 209.0,
+      "end": 211.0,
+      "text": "and likewise in bottom up you can't do in top down. Yes."
+    },
+    {
+      "id": 51,
+      "start": 211.0,
+      "end": 213.0,
+      "text": "Is stratified always bottom up?"
+    },
+    {
+      "id": 52,
+      "start": 213.0,
+      "end": 215.0,
+      "text": "No, his question is stratified always bottom up."
+    },
+    {
+      "id": 53,
+      "start": 215.0,
+      "end": 221.0,
+      "text": "And then you're saying like the, is cascades as described by Microsoft, is that stratified?"
+    },
+    {
+      "id": 54,
+      "start": 221.0,
+      "end": 226.0,
+      "text": "Because they have a bunch of rules that you always run, then later on they run the cost-based search."
+    },
+    {
+      "id": 55,
+      "start": 226.0,
+      "end": 234.0,
+      "text": "And in that cost-based search it's doing top down, but the transformation rules are sort of operating in the same way."
+    },
+    {
+      "id": 56,
+      "start": 234.0,
+      "end": 237.0,
+      "text": "They're generating these like logical plans at a top down manner too."
+    },
+    {
+      "id": 57,
+      "start": 237.0,
+      "end": 241.0,
+      "text": "But that would be technically that's a stratified search because you have something you always do,"
+    },
+    {
+      "id": 58,
+      "start": 241.0,
+      "end": 244.0,
+      "text": "and then you have a cost-based thing that you can be dynamic about."
+    },
+    {
+      "id": 59,
+      "start": 244.0,
+      "end": 250.0,
+      "text": "Right. So mostly open source systems are going to be bottom up."
+    },
+    {
+      "id": 60,
+      "start": 250.0,
+      "end": 261.0,
+      "text": "Even the guy that invented cascades said the way you probably want to do a career optimization now is start with cascades in a stratified manner"
+    },
+    {
+      "id": 61,
+      "start": 261.0,
+      "end": 265.0,
+      "text": "like run some initial rules, maybe not necessarily in the full cost-based search."
+    },
+    {
+      "id": 62,
+      "start": 265.0,
+      "end": 268.0,
+      "text": "It wasn't clear. It's sort of offhand comedy made at a conference."
+    },
+    {
+      "id": 63,
+      "start": 268.0,
+      "end": 276.0,
+      "text": "And then you want to do the bottom up, or sort of bottom up, join bottom up optimization to pick join order."
+    },
+    {
+      "id": 64,
+      "start": 276.0,
+      "end": 286.0,
+      "text": "All right. So again, today's class, I want to spend the first half going over again what we missed and rushed through in the last class of the unified search and cascades."
+    },
+    {
+      "id": 65,
+      "start": 286.0,
+      "end": 297.0,
+      "text": "And then we'll see how we then apply that randomize search. And then I want to go quickly over some real world examples of what the, what some closed source and open source career optimizers actually look like."
+    },
+    {
+      "id": 66,
+      "start": 298.0,
+      "end": 302.0,
+      "text": "The main is it's going to be sequels over calcite, orca, and carcass DB."
+    },
+    {
+      "id": 67,
+      "start": 302.0,
+      "end": 309.0,
+      "text": "And then we'll finish up with going over at a high level again the unnesting subclarory paper you guys were starting to reading."
+    },
+    {
+      "id": 68,
+      "start": 309.0,
+      "end": 316.0,
+      "text": "Hopefully I wasn't too dense on the mission, Aldro, but it's a, it's one of the things where I think everyone should know it."
+    },
+    {
+      "id": 69,
+      "start": 316.0,
+      "end": 319.0,
+      "text": "We probably should teach it in the intro class."
+    },
+    {
+      "id": 70,
+      "start": 320.0,
+      "end": 325.0,
+      "text": "Very few systems actually implement it entirely, as far as I know, only duck DB, Umbra and hyper."
+    },
+    {
+      "id": 71,
+      "start": 325.0,
+      "end": 333.0,
+      "text": "My former student who took 7201, she's at Databricks, she implemented almost all of it in Databricks and have been not not not everything."
+    },
+    {
+      "id": 72,
+      "start": 333.0,
+      "end": 348.0,
+      "text": "But we'll walk through an example there. And unfortunately, say good time we're not going to be able to cover the hell hyper does their, their dynamic dynamic program approach or DP approach for finding joiners, but we can cover that offline if you want."
+    },
+    {
+      "id": 73,
+      "start": 349.0,
+      "end": 362.0,
+      "text": "Alright, so again, this is just a repeat, we'll talk about last class, where the cascades optimizer is going to be the third version or third generation of a query optimizer, this guy, Gertz graphy built Exodus came first, then volcano."
+    },
+    {
+      "id": 74,
+      "start": 362.0,
+      "end": 372.0,
+      "text": "And it's the same volcano when we describe the volcano model, this iterator thing, but in that, in that system, in that, this papers, you also describes how to do parallel queries with the exchange operator."
+    },
+    {
+      "id": 75,
+      "start": 372.0,
+      "end": 379.0,
+      "text": "And then he has this optimizer generator that he built in volcano, and then after that, he then built cascades."
+    },
+    {
+      "id": 76,
+      "start": 379.0,
+      "end": 388.0,
+      "text": "But as far as I know, he just wrote the paper on cascades, it's very heavy handed on object oriented programming, because that was the hot thing in late 80s, early 90s."
+    },
+    {
+      "id": 77,
+      "start": 388.0,
+      "end": 401.0,
+      "text": "And then as far as I know, nobody, he didn't actually implement it, except for being involved in this master's thesis a few years later at Portland State, but then Microsoft hired him to go build their new query optimizer, because they were rewriting everything from their fork of cybase."
+    },
+    {
+      "id": 78,
+      "start": 401.0,
+      "end": 407.0,
+      "text": "And that's why, again, Microsoft famously is using cascades."
+    },
+    {
+      "id": 79,
+      "start": 407.0,
+      "end": 430.0,
+      "text": "So, it's going to top down approach using a branch balance search, and the sort of the key idea of what makes cascades interesting and better than what came before, was that they were doing the incremental materialization of the possible ways to represent some expression, which I'll say it is."
+    },
+    {
+      "id": 80,
+      "start": 430.0,
+      "end": 440.0,
+      "text": "Second, some operator in the query plan, whereas in like volcano, when you search down, you landed some node in the tree, you immediately materialized everything, which would explode your search base."
+    },
+    {
+      "id": 81,
+      "start": 440.0,
+      "end": 453.0,
+      "text": "Even though you may run out of time to examine everything at that operator, at that level of the tree, you still materialize everything, and so your memory cost of volcano would explode."
+    },
+    {
+      "id": 82,
+      "start": 454.0,
+      "end": 462.0,
+      "text": "So, the four key ideas of cascades, as we talked about last class, again, everything is going to be represented as data structures."
+    },
+    {
+      "id": 83,
+      "start": 462.0,
+      "end": 476.0,
+      "text": "So, within a task, we'd have, here's the pattern I'm looking for in my query plan, here's the transformation I want to apply, and you can have additional things, like a priority that says this thing should be considered more quickly, or sooner than another one."
+    },
+    {
+      "id": 84,
+      "start": 476.0,
+      "end": 486.0,
+      "text": "And in the paper, you can actually modify these priorities on the fly, but in practice, again, I don't, the cockroachyb does that, Microsoft does not."
+    },
+    {
+      "id": 85,
+      "start": 486.0,
+      "end": 505.0,
+      "text": "Then we have explicit definition of these, what properties we need our operators to have, to ensure that if data needs be sorted, a certain way, or data needs to come in a certain compressed form, we can make sure that anything, any operator we would generate in our query plan, at some level of the tree, meets the expectations of, sorry, anything below us,"
+    },
+    {
+      "id": 86,
+      "start": 505.0,
+      "end": 510.0,
+      "text": "and the tree meets the expectation of the parent we're feeding into."
+    },
+    {
+      "id": 87,
+      "start": 510.0,
+      "end": 518.0,
+      "text": "And then we talked about this, again, you can reorder things on the fly to find the best plan more quickly, based on what you know the query plan has done so far."
+    },
+    {
+      "id": 88,
+      "start": 518.0,
+      "end": 530.0,
+      "text": "And then this last one, again, is important that within the same search engine, and the rule definitions, we can do pattern matching and transformations of expressions, and ware clauses, having clauses, or join clauses, whatever."
+    },
+    {
+      "id": 89,
+      "start": 530.0,
+      "end": 536.0,
+      "text": "In the same way that we would do a search for, you know, converting logical operators to physical operators."
+    },
+    {
+      "id": 90,
+      "start": 536.0,
+      "end": 546.0,
+      "text": "And this is nice again, you don't have to do like one pass for the ware clause, optimize that, and then a separate pass for the query plans themselves, all that's done in a single engine."
+    },
+    {
+      "id": 91,
+      "start": 546.0,
+      "end": 555.0,
+      "text": "Like I think my sequel, they treat the expressions and the ware clause separately from the query operators. So they have sort of two optimization passes."
+    },
+    {
+      "id": 92,
+      "start": 556.0,
+      "end": 570.0,
+      "text": "All right, so the things we, the definition we care about in case case is this notion of an expression, and it's just going to be some operation that we want to do in in our query plan that is going to have zero or more inputs coming coming into us."
+    },
+    {
+      "id": 93,
+      "start": 570.0,
+      "end": 576.0,
+      "text": "So you can be a leaf in the query plan, or it could be some, some middle operator, right?"
+    },
+    {
+      "id": 94,
+      "start": 576.0,
+      "end": 582.0,
+      "text": "And we can sort of group them together and say here's a, here's a higher level thing that we want to do, and we'll represent that as an expression."
+    },
+    {
+      "id": 95,
+      "start": 582.0,
+      "end": 591.0,
+      "text": "So for example, if I want to join A, B, and C on simple IDs, I got a logical expression that says I'm going to join A with B, then join that with C."
+    },
+    {
+      "id": 96,
+      "start": 591.0,
+      "end": 595.0,
+      "text": "And then if I flip the order, then that's considered another expression as well."
+    },
+    {
+      "id": 97,
+      "start": 595.0,
+      "end": 600.0,
+      "text": "And then I can have a physical, physical manifestation of that expression."
+    }
+  ],
+  "language": "en"
+}

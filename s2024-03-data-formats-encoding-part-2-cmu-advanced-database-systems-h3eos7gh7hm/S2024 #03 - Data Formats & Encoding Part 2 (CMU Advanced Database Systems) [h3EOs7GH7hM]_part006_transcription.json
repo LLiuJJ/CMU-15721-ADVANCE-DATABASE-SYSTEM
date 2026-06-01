@@ -1,0 +1,863 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 5.52,
+      "text": "that were just taking the delta, whatever the seating value for us was."
+    },
+    {
+      "id": 1,
+      "start": 5.52,
+      "end": 10.96,
+      "text": "And then the index vector then tells you how to take this materialization"
+    },
+    {
+      "id": 2,
+      "start": 10.96,
+      "end": 16.8,
+      "text": "after you've done the reverse the delta encoding to then tell you what the actual symbols"
+    },
+    {
+      "id": 3,
+      "start": 16.8,
+      "end": 19.32,
+      "text": "that you want to get back."
+    },
+    {
+      "id": 4,
+      "start": 19.32,
+      "end": 24.7,
+      "text": "So they'll set things up like this, but then they go ahead and take this delta"
+    },
+    {
+      "id": 5,
+      "start": 24.7,
+      "end": 28.24,
+      "text": "encoded vector because the index vector you don't actually use, you just materialize it."
+    },
+    {
+      "id": 6,
+      "start": 28.24,
+      "end": 32.56,
+      "text": "Sorry, you just materialize it and then do the delta encoding on it."
+    },
+    {
+      "id": 7,
+      "start": 32.56,
+      "end": 38.8,
+      "text": "They then order things in such a way that the continuous values aren't going to be one"
+    },
+    {
+      "id": 8,
+      "start": 38.8,
+      "end": 43.0,
+      "text": "after, sort of within the original data set, on going one after another, they're going"
+    },
+    {
+      "id": 9,
+      "start": 43.0,
+      "end": 47.6,
+      "text": "to be in this example here, four elements away."
+    },
+    {
+      "id": 10,
+      "start": 47.6,
+      "end": 52.8,
+      "text": "So now when you want to decode this vector like this, because it's delta encoding, we have"
+    },
+    {
+      "id": 11,
+      "start": 52.8,
+      "end": 58.64,
+      "text": "the base vector is going to be now four elements instead of just one as before."
+    },
+    {
+      "id": 12,
+      "start": 58.64,
+      "end": 64.74,
+      "text": "So as I start off, I take these four elements, I do the SIMD edition now to apply it to"
+    },
+    {
+      "id": 13,
+      "start": 64.74,
+      "end": 69.4,
+      "text": "this vector here, and then I produce the output here."
+    },
+    {
+      "id": 14,
+      "start": 69.4,
+      "end": 73.48,
+      "text": "And they're doing some extra steps to make sure that things are written out to the output"
+    },
+    {
+      "id": 15,
+      "start": 73.48,
+      "end": 77.6,
+      "text": "in memory at these different locations because these correspond to the positions that"
+    },
+    {
+      "id": 16,
+      "start": 77.6,
+      "end": 80.88,
+      "text": "they exist in the original index vector."
+    },
+    {
+      "id": 17,
+      "start": 80.88,
+      "end": 85.16,
+      "text": "Because if I just have them be, this is right next to this, right next to that, then that's"
+    },
+    {
+      "id": 18,
+      "start": 85.16,
+      "end": 91.8,
+      "text": "going to screw up all my ordering that I need for the offsets to jump to other columns."
+    },
+    {
+      "id": 19,
+      "start": 91.8,
+      "end": 100.94,
+      "text": "So even though things are coming out incrementally in out of order, we want to space things out"
+    },
+    {
+      "id": 20,
+      "start": 100.94,
+      "end": 102.96,
+      "text": "so that it goes back into the right order."
+    },
+    {
+      "id": 21,
+      "start": 102.96,
+      "end": 106.52,
+      "text": "And they talk about the bit shifting and other operations they do in SIMD to make this"
+    },
+    {
+      "id": 22,
+      "start": 106.52,
+      "end": 107.52,
+      "text": "work."
+    },
+    {
+      "id": 23,
+      "start": 107.52,
+      "end": 110.7,
+      "text": "Again, so now we slide over the window to look at the next operations, and then in this"
+    },
+    {
+      "id": 24,
+      "start": 110.7,
+      "end": 116.32,
+      "text": "case here we're taking the output of, that was generated from this, or these values here,"
+    },
+    {
+      "id": 25,
+      "start": 116.32,
+      "end": 120.4,
+      "text": "and then now we do SIMD to apply it to this next one to produce the next set of outputs."
+    },
+    {
+      "id": 26,
+      "start": 120.4,
+      "end": 123.92,
+      "text": "And likewise we do this going down the line like that."
+    },
+    {
+      "id": 27,
+      "start": 123.92,
+      "end": 124.92,
+      "text": "Yes?"
+    },
+    {
+      "id": 28,
+      "start": 124.92,
+      "end": 127.36,
+      "text": "So on this we store that top right now, right?"
+    },
+    {
+      "id": 29,
+      "start": 127.36,
+      "end": 130.56,
+      "text": "This question is, we store the yellow one."
+    },
+    {
+      "id": 30,
+      "start": 130.56,
+      "end": 133.16,
+      "text": "The only yellow one on the whole, you're not sort of the whole thing."
+    },
+    {
+      "id": 31,
+      "start": 133.16,
+      "end": 134.84,
+      "text": "You store it the whole thing and then the yellow?"
+    },
+    {
+      "id": 32,
+      "start": 134.84,
+      "end": 135.84,
+      "text": "And the yellow."
+    },
+    {
+      "id": 33,
+      "start": 135.84,
+      "end": 136.84,
+      "text": "Yes."
+    },
+    {
+      "id": 34,
+      "start": 136.84,
+      "end": 140.64,
+      "text": "So isn't that much worse than what we store for the next coding terms besides the"
+    },
+    {
+      "id": 35,
+      "start": 140.64,
+      "end": 143.96,
+      "text": "duplicate on the coding is much smaller?"
+    },
+    {
+      "id": 36,
+      "start": 143.96,
+      "end": 150.68,
+      "text": "So the statement is, isn't this much worse than running a coding because the size is smaller?"
+    },
+    {
+      "id": 37,
+      "start": 150.68,
+      "end": 154.16,
+      "text": "Yes, but the decompression is faster."
+    },
+    {
+      "id": 38,
+      "start": 154.16,
+      "end": 156.36,
+      "text": "The decoding is faster, yes."
+    },
+    {
+      "id": 39,
+      "start": 156.36,
+      "end": 159.28,
+      "text": "Again, it's classic computer science, computers are storage."
+    },
+    {
+      "id": 40,
+      "start": 159.28,
+      "end": 164.64,
+      "text": "So I can store less data, but it's going to make more work for me to decompress it."
+    },
+    {
+      "id": 41,
+      "start": 166.84,
+      "end": 175.2,
+      "text": "Again, nobody does this as far as there's no ohm source system that stores data like this."
+    },
+    {
+      "id": 42,
+      "start": 175.2,
+      "end": 178.2,
+      "text": "This is wild."
+    },
+    {
+      "id": 43,
+      "start": 178.2,
+      "end": 184.28,
+      "text": "And again, the paper type of other ways to handle this for other coding schemes, but again,"
+    },
+    {
+      "id": 44,
+      "start": 184.28,
+      "end": 190.52,
+      "text": "like the basic ideas that were sort of spraying bits out into these vectors so that when we"
+    },
+    {
+      "id": 45,
+      "start": 190.52,
+      "end": 196.08,
+      "text": "go to decode them, they line up nicely into our SIMD registers."
+    },
+    {
+      "id": 46,
+      "start": 196.08,
+      "end": 199.68,
+      "text": "We don't have to do this scatter gather stuff to move things around to put it in the form"
+    },
+    {
+      "id": 47,
+      "start": 199.68,
+      "end": 202.4,
+      "text": "that we actually need."
+    },
+    {
+      "id": 48,
+      "start": 202.4,
+      "end": 207.0,
+      "text": "So you can't actually decode this, the run like I'm coding with SIMD, right?"
+    },
+    {
+      "id": 49,
+      "start": 207.0,
+      "end": 210.48,
+      "text": "Because you basically need conditional loops now to say, okay, I look at the run length"
+    },
+    {
+      "id": 50,
+      "start": 210.48,
+      "end": 214.76,
+      "text": "here, it's seven, let me loop through and SIMD seven times."
+    },
+    {
+      "id": 51,
+      "start": 214.76,
+      "end": 218.0,
+      "text": "You can co-gen it and do it, right?"
+    },
+    {
+      "id": 52,
+      "start": 218.0,
+      "end": 221.04,
+      "text": "But we'll see this in a week or so."
+    },
+    {
+      "id": 53,
+      "start": 221.04,
+      "end": 225.16,
+      "text": "That co-gening brings a whole bunch of other problems that make lives harder."
+    },
+    {
+      "id": 54,
+      "start": 225.16,
+      "end": 232.16,
+      "text": "Can you also compress this?"
+    },
+    {
+      "id": 55,
+      "start": 232.16,
+      "end": 241.32,
+      "text": "So better blocks would?"
+    },
+    {
+      "id": 56,
+      "start": 241.32,
+      "end": 243.44,
+      "text": "I don't these guys don't."
+    },
+    {
+      "id": 57,
+      "start": 243.44,
+      "end": 250.52,
+      "text": "Because if you do run the encoding on this, you're back to this problem."
+    },
+    {
+      "id": 58,
+      "start": 250.52,
+      "end": 253.52,
+      "text": "Okay?"
+    },
+    {
+      "id": 59,
+      "start": 253.52,
+      "end": 258.76,
+      "text": "All right, I want to finish up talking about bit slicing bit reading quickly."
+    },
+    {
+      "id": 60,
+      "start": 258.76,
+      "end": 266.12,
+      "text": "So all of this came to talk about so far, parquet, or better blocks, fast lanes."
+    },
+    {
+      "id": 61,
+      "start": 266.12,
+      "end": 272.64,
+      "text": "They are all about, you scan a column, you're looking at the entire value for each tuple"
+    },
+    {
+      "id": 62,
+      "start": 272.64,
+      "end": 279.12,
+      "text": "in its entirety every single time."
+    },
+    {
+      "id": 63,
+      "start": 279.12,
+      "end": 287.64,
+      "text": "And that means that you can't short circuit the scan or the filter."
+    },
+    {
+      "id": 64,
+      "start": 287.64,
+      "end": 291.6,
+      "text": "If you recognize early on that this data is never going to match."
+    },
+    {
+      "id": 65,
+      "start": 291.6,
+      "end": 294.92,
+      "text": "So I mean, you can do this for strings, the string is decoded."
+    },
+    {
+      "id": 66,
+      "start": 294.92,
+      "end": 298.9,
+      "text": "Like if you ever look at like the string compare operation or ellipsy, it's just a four"
+    },
+    {
+      "id": 67,
+      "start": 298.9,
+      "end": 300.64,
+      "text": "little looks at everything element."
+    },
+    {
+      "id": 68,
+      "start": 300.64,
+      "end": 304.24,
+      "text": "And then if it doesn't match the thing you're looking for, then it breaks out of the loop,"
+    },
+    {
+      "id": 69,
+      "start": 304.24,
+      "end": 305.24,
+      "text": "right?"
+    },
+    {
+      "id": 70,
+      "start": 305.24,
+      "end": 306.52,
+      "text": "That's what short circuiting is."
+    },
+    {
+      "id": 71,
+      "start": 306.52,
+      "end": 313.52,
+      "text": "But if we're comparing two integers, ignoring syndes, it's a single instruction, there's"
+    },
+    {
+      "id": 72,
+      "start": 313.52,
+      "end": 315.84,
+      "text": "this equal to this."
+    },
+    {
+      "id": 73,
+      "start": 315.84,
+      "end": 319.24,
+      "text": "You're at the lowest level of the hardware, you're looking at these primitive data types."
+    },
+    {
+      "id": 74,
+      "start": 319.24,
+      "end": 324.4,
+      "text": "You can't do any tricks to say, oh, I recognize that the first bit of these two values aren't"
+    },
+    {
+      "id": 75,
+      "start": 324.4,
+      "end": 325.4,
+      "text": "going to match."
+    },
+    {
+      "id": 76,
+      "start": 325.4,
+      "end": 329.48,
+      "text": "So why compare the other 31 bits?"
+    },
+    {
+      "id": 77,
+      "start": 329.48,
+      "end": 333.84,
+      "text": "Because that's the interface that the harbor provides you."
+    },
+    {
+      "id": 78,
+      "start": 333.84,
+      "end": 340.96,
+      "text": "So what if we could do this?"
+    },
+    {
+      "id": 79,
+      "start": 340.96,
+      "end": 348.08,
+      "text": "Is there a way to be able to recognize that we can just look at a subset of a value and"
+    },
+    {
+      "id": 80,
+      "start": 348.08,
+      "end": 353.16,
+      "text": "do comparisons based on that and only look at the rest of the data for that value if we"
+    },
+    {
+      "id": 81,
+      "start": 353.16,
+      "end": 358.24,
+      "text": "think it's going to be meaningful or still match, if we need to."
+    },
+    {
+      "id": 82,
+      "start": 358.24,
+      "end": 361.84,
+      "text": "So this is what basic idea is called bit slicing."
+    },
+    {
+      "id": 83,
+      "start": 361.84,
+      "end": 364.88,
+      "text": "This is an old idea from 1990s."
+    },
+    {
+      "id": 84,
+      "start": 364.88,
+      "end": 370.04,
+      "text": "There was a system called Cybase, or it goes to the still-around, Cybase IQ that does this."
+    },
+    {
+      "id": 85,
+      "start": 370.04,
+      "end": 372.76,
+      "text": "The Palosa or feature-based system I mentioned does this now."
+    },
+    {
+      "id": 86,
+      "start": 372.76,
+      "end": 376.72,
+      "text": "The basic idea is that we're going to store, instead of storing the actual integers,"
+    },
+    {
+      "id": 87,
+      "start": 376.72,
+      "end": 380.32,
+      "text": "all the bits contiguously, it's like an extreme case of the column store."
+    },
+    {
+      "id": 88,
+      "start": 380.32,
+      "end": 383.44,
+      "text": "So the column store was taking the rows, the rows, and breaking them to column storing"
+    },
+    {
+      "id": 89,
+      "start": 383.44,
+      "end": 385.16,
+      "text": "all the columns contiguously."
+    },
+    {
+      "id": 90,
+      "start": 385.16,
+      "end": 391.96,
+      "text": "Now with bits slice, we're going to take the bits within a column and store those things"
+    },
+    {
+      "id": 91,
+      "start": 391.96,
+      "end": 392.96,
+      "text": "contiguously."
+    },
+    {
+      "id": 92,
+      "start": 392.96,
+      "end": 397.68,
+      "text": "So the first bit for every single value for all two pulls, store that contiguously, and"
+    },
+    {
+      "id": 93,
+      "start": 397.68,
+      "end": 398.68,
+      "text": "then so far the other bits."
+    },
+    {
+      "id": 94,
+      "start": 398.68,
+      "end": 400.52,
+      "text": "So let's see an example here."
+    },
+    {
+      "id": 95,
+      "start": 400.52,
+      "end": 402.36,
+      "text": "So there's all places I lived in my life."
+    },
+    {
+      "id": 96,
+      "start": 402.36,
+      "end": 404.4,
+      "text": "I grew up in Maryland, 2042."
+    },
+    {
+      "id": 97,
+      "start": 404.4,
+      "end": 409.24,
+      "text": "It's Compton, it's Pittsburgh, it lives in this constant, a bunch of places."
+    },
+    {
+      "id": 98,
+      "start": 409.24,
+      "end": 413.72,
+      "text": "So we're going to take say, 2042, convert it to its binary form, and then now we're going"
+    },
+    {
+      "id": 99,
+      "start": 413.72,
+      "end": 421.52,
+      "text": "to store a separate column of bits for every single one of those positions."
+    },
+    {
+      "id": 100,
+      "start": 421.52,
+      "end": 425.24,
+      "text": "Now these are 30 jubit integers, I'm showing 17 bits because it has to fit on PowerPoint"
+    },
+    {
+      "id": 101,
+      "start": 425.24,
+      "end": 427.32,
+      "text": "but whatever."
+    },
+    {
+      "id": 102,
+      "start": 427.32,
+      "end": 431.48,
+      "text": "So then we always have a null bitmap, but then we just can scan along, look at all the"
+    },
+    {
+      "id": 103,
+      "start": 431.48,
+      "end": 434.88,
+      "text": "bits, and now store them across in separate vectors."
+    },
+    {
+      "id": 104,
+      "start": 434.88,
+      "end": 438.68,
+      "text": "And we'll do the same thing for all the other ones, like this."
+    },
+    {
+      "id": 105,
+      "start": 438.68,
+      "end": 442.44,
+      "text": "Again, think of these as again, these are contiguously bitmaps."
+    },
+    {
+      "id": 106,
+      "start": 442.8,
+      "end": 446.68,
+      "text": "And again, I can use root and bitmaps now to represent this."
+    },
+    {
+      "id": 107,
+      "start": 446.68,
+      "end": 451.88,
+      "text": "In some cases, make the least significant bits, maybe those are not, those are sparse,"
+    },
+    {
+      "id": 108,
+      "start": 451.88,
+      "end": 453.84,
+      "text": "but the most significant bits are dense."
+    },
+    {
+      "id": 109,
+      "start": 453.84,
+      "end": 456.04,
+      "text": "Right?"
+    },
+    {
+      "id": 110,
+      "start": 456.04,
+      "end": 458.72,
+      "text": "So now I want to look up queries."
+    },
+    {
+      "id": 111,
+      "start": 458.72,
+      "end": 466.36,
+      "text": "Select star from a customer table where zip code is less than 15, 15, 21, 7."
+    },
+    {
+      "id": 112,
+      "start": 466.36,
+      "end": 471.12,
+      "text": "I can now walk across each slice and construct a result bitmap to see what two pulls at"
+    },
+    {
+      "id": 113,
+      "start": 471.12,
+      "end": 476.88,
+      "text": "different offsets at the bit level are matching my predicate."
+    },
+    {
+      "id": 114,
+      "start": 476.88,
+      "end": 481.32,
+      "text": "And then I can determine if I don't see any more matches as I'm going along, I stop."
+    },
+    {
+      "id": 115,
+      "start": 483.56,
+      "end": 484.56,
+      "text": "Right?"
+    },
+    {
+      "id": 116,
+      "start": 484.56,
+      "end": 488.6,
+      "text": "So this is the bit representation for 15, 21, 7."
+    },
+    {
+      "id": 117,
+      "start": 488.6,
+      "end": 493.84,
+      "text": "So say termsplicity, maybe I just look at the first three bits because these are all zeroes."
+    },
+    {
+      "id": 118,
+      "start": 493.84,
+      "end": 500.56,
+      "text": "So that means that if there's any tuple that has a bit set in these first three vectors,"
+    },
+    {
+      "id": 119,
+      "start": 500.56,
+      "end": 505.68,
+      "text": "and I know I can't match my tuple because it's going to be greater than 15, 15, 15, 21, 7."
+    },
+    {
+      "id": 120,
+      "start": 505.68,
+      "end": 509.12,
+      "text": "So I know I don't need to look at that position anymore."
+    },
+    {
+      "id": 121,
+      "start": 510.72,
+      "end": 511.72,
+      "text": "Right?"
+    },
+    {
+      "id": 122,
+      "start": 511.72,
+      "end": 514.88,
+      "text": "That's the basic idea of bit slicing."
+    },
+    {
+      "id": 123,
+      "start": 514.88,
+      "end": 516.96,
+      "text": "The original algorithm was all scale instructions."
+    },
+    {
+      "id": 124,
+      "start": 516.96,
+      "end": 519.48,
+      "text": "We'll see bit weaving in a second that can do this in simding."
+    },
+    {
+      "id": 125,
+      "start": 520.76,
+      "end": 522.8,
+      "text": "But bit slicing can do some other interesting things."
+    },
+    {
+      "id": 126,
+      "start": 522.8,
+      "end": 527.44,
+      "text": "Like some queries, like aggregate queries, there's actually really simple operations to"
+    },
+    {
+      "id": 127,
+      "start": 527.44,
+      "end": 529.64,
+      "text": "compute these things quickly."
+    },
+    {
+      "id": 128,
+      "start": 529.64,
+      "end": 533.2,
+      "text": "So if you want to compute the sum of integers,"
+    },
+    {
+      "id": 129,
+      "start": 533.2,
+      "end": 538.72,
+      "text": "well, I could use the hamming weight or the hamming count for just counting the number bits"
+    },
+    {
+      "id": 130,
+      "start": 538.72,
+      "end": 541.04,
+      "text": "that are set to one in a column."
+    },
+    {
+      "id": 131,
+      "start": 542.08,
+      "end": 548.64,
+      "text": "And the intel and the simding, the intel-polarized instructions that do this very quickly, using pop count."
+    },
+    {
+      "id": 132,
+      "start": 548.64,
+      "end": 549.24,
+      "text": "Right?"
+    },
+    {
+      "id": 133,
+      "start": 549.24,
+      "end": 554.36,
+      "text": "So there's one instruction to go compute the number of bits that are set within some vector."
+    },
+    {
+      "id": 134,
+      "start": 554.36,
+      "end": 559.6,
+      "text": "So now I just count all the bits in the first slice and then multiply that by two to the 17,"
+    },
+    {
+      "id": 135,
+      "start": 559.6,
+      "end": 564.32,
+      "text": "go to the next slice count all the bits, multiply that to the 16, and go all the way down."
+    },
+    {
+      "id": 136,
+      "start": 564.32,
+      "end": 574.32,
+      "text": "And then I end up with the aggregation for all my columns, for my column here."
+    },
+    {
+      "id": 137,
+      "start": 574.32,
+      "end": 581.16,
+      "text": "Again, that's way faster than just doing integer instructions to add the sum together."
+    },
+    {
+      "id": 138,
+      "start": 584.88,
+      "end": 588.04,
+      "text": "So bit slicing extent, there was original ideas from 1990s."
+    },
+    {
+      "id": 139,
+      "start": 588.04,
+      "end": 593.28,
+      "text": "Jignash was exploring this topic in the previous decade, and I think he's looking at it again now,"
+    },
+    {
+      "id": 140,
+      "start": 593.28,
+      "end": 595.28,
+      "text": "of this technique called bit weaving."
+    },
+    {
+      "id": 141,
+      "start": 595.28,
+      "end": 599.28,
+      "text": "The idea here is that it's an alternative coding scheme for column databases that's being"
+    },
+    {
+      "id": 142,
+      "start": 599.28,
+      "end": 603.76,
+      "text": "predicated on this idea of bit slicing, but you're going to do it in such a way"
+    }
+  ],
+  "language": "en"
+}

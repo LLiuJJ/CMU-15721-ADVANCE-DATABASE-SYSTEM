@@ -1,0 +1,1409 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.6,
+      "text": "It stores it now into a parquet file example"
+    },
+    {
+      "id": 1,
+      "start": 2.6,
+      "end": 6.0,
+      "text": "for the case of data lake or in whatever,"
+    },
+    {
+      "id": 2,
+      "start": 6.0,
+      "end": 8.32,
+      "text": "the Delta Lake thing from Databricks."
+    },
+    {
+      "id": 3,
+      "start": 8.32,
+      "end": 10.36,
+      "text": "They'll take that thing parquet file,"
+    },
+    {
+      "id": 4,
+      "start": 10.36,
+      "end": 13.88,
+      "text": "and then store that now into your object store,"
+    },
+    {
+      "id": 5,
+      "start": 13.88,
+      "end": 16.4,
+      "text": "and then update the catalogs, say, here's the latest version of it."
+    },
+    {
+      "id": 6,
+      "start": 16.4,
+      "end": 18.56,
+      "text": "They also can keep track of, if you make schema changes,"
+    },
+    {
+      "id": 7,
+      "start": 18.56,
+      "end": 20.64,
+      "text": "they keep track of those things for you, right?"
+    },
+    {
+      "id": 8,
+      "start": 20.64,
+      "end": 24.44,
+      "text": "It's providing more, as I said, more infrastructure"
+    },
+    {
+      "id": 9,
+      "start": 24.44,
+      "end": 27.48,
+      "text": "to make sure that the object store"
+    },
+    {
+      "id": 10,
+      "start": 27.48,
+      "end": 30.84,
+      "text": "can keep track of what's actually in it."
+    },
+    {
+      "id": 11,
+      "start": 30.84,
+      "end": 34.16,
+      "text": "So we're not going to talk about any of this this semester."
+    },
+    {
+      "id": 12,
+      "start": 34.16,
+      "end": 36.16,
+      "text": "Delta Lake is one example system."
+    },
+    {
+      "id": 13,
+      "start": 36.16,
+      "end": 38.88,
+      "text": "I don't know whether the paper mentions Hoody and iceberg."
+    },
+    {
+      "id": 14,
+      "start": 38.88,
+      "end": 40.52,
+      "text": "Hoody came out of Uber."
+    },
+    {
+      "id": 15,
+      "start": 40.52,
+      "end": 42.76,
+      "text": "iceberg came out of Netflix."
+    },
+    {
+      "id": 16,
+      "start": 42.76,
+      "end": 45.6,
+      "text": "Snowflake has their own sort of thing,"
+    },
+    {
+      "id": 17,
+      "start": 45.6,
+      "end": 47.12,
+      "text": "I think they call it hybrid tables."
+    },
+    {
+      "id": 18,
+      "start": 47.12,
+      "end": 49.88,
+      "text": "They can implement updates, and they support iceberg as well."
+    },
+    {
+      "id": 19,
+      "start": 49.88,
+      "end": 54.6,
+      "text": "This logo without a name is actually Google Napa."
+    },
+    {
+      "id": 20,
+      "start": 54.6,
+      "end": 55.48,
+      "text": "They have a paper on this."
+    },
+    {
+      "id": 21,
+      "start": 55.48,
+      "end": 56.6,
+      "text": "Google doesn't like to put names,"
+    },
+    {
+      "id": 22,
+      "start": 56.6,
+      "end": 58.84,
+      "text": "they have some logos, it's really Amazon too."
+    },
+    {
+      "id": 23,
+      "start": 58.84,
+      "end": 62.64,
+      "text": "Like, how's that making it know what this is, right?"
+    },
+    {
+      "id": 24,
+      "start": 62.64,
+      "end": 65.88,
+      "text": "So in their defense, that's actually the internal system."
+    },
+    {
+      "id": 25,
+      "start": 65.88,
+      "end": 67.6,
+      "text": "They're publicly talking about it now."
+    },
+    {
+      "id": 26,
+      "start": 67.6,
+      "end": 69.28,
+      "text": "Like, we're not going to talk about these things this semester,"
+    },
+    {
+      "id": 27,
+      "start": 69.28,
+      "end": 71.36,
+      "text": "because we really want to focus on how do we run,"
+    },
+    {
+      "id": 28,
+      "start": 71.36,
+      "end": 73.52,
+      "text": "oh, that query is as fast as possible."
+    },
+    {
+      "id": 29,
+      "start": 73.52,
+      "end": 76.32,
+      "text": "And once we have that, then we can go beyond that"
+    },
+    {
+      "id": 30,
+      "start": 76.32,
+      "end": 79.16,
+      "text": "and build the Delta update stuff."
+    },
+    {
+      "id": 31,
+      "start": 79.48,
+      "end": 80.48,
+      "text": "OK."
+    },
+    {
+      "id": 32,
+      "start": 84.48,
+      "end": 87.92,
+      "text": "So the paper guys read, they make a bunch of different observations."
+    },
+    {
+      "id": 33,
+      "start": 87.92,
+      "end": 89.48,
+      "text": "She mentioned the one about the still data."
+    },
+    {
+      "id": 34,
+      "start": 89.48,
+      "end": 91.6,
+      "text": "But I want to point out the sort of the three things"
+    },
+    {
+      "id": 35,
+      "start": 91.6,
+      "end": 93.32,
+      "text": "that we're going to keep in the back of our minds"
+    },
+    {
+      "id": 36,
+      "start": 93.32,
+      "end": 96.16,
+      "text": "as we go throughout the semester to understand and guide"
+    },
+    {
+      "id": 37,
+      "start": 96.16,
+      "end": 101.08,
+      "text": "us on how we make decisions on building a system."
+    },
+    {
+      "id": 38,
+      "start": 101.08,
+      "end": 103.56,
+      "text": "And again, even though beyond the semester,"
+    },
+    {
+      "id": 39,
+      "start": 103.56,
+      "end": 105.96,
+      "text": "you may not go off and build data system internals."
+    },
+    {
+      "id": 40,
+      "start": 105.96,
+      "end": 107.48,
+      "text": "But these are the things you should think about when"
+    },
+    {
+      "id": 41,
+      "start": 107.48,
+      "end": 110.96,
+      "text": "choosing maybe an OLAP system in whatever your next project"
+    },
+    {
+      "id": 42,
+      "start": 110.96,
+      "end": 112.88,
+      "text": "is at a startup or wherever you go next,"
+    },
+    {
+      "id": 43,
+      "start": 112.88,
+      "end": 115.16,
+      "text": "after you graduate here."
+    },
+    {
+      "id": 44,
+      "start": 115.16,
+      "end": 118.28,
+      "text": "So the first thing to point out is that in a modern setting,"
+    },
+    {
+      "id": 45,
+      "start": 118.28,
+      "end": 121.28,
+      "text": "in modern organizations, people want to execute more"
+    },
+    {
+      "id": 46,
+      "start": 121.28,
+      "end": 122.36,
+      "text": "than their SQL queries."
+    },
+    {
+      "id": 47,
+      "start": 122.36,
+      "end": 124.48,
+      "text": "Now, I realize as someone who's like a SQL maximalist,"
+    },
+    {
+      "id": 48,
+      "start": 124.48,
+      "end": 125.92,
+      "text": "where I think everything should be SQL,"
+    },
+    {
+      "id": 49,
+      "start": 125.92,
+      "end": 127.6,
+      "text": "this seems like heresy to me, right?"
+    },
+    {
+      "id": 50,
+      "start": 127.6,
+      "end": 128.48,
+      "text": "But I'm not naive."
+    },
+    {
+      "id": 51,
+      "start": 128.48,
+      "end": 131.24,
+      "text": "I know that people, you want to run pie torches,"
+    },
+    {
+      "id": 52,
+      "start": 131.24,
+      "end": 134.16,
+      "text": "tents are flow, and all these other ML workloads"
+    },
+    {
+      "id": 53,
+      "start": 135.16,
+      "end": 139.04,
+      "text": "that you can't easily express in SQL."
+    },
+    {
+      "id": 54,
+      "start": 139.04,
+      "end": 142.44,
+      "text": "Now, there's projects like PostgreSQL that gives you UDFs,"
+    },
+    {
+      "id": 55,
+      "start": 142.44,
+      "end": 144.2,
+      "text": "and they call us into pie torches."
+    },
+    {
+      "id": 56,
+      "start": 144.2,
+      "end": 145.64,
+      "text": "But most people aren't writing that."
+    },
+    {
+      "id": 57,
+      "start": 145.64,
+      "end": 147.6,
+      "text": "Most of you are, you know, her data scientists"
+    },
+    {
+      "id": 58,
+      "start": 147.6,
+      "end": 149.6,
+      "text": "that are writing stuff in notebooks."
+    },
+    {
+      "id": 59,
+      "start": 149.6,
+      "end": 154.4,
+      "text": "And so the access patterns for ML workloads, for example,"
+    },
+    {
+      "id": 60,
+      "start": 154.4,
+      "end": 157.68,
+      "text": "are going to look a lot different than OLAP queries"
+    },
+    {
+      "id": 61,
+      "start": 157.68,
+      "end": 159.16,
+      "text": "or SQL queries."
+    },
+    {
+      "id": 62,
+      "start": 159.16,
+      "end": 160.48,
+      "text": "And we'll see this later in the semester"
+    },
+    {
+      "id": 63,
+      "start": 160.48,
+      "end": 162.68,
+      "text": "when we talk about the networking protocols"
+    },
+    {
+      "id": 64,
+      "start": 162.68,
+      "end": 166.32,
+      "text": "for data-based systems, that sometimes you"
+    },
+    {
+      "id": 65,
+      "start": 166.32,
+      "end": 172.24,
+      "text": "want to do a bulk export of data without having a retreating"
+    },
+    {
+      "id": 66,
+      "start": 172.24,
+      "end": 174.76,
+      "text": "exactly as it exists in memory from the data system,"
+    },
+    {
+      "id": 67,
+      "start": 174.76,
+      "end": 177.16,
+      "text": "rather than having covered it to a result format"
+    },
+    {
+      "id": 68,
+      "start": 177.16,
+      "end": 178.6,
+      "text": "that you can then read as if you're"
+    },
+    {
+      "id": 69,
+      "start": 178.6,
+      "end": 181.2,
+      "text": "going through JDBC or ODBC."
+    },
+    {
+      "id": 70,
+      "start": 181.2,
+      "end": 181.44,
+      "text": "Right?"
+    },
+    {
+      "id": 71,
+      "start": 181.44,
+      "end": 183.64,
+      "text": "And so maybe you want to get things out of the patchy arrow"
+    },
+    {
+      "id": 72,
+      "start": 183.64,
+      "end": 187.16,
+      "text": "format, which we'll cover throughout the semester."
+    },
+    {
+      "id": 73,
+      "start": 187.16,
+      "end": 189.0,
+      "text": "And that's relevant to the projects."
+    },
+    {
+      "id": 74,
+      "start": 189.0,
+      "end": 192.24,
+      "text": "So we'll design our system."
+    },
+    {
+      "id": 75,
+      "start": 192.24,
+      "end": 195.36,
+      "text": "The most of the parts of the system,"
+    },
+    {
+      "id": 76,
+      "start": 195.36,
+      "end": 199.12,
+      "text": "at the planner level down, ML workloads"
+    },
+    {
+      "id": 77,
+      "start": 199.12,
+      "end": 201.4,
+      "text": "are going to look a lot like Python workloads"
+    },
+    {
+      "id": 78,
+      "start": 201.4,
+      "end": 202.44,
+      "text": "to look a lot like SQL workloads."
+    },
+    {
+      "id": 79,
+      "start": 202.44,
+      "end": 203.24,
+      "text": "All of that's going to be the same."
+    },
+    {
+      "id": 80,
+      "start": 203.24,
+      "end": 205.32,
+      "text": "It's the front end part to have the same before that."
+    },
+    {
+      "id": 81,
+      "start": 205.32,
+      "end": 207.48,
+      "text": "We will make many of the exposed different APIs"
+    },
+    {
+      "id": 82,
+      "start": 207.48,
+      "end": 211.84,
+      "text": "for how people want to get data and run queries."
+    },
+    {
+      "id": 83,
+      "start": 211.84,
+      "end": 213.92,
+      "text": "The other point thing is that, as I said already,"
+    },
+    {
+      "id": 84,
+      "start": 213.92,
+      "end": 215.84,
+      "text": "that because of these shared disk architectures,"
+    },
+    {
+      "id": 85,
+      "start": 215.84,
+      "end": 218.32,
+      "text": "that it's no longer having the data"
+    },
+    {
+      "id": 86,
+      "start": 218.6,
+      "end": 221.08,
+      "text": "and having rigid control of exactly what data"
+    },
+    {
+      "id": 87,
+      "start": 221.08,
+      "end": 225.0,
+      "text": "is going into the database and how people can get data out of it."
+    },
+    {
+      "id": 88,
+      "start": 225.0,
+      "end": 227.84,
+      "text": "Because now it's just files in S3"
+    },
+    {
+      "id": 89,
+      "start": 227.84,
+      "end": 229.96,
+      "text": "and ignoring any governance or any security permissions"
+    },
+    {
+      "id": 90,
+      "start": 229.96,
+      "end": 231.76,
+      "text": "of how people could get to those files."
+    },
+    {
+      "id": 91,
+      "start": 231.76,
+      "end": 234.72,
+      "text": "If it's just files in S3, then we don't always have to go"
+    },
+    {
+      "id": 92,
+      "start": 234.72,
+      "end": 237.28,
+      "text": "through the front end of the database system"
+    },
+    {
+      "id": 93,
+      "start": 237.28,
+      "end": 239.32,
+      "text": "to do anything with our data."
+    },
+    {
+      "id": 94,
+      "start": 239.32,
+      "end": 240.24,
+      "text": "Right?"
+    },
+    {
+      "id": 95,
+      "start": 240.24,
+      "end": 242.28,
+      "text": "But that is the thing we still don't want to track"
+    },
+    {
+      "id": 96,
+      "start": 242.28,
+      "end": 243.88,
+      "text": "schemas and versions of those schemas"
+    },
+    {
+      "id": 97,
+      "start": 243.88,
+      "end": 245.8,
+      "text": "and what files actually exist."
+    },
+    {
+      "id": 98,
+      "start": 245.8,
+      "end": 250.24,
+      "text": "And the catalog is a pivotal thing that makes us all work."
+    },
+    {
+      "id": 99,
+      "start": 250.24,
+      "end": 253.48,
+      "text": "But because now anybody can put things in S3 in theory,"
+    },
+    {
+      "id": 100,
+      "start": 253.48,
+      "end": 255.8,
+      "text": "you don't have to go through that full bureaucracy"
+    },
+    {
+      "id": 101,
+      "start": 255.8,
+      "end": 258.52,
+      "text": "that I mentioned before."
+    },
+    {
+      "id": 102,
+      "start": 258.52,
+      "end": 260.12,
+      "text": "And the last one is that as they point out,"
+    },
+    {
+      "id": 103,
+      "start": 260.12,
+      "end": 262.92,
+      "text": "and just think of your own behavior on the internet,"
+    },
+    {
+      "id": 104,
+      "start": 262.92,
+      "end": 265.72,
+      "text": "most data is unstructured or semi-structured."
+    },
+    {
+      "id": 105,
+      "start": 265.72,
+      "end": 268.8,
+      "text": "So unstructured would be like an image or a video file."
+    },
+    {
+      "id": 106,
+      "start": 268.8,
+      "end": 270.2,
+      "text": "I think most of the traffic on internet"
+    },
+    {
+      "id": 107,
+      "start": 270.2,
+      "end": 274.56,
+      "text": "is from YouTube or a video of video files."
+    },
+    {
+      "id": 108,
+      "start": 274.56,
+      "end": 277.24,
+      "text": "And then a lot of it's also unstructured,"
+    },
+    {
+      "id": 109,
+      "start": 277.24,
+      "end": 278.84,
+      "text": "or sorry, semi-structured."
+    },
+    {
+      "id": 110,
+      "start": 278.84,
+      "end": 280.36,
+      "text": "So this would be something like JSON files"
+    },
+    {
+      "id": 111,
+      "start": 280.36,
+      "end": 284.28,
+      "text": "or a combination of structured data, like a tuple."
+    },
+    {
+      "id": 112,
+      "start": 284.28,
+      "end": 285.6,
+      "text": "But then there's some JSON portion"
+    },
+    {
+      "id": 113,
+      "start": 285.6,
+      "end": 290.16,
+      "text": "or maybe raw text from a log file."
+    },
+    {
+      "id": 114,
+      "start": 290.16,
+      "end": 293.28,
+      "text": "A lot of the data is going to come in this format."
+    },
+    {
+      "id": 115,
+      "start": 293.28,
+      "end": 295.12,
+      "text": "For unstructured data, we're not going"
+    },
+    {
+      "id": 116,
+      "start": 295.12,
+      "end": 297.16,
+      "text": "to talk about anything about this this semester."
+    },
+    {
+      "id": 117,
+      "start": 297.16,
+      "end": 300.84,
+      "text": "That's taking a transformer or some ML framework"
+    },
+    {
+      "id": 118,
+      "start": 300.84,
+      "end": 302.8,
+      "text": "that then extracts information about what's"
+    },
+    {
+      "id": 119,
+      "start": 302.8,
+      "end": 304.92,
+      "text": "in an image or an urn-video file."
+    },
+    {
+      "id": 120,
+      "start": 304.92,
+      "end": 306.96,
+      "text": "But then it spits out after you do that transformation"
+    },
+    {
+      "id": 121,
+      "start": 306.96,
+      "end": 308.88,
+      "text": "is going to be structured."
+    },
+    {
+      "id": 122,
+      "start": 308.88,
+      "end": 314.16,
+      "text": "So for SQL purposes, it's not much that we can do for this."
+    },
+    {
+      "id": 123,
+      "start": 314.16,
+      "end": 315.36,
+      "text": "For semi-structured, this is going"
+    },
+    {
+      "id": 124,
+      "start": 315.36,
+      "end": 317.28,
+      "text": "to be a big issue that we have to care about."
+    },
+    {
+      "id": 125,
+      "start": 317.28,
+      "end": 319.0,
+      "text": "Because people are not going to have a bunch of JSON files"
+    },
+    {
+      "id": 126,
+      "start": 319.0,
+      "end": 322.64,
+      "text": "in S3, even if it's in a structured file format,"
+    },
+    {
+      "id": 127,
+      "start": 322.64,
+      "end": 326.76,
+      "text": "like a parquet or org file, which we'll read about next class,"
+    },
+    {
+      "id": 128,
+      "start": 326.76,
+      "end": 329.92,
+      "text": "then we still have to be able to make sense of it."
+    },
+    {
+      "id": 129,
+      "start": 329.92,
+      "end": 331.2,
+      "text": "And this is a good example."
+    },
+    {
+      "id": 130,
+      "start": 331.2,
+      "end": 333.44,
+      "text": "We'll see some systems, the different systems"
+    },
+    {
+      "id": 131,
+      "start": 333.44,
+      "end": 337.04,
+      "text": "will do different tricks to make it work efficiently for this."
+    },
+    {
+      "id": 132,
+      "start": 337.04,
+      "end": 340.4,
+      "text": "Snowflake, I think they assume that the data is always"
+    },
+    {
+      "id": 133,
+      "start": 340.4,
+      "end": 342.72,
+      "text": "going to be there, they generate columns for this."
+    },
+    {
+      "id": 134,
+      "start": 342.72,
+      "end": 345.04,
+      "text": "Data bricks, I think they do parsing on the fly."
+    },
+    {
+      "id": 135,
+      "start": 345.04,
+      "end": 346.6,
+      "text": "There's a bunch of different ways to handle that."
+    },
+    {
+      "id": 136,
+      "start": 346.6,
+      "end": 349.76,
+      "text": "And we'll see how we do that throughout the semester."
+    },
+    {
+      "id": 137,
+      "start": 349.76,
+      "end": 352.08,
+      "text": "So again, we want to design our system,"
+    },
+    {
+      "id": 138,
+      "start": 352.08,
+      "end": 354.08,
+      "text": "keep keeping these things in the back of our mind."
+    },
+    {
+      "id": 139,
+      "start": 354.08,
+      "end": 356.72,
+      "text": "And we'll see throughout the semester how we do each of these."
+    },
+    {
+      "id": 140,
+      "start": 356.72,
+      "end": 361.12,
+      "text": "All right."
+    },
+    {
+      "id": 141,
+      "start": 361.12,
+      "end": 363.68,
+      "text": "The other interesting trend that has come out in the last decade"
+    },
+    {
+      "id": 142,
+      "start": 363.68,
+      "end": 367.88,
+      "text": "is that we've gotten away from these monolithic database"
+    },
+    {
+      "id": 143,
+      "start": 367.88,
+      "end": 371.32,
+      "text": "systems where now people are building services,"
+    },
+    {
+      "id": 144,
+      "start": 371.32,
+      "end": 374.88,
+      "text": "or individual components that are separate from the full system."
+    },
+    {
+      "id": 145,
+      "start": 374.88,
+      "end": 378.36,
+      "text": "And it's basically how I've laid out the project this semester,"
+    },
+    {
+      "id": 146,
+      "start": 378.36,
+      "end": 380.48,
+      "text": "that in theory, these different services"
+    },
+    {
+      "id": 147,
+      "start": 380.48,
+      "end": 382.48,
+      "text": "could be developed independently, along"
+    },
+    {
+      "id": 148,
+      "start": 382.48,
+      "end": 385.36,
+      "text": "as they expose and maintain an API,"
+    },
+    {
+      "id": 149,
+      "start": 385.36,
+      "end": 390.0,
+      "text": "that the other services can understand and use and is stable."
+    },
+    {
+      "id": 150,
+      "start": 390.0,
+      "end": 392.92,
+      "text": "Then you can start swapping these things in and out,"
+    },
+    {
+      "id": 151,
+      "start": 392.92,
+      "end": 395.2,
+      "text": "or not have to build the entire system from scratch."
+    },
+    {
+      "id": 152,
+      "start": 395.2,
+      "end": 397.16,
+      "text": "You could use some all the shelf tools"
+    },
+    {
+      "id": 153,
+      "start": 397.16,
+      "end": 400.72,
+      "text": "to build a full-flyers database system."
+    },
+    {
+      "id": 154,
+      "start": 400.72,
+      "end": 403.96,
+      "text": "Again, everything in Postgres or everything in DuckDB"
+    },
+    {
+      "id": 155,
+      "start": 403.96,
+      "end": 409.48,
+      "text": "is SQLite, is written by those developers."
+    },
+    {
+      "id": 156,
+      "start": 409.48,
+      "end": 412.08,
+      "text": "Ignoring third-party libraries for like SSL and things"
+    },
+    {
+      "id": 157,
+      "start": 412.08,
+      "end": 414.28,
+      "text": "like that, that's obviously not what I'm talking about."
+    },
+    {
+      "id": 158,
+      "start": 414.28,
+      "end": 416.96,
+      "text": "But like the query optimizers of the catalog, the parser,"
+    },
+    {
+      "id": 159,
+      "start": 416.96,
+      "end": 420.44,
+      "text": "all of that is built by the system developers."
+    },
+    {
+      "id": 160,
+      "start": 420.44,
+      "end": 423.48,
+      "text": "But now what we can do instead is in theory,"
+    },
+    {
+      "id": 161,
+      "start": 423.48,
+      "end": 426.08,
+      "text": "use some, again, all the shelf tools,"
+    },
+    {
+      "id": 162,
+      "start": 426.08,
+      "end": 429.28,
+      "text": "and cobble them together and still make a full-fledged,"
+    },
+    {
+      "id": 163,
+      "start": 429.28,
+      "end": 431.48,
+      "text": "full-feature database system."
+    },
+    {
+      "id": 164,
+      "start": 431.48,
+      "end": 433.48,
+      "text": "The challenge is going to be, though, obviously,"
+    },
+    {
+      "id": 165,
+      "start": 433.48,
+      "end": 435.6,
+      "text": "if it's basic software engineering principle,"
+    },
+    {
+      "id": 166,
+      "start": 435.6,
+      "end": 437.32,
+      "text": "the more abstraction layers you put in place,"
+    },
+    {
+      "id": 167,
+      "start": 437.32,
+      "end": 441.64,
+      "text": "the more inefficient the software will become."
+    },
+    {
+      "id": 168,
+      "start": 441.64,
+      "end": 444.6,
+      "text": "Because there's intimate knowledge"
+    },
+    {
+      "id": 169,
+      "start": 444.6,
+      "end": 448.08,
+      "text": "about what the system wants to do at any given level."
+    },
+    {
+      "id": 170,
+      "start": 448.08,
+      "end": 451.64,
+      "text": "And if you don't expose that information up and down"
+    },
+    {
+      "id": 171,
+      "start": 451.64,
+      "end": 454.36,
+      "text": "the layers of the software stack, you end up"
+    },
+    {
+      "id": 172,
+      "start": 454.36,
+      "end": 456.6,
+      "text": "doing the lowest common denominator."
+    },
+    {
+      "id": 173,
+      "start": 456.6,
+      "end": 457.12,
+      "text": "Yes?"
+    },
+    {
+      "id": 174,
+      "start": 457.12,
+      "end": 458.76,
+      "text": "Do you know how costly this would have"
+    },
+    {
+      "id": 175,
+      "start": 458.76,
+      "end": 461.48,
+      "text": "used like separation layers between the components?"
+    },
+    {
+      "id": 176,
+      "start": 461.48,
+      "end": 463.2,
+      "text": "Is this what happened to the full stack?"
+    },
+    {
+      "id": 177,
+      "start": 463.2,
+      "end": 465.52,
+      "text": "This question is, do we know how costly it is"
+    },
+    {
+      "id": 178,
+      "start": 465.52,
+      "end": 468.56,
+      "text": "to start using these different services"
+    },
+    {
+      "id": 179,
+      "start": 468.56,
+      "end": 470.92,
+      "text": "versus having everything written scratch?"
+    },
+    {
+      "id": 180,
+      "start": 470.92,
+      "end": 473.4,
+      "text": "No, I mean, hard to be studied though, right?"
+    },
+    {
+      "id": 181,
+      "start": 473.4,
+      "end": 478.64,
+      "text": "Like, hey, have two teams build a multi-million dollar"
+    },
+    {
+      "id": 182,
+      "start": 478.64,
+      "end": 481.04,
+      "text": "projects just to see whether one's better at the end."
+    },
+    {
+      "id": 183,
+      "start": 483.72,
+      "end": 485.6,
+      "text": "I mean, some parts are super hard, too."
+    },
+    {
+      "id": 184,
+      "start": 485.6,
+      "end": 487.16,
+      "text": "The query optimizer is the hardest part of the data."
+    },
+    {
+      "id": 185,
+      "start": 487.16,
+      "end": 488.6,
+      "text": "So most people can't build that."
+    },
+    {
+      "id": 186,
+      "start": 488.6,
+      "end": 490.04,
+      "text": "And they do end up building it."
+    },
+    {
+      "id": 187,
+      "start": 490.04,
+      "end": 494.16,
+      "text": "The first version is usually a bunch of heuristics"
+    },
+    {
+      "id": 188,
+      "start": 494.16,
+      "end": 495.96,
+      "text": "if then else statements is garbage."
+    },
+    {
+      "id": 189,
+      "start": 495.96,
+      "end": 498.56,
+      "text": "And so in the case of query optimizer,"
+    },
+    {
+      "id": 190,
+      "start": 498.56,
+      "end": 500.84,
+      "text": "I know, again, we have the project going in this class."
+    },
+    {
+      "id": 191,
+      "start": 500.84,
+      "end": 503.32,
+      "text": "There's been two other attempts to build standalone services"
+    },
+    {
+      "id": 192,
+      "start": 503.32,
+      "end": 505.16,
+      "text": "in query optimizers."
+    },
+    {
+      "id": 193,
+      "start": 505.16,
+      "end": 508.72,
+      "text": "There's calcite from LucidDB."
+    },
+    {
+      "id": 194,
+      "start": 508.72,
+      "end": 509.84,
+      "text": "And that's probably the most common one."
+    },
+    {
+      "id": 195,
+      "start": 509.84,
+      "end": 513.56,
+      "text": "And there's Orca from the Green Plum, the Mware people."
+    },
+    {
+      "id": 196,
+      "start": 513.56,
+      "end": 517.84,
+      "text": "But like, there is a paper about the effort"
+    },
+    {
+      "id": 197,
+      "start": 517.84,
+      "end": 520.12,
+      "text": "it took to get Orca to work in MySQL."
+    },
+    {
+      "id": 198,
+      "start": 520.12,
+      "end": 522.0,
+      "text": "Apparently, it was a huge pain."
+    },
+    {
+      "id": 199,
+      "start": 522.0,
+      "end": 523.52,
+      "text": "Because there's assumptions about these things."
+    },
+    {
+      "id": 200,
+      "start": 523.52,
+      "end": 526.8,
+      "text": "I mean, this is my last comment here."
+    },
+    {
+      "id": 201,
+      "start": 526.8,
+      "end": 529.52,
+      "text": "There's a bunch of challenges in calling these things together."
+    },
+    {
+      "id": 202,
+      "start": 529.52,
+      "end": 532.48,
+      "text": "It's not just like, here's the HTTP protocol."
+    },
+    {
+      "id": 203,
+      "start": 532.48,
+      "end": 535.16,
+      "text": "And every web server speaks in it's"
+    },
+    {
+      "id": 204,
+      "start": 535.16,
+      "end": 536.76,
+      "text": "easy to combine these things together."
+    },
+    {
+      "id": 205,
+      "start": 536.76,
+      "end": 539.52,
+      "text": "If you ever use a REST API from any service,"
+    },
+    {
+      "id": 206,
+      "start": 539.52,
+      "end": 540.96,
+      "text": "they're like, oh, they want to data this way,"
+    },
+    {
+      "id": 207,
+      "start": 540.96,
+      "end": 541.64,
+      "text": "but there's other ones."
+    },
+    {
+      "id": 208,
+      "start": 541.64,
+      "end": 542.4,
+      "text": "It's another way."
+    },
+    {
+      "id": 209,
+      "start": 542.4,
+      "end": 545.88,
+      "text": "It becomes a train wreck real quickly."
+    },
+    {
+      "id": 210,
+      "start": 545.88,
+      "end": 548.4,
+      "text": "And so making these things actually talk to each other"
+    },
+    {
+      "id": 211,
+      "start": 548.4,
+      "end": 552.88,
+      "text": "and actually making it fast is non-trivial."
+    },
+    {
+      "id": 212,
+      "start": 552.88,
+      "end": 556.28,
+      "text": "So we'll see how it goes for the project semester."
+    },
+    {
+      "id": 213,
+      "start": 556.28,
+      "end": 559.08,
+      "text": "Another important thing that we're going to cover, too,"
+    },
+    {
+      "id": 214,
+      "start": 559.08,
+      "end": 561.56,
+      "text": "is what the intermediate representation of the IR"
+    },
+    {
+      "id": 215,
+      "start": 561.56,
+      "end": 565.08,
+      "text": "looks like for the various parts of these systems that"
+    },
+    {
+      "id": 216,
+      "start": 565.08,
+      "end": 567.28,
+      "text": "are talking to each other."
+    },
+    {
+      "id": 217,
+      "start": 567.28,
+      "end": 570.12,
+      "text": "And so I'll show in the slide what I mean."
+    },
+    {
+      "id": 218,
+      "start": 570.12,
+      "end": 573.32,
+      "text": "But I've already mentioned this in the project right up."
+    },
+    {
+      "id": 219,
+      "start": 573.32,
+      "end": 577.44,
+      "text": "They're like, OK, there's the query optimizer."
+    },
+    {
+      "id": 220,
+      "start": 577.44,
+      "end": 578.4,
+      "text": "And then it's going to generate a query that"
+    },
+    {
+      "id": 221,
+      "start": 578.4,
+      "end": 579.76,
+      "text": "hands off to the scheduler."
+    },
+    {
+      "id": 222,
+      "start": 579.76,
+      "end": 581.2,
+      "text": "OK, well, what is actually handing?"
+    },
+    {
+      "id": 223,
+      "start": 581.2,
+      "end": 585.0,
+      "text": "The scheduler needs to know what's actually inside the queries"
+    },
+    {
+      "id": 224,
+      "start": 585.0,
+      "end": 587.0,
+      "text": "in order to make sense of what goes where."
+    },
+    {
+      "id": 225,
+      "start": 587.0,
+      "end": 588.84,
+      "text": "So how do you actually represent that?"
+    },
+    {
+      "id": 226,
+      "start": 588.84,
+      "end": 591.48,
+      "text": "And then now, how do they actually represent data?"
+    },
+    {
+      "id": 227,
+      "start": 591.48,
+      "end": 593.16,
+      "text": "What are the data types across these things"
+    },
+    {
+      "id": 228,
+      "start": 593.16,
+      "end": 594.48,
+      "text": "need to be synchronized?"
+    },
+    {
+      "id": 229,
+      "start": 594.48,
+      "end": 596.04,
+      "text": "But again, if I'm using off-the-shelf components"
+    },
+    {
+      "id": 230,
+      "start": 596.04,
+      "end": 598.56,
+      "text": "for my different projects and different teams,"
+    },
+    {
+      "id": 231,
+      "start": 598.56,
+      "end": 600.48,
+      "text": "they might have 32-bit ins one way."
+    },
+    {
+      "id": 232,
+      "start": 600.48,
+      "end": 602.84,
+      "text": "And then all int might be 64-bit things other one."
+    },
+    {
+      "id": 233,
+      "start": 602.84,
+      "end": 603.84,
+      "text": "Fix."
+    }
+  ],
+  "language": "en"
+}

@@ -1,0 +1,1385 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.2,
+      "text": "I mean, yeah, the last days, yes."
+    },
+    {
+      "id": 1,
+      "start": 4.2,
+      "end": 9.68,
+      "text": "So in this case here, when I'm doing this initial pass,"
+    },
+    {
+      "id": 2,
+      "start": 9.68,
+      "end": 12.24,
+      "text": "I have, say, in this core here, I have this chunk of data."
+    },
+    {
+      "id": 3,
+      "start": 12.24,
+      "end": 14.84,
+      "text": "It's in my L3 cache."
+    },
+    {
+      "id": 4,
+      "start": 14.84,
+      "end": 17.12,
+      "text": "I don't need to go across any Numer region"
+    },
+    {
+      "id": 5,
+      "start": 17.12,
+      "end": 19.24,
+      "text": "to go access anything else, because I don't care about anything,"
+    },
+    {
+      "id": 6,
+      "start": 19.24,
+      "end": 20.56,
+      "text": "because I don't care about this data here."
+    },
+    {
+      "id": 7,
+      "start": 20.56,
+      "end": 22.14,
+      "text": "And likewise, when I write it out,"
+    },
+    {
+      "id": 8,
+      "start": 22.14,
+      "end": 24.6,
+      "text": "assume the partitions fit my L3 cache,"
+    },
+    {
+      "id": 9,
+      "start": 24.6,
+      "end": 28.32,
+      "text": "then I'm just writing to my local CPU cache."
+    },
+    {
+      "id": 10,
+      "start": 28.32,
+      "end": 31.64,
+      "text": "But now what I want to do is consolidation step,"
+    },
+    {
+      "id": 11,
+      "start": 31.64,
+      "end": 33.52,
+      "text": "this core is in some other Numer region,"
+    },
+    {
+      "id": 12,
+      "start": 33.52,
+      "end": 37.24,
+      "text": "and it's got to go touch all the partition ones across all"
+    },
+    {
+      "id": 13,
+      "start": 37.24,
+      "end": 40.4,
+      "text": "the other cores, which may be in a different Numer region."
+    },
+    {
+      "id": 14,
+      "start": 40.4,
+      "end": 43.36,
+      "text": "And then I got to write this back now into my Numer region."
+    },
+    {
+      "id": 15,
+      "start": 43.36,
+      "end": 44.36,
+      "text": "So that's expensive."
+    },
+    {
+      "id": 16,
+      "start": 49.6,
+      "end": 51.2,
+      "text": "So this is actually going to be, for example,"
+    },
+    {
+      "id": 17,
+      "start": 51.2,
+      "end": 53.64,
+      "text": "also two of the pros and cons between late materialization"
+    },
+    {
+      "id": 18,
+      "start": 53.64,
+      "end": 54.52,
+      "text": "and early materialization."
+    },
+    {
+      "id": 19,
+      "start": 54.52,
+      "end": 58.24,
+      "text": "Because if I'm doing late materialization,"
+    },
+    {
+      "id": 20,
+      "start": 58.24,
+      "end": 60.32,
+      "text": "then the data I'm actually moving around here"
+    },
+    {
+      "id": 21,
+      "start": 60.32,
+      "end": 63.48,
+      "text": "could just be like the joint key and the tuple ID."
+    },
+    {
+      "id": 22,
+      "start": 63.48,
+      "end": 64.28,
+      "text": "It could be kind of small."
+    },
+    {
+      "id": 23,
+      "start": 64.28,
+      "end": 66.4,
+      "text": "But if I'm doing early materialization,"
+    },
+    {
+      "id": 24,
+      "start": 66.4,
+      "end": 70.08,
+      "text": "and I have like 20 columns, then this partitioning step here"
+    },
+    {
+      "id": 25,
+      "start": 70.08,
+      "end": 73.68,
+      "text": "is moving potentially 20 columns around."
+    },
+    {
+      "id": 26,
+      "start": 73.68,
+      "end": 77.08,
+      "text": "Plus going across Numer region, which is always going to be bad."
+    },
+    {
+      "id": 27,
+      "start": 77.08,
+      "end": 79.44,
+      "text": "But it doesn't require loss, it's going to be better."
+    },
+    {
+      "id": 28,
+      "start": 79.44,
+      "end": 83.0,
+      "text": "It doesn't require loss, so it's potentially better."
+    },
+    {
+      "id": 29,
+      "start": 83.0,
+      "end": 83.92,
+      "text": "Depends, right?"
+    },
+    {
+      "id": 30,
+      "start": 84.4,
+      "end": 87.52,
+      "text": "If I have multiple Numer regions, then maybe this is bad."
+    },
+    {
+      "id": 31,
+      "start": 91.48,
+      "end": 93.0,
+      "text": "So this gets into the hardware oblivious"
+    },
+    {
+      "id": 32,
+      "start": 93.0,
+      "end": 95.84,
+      "text": "for the hardware consciousness."
+    },
+    {
+      "id": 33,
+      "start": 95.84,
+      "end": 99.28,
+      "text": "In order to decide whether I want to do this or not,"
+    },
+    {
+      "id": 34,
+      "start": 99.28,
+      "end": 101.84,
+      "text": "then I had to go look, maybe run micro benchmarks"
+    },
+    {
+      "id": 35,
+      "start": 101.84,
+      "end": 104.28,
+      "text": "or something to figure out when the system boots up."
+    },
+    {
+      "id": 36,
+      "start": 104.28,
+      "end": 106.16,
+      "text": "What is the hardware capable of?"
+    },
+    {
+      "id": 37,
+      "start": 106.16,
+      "end": 107.64,
+      "text": "And that even then, that might not work out"
+    },
+    {
+      "id": 38,
+      "start": 107.64,
+      "end": 108.68,
+      "text": "when I actually run it in the real time,"
+    },
+    {
+      "id": 39,
+      "start": 108.68,
+      "end": 110.6,
+      "text": "because the data is heavily skewed."
+    },
+    {
+      "id": 40,
+      "start": 110.6,
+      "end": 115.0,
+      "text": "Then one set of partitioning might be super big"
+    },
+    {
+      "id": 41,
+      "start": 115.0,
+      "end": 116.44,
+      "text": "versus another one."
+    },
+    {
+      "id": 42,
+      "start": 116.44,
+      "end": 117.28,
+      "text": "Yes."
+    },
+    {
+      "id": 43,
+      "start": 117.28,
+      "end": 118.96,
+      "text": "On the previous slide, the work with just the work"
+    },
+    {
+      "id": 44,
+      "start": 118.96,
+      "end": 121.12,
+      "text": "is not the local partitioning."
+    },
+    {
+      "id": 45,
+      "start": 121.12,
+      "end": 123.36,
+      "text": "Even then, you might have the access memory"
+    },
+    {
+      "id": 46,
+      "start": 123.36,
+      "end": 124.56,
+      "text": "across Numer region, right?"
+    },
+    {
+      "id": 47,
+      "start": 124.56,
+      "end": 124.88,
+      "text": "Correct."
+    },
+    {
+      "id": 48,
+      "start": 124.88,
+      "end": 126.84,
+      "text": "So the same it is, in this one here, actually,"
+    },
+    {
+      "id": 49,
+      "start": 126.84,
+      "end": 128.4,
+      "text": "this one you definitely would."
+    },
+    {
+      "id": 50,
+      "start": 128.4,
+      "end": 129.16,
+      "text": "Yes, here."
+    },
+    {
+      "id": 51,
+      "start": 129.16,
+      "end": 129.96,
+      "text": "The same it is."
+    },
+    {
+      "id": 52,
+      "start": 129.96,
+      "end": 132.56,
+      "text": "And in this one here, are the cores potentially"
+    },
+    {
+      "id": 53,
+      "start": 132.56,
+      "end": 135.72,
+      "text": "going to have access data that's across Numer regions?"
+    },
+    {
+      "id": 54,
+      "start": 135.72,
+      "end": 137.4,
+      "text": "Yes, when it writes into these partitions,"
+    },
+    {
+      "id": 55,
+      "start": 137.4,
+      "end": 140.44,
+      "text": "these partitions are not going to fit in the L3 cache."
+    },
+    {
+      "id": 56,
+      "start": 140.44,
+      "end": 142.48,
+      "text": "And they could be in different Numer regions."
+    },
+    {
+      "id": 57,
+      "start": 142.48,
+      "end": 145.04,
+      "text": "Then local partitioning here is definitely better."
+    },
+    {
+      "id": 58,
+      "start": 145.04,
+      "end": 148.12,
+      "text": "This team is local partitioning definitely better,"
+    },
+    {
+      "id": 59,
+      "start": 148.12,
+      "end": 151.52,
+      "text": "meaning the private versus shared."
+    },
+    {
+      "id": 60,
+      "start": 151.52,
+      "end": 153.52,
+      "text": "Again, it depends."
+    },
+    {
+      "id": 61,
+      "start": 153.52,
+      "end": 156.52,
+      "text": "The last step they would do is to pass."
+    },
+    {
+      "id": 62,
+      "start": 156.52,
+      "end": 157.36,
+      "text": "Yes."
+    },
+    {
+      "id": 63,
+      "start": 157.36,
+      "end": 159.8,
+      "text": "For the private partitions, how exactly"
+    },
+    {
+      "id": 64,
+      "start": 159.8,
+      "end": 162.88,
+      "text": "are the local partitioning going?"
+    },
+    {
+      "id": 65,
+      "start": 162.88,
+      "end": 166.76,
+      "text": "It's just like literally attempting to move it together?"
+    },
+    {
+      "id": 66,
+      "start": 166.76,
+      "end": 168.96,
+      "text": "The question is, and this last step here, how"
+    },
+    {
+      "id": 67,
+      "start": 168.96,
+      "end": 173.44,
+      "text": "am I generating, how is this thing getting generated?"
+    },
+    {
+      "id": 68,
+      "start": 173.44,
+      "end": 175.52,
+      "text": "You learn these sequential scanning through memory"
+    },
+    {
+      "id": 69,
+      "start": 175.52,
+      "end": 176.28,
+      "text": "and just appending it."
+    },
+    {
+      "id": 70,
+      "start": 176.28,
+      "end": 177.28,
+      "text": "Yeah."
+    },
+    {
+      "id": 71,
+      "start": 177.28,
+      "end": 181.96,
+      "text": "I mean, there's no professional processing"
+    },
+    {
+      "id": 72,
+      "start": 181.96,
+      "end": 182.48,
+      "text": "you do want to do."
+    },
+    {
+      "id": 73,
+      "start": 182.48,
+      "end": 184.36,
+      "text": "It's literally copying."
+    },
+    {
+      "id": 74,
+      "start": 184.36,
+      "end": 184.96,
+      "text": "Yes."
+    },
+    {
+      "id": 75,
+      "start": 184.96,
+      "end": 189.68,
+      "text": "So would you better to have the cores keep their local"
+    },
+    {
+      "id": 76,
+      "start": 189.68,
+      "end": 192.6,
+      "text": "partitioning down their cache and then"
+    },
+    {
+      "id": 77,
+      "start": 192.6,
+      "end": 195.08,
+      "text": "write out some local monotony?"
+    },
+    {
+      "id": 78,
+      "start": 195.08,
+      "end": 198.44,
+      "text": "Your statement is, wouldn't it be better to have each core"
+    },
+    {
+      "id": 79,
+      "start": 198.44,
+      "end": 201.2,
+      "text": "have their local partitions in their cache?"
+    },
+    {
+      "id": 80,
+      "start": 201.2,
+      "end": 202.16,
+      "text": "Which they do?"
+    },
+    {
+      "id": 81,
+      "start": 202.16,
+      "end": 204.44,
+      "text": "Yes."
+    },
+    {
+      "id": 82,
+      "start": 204.44,
+      "end": 209.84,
+      "text": "Like this thing here, like again, so I say, 10 partitions,"
+    },
+    {
+      "id": 83,
+      "start": 209.84,
+      "end": 212.92,
+      "text": "this core is going to have 10 mini partitions."
+    },
+    {
+      "id": 84,
+      "start": 212.92,
+      "end": 216.68,
+      "text": "And that's all going to be ideal in the L3 cache."
+    },
+    {
+      "id": 85,
+      "start": 216.68,
+      "end": 219.36,
+      "text": "This last step here, wouldn't it be better for this to be where?"
+    },
+    {
+      "id": 86,
+      "start": 219.36,
+      "end": 223.52,
+      "text": "No, so each one, are you saying the local partitioning"
+    },
+    {
+      "id": 87,
+      "start": 223.64,
+      "end": 225.44,
+      "text": "is getting plus and out of the cache?"
+    },
+    {
+      "id": 88,
+      "start": 225.44,
+      "end": 226.44,
+      "text": "Is this the last step?"
+    },
+    {
+      "id": 89,
+      "start": 226.44,
+      "end": 227.88,
+      "text": "In the last step, I have to consolidate."
+    },
+    {
+      "id": 90,
+      "start": 227.88,
+      "end": 230.96,
+      "text": "So this core is going to be responsible for partition 1."
+    },
+    {
+      "id": 91,
+      "start": 230.96,
+      "end": 233.8,
+      "text": "So it goes to partition 1 for the mini partitions"
+    },
+    {
+      "id": 92,
+      "start": 233.8,
+      "end": 236.12,
+      "text": "that each core has to copy the data and put it"
+    },
+    {
+      "id": 93,
+      "start": 236.12,
+      "end": 238.08,
+      "text": "into the final buffers."
+    },
+    {
+      "id": 94,
+      "start": 241.32,
+      "end": 244.48,
+      "text": "And assuming that, because you want to write memory"
+    },
+    {
+      "id": 95,
+      "start": 244.48,
+      "end": 246.72,
+      "text": "that it's local to you, so partition 1's"
+    },
+    {
+      "id": 96,
+      "start": 246.72,
+      "end": 251.72,
+      "text": "going to end up being in CPU 1's cache as a local memory."
+    },
+    {
+      "id": 97,
+      "start": 253.8,
+      "end": 259.96,
+      "text": "So any contention when you try to join them together?"
+    },
+    {
+      "id": 98,
+      "start": 259.96,
+      "end": 262.08,
+      "text": "Contention from what?"
+    },
+    {
+      "id": 99,
+      "start": 262.08,
+      "end": 265.08,
+      "text": "Because CPU 1's the only one reading mini partition 1."
+    },
+    {
+      "id": 100,
+      "start": 265.08,
+      "end": 265.88,
+      "text": "Oh, right."
+    },
+    {
+      "id": 101,
+      "start": 265.88,
+      "end": 267.12,
+      "text": "So there's no core nation."
+    },
+    {
+      "id": 102,
+      "start": 267.12,
+      "end": 268.76,
+      "text": "There's no synchronization needed."
+    },
+    {
+      "id": 103,
+      "start": 268.76,
+      "end": 271.16,
+      "text": "So it's last three."
+    },
+    {
+      "id": 104,
+      "start": 271.16,
+      "end": 271.68,
+      "text": "Yes."
+    },
+    {
+      "id": 105,
+      "start": 271.68,
+      "end": 273.8,
+      "text": "The number of partitions is always equal to the number of cores."
+    },
+    {
+      "id": 106,
+      "start": 273.8,
+      "end": 274.8,
+      "text": "The question is, is the number of partitions"
+    },
+    {
+      "id": 107,
+      "start": 274.8,
+      "end": 275.8,
+      "text": "always equal to the number of cores?"
+    },
+    {
+      "id": 108,
+      "start": 275.8,
+      "end": 276.6,
+      "text": "No."
+    },
+    {
+      "id": 109,
+      "start": 276.6,
+      "end": 279.64,
+      "text": "How do we get the number of cores?"
+    },
+    {
+      "id": 110,
+      "start": 279.64,
+      "end": 280.48,
+      "text": "The question is, how do you determine the number of"
+    },
+    {
+      "id": 111,
+      "start": 280.48,
+      "end": 282.56,
+      "text": "partitions you want?"
+    },
+    {
+      "id": 112,
+      "start": 283.08,
+      "end": 284.08,
+      "text": "Is it going to be in this?"
+    },
+    {
+      "id": 113,
+      "start": 284.08,
+      "end": 285.08,
+      "text": "No."
+    },
+    {
+      "id": 114,
+      "start": 285.08,
+      "end": 288.72,
+      "text": "It depends on the skewer of the data."
+    },
+    {
+      "id": 115,
+      "start": 288.72,
+      "end": 289.72,
+      "text": "So it's simplicity."
+    },
+    {
+      "id": 116,
+      "start": 289.72,
+      "end": 292.6,
+      "text": "You could just say yes, the number of cores."
+    },
+    {
+      "id": 117,
+      "start": 292.6,
+      "end": 297.64,
+      "text": "But then what happens when the, again, say this data is"
+    },
+    {
+      "id": 118,
+      "start": 297.64,
+      "end": 299.12,
+      "text": "super heavily skewed."
+    },
+    {
+      "id": 119,
+      "start": 299.12,
+      "end": 303.64,
+      "text": "And there's a billion keys in partition 1 and 1,000"
+    },
+    {
+      "id": 120,
+      "start": 303.64,
+      "end": 304.8,
+      "text": "keys and all of the other ones."
+    },
+    {
+      "id": 121,
+      "start": 304.8,
+      "end": 308.92,
+      "text": "When I got a partition this one again."
+    },
+    {
+      "id": 122,
+      "start": 308.92,
+      "end": 312.76,
+      "text": "So you end up with more partitions than cores."
+    },
+    {
+      "id": 123,
+      "start": 312.76,
+      "end": 313.8,
+      "text": "Yes."
+    },
+    {
+      "id": 124,
+      "start": 313.8,
+      "end": 315.84,
+      "text": "Is this last step being done using SIMD?"
+    },
+    {
+      "id": 125,
+      "start": 315.84,
+      "end": 317.84,
+      "text": "How we like taking this mini partition to you"
+    },
+    {
+      "id": 126,
+      "start": 317.84,
+      "end": 319.2,
+      "text": "to take some of the equipment to them?"
+    },
+    {
+      "id": 127,
+      "start": 319.2,
+      "end": 321.8,
+      "text": "The question is, is this last step being done with SIMD?"
+    },
+    {
+      "id": 128,
+      "start": 321.8,
+      "end": 324.0,
+      "text": "It's just memcopying."
+    },
+    {
+      "id": 129,
+      "start": 324.0,
+      "end": 326.0,
+      "text": "So SIMD wouldn't really help."
+    },
+    {
+      "id": 130,
+      "start": 327.76,
+      "end": 331.04,
+      "text": "Then that's very to join to the global partitions."
+    },
+    {
+      "id": 131,
+      "start": 331.04,
+      "end": 333.64,
+      "text": "Like, right now we like this."
+    },
+    {
+      "id": 132,
+      "start": 333.64,
+      "end": 335.76,
+      "text": "From through the local partitions."
+    },
+    {
+      "id": 133,
+      "start": 335.76,
+      "end": 338.68,
+      "text": "The question is, why do we have to do this last step?"
+    },
+    {
+      "id": 134,
+      "start": 338.68,
+      "end": 342.16,
+      "text": "When I build the hashable, just jump."
+    },
+    {
+      "id": 135,
+      "start": 342.16,
+      "end": 347.12,
+      "text": "Know what the, because now when you're doing the,"
+    },
+    {
+      "id": 136,
+      "start": 347.12,
+      "end": 348.68,
+      "text": "well first of all two things."
+    },
+    {
+      "id": 137,
+      "start": 348.68,
+      "end": 352.28,
+      "text": "You're doing this both on the build side and the probe side."
+    },
+    {
+      "id": 138,
+      "start": 352.28,
+      "end": 357.72,
+      "text": "So now if you have a thread scanning through to build"
+    },
+    {
+      "id": 139,
+      "start": 357.72,
+      "end": 360.84,
+      "text": "or do the build or do the probe, now"
+    },
+    {
+      "id": 140,
+      "start": 360.84,
+      "end": 363.2,
+      "text": "you're kind of doing the jumping again."
+    },
+    {
+      "id": 141,
+      "start": 363.2,
+      "end": 368.08,
+      "text": "I guess I had a highlight of the same, I guess."
+    },
+    {
+      "id": 142,
+      "start": 368.08,
+      "end": 370.68,
+      "text": "But it's like you're staging things so that when you,"
+    },
+    {
+      "id": 143,
+      "start": 370.68,
+      "end": 373.08,
+      "text": "when then you then do the build and probe,"
+    },
+    {
+      "id": 144,
+      "start": 373.08,
+      "end": 376.4,
+      "text": "like there's fewer stalls as you scan along."
+    },
+    {
+      "id": 145,
+      "start": 378.92,
+      "end": 382.04,
+      "text": "So you stall because the memory access during the partition"
+    },
+    {
+      "id": 146,
+      "start": 382.04,
+      "end": 383.96,
+      "text": "phase, but then you don't have any stalls"
+    },
+    {
+      "id": 147,
+      "start": 383.96,
+      "end": 387.2,
+      "text": "in the build or probe side."
+    },
+    {
+      "id": 148,
+      "start": 387.2,
+      "end": 389.04,
+      "text": "If we have a larger number of partitions,"
+    },
+    {
+      "id": 149,
+      "start": 389.04,
+      "end": 393.12,
+      "text": "hence fewer, like, less number of the content you put"
+    },
+    {
+      "id": 150,
+      "start": 393.12,
+      "end": 396.0,
+      "text": "in the logs, maybe if we just let one of the cores"
+    },
+    {
+      "id": 151,
+      "start": 396.0,
+      "end": 398.04,
+      "text": "handle all of this many partitions and push it"
+    },
+    {
+      "id": 152,
+      "start": 398.04,
+      "end": 401.28,
+      "text": "to the build partitions rather than having one core handle,"
+    },
+    {
+      "id": 153,
+      "start": 401.28,
+      "end": 404.32,
+      "text": "one set of partitions."
+    },
+    {
+      "id": 154,
+      "start": 404.32,
+      "end": 407.92,
+      "text": "His statement is instead of having every core be responsible"
+    },
+    {
+      "id": 155,
+      "start": 407.92,
+      "end": 409.68,
+      "text": "for like some subset of the many partitions"
+    },
+    {
+      "id": 156,
+      "start": 409.68,
+      "end": 413.16,
+      "text": "and the solidity of them, we just have one core do that."
+    },
+    {
+      "id": 157,
+      "start": 413.16,
+      "end": 415.6,
+      "text": "So each core takes care of one first partitions"
+    },
+    {
+      "id": 158,
+      "start": 415.6,
+      "end": 416.88,
+      "text": "in the right set of the build partitions."
+    },
+    {
+      "id": 159,
+      "start": 416.88,
+      "end": 418.52,
+      "text": "So we sort of go back to the build partitions"
+    },
+    {
+      "id": 160,
+      "start": 418.52,
+      "end": 421.56,
+      "text": "and model the set that because if we have a large number"
+    },
+    {
+      "id": 161,
+      "start": 421.56,
+      "end": 424.44,
+      "text": "of partitions, there will be less contention."
+    },
+    {
+      "id": 162,
+      "start": 425.4,
+      "end": 427.48,
+      "text": "Oh, it's basically saying, if you go back here,"
+    },
+    {
+      "id": 163,
+      "start": 429.04,
+      "end": 430.88,
+      "text": "this is PowerPoint, so you're going to show somebody,"
+    },
+    {
+      "id": 164,
+      "start": 430.88,
+      "end": 433.04,
+      "text": "you just had a ton of partitions,"
+    },
+    {
+      "id": 165,
+      "start": 433.04,
+      "end": 435.0,
+      "text": "then the likelihood that any two thread would be"
+    },
+    {
+      "id": 166,
+      "start": 435.0,
+      "end": 437.12,
+      "text": "writing to the same thing at the same time."
+    },
+    {
+      "id": 167,
+      "start": 437.12,
+      "end": 440.68,
+      "text": "And so then you end up getting the significant advantage"
+    },
+    {
+      "id": 168,
+      "start": 440.68,
+      "end": 441.64,
+      "text": "from without output?"
+    },
+    {
+      "id": 169,
+      "start": 441.64,
+      "end": 444.8,
+      "text": "I debate whether I push back whether it's significant."
+    },
+    {
+      "id": 170,
+      "start": 445.96,
+      "end": 450.96,
+      "text": "But yes, if you increase end significantly,"
+    },
+    {
+      "id": 171,
+      "start": 451.12,
+      "end": 453.56,
+      "text": "then the likelihood again that two threads"
+    },
+    {
+      "id": 172,
+      "start": 453.56,
+      "end": 455.48,
+      "text": "try to contain on the same latch would go down."
+    },
+    {
+      "id": 173,
+      "start": 455.48,
+      "end": 456.32,
+      "text": "Yes."
+    },
+    {
+      "id": 174,
+      "start": 458.52,
+      "end": 460.0,
+      "text": "And the downside of that would be,"
+    },
+    {
+      "id": 175,
+      "start": 466.96,
+      "end": 467.8,
+      "text": "what's that?"
+    },
+    {
+      "id": 176,
+      "start": 467.8,
+      "end": 468.8,
+      "text": "A4, can you do something?"
+    },
+    {
+      "id": 177,
+      "start": 468.8,
+      "end": 473.8,
+      "text": "Yeah, it depends on how big you're allocating these buckets"
+    },
+    {
+      "id": 178,
+      "start": 474.8,
+      "end": 477.6,
+      "text": "that could be underutilized and you're just wasting memory."
+    },
+    {
+      "id": 179,
+      "start": 477.6,
+      "end": 478.44,
+      "text": "Right?"
+    },
+    {
+      "id": 180,
+      "start": 480.04,
+      "end": 480.88,
+      "text": "Okay."
+    },
+    {
+      "id": 181,
+      "start": 484.56,
+      "end": 486.56,
+      "text": "So let's go through now, let's go through the rate"
+    },
+    {
+      "id": 182,
+      "start": 486.56,
+      "end": 488.08,
+      "text": "of partitioning."
+    },
+    {
+      "id": 183,
+      "start": 488.08,
+      "end": 489.08,
+      "text": "Again, the idea is the same."
+    },
+    {
+      "id": 184,
+      "start": 489.08,
+      "end": 492.28,
+      "text": "The same, but the goal is that we won't,"
+    },
+    {
+      "id": 185,
+      "start": 492.28,
+      "end": 494.52,
+      "text": "when we only materialize results once,"
+    },
+    {
+      "id": 186,
+      "start": 494.52,
+      "end": 496.72,
+      "text": "whereas the other only had to materialize twice,"
+    },
+    {
+      "id": 187,
+      "start": 498.16,
+      "end": 501.48,
+      "text": "at least in the private partitions."
+    },
+    {
+      "id": 188,
+      "start": 501.48,
+      "end": 503.28,
+      "text": "And unless you have the overcurse of partitioning,"
+    },
+    {
+      "id": 189,
+      "start": 503.28,
+      "end": 506.44,
+      "text": "but you have to do that for any of them."
+    },
+    {
+      "id": 190,
+      "start": 506.44,
+      "end": 508.6,
+      "text": "So whenever you see, let's say I do a ratex hash drawing,"
+    },
+    {
+      "id": 191,
+      "start": 508.6,
+      "end": 510.48,
+      "text": "or sometimes it's called a ratex drawing,"
+    },
+    {
+      "id": 192,
+      "start": 510.48,
+      "end": 512.16,
+      "text": "it's going to be this approach here."
+    },
+    {
+      "id": 193,
+      "start": 514.56,
+      "end": 516.0,
+      "text": "All right, so the idea is that we're going to scan"
+    },
+    {
+      "id": 194,
+      "start": 516.0,
+      "end": 517.96,
+      "text": "through the input relation multiple times."
+    },
+    {
+      "id": 195,
+      "start": 517.96,
+      "end": 521.24,
+      "text": "And in the first time, we're just going to gather information"
+    },
+    {
+      "id": 196,
+      "start": 521.24,
+      "end": 523.76,
+      "text": "about what the data looks like,"
+    },
+    {
+      "id": 197,
+      "start": 523.76,
+      "end": 527.16,
+      "text": "and then use that to determine where we want to write data"
+    },
+    {
+      "id": 198,
+      "start": 527.16,
+      "end": 528.76,
+      "text": "out to our upper buffers,"
+    },
+    {
+      "id": 199,
+      "start": 528.76,
+      "end": 532.28,
+      "text": "when it's time to actually then do the partitioning."
+    },
+    {
+      "id": 200,
+      "start": 532.28,
+      "end": 534.36,
+      "text": "So in the first step, you do the first pass"
+    },
+    {
+      "id": 201,
+      "start": 534.36,
+      "end": 535.84,
+      "text": "when we compete this histogram,"
+    },
+    {
+      "id": 202,
+      "start": 535.84,
+      "end": 537.76,
+      "text": "which is going to be the number of two goals"
+    },
+    {
+      "id": 203,
+      "start": 537.76,
+      "end": 540.04,
+      "text": "that are going to exist with some ratex,"
+    },
+    {
+      "id": 204,
+      "start": 540.04,
+      "end": 541.88,
+      "text": "which I'll explain that is in a second."
+    },
+    {
+      "id": 205,
+      "start": 541.88,
+      "end": 542.72,
+      "text": "Right?"
+    },
+    {
+      "id": 206,
+      "start": 542.72,
+      "end": 543.96,
+      "text": "And then we compete the prefix sum,"
+    },
+    {
+      "id": 207,
+      "start": 543.96,
+      "end": 549.44,
+      "text": "which is just a running summation of these,"
+    },
+    {
+      "id": 208,
+      "start": 549.44,
+      "end": 551.08,
+      "text": "of these, from this histogram."
+    },
+    {
+      "id": 209,
+      "start": 551.08,
+      "end": 554.48,
+      "text": "And that's going to determine where each partition is going"
+    },
+    {
+      "id": 210,
+      "start": 554.48,
+      "end": 557.68,
+      "text": "to start within our output buffer."
+    },
+    {
+      "id": 211,
+      "start": 557.68,
+      "end": 559.44,
+      "text": "And then we scan our again, and then we"
+    },
+    {
+      "id": 212,
+      "start": 559.44,
+      "end": 561.92,
+      "text": "have them write out the data into these buffers"
+    },
+    {
+      "id": 213,
+      "start": 561.92,
+      "end": 564.24,
+      "text": "based on this partition key."
+    },
+    {
+      "id": 214,
+      "start": 564.24,
+      "end": 565.12,
+      "text": "This is just text."
+    },
+    {
+      "id": 215,
+      "start": 565.12,
+      "end": 566.52,
+      "text": "So I'll go through an example."
+    },
+    {
+      "id": 216,
+      "start": 566.52,
+      "end": 567.68,
+      "text": "But we got to go through, understand"
+    },
+    {
+      "id": 217,
+      "start": 567.68,
+      "end": 570.28,
+      "text": "what the ratex is going to look like, and what the prefix sum does."
+    },
+    {
+      "id": 218,
+      "start": 570.28,
+      "end": 572.48,
+      "text": "And then that'll tell us how we do this last step here."
+    },
+    {
+      "id": 219,
+      "start": 573.48,
+      "end": 574.52,
+      "text": "All right."
+    },
+    {
+      "id": 220,
+      "start": 574.52,
+      "end": 579.2,
+      "text": "So the ratex is literally just like a digit within a number."
+    },
+    {
+      "id": 221,
+      "start": 579.2,
+      "end": 582.64,
+      "text": "So you take the hash of the key you're trying to join on,"
+    },
+    {
+      "id": 222,
+      "start": 582.64,
+      "end": 585.68,
+      "text": "and say the hash ends up being 19."
+    },
+    {
+      "id": 223,
+      "start": 585.68,
+      "end": 591.2,
+      "text": "And so the ratex would just be the one position,"
+    },
+    {
+      "id": 224,
+      "start": 591.2,
+      "end": 592.12,
+      "text": "what is the number, like nine?"
+    },
+    {
+      "id": 225,
+      "start": 595.12,
+      "end": 598.16,
+      "text": "And so you can do this through bit shifting and multiplication."
+    },
+    {
+      "id": 226,
+      "start": 598.16,
+      "end": 600.2,
+      "text": "And then that can allow you to extract out,"
+    },
+    {
+      "id": 227,
+      "start": 600.48,
+      "end": 603.52,
+      "text": "I just want this one number."
+    },
+    {
+      "id": 228,
+      "start": 603.52,
+      "end": 603.72,
+      "text": "All right."
+    },
+    {
+      "id": 229,
+      "start": 603.72,
+      "end": 605.24,
+      "text": "So what do we do with this?"
+    }
+  ],
+  "language": "en"
+}

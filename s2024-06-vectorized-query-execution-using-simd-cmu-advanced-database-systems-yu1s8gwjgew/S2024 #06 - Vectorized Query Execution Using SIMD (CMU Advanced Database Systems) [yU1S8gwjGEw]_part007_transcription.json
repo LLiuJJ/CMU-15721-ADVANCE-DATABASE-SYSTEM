@@ -1,0 +1,1265 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.96,
+      "text": "on a relational outrun, that's OK."
+    },
+    {
+      "id": 1,
+      "start": 1.96,
+      "end": 3.36,
+      "text": "There is no ordering."
+    },
+    {
+      "id": 2,
+      "start": 3.36,
+      "end": 5.32,
+      "text": "But if you're trying to debug this,"
+    },
+    {
+      "id": 3,
+      "start": 5.32,
+      "end": 9.52,
+      "text": "then sometimes you run the same query on the same data,"
+    },
+    {
+      "id": 4,
+      "start": 9.52,
+      "end": 12.04,
+      "text": "and you'll produce output in a different order."
+    },
+    {
+      "id": 5,
+      "start": 12.04,
+      "end": 14.12,
+      "text": "And it's hard to kind of debug things"
+    },
+    {
+      "id": 6,
+      "start": 14.12,
+      "end": 18.28,
+      "text": "and try to, if there's a problem, you're trying to figure out."
+    },
+    {
+      "id": 7,
+      "start": 18.28,
+      "end": 22.6,
+      "text": "So it's not really a, I would not say that's enough"
+    },
+    {
+      "id": 8,
+      "start": 22.6,
+      "end": 24.64,
+      "text": "to discourage people not to do this."
+    },
+    {
+      "id": 9,
+      "start": 24.64,
+      "end": 25.76,
+      "text": "It's just to say that it's something"
+    },
+    {
+      "id": 10,
+      "start": 25.76,
+      "end": 29.6,
+      "text": "to be aware of that the, I mean, hashing always sort"
+    },
+    {
+      "id": 11,
+      "start": 29.6,
+      "end": 32.88,
+      "text": "of randomized this thing, but this takes it to a higher degree,"
+    },
+    {
+      "id": 12,
+      "start": 32.88,
+      "end": 34.76,
+      "text": "and it makes things even more challenging to work through."
+    },
+    {
+      "id": 13,
+      "start": 34.76,
+      "end": 36.56,
+      "text": "Because again, the way this Cindy stuff is trying"
+    },
+    {
+      "id": 14,
+      "start": 36.56,
+      "end": 40.76,
+      "text": "to do multiple pairs at the same time."
+    },
+    {
+      "id": 15,
+      "start": 40.76,
+      "end": 45.28,
+      "text": "All right, so I'm going to skip the, this is the result"
+    },
+    {
+      "id": 16,
+      "start": 45.28,
+      "end": 45.8,
+      "text": "from the paper."
+    },
+    {
+      "id": 17,
+      "start": 45.8,
+      "end": 47.96,
+      "text": "I don't want to spend too much time on it."
+    },
+    {
+      "id": 18,
+      "start": 47.96,
+      "end": 52.96,
+      "text": "But basically, everything goes, once you run out"
+    },
+    {
+      "id": 19,
+      "start": 52.96,
+      "end": 55.72,
+      "text": "of CPU cache for these different emulitations."
+    },
+    {
+      "id": 20,
+      "start": 56.36,
+      "end": 59.04,
+      "text": "And this is running on the Zon 5, which is an order"
+    },
+    {
+      "id": 21,
+      "start": 59.04,
+      "end": 59.8,
+      "text": "Intel accelerator."
+    },
+    {
+      "id": 22,
+      "start": 59.8,
+      "end": 63.72,
+      "text": "Think of a Intel version of a GPU in the 2010s."
+    },
+    {
+      "id": 23,
+      "start": 63.72,
+      "end": 64.8,
+      "text": "They don't exist anymore."
+    },
+    {
+      "id": 24,
+      "start": 64.8,
+      "end": 67.16,
+      "text": "Again, see me over here on running on Zons."
+    },
+    {
+      "id": 25,
+      "start": 67.16,
+      "end": 70.16,
+      "text": "Once you run out of cache, there is next no difference."
+    },
+    {
+      "id": 26,
+      "start": 72.36,
+      "end": 76.76,
+      "text": "But the, if your hashable size is actually small enough,"
+    },
+    {
+      "id": 27,
+      "start": 76.76,
+      "end": 80.0,
+      "text": "and that's why you always put the small table on the build side,"
+    },
+    {
+      "id": 28,
+      "start": 80.0,
+      "end": 81.2,
+      "text": "then you might be OK."
+    },
+    {
+      "id": 29,
+      "start": 83.16,
+      "end": 84.76,
+      "text": "And CPU cache has gotten way way better."
+    },
+    {
+      "id": 30,
+      "start": 84.76,
+      "end": 86.72,
+      "text": "I think there's the one AMD chip."
+    },
+    {
+      "id": 31,
+      "start": 86.72,
+      "end": 89.88,
+      "text": "But it's like 800 megs for L3."
+    },
+    {
+      "id": 32,
+      "start": 89.88,
+      "end": 91.0,
+      "text": "It's insane."
+    },
+    {
+      "id": 33,
+      "start": 91.0,
+      "end": 92.0,
+      "text": "Right?"
+    },
+    {
+      "id": 34,
+      "start": 92.0,
+      "end": 95.0,
+      "text": "It's almost a gigabyte L3 cache on a single socket."
+    },
+    {
+      "id": 35,
+      "start": 95.0,
+      "end": 95.52,
+      "text": "That's insane."
+    },
+    {
+      "id": 36,
+      "start": 97.84,
+      "end": 101.0,
+      "text": "So let me show one other cool thing I like."
+    },
+    {
+      "id": 37,
+      "start": 101.0,
+      "end": 105.04,
+      "text": "And this is a really simple way to see, like, OK, how"
+    },
+    {
+      "id": 38,
+      "start": 105.04,
+      "end": 106.68,
+      "text": "can I parallelize things with Cindy"
+    },
+    {
+      "id": 39,
+      "start": 106.68,
+      "end": 109.64,
+      "text": "to do another basic operation in my data system?"
+    },
+    {
+      "id": 40,
+      "start": 109.64,
+      "end": 110.24,
+      "text": "So how do we build it?"
+    },
+    {
+      "id": 41,
+      "start": 110.24,
+      "end": 112.4,
+      "text": "We want to build a histogram."
+    },
+    {
+      "id": 42,
+      "start": 112.4,
+      "end": 116.36,
+      "text": "And so the problem's going to be that if we just do the naive thing,"
+    },
+    {
+      "id": 43,
+      "start": 116.36,
+      "end": 120.0,
+      "text": "say these are input keys, and we use Cindy Redax, which"
+    },
+    {
+      "id": 44,
+      "start": 120.0,
+      "end": 121.16,
+      "text": "will cover in a few weeks."
+    },
+    {
+      "id": 45,
+      "start": 121.16,
+      "end": 123.6,
+      "text": "So basically, think of poor man's hash function."
+    },
+    {
+      "id": 46,
+      "start": 123.6,
+      "end": 126.0,
+      "text": "You just basically grab the first bit and tell"
+    },
+    {
+      "id": 47,
+      "start": 126.0,
+      "end": 127.6,
+      "text": "you where something goes."
+    },
+    {
+      "id": 48,
+      "start": 127.6,
+      "end": 131.96,
+      "text": "And so we want to get the rate of some of this,"
+    },
+    {
+      "id": 49,
+      "start": 131.96,
+      "end": 135.08,
+      "text": "download hash keys, and then we're going to fill out some histogram."
+    },
+    {
+      "id": 50,
+      "start": 135.08,
+      "end": 138.68,
+      "text": "But the problem's going to be we're going to have two keys"
+    },
+    {
+      "id": 51,
+      "start": 138.68,
+      "end": 141.28,
+      "text": "mapped to the same location in our histogram,"
+    },
+    {
+      "id": 52,
+      "start": 141.28,
+      "end": 143.8,
+      "text": "and they're going to clobber each other when"
+    },
+    {
+      "id": 53,
+      "start": 143.8,
+      "end": 146.28,
+      "text": "I try to put things in a summit together,"
+    },
+    {
+      "id": 54,
+      "start": 146.28,
+      "end": 150.48,
+      "text": "because we're going to try to overwrite to the same position."
+    },
+    {
+      "id": 55,
+      "start": 150.48,
+      "end": 155.96,
+      "text": "So to get around this problem, I just replicate my hash table,"
+    },
+    {
+      "id": 56,
+      "start": 155.96,
+      "end": 158.72,
+      "text": "where for every single lane in my Cindy Redax,"
+    },
+    {
+      "id": 57,
+      "start": 158.72,
+      "end": 161.08,
+      "text": "I'm just going to have another array."
+    },
+    {
+      "id": 58,
+      "start": 161.08,
+      "end": 166.0,
+      "text": "And so now, I know that at lane 0, it's going to write to this column here."
+    },
+    {
+      "id": 59,
+      "start": 166.0,
+      "end": 168.04,
+      "text": "Lane 1 is going to write to this column here."
+    },
+    {
+      "id": 60,
+      "start": 168.04,
+      "end": 170.84,
+      "text": "So for each column, there's going to be one entry"
+    },
+    {
+      "id": 61,
+      "start": 170.84,
+      "end": 175.04,
+      "text": "for the key in my histogram."
+    },
+    {
+      "id": 62,
+      "start": 175.04,
+      "end": 178.68,
+      "text": "And then I should just use a Cindy add to put it together across the lanes"
+    },
+    {
+      "id": 63,
+      "start": 178.68,
+      "end": 182.76,
+      "text": "and then produce the final counts."
+    },
+    {
+      "id": 64,
+      "start": 182.76,
+      "end": 184.4,
+      "text": "Again, there's a bunch of different clobber ways"
+    },
+    {
+      "id": 65,
+      "start": 184.4,
+      "end": 187.16,
+      "text": "you can combine in the Cindy operations and structures together"
+    },
+    {
+      "id": 66,
+      "start": 187.16,
+      "end": 193.4,
+      "text": "to produce results, again, with keeping everything in a Cindy Redax."
+    },
+    {
+      "id": 67,
+      "start": 193.4,
+      "end": 196.24,
+      "text": "So this one I like."
+    },
+    {
+      "id": 68,
+      "start": 196.24,
+      "end": 198.88,
+      "text": "And this is clearly when."
+    },
+    {
+      "id": 69,
+      "start": 199.16,
+      "end": 202.0,
+      "text": "So we've covered this a lot already."
+    },
+    {
+      "id": 70,
+      "start": 202.0,
+      "end": 204.4,
+      "text": "We'll just put it out now on the slide."
+    },
+    {
+      "id": 71,
+      "start": 204.4,
+      "end": 207.92,
+      "text": "So ADX 512 is not always going to be faster than ADX 2."
+    },
+    {
+      "id": 72,
+      "start": 207.92,
+      "end": 209.64,
+      "text": "And as I said, the paper you guys read,"
+    },
+    {
+      "id": 73,
+      "start": 209.64,
+      "end": 211.0,
+      "text": "there's this little footnote down here,"
+    },
+    {
+      "id": 74,
+      "start": 211.0,
+      "end": 213.72,
+      "text": "where they mentioned that in their experiments,"
+    },
+    {
+      "id": 75,
+      "start": 213.72,
+      "end": 216.76,
+      "text": "they didn't see any down-clocking issues"
+    },
+    {
+      "id": 76,
+      "start": 216.76,
+      "end": 221.0,
+      "text": "with either the Sky Lake Z on CPU or the Nights Landing Z on 5."
+    },
+    {
+      "id": 77,
+      "start": 221.0,
+      "end": 227.0,
+      "text": "And there was always running at a stable four gigahertz clock speed."
+    },
+    {
+      "id": 78,
+      "start": 227.0,
+      "end": 230.36,
+      "text": "But there's a lot of blog articles out there"
+    },
+    {
+      "id": 79,
+      "start": 230.36,
+      "end": 232.96,
+      "text": "and a lot of Stack Overflow posts about,"
+    },
+    {
+      "id": 80,
+      "start": 232.96,
+      "end": 235.72,
+      "text": "hey, my program's running slow."
+    },
+    {
+      "id": 81,
+      "start": 235.72,
+      "end": 236.44,
+      "text": "Why?"
+    },
+    {
+      "id": 82,
+      "start": 236.44,
+      "end": 240.64,
+      "text": "And I trace it down to my CPU clock getting downcycled."
+    },
+    {
+      "id": 83,
+      "start": 240.64,
+      "end": 243.16,
+      "text": "Why is this the case?"
+    },
+    {
+      "id": 84,
+      "start": 243.16,
+      "end": 248.44,
+      "text": "And the issue has to do with, in the case of Intel,"
+    },
+    {
+      "id": 85,
+      "start": 248.44,
+      "end": 251.44,
+      "text": "they identify whether some instructions are either light or heavy."
+    },
+    {
+      "id": 86,
+      "start": 251.44,
+      "end": 253.36,
+      "text": "And if you run too many heavy instructions,"
+    },
+    {
+      "id": 87,
+      "start": 253.36,
+      "end": 254.76,
+      "text": "then they dial down the clock speed."
+    },
+    {
+      "id": 88,
+      "start": 254.76,
+      "end": 256.56,
+      "text": "And your thing actually runs slower."
+    },
+    {
+      "id": 89,
+      "start": 256.56,
+      "end": 259.12,
+      "text": "Think of like if the CPU recognizes that is getting too hot"
+    },
+    {
+      "id": 90,
+      "start": 259.12,
+      "end": 261.0,
+      "text": "because the fan's not running or something,"
+    },
+    {
+      "id": 91,
+      "start": 261.0,
+      "end": 262.0,
+      "text": "it'll down-clock itself."
+    },
+    {
+      "id": 92,
+      "start": 262.0,
+      "end": 263.76,
+      "text": "So it doesn't damage itself."
+    },
+    {
+      "id": 93,
+      "start": 263.76,
+      "end": 266.2,
+      "text": "He's a bigger heatsink player."
+    },
+    {
+      "id": 94,
+      "start": 266.2,
+      "end": 267.44,
+      "text": "He says it needs to be bigger heatsink."
+    },
+    {
+      "id": 95,
+      "start": 267.44,
+      "end": 268.28,
+      "text": "I don't think it's even that."
+    },
+    {
+      "id": 96,
+      "start": 268.28,
+      "end": 270.16,
+      "text": "I think it's like a hard wire that it"
+    },
+    {
+      "id": 97,
+      "start": 270.16,
+      "end": 271.88,
+      "text": "just always down-cycles it."
+    },
+    {
+      "id": 98,
+      "start": 271.88,
+      "end": 274.88,
+      "text": "I don't think it's like, try to sense the temperature."
+    },
+    {
+      "id": 99,
+      "start": 274.88,
+      "end": 275.38,
+      "text": "Yes."
+    },
+    {
+      "id": 100,
+      "start": 275.38,
+      "end": 276.88,
+      "text": "So I did for the research."
+    },
+    {
+      "id": 101,
+      "start": 276.88,
+      "end": 279.24,
+      "text": "Apparently, I'm newer in both things I'll see used."
+    },
+    {
+      "id": 102,
+      "start": 279.24,
+      "end": 281.28,
+      "text": "This isn't as bad, but it's still this."
+    },
+    {
+      "id": 103,
+      "start": 281.28,
+      "end": 282.64,
+      "text": "AMD, they do this totally differently."
+    },
+    {
+      "id": 104,
+      "start": 282.64,
+      "end": 284.76,
+      "text": "They have five reps, you can six six six six six registers,"
+    },
+    {
+      "id": 105,
+      "start": 284.76,
+      "end": 287.16,
+      "text": "and they use two of them to make the five 12-bit registers"
+    },
+    {
+      "id": 106,
+      "start": 287.16,
+      "end": 287.84,
+      "text": "in certain torque."
+    },
+    {
+      "id": 107,
+      "start": 287.84,
+      "end": 289.8,
+      "text": "So it's always faster and never down-clops,"
+    },
+    {
+      "id": 108,
+      "start": 289.8,
+      "end": 292.32,
+      "text": "but it's not as big of an advantage as quick."
+    },
+    {
+      "id": 109,
+      "start": 292.32,
+      "end": 295.76,
+      "text": "Yeah, so his statement is, new versions of Intel,"
+    },
+    {
+      "id": 110,
+      "start": 295.76,
+      "end": 296.92,
+      "text": "they've gotten a little bit better at this,"
+    },
+    {
+      "id": 111,
+      "start": 296.92,
+      "end": 298.48,
+      "text": "but they still, I know for the consumer ones,"
+    },
+    {
+      "id": 112,
+      "start": 298.48,
+      "end": 299.92,
+      "text": "they always turn it off, right?"
+    },
+    {
+      "id": 113,
+      "start": 299.92,
+      "end": 300.92,
+      "text": "Yes, by default."
+    },
+    {
+      "id": 114,
+      "start": 300.92,
+      "end": 302.6,
+      "text": "But you've got, no, it's actually fused off."
+    },
+    {
+      "id": 115,
+      "start": 302.6,
+      "end": 304.12,
+      "text": "I don't think you can even turn it back on."
+    },
+    {
+      "id": 116,
+      "start": 304.12,
+      "end": 305.6,
+      "text": "Yeah."
+    },
+    {
+      "id": 117,
+      "start": 305.6,
+      "end": 308.6,
+      "text": "And that AMD doesn't really do true five 12."
+    },
+    {
+      "id": 118,
+      "start": 308.6,
+      "end": 311.52,
+      "text": "They do two 256 registers and they put it together."
+    },
+    {
+      "id": 119,
+      "start": 311.52,
+      "end": 312.56,
+      "text": "And they say that's always faster."
+    },
+    {
+      "id": 120,
+      "start": 312.56,
+      "end": 313.48,
+      "text": "It's always faster."
+    },
+    {
+      "id": 121,
+      "start": 313.48,
+      "end": 316.0,
+      "text": "It should be kind of the same digits to a lot of cases,"
+    },
+    {
+      "id": 122,
+      "start": 316.0,
+      "end": 318.04,
+      "text": "but for encoding, decoding is a little bit faster."
+    },
+    {
+      "id": 123,
+      "start": 318.04,
+      "end": 319.44,
+      "text": "But does it have the bit massing"
+    },
+    {
+      "id": 124,
+      "start": 319.44,
+      "end": 321.24,
+      "text": "is the key difference in terms of databases?"
+    },
+    {
+      "id": 125,
+      "start": 321.24,
+      "end": 323.08,
+      "text": "Does it have, I don't know whether it has those capabilities."
+    },
+    {
+      "id": 126,
+      "start": 323.08,
+      "end": 324.24,
+      "text": "It's a long line."
+    },
+    {
+      "id": 127,
+      "start": 324.24,
+      "end": 325.24,
+      "text": "Right?"
+    },
+    {
+      "id": 128,
+      "start": 325.24,
+      "end": 328.32,
+      "text": "Anyway, and there's, I can post on Piazza,"
+    },
+    {
+      "id": 129,
+      "start": 328.32,
+      "end": 330.92,
+      "text": "there's some blog articles from the clang people"
+    },
+    {
+      "id": 130,
+      "start": 330.92,
+      "end": 334.64,
+      "text": "or the GCC people were like, they will always try to use"
+    },
+    {
+      "id": 131,
+      "start": 334.64,
+      "end": 338.32,
+      "text": "ADX-2 instead of ADX-512 to avoid these issues."
+    },
+    {
+      "id": 132,
+      "start": 338.32,
+      "end": 339.28,
+      "text": "Now you may be careful and say,"
+    },
+    {
+      "id": 133,
+      "start": 339.28,
+      "end": 341.44,
+      "text": "OK, I'm going to make sure, if I'm using intrinsic,"
+    },
+    {
+      "id": 134,
+      "start": 341.44,
+      "end": 344.36,
+      "text": "that I make sure I only use ADX-2 to avoid this downclocking"
+    },
+    {
+      "id": 135,
+      "start": 344.36,
+      "end": 349.2,
+      "text": "issue, but you may link in some library that then gets"
+    },
+    {
+      "id": 136,
+      "start": 349.2,
+      "end": 352.28,
+      "text": "auto-vectorized to ADX-512, and then your databases"
+    },
+    {
+      "id": 137,
+      "start": 352.28,
+      "end": 353.8,
+      "text": "are running slower because of some third party thing"
+    },
+    {
+      "id": 138,
+      "start": 353.8,
+      "end": 356.96,
+      "text": "that you didn't expect."
+    },
+    {
+      "id": 139,
+      "start": 356.96,
+      "end": 363.56,
+      "text": "So I don't know when this all get fixed, who knows."
+    },
+    {
+      "id": 140,
+      "start": 363.56,
+      "end": 369.12,
+      "text": "But the safe bet is probably going to always be ADX-2."
+    },
+    {
+      "id": 141,
+      "start": 369.12,
+      "end": 370.6,
+      "text": "But I do know some of the commercial systems do"
+    },
+    {
+      "id": 142,
+      "start": 370.6,
+      "end": 372.76,
+      "text": "run on ADX-512, and maybe they'll"
+    },
+    {
+      "id": 143,
+      "start": 372.76,
+      "end": 376.84,
+      "text": "try to be more careful if and when they use it."
+    },
+    {
+      "id": 144,
+      "start": 376.84,
+      "end": 379.04,
+      "text": "OK, so to finish up, so vectorization"
+    },
+    {
+      "id": 145,
+      "start": 379.04,
+      "end": 380.72,
+      "text": "is going to be obviously super important."
+    },
+    {
+      "id": 146,
+      "start": 380.72,
+      "end": 383.44,
+      "text": "It doesn't always going to be the biggest win."
+    },
+    {
+      "id": 147,
+      "start": 383.44,
+      "end": 387.52,
+      "text": "And ideally, we want to rely on the compiler"
+    },
+    {
+      "id": 148,
+      "start": 387.52,
+      "end": 389.0,
+      "text": "to auto-vector as much as possible."
+    },
+    {
+      "id": 149,
+      "start": 389.0,
+      "end": 391.6,
+      "text": "But in some cases, we do have to come in"
+    },
+    {
+      "id": 150,
+      "start": 391.6,
+      "end": 394.0,
+      "text": "and either using intrinsic, which is more common,"
+    },
+    {
+      "id": 151,
+      "start": 394.0,
+      "end": 395.84,
+      "text": "or one of those libraries that can"
+    },
+    {
+      "id": 152,
+      "start": 395.84,
+      "end": 400.64,
+      "text": "mass the actual details of what Cindy extension package"
+    },
+    {
+      "id": 153,
+      "start": 400.64,
+      "end": 402.36,
+      "text": "we're using."
+    },
+    {
+      "id": 154,
+      "start": 402.36,
+      "end": 404.2,
+      "text": "And again, all the things that we talked about so far"
+    },
+    {
+      "id": 155,
+      "start": 404.2,
+      "end": 405.8,
+      "text": "about doing intracurricular parallelism,"
+    },
+    {
+      "id": 156,
+      "start": 405.8,
+      "end": 407.8,
+      "text": "this is all in conjunction to this Cindy stuff."
+    },
+    {
+      "id": 157,
+      "start": 407.8,
+      "end": 410.92,
+      "text": "So every core is going to have its own set of Cindy registers."
+    },
+    {
+      "id": 158,
+      "start": 410.92,
+      "end": 414.08,
+      "text": "And so we want to use data parallelism within each core"
+    },
+    {
+      "id": 159,
+      "start": 414.08,
+      "end": 416.24,
+      "text": "as much as possible."
+    },
+    {
+      "id": 160,
+      "start": 416.24,
+      "end": 420.08,
+      "text": "And again, we'll cover query compilation next class."
+    },
+    {
+      "id": 161,
+      "start": 420.08,
+      "end": 424.84,
+      "text": "But that's another tool we can use to control the movement"
+    },
+    {
+      "id": 162,
+      "start": 424.84,
+      "end": 428.92,
+      "text": "of data within our query plan so that we have precise control"
+    },
+    {
+      "id": 163,
+      "start": 428.92,
+      "end": 431.84,
+      "text": "where things go in registers, when they come out of registers,"
+    },
+    {
+      "id": 164,
+      "start": 431.84,
+      "end": 434.64,
+      "text": "and how things are moved through memory or CPU cashes."
+    },
+    {
+      "id": 165,
+      "start": 434.64,
+      "end": 437.14,
+      "text": "OK?"
+    },
+    {
+      "id": 166,
+      "start": 437.14,
+      "end": 439.44,
+      "text": "Again, so next class will be compilation."
+    },
+    {
+      "id": 167,
+      "start": 439.44,
+      "end": 441.6,
+      "text": "So it's going to be a German paper."
+    },
+    {
+      "id": 168,
+      "start": 441.6,
+      "end": 442.48,
+      "text": "It's very dense."
+    },
+    {
+      "id": 169,
+      "start": 442.48,
+      "end": 444.16,
+      "text": "It's a lot of LL and IR."
+    },
+    {
+      "id": 170,
+      "start": 444.16,
+      "end": 446.72,
+      "text": "Don't sweat the details of that."
+    },
+    {
+      "id": 171,
+      "start": 446.72,
+      "end": 449.04,
+      "text": "The main thing I want you to get away from it is out"
+    },
+    {
+      "id": 172,
+      "start": 449.04,
+      "end": 452.2,
+      "text": "of it is the notion what we call a data-centric computation."
+    },
+    {
+      "id": 173,
+      "start": 452.2,
+      "end": 455.36,
+      "text": "It just really means the push model in its query processing"
+    },
+    {
+      "id": 174,
+      "start": 455.36,
+      "end": 456.16,
+      "text": "approach."
+    },
+    {
+      "id": 175,
+      "start": 456.16,
+      "end": 458.96,
+      "text": "And again, how is it going to have fine-grained control"
+    },
+    {
+      "id": 176,
+      "start": 458.96,
+      "end": 461.68,
+      "text": "of what goes into the CPU registers,"
+    },
+    {
+      "id": 177,
+      "start": 461.68,
+      "end": 463.36,
+      "text": "as things move at the query plan?"
+    },
+    {
+      "id": 178,
+      "start": 463.36,
+      "end": 464.4,
+      "text": "OK?"
+    },
+    {
+      "id": 179,
+      "start": 464.4,
+      "end": 467.36,
+      "text": "And then we talk a little bit about the project status"
+    },
+    {
+      "id": 180,
+      "start": 467.36,
+      "end": 470.12,
+      "text": "in preparation of the status update later this month"
+    },
+    {
+      "id": 181,
+      "start": 470.12,
+      "end": 471.8,
+      "text": "at the end of next class as well."
+    },
+    {
+      "id": 182,
+      "start": 471.8,
+      "end": 472.76,
+      "text": "OK?"
+    },
+    {
+      "id": 183,
+      "start": 472.76,
+      "end": 475.0,
+      "text": "Any final questions?"
+    },
+    {
+      "id": 184,
+      "start": 475.0,
+      "end": 475.56,
+      "text": "All right, guys."
+    },
+    {
+      "id": 185,
+      "start": 475.56,
+      "end": 476.08,
+      "text": "See you."
+    },
+    {
+      "id": 186,
+      "start": 476.08,
+      "end": 477.64,
+      "text": "Take out your own dirty hiding."
+    },
+    {
+      "id": 187,
+      "start": 477.64,
+      "end": 479.92,
+      "text": "You got a belt to get the 40-ounce bottle."
+    },
+    {
+      "id": 188,
+      "start": 479.92,
+      "end": 480.48,
+      "text": "Get a grip."
+    },
+    {
+      "id": 189,
+      "start": 480.48,
+      "end": 482.72,
+      "text": "Take a sip, and you'll be picking up bottles."
+    },
+    {
+      "id": 190,
+      "start": 482.72,
+      "end": 484.72,
+      "text": "Any no puzzle I'll puzzle because I'm more a man."
+    },
+    {
+      "id": 191,
+      "start": 484.72,
+      "end": 487.44,
+      "text": "I'm telling the 40-ounce, so it got four cans."
+    },
+    {
+      "id": 192,
+      "start": 487.44,
+      "end": 489.52,
+      "text": "Stack and six packs on a table."
+    },
+    {
+      "id": 193,
+      "start": 489.52,
+      "end": 491.76,
+      "text": "And I'm able to see St. I was on a label."
+    },
+    {
+      "id": 194,
+      "start": 491.76,
+      "end": 492.88,
+      "text": "No sure, put the cloth."
+    },
+    {
+      "id": 195,
+      "start": 492.88,
+      "end": 493.72,
+      "text": "You know what got them?"
+    },
+    {
+      "id": 196,
+      "start": 493.72,
+      "end": 494.56,
+      "text": "I take off the cap."
+    },
+    {
+      "id": 197,
+      "start": 494.56,
+      "end": 496.32,
+      "text": "My first attempt on a bottle."
+    },
+    {
+      "id": 198,
+      "start": 496.32,
+      "end": 498.24,
+      "text": "Throw my green and freezer, so I can kill it."
+    },
+    {
+      "id": 199,
+      "start": 498.24,
+      "end": 499.56,
+      "text": "Careful with the bottle, baby."
+    },
+    {
+      "id": 200,
+      "start": 499.56,
+      "end": 500.84,
+      "text": "We'll still spill it."
+    },
+    {
+      "id": 201,
+      "start": 500.84,
+      "end": 501.88,
+      "text": "Cause St. I was insane."
+    },
+    {
+      "id": 202,
+      "start": 501.88,
+      "end": 503.04,
+      "text": "The paint and I was wet."
+    },
+    {
+      "id": 203,
+      "start": 503.04,
+      "end": 505.36,
+      "text": "You drink it down with the gauze, little bottle head."
+    },
+    {
+      "id": 204,
+      "start": 505.36,
+      "end": 507.0,
+      "text": "Take back the pack of drugs."
+    },
+    {
+      "id": 205,
+      "start": 507.0,
+      "end": 508.32,
+      "text": "You won't get your soul saved now."
+    },
+    {
+      "id": 206,
+      "start": 508.32,
+      "end": 509.76,
+      "text": "So drink it to the front."
+    },
+    {
+      "id": 207,
+      "start": 509.76,
+      "end": 511.88,
+      "text": "Billion days to chill your teeth to tell what you're with,"
+    },
+    {
+      "id": 208,
+      "start": 511.88,
+      "end": 512.56,
+      "text": "guys."
+    },
+    {
+      "id": 209,
+      "start": 512.56,
+      "end": 514.56,
+      "text": "Be a man to get a can of faith, huh?"
+    }
+  ],
+  "language": "en"
+}

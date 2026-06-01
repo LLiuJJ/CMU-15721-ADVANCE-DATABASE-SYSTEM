@@ -1,0 +1,887 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.4,
+      "text": "SQL Server, they're running Cascades, so they're actually doing a top-down search, but"
+    },
+    {
+      "id": 1,
+      "start": 4.4,
+      "end": 10.2,
+      "text": "this is sort of this auxiliary search that's running on the side that in the background"
+    },
+    {
+      "id": 2,
+      "start": 10.2,
+      "end": 14.2,
+      "text": "it tries to find a plan that can stitch together."
+    },
+    {
+      "id": 3,
+      "start": 14.2,
+      "end": 17.24,
+      "text": "So let's talk about how they actually do this."
+    },
+    {
+      "id": 4,
+      "start": 17.24,
+      "end": 22.96,
+      "text": "The first step is you need to identify which portions or which subplans in our queries"
+    },
+    {
+      "id": 5,
+      "start": 22.96,
+      "end": 25.04,
+      "text": "are logically equipment."
+    },
+    {
+      "id": 6,
+      "start": 25.04,
+      "end": 29.64,
+      "text": "We talked about this before under with Cascades when we had multi-group, multi-expression"
+    },
+    {
+      "id": 7,
+      "start": 29.64,
+      "end": 30.64,
+      "text": "groups."
+    },
+    {
+      "id": 8,
+      "start": 30.64,
+      "end": 41.2,
+      "text": "We want to know that the output of a given subplan is the same or equivalent to another subplan."
+    },
+    {
+      "id": 9,
+      "start": 41.2,
+      "end": 48.0,
+      "text": "Again, we have to rely on the rules of relation algorithm to recognize which operations can"
+    },
+    {
+      "id": 10,
+      "start": 48.0,
+      "end": 49.96,
+      "text": "be commutative or associative."
+    },
+    {
+      "id": 11,
+      "start": 49.96,
+      "end": 58.08,
+      "text": "So in this case here, this portion of the subplan, the output is the A join B join C."
+    },
+    {
+      "id": 12,
+      "start": 58.08,
+      "end": 63.92,
+      "text": "This portion of another subplan is the output is C join B join A, but since joins, these"
+    },
+    {
+      "id": 13,
+      "start": 63.92,
+      "end": 69.6,
+      "text": "inner joins here are commutative, we know that these are logically equipment."
+    },
+    {
+      "id": 14,
+      "start": 69.6,
+      "end": 79.8,
+      "text": "As I said, one challenge with this is that determining whether any arbitrary logical expressions"
+    },
+    {
+      "id": 15,
+      "start": 79.8,
+      "end": 87.84,
+      "text": "or logical subplans are equivalent has been shown to be undecidable, meaning the question"
+    },
+    {
+      "id": 16,
+      "start": 87.84,
+      "end": 90.2,
+      "text": "like are these two subplans logically equivalent?"
+    },
+    {
+      "id": 17,
+      "start": 90.2,
+      "end": 97.28,
+      "text": "It's a yes or no answer, but there's no algorithm that exists as of been proven that can"
+    },
+    {
+      "id": 18,
+      "start": 97.28,
+      "end": 100.16,
+      "text": "guarantee to always give the correct answer."
+    },
+    {
+      "id": 19,
+      "start": 100.16,
+      "end": 105.12,
+      "text": "So in the plan stitch phase, they're going to rely on some additional heuristics to identify"
+    },
+    {
+      "id": 20,
+      "start": 105.12,
+      "end": 110.12,
+      "text": "things like, oh, I know that these two subplans are accessing different tables, so therefore"
+    },
+    {
+      "id": 21,
+      "start": 110.12,
+      "end": 111.84,
+      "text": "they can't be logically equipment."
+    },
+    {
+      "id": 22,
+      "start": 111.84,
+      "end": 114.64,
+      "text": "You obviously can do more complicated things."
+    },
+    {
+      "id": 23,
+      "start": 114.64,
+      "end": 121.24,
+      "text": "The optimizer itself in SQL Server also has those checks and plays, and so they rely"
+    },
+    {
+      "id": 24,
+      "start": 121.24,
+      "end": 122.24,
+      "text": "on that as well."
+    },
+    {
+      "id": 25,
+      "start": 122.24,
+      "end": 126.52,
+      "text": "So they have their own heuristics to prune things that can never be logically equivalent,"
+    },
+    {
+      "id": 26,
+      "start": 126.52,
+      "end": 133.56,
+      "text": "and they rely on the SQL Server optimizer to identify that the logical subplan you're"
+    },
+    {
+      "id": 27,
+      "start": 133.56,
+      "end": 140.2,
+      "text": "trying to match together or the subplan trying to match together in the stitch plan is invalid."
+    },
+    {
+      "id": 28,
+      "start": 140.2,
+      "end": 145.38,
+      "text": "So the heuristics are providing them with this sort of sweet swap balance between the"
+    },
+    {
+      "id": 29,
+      "start": 145.38,
+      "end": 152.76,
+      "text": "difficulty in the implementation, it's a much a enforcer rules, the accuracy of the"
+    },
+    {
+      "id": 30,
+      "start": 152.76,
+      "end": 156.88,
+      "text": "determination whether they're equivalent and then the performance, it's non-exhaustive"
+    },
+    {
+      "id": 31,
+      "start": 156.88,
+      "end": 163.28,
+      "text": "search and exhaust evaluation of all possible inputs to different subplans, it's just rules"
+    },
+    {
+      "id": 32,
+      "start": 163.28,
+      "end": 166.6,
+      "text": "based on the relational algebra."
+    },
+    {
+      "id": 33,
+      "start": 166.6,
+      "end": 173.92,
+      "text": "And now once we identify that we have a bunch of equivalent subplans, we want to sort"
+    },
+    {
+      "id": 34,
+      "start": 173.92,
+      "end": 180.24,
+      "text": "of combine them together into one giant query plan that we're going to add some additional"
+    },
+    {
+      "id": 35,
+      "start": 180.24,
+      "end": 186.92,
+      "text": "operators to determine that you can have branches to go down different paths in the subplans."
+    },
+    {
+      "id": 36,
+      "start": 186.92,
+      "end": 191.48,
+      "text": "So this is how they're going to encode all the different combinations of the subplans"
+    },
+    {
+      "id": 37,
+      "start": 191.48,
+      "end": 193.6,
+      "text": "for the stitch together."
+    },
+    {
+      "id": 38,
+      "start": 193.6,
+      "end": 197.2,
+      "text": "So the way this is going to work is they're going to introduce this new or operator, which"
+    },
+    {
+      "id": 39,
+      "start": 197.2,
+      "end": 201.72,
+      "text": "is not actually used for execution, this is just something for the search."
+    },
+    {
+      "id": 40,
+      "start": 201.72,
+      "end": 209.12,
+      "text": "And the or basically indicates that the subplans below it are logically equivalent, so we"
+    },
+    {
+      "id": 41,
+      "start": 209.12,
+      "end": 211.4,
+      "text": "could choose either path."
+    },
+    {
+      "id": 42,
+      "start": 211.4,
+      "end": 217.2,
+      "text": "So starting from the top, we have an or clause at the very beginning, and then we have"
+    },
+    {
+      "id": 43,
+      "start": 217.2,
+      "end": 222.24,
+      "text": "the two for this particular query, we have the either doing the hash join or the nest"
+    },
+    {
+      "id": 44,
+      "start": 222.24,
+      "end": 223.24,
+      "text": "loop join."
+    },
+    {
+      "id": 45,
+      "start": 223.24,
+      "end": 226.96,
+      "text": "And these are logically equivalent because this is a join, b join, c join, d, and this"
+    },
+    {
+      "id": 46,
+      "start": 226.96,
+      "end": 229.36,
+      "text": "is c join, b join, a join, d."
+    },
+    {
+      "id": 47,
+      "start": 229.36,
+      "end": 234.24,
+      "text": "And those are in the joins are commutative, so therefore these are logically equivalent."
+    },
+    {
+      "id": 48,
+      "start": 234.24,
+      "end": 238.8,
+      "text": "So then now say go down, we're going to go like a depth first search going down on this"
+    },
+    {
+      "id": 49,
+      "start": 238.8,
+      "end": 240.96,
+      "text": "side."
+    },
+    {
+      "id": 50,
+      "start": 240.96,
+      "end": 244.76,
+      "text": "For this one here, same thing, we can do the hash join on a and b followed by c, this"
+    },
+    {
+      "id": 51,
+      "start": 244.76,
+      "end": 248.44,
+      "text": "is the nest loop join on c followed by c join, b join, a."
+    },
+    {
+      "id": 52,
+      "start": 248.44,
+      "end": 251.88,
+      "text": "Again, these are logically equivalent, so that's why we can have or clause, we can choose"
+    },
+    {
+      "id": 53,
+      "start": 251.88,
+      "end": 253.2,
+      "text": "either one."
+    },
+    {
+      "id": 54,
+      "start": 253.2,
+      "end": 256.96,
+      "text": "And then we're going to keep going down until we get to our leaf node in the sequential"
+    },
+    {
+      "id": 55,
+      "start": 256.96,
+      "end": 262.88,
+      "text": "scan, and then here we don't see, we don't, there's another option for us in this portion"
+    },
+    {
+      "id": 56,
+      "start": 262.88,
+      "end": 268.24,
+      "text": "of the query plan because the one we stitched from, you know, only had a hash join."
+    },
+    {
+      "id": 57,
+      "start": 268.24,
+      "end": 272.4,
+      "text": "So now in this case here for the hash join on a, we can do a sequential scan as we saw"
+    },
+    {
+      "id": 58,
+      "start": 272.4,
+      "end": 276.28,
+      "text": "on the first plan, or we can do the index scan on b, because that came from the second"
+    },
+    {
+      "id": 59,
+      "start": 276.28,
+      "end": 277.28,
+      "text": "plan."
+    },
+    {
+      "id": 60,
+      "start": 277.28,
+      "end": 279.68,
+      "text": "And so we have an or operator to express that."
+    },
+    {
+      "id": 61,
+      "start": 279.68,
+      "end": 283.16,
+      "text": "Going back up here, we can only do a sequential scan on c, so that's a straight path"
+    },
+    {
+      "id": 62,
+      "start": 283.88,
+      "end": 286.64,
+      "text": "going back up here for the nest loop join."
+    },
+    {
+      "id": 63,
+      "start": 286.64,
+      "end": 289.96,
+      "text": "It can, you know, only thing we can do below it is another nest loop join."
+    },
+    {
+      "id": 64,
+      "start": 289.96,
+      "end": 294.12,
+      "text": "And then for this, we can either do a sequential scan on a or again, for, for b, we can"
+    },
+    {
+      "id": 65,
+      "start": 294.12,
+      "end": 296.76,
+      "text": "either do the sequential scan or the index scan."
+    },
+    {
+      "id": 66,
+      "start": 296.76,
+      "end": 301.12,
+      "text": "Going back up here for the hash join, again, we, that's feeding a sequential scan on"
+    },
+    {
+      "id": 67,
+      "start": 301.12,
+      "end": 306.28,
+      "text": "d feeding in, and then we just complete the rest of the tree like this."
+    },
+    {
+      "id": 68,
+      "start": 306.28,
+      "end": 311.04,
+      "text": "So this is a bit more simplified version of what they showed in the paper, but these are"
+    },
+    {
+      "id": 69,
+      "start": 311.04,
+      "end": 314.52,
+      "text": "actually the possible options you can have."
+    },
+    {
+      "id": 70,
+      "start": 314.52,
+      "end": 319.08,
+      "text": "And so what I think remember in the paper, what they talked about is that this approach"
+    },
+    {
+      "id": 71,
+      "start": 319.08,
+      "end": 324.88,
+      "text": "in doing the search within this defined stitch plan, they're able to stitch about 75 to,"
+    },
+    {
+      "id": 72,
+      "start": 324.88,
+      "end": 329.52,
+      "text": "almost 100% of all the plans together for the workloads that they looked at."
+    },
+    {
+      "id": 73,
+      "start": 329.52,
+      "end": 334.2,
+      "text": "So now that we've encoded our search space, we actually want to do our search."
+    },
+    {
+      "id": 74,
+      "start": 334.2,
+      "end": 337.96,
+      "text": "And these are just starting from the bottom and going up and the same way we did with"
+    },
+    {
+      "id": 75,
+      "start": 337.96,
+      "end": 343.0,
+      "text": "the system our dynamic programming search, where we just, for every single leaf node, we"
+    },
+    {
+      "id": 76,
+      "start": 343.0,
+      "end": 348.76,
+      "text": "start off with figuring out what the cost is for going to the next operator."
+    },
+    {
+      "id": 77,
+      "start": 348.76,
+      "end": 350.56,
+      "text": "We take which one is the best."
+    },
+    {
+      "id": 78,
+      "start": 350.56,
+      "end": 354.08,
+      "text": "And then once we complete all the, we do this search for all the nodes at our current"
+    },
+    {
+      "id": 79,
+      "start": 354.08,
+      "end": 357.0,
+      "text": "level, we then go up to the next level and complete this process."
+    },
+    {
+      "id": 80,
+      "start": 357.0,
+      "end": 360.8,
+      "text": "All right, so let's say we start with this sequential scan on a, it only has one option"
+    },
+    {
+      "id": 81,
+      "start": 360.8,
+      "end": 369.76,
+      "text": "first, which is just the, oh, it has either a hash join on a, b or, or the, the nest, nest"
+    },
+    {
+      "id": 82,
+      "start": 369.76,
+      "end": 372.12,
+      "text": "loop over here, say the hash join is cheaper."
+    },
+    {
+      "id": 83,
+      "start": 372.12,
+      "end": 374.2,
+      "text": "So we pick that."
+    },
+    {
+      "id": 84,
+      "start": 374.2,
+      "end": 375.84,
+      "text": "Now we do a sequential scan on b."
+    },
+    {
+      "id": 85,
+      "start": 375.84,
+      "end": 376.84,
+      "text": "This has an or operator."
+    },
+    {
+      "id": 86,
+      "start": 376.84,
+      "end": 381.28,
+      "text": "All right, so this is either doing a hash join or the nest loop join and then say the hash"
+    },
+    {
+      "id": 87,
+      "start": 381.28,
+      "end": 382.28,
+      "text": "join is cheaper."
+    },
+    {
+      "id": 88,
+      "start": 382.28,
+      "end": 383.6,
+      "text": "So we pick that."
+    },
+    {
+      "id": 89,
+      "start": 383.6,
+      "end": 386.56,
+      "text": "Now we do this for the index scan on b."
+    },
+    {
+      "id": 90,
+      "start": 386.56,
+      "end": 390.8,
+      "text": "Again, there's a, or, or operator, you need the hash join, the nest loop join."
+    },
+    {
+      "id": 91,
+      "start": 390.8,
+      "end": 395.48,
+      "text": "And so because we have an index, the nest loop join actually would be cheaper here."
+    },
+    {
+      "id": 92,
+      "start": 395.48,
+      "end": 396.48,
+      "text": "So we pick that."
+    },
+    {
+      "id": 93,
+      "start": 396.48,
+      "end": 400.2,
+      "text": "And we just keep going down the line and do this for all our leaf nodes and then we're"
+    },
+    {
+      "id": 94,
+      "start": 400.2,
+      "end": 401.2,
+      "text": "done."
+    },
+    {
+      "id": 95,
+      "start": 401.2,
+      "end": 402.2,
+      "text": "We go up to the next level."
+    },
+    {
+      "id": 96,
+      "start": 402.2,
+      "end": 406.16,
+      "text": "And then again, now we have a cost for all these paths leading up and we just pick which"
+    },
+    {
+      "id": 97,
+      "start": 406.16,
+      "end": 408.52,
+      "text": "one is, is the cheapest for us."
+    },
+    {
+      "id": 98,
+      "start": 408.52,
+      "end": 414.12,
+      "text": "And then we reconstruct the, the, we, we, we, we, we, we can construct the stitch plan"
+    },
+    {
+      "id": 99,
+      "start": 414.12,
+      "end": 415.12,
+      "text": "that way."
+    },
+    {
+      "id": 100,
+      "start": 415.12,
+      "end": 416.12,
+      "text": "Right."
+    },
+    {
+      "id": 101,
+      "start": 416.48,
+      "end": 419.0,
+      "text": "So again, I think this is an interesting approach."
+    },
+    {
+      "id": 102,
+      "start": 419.0,
+      "end": 422.8,
+      "text": "I don't think Microsoft is actually running this in production like this was a research"
+    },
+    {
+      "id": 103,
+      "start": 422.8,
+      "end": 425.68,
+      "text": "paper that was published in Sigma."
+    },
+    {
+      "id": 104,
+      "start": 425.68,
+      "end": 428.96,
+      "text": "I don't know of any other system that's doing something similar like this."
+    },
+    {
+      "id": 105,
+      "start": 428.96,
+      "end": 435.96,
+      "text": "I, from an engineering standpoint, the fact that you have to run this separately from the,"
+    },
+    {
+      "id": 106,
+      "start": 435.96,
+      "end": 440.72,
+      "text": "from the query optimizer and sort of have separate infrastructure for that."
+    },
+    {
+      "id": 107,
+      "start": 440.72,
+      "end": 441.72,
+      "text": "What do you do?"
+    },
+    {
+      "id": 108,
+      "start": 441.72,
+      "end": 442.72,
+      "text": "Right."
+    },
+    {
+      "id": 109,
+      "start": 442.72,
+      "end": 451.68,
+      "text": "So rather than having separate, you know, separate so search infrastructure, if this is integrated"
+    },
+    {
+      "id": 110,
+      "start": 451.68,
+      "end": 455.88,
+      "text": "into the query optimizer like a component itself, I think this would be really interesting"
+    },
+    {
+      "id": 111,
+      "start": 455.88,
+      "end": 457.52,
+      "text": "approach."
+    },
+    {
+      "id": 112,
+      "start": 457.52,
+      "end": 463.24,
+      "text": "So there's another system that does something similar to this plan stitching, but they're"
+    },
+    {
+      "id": 113,
+      "start": 463.24,
+      "end": 469.64,
+      "text": "actually working on a sort of a, sort of a code gen level rather than like a physical"
+    },
+    {
+      "id": 114,
+      "start": 469.64,
+      "end": 471.16,
+      "text": "query plan level."
+    },
+    {
+      "id": 115,
+      "start": 471.16,
+      "end": 476.04,
+      "text": "So Amazon has their Redshift data warehouse service."
+    },
+    {
+      "id": 116,
+      "start": 476.04,
+      "end": 481.56,
+      "text": "And it's based on a park sell and they use actually a, they do it, it's a transpolation"
+    },
+    {
+      "id": 117,
+      "start": 481.56,
+      "end": 482.56,
+      "text": "engine."
+    },
+    {
+      "id": 118,
+      "start": 482.56,
+      "end": 488.36,
+      "text": "So the database system for a given physical plan generates C++ code or C code, which they"
+    },
+    {
+      "id": 119,
+      "start": 488.36,
+      "end": 493.72,
+      "text": "then compile and then they run, you know, they invoke the shared object that comes out"
+    },
+    {
+      "id": 120,
+      "start": 493.72,
+      "end": 494.72,
+      "text": "of the compiler."
+    },
+    {
+      "id": 121,
+      "start": 494.72,
+      "end": 497.44,
+      "text": "And then that's how they do query compilation."
+    },
+    {
+      "id": 122,
+      "start": 497.44,
+      "end": 503.2,
+      "text": "So the, obviously the most expensive part of, you know, cogen engine is the compilation,"
+    },
+    {
+      "id": 123,
+      "start": 503.2,
+      "end": 504.2,
+      "text": "right?"
+    },
+    {
+      "id": 124,
+      "start": 504.2,
+      "end": 507.28,
+      "text": "In their case, they're actually forking GCC or whatever compiler using to actually generate"
+    },
+    {
+      "id": 125,
+      "start": 507.28,
+      "end": 509.08,
+      "text": "the machine code."
+    },
+    {
+      "id": 126,
+      "start": 509.08,
+      "end": 512.64,
+      "text": "So they want to try to avoid that for every single query."
+    },
+    {
+      "id": 127,
+      "start": 512.64,
+      "end": 519.4,
+      "text": "So what they can do is they say you're doing, you want to compile the scan on B where you"
+    },
+    {
+      "id": 128,
+      "start": 519.4,
+      "end": 522.44,
+      "text": "want to see what B dot, B dot, BOW equals some, some input parameter."
+    },
+    {
+      "id": 129,
+      "start": 522.44,
+      "end": 528.24,
+      "text": "So the cogen that piece, run it through the compiler, that generates x86 code and then"
+    },
+    {
+      "id": 130,
+      "start": 528.24,
+      "end": 530.2,
+      "text": "they'll go ahead and cache it."
+    },
+    {
+      "id": 131,
+      "start": 530.2,
+      "end": 536.08,
+      "text": "And then now anytime you re invoke this query, you know, you can just reuse the compiler"
+    },
+    {
+      "id": 132,
+      "start": 536.08,
+      "end": 538.4,
+      "text": "version of the scan on B."
+    },
+    {
+      "id": 133,
+      "start": 538.4,
+      "end": 542.36,
+      "text": "But similar to plan stitching, what they can also do is they can recognize that if you"
+    },
+    {
+      "id": 134,
+      "start": 542.36,
+      "end": 549.28,
+      "text": "have another query with the same kind of predicate, B dot, VOW equals, you know, equals some parameter,"
+    },
+    {
+      "id": 135,
+      "start": 549.28,
+      "end": 551.0,
+      "text": "it'll cogen the exact same thing."
+    },
+    {
+      "id": 136,
+      "start": 551.0,
+      "end": 555.72,
+      "text": "So rather than recompiling it, which is again the expensive part, they can identify that"
+    },
+    {
+      "id": 137,
+      "start": 555.72,
+      "end": 563.64,
+      "text": "they have a cache plan fragment for this scan here and they can reuse that."
+    },
+    {
+      "id": 138,
+      "start": 563.64,
+      "end": 569.28,
+      "text": "And so they actually can do this across all possible, or across all their customers."
+    },
+    {
+      "id": 139,
+      "start": 569.28,
+      "end": 574.52,
+      "text": "So like this, you know, the scan on a table to do one, you know, something equals something"
+    },
+    {
+      "id": 140,
+      "start": 574.52,
+      "end": 579.24,
+      "text": "on a, you know, a bar chart field, that's going to be the same from one table to the next"
+    },
+    {
+      "id": 141,
+      "start": 579.24,
+      "end": 582.36,
+      "text": "because it's a column, sure, you're just ripping through the column."
+    },
+    {
+      "id": 142,
+      "start": 582.36,
+      "end": 587.6,
+      "text": "So they can actually share these little fragments and stitch these query, physical query plans"
+    },
+    {
+      "id": 143,
+      "start": 587.6,
+      "end": 591.6,
+      "text": "of the compiler query plans together from all possible, you know, customers."
+    },
+    {
+      "id": 144,
+      "start": 591.6,
+      "end": 596.2,
+      "text": "So now for a given query that they never seen before, if it has the same pattern of access"
+    },
+    {
+      "id": 145,
+      "start": 596.2,
+      "end": 600.36,
+      "text": "methods and joins and other things as queries from another customer, they just pull from"
+    },
+    {
+      "id": 146,
+      "start": 600.36,
+      "end": 601.96,
+      "text": "a cogent cache and stitch it together."
+    }
+  ],
+  "language": "en"
+}

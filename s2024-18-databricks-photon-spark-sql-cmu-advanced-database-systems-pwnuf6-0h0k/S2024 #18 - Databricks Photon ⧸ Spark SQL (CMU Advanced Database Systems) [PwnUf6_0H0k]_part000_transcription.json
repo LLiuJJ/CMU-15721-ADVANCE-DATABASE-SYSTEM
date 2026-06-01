@@ -1,0 +1,671 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Carnegie Mellon University's advanced database systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filmed in front of a live studio audience."
+    },
+    {
+      "id": 2,
+      "start": 9.0,
+      "end": 24.0,
+      "text": "So, last class, we were discussing BigQuery and Dremel,"
+    },
+    {
+      "id": 3,
+      "start": 24.0,
+      "end": 31.0,
+      "text": "that system architecture, and as I said, the Dremel work was the service"
+    },
+    {
+      "id": 4,
+      "start": 31.0,
+      "end": 37.0,
+      "text": "as a foundation or a blueprint for how people build a lot of modern or lab systems."
+    },
+    {
+      "id": 5,
+      "start": 37.0,
+      "end": 40.0,
+      "text": "Now, not everyone is going to have bits and pieces that Dremel has,"
+    },
+    {
+      "id": 6,
+      "start": 40.0,
+      "end": 43.0,
+      "text": "and there's certainly been extensions to the overall architecture using other systems,"
+    },
+    {
+      "id": 7,
+      "start": 43.0,
+      "end": 47.0,
+      "text": "but at high level, that's the approach of when people say you're building a modern"
+    },
+    {
+      "id": 8,
+      "start": 47.0,
+      "end": 50.0,
+      "text": "or lab or a lake house system."
+    },
+    {
+      "id": 9,
+      "start": 50.0,
+      "end": 53.0,
+      "text": "And when we see Snowflake next week, it's sort of a spark today."
+    },
+    {
+      "id": 10,
+      "start": 53.0,
+      "end": 56.0,
+      "text": "It's going to look very similar to bits and pieces."
+    },
+    {
+      "id": 11,
+      "start": 56.0,
+      "end": 61.0,
+      "text": "So, to just understand, in the Databricks Photon paper that you guys read,"
+    },
+    {
+      "id": 12,
+      "start": 61.0,
+      "end": 65.0,
+      "text": "we want to sort of first talk about the history of how sort of spark came about"
+    },
+    {
+      "id": 13,
+      "start": 65.0,
+      "end": 71.0,
+      "text": "and what led them to building the accelerator the way they did."
+    },
+    {
+      "id": 14,
+      "start": 71.0,
+      "end": 75.0,
+      "text": "So again, if you flash back to maybe like late 2000s,"
+    },
+    {
+      "id": 15,
+      "start": 75.0,
+      "end": 81.0,
+      "text": "when MapReduce was taking off, at the same time, there was this project called Spark"
+    },
+    {
+      "id": 16,
+      "start": 81.0,
+      "end": 88.0,
+      "text": "at a UC Berkeley where they're trying to build a better version of the MapReduce Hidu model."
+    },
+    {
+      "id": 17,
+      "start": 88.0,
+      "end": 92.0,
+      "text": "And some parts are very similar, like separating computing storage,"
+    },
+    {
+      "id": 18,
+      "start": 92.0,
+      "end": 98.0,
+      "text": "you know, HDFS had HDFS and then the X-Tutor nodes."
+    },
+    {
+      "id": 19,
+      "start": 98.0,
+      "end": 101.0,
+      "text": "But then they also had support to do sort of iterative algorithms"
+    },
+    {
+      "id": 20,
+      "start": 101.0,
+      "end": 107.0,
+      "text": "the way you couldn't do very easily into Duke that allowed you to multiple passes"
+    },
+    {
+      "id": 21,
+      "start": 107.0,
+      "end": 112.0,
+      "text": "on the same dataset within your program."
+    },
+    {
+      "id": 22,
+      "start": 112.0,
+      "end": 117.0,
+      "text": "So when they wrote Spark, they wrote in the Scholar because that was the hot thing."
+    },
+    {
+      "id": 23,
+      "start": 117.0,
+      "end": 121.0,
+      "text": "That was the language I was most excited about around this time, 2010."
+    },
+    {
+      "id": 24,
+      "start": 121.0,
+      "end": 123.0,
+      "text": "Now it's obviously Rust."
+    },
+    {
+      "id": 25,
+      "start": 123.0,
+      "end": 128.0,
+      "text": "Before that it was Go, before Go it was Scholar."
+    },
+    {
+      "id": 26,
+      "start": 128.0,
+      "end": 130.0,
+      "text": "Python's always been there."
+    },
+    {
+      "id": 27,
+      "start": 130.0,
+      "end": 135.0,
+      "text": "Right, so because Spark has written in Scholar,"
+    },
+    {
+      "id": 28,
+      "start": 135.0,
+      "end": 137.0,
+      "text": "the means that they're going to run on the JVM."
+    },
+    {
+      "id": 29,
+      "start": 137.0,
+      "end": 140.0,
+      "text": "Now, from pretty much all the papers we've talked about this entire semester,"
+    },
+    {
+      "id": 30,
+      "start": 140.0,
+      "end": 142.0,
+      "text": "most of them are written in C++."
+    },
+    {
+      "id": 31,
+      "start": 142.0,
+      "end": 148.0,
+      "text": "Rust is becoming more common now, but it's been C++ is the main thing we've been focused on."
+    },
+    {
+      "id": 32,
+      "start": 148.0,
+      "end": 151.0,
+      "text": "But there's still a lot of database systems that are out there that are going to be written in Java,"
+    },
+    {
+      "id": 33,
+      "start": 151.0,
+      "end": 156.0,
+      "text": "mostly because they come around from the late 2000s or early 2010s."
+    },
+    {
+      "id": 34,
+      "start": 156.0,
+      "end": 161.0,
+      "text": "And we avoid implementation discussions about the programming languages using these systems,"
+    },
+    {
+      "id": 35,
+      "start": 161.0,
+      "end": 164.0,
+      "text": "but for today's paper, as you guys read about,"
+    },
+    {
+      "id": 36,
+      "start": 164.0,
+      "end": 168.0,
+      "text": "because Spark is really written in Java or to Scholar running the JVM,"
+    },
+    {
+      "id": 37,
+      "start": 168.0,
+      "end": 173.0,
+      "text": "that matters and that's going to restrain what they can do in their implementation."
+    },
+    {
+      "id": 38,
+      "start": 173.0,
+      "end": 179.0,
+      "text": "So the first version of Spark that came out only supported this really low level API"
+    },
+    {
+      "id": 39,
+      "start": 179.0,
+      "end": 184.0,
+      "text": "based on these sort of RDDs or distributed data structures."
+    },
+    {
+      "id": 40,
+      "start": 184.0,
+      "end": 191.0,
+      "text": "The output of some task computation was put in this RDD wrapper."
+    },
+    {
+      "id": 41,
+      "start": 191.0,
+      "end": 195.0,
+      "text": "Later on, they added support for the data frame API,"
+    },
+    {
+      "id": 42,
+      "start": 195.0,
+      "end": 198.0,
+      "text": "for even higher level abstraction and programming language."
+    },
+    {
+      "id": 43,
+      "start": 198.0,
+      "end": 201.0,
+      "text": "And this is when Spark really started taking off."
+    },
+    {
+      "id": 44,
+      "start": 201.0,
+      "end": 205.0,
+      "text": "Instead of running your Paynus programs or accessing data frames in Python,"
+    },
+    {
+      "id": 45,
+      "start": 205.0,
+      "end": 210.0,
+      "text": "you can run this now in Spark and go distribute it."
+    },
+    {
+      "id": 46,
+      "start": 211.0,
+      "end": 214.0,
+      "text": "But again, but at this point, again, the early version, first version of Spark,"
+    },
+    {
+      "id": 47,
+      "start": 214.0,
+      "end": 218.0,
+      "text": "didn't support SQL. It was all, again, these other programming languages."
+    },
+    {
+      "id": 48,
+      "start": 218.0,
+      "end": 223.0,
+      "text": "So once you start having some kind of computational framework that can process large amounts of data,"
+    },
+    {
+      "id": 49,
+      "start": 223.0,
+      "end": 227.0,
+      "text": "become popular, people are starting asking for SQL."
+    },
+    {
+      "id": 50,
+      "start": 227.0,
+      "end": 231.0,
+      "text": "And that's what people wanted in Spark."
+    },
+    {
+      "id": 51,
+      "start": 231.0,
+      "end": 239.0,
+      "text": "So the stopgap for the first sort of support within Spark was this thing called Shark,"
+    },
+    {
+      "id": 52,
+      "start": 239.0,
+      "end": 244.0,
+      "text": "and is where they forked Facebook's hive middleware that took SQL queries"
+    },
+    {
+      "id": 53,
+      "start": 244.0,
+      "end": 246.0,
+      "text": "and converted them to that previous jobs."
+    },
+    {
+      "id": 54,
+      "start": 246.0,
+      "end": 254.0,
+      "text": "They forked that and then took SQL queries and then converted it into Spark programs using the Spark API."
+    },
+    {
+      "id": 55,
+      "start": 254.0,
+      "end": 260.0,
+      "text": "And this was limited because the capabilities of this approach was limited"
+    },
+    {
+      "id": 56,
+      "start": 260.0,
+      "end": 266.0,
+      "text": "because you could only use SQL for the initial invocation of the program"
+    },
+    {
+      "id": 57,
+      "start": 267.0,
+      "end": 268.0,
+      "text": "at the query you wanted."
+    },
+    {
+      "id": 58,
+      "start": 268.0,
+      "end": 276.0,
+      "text": "So it wasn't like you could take the, you couldn't mix Python code or the Spark API code with SQL in different parts."
+    },
+    {
+      "id": 59,
+      "start": 276.0,
+      "end": 281.0,
+      "text": "You couldn't take the output of a SQL query, feed that into a scholar program,"
+    },
+    {
+      "id": 60,
+      "start": 281.0,
+      "end": 286.0,
+      "text": "then then took the output of that and then feed that all within the same program into SQL."
+    },
+    {
+      "id": 61,
+      "start": 286.0,
+      "end": 290.0,
+      "text": "You couldn't mix the SQL and API calls at the time."
+    },
+    {
+      "id": 62,
+      "start": 290.0,
+      "end": 295.0,
+      "text": "The other challenge they faced too was that Shark was based from hive"
+    },
+    {
+      "id": 63,
+      "start": 295.0,
+      "end": 300.0,
+      "text": "query app, and the hive query app was really designed for picking the best query plan to generate map reduced jobs."
+    },
+    {
+      "id": 64,
+      "start": 300.0,
+      "end": 304.0,
+      "text": "And so they had to try to contort it to make it work in Spark,"
+    },
+    {
+      "id": 65,
+      "start": 304.0,
+      "end": 308.0,
+      "text": "but Spark had a more expressive API."
+    },
+    {
+      "id": 66,
+      "start": 308.0,
+      "end": 312.0,
+      "text": "You do more things in your program than you could in this map reduced."
+    },
+    {
+      "id": 67,
+      "start": 312.0,
+      "end": 315.0,
+      "text": "The map reduced only exposed to function to map and reduce."
+    },
+    {
+      "id": 68,
+      "start": 315.0,
+      "end": 323.0,
+      "text": "And so the queries that they were generating through Shark were not as efficient as one could build if you've written my hand"
+    },
+    {
+      "id": 69,
+      "start": 323.0,
+      "end": 333.0,
+      "text": "because hive's optimizer just wasn't aware, didn't know about the other things it could do with Spark programs."
+    },
+    {
+      "id": 70,
+      "start": 333.0,
+      "end": 343.0,
+      "text": "So again, this was a stopgap solution, the initial approach to add SQL support in Spark."
+    },
+    {
+      "id": 71,
+      "start": 343.0,
+      "end": 345.0,
+      "text": "I think I mentioned last class also as well."
+    },
+    {
+      "id": 72,
+      "start": 345.0,
+      "end": 352.0,
+      "text": "There was this other system called Impala that came out of CloudDera."
+    },
+    {
+      "id": 73,
+      "start": 352.0,
+      "end": 356.0,
+      "text": "And CloudDera was actually the one shipping the most Spark in the early days."
+    },
+    {
+      "id": 74,
+      "start": 356.0,
+      "end": 360.0,
+      "text": "Because if you were asking for it, it was part of the such CloudDera distribution you would get."
+    },
+    {
+      "id": 75,
+      "start": 360.0,
+      "end": 373.0,
+      "text": "But then when people started asking for SQL support in Spark, CloudDera wouldn't provide them Shark because they wanted people to use CloudDera or use Impala instead because they made money on that."
+    },
+    {
+      "id": 76,
+      "start": 373.0,
+      "end": 385.0,
+      "text": "So even though this was available, again, as a sort of add on to Spark, it wasn't available in CloudDera's, you know, CloudDera distribution of it."
+    },
+    {
+      "id": 77,
+      "start": 385.0,
+      "end": 390.0,
+      "text": "So then in 2015, the data X team put out Spark SQL."
+    },
+    {
+      "id": 78,
+      "start": 390.0,
+      "end": 396.0,
+      "text": "And this was native integration of SQL directly in the Spark runtime."
+    },
+    {
+      "id": 79,
+      "start": 397.0,
+      "end": 402.0,
+      "text": "And now, in this case, when you download Spark, you've got Spark SQL."
+    },
+    {
+      "id": 80,
+      "start": 402.0,
+      "end": 404.0,
+      "text": "And so CloudDera couldn't excite it out."
+    },
+    {
+      "id": 81,
+      "start": 404.0,
+      "end": 408.0,
+      "text": "When they shipped Spark, they also shipped Spark SQL with that."
+    },
+    {
+      "id": 82,
+      "start": 408.0,
+      "end": 412.0,
+      "text": "And that basically undercut any need to use Impala."
+    },
+    {
+      "id": 83,
+      "start": 412.0,
+      "end": 418.0,
+      "text": "And it was like a Trojan Horts basically helped destroy, we're not destroying CloudDera's around."
+    },
+    {
+      "id": 84,
+      "start": 418.0,
+      "end": 425.0,
+      "text": "It helped undermine CloudDera and Databricks became the big companies."
+    },
+    {
+      "id": 85,
+      "start": 425.0,
+      "end": 430.0,
+      "text": "Now, CloudDera got, they went IPO, and then they got reverted back to private equity."
+    },
+    {
+      "id": 86,
+      "start": 430.0,
+      "end": 435.0,
+      "text": "And I think Databricks helped facilitate that in some ways."
+    },
+    {
+      "id": 87,
+      "start": 435.0,
+      "end": 442.0,
+      "text": "Another problem was despite the name of having Cloud in the name CloudDera, they didn't have a Cloud offering that produced a Hadoop."
+    },
+    {
+      "id": 88,
+      "start": 442.0,
+      "end": 446.0,
+      "text": "Amazon was making more money on Hadoop than CloudDera was."
+    },
+    {
+      "id": 89,
+      "start": 446.0,
+      "end": 451.0,
+      "text": "They had the Menterah Hadoop there, and a bunch of other people with key contributors to it."
+    },
+    {
+      "id": 90,
+      "start": 451.0,
+      "end": 453.0,
+      "text": "That's in the side."
+    },
+    {
+      "id": 91,
+      "start": 453.0,
+      "end": 463.0,
+      "text": "So the way Spark SQL worked was that they would still rely on the row-based architecture of the feeding data in from the lower levels of the query plan."
+    },
+    {
+      "id": 92,
+      "start": 463.0,
+      "end": 471.0,
+      "text": "But when they passed data from one operative to the next, they would at least now start storing it in columnar buffers or vectors."
+    },
+    {
+      "id": 93,
+      "start": 471.0,
+      "end": 476.0,
+      "text": "They would support dictionary encoding, RLE, pitpacking, compression, stuff, all the stuff we'd go before."
+    },
+    {
+      "id": 94,
+      "start": 476.0,
+      "end": 482.0,
+      "text": "And now they would also introduce an in-memory shovel phase to go between the query stages or between the different pipelines."
+    },
+    {
+      "id": 95,
+      "start": 482.0,
+      "end": 494.0,
+      "text": "The way this actually would work was they weren't doing full query compilation, the way we saw in hyper, they would just do compilation of the ware clauses."
+    },
+    {
+      "id": 96,
+      "start": 494.0,
+      "end": 500.0,
+      "text": "And they would do this by converting the ware clauses into like, Scholar ASTs."
+    },
+    {
+      "id": 97,
+      "start": 500.0,
+      "end": 506.0,
+      "text": "And then there was an internal method in Scholar to then generate the basic, the polyvus into the GAB on bytecode."
+    },
+    {
+      "id": 98,
+      "start": 506.0,
+      "end": 509.0,
+      "text": "And then you could link that in and invoke it within it."
+    },
+    {
+      "id": 99,
+      "start": 509.0,
+      "end": 513.0,
+      "text": "So they were doing partial query compilation to help speed things up."
+    },
+    {
+      "id": 100,
+      "start": 513.0,
+      "end": 520.0,
+      "text": "But there was, you know, there was other challenges that they were going to face."
+    },
+    {
+      "id": 101,
+      "start": 520.0,
+      "end": 529.0,
+      "text": "So I also put it out to, if you read the Spark SQL paper, they had this little blurb here they talk about for their in-memory shovel."
+    },
+    {
+      "id": 102,
+      "start": 529.0,
+      "end": 535.0,
+      "text": "In the original version of it, they just relied on the OS page cache to keep things in memory."
+    },
+    {
+      "id": 103,
+      "start": 535.0,
+      "end": 538.0,
+      "text": "And then you know, use that to spell what necessary."
+    },
+    {
+      "id": 104,
+      "start": 538.0,
+      "end": 545.0,
+      "text": "But then, you know, you'll see in photon, they got rid of that because the OS which is messing everything up and this became not scalable."
+    },
+    {
+      "id": 105,
+      "start": 545.0,
+      "end": 552.0,
+      "text": "So there's another good example, like you don't want to let the operating system ruin your life or do anything for you."
+    },
+    {
+      "id": 106,
+      "start": 552.0,
+      "end": 555.0,
+      "text": "You want to let the devs do everything by itself, right?"
+    },
+    {
+      "id": 107,
+      "start": 555.0,
+      "end": 564.0,
+      "text": "Because the overhead of like the CIS calls, the overhead of like the journaling in the file system, like all that was causing problems."
+    },
+    {
+      "id": 108,
+      "start": 564.0,
+      "end": 586.0,
+      "text": "So the other challenges this is that the converting things into this scholarly, or converting like doing cogen for the ware clauses and then compiling that can be a challenge because there was a sort of limit of how big the program you could, you could go gen inside of"
+    },
+    {
+      "id": 109,
+      "start": 586.0,
+      "end": 597.0,
+      "text": "the JPM and they were finding that when they were on SQL queries, they were becoming CPU bound rather than disk bound."
+    },
+    {
+      "id": 110,
+      "start": 597.0,
+      "end": 600.0,
+      "text": "And there was a stumus computational overhead of"
+    }
+  ],
+  "language": "en"
+}

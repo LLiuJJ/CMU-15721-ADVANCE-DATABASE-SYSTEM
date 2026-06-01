@@ -1,0 +1,719 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.32,
+      "text": "stage. But as we also saw last class, we have the ability to also write out to a remote"
+    },
+    {
+      "id": 1,
+      "start": 4.32,
+      "end": 12.56,
+      "text": "shuffle service like Unifor or Apache Solidborn, right? For our purposes, it doesn't matter."
+    },
+    {
+      "id": 2,
+      "start": 12.56,
+      "end": 16.44,
+      "text": "And then in the second stage, again, it's the executors and the next stage, it can be"
+    },
+    {
+      "id": 3,
+      "start": 16.44,
+      "end": 21.76,
+      "text": "pulling from the previous stage. And again, if it's not a remote service, these guys have"
+    },
+    {
+      "id": 4,
+      "start": 21.76,
+      "end": 27.28,
+      "text": "to stick around until these guys fire up again. And whether or not you can be clever and"
+    },
+    {
+      "id": 5,
+      "start": 27.28,
+      "end": 30.2,
+      "text": "say, okay, well, this guy is going to be on the same thing as this guy, so I can reuse"
+    },
+    {
+      "id": 6,
+      "start": 30.2,
+      "end": 36.2,
+      "text": "my local memory, right? That's outside. That's done sort of high-level scheduler."
+    },
+    {
+      "id": 7,
+      "start": 36.2,
+      "end": 40.84,
+      "text": "And then we fire up the next stage, produce the final result, and send it out. Again,"
+    },
+    {
+      "id": 8,
+      "start": 40.84,
+      "end": 44.64,
+      "text": "at high-level, this looks a lot like Dremel. Pretty much all the systems we'll see, they"
+    },
+    {
+      "id": 9,
+      "start": 44.64,
+      "end": 50.64,
+      "text": "may not always have this exact shuffle implementation, but basically it's going to work the same way."
+    },
+    {
+      "id": 10,
+      "start": 50.64,
+      "end": 55.32,
+      "text": "Like, you got to get data from the previous stage."
+    },
+    {
+      "id": 11,
+      "start": 55.32,
+      "end": 59.72,
+      "text": "So again, the thing we're talking about today is the photon piece that's going to run inside"
+    },
+    {
+      "id": 12,
+      "start": 59.72,
+      "end": 63.72,
+      "text": "here on every single executor, right? It's not like a standalone service, it's not a standalone"
+    },
+    {
+      "id": 13,
+      "start": 63.72,
+      "end": 70.2,
+      "text": "process running. Everything's going to be running inside of the implementation and it"
+    },
+    {
+      "id": 14,
+      "start": 70.2,
+      "end": 79.76,
+      "text": "will be invoked by the Java code. So photon is going to do a pull-based vectorized engine,"
+    },
+    {
+      "id": 15,
+      "start": 79.76,
+      "end": 85.08,
+      "text": "and they're going to leverage what they call in the paper operator kernels. But when"
+    },
+    {
+      "id": 16,
+      "start": 85.08,
+      "end": 89.56,
+      "text": "we talk about vector-wise, they call them primitives. They're basically the same thing, right?"
+    },
+    {
+      "id": 17,
+      "start": 89.56,
+      "end": 99.44,
+      "text": "Some pre-compiled code that can do a small computation task on a vector of data. And since"
+    },
+    {
+      "id": 18,
+      "start": 99.44,
+      "end": 104.24,
+      "text": "these are going to be in C++, they're going to be templated based on the data type, and"
+    },
+    {
+      "id": 19,
+      "start": 104.24,
+      "end": 108.2,
+      "text": "they will have different variations to deal with, no, if I'm doing a less than, a greater"
+    },
+    {
+      "id": 20,
+      "start": 108.2,
+      "end": 112.04,
+      "text": "than, or whatever the computation task I want to deal with. These things are going to be"
+    },
+    {
+      "id": 21,
+      "start": 112.04,
+      "end": 119.32,
+      "text": "all generated ahead of time, then compiled into the system by the developers, right? We're"
+    },
+    {
+      "id": 22,
+      "start": 119.32,
+      "end": 124.76,
+      "text": "not doing code general on the fly for anything here. And so the way that they're going to"
+    },
+    {
+      "id": 23,
+      "start": 124.76,
+      "end": 131.16,
+      "text": "avoid the cost of jumping to these different, these pointers to these functions are either"
+    },
+    {
+      "id": 24,
+      "start": 131.16,
+      "end": 136.24,
+      "text": "going to be just amortizing across multiple, you know, operating on multiple tuples within"
+    },
+    {
+      "id": 25,
+      "start": 136.24,
+      "end": 140.0,
+      "text": "a single vector, as we saw on vector-wise. But they're also going to do something they"
+    },
+    {
+      "id": 26,
+      "start": 140.0,
+      "end": 144.88,
+      "text": "call expression fusion, we'll say in a second, where they actually can combine multiple"
+    },
+    {
+      "id": 27,
+      "start": 144.88,
+      "end": 150.72,
+      "text": "primitives, and they know that they're being used continuously, or continuously, by a bunch"
+    },
+    {
+      "id": 28,
+      "start": 150.72,
+      "end": 156.96,
+      "text": "of queries. So, part of the reason I had you guys read this paper other than like Databricks"
+    },
+    {
+      "id": 29,
+      "start": 156.96,
+      "end": 161.96,
+      "text": "is obviously a huge company, and this is a pretty interesting system, is that it's actually"
+    },
+    {
+      "id": 30,
+      "start": 161.96,
+      "end": 166.4,
+      "text": "a really good paper. It's one of the better industry ones we'll read this semester and"
+    },
+    {
+      "id": 31,
+      "start": 166.48,
+      "end": 172.08,
+      "text": "read mostly overall. Because most of the industry papers that are out there, they'll, they"
+    },
+    {
+      "id": 32,
+      "start": 172.08,
+      "end": 176.56,
+      "text": "just say like, hey, this is what we did, ta-da, right? Like how great we are. And maybe they'll"
+    },
+    {
+      "id": 33,
+      "start": 176.56,
+      "end": 180.56,
+      "text": "describe the details of what they did, but they don't really discuss what led them to"
+    },
+    {
+      "id": 34,
+      "start": 180.56,
+      "end": 186.4,
+      "text": "that those engineering decisions. Whereas, as in the photon paper, although they don't provide"
+    },
+    {
+      "id": 35,
+      "start": 186.4,
+      "end": 190.64,
+      "text": "numbers for, like, you know, we tried this, we tried that, but they have nice little antidotes"
+    },
+    {
+      "id": 36,
+      "start": 190.64,
+      "end": 195.2,
+      "text": "of the things that they considered looked into before they ended up making the final choices"
+    },
+    {
+      "id": 37,
+      "start": 195.2,
+      "end": 199.84,
+      "text": "that they presented the paper, right? So, the one that they talk about that's really important"
+    },
+    {
+      "id": 38,
+      "start": 199.84,
+      "end": 206.44,
+      "text": "is how they, why they decided to build a vectorized engine that, you know, was based on the"
+    },
+    {
+      "id": 39,
+      "start": 206.44,
+      "end": 211.84,
+      "text": "vectorized model, the X100 paper, rather than a just-in-time engine, just-on-compilation"
+    },
+    {
+      "id": 40,
+      "start": 211.84,
+      "end": 219.0,
+      "text": "engine, like hyper, even though they had already done that in Spark SQL. And what they talk"
+    },
+    {
+      "id": 41,
+      "start": 219.08,
+      "end": 226.76,
+      "text": "about is that they found that the-the-the-the-the-the-the-developers are spending most their time writing"
+    },
+    {
+      "id": 42,
+      "start": 226.76,
+      "end": 232.88,
+      "text": "the tooling you would need to-if you have a jet engine to deal with a jet engine, like debugging"
+    },
+    {
+      "id": 43,
+      "start": 232.88,
+      "end": 236.8,
+      "text": "it, profiling it, understanding what's going on. Because you basically, again, when you crash"
+    },
+    {
+      "id": 44,
+      "start": 236.8,
+      "end": 241.0,
+      "text": "and one of these compiled engines, you-you just land in the assembly, there's no lineage"
+    },
+    {
+      "id": 45,
+      "start": 241.0,
+      "end": 245.04,
+      "text": "information or problem, not to say what part of the code in your system generated the"
+    },
+    {
+      "id": 46,
+      "start": 245.04,
+      "end": 248.96,
+      "text": "code that crashed, right? So, they had to write a bunch of tools to figure these things"
+    },
+    {
+      "id": 47,
+      "start": 248.96,
+      "end": 254.48,
+      "text": "out. Whereas, if you go with the pre-compiled, you know, primitive approach with, you know,"
+    },
+    {
+      "id": 48,
+      "start": 254.48,
+      "end": 260.04,
+      "text": "based on vectorized, then at first the engine may not be as fast as the code gen system,"
+    },
+    {
+      "id": 49,
+      "start": 260.04,
+      "end": 264.48,
+      "text": "but like you can just iterate over and over again and more people can work on the project"
+    },
+    {
+      "id": 50,
+      "start": 264.48,
+      "end": 269.2,
+      "text": "without having specialized training and you can get, you know, nearly the same performance"
+    },
+    {
+      "id": 51,
+      "start": 269.2,
+      "end": 274.04,
+      "text": "and sometimes beyond what you could get in a hyper-style vectorized engine. So, that little"
+    },
+    {
+      "id": 52,
+      "start": 275.04,
+      "end": 278.36,
+      "text": "tidbit in the paper, I thought was really interesting and I agree with them at this point."
+    },
+    {
+      "id": 53,
+      "start": 278.36,
+      "end": 284.88,
+      "text": "Having gone through the experience of building a hyper-style compilation engine here at"
+    },
+    {
+      "id": 54,
+      "start": 284.88,
+      "end": 289.88,
+      "text": "CMU, I wouldn't do it again because, you know, although the students-you guys here in"
+    },
+    {
+      "id": 55,
+      "start": 289.88,
+      "end": 293.08,
+      "text": "721 are super smart, there wasn't, you know, a small number of students that actually"
+    },
+    {
+      "id": 56,
+      "start": 293.08,
+      "end": 296.6,
+      "text": "could work on it, even I struggled with it because it was like, when you crash, you"
+    },
+    {
+      "id": 57,
+      "start": 296.6,
+      "end": 301.28,
+      "text": "just, you know, you land in the assembly. Or we tried to build an interpreter to help"
+    },
+    {
+      "id": 58,
+      "start": 301.28,
+      "end": 304.52,
+      "text": "us walk through the op-codes and understand, you know, debug programs. But what are we"
+    },
+    {
+      "id": 59,
+      "start": 304.52,
+      "end": 308.96,
+      "text": "doing? We're building an interpreter, we're building debugging tools rather than just writing"
+    },
+    {
+      "id": 60,
+      "start": 308.96,
+      "end": 316.46,
+      "text": "the code to make the system go fast. Right? So again, that piece of, that piece of the"
+    },
+    {
+      "id": 61,
+      "start": 316.46,
+      "end": 320.12,
+      "text": "paper I think I thought was really important and if I was building a system today, I would,"
+    },
+    {
+      "id": 62,
+      "start": 320.12,
+      "end": 324.24,
+      "text": "maybe, well, I wouldn't, I wouldn't have the deal with the Gavm because you shouldn't"
+    },
+    {
+      "id": 63,
+      "start": 324.24,
+      "end": 328.88,
+      "text": "use the Gavm for the build a new system, but everything else they talk about, I think,"
+    },
+    {
+      "id": 64,
+      "start": 328.88,
+      "end": 336.32,
+      "text": "is still relevant. It's still important. The paper also mentions that the, the auto vectorization"
+    },
+    {
+      "id": 65,
+      "start": 336.32,
+      "end": 340.4,
+      "text": "works pretty well because most of their parameters are pretty small, but when necessary, they"
+    },
+    {
+      "id": 66,
+      "start": 340.4,
+      "end": 348.32,
+      "text": "do write some intrinsic, just sort of force it to use symbionic right places. So all their"
+    },
+    {
+      "id": 67,
+      "start": 348.32,
+      "end": 352.6,
+      "text": "operators are going to support this, to get next function that's going to produce some"
+    },
+    {
+      "id": 68,
+      "start": 352.6,
+      "end": 360.8,
+      "text": "column batch and they're going to choose to keep track of what tuples are relevant or"
+    },
+    {
+      "id": 69,
+      "start": 360.8,
+      "end": 366.72,
+      "text": "still active, you know, as they move up the query plan using a position list. Remember,"
+    },
+    {
+      "id": 70,
+      "start": 366.72,
+      "end": 369.84,
+      "text": "we, we, we talked about before, I think we talked about, we talked about VELOX and the"
+    },
+    {
+      "id": 71,
+      "start": 369.84,
+      "end": 373.04,
+      "text": "execution engine beginning to semester. Position list is just a vector that keeps track"
+    },
+    {
+      "id": 72,
+      "start": 373.04,
+      "end": 377.96,
+      "text": "of what offsets are, are still valid in your, your batch of vectors as you're passing along,"
+    },
+    {
+      "id": 73,
+      "start": 377.96,
+      "end": 381.56,
+      "text": "right? Because you, some way, get filtered out and then rather than compacting the vector"
+    },
+    {
+      "id": 74,
+      "start": 381.56,
+      "end": 386.36,
+      "text": "you just pass along the dead tuples but need to keep track of which ones are still active,"
+    },
+    {
+      "id": 75,
+      "start": 386.36,
+      "end": 390.12,
+      "text": "right? So this is, you know, this is just literally an offset within the batch of columns"
+    },
+    {
+      "id": 76,
+      "start": 390.12,
+      "end": 394.96,
+      "text": "that you're looking at. And recall that the alternative approach was to maintain a bitmap"
+    },
+    {
+      "id": 77,
+      "start": 394.96,
+      "end": 403.08,
+      "text": "of active rows and it's just a zero to say whether it's active or not at a given offset."
+    },
+    {
+      "id": 78,
+      "start": 403.08,
+      "end": 408.96,
+      "text": "And so the, the paper talks about how they considered both approaches, but that they found"
+    },
+    {
+      "id": 79,
+      "start": 408.96,
+      "end": 414.08,
+      "text": "that the, the position list just was, you know, except for the extreme examples where"
+    },
+    {
+      "id": 80,
+      "start": 414.08,
+      "end": 419.08,
+      "text": "like you're passing along all the tuples, that this is, that this is preferable in this"
+    },
+    {
+      "id": 81,
+      "start": 419.08,
+      "end": 424.36,
+      "text": "performed better than the bitmap. And then they, if you follow this citation here and"
+    },
+    {
+      "id": 82,
+      "start": 424.36,
+      "end": 429.84,
+      "text": "the paper says recent work confirms our conclusions, that's our paper, right? That, that we wrote"
+    },
+    {
+      "id": 83,
+      "start": 429.84,
+      "end": 435.76,
+      "text": "here by Amidu who was a 721 student, he's now a teacher student at MIT, you know, with"
+    },
+    {
+      "id": 84,
+      "start": 435.76,
+      "end": 440.56,
+      "text": "Todd Moury and some of, you know, other people we know, Wann, Lann, and Math, right? And"
+    },
+    {
+      "id": 85,
+      "start": 440.56,
+      "end": 445.12,
+      "text": "so Amidu's master's thesis, he basically did a brute force search of like, of just trying"
+    },
+    {
+      "id": 86,
+      "start": 445.12,
+      "end": 451.04,
+      "text": "out all different combinations of position vectors versus the, the bitmap under different"
+    },
+    {
+      "id": 87,
+      "start": 451.04,
+      "end": 454.64,
+      "text": "workloads, a different combinations, a different hardware using SIMD and not SIMD and he found"
+    },
+    {
+      "id": 88,
+      "start": 454.64,
+      "end": 461.6,
+      "text": "out the position list is, is better overall. So, you know, this is an artifact of 721,"
+    },
+    {
+      "id": 89,
+      "start": 461.6,
+      "end": 469.08,
+      "text": "which is cool. Alright, so, as I said before, they're not going to be doing the, the, the"
+    },
+    {
+      "id": 90,
+      "start": 469.08,
+      "end": 473.52,
+      "text": "hyper style code generation query compilation. It also means they're not going to do the"
+    },
+    {
+      "id": 91,
+      "start": 473.52,
+      "end": 477.68,
+      "text": "hyper style operator fusion where you have multiple operators in your pipeline and you"
+    },
+    {
+      "id": 92,
+      "start": 477.68,
+      "end": 483.24,
+      "text": "combine them together. So, they're going to do this for two reasons. One, obviously, they're"
+    },
+    {
+      "id": 93,
+      "start": 483.24,
+      "end": 487.08,
+      "text": "not doing compilation because they want to use primitives, pre-compot primitives because"
+    },
+    {
+      "id": 94,
+      "start": 487.08,
+      "end": 490.6,
+      "text": "it's easier for engineering. But another interesting thing they talk about, which I had not"
+    },
+    {
+      "id": 95,
+      "start": 490.6,
+      "end": 495.44,
+      "text": "considered before, before reading this, is that in order to make it understand all for"
+    },
+    {
+      "id": 96,
+      "start": 495.44,
+      "end": 499.16,
+      "text": "their users, like, like, debugging information and profiling information that they have to show"
+    },
+    {
+      "id": 97,
+      "start": 499.16,
+      "end": 504.12,
+      "text": "them, but like, here's why your query ran for this amount of time. If you do the hyper style"
+    },
+    {
+      "id": 98,
+      "start": 504.12,
+      "end": 509.2,
+      "text": "operator fusion, it's very hard to convey to the user, like, what actually, you know,"
+    },
+    {
+      "id": 99,
+      "start": 509.2,
+      "end": 515.72,
+      "text": "why their query might be running slow or where they're spending most of their time. So,"
+    },
+    {
+      "id": 100,
+      "start": 515.72,
+      "end": 519.04,
+      "text": "all called as vertical fusion. So, within the query plan, you're sort of vertically combining"
+    },
+    {
+      "id": 101,
+      "start": 519.04,
+      "end": 523.44,
+      "text": "the different operators and they're instead of going to go choose something called, you"
+    },
+    {
+      "id": 102,
+      "start": 523.44,
+      "end": 528.4,
+      "text": "know, expression fusion or horizontal fusion, what I call it, within a single operator,"
+    },
+    {
+      "id": 103,
+      "start": 528.4,
+      "end": 532.2,
+      "text": "horizontally within side of that, I want to fuse things together. So, I'll go through"
+    },
+    {
+      "id": 104,
+      "start": 532.2,
+      "end": 536.44,
+      "text": "examples of each of these one by one, but first, you know, it refers to see this again"
+    },
+    {
+      "id": 105,
+      "start": 536.44,
+      "end": 542.12,
+      "text": "from hyper and see why they don't want to do this. So, this is that query we had before"
+    },
+    {
+      "id": 106,
+      "start": 542.12,
+      "end": 547.52,
+      "text": "in hyper, right? You can see all the different pipelines here and the in hyper, they're"
+    },
+    {
+      "id": 107,
+      "start": 547.52,
+      "end": 551.32,
+      "text": "going to, again, they're doing a push-based model and they want to fuse together all"
+    },
+    {
+      "id": 108,
+      "start": 551.32,
+      "end": 556.52,
+      "text": "the operators within the single pipeline. So, if you focus on number four here, right,"
+    },
+    {
+      "id": 109,
+      "start": 556.52,
+      "end": 561.76,
+      "text": "it's the scan on C and then you probe this table and probe this table. So, it's basically,"
+    },
+    {
+      "id": 110,
+      "start": 561.76,
+      "end": 566.96,
+      "text": "you know, three, three, four loops nested together. So, one is this would be difficult to"
+    },
+    {
+      "id": 111,
+      "start": 566.96,
+      "end": 574.04,
+      "text": "do in a, in a, you know, sorry, in using primitives. I guess it's not difficult to do, just like"
+    },
+    {
+      "id": 112,
+      "start": 574.04,
+      "end": 578.12,
+      "text": "you have to pass around batches that you wouldn't go by a single two, single two by the time."
+    },
+    {
+      "id": 113,
+      "start": 578.12,
+      "end": 583.36,
+      "text": "But now, if you had to tell a user, like, here's the query plan operator that took the"
+    },
+    {
+      "id": 114,
+      "start": 583.36,
+      "end": 587.6,
+      "text": "most time within your query plan, you can't show them a bunch of these for loops because"
+    },
+    {
+      "id": 115,
+      "start": 587.6,
+      "end": 590.84,
+      "text": "they're not going to know what any of this is. Because all they do is I wrote some SQL"
+    },
+    {
+      "id": 116,
+      "start": 590.84,
+      "end": 595.6,
+      "text": "query, here's a query plan that looks like a query plan in every other system and now"
+    },
+    {
+      "id": 117,
+      "start": 595.6,
+      "end": 600.16,
+      "text": "you need to wait to excite out exactly, like, how much time I spent in one for loop versus"
+    },
+    {
+      "id": 118,
+      "start": 600.16,
+      "end": 602.4,
+      "text": "another to map them back to..."
+    }
+  ],
+  "language": "en"
+}

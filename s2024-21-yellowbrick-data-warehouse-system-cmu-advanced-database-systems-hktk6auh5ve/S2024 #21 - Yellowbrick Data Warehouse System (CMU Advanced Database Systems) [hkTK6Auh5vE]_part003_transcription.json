@@ -1,0 +1,1415 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.4,
+      "text": "that out to S3."
+    },
+    {
+      "id": 1,
+      "start": 3.4,
+      "end": 6.48,
+      "text": "They also allow you to do transactional updates on the column"
+    },
+    {
+      "id": 2,
+      "start": 6.48,
+      "end": 8.24,
+      "text": "store data as well, which is something"
+    },
+    {
+      "id": 3,
+      "start": 8.24,
+      "end": 10.88,
+      "text": "we haven't really seen in the other systems."
+    },
+    {
+      "id": 4,
+      "start": 10.88,
+      "end": 13.08,
+      "text": "This is what iceberg and hoodie can handle for you"
+    },
+    {
+      "id": 5,
+      "start": 13.08,
+      "end": 15.72,
+      "text": "in the front, as well as Delta Lake, or yeah,"
+    },
+    {
+      "id": 6,
+      "start": 15.72,
+      "end": 18.2,
+      "text": "that's the big Databricks one."
+    },
+    {
+      "id": 7,
+      "start": 18.2,
+      "end": 24.04,
+      "text": "Like you can do insert update deletes on those data"
+    },
+    {
+      "id": 8,
+      "start": 24.04,
+      "end": 26.56,
+      "text": "if you use those front ends, but in yellow brick,"
+    },
+    {
+      "id": 9,
+      "start": 26.56,
+      "end": 29.56,
+      "text": "you can go directly and just call insert update lead."
+    },
+    {
+      "id": 10,
+      "start": 29.64,
+      "end": 33.44,
+      "text": "And then they maintain a log record of like,"
+    },
+    {
+      "id": 11,
+      "start": 33.44,
+      "end": 37.68,
+      "text": "here's all the changes that were made to change"
+    },
+    {
+      "id": 12,
+      "start": 37.68,
+      "end": 39.6,
+      "text": "your data file so that when you read it,"
+    },
+    {
+      "id": 13,
+      "start": 39.6,
+      "end": 41.88,
+      "text": "and you know what data potentially need to skip,"
+    },
+    {
+      "id": 14,
+      "start": 41.88,
+      "end": 43.44,
+      "text": "and then periodically they'll go through"
+    },
+    {
+      "id": 15,
+      "start": 43.44,
+      "end": 48.0,
+      "text": "and do compaction of combined multiple model files together"
+    },
+    {
+      "id": 16,
+      "start": 48.0,
+      "end": 50.12,
+      "text": "and try to produce the data."
+    },
+    {
+      "id": 17,
+      "start": 50.12,
+      "end": 51.72,
+      "text": "Print out the old data and reduce it down"
+    },
+    {
+      "id": 18,
+      "start": 51.72,
+      "end": 52.96,
+      "text": "to smaller file sources."
+    },
+    {
+      "id": 19,
+      "start": 56.36,
+      "end": 59.52,
+      "text": "So the technique they're going to use to assign files"
+    },
+    {
+      "id": 20,
+      "start": 59.52,
+      "end": 64.52,
+      "text": "to workers is to be different than what we saw in snowflake."
+    },
+    {
+      "id": 21,
+      "start": 65.48,
+      "end": 67.2,
+      "text": "We're going to call that snowflake was using consistent"
+    },
+    {
+      "id": 22,
+      "start": 67.2,
+      "end": 70.24,
+      "text": "hashing basically the ring approach to figure out"
+    },
+    {
+      "id": 23,
+      "start": 70.24,
+      "end": 75.24,
+      "text": "what file belongs to what worker node for the local cache."
+    },
+    {
+      "id": 24,
+      "start": 75.28,
+      "end": 79.04,
+      "text": "And then when the number of worker nodes changed,"
+    },
+    {
+      "id": 25,
+      "start": 79.04,
+      "end": 81.56,
+      "text": "the node goes down, you add a new node,"
+    },
+    {
+      "id": 26,
+      "start": 82.68,
+      "end": 86.36,
+      "text": "you could reorganize the mapping of files to worker nodes"
+    },
+    {
+      "id": 27,
+      "start": 86.36,
+      "end": 88.24,
+      "text": "without having to shuffle everything."
+    },
+    {
+      "id": 28,
+      "start": 88.24,
+      "end": 90.48,
+      "text": "As you normally with sort of naive hashing."
+    },
+    {
+      "id": 29,
+      "start": 91.4,
+      "end": 93.44,
+      "text": "So yellow brick is going to use another technique"
+    },
+    {
+      "id": 30,
+      "start": 93.44,
+      "end": 96.24,
+      "text": "that's very similar to called rendezvous hashing."
+    },
+    {
+      "id": 31,
+      "start": 96.24,
+      "end": 98.88,
+      "text": "Who here is, I don't think we teach rendezvous hashing"
+    },
+    {
+      "id": 32,
+      "start": 98.88,
+      "end": 101.92,
+      "text": "in distributed systems."
+    },
+    {
+      "id": 33,
+      "start": 103.56,
+      "end": 104.56,
+      "text": "Okay."
+    },
+    {
+      "id": 34,
+      "start": 105.64,
+      "end": 107.56,
+      "text": "It's a variation of consistent hashing"
+    },
+    {
+      "id": 35,
+      "start": 108.56,
+      "end": 109.92,
+      "text": "that actually came up before."
+    },
+    {
+      "id": 36,
+      "start": 109.92,
+      "end": 111.08,
+      "text": "It's a lot simpler."
+    },
+    {
+      "id": 37,
+      "start": 112.72,
+      "end": 114.52,
+      "text": "It's just consistent hashing is more well-known,"
+    },
+    {
+      "id": 38,
+      "start": 114.52,
+      "end": 116.16,
+      "text": "more popular than rendezvous hashing."
+    },
+    {
+      "id": 39,
+      "start": 116.16,
+      "end": 119.2,
+      "text": "There are some systems like Druid or Patchy Ignite,"
+    },
+    {
+      "id": 40,
+      "start": 119.2,
+      "end": 122.2,
+      "text": "which is a key value store in memory store"
+    },
+    {
+      "id": 41,
+      "start": 122.2,
+      "end": 123.56,
+      "text": "that do use this."
+    },
+    {
+      "id": 42,
+      "start": 123.56,
+      "end": 124.4,
+      "text": "The idea is really simple."
+    },
+    {
+      "id": 43,
+      "start": 124.4,
+      "end": 128.36,
+      "text": "The basic idea is like you have whatever you want to hash."
+    },
+    {
+      "id": 44,
+      "start": 128.36,
+      "end": 131.56,
+      "text": "So it would say for us it's the files, like the file name."
+    },
+    {
+      "id": 45,
+      "start": 131.56,
+      "end": 134.84,
+      "text": "And then you have the worker node you want to assign them to."
+    },
+    {
+      "id": 46,
+      "start": 134.84,
+      "end": 139.84,
+      "text": "So all you need to do is just hash each file by some key"
+    },
+    {
+      "id": 47,
+      "start": 140.6,
+      "end": 142.84,
+      "text": "multiple times and then come up with a rank list"
+    },
+    {
+      "id": 48,
+      "start": 143.32,
+      "end": 146.6,
+      "text": "of the assignment of a file to a worker."
+    },
+    {
+      "id": 49,
+      "start": 146.6,
+      "end": 149.28,
+      "text": "And then you just pick whatever one has the comes first"
+    },
+    {
+      "id": 50,
+      "start": 149.28,
+      "end": 150.68,
+      "text": "based on some leading."
+    },
+    {
+      "id": 51,
+      "start": 150.68,
+      "end": 155.64,
+      "text": "I say say I have three files and say I have three workers."
+    },
+    {
+      "id": 52,
+      "start": 155.64,
+      "end": 157.56,
+      "text": "So I'll take the first file here."
+    },
+    {
+      "id": 53,
+      "start": 157.56,
+      "end": 159.72,
+      "text": "And as I say I pick the file name"
+    },
+    {
+      "id": 54,
+      "start": 159.72,
+      "end": 163.12,
+      "text": "and then I append the worker identifier to it."
+    },
+    {
+      "id": 55,
+      "start": 163.12,
+      "end": 165.48,
+      "text": "And I hash that and I can come up with some number."
+    },
+    {
+      "id": 56,
+      "start": 167.76,
+      "end": 169.84,
+      "text": "Somehow the number is corresponds to"
+    },
+    {
+      "id": 57,
+      "start": 170.8,
+      "end": 175.28,
+      "text": "how important it is for this file to be on this worker."
+    },
+    {
+      "id": 58,
+      "start": 175.28,
+      "end": 176.32,
+      "text": "Or it could just be random."
+    },
+    {
+      "id": 59,
+      "start": 177.16,
+      "end": 180.32,
+      "text": "So now I have a rank list of the workers"
+    },
+    {
+      "id": 60,
+      "start": 180.32,
+      "end": 182.92,
+      "text": "and then I'm not picking whatever the first one is."
+    },
+    {
+      "id": 61,
+      "start": 182.92,
+      "end": 184.56,
+      "text": "And then I do the same thing for the other ones."
+    },
+    {
+      "id": 62,
+      "start": 184.56,
+      "end": 188.12,
+      "text": "They rank ordering and then the first one is the one"
+    },
+    {
+      "id": 63,
+      "start": 188.12,
+      "end": 189.32,
+      "text": "I'm gonna assign them to."
+    },
+    {
+      "id": 64,
+      "start": 192.12,
+      "end": 195.04,
+      "text": "So for this I don't need to maintain any"
+    },
+    {
+      "id": 65,
+      "start": 197.6,
+      "end": 199.44,
+      "text": "immediate global state or routing information"
+    },
+    {
+      "id": 66,
+      "start": 199.52,
+      "end": 201.52,
+      "text": "between the different nodes"
+    },
+    {
+      "id": 67,
+      "start": 201.52,
+      "end": 203.56,
+      "text": "because along with everyone has the same hash function"
+    },
+    {
+      "id": 68,
+      "start": 203.56,
+      "end": 204.96,
+      "text": "and the same hash and protocol."
+    },
+    {
+      "id": 69,
+      "start": 204.96,
+      "end": 206.68,
+      "text": "Everyone compute this."
+    },
+    {
+      "id": 70,
+      "start": 206.68,
+      "end": 207.52,
+      "text": "Yes."
+    },
+    {
+      "id": 71,
+      "start": 207.52,
+      "end": 209.36,
+      "text": "Why is this different"
+    },
+    {
+      "id": 72,
+      "start": 209.36,
+      "end": 213.04,
+      "text": "that there's a hash and the file name"
+    },
+    {
+      "id": 73,
+      "start": 213.04,
+      "end": 215.36,
+      "text": "and the module will number worker?"
+    },
+    {
+      "id": 74,
+      "start": 215.36,
+      "end": 216.88,
+      "text": "What if I add a new worker?"
+    },
+    {
+      "id": 75,
+      "start": 217.96,
+      "end": 218.8,
+      "text": "Right."
+    },
+    {
+      "id": 76,
+      "start": 218.8,
+      "end": 220.6,
+      "text": "It's the same reason why it's solving the same problem"
+    },
+    {
+      "id": 77,
+      "start": 220.6,
+      "end": 221.6,
+      "text": "is this and hashing."
+    },
+    {
+      "id": 78,
+      "start": 223.36,
+      "end": 225.92,
+      "text": "New file comes along, do the same thing, hash it,"
+    },
+    {
+      "id": 79,
+      "start": 225.92,
+      "end": 227.68,
+      "text": "come out of the list."
+    },
+    {
+      "id": 80,
+      "start": 227.68,
+      "end": 229.56,
+      "text": "But now again, to his point,"
+    },
+    {
+      "id": 81,
+      "start": 229.56,
+      "end": 232.0,
+      "text": "what if I come along with a new worker node?"
+    },
+    {
+      "id": 82,
+      "start": 232.0,
+      "end": 233.08,
+      "text": "Because I want to scale out."
+    },
+    {
+      "id": 83,
+      "start": 233.08,
+      "end": 235.92,
+      "text": "Or a worker node goes down, I got to take one away."
+    },
+    {
+      "id": 84,
+      "start": 235.92,
+      "end": 238.12,
+      "text": "So say I had a new worker worker for."
+    },
+    {
+      "id": 85,
+      "start": 239.0,
+      "end": 241.16,
+      "text": "And so if I hash for the first one,"
+    },
+    {
+      "id": 86,
+      "start": 241.16,
+      "end": 243.68,
+      "text": "it just ends up being on the end of the rank list."
+    },
+    {
+      "id": 87,
+      "start": 243.68,
+      "end": 247.12,
+      "text": "So nothing changes because it was assigned to worker one"
+    },
+    {
+      "id": 88,
+      "start": 247.12,
+      "end": 248.28,
+      "text": "that's still at the highest priority."
+    },
+    {
+      "id": 89,
+      "start": 248.28,
+      "end": 249.8,
+      "text": "So it stays there."
+    },
+    {
+      "id": 90,
+      "start": 249.8,
+      "end": 251.76,
+      "text": "Say for this one, worker for ends up"
+    },
+    {
+      "id": 91,
+      "start": 251.76,
+      "end": 253.6,
+      "text": "between three and one."
+    },
+    {
+      "id": 92,
+      "start": 253.6,
+      "end": 255.76,
+      "text": "Again, nothing changes to stays there."
+    },
+    {
+      "id": 93,
+      "start": 255.76,
+      "end": 257.84,
+      "text": "For this one, a worker for is here."
+    },
+    {
+      "id": 94,
+      "start": 257.84,
+      "end": 259.48,
+      "text": "These guys slide over, nothing changes."
+    },
+    {
+      "id": 95,
+      "start": 259.48,
+      "end": 261.8,
+      "text": "But for this one here, it becomes the,"
+    },
+    {
+      "id": 96,
+      "start": 261.8,
+      "end": 263.4,
+      "text": "this has the highest priority."
+    },
+    {
+      "id": 97,
+      "start": 263.4,
+      "end": 265.2,
+      "text": "So now when I add this new node,"
+    },
+    {
+      "id": 98,
+      "start": 265.2,
+      "end": 267.12,
+      "text": "I need to transfer file for his ownership"
+    },
+    {
+      "id": 99,
+      "start": 267.12,
+      "end": 270.08,
+      "text": "to, from where it was, it took four."
+    },
+    {
+      "id": 100,
+      "start": 270.08,
+      "end": 273.16,
+      "text": "And I didn't have to reshuffle everything."
+    },
+    {
+      "id": 101,
+      "start": 273.16,
+      "end": 275.36,
+      "text": "Same idea as it says in hashing, yes."
+    },
+    {
+      "id": 102,
+      "start": 275.36,
+      "end": 278.08,
+      "text": "Now, what I can call off is this checked code."
+    },
+    {
+      "id": 103,
+      "start": 278.08,
+      "end": 279.08,
+      "text": "Which one do you want that?"
+    },
+    {
+      "id": 104,
+      "start": 279.08,
+      "end": 281.64,
+      "text": "So question, how often is this checked for each individual node?"
+    },
+    {
+      "id": 105,
+      "start": 281.64,
+      "end": 283.44,
+      "text": "Well, if the topology of the cluster never changes,"
+    },
+    {
+      "id": 106,
+      "start": 283.44,
+      "end": 285.08,
+      "text": "you don't need to rerun it."
+    },
+    {
+      "id": 107,
+      "start": 285.36,
+      "end": 287.92,
+      "text": "Because the hash function is not going to change."
+    },
+    {
+      "id": 108,
+      "start": 287.92,
+      "end": 292.36,
+      "text": "So it's only when membership changes in the cluster."
+    },
+    {
+      "id": 109,
+      "start": 292.36,
+      "end": 296.0,
+      "text": "What's the rule about using that for instance?"
+    },
+    {
+      "id": 110,
+      "start": 296.0,
+      "end": 297.56,
+      "text": "So what's the drawback of using this"
+    },
+    {
+      "id": 111,
+      "start": 297.56,
+      "end": 298.8,
+      "text": "versus this in hashing?"
+    },
+    {
+      "id": 112,
+      "start": 298.8,
+      "end": 300.92,
+      "text": "So consistent hashing is going to have faster lookups."
+    },
+    {
+      "id": 113,
+      "start": 300.92,
+      "end": 305.0,
+      "text": "It's going to be a log n versus this is o n."
+    },
+    {
+      "id": 114,
+      "start": 305.0,
+      "end": 306.88,
+      "text": "Because I got a hash, we're n's the number of nodes."
+    },
+    {
+      "id": 115,
+      "start": 306.88,
+      "end": 308.92,
+      "text": "I got a hash for each one."
+    },
+    {
+      "id": 116,
+      "start": 308.92,
+      "end": 309.92,
+      "text": "All right, well, that's a hash function."
+    },
+    {
+      "id": 117,
+      "start": 309.92,
+      "end": 310.72,
+      "text": "It's not that expensive."
+    },
+    {
+      "id": 118,
+      "start": 310.72,
+      "end": 312.16,
+      "text": "When you're doing a profile, that's not"
+    },
+    {
+      "id": 119,
+      "start": 312.16,
+      "end": 313.0,
+      "text": "a big of a deal."
+    },
+    {
+      "id": 120,
+      "start": 315.76,
+      "end": 320.16,
+      "text": "This is much simpler to implement than consistent hashing."
+    },
+    {
+      "id": 121,
+      "start": 320.16,
+      "end": 322.0,
+      "text": "And consistent hashing is going to have a slower"
+    },
+    {
+      "id": 122,
+      "start": 322.0,
+      "end": 325.28,
+      "text": "initialization and a slower rebalancing."
+    },
+    {
+      "id": 123,
+      "start": 325.28,
+      "end": 330.68,
+      "text": "Depends on the number of nodes I would have in the ring"
+    },
+    {
+      "id": 124,
+      "start": 330.68,
+      "end": 332.52,
+      "text": "for consistent hashing."
+    },
+    {
+      "id": 125,
+      "start": 333.52,
+      "end": 335.0,
+      "text": "This is simple and easy."
+    },
+    {
+      "id": 126,
+      "start": 335.0,
+      "end": 338.24,
+      "text": "And if it's consistent hashing is better for,"
+    },
+    {
+      "id": 127,
+      "start": 338.24,
+      "end": 342.76,
+      "text": "I think also if the topology is more volatile,"
+    },
+    {
+      "id": 128,
+      "start": 342.76,
+      "end": 344.96,
+      "text": "like people are coming to go on all the time,"
+    },
+    {
+      "id": 129,
+      "start": 344.96,
+      "end": 346.6,
+      "text": "which again for a distributed database system"
+    },
+    {
+      "id": 130,
+      "start": 346.6,
+      "end": 349.44,
+      "text": "where people paying thousands of dollars,"
+    },
+    {
+      "id": 131,
+      "start": 349.44,
+      "end": 352.32,
+      "text": "the nodes aren't flipping going on and off all the time."
+    },
+    {
+      "id": 132,
+      "start": 352.32,
+      "end": 354.36,
+      "text": "So this is fine."
+    },
+    {
+      "id": 133,
+      "start": 354.36,
+      "end": 355.36,
+      "text": "Yes?"
+    },
+    {
+      "id": 134,
+      "start": 355.36,
+      "end": 357.84,
+      "text": "How many files can you have to come to?"
+    },
+    {
+      "id": 135,
+      "start": 357.84,
+      "end": 359.76,
+      "text": "So questions, how many files can be signed to a single node?"
+    },
+    {
+      "id": 136,
+      "start": 359.76,
+      "end": 362.88,
+      "text": "So this gets into this weight thing here,"
+    },
+    {
+      "id": 137,
+      "start": 362.88,
+      "end": 364.08,
+      "text": "what I'm not really talking about."
+    },
+    {
+      "id": 138,
+      "start": 365.04,
+      "end": 372.28,
+      "text": "You could have the weight be based on the capacity of a node."
+    },
+    {
+      "id": 139,
+      "start": 372.28,
+      "end": 374.68,
+      "text": "So if these are heterogeneous nodes,"
+    },
+    {
+      "id": 140,
+      "start": 374.68,
+      "end": 377.48,
+      "text": "one machine has more compute capacity,"
+    },
+    {
+      "id": 141,
+      "start": 377.48,
+      "end": 379.16,
+      "text": "or storage capacity than others."
+    },
+    {
+      "id": 142,
+      "start": 379.16,
+      "end": 383.24,
+      "text": "You could skew it such that it's given maybe a higher priority"
+    },
+    {
+      "id": 143,
+      "start": 383.24,
+      "end": 385.76,
+      "text": "sometimes versus more likely to give it a higher priority"
+    },
+    {
+      "id": 144,
+      "start": 385.76,
+      "end": 387.52,
+      "text": "than the other times."
+    },
+    {
+      "id": 145,
+      "start": 387.52,
+      "end": 388.52,
+      "text": "Right?"
+    },
+    {
+      "id": 146,
+      "start": 388.52,
+      "end": 392.0,
+      "text": "So another way to handle that is you could have virtual nodes"
+    },
+    {
+      "id": 147,
+      "start": 392.0,
+      "end": 396.52,
+      "text": "and say everybody gets one, but if you have a big machine,"
+    },
+    {
+      "id": 148,
+      "start": 396.52,
+      "end": 398.16,
+      "text": "then you'll get two virtual nodes."
+    },
+    {
+      "id": 149,
+      "start": 398.16,
+      "end": 401.36,
+      "text": "So I'm more likely to get a sign to that larger node."
+    },
+    {
+      "id": 150,
+      "start": 401.36,
+      "end": 404.2,
+      "text": "There's various schemes you can use to balance things out."
+    },
+    {
+      "id": 151,
+      "start": 404.2,
+      "end": 407.4,
+      "text": "Well, what happens if you have two different files"
+    },
+    {
+      "id": 152,
+      "start": 407.4,
+      "end": 410.56,
+      "text": "like a hash data that was signed to the same worker?"
+    },
+    {
+      "id": 153,
+      "start": 410.56,
+      "end": 411.96,
+      "text": "This question is, what happens if you have"
+    },
+    {
+      "id": 154,
+      "start": 411.96,
+      "end": 414.0,
+      "text": "two different files that are hashed at the same worker?"
+    },
+    {
+      "id": 155,
+      "start": 414.0,
+      "end": 414.56,
+      "text": "That's not a problem."
+    },
+    {
+      "id": 156,
+      "start": 414.56,
+      "end": 415.68,
+      "text": "Who cares?"
+    },
+    {
+      "id": 157,
+      "start": 415.68,
+      "end": 419.0,
+      "text": "They're going to have thousands of files and like 10 workers."
+    },
+    {
+      "id": 158,
+      "start": 419.0,
+      "end": 420.48,
+      "text": "So of course you can have workers,"
+    },
+    {
+      "id": 159,
+      "start": 420.56,
+      "end": 422.36,
+      "text": "multiple files that sign at the same worker."
+    },
+    {
+      "id": 160,
+      "start": 422.36,
+      "end": 426.04,
+      "text": "Same thing we saw in Snuff Lake."
+    },
+    {
+      "id": 161,
+      "start": 426.04,
+      "end": 428.16,
+      "text": "There are files or 100 megabytes."
+    },
+    {
+      "id": 162,
+      "start": 428.16,
+      "end": 430.8,
+      "text": "So if I have a 10 petabyte database,"
+    },
+    {
+      "id": 163,
+      "start": 430.8,
+      "end": 432.12,
+      "text": "they don't have a lot of files."
+    },
+    {
+      "id": 164,
+      "start": 436.92,
+      "end": 437.4,
+      "text": "Right?"
+    },
+    {
+      "id": 165,
+      "start": 437.4,
+      "end": 438.92,
+      "text": "Again, it's a nice easy trick."
+    },
+    {
+      "id": 166,
+      "start": 438.92,
+      "end": 440.16,
+      "text": "It's from the 90s."
+    },
+    {
+      "id": 167,
+      "start": 440.16,
+      "end": 445.96,
+      "text": "It's a simpler implementation than consistent hashing."
+    },
+    {
+      "id": 168,
+      "start": 445.96,
+      "end": 447.4,
+      "text": "It just surprised me when I read this."
+    },
+    {
+      "id": 169,
+      "start": 447.4,
+      "end": 449.28,
+      "text": "I'm like, oh, OK, yeah."
+    },
+    {
+      "id": 170,
+      "start": 449.28,
+      "end": 451.52,
+      "text": "Because most systems would do consistent hashing"
+    },
+    {
+      "id": 171,
+      "start": 451.52,
+      "end": 453.56,
+      "text": "as we saw in Snuff Lake."
+    },
+    {
+      "id": 172,
+      "start": 453.56,
+      "end": 455.16,
+      "text": "And I think this is because it's just,"
+    },
+    {
+      "id": 173,
+      "start": 455.16,
+      "end": 457.96,
+      "text": "it's very similar to how for your shipping consensus"
+    },
+    {
+      "id": 174,
+      "start": 457.96,
+      "end": 461.16,
+      "text": "protocol, people pick raft or paxos over view"
+    },
+    {
+      "id": 175,
+      "start": 461.16,
+      "end": 462.96,
+      "text": "stamp replication, even over view stamp replication"
+    },
+    {
+      "id": 176,
+      "start": 462.96,
+      "end": 463.8,
+      "text": "in first."
+    },
+    {
+      "id": 177,
+      "start": 463.8,
+      "end": 465.12,
+      "text": "And they're all fundamentally equivalent."
+    },
+    {
+      "id": 178,
+      "start": 465.12,
+      "end": 465.96,
+      "text": "Yes."
+    },
+    {
+      "id": 179,
+      "start": 465.96,
+      "end": 468.56,
+      "text": "So I think a hash function is a good change any bit in the"
+    },
+    {
+      "id": 180,
+      "start": 468.56,
+      "end": 472.04,
+      "text": "area, where do you really mess up the up with?"
+    },
+    {
+      "id": 181,
+      "start": 472.04,
+      "end": 473.56,
+      "text": "You're going to change it drastically, right?"
+    },
+    {
+      "id": 182,
+      "start": 473.56,
+      "end": 474.56,
+      "text": "Yes."
+    },
+    {
+      "id": 183,
+      "start": 474.56,
+      "end": 478.72,
+      "text": "So that kind of ensures that you have an even distribution"
+    },
+    {
+      "id": 184,
+      "start": 478.72,
+      "end": 480.52,
+      "text": "when you're just doing regular hashing."
+    },
+    {
+      "id": 185,
+      "start": 480.52,
+      "end": 485.12,
+      "text": "But not here at like pre-pending, like this work right"
+    },
+    {
+      "id": 186,
+      "start": 485.12,
+      "end": 485.96,
+      "text": "didn't fire."
+    },
+    {
+      "id": 187,
+      "start": 485.96,
+      "end": 488.16,
+      "text": "How do you make sure there's not going to be a skew?"
+    },
+    {
+      "id": 188,
+      "start": 488.16,
+      "end": 492.96,
+      "text": "And like maybe one worker gets assigned to like more"
+    },
+    {
+      "id": 189,
+      "start": 492.96,
+      "end": 494.28,
+      "text": "files than the other workers."
+    },
+    {
+      "id": 190,
+      "start": 494.28,
+      "end": 497.04,
+      "text": "Like, they can do some kind of skew like that."
+    },
+    {
+      "id": 191,
+      "start": 497.04,
+      "end": 499.52,
+      "text": "His question is like, how do you ensure that the hash"
+    },
+    {
+      "id": 192,
+      "start": 499.52,
+      "end": 504.0,
+      "text": "function doesn't introduce skew?"
+    },
+    {
+      "id": 193,
+      "start": 504.0,
+      "end": 508.4,
+      "text": "I mean, the hash function, like, hashing, putting the"
+    },
+    {
+      "id": 194,
+      "start": 508.4,
+      "end": 514.28,
+      "text": "worker ID as a suffix to like the file name, that's not"
+    },
+    {
+      "id": 195,
+      "start": 514.28,
+      "end": 517.72,
+      "text": "going to introduce skew in an any meaningful way."
+    },
+    {
+      "id": 196,
+      "start": 517.72,
+      "end": 519.64,
+      "text": "And again, we're not hashing on the contents of the file."
+    },
+    {
+      "id": 197,
+      "start": 519.64,
+      "end": 523.04,
+      "text": "We're hashing on the name identifier."
+    },
+    {
+      "id": 198,
+      "start": 523.04,
+      "end": 526.56,
+      "text": "So that string itself with the good hash function to be"
+    },
+    {
+      "id": 199,
+      "start": 526.56,
+      "end": 529.24,
+      "text": "low, low collisions."
+    },
+    {
+      "id": 200,
+      "start": 529.24,
+      "end": 531.64,
+      "text": "And again, think of like thousands and thousands of files."
+    },
+    {
+      "id": 201,
+      "start": 531.64,
+      "end": 532.48,
+      "text": "It'll be OK."
+    },
+    {
+      "id": 202,
+      "start": 535.32,
+      "end": 537.48,
+      "text": "The thing that they care about, again, was solving the"
+    },
+    {
+      "id": 203,
+      "start": 538.32,
+      "end": 539.8,
+      "text": "problem, the classic trap he walked into."
+    },
+    {
+      "id": 204,
+      "start": 539.8,
+      "end": 542.16,
+      "text": "Like, OK, well, if I had a new node, if I'm"
+    },
+    {
+      "id": 205,
+      "start": 542.16,
+      "end": 544.32,
+      "text": "assuming naive hashing, I got to rebalance everything,"
+    },
+    {
+      "id": 206,
+      "start": 544.32,
+      "end": 545.24,
+      "text": "this avoids that problem."
+    },
+    {
+      "id": 207,
+      "start": 548.2,
+      "end": 550.8,
+      "text": "And then obviously, if you drop in a worker goes down,"
+    },
+    {
+      "id": 208,
+      "start": 550.8,
+      "end": 551.68,
+      "text": "you got to re-sign things."
+    },
+    {
+      "id": 209,
+      "start": 551.68,
+      "end": 554.96,
+      "text": "It's just the reverse of this."
+    },
+    {
+      "id": 210,
+      "start": 554.96,
+      "end": 557.0,
+      "text": "OK?"
+    },
+    {
+      "id": 211,
+      "start": 557.0,
+      "end": 560.16,
+      "text": "So that's the core architecture of yellow brick, as I said."
+    },
+    {
+      "id": 212,
+      "start": 560.16,
+      "end": 563.56,
+      "text": "It basically looks a lot like what we talked about so far."
+    },
+    {
+      "id": 213,
+      "start": 563.56,
+      "end": 565.72,
+      "text": "And you see bits and pieces from snowflake, bits and pieces"
+    },
+    {
+      "id": 214,
+      "start": 565.72,
+      "end": 570.44,
+      "text": "from Dremel and the other systems."
+    },
+    {
+      "id": 215,
+      "start": 570.44,
+      "end": 572.84,
+      "text": "And they're doing the high-Q query compilation."
+    },
+    {
+      "id": 216,
+      "start": 572.84,
+      "end": 576.6,
+      "text": "They're doing the vector-wise, vector-wise query processing,"
+    },
+    {
+      "id": 217,
+      "start": 576.6,
+      "end": 578.24,
+      "text": "the hyper-appurchase model."
+    },
+    {
+      "id": 218,
+      "start": 578.24,
+      "end": 579.72,
+      "text": "You can see, again, all the papers we talked about"
+    },
+    {
+      "id": 219,
+      "start": 579.72,
+      "end": 581.52,
+      "text": "through this semester are just seeing these patterns"
+    },
+    {
+      "id": 220,
+      "start": 581.52,
+      "end": 584.04,
+      "text": "repeated over and over again."
+    },
+    {
+      "id": 221,
+      "start": 584.04,
+      "end": 585.04,
+      "text": "Yes?"
+    },
+    {
+      "id": 222,
+      "start": 585.04,
+      "end": 587.08,
+      "text": "Oh, there's just a note about running on containers, right?"
+    },
+    {
+      "id": 223,
+      "start": 587.08,
+      "end": 587.64,
+      "text": "It's a very strange point."
+    },
+    {
+      "id": 224,
+      "start": 587.64,
+      "end": 588.16,
+      "text": "Yes."
+    },
+    {
+      "id": 225,
+      "start": 588.16,
+      "end": 589.88,
+      "text": "Like, like, he said, the other systems aren't running on"
+    },
+    {
+      "id": 226,
+      "start": 589.88,
+      "end": 591.76,
+      "text": "containers."
+    },
+    {
+      "id": 227,
+      "start": 591.76,
+      "end": 592.92,
+      "text": "That you know about."
+    },
+    {
+      "id": 228,
+      "start": 592.92,
+      "end": 594.12,
+      "text": "Like, so hyper-no, right?"
+    },
+    {
+      "id": 229,
+      "start": 594.12,
+      "end": 597.0,
+      "text": "Because hyper was a single-nose system, high-Q, with"
+    },
+    {
+      "id": 230,
+      "start": 597.0,
+      "end": 598.44,
+      "text": "before containers are invented."
+    },
+    {
+      "id": 231,
+      "start": 598.44,
+      "end": 601.04,
+      "text": "But like, is Dremel running on containers?"
+    },
+    {
+      "id": 232,
+      "start": 601.04,
+      "end": 601.92,
+      "text": "Yes."
+    },
+    {
+      "id": 233,
+      "start": 601.92,
+      "end": 602.92,
+      "text": "Oh, they are."
+    },
+    {
+      "id": 234,
+      "start": 602.92,
+      "end": 604.4,
+      "text": "Yeah, it's running on board."
+    }
+  ],
+  "language": "en"
+}

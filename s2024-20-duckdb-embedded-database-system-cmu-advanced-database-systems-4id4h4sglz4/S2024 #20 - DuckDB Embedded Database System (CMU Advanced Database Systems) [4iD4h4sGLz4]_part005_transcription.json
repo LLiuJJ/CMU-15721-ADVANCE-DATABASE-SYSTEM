@@ -1,0 +1,1355 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.6,
+      "text": "Unlocally."
+    },
+    {
+      "id": 1,
+      "start": 2.6,
+      "end": 2.92,
+      "text": "Yes."
+    },
+    {
+      "id": 2,
+      "start": 2.92,
+      "end": 7.84,
+      "text": "Why would someone use this instead of any other OLAP system?"
+    },
+    {
+      "id": 3,
+      "start": 7.84,
+      "end": 10.24,
+      "text": "So why would anybody use this for some OLAP system?"
+    },
+    {
+      "id": 4,
+      "start": 10.24,
+      "end": 15.44,
+      "text": "Yeah, it's on the, because all of them have cloud operators."
+    },
+    {
+      "id": 5,
+      "start": 15.44,
+      "end": 18.88,
+      "text": "I mean, again, but if you're already doing much analytics"
+    },
+    {
+      "id": 6,
+      "start": 18.88,
+      "end": 24.12,
+      "text": "locally in ductyb, because it connects to Python or whatever,"
+    },
+    {
+      "id": 7,
+      "start": 24.12,
+      "end": 27.96,
+      "text": "like to stop what you're doing, then switch over to BigQuery,"
+    },
+    {
+      "id": 8,
+      "start": 27.96,
+      "end": 29.84,
+      "text": "and where the query might actually work anymore."
+    },
+    {
+      "id": 9,
+      "start": 29.84,
+      "end": 32.4,
+      "text": "You might not even run SQL anymore, because you can"
+    },
+    {
+      "id": 10,
+      "start": 32.4,
+      "end": 35.32,
+      "text": "use an iBus or DePire."
+    },
+    {
+      "id": 11,
+      "start": 35.32,
+      "end": 39.32,
+      "text": "So it seems integration, like it's still the ductyb client-side"
+    },
+    {
+      "id": 12,
+      "start": 39.32,
+      "end": 42.96,
+      "text": "interface, but you don't know necessarily where that query"
+    },
+    {
+      "id": 13,
+      "start": 42.96,
+      "end": 45.2,
+      "text": "is going to run anymore."
+    },
+    {
+      "id": 14,
+      "start": 45.2,
+      "end": 45.72,
+      "text": "Yes."
+    },
+    {
+      "id": 15,
+      "start": 45.72,
+      "end": 49.24,
+      "text": "So there's no integrated parallelism going on here."
+    },
+    {
+      "id": 16,
+      "start": 49.24,
+      "end": 51.28,
+      "text": "Like it wants to let the multiple nodes at all"
+    },
+    {
+      "id": 17,
+      "start": 51.28,
+      "end": 53.08,
+      "text": "in the cloud."
+    },
+    {
+      "id": 18,
+      "start": 53.08,
+      "end": 55.88,
+      "text": "This question, is there any, well,"
+    },
+    {
+      "id": 19,
+      "start": 55.88,
+      "end": 57.84,
+      "text": "will scale hard-to-on like the multiple nodes in the cloud?"
+    },
+    {
+      "id": 20,
+      "start": 57.84,
+      "end": 60.32,
+      "text": "As far as they know, are these the term version now?"
+    },
+    {
+      "id": 21,
+      "start": 60.32,
+      "end": 62.16,
+      "text": "Is there a reason why not?"
+    },
+    {
+      "id": 22,
+      "start": 62.16,
+      "end": 63.6,
+      "text": "The question is the reason why not."
+    },
+    {
+      "id": 23,
+      "start": 63.6,
+      "end": 66.08,
+      "text": "Because yeah, you'd have to rewrite a lot of ductyb"
+    },
+    {
+      "id": 24,
+      "start": 66.08,
+      "end": 67.96,
+      "text": "to make that work."
+    },
+    {
+      "id": 25,
+      "start": 67.96,
+      "end": 70.48,
+      "text": "Maybe you could just, if they're just sending the query"
+    },
+    {
+      "id": 26,
+      "start": 70.48,
+      "end": 73.24,
+      "text": "lineup to the cloud, maybe you could identify pipeline"
+    },
+    {
+      "id": 27,
+      "start": 73.24,
+      "end": 75.68,
+      "text": "operators right off parts of the query line,"
+    },
+    {
+      "id": 28,
+      "start": 75.68,
+      "end": 77.36,
+      "text": "and then just run different ductyb instances."
+    },
+    {
+      "id": 29,
+      "start": 77.36,
+      "end": 78.36,
+      "text": "Yes."
+    },
+    {
+      "id": 30,
+      "start": 78.36,
+      "end": 80.48,
+      "text": "So to this point, actually, you're right."
+    },
+    {
+      "id": 31,
+      "start": 80.48,
+      "end": 81.24,
+      "text": "They could do that."
+    },
+    {
+      "id": 32,
+      "start": 81.24,
+      "end": 82.72,
+      "text": "I don't know whether they do that, though."
+    },
+    {
+      "id": 33,
+      "start": 82.72,
+      "end": 84.56,
+      "text": "I'll show that in the next slide."
+    },
+    {
+      "id": 34,
+      "start": 84.56,
+      "end": 86.88,
+      "text": "Basically, they know what parts from their local,"
+    },
+    {
+      "id": 35,
+      "start": 86.88,
+      "end": 89.96,
+      "text": "and then the local ductyb instance"
+    },
+    {
+      "id": 36,
+      "start": 89.96,
+      "end": 91.44,
+      "text": "is a response we're figuring out."
+    },
+    {
+      "id": 37,
+      "start": 91.44,
+      "end": 94.56,
+      "text": "OK, this data's remote, and it's too big for me"
+    },
+    {
+      "id": 38,
+      "start": 94.56,
+      "end": 95.84,
+      "text": "to suck down locally."
+    },
+    {
+      "id": 39,
+      "start": 95.84,
+      "end": 98.32,
+      "text": "So I'll send my plan-f� went over there"
+    },
+    {
+      "id": 40,
+      "start": 98.32,
+      "end": 100.32,
+      "text": "and process it and get back the result."
+    },
+    {
+      "id": 41,
+      "start": 100.32,
+      "end": 102.88,
+      "text": "So yes, in that point, you could say, OK, I"
+    },
+    {
+      "id": 42,
+      "start": 102.88,
+      "end": 105.04,
+      "text": "could take portions of this and fan it"
+    },
+    {
+      "id": 43,
+      "start": 105.04,
+      "end": 107.96,
+      "text": "across multiple ductyb instances."
+    },
+    {
+      "id": 44,
+      "start": 107.96,
+      "end": 110.84,
+      "text": "I just don't know whether they do that or not."
+    },
+    {
+      "id": 45,
+      "start": 110.84,
+      "end": 114.04,
+      "text": "So this is from the paper that came out this year."
+    },
+    {
+      "id": 46,
+      "start": 114.04,
+      "end": 115.84,
+      "text": "The idea is that again, you have the client side,"
+    },
+    {
+      "id": 47,
+      "start": 115.84,
+      "end": 120.48,
+      "text": "the ductyb, you install that mother-duck extension,"
+    },
+    {
+      "id": 48,
+      "start": 120.48,
+      "end": 123.64,
+      "text": "that then can send query plans up to the mother-duck cloud"
+    },
+    {
+      "id": 49,
+      "start": 123.64,
+      "end": 129.84,
+      "text": "service where they're running ductyb inside of Docker containers"
+    },
+    {
+      "id": 50,
+      "start": 129.84,
+      "end": 131.36,
+      "text": "and they're doing client side caching"
+    },
+    {
+      "id": 51,
+      "start": 131.36,
+      "end": 136.96,
+      "text": "similar to what we saw in, I think, in Snowflake."
+    },
+    {
+      "id": 52,
+      "start": 136.96,
+      "end": 139.24,
+      "text": "And then, of course, you can always read data from your object"
+    },
+    {
+      "id": 53,
+      "start": 139.24,
+      "end": 141.8,
+      "text": "store, whatever you want."
+    },
+    {
+      "id": 54,
+      "start": 141.8,
+      "end": 146.32,
+      "text": "And how the client's, sorry, the mother-duck service"
+    },
+    {
+      "id": 55,
+      "start": 146.32,
+      "end": 148.08,
+      "text": "is aware of what data is in here."
+    },
+    {
+      "id": 56,
+      "start": 148.08,
+      "end": 150.04,
+      "text": "I think they can connect to Ithberg and other things"
+    },
+    {
+      "id": 57,
+      "start": 150.04,
+      "end": 151.64,
+      "text": "to suck out that metadata as well."
+    },
+    {
+      "id": 58,
+      "start": 154.52,
+      "end": 157.72,
+      "text": "So the way this is going to work is that they're"
+    },
+    {
+      "id": 59,
+      "start": 157.72,
+      "end": 160.04,
+      "text": "going to introduce what they call a bridge operator"
+    },
+    {
+      "id": 60,
+      "start": 160.04,
+      "end": 165.56,
+      "text": "in the query plans now that is capable of sending and receiving"
+    },
+    {
+      "id": 61,
+      "start": 165.56,
+      "end": 168.12,
+      "text": "data from the local ductyb instance"
+    },
+    {
+      "id": 62,
+      "start": 168.12,
+      "end": 170.64,
+      "text": "to the cloud version of it."
+    },
+    {
+      "id": 63,
+      "start": 170.64,
+      "end": 174.24,
+      "text": "And so again, when you invoke a query on the local side,"
+    },
+    {
+      "id": 64,
+      "start": 174.24,
+      "end": 176.52,
+      "text": "it'll do all the planning that it normally would."
+    },
+    {
+      "id": 65,
+      "start": 176.52,
+      "end": 178.56,
+      "text": "And then, with the mother-duck extension installed,"
+    },
+    {
+      "id": 66,
+      "start": 178.56,
+      "end": 181.36,
+      "text": "they'll then take a second pass on it and say, OK, well,"
+    },
+    {
+      "id": 67,
+      "start": 181.36,
+      "end": 184.08,
+      "text": "this data, you're trying to access in this pipeline,"
+    },
+    {
+      "id": 68,
+      "start": 184.08,
+      "end": 186.52,
+      "text": "is local, this data is remote."
+    },
+    {
+      "id": 69,
+      "start": 186.52,
+      "end": 188.32,
+      "text": "And then they do, in a cost calculation"
+    },
+    {
+      "id": 70,
+      "start": 188.32,
+      "end": 192.32,
+      "text": "to side, is it better to push the query to the data out"
+    },
+    {
+      "id": 71,
+      "start": 192.32,
+      "end": 194.48,
+      "text": "in the remote storage or pull the data down"
+    },
+    {
+      "id": 72,
+      "start": 194.48,
+      "end": 196.68,
+      "text": "to the local machine?"
+    },
+    {
+      "id": 73,
+      "start": 196.68,
+      "end": 200.16,
+      "text": "So I'd say I'm doing a join between some customer table"
+    },
+    {
+      "id": 74,
+      "start": 200.16,
+      "end": 201.2,
+      "text": "and a sales table."
+    },
+    {
+      "id": 75,
+      "start": 201.2,
+      "end": 202.64,
+      "text": "The customer table is remote."
+    },
+    {
+      "id": 76,
+      "start": 202.64,
+      "end": 205.04,
+      "text": "The sales data is local."
+    },
+    {
+      "id": 77,
+      "start": 205.04,
+      "end": 207.96,
+      "text": "And so to say the customer data is huge,"
+    },
+    {
+      "id": 78,
+      "start": 207.96,
+      "end": 209.28,
+      "text": "which is typically the opposite of this."
+    },
+    {
+      "id": 79,
+      "start": 209.28,
+      "end": 212.6,
+      "text": "The sales one is always much, much bigger."
+    },
+    {
+      "id": 80,
+      "start": 212.6,
+      "end": 215.76,
+      "text": "So ductyb would say, OK, well, since I already"
+    },
+    {
+      "id": 81,
+      "start": 215.76,
+      "end": 218.44,
+      "text": "have the customer data and that's remote,"
+    },
+    {
+      "id": 82,
+      "start": 218.44,
+      "end": 223.56,
+      "text": "let me go send the sales data over the wire up"
+    },
+    {
+      "id": 83,
+      "start": 223.56,
+      "end": 225.6,
+      "text": "to the remote service."
+    },
+    {
+      "id": 84,
+      "start": 225.6,
+      "end": 227.92,
+      "text": "The remote service then completes the hash join"
+    },
+    {
+      "id": 85,
+      "start": 227.92,
+      "end": 230.44,
+      "text": "using the ductyb instance that's running on the cloud."
+    },
+    {
+      "id": 86,
+      "start": 230.44,
+      "end": 232.8,
+      "text": "Then it has to get the result back to you and the client."
+    },
+    {
+      "id": 87,
+      "start": 232.8,
+      "end": 235.44,
+      "text": "So then they send the data back to the source"
+    },
+    {
+      "id": 88,
+      "start": 235.44,
+      "end": 237.76,
+      "text": "and sync operators in between these things."
+    },
+    {
+      "id": 89,
+      "start": 237.76,
+      "end": 240.12,
+      "text": "Again, now you see they don't have"
+    },
+    {
+      "id": 90,
+      "start": 240.12,
+      "end": 242.52,
+      "text": "to do anything extra to support this in terms"
+    },
+    {
+      "id": 91,
+      "start": 242.52,
+      "end": 246.72,
+      "text": "of scheduling and running these pipelines,"
+    },
+    {
+      "id": 92,
+      "start": 246.72,
+      "end": 249.36,
+      "text": "because we just made a big deal about how they switched"
+    },
+    {
+      "id": 93,
+      "start": 249.36,
+      "end": 250.68,
+      "text": "to the push-based model."
+    },
+    {
+      "id": 94,
+      "start": 250.68,
+      "end": 253.44,
+      "text": "They can pause things and do a synchronous IO"
+    },
+    {
+      "id": 95,
+      "start": 253.44,
+      "end": 256.2,
+      "text": "because now the control flow is separate from the data flow."
+    },
+    {
+      "id": 96,
+      "start": 256.2,
+      "end": 262.32,
+      "text": "So I can have this thing start running, sending data up,"
+    },
+    {
+      "id": 97,
+      "start": 262.32,
+      "end": 267.4,
+      "text": "and not have this weird call stack thing"
+    },
+    {
+      "id": 98,
+      "start": 267.4,
+      "end": 269.96,
+      "text": "with it, but pause and unpause as I'm pushing data out."
+    },
+    {
+      "id": 99,
+      "start": 273.96,
+      "end": 276.88,
+      "text": "So that call model for that second pass"
+    },
+    {
+      "id": 100,
+      "start": 276.88,
+      "end": 280.44,
+      "text": "to decide whether what runs remote and local is based purely"
+    },
+    {
+      "id": 101,
+      "start": 280.44,
+      "end": 282.32,
+      "text": "on not computational complexity,"
+    },
+    {
+      "id": 102,
+      "start": 282.32,
+      "end": 285.72,
+      "text": "but transfer cost of the data, the transfer time of the data."
+    },
+    {
+      "id": 103,
+      "start": 285.72,
+      "end": 288.32,
+      "text": "Obviously, if I have 10 terabytes in the cloud"
+    },
+    {
+      "id": 104,
+      "start": 288.32,
+      "end": 290.04,
+      "text": "and one kill-light file locally,"
+    },
+    {
+      "id": 105,
+      "start": 290.04,
+      "end": 291.56,
+      "text": "I don't want to suck down the 10 terabytes."
+    },
+    {
+      "id": 106,
+      "start": 291.56,
+      "end": 293.4,
+      "text": "I want to send the one kill-light data up"
+    },
+    {
+      "id": 107,
+      "start": 293.4,
+      "end": 296.4,
+      "text": "and run everything remotely there."
+    },
+    {
+      "id": 108,
+      "start": 296.4,
+      "end": 297.32,
+      "text": "Yes?"
+    },
+    {
+      "id": 109,
+      "start": 297.32,
+      "end": 301.04,
+      "text": "Besides, the ductyb having this is client layer"
+    },
+    {
+      "id": 110,
+      "start": 301.04,
+      "end": 302.6,
+      "text": "that connects to the model that I can use with."
+    },
+    {
+      "id": 111,
+      "start": 302.6,
+      "end": 303.96,
+      "text": "What's the difference between this and something"
+    },
+    {
+      "id": 112,
+      "start": 303.96,
+      "end": 308.56,
+      "text": "like neon where neon is currently scaling out?"
+    },
+    {
+      "id": 113,
+      "start": 308.56,
+      "end": 309.08,
+      "text": "What does press?"
+    },
+    {
+      "id": 114,
+      "start": 309.08,
+      "end": 311.04,
+      "text": "I think they actually have a lot of horizontal"
+    },
+    {
+      "id": 115,
+      "start": 311.04,
+      "end": 313.8,
+      "text": "and without a scaling going on, right?"
+    },
+    {
+      "id": 116,
+      "start": 313.8,
+      "end": 319.28,
+      "text": "Question is, what is the difference between ductyb and neon?"
+    },
+    {
+      "id": 117,
+      "start": 319.28,
+      "end": 323.28,
+      "text": "I mean, neon is doing, neon's taking,"
+    },
+    {
+      "id": 118,
+      "start": 323.28,
+      "end": 325.24,
+      "text": "ripped up the storage layer of Postgres"
+    },
+    {
+      "id": 119,
+      "start": 325.24,
+      "end": 330.12,
+      "text": "and can make it, basically, make a shared disk architecture"
+    },
+    {
+      "id": 120,
+      "start": 330.12,
+      "end": 332.8,
+      "text": "that can scale out horizontally."
+    },
+    {
+      "id": 121,
+      "start": 332.8,
+      "end": 335.04,
+      "text": "But I'm pretty sure that the compute side for the queries"
+    },
+    {
+      "id": 122,
+      "start": 335.04,
+      "end": 337.88,
+      "text": "themselves are still running on a single node."
+    },
+    {
+      "id": 123,
+      "start": 337.88,
+      "end": 339.6,
+      "text": "So that would look like this."
+    },
+    {
+      "id": 124,
+      "start": 339.6,
+      "end": 341.44,
+      "text": "So the horizontal scaling and that is happening"
+    },
+    {
+      "id": 125,
+      "start": 341.44,
+      "end": 342.44,
+      "text": "at the storage."
+    },
+    {
+      "id": 126,
+      "start": 342.44,
+      "end": 344.04,
+      "text": "The horizontal scaling is happening at the storage layer."
+    },
+    {
+      "id": 127,
+      "start": 344.04,
+      "end": 348.08,
+      "text": "This is still run, ductyb is shared, nothing."
+    },
+    {
+      "id": 128,
+      "start": 348.08,
+      "end": 350.12,
+      "text": "So that's why."
+    },
+    {
+      "id": 129,
+      "start": 350.12,
+      "end": 351.6,
+      "text": "Way to go back here."
+    },
+    {
+      "id": 130,
+      "start": 351.6,
+      "end": 352.08,
+      "text": "Sorry."
+    },
+    {
+      "id": 131,
+      "start": 352.08,
+      "end": 353.64,
+      "text": "You're saying that?"
+    },
+    {
+      "id": 132,
+      "start": 353.64,
+      "end": 355.28,
+      "text": "OK, well, that is clearly a shared disk."
+    },
+    {
+      "id": 133,
+      "start": 355.28,
+      "end": 359.56,
+      "text": "But I'm just trying to understand why the scaling is"
+    },
+    {
+      "id": 134,
+      "start": 359.56,
+      "end": 362.68,
+      "text": "in viable here, but something neon does."
+    },
+    {
+      "id": 135,
+      "start": 362.68,
+      "end": 364.6,
+      "text": "So I misspoke."
+    },
+    {
+      "id": 136,
+      "start": 364.6,
+      "end": 365.84,
+      "text": "I don't know whether they're actually"
+    },
+    {
+      "id": 137,
+      "start": 365.84,
+      "end": 368.32,
+      "text": "can get their scaling horizontal on the compute side."
+    },
+    {
+      "id": 138,
+      "start": 368.32,
+      "end": 371.08,
+      "text": "But as you said, you say, if I have four pipelines"
+    },
+    {
+      "id": 139,
+      "start": 371.08,
+      "end": 372.64,
+      "text": "that I'm all going to run remotely,"
+    },
+    {
+      "id": 140,
+      "start": 372.64,
+      "end": 376.24,
+      "text": "instead of hand them all be on a single instance of ductyb,"
+    },
+    {
+      "id": 141,
+      "start": 376.24,
+      "end": 377.6,
+      "text": "you could have them run on multiple instances."
+    },
+    {
+      "id": 142,
+      "start": 377.6,
+      "end": 378.6,
+      "text": "It's a pretty good thing."
+    },
+    {
+      "id": 143,
+      "start": 378.6,
+      "end": 381.24,
+      "text": "Yeah, we can really do both things, but it's 250 to 250"
+    },
+    {
+      "id": 144,
+      "start": 381.24,
+      "end": 382.2,
+      "text": "to 250 before nodes."
+    },
+    {
+      "id": 145,
+      "start": 382.2,
+      "end": 383.6,
+      "text": "Yeah, you could do that, yes."
+    },
+    {
+      "id": 146,
+      "start": 383.6,
+      "end": 384.6,
+      "text": "Yes."
+    },
+    {
+      "id": 147,
+      "start": 384.6,
+      "end": 386.4,
+      "text": "I don't know whether they're doing that though."
+    },
+    {
+      "id": 148,
+      "start": 386.4,
+      "end": 386.92,
+      "text": "OK."
+    },
+    {
+      "id": 149,
+      "start": 386.92,
+      "end": 396.92,
+      "text": "I think the initial version of it, just, here's the pipeline,"
+    },
+    {
+      "id": 150,
+      "start": 396.92,
+      "end": 398.08,
+      "text": "just run it."
+    },
+    {
+      "id": 151,
+      "start": 398.08,
+      "end": 400.12,
+      "text": "Because you would need an extra step to say, OK,"
+    },
+    {
+      "id": 152,
+      "start": 400.12,
+      "end": 404.08,
+      "text": "chop it up and scale it out, and then stitch it back together."
+    },
+    {
+      "id": 153,
+      "start": 404.08,
+      "end": 405.84,
+      "text": "And that's eventually you think you can do that, I'm sure."
+    },
+    {
+      "id": 154,
+      "start": 409.08,
+      "end": 413.24,
+      "text": "The neon architecture is more similar to Aurora"
+    },
+    {
+      "id": 155,
+      "start": 413.24,
+      "end": 417.68,
+      "text": "that you have a single primary, all the rights go to."
+    },
+    {
+      "id": 156,
+      "start": 417.68,
+      "end": 421.68,
+      "text": "And then you propagate the updates through the storage layer,"
+    },
+    {
+      "id": 157,
+      "start": 421.68,
+      "end": 423.88,
+      "text": "and then you'd have read-only replicas,"
+    },
+    {
+      "id": 158,
+      "start": 423.88,
+      "end": 426.2,
+      "text": "service-service those queries."
+    },
+    {
+      "id": 159,
+      "start": 426.2,
+      "end": 427.84,
+      "text": "In a transaction-consistent manner."
+    },
+    {
+      "id": 160,
+      "start": 427.84,
+      "end": 431.64,
+      "text": "So neon is more heavy on that on the cache?"
+    },
+    {
+      "id": 161,
+      "start": 431.64,
+      "end": 439.44,
+      "text": "No, I'm saying that the neon is trying"
+    },
+    {
+      "id": 162,
+      "start": 439.44,
+      "end": 443.16,
+      "text": "to have a primary multiple replicas."
+    },
+    {
+      "id": 163,
+      "start": 443.16,
+      "end": 444.2,
+      "text": "So the primary is get, get, get,"
+    },
+    {
+      "id": 164,
+      "start": 444.2,
+      "end": 445.2,
+      "text": "get, get, get, get, get all the rights,"
+    },
+    {
+      "id": 165,
+      "start": 445.2,
+      "end": 447.04,
+      "text": "because it's an old to be workload."
+    },
+    {
+      "id": 166,
+      "start": 447.04,
+      "end": 449.28,
+      "text": "And then the changes get propagated to the replicas,"
+    },
+    {
+      "id": 167,
+      "start": 449.28,
+      "end": 450.52,
+      "text": "and you can run read-only queries on those."
+    },
+    {
+      "id": 168,
+      "start": 450.52,
+      "end": 452.88,
+      "text": "And a transaction-consistent manner, or a snapshot isolation."
+    },
+    {
+      "id": 169,
+      "start": 452.88,
+      "end": 453.48,
+      "text": "Thank you."
+    },
+    {
+      "id": 170,
+      "start": 453.48,
+      "end": 455.4,
+      "text": "Thank you."
+    },
+    {
+      "id": 171,
+      "start": 455.4,
+      "end": 460.72,
+      "text": "And then when Amazon does, when Aurora is, they,"
+    },
+    {
+      "id": 172,
+      "start": 460.72,
+      "end": 465.92,
+      "text": "where neon does all the, that propagation of the updates"
+    },
+    {
+      "id": 173,
+      "start": 465.92,
+      "end": 470.56,
+      "text": "through code-pensionative sitting above the file system,"
+    },
+    {
+      "id": 174,
+      "start": 470.56,
+      "end": 474.84,
+      "text": "Amazon puts that propagation directly within like EBS itself."
+    },
+    {
+      "id": 175,
+      "start": 474.84,
+      "end": 477.24,
+      "text": "And they can do that because they control the whole stack."
+    },
+    {
+      "id": 176,
+      "start": 477.24,
+      "end": 480.24,
+      "text": "Not exactly directly in EBS, but just a little bit above it."
+    },
+    {
+      "id": 177,
+      "start": 480.24,
+      "end": 480.76,
+      "text": "Yes?"
+    },
+    {
+      "id": 178,
+      "start": 480.76,
+      "end": 482.44,
+      "text": "This is a bit of a tangent, which is our case."
+    },
+    {
+      "id": 179,
+      "start": 482.44,
+      "end": 483.88,
+      "text": "If you do the primary thing, aren't you,"
+    },
+    {
+      "id": 180,
+      "start": 483.88,
+      "end": 486.68,
+      "text": "you're doing eventual persistence in data than asset-like?"
+    },
+    {
+      "id": 181,
+      "start": 486.68,
+      "end": 487.72,
+      "text": "Statement is if you're doing, if you're"
+    },
+    {
+      "id": 182,
+      "start": 487.72,
+      "end": 489.84,
+      "text": "doing the, what I've said before, you're doing a bit."
+    },
+    {
+      "id": 183,
+      "start": 489.84,
+      "end": 492.52,
+      "text": "The primary primary, no."
+    },
+    {
+      "id": 184,
+      "start": 492.52,
+      "end": 495.2,
+      "text": "Because I could do a commit on the primary,"
+    },
+    {
+      "id": 185,
+      "start": 495.2,
+      "end": 498.52,
+      "text": "and then not acknowledge the commit"
+    },
+    {
+      "id": 186,
+      "start": 498.52,
+      "end": 500.72,
+      "text": "until all the replicas acknowledge that they got the update."
+    },
+    {
+      "id": 187,
+      "start": 500.72,
+      "end": 501.4,
+      "text": "Oh, OK."
+    },
+    {
+      "id": 188,
+      "start": 501.4,
+      "end": 501.92,
+      "text": "Right?"
+    },
+    {
+      "id": 189,
+      "start": 504.68,
+      "end": 507.04,
+      "text": "And then for read-only queries, sometimes you"
+    },
+    {
+      "id": 190,
+      "start": 507.04,
+      "end": 510.72,
+      "text": "don't maybe need, you don't need that sort of strong consistency,"
+    },
+    {
+      "id": 191,
+      "start": 510.72,
+      "end": 513.48,
+      "text": "or the better, higher guarantees."
+    },
+    {
+      "id": 192,
+      "start": 513.48,
+      "end": 516.6,
+      "text": "Like snapshot isolation might be enough."
+    },
+    {
+      "id": 193,
+      "start": 516.6,
+      "end": 519.72,
+      "text": "So I don't care that I'm reading data that's 10 milliseconds"
+    },
+    {
+      "id": 194,
+      "start": 519.72,
+      "end": 523.8,
+      "text": "behind, along as I have a consistent snapshot."
+    },
+    {
+      "id": 195,
+      "start": 523.8,
+      "end": 528.12,
+      "text": "That's a whole, yeah, that's something that's class."
+    },
+    {
+      "id": 196,
+      "start": 528.12,
+      "end": 531.12,
+      "text": "OK."
+    },
+    {
+      "id": 197,
+      "start": 531.12,
+      "end": 533.64,
+      "text": "All right, so I'm going to finish up my duct Db."
+    },
+    {
+      "id": 198,
+      "start": 533.64,
+      "end": 535.72,
+      "text": "And then I'll talk about the worst degree of system,"
+    },
+    {
+      "id": 199,
+      "start": 535.72,
+      "end": 538.84,
+      "text": "the worst idea I've ever seen in a database afterwards."
+    },
+    {
+      "id": 200,
+      "start": 538.84,
+      "end": 540.24,
+      "text": "I think duct Db is amazing, right?"
+    },
+    {
+      "id": 201,
+      "start": 540.24,
+      "end": 543.0,
+      "text": "The amount of adoption that they've had in the last couple"
+    },
+    {
+      "id": 202,
+      "start": 543.0,
+      "end": 544.68,
+      "text": "of years is phenomenal."
+    },
+    {
+      "id": 203,
+      "start": 544.68,
+      "end": 546.8,
+      "text": "And I think it was a combination of three things, right?"
+    },
+    {
+      "id": 204,
+      "start": 546.8,
+      "end": 548.96,
+      "text": "It was, they were at the right place at the right time"
+    },
+    {
+      "id": 205,
+      "start": 548.96,
+      "end": 551.56,
+      "text": "where the pendulum was sort of swing back"
+    },
+    {
+      "id": 206,
+      "start": 551.56,
+      "end": 555.76,
+      "text": "where SQL is the default choice for a lot of applications."
+    },
+    {
+      "id": 207,
+      "start": 555.76,
+      "end": 557.16,
+      "text": "He was sort of asking why people would not"
+    },
+    {
+      "id": 208,
+      "start": 557.16,
+      "end": 558.12,
+      "text": "want to write SQL."
+    },
+    {
+      "id": 209,
+      "start": 558.12,
+      "end": 561.16,
+      "text": "And that's a, I think, artifact of data scientists"
+    },
+    {
+      "id": 210,
+      "start": 561.16,
+      "end": 563.8,
+      "text": "that people in the no-sequel world"
+    },
+    {
+      "id": 211,
+      "start": 563.8,
+      "end": 565.28,
+      "text": "are assuming SQL back in the day,"
+    },
+    {
+      "id": 212,
+      "start": 565.28,
+      "end": 568.2,
+      "text": "but it definitely has changed over time."
+    },
+    {
+      "id": 213,
+      "start": 568.2,
+      "end": 569.76,
+      "text": "So they were at the right time for this."
+    },
+    {
+      "id": 214,
+      "start": 569.76,
+      "end": 571.08,
+      "text": "They were solving the right problem."
+    },
+    {
+      "id": 215,
+      "start": 571.08,
+      "end": 574.12,
+      "text": "Like, hey, we need an embedded database"
+    },
+    {
+      "id": 216,
+      "start": 574.12,
+      "end": 578.4,
+      "text": "to do analytics, not another Dremel, not another snowflake."
+    },
+    {
+      "id": 217,
+      "start": 578.4,
+      "end": 583.28,
+      "text": "And they basically borrowed a talk a lot of the ideas"
+    },
+    {
+      "id": 218,
+      "start": 583.28,
+      "end": 585.2,
+      "text": "that the Germans were developing."
+    },
+    {
+      "id": 219,
+      "start": 585.2,
+      "end": 587.08,
+      "text": "I mean, honest as German, but I mean the Munich Germans,"
+    },
+    {
+      "id": 220,
+      "start": 587.08,
+      "end": 589.72,
+      "text": "the hyper guys, took those papers"
+    },
+    {
+      "id": 221,
+      "start": 589.72,
+      "end": 592.68,
+      "text": "and built an open source implementation of it."
+    },
+    {
+      "id": 222,
+      "start": 592.68,
+      "end": 595.6,
+      "text": "And had hyper-ombra been open source,"
+    },
+    {
+      "id": 223,
+      "start": 595.6,
+      "end": 600.12,
+      "text": "I mean, the embedded one is also, that was a great idea, too,"
+    },
+    {
+      "id": 224,
+      "start": 600.12,
+      "end": 602.36,
+      "text": "that I get a SQL library analytics to be embedded in."
+    }
+  ],
+  "language": "en"
+}

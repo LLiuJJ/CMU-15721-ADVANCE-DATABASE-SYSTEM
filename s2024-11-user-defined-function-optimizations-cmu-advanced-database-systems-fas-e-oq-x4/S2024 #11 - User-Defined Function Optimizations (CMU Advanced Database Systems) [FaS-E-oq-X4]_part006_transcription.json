@@ -1,0 +1,1529 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 0.84,
+      "text": "Yeah."
+    },
+    {
+      "id": 1,
+      "start": 0.84,
+      "end": 2.04,
+      "text": "All right."
+    },
+    {
+      "id": 2,
+      "start": 2.04,
+      "end": 4.64,
+      "text": "This is what they do to you."
+    },
+    {
+      "id": 3,
+      "start": 6.72,
+      "end": 7.54,
+      "text": "All right, so again,"
+    },
+    {
+      "id": 4,
+      "start": 10.24,
+      "end": 12.24,
+      "text": "so in the SSA form, as far as they know,"
+    },
+    {
+      "id": 5,
+      "start": 12.24,
+      "end": 14.68,
+      "text": "we're only defined each variable once."
+    },
+    {
+      "id": 6,
+      "start": 14.68,
+      "end": 17.36,
+      "text": "We're all shaking their head, yes, same, same, yes."
+    },
+    {
+      "id": 7,
+      "start": 17.36,
+      "end": 19.32,
+      "text": "And this is what a traditional compiler would do"
+    },
+    {
+      "id": 8,
+      "start": 19.32,
+      "end": 20.4,
+      "text": "in the inside."
+    },
+    {
+      "id": 9,
+      "start": 20.4,
+      "end": 24.24,
+      "text": "So then now we're gonna take our SSA form"
+    },
+    {
+      "id": 10,
+      "start": 24.24,
+      "end": 26.88,
+      "text": "and we're gonna convert this into a administrative normal form."
+    },
+    {
+      "id": 11,
+      "start": 26.88,
+      "end": 29.28,
+      "text": "And this is gonna allow us to have a tail of a curge,"
+    },
+    {
+      "id": 12,
+      "start": 29.68,
+      "end": 32.96,
+      "text": "in the last statement of every sort of function"
+    },
+    {
+      "id": 13,
+      "start": 32.96,
+      "end": 35.12,
+      "text": "that we can call another function,"
+    },
+    {
+      "id": 14,
+      "start": 35.12,
+      "end": 37.32,
+      "text": "and we're allowed to call recursively ourselves"
+    },
+    {
+      "id": 15,
+      "start": 37.32,
+      "end": 40.56,
+      "text": "and other functions, and those functions can then call us back."
+    },
+    {
+      "id": 16,
+      "start": 40.56,
+      "end": 44.32,
+      "text": "So you have this, you can have cycles in this."
+    },
+    {
+      "id": 17,
+      "start": 45.6,
+      "end": 48.0,
+      "text": "So in this case here, for our while loop,"
+    },
+    {
+      "id": 18,
+      "start": 48.0,
+      "end": 49.96,
+      "text": "we're gonna loop through and do our computation,"
+    },
+    {
+      "id": 19,
+      "start": 49.96,
+      "end": 51.32,
+      "text": "and then we're recursively calling ourselves,"
+    },
+    {
+      "id": 20,
+      "start": 51.32,
+      "end": 53.08,
+      "text": "but then when we're gonna finish the last one,"
+    },
+    {
+      "id": 21,
+      "start": 53.08,
+      "end": 54.76,
+      "text": "then we break out."
+    },
+    {
+      "id": 22,
+      "start": 54.76,
+      "end": 56.64,
+      "text": "And then whatever the return result is whatever"
+    },
+    {
+      "id": 23,
+      "start": 57.64,
+      "end": 60.2,
+      "text": "the last iteration was, yes."
+    },
+    {
+      "id": 24,
+      "start": 60.2,
+      "end": 63.72,
+      "text": "So this is what the algorithm calls"
+    },
+    {
+      "id": 25,
+      "start": 63.72,
+      "end": 66.16,
+      "text": "to do with the other labels that is recursive,"
+    },
+    {
+      "id": 26,
+      "start": 66.16,
+      "end": 69.32,
+      "text": "you're still allowed to computation before those calls."
+    },
+    {
+      "id": 27,
+      "start": 69.32,
+      "end": 70.48,
+      "text": "Yes, yeah."
+    },
+    {
+      "id": 28,
+      "start": 72.76,
+      "end": 74.64,
+      "text": "And the question is, are we allowed to do computation"
+    },
+    {
+      "id": 29,
+      "start": 74.64,
+      "end": 75.56,
+      "text": "before we have other calls?"
+    },
+    {
+      "id": 30,
+      "start": 75.56,
+      "end": 77.96,
+      "text": "Yes, I mean that's what this is, down here."
+    },
+    {
+      "id": 31,
+      "start": 79.12,
+      "end": 81.16,
+      "text": "So again, this is doing mutual recursion,"
+    },
+    {
+      "id": 32,
+      "start": 81.16,
+      "end": 83.68,
+      "text": "meaning one function can call other function,"
+    },
+    {
+      "id": 33,
+      "start": 83.68,
+      "end": 85.32,
+      "text": "that function can call you back."
+    },
+    {
+      "id": 34,
+      "start": 85.32,
+      "end": 87.64,
+      "text": "We wanna convert this to direct recursion,"
+    },
+    {
+      "id": 35,
+      "start": 89.36,
+      "end": 91.36,
+      "text": "and that's just doing another transformation,"
+    },
+    {
+      "id": 36,
+      "start": 91.36,
+      "end": 92.8,
+      "text": "and that's gonna basically now,"
+    },
+    {
+      "id": 37,
+      "start": 92.8,
+      "end": 95.2,
+      "text": "where we only have recursive calls in the,"
+    },
+    {
+      "id": 38,
+      "start": 95.2,
+      "end": 98.08,
+      "text": "as the tail, as the last thing we do within our function,"
+    },
+    {
+      "id": 39,
+      "start": 98.08,
+      "end": 102.4,
+      "text": "and then the embedding, the recursion calls"
+    },
+    {
+      "id": 40,
+      "start": 102.4,
+      "end": 103.6,
+      "text": "can only get in one direction."
+    },
+    {
+      "id": 41,
+      "start": 103.6,
+      "end": 106.4,
+      "text": "So run can call run, pow, can call run,"
+    },
+    {
+      "id": 42,
+      "start": 106.4,
+      "end": 108.4,
+      "text": "but run cannot call pow."
+    },
+    {
+      "id": 43,
+      "start": 108.4,
+      "end": 110.0,
+      "text": "And the reason why we're gonna do this"
+    },
+    {
+      "id": 44,
+      "start": 110.0,
+      "end": 113.6,
+      "text": "is because we care about getting the last output"
+    },
+    {
+      "id": 45,
+      "start": 114.44,
+      "end": 117.84,
+      "text": "of whatever this, in our tail recursion calls, call stack,"
+    },
+    {
+      "id": 46,
+      "start": 117.84,
+      "end": 120.56,
+      "text": "and that then gets, as produces the output"
+    },
+    {
+      "id": 47,
+      "start": 120.56,
+      "end": 124.08,
+      "text": "to the select statement within our,"
+    },
+    {
+      "id": 48,
+      "start": 124.08,
+      "end": 126.16,
+      "text": "in our nested queries, right?"
+    },
+    {
+      "id": 49,
+      "start": 127.08,
+      "end": 129.76,
+      "text": "This is the outermost query is gonna produce the output,"
+    },
+    {
+      "id": 50,
+      "start": 129.76,
+      "end": 132.36,
+      "text": "and that's what would be the intermost recursive call."
+    },
+    {
+      "id": 51,
+      "start": 135.24,
+      "end": 137.08,
+      "text": "So, all right, so then we take this thing,"
+    },
+    {
+      "id": 52,
+      "start": 137.08,
+      "end": 139.12,
+      "text": "and now we convert this into SQL."
+    },
+    {
+      "id": 53,
+      "start": 139.12,
+      "end": 141.12,
+      "text": "So again, I'm not gonna go through all the details,"
+    },
+    {
+      "id": 54,
+      "start": 141.12,
+      "end": 143.48,
+      "text": "what it's all this, but basically think of like,"
+    },
+    {
+      "id": 55,
+      "start": 143.48,
+      "end": 146.4,
+      "text": "here's the set up all the variables,"
+    },
+    {
+      "id": 56,
+      "start": 146.4,
+      "end": 148.6,
+      "text": "well, that's this nested query inside of this,"
+    },
+    {
+      "id": 57,
+      "start": 149.6,
+      "end": 151.8,
+      "text": "and then we have our, our if and else,"
+    },
+    {
+      "id": 58,
+      "start": 151.8,
+      "end": 154.12,
+      "text": "and then this recursion calls here, right?"
+    },
+    {
+      "id": 59,
+      "start": 154.12,
+      "end": 156.68,
+      "text": "And that corresponds to this, the SQL statement like this."
+    },
+    {
+      "id": 60,
+      "start": 158.48,
+      "end": 159.32,
+      "text": "Right?"
+    },
+    {
+      "id": 61,
+      "start": 160.68,
+      "end": 163.32,
+      "text": "And then compiler magic happens, and then this works."
+    },
+    {
+      "id": 62,
+      "start": 168.0,
+      "end": 170.32,
+      "text": "All right, so, does it make a difference?"
+    },
+    {
+      "id": 63,
+      "start": 170.32,
+      "end": 175.32,
+      "text": "Well, for this one, they didn't have Freud,"
+    },
+    {
+      "id": 64,
+      "start": 176.56,
+      "end": 178.6,
+      "text": "so they can't compare against, is their approach better"
+    },
+    {
+      "id": 65,
+      "start": 178.6,
+      "end": 180.96,
+      "text": "than what Microsoft is doing?"
+    },
+    {
+      "id": 66,
+      "start": 180.96,
+      "end": 182.76,
+      "text": "They just compare to how much faster their approach"
+    },
+    {
+      "id": 67,
+      "start": 182.76,
+      "end": 185.92,
+      "text": "using all these nested CTEs versus,"
+    },
+    {
+      "id": 68,
+      "start": 188.28,
+      "end": 193.16,
+      "text": "letting Postgres just call you as it normally does."
+    },
+    {
+      "id": 69,
+      "start": 193.16,
+      "end": 195.96,
+      "text": "And in my example before, I showed how the,"
+    },
+    {
+      "id": 70,
+      "start": 195.96,
+      "end": 199.28,
+      "text": "my, the trial to show before, like for that really simple function,"
+    },
+    {
+      "id": 71,
+      "start": 199.28,
+      "end": 201.28,
+      "text": "it's actually faster just called the UDF,"
+    },
+    {
+      "id": 72,
+      "start": 201.28,
+      "end": 203.2,
+      "text": "and sure, for real simple things, this doesn't make sense."
+    },
+    {
+      "id": 73,
+      "start": 203.2,
+      "end": 205.32,
+      "text": "But if you're gonna, if you're gonna evoke the,"
+    },
+    {
+      "id": 74,
+      "start": 205.32,
+      "end": 208.48,
+      "text": "the UDF over, over a very large table,"
+    },
+    {
+      "id": 75,
+      "start": 208.48,
+      "end": 210.2,
+      "text": "then now you can start to see the divergence"
+    },
+    {
+      "id": 76,
+      "start": 210.2,
+      "end": 211.48,
+      "text": "between the different approaches."
+    },
+    {
+      "id": 77,
+      "start": 212.72,
+      "end": 215.08,
+      "text": "I would say also too that the,"
+    },
+    {
+      "id": 78,
+      "start": 215.08,
+      "end": 217.72,
+      "text": "I would say that the reason why this is not,"
+    },
+    {
+      "id": 79,
+      "start": 217.72,
+      "end": 219.68,
+      "text": "the performance gap is not as more significant,"
+    },
+    {
+      "id": 80,
+      "start": 219.68,
+      "end": 221.68,
+      "text": "it's because, again, the Postgres query optimist"
+    },
+    {
+      "id": 81,
+      "start": 221.68,
+      "end": 225.04,
+      "text": "is not as sophisticated as, as Microsoft's."
+    },
+    {
+      "id": 82,
+      "start": 225.04,
+      "end": 227.04,
+      "text": "So therefore, it's not gonna be able to do all the,"
+    },
+    {
+      "id": 83,
+      "start": 227.04,
+      "end": 231.08,
+      "text": "the, all the optimizations that I was showing before,"
+    },
+    {
+      "id": 84,
+      "start": 231.08,
+      "end": 232.96,
+      "text": "are breaking it down, removing dead code and,"
+    },
+    {
+      "id": 85,
+      "start": 232.96,
+      "end": 233.8,
+      "text": "and other things."
+    },
+    {
+      "id": 86,
+      "start": 237.36,
+      "end": 240.0,
+      "text": "All right, so the last one approach I'm gonna show you is bashing."
+    },
+    {
+      "id": 87,
+      "start": 240.0,
+      "end": 241.16,
+      "text": "Again, so the background here,"
+    },
+    {
+      "id": 88,
+      "start": 241.16,
+      "end": 243.32,
+      "text": "this actually came out of a 721 project,"
+    },
+    {
+      "id": 89,
+      "start": 244.48,
+      "end": 247.08,
+      "text": "that Sam and, and another student were working on last year."
+    },
+    {
+      "id": 90,
+      "start": 247.08,
+      "end": 251.16,
+      "text": "And the, the CMEU undergrad,"
+    },
+    {
+      "id": 91,
+      "start": 251.16,
+      "end": 252.36,
+      "text": "sort of independently,"
+    },
+    {
+      "id": 92,
+      "start": 254.24,
+      "end": 256.24,
+      "text": "developed this, this technique,"
+    },
+    {
+      "id": 93,
+      "start": 256.24,
+      "end": 258.36,
+      "text": "and then we found a master's thesis"
+    },
+    {
+      "id": 94,
+      "start": 258.36,
+      "end": 260.32,
+      "text": "from the Germans that did FEL,"
+    },
+    {
+      "id": 95,
+      "start": 260.32,
+      "end": 262.32,
+      "text": "that's, they invented the bashing technique,"
+    },
+    {
+      "id": 96,
+      "start": 262.32,
+      "end": 264.0,
+      "text": "but then we found another paper from,"
+    },
+    {
+      "id": 97,
+      "start": 264.0,
+      "end": 266.84,
+      "text": "from the Freud guys, P.C. advisor from 2008,"
+    },
+    {
+      "id": 98,
+      "start": 266.84,
+      "end": 268.08,
+      "text": "who actually invented it before anyone else,"
+    },
+    {
+      "id": 99,
+      "start": 268.08,
+      "end": 269.64,
+      "text": "but in that version 2008,"
+    },
+    {
+      "id": 100,
+      "start": 269.64,
+      "end": 272.04,
+      "text": "required changes to the query optimizer itself"
+    },
+    {
+      "id": 101,
+      "start": 272.04,
+      "end": 273.2,
+      "text": "to make this all work,"
+    },
+    {
+      "id": 102,
+      "start": 273.2,
+      "end": 276.08,
+      "text": "in our version that they developed here,"
+    },
+    {
+      "id": 103,
+      "start": 276.08,
+      "end": 277.32,
+      "text": "and with the, with the, the,"
+    },
+    {
+      "id": 104,
+      "start": 277.32,
+      "end": 279.4,
+      "text": "the Tvoygen Germans, the FEL Germans,"
+    },
+    {
+      "id": 105,
+      "start": 279.4,
+      "end": 282.4,
+      "text": "you don't have to make any changes to the optimizer, right?"
+    },
+    {
+      "id": 106,
+      "start": 282.4,
+      "end": 285.16,
+      "text": "So the idea here is that we're gonna translate the,"
+    },
+    {
+      "id": 107,
+      "start": 285.16,
+      "end": 289.0,
+      "text": "a UDF into a series of update statements."
+    },
+    {
+      "id": 108,
+      "start": 289.0,
+      "end": 290.48,
+      "text": "We're not gonna, we're not connecting them together"
+    },
+    {
+      "id": 109,
+      "start": 290.48,
+      "end": 291.32,
+      "text": "with lateral joins,"
+    },
+    {
+      "id": 110,
+      "start": 291.32,
+      "end": 292.24,
+      "text": "it's literally like,"
+    },
+    {
+      "id": 111,
+      "start": 292.24,
+      "end": 294.76,
+      "text": "it's gonna be one query evoked after another."
+    },
+    {
+      "id": 112,
+      "start": 294.76,
+      "end": 296.24,
+      "text": "And what they're gonna do is,"
+    },
+    {
+      "id": 113,
+      "start": 296.24,
+      "end": 297.64,
+      "text": "they're gonna do some on a computation"
+    },
+    {
+      "id": 114,
+      "start": 297.64,
+      "end": 302.16,
+      "text": "in the set clauses to then set values in a state table,"
+    },
+    {
+      "id": 115,
+      "start": 302.16,
+      "end": 304.2,
+      "text": "that's gonna be, as if we're maintaining those,"
+    },
+    {
+      "id": 116,
+      "start": 304.2,
+      "end": 305.04,
+      "text": "the, the, the, the, the equivalent"
+    },
+    {
+      "id": 117,
+      "start": 305.04,
+      "end": 307.2,
+      "text": "to the variables that are in the UDF,"
+    },
+    {
+      "id": 118,
+      "start": 307.2,
+      "end": 308.52,
+      "text": "UDF itself."
+    },
+    {
+      "id": 119,
+      "start": 308.52,
+      "end": 310.16,
+      "text": "So when we evoke the UDF,"
+    },
+    {
+      "id": 120,
+      "start": 310.16,
+      "end": 311.88,
+      "text": "we first create this temp table,"
+    },
+    {
+      "id": 121,
+      "start": 311.88,
+      "end": 313.24,
+      "text": "we instantiate all the,"
+    },
+    {
+      "id": 122,
+      "start": 313.24,
+      "end": 314.68,
+      "text": "the attributes for each variables"
+    },
+    {
+      "id": 123,
+      "start": 314.68,
+      "end": 316.04,
+      "text": "that are in the UDF,"
+    },
+    {
+      "id": 124,
+      "start": 316.04,
+      "end": 317.68,
+      "text": "then we have a series of updates"
+    },
+    {
+      "id": 125,
+      "start": 317.68,
+      "end": 319.92,
+      "text": "that then update these variables"
+    },
+    {
+      "id": 126,
+      "start": 319.92,
+      "end": 321.08,
+      "text": "corresponding to the computation"
+    },
+    {
+      "id": 127,
+      "start": 321.08,
+      "end": 321.92,
+      "text": "that would be in the UDF."
+    },
+    {
+      "id": 128,
+      "start": 321.92,
+      "end": 324.0,
+      "text": "So we're doing that same translation we saw"
+    },
+    {
+      "id": 129,
+      "start": 324.0,
+      "end": 326.84,
+      "text": "with Freud of converting the UDF procedural statements"
+    },
+    {
+      "id": 130,
+      "start": 326.84,
+      "end": 329.4,
+      "text": "into corresponding SQL queries."
+    },
+    {
+      "id": 131,
+      "start": 331.12,
+      "end": 333.8,
+      "text": "So this is gonna be useful for any database system"
+    },
+    {
+      "id": 132,
+      "start": 333.8,
+      "end": 334.68,
+      "text": "which we'll see in a second,"
+    },
+    {
+      "id": 133,
+      "start": 334.68,
+      "end": 337.24,
+      "text": "that is not able to do the decorrelation stuff"
+    },
+    {
+      "id": 134,
+      "start": 337.24,
+      "end": 340.16,
+      "text": "that, that Freud and up-fell rely on, right?"
+    },
+    {
+      "id": 135,
+      "start": 340.16,
+      "end": 341.44,
+      "text": "We don't, convert those lateral joins"
+    },
+    {
+      "id": 136,
+      "start": 341.44,
+      "end": 344.68,
+      "text": "and get them down into the, to nested queries."
+    },
+    {
+      "id": 137,
+      "start": 346.4,
+      "end": 348.72,
+      "text": "So this is a,"
+    },
+    {
+      "id": 138,
+      "start": 348.72,
+      "end": 350.44,
+      "text": "this is a UDF from Procbench,"
+    },
+    {
+      "id": 139,
+      "start": 350.44,
+      "end": 351.28,
+      "text": "we'll talk about in a second,"
+    },
+    {
+      "id": 140,
+      "start": 351.28,
+      "end": 352.8,
+      "text": "this is the, this is the,"
+    },
+    {
+      "id": 141,
+      "start": 352.8,
+      "end": 354.44,
+      "text": "a paper, a follow-up paper that the,"
+    },
+    {
+      "id": 142,
+      "start": 354.44,
+      "end": 357.48,
+      "text": "the Freud guys put out of a real benchmark"
+    },
+    {
+      "id": 143,
+      "start": 357.48,
+      "end": 359.44,
+      "text": "that's based on all these UDS"
+    },
+    {
+      "id": 144,
+      "start": 359.44,
+      "end": 361.32,
+      "text": "they were seeing in real customers."
+    },
+    {
+      "id": 145,
+      "start": 361.32,
+      "end": 363.36,
+      "text": "So it's sort of a synthetic version"
+    },
+    {
+      "id": 146,
+      "start": 363.36,
+      "end": 365.32,
+      "text": "of what UDF's look like."
+    },
+    {
+      "id": 147,
+      "start": 365.32,
+      "end": 367.32,
+      "text": "So this is from, from their example here."
+    },
+    {
+      "id": 148,
+      "start": 367.32,
+      "end": 367.88,
+      "text": "The, the, the, the,"
+    },
+    {
+      "id": 149,
+      "start": 367.88,
+      "end": 369.44,
+      "text": "the second thing is that you're,"
+    },
+    {
+      "id": 150,
+      "start": 369.44,
+      "end": 372.52,
+      "text": "you're doing a lookup on a,"
+    },
+    {
+      "id": 151,
+      "start": 372.52,
+      "end": 375.84,
+      "text": "on item ID to figure out what manufacturer has,"
+    },
+    {
+      "id": 152,
+      "start": 375.84,
+      "end": 377.52,
+      "text": "has sold the most of it."
+    },
+    {
+      "id": 153,
+      "start": 377.52,
+      "end": 380.44,
+      "text": "Right, so you have this, like, select query here."
+    },
+    {
+      "id": 154,
+      "start": 380.44,
+      "end": 381.76,
+      "text": "I say this is, there's,"
+    },
+    {
+      "id": 155,
+      "start": 381.76,
+      "end": 382.96,
+      "text": "there's three portions here,"
+    },
+    {
+      "id": 156,
+      "start": 382.96,
+      "end": 383.96,
+      "text": "there's three nested,"
+    },
+    {
+      "id": 157,
+      "start": 383.96,
+      "end": 385.72,
+      "text": "select queries here in these different blocks."
+    },
+    {
+      "id": 158,
+      "start": 385.72,
+      "end": 387.44,
+      "text": "And then say this is the call in query,"
+    },
+    {
+      "id": 159,
+      "start": 387.44,
+      "end": 388.6,
+      "text": "that's gonna invoke it, right?"
+    },
+    {
+      "id": 160,
+      "start": 388.6,
+      "end": 389.8,
+      "text": "And so inside of this,"
+    },
+    {
+      "id": 161,
+      "start": 389.8,
+      "end": 392.34,
+      "text": "you have the, you have some additional computation"
+    },
+    {
+      "id": 162,
+      "start": 392.34,
+      "end": 394.98,
+      "text": "you're doing, and then for every single record"
+    },
+    {
+      "id": 163,
+      "start": 394.98,
+      "end": 396.6,
+      "text": "within this, this query here,"
+    },
+    {
+      "id": 164,
+      "start": 396.6,
+      "end": 397.74,
+      "text": "you're trying to get all the,"
+    },
+    {
+      "id": 165,
+      "start": 397.74,
+      "end": 401.92,
+      "text": "all the, the first 25,000 most bought items,"
+    },
+    {
+      "id": 166,
+      "start": 401.92,
+      "end": 404.76,
+      "text": "then you, you're gonna invoke the UDF up above."
+    },
+    {
+      "id": 167,
+      "start": 404.76,
+      "end": 406.96,
+      "text": "So, I'm not gonna go through all this"
+    },
+    {
+      "id": 168,
+      "start": 406.96,
+      "end": 408.12,
+      "text": "in a little bit of detail,"
+    },
+    {
+      "id": 169,
+      "start": 408.12,
+      "end": 411.2,
+      "text": "but you think of this as like the combination of the UDF"
+    },
+    {
+      "id": 170,
+      "start": 411.2,
+      "end": 412.76,
+      "text": "plus the calling SQL query,"
+    },
+    {
+      "id": 171,
+      "start": 412.76,
+      "end": 415.28,
+      "text": "will get converted into a sequence of,"
+    },
+    {
+      "id": 172,
+      "start": 415.28,
+      "end": 417.4,
+      "text": "of SQL queries like this."
+    },
+    {
+      "id": 173,
+      "start": 417.4,
+      "end": 418.88,
+      "text": "And you can almost treat this as a,"
+    },
+    {
+      "id": 174,
+      "start": 418.88,
+      "end": 420.8,
+      "text": "again, like a, like a, like a SQL function,"
+    },
+    {
+      "id": 175,
+      "start": 420.8,
+      "end": 421.84,
+      "text": "although it has updates in it,"
+    },
+    {
+      "id": 176,
+      "start": 421.84,
+      "end": 423.12,
+      "text": "like, just think of like a macro,"
+    },
+    {
+      "id": 177,
+      "start": 423.12,
+      "end": 425.2,
+      "text": "this thing would get embedded when you call,"
+    },
+    {
+      "id": 178,
+      "start": 425.2,
+      "end": 427.32,
+      "text": "when you call the outer query like this."
+    },
+    {
+      "id": 179,
+      "start": 427.32,
+      "end": 428.64,
+      "text": "So in the first step here at the top,"
+    },
+    {
+      "id": 180,
+      "start": 428.64,
+      "end": 430.2,
+      "text": "here's that temp table we're creating,"
+    },
+    {
+      "id": 181,
+      "start": 430.2,
+      "end": 433.44,
+      "text": "and inside of that, you see that we're declaring attributes"
+    },
+    {
+      "id": 182,
+      "start": 433.44,
+      "end": 434.2,
+      "text": "inside our temp table,"
+    },
+    {
+      "id": 183,
+      "start": 434.2,
+      "end": 437.52,
+      "text": "that correspond to all the variables that we defined, right?"
+    },
+    {
+      "id": 184,
+      "start": 437.52,
+      "end": 440.84,
+      "text": "So we defined about a man variable, count one, count two,"
+    },
+    {
+      "id": 185,
+      "start": 440.84,
+      "end": 443.4,
+      "text": "all those are getting defined in the,"
+    },
+    {
+      "id": 186,
+      "start": 443.4,
+      "end": 445.12,
+      "text": "in the create tables, so."
+    },
+    {
+      "id": 187,
+      "start": 445.12,
+      "end": 447.56,
+      "text": "But then we're also gonna have this special return Boolean"
+    },
+    {
+      "id": 188,
+      "start": 447.56,
+      "end": 449.92,
+      "text": "that's gonna tell us whether this,"
+    },
+    {
+      "id": 189,
+      "start": 449.92,
+      "end": 451.88,
+      "text": "we want the value of this,"
+    },
+    {
+      "id": 190,
+      "start": 451.88,
+      "end": 454.24,
+      "text": "we want this record within this temp table corresponding"
+    },
+    {
+      "id": 191,
+      "start": 454.24,
+      "end": 455.96,
+      "text": "to a tuple that was passed into us,"
+    },
+    {
+      "id": 192,
+      "start": 455.96,
+      "end": 459.2,
+      "text": "should it get returned or not, right?"
+    },
+    {
+      "id": 193,
+      "start": 460.68,
+      "end": 462.68,
+      "text": "So you can sort of think as like the,"
+    },
+    {
+      "id": 194,
+      "start": 462.68,
+      "end": 465.48,
+      "text": "every single tuple in the, the temp table,"
+    },
+    {
+      "id": 195,
+      "start": 465.48,
+      "end": 467.24,
+      "text": "it's gonna correspond to a tuple"
+    },
+    {
+      "id": 196,
+      "start": 467.24,
+      "end": 469.56,
+      "text": "that would get passed into the UDF."
+    },
+    {
+      "id": 197,
+      "start": 469.56,
+      "end": 471.8,
+      "text": "So I have a thousand tuples, like a thousand,"
+    },
+    {
+      "id": 198,
+      "start": 473.04,
+      "end": 473.88,
+      "text": "what is this?"
+    },
+    {
+      "id": 199,
+      "start": 473.88,
+      "end": 474.72,
+      "text": "What is this?"
+    },
+    {
+      "id": 200,
+      "start": 474.72,
+      "end": 476.72,
+      "text": "A thousand web sale items or item IDs"
+    },
+    {
+      "id": 201,
+      "start": 476.72,
+      "end": 480.68,
+      "text": "that I have a thousand items in my, in my temp table."
+    },
+    {
+      "id": 202,
+      "start": 480.68,
+      "end": 482.68,
+      "text": "I'm just basically updating this giant state table"
+    },
+    {
+      "id": 203,
+      "start": 482.68,
+      "end": 483.96,
+      "text": "as I go along."
+    },
+    {
+      "id": 204,
+      "start": 484.08,
+      "end": 486.48,
+      "text": "And now when I do all my computations,"
+    },
+    {
+      "id": 205,
+      "start": 486.48,
+      "end": 489.2,
+      "text": "these, these, you know, what was done"
+    },
+    {
+      "id": 206,
+      "start": 489.2,
+      "end": 492.68,
+      "text": "at sort of one record at a time in my original UDF,"
+    },
+    {
+      "id": 207,
+      "start": 492.68,
+      "end": 495.08,
+      "text": "I can now invoke across all of the,"
+    },
+    {
+      "id": 208,
+      "start": 495.08,
+      "end": 496.96,
+      "text": "the tuples that are being passed into the UDF"
+    },
+    {
+      "id": 209,
+      "start": 496.96,
+      "end": 499.04,
+      "text": "at the same time, and they're all independently"
+    },
+    {
+      "id": 210,
+      "start": 499.04,
+      "end": 500.28,
+      "text": "updating their state table."
+    },
+    {
+      "id": 211,
+      "start": 502.48,
+      "end": 503.72,
+      "text": "And so the way I would invoke this,"
+    },
+    {
+      "id": 212,
+      "start": 503.72,
+      "end": 505.4,
+      "text": "this generate series is in SQL Standard."
+    },
+    {
+      "id": 213,
+      "start": 505.4,
+      "end": 508.48,
+      "text": "Basically, you can generate a list of numbers"
+    },
+    {
+      "id": 214,
+      "start": 508.48,
+      "end": 510.64,
+      "text": "from one to whatever, or zero for whatever."
+    },
+    {
+      "id": 215,
+      "start": 511.56,
+      "end": 513.08,
+      "text": "And it was doing a lateral join of that."
+    },
+    {
+      "id": 216,
+      "start": 513.08,
+      "end": 516.48,
+      "text": "So sort of seeding the computation to invoke the,"
+    },
+    {
+      "id": 217,
+      "start": 517.48,
+      "end": 519.48,
+      "text": "the degenerate result that I'm looking for,"
+    },
+    {
+      "id": 218,
+      "start": 519.48,
+      "end": 520.8,
+      "text": "and I'm producing the output that I need."
+    },
+    {
+      "id": 219,
+      "start": 520.8,
+      "end": 522.72,
+      "text": "And that's equivalent to invoking it,"
+    },
+    {
+      "id": 220,
+      "start": 522.72,
+      "end": 523.72,
+      "text": "the original UDF."
+    },
+    {
+      "id": 221,
+      "start": 525.28,
+      "end": 526.12,
+      "text": "Yes."
+    },
+    {
+      "id": 222,
+      "start": 526.12,
+      "end": 529.36,
+      "text": "You can't work for every single, like,"
+    },
+    {
+      "id": 223,
+      "start": 529.36,
+      "end": 531.32,
+      "text": "your validating stuff, I don't think that's going to work"
+    },
+    {
+      "id": 224,
+      "start": 531.32,
+      "end": 532.52,
+      "text": "because I don't feel like that,"
+    },
+    {
+      "id": 225,
+      "start": 532.52,
+      "end": 533.44,
+      "text": "but I don't think it's going to work"
+    },
+    {
+      "id": 226,
+      "start": 533.44,
+      "end": 534.92,
+      "text": "up every UDF, right?"
+    },
+    {
+      "id": 227,
+      "start": 534.92,
+      "end": 537.8,
+      "text": "Same as, it's not going to work out for every UDF."
+    },
+    {
+      "id": 228,
+      "start": 537.8,
+      "end": 538.96,
+      "text": "I think it does,"
+    },
+    {
+      "id": 229,
+      "start": 540.44,
+      "end": 542.4,
+      "text": "because even exceptions, you could handle that"
+    },
+    {
+      "id": 230,
+      "start": 542.4,
+      "end": 543.32,
+      "text": "through the state table."
+    },
+    {
+      "id": 231,
+      "start": 544.44,
+      "end": 545.76,
+      "text": "I think it's a more generalizable than,"
+    },
+    {
+      "id": 232,
+      "start": 545.76,
+      "end": 546.92,
+      "text": "than fluid or not felt."
+    },
+    {
+      "id": 233,
+      "start": 550.28,
+      "end": 553.32,
+      "text": "Because again, you could, you could potentially handle"
+    },
+    {
+      "id": 234,
+      "start": 553.32,
+      "end": 555.68,
+      "text": "dynamic queries, because you just put the string"
+    },
+    {
+      "id": 235,
+      "start": 555.68,
+      "end": 557.76,
+      "text": "that you're concatenating to the SQL,"
+    },
+    {
+      "id": 236,
+      "start": 557.76,
+      "end": 559.2,
+      "text": "you could put that in the state table."
+    },
+    {
+      "id": 237,
+      "start": 560.64,
+      "end": 562.56,
+      "text": "It's a little weird, but you could do it."
+    },
+    {
+      "id": 238,
+      "start": 565.76,
+      "end": 569.68,
+      "text": "Okay, so, I think I've already mentioned this, right?"
+    },
+    {
+      "id": 239,
+      "start": 569.68,
+      "end": 572.28,
+      "text": "So the, these are slides from SAM from last year,"
+    },
+    {
+      "id": 240,
+      "start": 572.44,
+      "end": 574.04,
+      "text": "so the Microsoft guys wrote the Freud paper,"
+    },
+    {
+      "id": 241,
+      "start": 574.04,
+      "end": 575.16,
+      "text": "they wrote the follow-up paper to Agify,"
+    },
+    {
+      "id": 242,
+      "start": 575.16,
+      "end": 576.44,
+      "text": "and then they put together the certain source bench"
+    },
+    {
+      "id": 243,
+      "start": 576.44,
+      "end": 577.8,
+      "text": "for our classical Procbench."
+    },
+    {
+      "id": 244,
+      "start": 577.8,
+      "end": 580.88,
+      "text": "That was, they argued was a faith representation"
+    },
+    {
+      "id": 245,
+      "start": 580.88,
+      "end": 583.28,
+      "text": "of what the, what real UDF actually looked like,"
+    },
+    {
+      "id": 246,
+      "start": 583.28,
+      "end": 585.56,
+      "text": "because prior to this, it wasn't anything."
+    },
+    {
+      "id": 247,
+      "start": 585.56,
+      "end": 588.16,
+      "text": "And you sort of classify the UDFs"
+    },
+    {
+      "id": 248,
+      "start": 588.16,
+      "end": 590.6,
+      "text": "into sort of two categories in the Procbench."
+    },
+    {
+      "id": 249,
+      "start": 590.6,
+      "end": 595.44,
+      "text": "The first are going to be UDS without any input parameters,"
+    },
+    {
+      "id": 250,
+      "start": 595.44,
+      "end": 599.0,
+      "text": "so select max return reason web, right?"
+    },
+    {
+      "id": 251,
+      "start": 599.0,
+      "end": 600.84,
+      "text": "Nothing gets passed into it,"
+    },
+    {
+      "id": 252,
+      "start": 600.84,
+      "end": 602.76,
+      "text": "and I'm just invoking this once."
+    },
+    {
+      "id": 253,
+      "start": 602.76,
+      "end": 603.76,
+      "text": "And so in this case, here,"
+    }
+  ],
+  "language": "en"
+}

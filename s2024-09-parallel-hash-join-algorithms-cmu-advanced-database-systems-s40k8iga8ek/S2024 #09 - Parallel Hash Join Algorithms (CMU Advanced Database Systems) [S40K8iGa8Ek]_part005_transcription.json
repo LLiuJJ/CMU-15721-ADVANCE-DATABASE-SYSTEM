@@ -1,0 +1,1403 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.92,
+      "text": "not truly perfect because you have to handle the corner cases."
+    },
+    {
+      "id": 1,
+      "start": 2.92,
+      "end": 6.0,
+      "text": "But for most of the keys, it's good enough."
+    },
+    {
+      "id": 2,
+      "start": 6.0,
+      "end": 8.28,
+      "text": "But most systems are going to do what Jake Nash is doing"
+    },
+    {
+      "id": 3,
+      "start": 8.28,
+      "end": 9.36,
+      "text": "in his perfect hash function."
+    },
+    {
+      "id": 4,
+      "start": 9.36,
+      "end": 11.32,
+      "text": "They're going to use something off the shelf."
+    },
+    {
+      "id": 5,
+      "start": 11.32,
+      "end": 13.52,
+      "text": "So to figure out what hash function you want to use,"
+    },
+    {
+      "id": 6,
+      "start": 13.52,
+      "end": 15.48,
+      "text": "again, we don't want to implement things ourselves."
+    },
+    {
+      "id": 7,
+      "start": 15.48,
+      "end": 20.44,
+      "text": "There's this GitHub repo for this thing called SMHASHER."
+    },
+    {
+      "id": 8,
+      "start": 20.44,
+      "end": 21.84,
+      "text": "And it's basically, in the same way"
+    },
+    {
+      "id": 9,
+      "start": 21.84,
+      "end": 23.44,
+      "text": "that I'm assessed about databases,"
+    },
+    {
+      "id": 10,
+      "start": 23.44,
+      "end": 25.64,
+      "text": "this guy's obsessed about hash functions."
+    },
+    {
+      "id": 11,
+      "start": 25.64,
+      "end": 28.48,
+      "text": "So he has this benchmark he runs for every possible hash"
+    },
+    {
+      "id": 12,
+      "start": 28.48,
+      "end": 29.88,
+      "text": "function that exists."
+    },
+    {
+      "id": 13,
+      "start": 29.88,
+      "end": 31.84,
+      "text": "And he keeps track of the collision rate and the throughput"
+    },
+    {
+      "id": 14,
+      "start": 31.84,
+      "end": 35.0,
+      "text": "and performance of them."
+    },
+    {
+      "id": 15,
+      "start": 35.0,
+      "end": 40.4,
+      "text": "And I think the Facebook XX hash and the murmur hash"
+    },
+    {
+      "id": 16,
+      "start": 40.4,
+      "end": 43.32,
+      "text": "does one usually rank pretty high."
+    },
+    {
+      "id": 17,
+      "start": 43.32,
+      "end": 44.32,
+      "text": "What's that?"
+    },
+    {
+      "id": 18,
+      "start": 44.32,
+      "end": 47.4,
+      "text": "What's the equivalent of the number?"
+    },
+    {
+      "id": 19,
+      "start": 47.4,
+      "end": 48.4,
+      "text": "Yeah."
+    },
+    {
+      "id": 20,
+      "start": 48.4,
+      "end": 49.44,
+      "text": "It's like a no-up."
+    },
+    {
+      "id": 21,
+      "start": 49.44,
+      "end": 51.08,
+      "text": "Yeah, it says no-up."
+    },
+    {
+      "id": 22,
+      "start": 51.08,
+      "end": 53.92,
+      "text": "Yeah."
+    },
+    {
+      "id": 23,
+      "start": 53.92,
+      "end": 57.88,
+      "text": "So here's a smattering over the ones that probably you'd"
+    },
+    {
+      "id": 24,
+      "start": 57.88,
+      "end": 59.56,
+      "text": "want to consider for your database system."
+    },
+    {
+      "id": 25,
+      "start": 59.56,
+      "end": 62.24,
+      "text": "So the one that the easy and fastest ones"
+    },
+    {
+      "id": 26,
+      "start": 62.24,
+      "end": 67.04,
+      "text": "to use is one of the oldest ones, the CRC from the 1970s."
+    },
+    {
+      "id": 27,
+      "start": 67.04,
+      "end": 68.64,
+      "text": "And the reason why we would consider this"
+    },
+    {
+      "id": 28,
+      "start": 68.64,
+      "end": 70.24,
+      "text": "in a database system today is because there's"
+    },
+    {
+      "id": 29,
+      "start": 70.24,
+      "end": 73.48,
+      "text": "actually CPU instructions to do this very efficiently."
+    },
+    {
+      "id": 30,
+      "start": 73.48,
+      "end": 75.6,
+      "text": "So some systems like Clickhouse will use, and hyper,"
+    },
+    {
+      "id": 31,
+      "start": 75.6,
+      "end": 80.4,
+      "text": "I think, use CRC for CRC32 for integers."
+    },
+    {
+      "id": 32,
+      "start": 80.4,
+      "end": 82.28,
+      "text": "Because again, it's going to be some of our instructions."
+    },
+    {
+      "id": 33,
+      "start": 82.28,
+      "end": 87.24,
+      "text": "And the collision rate is good enough."
+    },
+    {
+      "id": 34,
+      "start": 87.24,
+      "end": 93.4,
+      "text": "Remember hash is one of the first modern hash functions"
+    },
+    {
+      "id": 35,
+      "start": 93.4,
+      "end": 94.96,
+      "text": "that started the new era in 2008."
+    },
+    {
+      "id": 36,
+      "start": 94.96,
+      "end": 96.56,
+      "text": "And actually, I think this was invented by the guy that"
+    },
+    {
+      "id": 37,
+      "start": 96.56,
+      "end": 99.04,
+      "text": "runs the SMHASHR website."
+    },
+    {
+      "id": 38,
+      "start": 99.04,
+      "end": 100.96,
+      "text": "As far as I know, there's some random do"
+    },
+    {
+      "id": 39,
+      "start": 100.96,
+      "end": 103.0,
+      "text": "and put this thing on GitHub, but put it on the internet."
+    },
+    {
+      "id": 40,
+      "start": 103.0,
+      "end": 104.96,
+      "text": "And people just started using it."
+    },
+    {
+      "id": 41,
+      "start": 104.96,
+      "end": 106.8,
+      "text": "And I think it's up to remember hash three."
+    },
+    {
+      "id": 42,
+      "start": 106.8,
+      "end": 108.92,
+      "text": "And one of the papers they talk about how you can use"
+    },
+    {
+      "id": 43,
+      "start": 108.92,
+      "end": 111.88,
+      "text": "memory hash two, you can use that in SIMD"
+    },
+    {
+      "id": 44,
+      "start": 111.88,
+      "end": 114.92,
+      "text": "to do the vectorized lookups in a hash table."
+    },
+    {
+      "id": 45,
+      "start": 114.92,
+      "end": 116.28,
+      "text": "And so over the years, it's gotten better."
+    },
+    {
+      "id": 46,
+      "start": 116.28,
+      "end": 119.08,
+      "text": "Google then forked memory hash and created CityHash."
+    },
+    {
+      "id": 47,
+      "start": 119.08,
+      "end": 122.2,
+      "text": "Then they had a follow up called FarmHash, which"
+    },
+    {
+      "id": 48,
+      "start": 122.2,
+      "end": 125.28,
+      "text": "is just better collision, I think, for long strings."
+    },
+    {
+      "id": 49,
+      "start": 125.28,
+      "end": 128.0,
+      "text": "And then Facebook has this thing called XXHash, which"
+    },
+    {
+      "id": 50,
+      "start": 128.0,
+      "end": 129.6,
+      "text": "is up to version three."
+    },
+    {
+      "id": 51,
+      "start": 129.6,
+      "end": 133.4,
+      "text": "And that one, again, for performance and collision rate"
+    },
+    {
+      "id": 52,
+      "start": 133.4,
+      "end": 135.84,
+      "text": "for XXHash is pretty good."
+    },
+    {
+      "id": 53,
+      "start": 135.84,
+      "end": 138.64,
+      "text": "So probably memory hash, XXHash, and the combination"
+    },
+    {
+      "id": 54,
+      "start": 138.64,
+      "end": 143.16,
+      "text": "of CRC32 is probably what you would want to use."
+    },
+    {
+      "id": 55,
+      "start": 143.16,
+      "end": 143.68,
+      "text": "Yes?"
+    },
+    {
+      "id": 56,
+      "start": 143.76,
+      "end": 145.72,
+      "text": "Sounds like for any given algorithm,"
+    },
+    {
+      "id": 57,
+      "start": 145.72,
+      "end": 148.4,
+      "text": "you might be able to engineer data that you will probably"
+    },
+    {
+      "id": 58,
+      "start": 148.4,
+      "end": 149.24,
+      "text": "want back."
+    },
+    {
+      "id": 59,
+      "start": 149.24,
+      "end": 150.76,
+      "text": "We also, when you say better collision rates,"
+    },
+    {
+      "id": 60,
+      "start": 150.76,
+      "end": 154.08,
+      "text": "do you say better on average or do you work load?"
+    },
+    {
+      "id": 61,
+      "start": 154.08,
+      "end": 156.56,
+      "text": "Yes, the question is, if I say, could you come"
+    },
+    {
+      "id": 62,
+      "start": 156.56,
+      "end": 158.76,
+      "text": "into the generate cases to make one hash function be terrible?"
+    },
+    {
+      "id": 63,
+      "start": 158.76,
+      "end": 160.84,
+      "text": "Yes."
+    },
+    {
+      "id": 64,
+      "start": 160.84,
+      "end": 162.28,
+      "text": "And so with this thing, basically, you"
+    },
+    {
+      "id": 65,
+      "start": 162.28,
+      "end": 165.36,
+      "text": "try to try to do everything at it and figure out"
+    },
+    {
+      "id": 66,
+      "start": 165.36,
+      "end": 167.2,
+      "text": "what works the best and doesn't work best."
+    },
+    {
+      "id": 67,
+      "start": 167.2,
+      "end": 169.16,
+      "text": "And then what's the right trend between collision rate"
+    },
+    {
+      "id": 68,
+      "start": 169.16,
+      "end": 170.48,
+      "text": "versus performance?"
+    },
+    {
+      "id": 69,
+      "start": 170.48,
+      "end": 173.12,
+      "text": "And again, perfect hash function will have zero collisions,"
+    },
+    {
+      "id": 70,
+      "start": 173.12,
+      "end": 174.64,
+      "text": "but it's going to be super slow."
+    },
+    {
+      "id": 71,
+      "start": 174.64,
+      "end": 175.56,
+      "text": "Because you need hash function."
+    },
+    {
+      "id": 72,
+      "start": 175.56,
+      "end": 176.96,
+      "text": "You need hash table for your hash table."
+    },
+    {
+      "id": 73,
+      "start": 180.24,
+      "end": 184.76,
+      "text": "Like I said, in CRC32, it's going to be really fast,"
+    },
+    {
+      "id": 74,
+      "start": 184.76,
+      "end": 187.8,
+      "text": "but it may have a higher collision rate."
+    },
+    {
+      "id": 75,
+      "start": 187.8,
+      "end": 188.72,
+      "text": "It's hard to decide."
+    },
+    {
+      "id": 76,
+      "start": 188.72,
+      "end": 190.4,
+      "text": "And you can be able to pick one."
+    },
+    {
+      "id": 77,
+      "start": 190.4,
+      "end": 192.36,
+      "text": "Or they'll pick a hash function for inters"
+    },
+    {
+      "id": 78,
+      "start": 192.36,
+      "end": 193.64,
+      "text": "and separate hash function for strings."
+    },
+    {
+      "id": 79,
+      "start": 197.56,
+      "end": 199.64,
+      "text": "So now with our hash function, we"
+    },
+    {
+      "id": 80,
+      "start": 199.64,
+      "end": 201.32,
+      "text": "talk about what the hash and scheme can be."
+    },
+    {
+      "id": 81,
+      "start": 201.32,
+      "end": 203.24,
+      "text": "So some of these, I think, we covered the intro class,"
+    },
+    {
+      "id": 82,
+      "start": 203.24,
+      "end": 204.92,
+      "text": "but I'm going to go over them quickly again."
+    },
+    {
+      "id": 83,
+      "start": 204.92,
+      "end": 207.96,
+      "text": "And I think the two ones I want to focus on"
+    },
+    {
+      "id": 84,
+      "start": 207.96,
+      "end": 211.48,
+      "text": "Robin Hood hashing and Hopscott hashing."
+    },
+    {
+      "id": 85,
+      "start": 211.48,
+      "end": 215.24,
+      "text": "Because I think the paper talks about linear probing,"
+    },
+    {
+      "id": 86,
+      "start": 215.24,
+      "end": 217.58,
+      "text": "but there's a previous paper from the same Germans"
+    },
+    {
+      "id": 87,
+      "start": 217.58,
+      "end": 219.64,
+      "text": "from the paper you guys read that says Robin Hood hashing"
+    },
+    {
+      "id": 88,
+      "start": 219.64,
+      "end": 221.44,
+      "text": "usually works out."
+    },
+    {
+      "id": 89,
+      "start": 221.44,
+      "end": 225.56,
+      "text": "And then the Omborghies are going to use in their paper."
+    },
+    {
+      "id": 90,
+      "start": 225.56,
+      "end": 229.68,
+      "text": "But then I think it's still up for debate,"
+    },
+    {
+      "id": 91,
+      "start": 229.68,
+      "end": 231.44,
+      "text": "whether which one's actually better."
+    },
+    {
+      "id": 92,
+      "start": 231.44,
+      "end": 232.64,
+      "text": "Because people try Robin Hood and hashing."
+    },
+    {
+      "id": 93,
+      "start": 232.64,
+      "end": 236.4,
+      "text": "And it turns out it actually doesn't always work as well."
+    },
+    {
+      "id": 94,
+      "start": 236.4,
+      "end": 238.2,
+      "text": "So chain hashing, this is what most people think of when"
+    },
+    {
+      "id": 95,
+      "start": 238.2,
+      "end": 240.4,
+      "text": "they have a hash table or a hashing scheme."
+    },
+    {
+      "id": 96,
+      "start": 240.4,
+      "end": 242.6,
+      "text": "And this is what you get, I think, for the STL,"
+    },
+    {
+      "id": 97,
+      "start": 242.6,
+      "end": 244.12,
+      "text": "the center-type on library's unordered map"
+    },
+    {
+      "id": 98,
+      "start": 244.12,
+      "end": 247.72,
+      "text": "is this, the Java hash map is this."
+    },
+    {
+      "id": 99,
+      "start": 247.72,
+      "end": 252.08,
+      "text": "And the idea is that you're going to maintain a list of buckets."
+    },
+    {
+      "id": 100,
+      "start": 252.08,
+      "end": 255.16,
+      "text": "And these buckets are going to pointers to a link list."
+    },
+    {
+      "id": 101,
+      "start": 255.16,
+      "end": 256.44,
+      "text": "And then whenever I have a collision,"
+    },
+    {
+      "id": 102,
+      "start": 256.44,
+      "end": 260.08,
+      "text": "I follow along my chain to find the next free slot"
+    },
+    {
+      "id": 103,
+      "start": 260.08,
+      "end": 261.76,
+      "text": "to store something."
+    },
+    {
+      "id": 104,
+      "start": 261.76,
+      "end": 264.52,
+      "text": "And the length of each chain within a given bucket"
+    },
+    {
+      "id": 105,
+      "start": 264.52,
+      "end": 270.04,
+      "text": "can vary depending on the number of entries in it."
+    },
+    {
+      "id": 106,
+      "start": 270.04,
+      "end": 272.28,
+      "text": "So it really simple looks like this."
+    },
+    {
+      "id": 107,
+      "start": 272.28,
+      "end": 275.24,
+      "text": "Say I have my bucket pointers, and here's my buckets."
+    },
+    {
+      "id": 108,
+      "start": 275.24,
+      "end": 277.04,
+      "text": "So I want to put key A in."
+    },
+    {
+      "id": 109,
+      "start": 277.04,
+      "end": 277.96,
+      "text": "I hash it."
+    },
+    {
+      "id": 110,
+      "start": 277.96,
+      "end": 280.28,
+      "text": "It takes me to one of these bucket pointers."
+    },
+    {
+      "id": 111,
+      "start": 280.28,
+      "end": 285.04,
+      "text": "And then I jump to the first location of my chain"
+    },
+    {
+      "id": 112,
+      "start": 285.04,
+      "end": 286.04,
+      "text": "for this bucket."
+    },
+    {
+      "id": 113,
+      "start": 286.04,
+      "end": 288.68,
+      "text": "And I find a first free slot in my store A."
+    },
+    {
+      "id": 114,
+      "start": 288.68,
+      "end": 289.84,
+      "text": "No surprise there."
+    },
+    {
+      "id": 115,
+      "start": 289.84,
+      "end": 291.88,
+      "text": "Saying, B, the first bucket's empty,"
+    },
+    {
+      "id": 116,
+      "start": 291.88,
+      "end": 293.12,
+      "text": "stores it right away."
+    },
+    {
+      "id": 117,
+      "start": 293.12,
+      "end": 295.24,
+      "text": "In case of C, now I have a collision,"
+    },
+    {
+      "id": 118,
+      "start": 295.24,
+      "end": 296.68,
+      "text": "because I once go where A is."
+    },
+    {
+      "id": 119,
+      "start": 296.68,
+      "end": 298.44,
+      "text": "But I just do a sequential scan within my bucket"
+    },
+    {
+      "id": 120,
+      "start": 298.44,
+      "end": 304.28,
+      "text": "until I find the first free slot in my store."
+    },
+    {
+      "id": 121,
+      "start": 304.28,
+      "end": 306.8,
+      "text": "In case of D, D once go in this bucket as well."
+    },
+    {
+      "id": 122,
+      "start": 306.8,
+      "end": 309.6,
+      "text": "But now since I'm only showing two entries per bucket,"
+    },
+    {
+      "id": 123,
+      "start": 309.6,
+      "end": 311.12,
+      "text": "so it's obviously small."
+    },
+    {
+      "id": 124,
+      "start": 311.12,
+      "end": 313.4,
+      "text": "But now since this thing is full,"
+    },
+    {
+      "id": 125,
+      "start": 313.4,
+      "end": 318.2,
+      "text": "I have to extend my chain out for that like that."
+    },
+    {
+      "id": 126,
+      "start": 318.2,
+      "end": 321.56,
+      "text": "This should all be pretty understandable."
+    },
+    {
+      "id": 127,
+      "start": 321.56,
+      "end": 323.48,
+      "text": "Sorry."
+    },
+    {
+      "id": 128,
+      "start": 323.48,
+      "end": 325.72,
+      "text": "So the one trick that the hyper guys do,"
+    },
+    {
+      "id": 129,
+      "start": 325.72,
+      "end": 328.12,
+      "text": "which I don't think is discussed in this paper,"
+    },
+    {
+      "id": 130,
+      "start": 328.12,
+      "end": 329.88,
+      "text": "but they mentioned it in the morsels paper,"
+    },
+    {
+      "id": 131,
+      "start": 329.88,
+      "end": 335.2,
+      "text": "or the morsels paper or the compilation paper."
+    },
+    {
+      "id": 132,
+      "start": 335.2,
+      "end": 340.44,
+      "text": "So they recognize that this array of pointers here,"
+    },
+    {
+      "id": 133,
+      "start": 340.44,
+      "end": 343.92,
+      "text": "since in x86, even though when you say,"
+    },
+    {
+      "id": 134,
+      "start": 343.92,
+      "end": 346.2,
+      "text": "give me a pointer, it's 64 bits."
+    },
+    {
+      "id": 135,
+      "start": 346.2,
+      "end": 348.36,
+      "text": "In memory, the harbor actually only"
+    },
+    {
+      "id": 136,
+      "start": 348.36,
+      "end": 350.96,
+      "text": "looks at 48 bits."
+    },
+    {
+      "id": 137,
+      "start": 350.96,
+      "end": 353.52,
+      "text": "And so they say, hey, let's go take those extra 16 bits"
+    },
+    {
+      "id": 138,
+      "start": 353.52,
+      "end": 354.88,
+      "text": "that aren't being used by the hardware."
+    },
+    {
+      "id": 139,
+      "start": 354.88,
+      "end": 356.68,
+      "text": "Let's stash something in there."
+    },
+    {
+      "id": 140,
+      "start": 356.68,
+      "end": 362.0,
+      "text": "So they put a 16-bit bloom filter inside the pointer."
+    },
+    {
+      "id": 141,
+      "start": 362.0,
+      "end": 365.4,
+      "text": "The harbor ignores it, but they know to interpret that"
+    },
+    {
+      "id": 142,
+      "start": 365.4,
+      "end": 367.56,
+      "text": "the first 16 bits as a bloom filter."
+    },
+    {
+      "id": 143,
+      "start": 367.56,
+      "end": 370.36,
+      "text": "So they'll use that to check to see whether the key"
+    },
+    {
+      "id": 144,
+      "start": 370.36,
+      "end": 376.8,
+      "text": "even look for could even exist in my hash table or in my chain."
+    },
+    {
+      "id": 145,
+      "start": 376.8,
+      "end": 379.44,
+      "text": "And it's clever because it's like, I got to read this thing"
+    },
+    {
+      "id": 146,
+      "start": 379.44,
+      "end": 380.12,
+      "text": "anyway."
+    },
+    {
+      "id": 147,
+      "start": 380.12,
+      "end": 384.96,
+      "text": "It's going to be in L1 cache, in my last level cache."
+    },
+    {
+      "id": 148,
+      "start": 384.96,
+      "end": 387.76,
+      "text": "So let me go put as much information I can to potentially avoid"
+    },
+    {
+      "id": 149,
+      "start": 387.76,
+      "end": 391.28,
+      "text": "scanning along a chain and find nothing."
+    },
+    {
+      "id": 150,
+      "start": 391.28,
+      "end": 393.6,
+      "text": "So now when I do a look up and get g,"
+    },
+    {
+      "id": 151,
+      "start": 393.6,
+      "end": 394.72,
+      "text": "I check the bloom filter first."
+    },
+    {
+      "id": 152,
+      "start": 394.72,
+      "end": 397.04,
+      "text": "If it's not in there, then I know I don't need to follow the chain."
+    },
+    {
+      "id": 153,
+      "start": 400.88,
+      "end": 405.44,
+      "text": "So the next approach is do open-dress and hashing."
+    },
+    {
+      "id": 154,
+      "start": 405.44,
+      "end": 408.0,
+      "text": "This one is probably more common than the chain hashing, especially"
+    },
+    {
+      "id": 155,
+      "start": 408.0,
+      "end": 409.84,
+      "text": "where it joins."
+    },
+    {
+      "id": 156,
+      "start": 409.84,
+      "end": 416.36,
+      "text": "The idea here is that I just have this slot table slots."
+    },
+    {
+      "id": 157,
+      "start": 416.36,
+      "end": 419.56,
+      "text": "And when I want to do a look up, I hash something."
+    },
+    {
+      "id": 158,
+      "start": 419.56,
+      "end": 421.2,
+      "text": "I mod by the number of slots I have."
+    },
+    {
+      "id": 159,
+      "start": 421.2,
+      "end": 425.04,
+      "text": "I land in some location in this giant table, giant array."
+    },
+    {
+      "id": 160,
+      "start": 425.04,
+      "end": 429.2,
+      "text": "And if the slot is empty, then I put my thing in there."
+    },
+    {
+      "id": 161,
+      "start": 429.2,
+      "end": 432.0,
+      "text": "Or if the slot is full, then I keep scanning sequentially"
+    },
+    {
+      "id": 162,
+      "start": 432.0,
+      "end": 433.88,
+      "text": "to find a free slot."
+    },
+    {
+      "id": 163,
+      "start": 433.88,
+      "end": 435.92,
+      "text": "And then I can put my entry in there."
+    },
+    {
+      "id": 164,
+      "start": 435.92,
+      "end": 438.76,
+      "text": "Or if I end up wrapping around, come back to where I started"
+    },
+    {
+      "id": 165,
+      "start": 438.76,
+      "end": 440.44,
+      "text": "that, then I know I'm an infinite loop."
+    },
+    {
+      "id": 166,
+      "start": 440.44,
+      "end": 443.88,
+      "text": "And I have to stop and resize."
+    },
+    {
+      "id": 167,
+      "start": 443.88,
+      "end": 445.44,
+      "text": "And then when you want to do a deletion,"
+    },
+    {
+      "id": 168,
+      "start": 445.44,
+      "end": 448.12,
+      "text": "or when you do a look up, same thing."
+    },
+    {
+      "id": 169,
+      "start": 448.12,
+      "end": 451.88,
+      "text": "You jump to that location, look to see whether the thing you want"
+    },
+    {
+      "id": 170,
+      "start": 451.88,
+      "end": 456.04,
+      "text": "is there, and keep scanning, and maybe you find it."
+    },
+    {
+      "id": 171,
+      "start": 456.04,
+      "end": 457.68,
+      "text": "So that approach will be linear scanning."
+    },
+    {
+      "id": 172,
+      "start": 457.68,
+      "end": 459.0,
+      "text": "And this is what most people think of."
+    },
+    {
+      "id": 173,
+      "start": 459.0,
+      "end": 460.72,
+      "text": "When you think of open address hashable."
+    },
+    {
+      "id": 174,
+      "start": 460.72,
+      "end": 463.68,
+      "text": "There is variations called quadratic probing."
+    },
+    {
+      "id": 175,
+      "start": 463.68,
+      "end": 465.96,
+      "text": "The basic idea is that instead of scanning sequentially,"
+    },
+    {
+      "id": 176,
+      "start": 465.96,
+      "end": 468.72,
+      "text": "you just use a quadratic equation to jump"
+    },
+    {
+      "id": 177,
+      "start": 468.72,
+      "end": 473.08,
+      "text": "to exponentially larger ops."
+    },
+    {
+      "id": 178,
+      "start": 473.08,
+      "end": 474.64,
+      "text": "Why would you ever want to do quadratic?"
+    },
+    {
+      "id": 179,
+      "start": 474.64,
+      "end": 475.68,
+      "text": "These questions, why would you ever"
+    },
+    {
+      "id": 180,
+      "start": 475.68,
+      "end": 476.44,
+      "text": "do quadratic?"
+    },
+    {
+      "id": 181,
+      "start": 476.44,
+      "end": 478.24,
+      "text": "Because they avoid clustering."
+    },
+    {
+      "id": 182,
+      "start": 478.24,
+      "end": 480.6,
+      "text": "Because they have different keys won't always"
+    },
+    {
+      "id": 183,
+      "start": 480.6,
+      "end": 484.0,
+      "text": "be jumping to the same bunch of locations."
+    },
+    {
+      "id": 184,
+      "start": 484.0,
+      "end": 488.12,
+      "text": "But the downside is now you're doing much more random access."
+    },
+    {
+      "id": 185,
+      "start": 488.12,
+      "end": 490.08,
+      "text": "And you may be, you know."
+    },
+    {
+      "id": 186,
+      "start": 490.08,
+      "end": 491.6,
+      "text": "But again, there's no free launch."
+    },
+    {
+      "id": 187,
+      "start": 491.6,
+      "end": 494.28,
+      "text": "There's pros and cons about these versions."
+    },
+    {
+      "id": 188,
+      "start": 494.28,
+      "end": 499.0,
+      "text": "Those systems are going to do linear scanning."
+    },
+    {
+      "id": 189,
+      "start": 499.0,
+      "end": 501.12,
+      "text": "Again, this is just a rehashing of the intro class."
+    },
+    {
+      "id": 190,
+      "start": 501.12,
+      "end": 502.84,
+      "text": "Same thing I take."
+    },
+    {
+      "id": 191,
+      "start": 502.84,
+      "end": 503.76,
+      "text": "I'm going to put A in."
+    },
+    {
+      "id": 192,
+      "start": 503.76,
+      "end": 504.6,
+      "text": "I hash it."
+    },
+    {
+      "id": 193,
+      "start": 504.6,
+      "end": 505.88,
+      "text": "Come to this first slot."
+    },
+    {
+      "id": 194,
+      "start": 505.88,
+      "end": 506.4,
+      "text": "It's empty."
+    },
+    {
+      "id": 195,
+      "start": 506.4,
+      "end": 507.4,
+      "text": "I put my thing in there."
+    },
+    {
+      "id": 196,
+      "start": 507.4,
+      "end": 511.48,
+      "text": "Saining would be with C. Since it hashed this slot,"
+    },
+    {
+      "id": 197,
+      "start": 511.48,
+      "end": 512.44,
+      "text": "it has been A's in there."
+    },
+    {
+      "id": 198,
+      "start": 512.44,
+      "end": 514.12,
+      "text": "So I just scan down to the next one."
+    },
+    {
+      "id": 199,
+      "start": 514.12,
+      "end": 516.88,
+      "text": "And I find a free slot in the putter in there."
+    },
+    {
+      "id": 200,
+      "start": 516.88,
+      "end": 518.72,
+      "text": "D, same thing goes here."
+    },
+    {
+      "id": 201,
+      "start": 518.72,
+      "end": 520.36,
+      "text": "E starts once it goes A is."
+    },
+    {
+      "id": 202,
+      "start": 520.36,
+      "end": 522.48,
+      "text": "So I keep scanning down to I find the free slot."
+    },
+    {
+      "id": 203,
+      "start": 522.48,
+      "end": 526.52,
+      "text": "Then I can put E and F goes here at the bottom."
+    },
+    {
+      "id": 204,
+      "start": 526.52,
+      "end": 528.32,
+      "text": "And in this case here, if I say I had to put something"
+    },
+    {
+      "id": 205,
+      "start": 528.32,
+      "end": 532.8,
+      "text": "that hashes to, you know, I put it in one more key,"
+    },
+    {
+      "id": 206,
+      "start": 532.8,
+      "end": 534.2,
+      "text": "and this gets full."
+    },
+    {
+      "id": 207,
+      "start": 534.2,
+      "end": 536.4,
+      "text": "Now I try to put one another one in."
+    },
+    {
+      "id": 208,
+      "start": 536.4,
+      "end": 537.6,
+      "text": "Then it's going to loop around."
+    },
+    {
+      "id": 209,
+      "start": 537.6,
+      "end": 539.0,
+      "text": "And I have to keep track where I started."
+    },
+    {
+      "id": 210,
+      "start": 539.0,
+      "end": 540.12,
+      "text": "So I avoid breaking it out."
+    },
+    {
+      "id": 211,
+      "start": 540.44,
+      "end": 543.44,
+      "text": "Right?"
+    },
+    {
+      "id": 212,
+      "start": 543.44,
+      "end": 546.96,
+      "text": "So the obviously down side of linear probing"
+    },
+    {
+      "id": 213,
+      "start": 546.96,
+      "end": 548.8,
+      "text": "is that, or an open dressing scheme,"
+    },
+    {
+      "id": 214,
+      "start": 548.8,
+      "end": 553.32,
+      "text": "is that I'm potentially getting very far away from,"
+    },
+    {
+      "id": 215,
+      "start": 553.32,
+      "end": 555.68,
+      "text": "you know, if my hash it gets full,"
+    },
+    {
+      "id": 216,
+      "start": 555.68,
+      "end": 558.0,
+      "text": "I'm going to put a key in pretty far away from where"
+    },
+    {
+      "id": 217,
+      "start": 558.0,
+      "end": 559.96,
+      "text": "it actually wants to be."
+    },
+    {
+      "id": 218,
+      "start": 559.96,
+      "end": 562.44,
+      "text": "So now when I go to a lookup, I may"
+    },
+    {
+      "id": 219,
+      "start": 562.44,
+      "end": 567.2,
+      "text": "have to scan a bunch of entries on the thing I want."
+    },
+    {
+      "id": 220,
+      "start": 567.2,
+      "end": 570.0,
+      "text": "And in the worst case scenario, I"
+    },
+    {
+      "id": 221,
+      "start": 570.0,
+      "end": 572.32,
+      "text": "could almost wrap around at the very beginning"
+    },
+    {
+      "id": 222,
+      "start": 572.32,
+      "end": 573.68,
+      "text": "and define what I'm looking for."
+    },
+    {
+      "id": 223,
+      "start": 573.68,
+      "end": 575.92,
+      "text": "Right?"
+    },
+    {
+      "id": 224,
+      "start": 575.92,
+      "end": 579.56,
+      "text": "So the way to avoid this, having this infinite loop,"
+    },
+    {
+      "id": 225,
+      "start": 579.56,
+      "end": 581.84,
+      "text": "is you just try to double the hash it,"
+    },
+    {
+      "id": 226,
+      "start": 581.84,
+      "end": 584.24,
+      "text": "or double the size of the number of keys you're going to put into it."
+    },
+    {
+      "id": 227,
+      "start": 584.24,
+      "end": 585.84,
+      "text": "And again, we know the number of keys we're going to put into it,"
+    },
+    {
+      "id": 228,
+      "start": 585.84,
+      "end": 590.32,
+      "text": "because we know the number of tuples are coming up."
+    },
+    {
+      "id": 229,
+      "start": 590.32,
+      "end": 592.56,
+      "text": "And we could allocate things ahead of time."
+    },
+    {
+      "id": 230,
+      "start": 592.56,
+      "end": 595.36,
+      "text": "If we get it wrong, then we have to resize."
+    },
+    {
+      "id": 231,
+      "start": 596.32,
+      "end": 601.32,
+      "text": "A good approximation is to double the rookies I expect to have."
+    },
+    {
+      "id": 232,
+      "start": 601.32,
+      "end": 602.2,
+      "text": "And on the resize, you just"
+    }
+  ],
+  "language": "en"
+}

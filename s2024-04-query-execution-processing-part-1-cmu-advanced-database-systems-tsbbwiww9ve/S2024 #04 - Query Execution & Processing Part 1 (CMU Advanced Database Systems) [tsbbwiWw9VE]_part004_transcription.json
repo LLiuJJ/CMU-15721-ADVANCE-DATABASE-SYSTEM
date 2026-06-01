@@ -1,0 +1,1493 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.84,
+      "text": "more data."
+    },
+    {
+      "id": 1,
+      "start": 2.84,
+      "end": 4.68,
+      "text": "And you can think of within that operator,"
+    },
+    {
+      "id": 2,
+      "start": 4.68,
+      "end": 6.76,
+      "text": "it's just going to be a for loop that's"
+    },
+    {
+      "id": 3,
+      "start": 6.76,
+      "end": 10.64,
+      "text": "going to retrieve all the tuples that it needs from its"
+    },
+    {
+      "id": 4,
+      "start": 10.64,
+      "end": 11.68,
+      "text": "shout operators."
+    },
+    {
+      "id": 5,
+      "start": 11.68,
+      "end": 13.92,
+      "text": "And depending on whether it's a pipeline breaker or not,"
+    },
+    {
+      "id": 6,
+      "start": 13.92,
+      "end": 16.32,
+      "text": "it either gets all the data from its children"
+    },
+    {
+      "id": 7,
+      "start": 16.32,
+      "end": 19.56,
+      "text": "if it is a pipeline breaker or it can just get one tuple."
+    },
+    {
+      "id": 8,
+      "start": 19.56,
+      "end": 21.6,
+      "text": "And it longs it satisfies whatever that operator wants to"
+    },
+    {
+      "id": 9,
+      "start": 21.6,
+      "end": 26.0,
+      "text": "do on it and can boost the output, then it's done."
+    },
+    {
+      "id": 10,
+      "start": 26.0,
+      "end": 28.56,
+      "text": "So you sort of think of like the way you actually"
+    },
+    {
+      "id": 11,
+      "start": 28.56,
+      "end": 30.44,
+      "text": "implement this, you have these open and close functions"
+    },
+    {
+      "id": 12,
+      "start": 30.44,
+      "end": 32.44,
+      "text": "on the operator, it's like constructors or deconstructors"
+    },
+    {
+      "id": 13,
+      "start": 32.44,
+      "end": 33.08,
+      "text": "for your operators."
+    },
+    {
+      "id": 14,
+      "start": 33.08,
+      "end": 36.56,
+      "text": "And then you open it, call next, next, next on it, get"
+    },
+    {
+      "id": 15,
+      "start": 36.56,
+      "end": 37.32,
+      "text": "all the output you want."
+    },
+    {
+      "id": 16,
+      "start": 37.32,
+      "end": 38.84,
+      "text": "And then when it says I'm done, then you call close."
+    },
+    {
+      "id": 17,
+      "start": 38.84,
+      "end": 41.16,
+      "text": "And that cleans everything up."
+    },
+    {
+      "id": 18,
+      "start": 41.16,
+      "end": 42.84,
+      "text": "So let's look at a high level example."
+    },
+    {
+      "id": 19,
+      "start": 42.84,
+      "end": 46.8,
+      "text": "So we want to join R and S. And we have a join conditional on"
+    },
+    {
+      "id": 20,
+      "start": 46.8,
+      "end": 47.72,
+      "text": "RID, SID."
+    },
+    {
+      "id": 21,
+      "start": 47.72,
+      "end": 50.56,
+      "text": "And then we have an additional wear clause where S value is"
+    },
+    {
+      "id": 22,
+      "start": 50.56,
+      "end": 52.32,
+      "text": "greater than 100."
+    },
+    {
+      "id": 23,
+      "start": 52.32,
+      "end": 54.44,
+      "text": "So you can sort of think of like each of these operator"
+    },
+    {
+      "id": 24,
+      "start": 54.44,
+      "end": 56.48,
+      "text": "can have these implementations."
+    },
+    {
+      "id": 25,
+      "start": 56.48,
+      "end": 59.16,
+      "text": "As I said, they're going to be basically just four loops"
+    },
+    {
+      "id": 26,
+      "start": 59.16,
+      "end": 62.76,
+      "text": "that's going to make calls to its children operators to"
+    },
+    {
+      "id": 27,
+      "start": 62.76,
+      "end": 67.4,
+      "text": "pull data up or move data up and then produce output if"
+    },
+    {
+      "id": 28,
+      "start": 67.4,
+      "end": 68.64,
+      "text": "when it's available."
+    },
+    {
+      "id": 29,
+      "start": 68.64,
+      "end": 71.6,
+      "text": "So you can think of these blocks of code here."
+    },
+    {
+      "id": 30,
+      "start": 71.6,
+      "end": 74.28,
+      "text": "These are all the next functions."
+    },
+    {
+      "id": 31,
+      "start": 74.28,
+      "end": 76.2,
+      "text": "So we're going to start off."
+    },
+    {
+      "id": 32,
+      "start": 76.2,
+      "end": 78.4,
+      "text": "The database says, OK, I want to run this query."
+    },
+    {
+      "id": 33,
+      "start": 78.4,
+      "end": 81.68,
+      "text": "As soon we're going from the top to the bottom, we would"
+    },
+    {
+      "id": 34,
+      "start": 81.68,
+      "end": 85.36,
+      "text": "call next on the first operator here."
+    },
+    {
+      "id": 35,
+      "start": 85.36,
+      "end": 87.76,
+      "text": "And then immediately inside that, we have this for loop that"
+    },
+    {
+      "id": 36,
+      "start": 87.76,
+      "end": 90.96,
+      "text": "says call next on my child operator."
+    },
+    {
+      "id": 37,
+      "start": 90.96,
+      "end": 92.96,
+      "text": "So that is a blocking call."
+    },
+    {
+      "id": 38,
+      "start": 92.96,
+      "end": 97.56,
+      "text": "So the control flow would move from the top operator to the"
+    },
+    {
+      "id": 39,
+      "start": 97.56,
+      "end": 100.6,
+      "text": "second operator here to do the hash join where immediately"
+    },
+    {
+      "id": 40,
+      "start": 100.6,
+      "end": 102.8,
+      "text": "inside that one, we have a for loop that says call next on"
+    },
+    {
+      "id": 41,
+      "start": 102.8,
+      "end": 104.92,
+      "text": "the child because it wants to build the hash table."
+    },
+    {
+      "id": 42,
+      "start": 104.92,
+      "end": 107.32,
+      "text": "So then the control flow takes us down here."
+    },
+    {
+      "id": 43,
+      "start": 107.32,
+      "end": 111.36,
+      "text": "And now we're just iterating over the table R and"
+    },
+    {
+      "id": 44,
+      "start": 111.36,
+      "end": 114.0,
+      "text": "we're calling a bit, which is the return control or"
+    },
+    {
+      "id": 45,
+      "start": 114.0,
+      "end": 117.28,
+      "text": "sending one tuple back up to the calling function."
+    },
+    {
+      "id": 46,
+      "start": 117.28,
+      "end": 119.52,
+      "text": "And so there's some state inside of these operators that"
+    },
+    {
+      "id": 47,
+      "start": 119.52,
+      "end": 121.6,
+      "text": "keeps track of the last time you call next."
+    },
+    {
+      "id": 48,
+      "start": 121.6,
+      "end": 122.6,
+      "text": "Here's where I was."
+    },
+    {
+      "id": 49,
+      "start": 122.6,
+      "end": 126.52,
+      "text": "Here's where my cursor was when I was scanning the table."
+    },
+    {
+      "id": 50,
+      "start": 126.52,
+      "end": 129.44,
+      "text": "So we're going to keep calling next on the bottom operator"
+    },
+    {
+      "id": 51,
+      "start": 129.44,
+      "end": 132.12,
+      "text": "here until we get all the data until we get into file."
+    },
+    {
+      "id": 52,
+      "start": 132.12,
+      "end": 134.12,
+      "text": "And at this point here, we know our hash table has all the"
+    },
+    {
+      "id": 53,
+      "start": 134.12,
+      "end": 135.48,
+      "text": "tuples we need."
+    },
+    {
+      "id": 54,
+      "start": 135.48,
+      "end": 137.56,
+      "text": "So again, we won't have any false negatives."
+    },
+    {
+      "id": 55,
+      "start": 137.56,
+      "end": 141.04,
+      "text": "So then I go down to the next block in my operator and"
+    },
+    {
+      "id": 56,
+      "start": 141.04,
+      "end": 144.12,
+      "text": "calling next on my child on the right child."
+    },
+    {
+      "id": 57,
+      "start": 144.12,
+      "end": 146.8,
+      "text": "So I come down this side, same things, scan over R, pass it"
+    },
+    {
+      "id": 58,
+      "start": 146.8,
+      "end": 147.96,
+      "text": "up to the next operator."
+    },
+    {
+      "id": 59,
+      "start": 147.96,
+      "end": 149.16,
+      "text": "It applies the predicate."
+    },
+    {
+      "id": 60,
+      "start": 149.16,
+      "end": 152.0,
+      "text": "If that gets, that gets, uh, satisfied predicate, then it"
+    },
+    {
+      "id": 61,
+      "start": 152.0,
+      "end": 154.64,
+      "text": "sends it up to do the probe, right?"
+    },
+    {
+      "id": 62,
+      "start": 154.64,
+      "end": 158.84,
+      "text": "So you sort of, day, day, day, chain these things up like this."
+    },
+    {
+      "id": 63,
+      "start": 158.84,
+      "end": 161.28,
+      "text": "So again, going back to the notion of pipelines, sort of"
+    },
+    {
+      "id": 64,
+      "start": 161.28,
+      "end": 163.28,
+      "text": "think of like this block three and the first half of"
+    },
+    {
+      "id": 65,
+      "start": 163.28,
+      "end": 166.64,
+      "text": "block two, that's pipeline, pipeline one."
+    },
+    {
+      "id": 66,
+      "start": 166.64,
+      "end": 170.52,
+      "text": "And then this five, four, the bottom two and one, that's"
+    },
+    {
+      "id": 67,
+      "start": 170.52,
+      "end": 172.04,
+      "text": "pipeline two."
+    },
+    {
+      "id": 68,
+      "start": 172.04,
+      "end": 178.28,
+      "text": "So I XU pipeline one, uh, ideally, and then, sorry, in this"
+    },
+    {
+      "id": 69,
+      "start": 178.28,
+      "end": 181.2,
+      "text": "case here, you're, there's pipeline boundaries, but you're"
+    },
+    {
+      "id": 70,
+      "start": 181.2,
+      "end": 183.24,
+      "text": "not doing any optimizations, right?"
+    },
+    {
+      "id": 71,
+      "start": 183.24,
+      "end": 186.2,
+      "text": "Because implicitly, the code is set up so you know that you"
+    },
+    {
+      "id": 72,
+      "start": 186.2,
+      "end": 188.72,
+      "text": "can't run the second pipeline until the first part is"
+    },
+    {
+      "id": 73,
+      "start": 188.72,
+      "end": 190.84,
+      "text": "actually done, right?"
+    },
+    {
+      "id": 74,
+      "start": 190.84,
+      "end": 192.96,
+      "text": "So again, this will differ when we see the operator"
+    },
+    {
+      "id": 75,
+      "start": 192.96,
+      "end": 195.12,
+      "text": "fusion technique or the push based approach, because"
+    },
+    {
+      "id": 76,
+      "start": 195.12,
+      "end": 197.4,
+      "text": "they're actually going to try to combine these within a"
+    },
+    {
+      "id": 77,
+      "start": 197.4,
+      "end": 200.96,
+      "text": "single-operative instance, uh, and not have these, you"
+    },
+    {
+      "id": 78,
+      "start": 200.96,
+      "end": 203.04,
+      "text": "know, calling next within, within themselves."
+    },
+    {
+      "id": 79,
+      "start": 203.04,
+      "end": 207.44,
+      "text": "So that said, this is pretty much what everybody implements,"
+    },
+    {
+      "id": 80,
+      "start": 207.44,
+      "end": 211.0,
+      "text": "uh, in, in the first database systems that they built"
+    },
+    {
+      "id": 81,
+      "start": 211.0,
+      "end": 213.84,
+      "text": "or a Rostro system, bus top is based on this, yes."
+    },
+    {
+      "id": 82,
+      "start": 213.84,
+      "end": 216.04,
+      "text": "And then, for this slide, wouldn't you want to build a hash"
+    },
+    {
+      "id": 83,
+      "start": 216.04,
+      "end": 219.04,
+      "text": "table on the table that has the filter?"
+    },
+    {
+      "id": 84,
+      "start": 219.04,
+      "end": 221.88,
+      "text": "Hey, it's question is, should you want to build a hash"
+    },
+    {
+      "id": 85,
+      "start": 221.88,
+      "end": 223.88,
+      "text": "table, or the one that has the filter?"
+    },
+    {
+      "id": 86,
+      "start": 223.88,
+      "end": 225.44,
+      "text": "You don't know, right?"
+    },
+    {
+      "id": 87,
+      "start": 225.44,
+      "end": 226.88,
+      "text": "First of all, this is a logical diagram."
+    },
+    {
+      "id": 88,
+      "start": 226.88,
+      "end": 228.36,
+      "text": "It's a PowerPoint slide, right?"
+    },
+    {
+      "id": 89,
+      "start": 228.36,
+      "end": 231.36,
+      "text": "I don't have a stat here, but what if this thing is like one"
+    },
+    {
+      "id": 90,
+      "start": 231.36,
+      "end": 232.36,
+      "text": "tubal?"
+    },
+    {
+      "id": 91,
+      "start": 234.36,
+      "end": 235.36,
+      "text": "Right?"
+    },
+    {
+      "id": 92,
+      "start": 235.36,
+      "end": 243.92,
+      "text": "So, anyway, um, so the, all right, so the iterative"
+    },
+    {
+      "id": 93,
+      "start": 243.92,
+      "end": 246.32,
+      "text": "model is, which everybody implements, uh,"
+    },
+    {
+      "id": 94,
+      "start": 246.32,
+      "end": 248.92,
+      "text": "output control is really easy for this because if you,"
+    },
+    {
+      "id": 95,
+      "start": 248.92,
+      "end": 251.28,
+      "text": "if you know you've got enough tuples that's the output,"
+    },
+    {
+      "id": 96,
+      "start": 251.28,
+      "end": 254.76,
+      "text": "you just stop calling next and you finish, right?"
+    },
+    {
+      "id": 97,
+      "start": 254.8,
+      "end": 256.28,
+      "text": "The downside though is that the, we're,"
+    },
+    {
+      "id": 98,
+      "start": 256.28,
+      "end": 259.2,
+      "text": "we're basically mixing control flow with data flow,"
+    },
+    {
+      "id": 99,
+      "start": 259.2,
+      "end": 260.52,
+      "text": "again, going back quickly."
+    },
+    {
+      "id": 100,
+      "start": 260.52,
+      "end": 264.12,
+      "text": "Like, there's no way to sort of say, okay,"
+    },
+    {
+      "id": 101,
+      "start": 264.12,
+      "end": 267.2,
+      "text": "I don't want to execute this thing anymore, uh,"
+    },
+    {
+      "id": 102,
+      "start": 267.2,
+      "end": 270.32,
+      "text": "because I've got enough data, um, or stop exceeding certain"
+    },
+    {
+      "id": 103,
+      "start": 270.32,
+      "end": 273.28,
+      "text": "parts because, you know, I'm calling next to get, to get"
+    },
+    {
+      "id": 104,
+      "start": 273.28,
+      "end": 275.6,
+      "text": "things up, right?"
+    },
+    {
+      "id": 105,
+      "start": 275.6,
+      "end": 278.28,
+      "text": "Everything's a, like, if I call next on this, and plus,"
+    },
+    {
+      "id": 106,
+      "start": 278.28,
+      "end": 280.2,
+      "text": "like, isn't a call next on its children, right?"
+    },
+    {
+      "id": 107,
+      "start": 280.2,
+      "end": 283.68,
+      "text": "Because that's sort of how the, the query plan's been set up."
+    },
+    {
+      "id": 108,
+      "start": 283.68,
+      "end": 285.92,
+      "text": "Or the, that's how the iterative model, uh,"
+    },
+    {
+      "id": 109,
+      "start": 285.92,
+      "end": 289.16,
+      "text": "allows you to control the behavior of the execution."
+    },
+    {
+      "id": 110,
+      "start": 289.16,
+      "end": 290.56,
+      "text": "It's gonna also do pipelining."
+    },
+    {
+      "id": 111,
+      "start": 290.56,
+      "end": 293.0,
+      "text": "Uh, again, the idea here is that we want to have,"
+    },
+    {
+      "id": 112,
+      "start": 293.0,
+      "end": 297.16,
+      "text": "for every single tuple that we get from a, um,"
+    },
+    {
+      "id": 113,
+      "start": 297.16,
+      "end": 298.76,
+      "text": "you know, from, from a child operator,"
+    },
+    {
+      "id": 114,
+      "start": 298.76,
+      "end": 301.76,
+      "text": "we want to do as much processing as we can up the query plan"
+    },
+    {
+      "id": 115,
+      "start": 301.76,
+      "end": 304.72,
+      "text": "until we get, uh, until we get a pipeline breaker"
+    },
+    {
+      "id": 116,
+      "start": 304.72,
+      "end": 306.16,
+      "text": "or produce the final output."
+    },
+    {
+      "id": 117,
+      "start": 306.16,
+      "end": 309.36,
+      "text": "And the idea is there we can maintain her,"
+    },
+    {
+      "id": 118,
+      "start": 309.36,
+      "end": 312.48,
+      "text": "we can achieve good cache locality because we bring a tuple in"
+    },
+    {
+      "id": 119,
+      "start": 312.48,
+      "end": 314.64,
+      "text": "and we do as much work as we can while it's in memory"
+    },
+    {
+      "id": 120,
+      "start": 314.64,
+      "end": 317.48,
+      "text": "before we go off to, to the next tuple."
+    },
+    {
+      "id": 121,
+      "start": 317.48,
+      "end": 318.96,
+      "text": "Right, until we hit a pipeline breaker,"
+    },
+    {
+      "id": 122,
+      "start": 318.96,
+      "end": 321.92,
+      "text": "which, again, we, we, we, we know we can't have an operator"
+    },
+    {
+      "id": 123,
+      "start": 321.92,
+      "end": 324.68,
+      "text": "complete until we get all its children to emit their tuples."
+    },
+    {
+      "id": 124,
+      "start": 324.68,
+      "end": 326.56,
+      "text": "So the bills side of joins, we have this problem,"
+    },
+    {
+      "id": 125,
+      "start": 326.56,
+      "end": 329.12,
+      "text": "subquery is depending whether they get rewritten or not,"
+    },
+    {
+      "id": 126,
+      "start": 329.12,
+      "end": 331.44,
+      "text": "and to join to have this problem in order by,"
+    },
+    {
+      "id": 127,
+      "start": 331.44,
+      "end": 333.2,
+      "text": "or sorting, obviously, has this problem."
+    },
+    {
+      "id": 128,
+      "start": 333.2,
+      "end": 335.04,
+      "text": "Some aggregations, min and max, right?"
+    },
+    {
+      "id": 129,
+      "start": 335.04,
+      "end": 338.04,
+      "text": "Same thing."
+    },
+    {
+      "id": 130,
+      "start": 338.04,
+      "end": 342.12,
+      "text": "So the, the downside though is that you're basically calling"
+    },
+    {
+      "id": 131,
+      "start": 342.24,
+      "end": 343.8,
+      "text": "next for every single tuple."
+    },
+    {
+      "id": 132,
+      "start": 343.8,
+      "end": 347.08,
+      "text": "If I have a billion tuples calling a billion function calls,"
+    },
+    {
+      "id": 133,
+      "start": 347.08,
+      "end": 348.8,
+      "text": "it's called next times the number,"
+    },
+    {
+      "id": 134,
+      "start": 348.8,
+      "end": 350.44,
+      "text": "whatever operators that I have or number tuples"
+    },
+    {
+      "id": 135,
+      "start": 350.44,
+      "end": 353.2,
+      "text": "that are being sent up, right?"
+    },
+    {
+      "id": 136,
+      "start": 353.2,
+      "end": 356.08,
+      "text": "So an alternative approach that was,"
+    },
+    {
+      "id": 137,
+      "start": 356.08,
+      "end": 359.72,
+      "text": "that was pioneered by MoNetb in the late 90s, early 2000s,"
+    },
+    {
+      "id": 138,
+      "start": 359.72,
+      "end": 362.6,
+      "text": "was to do what is called the materialization model"
+    },
+    {
+      "id": 139,
+      "start": 362.6,
+      "end": 367.6,
+      "text": "where every operator produces all its output, all the once."
+    },
+    {
+      "id": 140,
+      "start": 368.08,
+      "end": 369.64,
+      "text": "Any time you call it next on it,"
+    },
+    {
+      "id": 141,
+      "start": 369.64,
+      "end": 371.44,
+      "text": "it generates all the output and then hands that off"
+    },
+    {
+      "id": 142,
+      "start": 371.44,
+      "end": 372.84,
+      "text": "to the next operator."
+    },
+    {
+      "id": 143,
+      "start": 372.84,
+      "end": 374.4,
+      "text": "So once you call it next, you never go back"
+    },
+    {
+      "id": 144,
+      "start": 374.4,
+      "end": 377.4,
+      "text": "and ask for more data for it, right?"
+    },
+    {
+      "id": 145,
+      "start": 377.4,
+      "end": 379.12,
+      "text": "The idea is called materialization model,"
+    },
+    {
+      "id": 146,
+      "start": 379.12,
+      "end": 381.16,
+      "text": "because you materialize each operator's materializing"
+    },
+    {
+      "id": 147,
+      "start": 381.16,
+      "end": 383.88,
+      "text": "all its output as a single result."
+    },
+    {
+      "id": 148,
+      "start": 384.96,
+      "end": 387.32,
+      "text": "And again, the output could either be a single row,"
+    },
+    {
+      "id": 149,
+      "start": 387.32,
+      "end": 389.64,
+      "text": "a single column, or the entire table."
+    },
+    {
+      "id": 150,
+      "start": 389.64,
+      "end": 390.48,
+      "text": "Yes."
+    },
+    {
+      "id": 151,
+      "start": 390.48,
+      "end": 392.52,
+      "text": "Why is my rate of basically materialization?"
+    },
+    {
+      "id": 152,
+      "start": 392.52,
+      "end": 395.56,
+      "text": "Because the end of materializing the entire result."
+    },
+    {
+      "id": 153,
+      "start": 395.56,
+      "end": 397.08,
+      "text": "It's, David, is pipeline breakers,"
+    },
+    {
+      "id": 154,
+      "start": 397.08,
+      "end": 399.64,
+      "text": "or essentially the same thing is as,"
+    },
+    {
+      "id": 155,
+      "start": 399.64,
+      "end": 402.68,
+      "text": "pipeline breakers, because you materialize the entire result."
+    },
+    {
+      "id": 156,
+      "start": 402.68,
+      "end": 404.88,
+      "text": "Not necessarily, right?"
+    },
+    {
+      "id": 157,
+      "start": 404.88,
+      "end": 409.88,
+      "text": "Because I could call next on a pipeline breaker."
+    },
+    {
+      "id": 158,
+      "start": 412.24,
+      "end": 415.64,
+      "text": "Well, you're like, yeah, to point, yes."
+    },
+    {
+      "id": 159,
+      "start": 415.64,
+      "end": 416.96,
+      "text": "Like I could produce all the output"
+    },
+    {
+      "id": 160,
+      "start": 416.96,
+      "end": 419.24,
+      "text": "and then something's going to feed into that"
+    },
+    {
+      "id": 161,
+      "start": 419.24,
+      "end": 420.48,
+      "text": "pipeline breaker result."
+    },
+    {
+      "id": 162,
+      "start": 421.56,
+      "end": 422.96,
+      "text": "I could just get a single tuple."
+    },
+    {
+      "id": 163,
+      "start": 422.96,
+      "end": 424.6,
+      "text": "I wouldn't pass, because it's still like"
+    },
+    {
+      "id": 164,
+      "start": 424.6,
+      "end": 425.84,
+      "text": "one to about a time called next."
+    },
+    {
+      "id": 165,
+      "start": 425.84,
+      "end": 428.16,
+      "text": "I wouldn't have this giant output get shoved all the way up,"
+    },
+    {
+      "id": 166,
+      "start": 428.16,
+      "end": 430.6,
+      "text": "all of a sudden switch to the processing model."
+    },
+    {
+      "id": 167,
+      "start": 430.6,
+      "end": 431.88,
+      "text": "But to your point, at the pipeline breaker,"
+    },
+    {
+      "id": 168,
+      "start": 431.88,
+      "end": 434.44,
+      "text": "it has like materializing all the results at that point there."
+    },
+    {
+      "id": 169,
+      "start": 434.44,
+      "end": 435.48,
+      "text": "Yes."
+    },
+    {
+      "id": 170,
+      "start": 435.48,
+      "end": 436.48,
+      "text": "Yes."
+    },
+    {
+      "id": 171,
+      "start": 436.48,
+      "end": 438.24,
+      "text": "But in case materialization model,"
+    },
+    {
+      "id": 172,
+      "start": 438.24,
+      "end": 441.04,
+      "text": "every next call moves the entire result always up."
+    },
+    {
+      "id": 173,
+      "start": 443.28,
+      "end": 444.72,
+      "text": "So it's not as simple as saying that"
+    },
+    {
+      "id": 174,
+      "start": 444.72,
+      "end": 445.96,
+      "text": "the majority of the people want to just say"
+    },
+    {
+      "id": 175,
+      "start": 445.96,
+      "end": 448.2,
+      "text": "every operator has a pipeline breaker."
+    },
+    {
+      "id": 176,
+      "start": 448.2,
+      "end": 450.76,
+      "text": "It's not as simple as just saying that."
+    },
+    {
+      "id": 177,
+      "start": 450.76,
+      "end": 453.48,
+      "text": "Uh, it's not as simple as saying in the"
+    },
+    {
+      "id": 178,
+      "start": 453.48,
+      "end": 455.84,
+      "text": "materialization model that every operator"
+    },
+    {
+      "id": 179,
+      "start": 455.84,
+      "end": 456.8,
+      "text": "is a pipeline breaker."
+    },
+    {
+      "id": 180,
+      "start": 459.16,
+      "end": 460.48,
+      "text": "That's okay."
+    },
+    {
+      "id": 181,
+      "start": 460.48,
+      "end": 461.68,
+      "text": "Yeah, that's fine."
+    },
+    {
+      "id": 182,
+      "start": 461.68,
+      "end": 462.28,
+      "text": "Yeah, it makes sense."
+    },
+    {
+      "id": 183,
+      "start": 462.28,
+      "end": 463.28,
+      "text": "Yeah."
+    },
+    {
+      "id": 184,
+      "start": 463.28,
+      "end": 464.88,
+      "text": "I wouldn't describe it that way though,"
+    },
+    {
+      "id": 185,
+      "start": 464.88,
+      "end": 465.68,
+      "text": "but like it makes sense."
+    },
+    {
+      "id": 186,
+      "start": 465.68,
+      "end": 466.68,
+      "text": "Yes."
+    },
+    {
+      "id": 187,
+      "start": 466.68,
+      "end": 468.4,
+      "text": "Um, all right."
+    },
+    {
+      "id": 188,
+      "start": 468.4,
+      "end": 469.36,
+      "text": "So let's see how to go back to our"
+    },
+    {
+      "id": 189,
+      "start": 469.36,
+      "end": 471.08,
+      "text": "version query head before."
+    },
+    {
+      "id": 190,
+      "start": 471.08,
+      "end": 472.92,
+      "text": "And again, now in our, in our,"
+    },
+    {
+      "id": 191,
+      "start": 472.92,
+      "end": 474.88,
+      "text": "in our operator implementations,"
+    },
+    {
+      "id": 192,
+      "start": 474.88,
+      "end": 476.08,
+      "text": "now we see that like again,"
+    },
+    {
+      "id": 193,
+      "start": 476.08,
+      "end": 478.56,
+      "text": "we have this output buffer and we just keep adding tuples"
+    },
+    {
+      "id": 194,
+      "start": 478.56,
+      "end": 479.68,
+      "text": "and then there's a return clause"
+    },
+    {
+      "id": 195,
+      "start": 479.68,
+      "end": 481.48,
+      "text": "where it can all the output goes,"
+    },
+    {
+      "id": 196,
+      "start": 481.48,
+      "end": 483.32,
+      "text": "you know, goes up to the next guy."
+    },
+    {
+      "id": 197,
+      "start": 483.32,
+      "end": 484.76,
+      "text": "So just like before we started the top,"
+    },
+    {
+      "id": 198,
+      "start": 484.76,
+      "end": 486.48,
+      "text": "the call, uh,"
+    },
+    {
+      "id": 199,
+      "start": 486.48,
+      "end": 488.32,
+      "text": "the, the, the root operator calls"
+    },
+    {
+      "id": 200,
+      "start": 488.32,
+      "end": 491.16,
+      "text": "child output calls this guy who then has to"
+    },
+    {
+      "id": 201,
+      "start": 491.16,
+      "end": 492.24,
+      "text": "build a hash table,"
+    },
+    {
+      "id": 202,
+      "start": 492.24,
+      "end": 494.76,
+      "text": "calls down to the, the scan on R,"
+    },
+    {
+      "id": 203,
+      "start": 494.76,
+      "end": 498.08,
+      "text": "then we, we populate the entire output buffer"
+    },
+    {
+      "id": 204,
+      "start": 498.08,
+      "end": 500.56,
+      "text": "and then show, show the result up."
+    },
+    {
+      "id": 205,
+      "start": 500.56,
+      "end": 502.0,
+      "text": "And again, if I have a billion tuples,"
+    },
+    {
+      "id": 206,
+      "start": 502.0,
+      "end": 504.76,
+      "text": "even if I want one column for, for a billion tuples,"
+    },
+    {
+      "id": 207,
+      "start": 504.76,
+      "end": 506.2,
+      "text": "I'm going to have my output buffer is going to be a"
+    },
+    {
+      "id": 208,
+      "start": 506.2,
+      "end": 508.12,
+      "text": "billion tuples in, in this approach."
+    },
+    {
+      "id": 209,
+      "start": 510.12,
+      "end": 511.8,
+      "text": "And then again, same thing I go down the,"
+    },
+    {
+      "id": 210,
+      "start": 511.8,
+      "end": 514.52,
+      "text": "sorry, all the tuples, I go down the other side,"
+    },
+    {
+      "id": 211,
+      "start": 515.0,
+      "end": 518.28,
+      "text": "I call the, the filter, which then calls the scan on,"
+    },
+    {
+      "id": 212,
+      "start": 518.28,
+      "end": 520.48,
+      "text": "on, on s and then same thing,"
+    },
+    {
+      "id": 213,
+      "start": 520.48,
+      "end": 523.36,
+      "text": "the data gets moved up like this, right?"
+    },
+    {
+      "id": 214,
+      "start": 524.96,
+      "end": 526.96,
+      "text": "So an obvious optimization here is that,"
+    },
+    {
+      "id": 215,
+      "start": 528.12,
+      "end": 529.6,
+      "text": "for this side of the query plan,"
+    },
+    {
+      "id": 216,
+      "start": 529.6,
+      "end": 533.0,
+      "text": "I'm scanning s and then materialize the result"
+    },
+    {
+      "id": 217,
+      "start": 533.0,
+      "end": 535.72,
+      "text": "and then neatly hand it off to a filter operator,"
+    },
+    {
+      "id": 218,
+      "start": 535.72,
+      "end": 536.8,
+      "text": "who then basically, you know,"
+    },
+    {
+      "id": 219,
+      "start": 536.8,
+      "end": 538.44,
+      "text": "throw it away, stuff away."
+    },
+    {
+      "id": 220,
+      "start": 538.44,
+      "end": 541.12,
+      "text": "So an obvious optimization is to inline these two,"
+    },
+    {
+      "id": 221,
+      "start": 541.12,
+      "end": 542.72,
+      "text": "right, or fuse them together,"
+    },
+    {
+      "id": 222,
+      "start": 542.76,
+      "end": 546.24,
+      "text": "so that as you scan s, then you evaluate the predicate."
+    },
+    {
+      "id": 223,
+      "start": 546.24,
+      "end": 550.12,
+      "text": "And then if that is true, then you put in the output, right?"
+    },
+    {
+      "id": 224,
+      "start": 550.12,
+      "end": 552.2,
+      "text": "Again, you could do that branchless,"
+    },
+    {
+      "id": 225,
+      "start": 552.2,
+      "end": 553.72,
+      "text": "taking we saw before, right?"
+    },
+    {
+      "id": 226,
+      "start": 553.72,
+      "end": 554.72,
+      "text": "I'm showing you with the if calls,"
+    },
+    {
+      "id": 227,
+      "start": 554.72,
+      "end": 556.88,
+      "text": "but you could do that thing, that optimization would"
+    },
+    {
+      "id": 228,
+      "start": 556.88,
+      "end": 557.72,
+      "text": "disolve."
+    },
+    {
+      "id": 229,
+      "start": 560.12,
+      "end": 562.88,
+      "text": "So this is great for OLTP,"
+    },
+    {
+      "id": 230,
+      "start": 562.88,
+      "end": 565.28,
+      "text": "because in those, that world, the queries are"
+    },
+    {
+      "id": 231,
+      "start": 565.28,
+      "end": 566.24,
+      "text": "accessing the single tuple."
+    },
+    {
+      "id": 232,
+      "start": 566.24,
+      "end": 568.48,
+      "text": "So even though you're materializing the entire result,"
+    },
+    {
+      "id": 233,
+      "start": 568.48,
+      "end": 570.32,
+      "text": "it's going to be one tuple."
+    },
+    {
+      "id": 234,
+      "start": 570.32,
+      "end": 573.84,
+      "text": "And then it's just one less next call to go,"
+    },
+    {
+      "id": 235,
+      "start": 573.84,
+      "end": 575.48,
+      "text": "before you get the end of file."
+    },
+    {
+      "id": 236,
+      "start": 575.48,
+      "end": 577.36,
+      "text": "You got everything you would ever need for an operator"
+    },
+    {
+      "id": 237,
+      "start": 577.36,
+      "end": 578.64,
+      "text": "and you can move one."
+    },
+    {
+      "id": 238,
+      "start": 578.64,
+      "end": 579.48,
+      "text": "You have to do that inlining,"
+    },
+    {
+      "id": 239,
+      "start": 579.48,
+      "end": 580.8,
+      "text": "you make sure you're not passing up more data"
+    },
+    {
+      "id": 240,
+      "start": 580.8,
+      "end": 584.28,
+      "text": "than you actually need, but it works great."
+    },
+    {
+      "id": 241,
+      "start": 584.28,
+      "end": 586.28,
+      "text": "And then when we built HStore that became Voltibede,"
+    },
+    {
+      "id": 242,
+      "start": 586.28,
+      "end": 588.2,
+      "text": "this is, we use this approach."
+    },
+    {
+      "id": 243,
+      "start": 589.44,
+      "end": 591.24,
+      "text": "But I would argue, and the paper you read"
+    },
+    {
+      "id": 244,
+      "start": 591.24,
+      "end": 592.92,
+      "text": "argues that this is bad for OLAP,"
+    },
+    {
+      "id": 245,
+      "start": 592.92,
+      "end": 596.8,
+      "text": "because you may be coalescing or turning out"
+    },
+    {
+      "id": 246,
+      "start": 596.8,
+      "end": 599.12,
+      "text": "a bunch of data on higher parts of the query plan,"
+    },
+    {
+      "id": 247,
+      "start": 599.12,
+      "end": 600.28,
+      "text": "but you're moving these large."
+    }
+  ],
+  "language": "en"
+}

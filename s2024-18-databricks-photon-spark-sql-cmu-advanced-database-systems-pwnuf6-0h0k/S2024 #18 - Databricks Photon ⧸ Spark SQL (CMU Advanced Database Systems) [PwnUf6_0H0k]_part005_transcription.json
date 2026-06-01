@@ -1,0 +1,1319 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.7,
+      "text": "or the original OLAP benchmark,"
+    },
+    {
+      "id": 1,
+      "start": 1.7,
+      "end": 4.36,
+      "text": "I came from early 90s."
+    },
+    {
+      "id": 2,
+      "start": 4.36,
+      "end": 7.26,
+      "text": "In the paper as well, they talked about getting"
+    },
+    {
+      "id": 3,
+      "start": 7.26,
+      "end": 9.46,
+      "text": "official TPCDS results."
+    },
+    {
+      "id": 4,
+      "start": 9.46,
+      "end": 16.46,
+      "text": "So TPCDS is the successor to TPCH, it's like 2006."
+    },
+    {
+      "id": 5,
+      "start": 16.46,
+      "end": 19.52,
+      "text": "And so they made a big deal and this came out in 2021"
+    },
+    {
+      "id": 6,
+      "start": 19.52,
+      "end": 21.24,
+      "text": "and this paper and everything that they had"
+    },
+    {
+      "id": 7,
+      "start": 21.24,
+      "end": 24.3,
+      "text": "official TPC results."
+    },
+    {
+      "id": 8,
+      "start": 24.3,
+      "end": 26.44,
+      "text": "So this is their web page or TPCC,"
+    },
+    {
+      "id": 9,
+      "start": 26.44,
+      "end": 28.2,
+      "text": "the transaction process in council."
+    },
+    {
+      "id": 10,
+      "start": 28.2,
+      "end": 30.92,
+      "text": "They're sort of like the independent arbiter,"
+    },
+    {
+      "id": 11,
+      "start": 30.92,
+      "end": 34.6,
+      "text": "a referee of database benchmarks."
+    },
+    {
+      "id": 12,
+      "start": 34.6,
+      "end": 37.68,
+      "text": "And so the TPCH, TPCDS, those benchmark specs"
+    },
+    {
+      "id": 13,
+      "start": 37.68,
+      "end": 39.96,
+      "text": "are defined by this consortium."
+    },
+    {
+      "id": 14,
+      "start": 39.96,
+      "end": 42.92,
+      "text": "And then if you want to have the official leaderboard,"
+    },
+    {
+      "id": 15,
+      "start": 42.92,
+      "end": 47.52,
+      "text": "you go get certified by the TPC people to say"
+    },
+    {
+      "id": 16,
+      "start": 47.52,
+      "end": 51.08,
+      "text": "your implementation matches the spec requirements"
+    },
+    {
+      "id": 17,
+      "start": 51.08,
+      "end": 53.08,
+      "text": "and then you can be listed here."
+    },
+    {
+      "id": 18,
+      "start": 53.08,
+      "end": 57.44,
+      "text": "So Databricks got listed in 2021."
+    },
+    {
+      "id": 19,
+      "start": 57.44,
+      "end": 60.88,
+      "text": "They're still number one for running on 100,000 gigabytes"
+    },
+    {
+      "id": 20,
+      "start": 60.88,
+      "end": 62.6,
+      "text": "for TPCDS."
+    },
+    {
+      "id": 21,
+      "start": 62.6,
+      "end": 69.24,
+      "text": "And the previous one was Ali Baba from 2019."
+    },
+    {
+      "id": 22,
+      "start": 69.24,
+      "end": 70.44,
+      "text": "So it's not just the performance you're"
+    },
+    {
+      "id": 23,
+      "start": 70.44,
+      "end": 73.92,
+      "text": "getting for the query itself, how many queries per second"
+    },
+    {
+      "id": 24,
+      "start": 73.92,
+      "end": 75.04,
+      "text": "you can do."
+    },
+    {
+      "id": 25,
+      "start": 75.04,
+      "end": 77.84,
+      "text": "They also check to see how much you're"
+    },
+    {
+      "id": 26,
+      "start": 77.84,
+      "end": 81.84,
+      "text": "paying for this if you get paid as a service."
+    },
+    {
+      "id": 27,
+      "start": 81.84,
+      "end": 85.04,
+      "text": "So the database was super excited when this came out."
+    },
+    {
+      "id": 28,
+      "start": 85.04,
+      "end": 87.08,
+      "text": "They made a big deal about it."
+    },
+    {
+      "id": 29,
+      "start": 87.08,
+      "end": 88.36,
+      "text": "So the bunch of these articles when this came out,"
+    },
+    {
+      "id": 30,
+      "start": 88.36,
+      "end": 91.72,
+      "text": "talking about how Databricks has official TPCDS results"
+    },
+    {
+      "id": 31,
+      "start": 91.72,
+      "end": 93.96,
+      "text": "that have been audited and how they're"
+    },
+    {
+      "id": 32,
+      "start": 93.96,
+      "end": 96.12,
+      "text": "going for snowflake."
+    },
+    {
+      "id": 33,
+      "start": 96.12,
+      "end": 98.32,
+      "text": "So the bunch of articles at this time, for this one here,"
+    },
+    {
+      "id": 34,
+      "start": 98.32,
+      "end": 100.28,
+      "text": "they actually asked me for a quote."
+    },
+    {
+      "id": 35,
+      "start": 100.28,
+      "end": 100.96,
+      "text": "And I wrote something."
+    },
+    {
+      "id": 36,
+      "start": 100.96,
+      "end": 103.32,
+      "text": "I said, at the enterprise level, maybe some CIO is"
+    },
+    {
+      "id": 37,
+      "start": 103.32,
+      "end": 106.2,
+      "text": "going to care about what your official TPC ranking is,"
+    },
+    {
+      "id": 38,
+      "start": 106.2,
+      "end": 108.16,
+      "text": "but they don't make sales that way."
+    },
+    {
+      "id": 39,
+      "start": 108.16,
+      "end": 111.04,
+      "text": "This is actually not the full quote."
+    },
+    {
+      "id": 40,
+      "start": 111.04,
+      "end": 113.76,
+      "text": "What I said after this was, and only"
+    },
+    {
+      "id": 41,
+      "start": 114.04,
+      "end": 116.72,
+      "text": "people care about TPC results."
+    },
+    {
+      "id": 42,
+      "start": 116.72,
+      "end": 119.6,
+      "text": "And they cut that off."
+    },
+    {
+      "id": 43,
+      "start": 119.6,
+      "end": 120.68,
+      "text": "And so what do I mean by this?"
+    },
+    {
+      "id": 44,
+      "start": 120.68,
+      "end": 123.56,
+      "text": "So the T, I mean, how many people have,"
+    },
+    {
+      "id": 45,
+      "start": 123.56,
+      "end": 125.24,
+      "text": "you've heard of TPCAs and TPCDS"
+    },
+    {
+      "id": 46,
+      "start": 125.24,
+      "end": 126.88,
+      "text": "because you're reading the papers and seeing these things."
+    },
+    {
+      "id": 47,
+      "start": 126.88,
+      "end": 129.24,
+      "text": "You may not know that there's actually a consortium that"
+    },
+    {
+      "id": 48,
+      "start": 129.24,
+      "end": 131.64,
+      "text": "is the one that's defining these things."
+    },
+    {
+      "id": 49,
+      "start": 131.64,
+      "end": 133.92,
+      "text": "So this comes out of the 1980s."
+    },
+    {
+      "id": 50,
+      "start": 133.92,
+      "end": 135.48,
+      "text": "I was founded by Jim Gray and a bunch"
+    },
+    {
+      "id": 51,
+      "start": 135.48,
+      "end": 138.36,
+      "text": "of other database people because at the time,"
+    },
+    {
+      "id": 52,
+      "start": 138.36,
+      "end": 139.6,
+      "text": "all of these different data as vendors"
+    },
+    {
+      "id": 53,
+      "start": 139.6,
+      "end": 142.6,
+      "text": "were putting up their own, making up their own benchmarks,"
+    },
+    {
+      "id": 54,
+      "start": 142.6,
+      "end": 143.84,
+      "text": "putting up marketing stuff that says,"
+    },
+    {
+      "id": 55,
+      "start": 143.84,
+      "end": 146.2,
+      "text": "how much faster we are than everyone else."
+    },
+    {
+      "id": 56,
+      "start": 146.2,
+      "end": 148.96,
+      "text": "But then you couldn't reproduce the results"
+    },
+    {
+      "id": 57,
+      "start": 148.96,
+      "end": 150.88,
+      "text": "because the source that wasn't available,"
+    },
+    {
+      "id": 58,
+      "start": 150.88,
+      "end": 153.12,
+      "text": "the environments weren't reproducible."
+    },
+    {
+      "id": 59,
+      "start": 153.12,
+      "end": 155.36,
+      "text": "So it was really hard to, in terms of performance,"
+    },
+    {
+      "id": 60,
+      "start": 155.36,
+      "end": 157.16,
+      "text": "say one system is actually better than another"
+    },
+    {
+      "id": 61,
+      "start": 157.16,
+      "end": 158.64,
+      "text": "in different ways."
+    },
+    {
+      "id": 62,
+      "start": 158.64,
+      "end": 163.64,
+      "text": "And so the TPC consortium was meant to,"
+    },
+    {
+      "id": 63,
+      "start": 165.24,
+      "end": 167.32,
+      "text": "again, sort of provide a level playing"
+    },
+    {
+      "id": 64,
+      "start": 167.32,
+      "end": 169.28,
+      "text": "feel for everyone to understand this."
+    },
+    {
+      "id": 65,
+      "start": 169.28,
+      "end": 174.28,
+      "text": "But it mattered a lot, certainly in the 1980s and 90s."
+    },
+    {
+      "id": 66,
+      "start": 174.8,
+      "end": 176.6,
+      "text": "I would say it matters less these days,"
+    },
+    {
+      "id": 67,
+      "start": 176.6,
+      "end": 178.96,
+      "text": "although we use TPCAs and TPCDS all the time."
+    },
+    {
+      "id": 68,
+      "start": 178.96,
+      "end": 181.28,
+      "text": "There's good workloads to benchmark systems."
+    },
+    {
+      "id": 69,
+      "start": 181.28,
+      "end": 185.2,
+      "text": "But to go and get the, if your news startup"
+    },
+    {
+      "id": 70,
+      "start": 185.2,
+      "end": 187.88,
+      "text": "to go get a official ranking and get audited,"
+    },
+    {
+      "id": 71,
+      "start": 187.88,
+      "end": 191.12,
+      "text": "it's a laborious effort that probably does not worth it."
+    },
+    {
+      "id": 72,
+      "start": 191.12,
+      "end": 192.4,
+      "text": "As I'm saying, no one's gonna care,"
+    },
+    {
+      "id": 73,
+      "start": 192.4,
+      "end": 195.92,
+      "text": "I have officially audited TPCDS results."
+    },
+    {
+      "id": 74,
+      "start": 196.92,
+      "end": 199.28,
+      "text": "Like nobody cares."
+    },
+    {
+      "id": 75,
+      "start": 200.72,
+      "end": 202.44,
+      "text": "Cause it's a lot of work."
+    },
+    {
+      "id": 76,
+      "start": 202.44,
+      "end": 204.52,
+      "text": "They told me they had to go, get dragged somebody"
+    },
+    {
+      "id": 77,
+      "start": 204.52,
+      "end": 207.28,
+      "text": "out of retirement to go do the auditing for them"
+    },
+    {
+      "id": 78,
+      "start": 207.28,
+      "end": 209.68,
+      "text": "because nobody's around to do it anymore, right?"
+    },
+    {
+      "id": 79,
+      "start": 211.44,
+      "end": 214.04,
+      "text": "So there's another website,"
+    },
+    {
+      "id": 80,
+      "start": 214.04,
+      "end": 216.6,
+      "text": "like Clickhouse has this thing called ClickBench."
+    },
+    {
+      "id": 81,
+      "start": 216.6,
+      "end": 218.2,
+      "text": "I can show that next class."
+    },
+    {
+      "id": 82,
+      "start": 218.2,
+      "end": 220.64,
+      "text": "There's, I'm not saying the benchmarks themselves"
+    },
+    {
+      "id": 83,
+      "start": 220.64,
+      "end": 222.88,
+      "text": "are worthless, I'm saying like going through the effort"
+    },
+    {
+      "id": 84,
+      "start": 222.88,
+      "end": 225.48,
+      "text": "I get officially audited is probably not,"
+    },
+    {
+      "id": 85,
+      "start": 225.48,
+      "end": 227.92,
+      "text": "cause it means as much as it used to anymore."
+    },
+    {
+      "id": 86,
+      "start": 227.92,
+      "end": 229.92,
+      "text": "And so right now with all these call database systems,"
+    },
+    {
+      "id": 87,
+      "start": 229.92,
+      "end": 232.12,
+      "text": "as we'll see next class, when we talk about Snowflake,"
+    },
+    {
+      "id": 88,
+      "start": 232.12,
+      "end": 235.92,
+      "text": "it's getting the, you know, getting the,"
+    },
+    {
+      "id": 89,
+      "start": 235.92,
+      "end": 239.64,
+      "text": "for you to be able to do Apple's Apples comparison"
+    },
+    {
+      "id": 90,
+      "start": 239.64,
+      "end": 241.92,
+      "text": "from one system to the next is hard to do"
+    },
+    {
+      "id": 91,
+      "start": 241.92,
+      "end": 244.72,
+      "text": "because there's so many different layers to this,"
+    },
+    {
+      "id": 92,
+      "start": 244.72,
+      "end": 246.6,
+      "text": "to these systems these days,"
+    },
+    {
+      "id": 93,
+      "start": 246.6,
+      "end": 249.52,
+      "text": "that it's hard to say, am I running"
+    },
+    {
+      "id": 94,
+      "start": 249.52,
+      "end": 250.6,
+      "text": "on the exact same heart rate I would get"
+    },
+    {
+      "id": 95,
+      "start": 250.6,
+      "end": 253.16,
+      "text": "from one vendor to the next, right?"
+    },
+    {
+      "id": 96,
+      "start": 253.16,
+      "end": 254.6,
+      "text": "Cause, you know, in Snowflake,"
+    },
+    {
+      "id": 97,
+      "start": 254.6,
+      "end": 256.2,
+      "text": "you don't say I want to run on, you know,"
+    },
+    {
+      "id": 98,
+      "start": 256.2,
+      "end": 258.56,
+      "text": "this instance size on EC2,"
+    },
+    {
+      "id": 99,
+      "start": 258.56,
+      "end": 260.32,
+      "text": "you just say I want this compete capacity,"
+    },
+    {
+      "id": 100,
+      "start": 260.32,
+      "end": 263.4,
+      "text": "same thing with Azure and other cloud platforms."
+    },
+    {
+      "id": 101,
+      "start": 263.4,
+      "end": 264.84,
+      "text": "So you actually really know what hard to act,"
+    },
+    {
+      "id": 102,
+      "start": 264.84,
+      "end": 267.0,
+      "text": "you're actually getting a sort of hidden from you."
+    },
+    {
+      "id": 103,
+      "start": 268.76,
+      "end": 272.44,
+      "text": "So again, like, I'm not saying that the benchmarks are useless,"
+    },
+    {
+      "id": 104,
+      "start": 272.44,
+      "end": 273.8,
+      "text": "I've been saying going down the path"
+    },
+    {
+      "id": 105,
+      "start": 273.8,
+      "end": 276.12,
+      "text": "that Databricks did to get officially audited."
+    },
+    {
+      "id": 106,
+      "start": 280.0,
+      "end": 282.36,
+      "text": "I don't think was the, well, they have a ton of money"
+    },
+    {
+      "id": 107,
+      "start": 282.36,
+      "end": 283.24,
+      "text": "so they can do this."
+    },
+    {
+      "id": 108,
+      "start": 283.24,
+      "end": 284.64,
+      "text": "Like, if you're new to the start of it,"
+    },
+    {
+      "id": 109,
+      "start": 284.64,
+      "end": 287.28,
+      "text": "it's not the best use of your time."
+    },
+    {
+      "id": 110,
+      "start": 287.28,
+      "end": 289.72,
+      "text": "Again, we'll cover benchmark wars more in next class."
+    },
+    {
+      "id": 111,
+      "start": 289.72,
+      "end": 291.2,
+      "text": "With Snowflake."
+    },
+    {
+      "id": 112,
+      "start": 291.2,
+      "end": 293.48,
+      "text": "All right, so, photon for Piatry."
+    },
+    {
+      "id": 113,
+      "start": 293.48,
+      "end": 295.16,
+      "text": "So Spark is open source, but as I said,"
+    },
+    {
+      "id": 114,
+      "start": 295.16,
+      "end": 298.04,
+      "text": "the database runtime itself, which includes photon,"
+    },
+    {
+      "id": 115,
+      "start": 298.04,
+      "end": 299.28,
+      "text": "is not open source."
+    },
+    {
+      "id": 116,
+      "start": 300.76,
+      "end": 302.44,
+      "text": "And so you can only get the acceleration"
+    },
+    {
+      "id": 117,
+      "start": 302.44,
+      "end": 303.72,
+      "text": "that we're talking about here"
+    },
+    {
+      "id": 118,
+      "start": 303.72,
+      "end": 306.28,
+      "text": "if you go pay Databricks money for it."
+    },
+    {
+      "id": 119,
+      "start": 306.28,
+      "end": 307.52,
+      "text": "But they're not the only game in town"
+    },
+    {
+      "id": 120,
+      "start": 307.52,
+      "end": 309.0,
+      "text": "to try to accelerate Spark."
+    },
+    {
+      "id": 121,
+      "start": 310.0,
+      "end": 311.96,
+      "text": "And so there's a bunch of other accelerators"
+    },
+    {
+      "id": 122,
+      "start": 311.96,
+      "end": 315.28,
+      "text": "that are our open source from various companies"
+    },
+    {
+      "id": 123,
+      "start": 315.28,
+      "end": 320.28,
+      "text": "that you can then use to get photon-like improvements."
+    },
+    {
+      "id": 124,
+      "start": 320.84,
+      "end": 323.16,
+      "text": "But what's interesting about them is that in rather than doing"
+    },
+    {
+      "id": 125,
+      "start": 323.16,
+      "end": 326.76,
+      "text": "the fine-grain integration that photon does"
+    },
+    {
+      "id": 126,
+      "start": 326.76,
+      "end": 328.2,
+      "text": "with replacing new operational operators"
+    },
+    {
+      "id": 127,
+      "start": 328.2,
+      "end": 332.72,
+      "text": "and deciding at runtime when to call into GVM versus"
+    },
+    {
+      "id": 128,
+      "start": 332.72,
+      "end": 336.04,
+      "text": "into the SQL Slot code, as far as I know,"
+    },
+    {
+      "id": 129,
+      "start": 336.04,
+      "end": 338.08,
+      "text": "all of these systems are just co-opting"
+    },
+    {
+      "id": 130,
+      "start": 338.08,
+      "end": 340.44,
+      "text": "or taking the entire query plan."
+    },
+    {
+      "id": 131,
+      "start": 340.44,
+      "end": 343.0,
+      "text": "Ignoring the Spark runtime entirely"
+    },
+    {
+      "id": 132,
+      "start": 343.0,
+      "end": 345.48,
+      "text": "and running it on a separate engine."
+    },
+    {
+      "id": 133,
+      "start": 345.48,
+      "end": 349.8,
+      "text": "So the one that's most popular is not the right word."
+    },
+    {
+      "id": 134,
+      "start": 349.8,
+      "end": 352.56,
+      "text": "The one that's probably most well known is Apache Gluten."
+    },
+    {
+      "id": 135,
+      "start": 352.56,
+      "end": 355.6,
+      "text": "This is usually what previously was called gazelle."
+    },
+    {
+      "id": 136,
+      "start": 355.6,
+      "end": 357.16,
+      "text": "I think it was Intel and Ali Baba."
+    },
+    {
+      "id": 137,
+      "start": 357.16,
+      "end": 359.8,
+      "text": "But now it's an Apache project that Intel's running."
+    },
+    {
+      "id": 138,
+      "start": 359.8,
+      "end": 362.8,
+      "text": "And again, the way it works is that you take the"
+    },
+    {
+      "id": 139,
+      "start": 362.8,
+      "end": 365.2,
+      "text": "Spark generates some kind of physical plan"
+    },
+    {
+      "id": 140,
+      "start": 365.2,
+      "end": 367.28,
+      "text": "and then you have the different mechanism to deal"
+    },
+    {
+      "id": 141,
+      "start": 367.28,
+      "end": 370.44,
+      "text": "with take that query and run it somewhere else."
+    },
+    {
+      "id": 142,
+      "start": 370.44,
+      "end": 372.84,
+      "text": "And by converting it into substrates,"
+    },
+    {
+      "id": 143,
+      "start": 372.84,
+      "end": 375.92,
+      "text": "you can run it on arrow, FPGAs."
+    },
+    {
+      "id": 144,
+      "start": 375.92,
+      "end": 379.0,
+      "text": "They have a click-out support or a VELOX."
+    },
+    {
+      "id": 145,
+      "start": 379.0,
+      "end": 383.48,
+      "text": "Right, again, they're not doing the per-operative basis."
+    },
+    {
+      "id": 146,
+      "start": 383.48,
+      "end": 384.92,
+      "text": "They're taking the entire query plan,"
+    },
+    {
+      "id": 147,
+      "start": 384.92,
+      "end": 386.12,
+      "text": "running it somewhere else."
+    },
+    {
+      "id": 148,
+      "start": 386.12,
+      "end": 389.8,
+      "text": "But you're still accessing the running the query"
+    },
+    {
+      "id": 149,
+      "start": 389.8,
+      "end": 393.36,
+      "text": "through the Spark front end, through that"
+    },
+    {
+      "id": 150,
+      "start": 393.36,
+      "end": 394.4,
+      "text": "expected interface."
+    },
+    {
+      "id": 151,
+      "start": 398.16,
+      "end": 400.68,
+      "text": "There's another one that actually just came out two months ago"
+    },
+    {
+      "id": 152,
+      "start": 400.68,
+      "end": 402.0,
+      "text": "from Apple."
+    },
+    {
+      "id": 153,
+      "start": 402.0,
+      "end": 406.48,
+      "text": "So actually, this was showing,"
+    },
+    {
+      "id": 154,
+      "start": 406.48,
+      "end": 409.76,
+      "text": "a bunch of different backends that'll run this."
+    },
+    {
+      "id": 155,
+      "start": 411.68,
+      "end": 413.2,
+      "text": "This one from NVIDIA."
+    },
+    {
+      "id": 156,
+      "start": 413.2,
+      "end": 415.28,
+      "text": "Rapids is like their Kuda-based library"
+    },
+    {
+      "id": 157,
+      "start": 415.28,
+      "end": 416.88,
+      "text": "that do data science stuff."
+    },
+    {
+      "id": 158,
+      "start": 416.88,
+      "end": 420.68,
+      "text": "Right, and it's obviously meant to run their GPUs."
+    },
+    {
+      "id": 159,
+      "start": 420.68,
+      "end": 422.12,
+      "text": "Blaze is out of a Chinese company."
+    },
+    {
+      "id": 160,
+      "start": 422.12,
+      "end": 423.04,
+      "text": "That runs data fusion."
+    },
+    {
+      "id": 161,
+      "start": 423.04,
+      "end": 425.72,
+      "text": "And there's a new one here called comment from Apple"
+    },
+    {
+      "id": 162,
+      "start": 425.72,
+      "end": 427.8,
+      "text": "that came out two months ago."
+    },
+    {
+      "id": 163,
+      "start": 427.8,
+      "end": 431.52,
+      "text": "That's all entirely in data fusion."
+    },
+    {
+      "id": 164,
+      "start": 431.52,
+      "end": 432.96,
+      "text": "There's been other attempts."
+    },
+    {
+      "id": 165,
+      "start": 432.96,
+      "end": 436.72,
+      "text": "Gluten is multidated systems plus VELOX."
+    },
+    {
+      "id": 166,
+      "start": 436.72,
+      "end": 440.24,
+      "text": "But data fusion seems to be the one that everyone is leaning"
+    },
+    {
+      "id": 167,
+      "start": 440.24,
+      "end": 444.04,
+      "text": "towards to accelerate Spark these days."
+    },
+    {
+      "id": 168,
+      "start": 444.04,
+      "end": 446.36,
+      "text": "And I don't know what, I mean, data fixes,"
+    },
+    {
+      "id": 169,
+      "start": 446.36,
+      "end": 448.0,
+      "text": "obviously, the biggest Spark vendor."
+    },
+    {
+      "id": 170,
+      "start": 448.0,
+      "end": 451.88,
+      "text": "I think Azure, Microsoft, I think they're promoting"
+    },
+    {
+      "id": 171,
+      "start": 451.88,
+      "end": 454.28,
+      "text": "the Rapids one to speed things up."
+    },
+    {
+      "id": 172,
+      "start": 456.72,
+      "end": 458.92,
+      "text": "All right, so the last thing I want to talk about"
+    },
+    {
+      "id": 173,
+      "start": 458.92,
+      "end": 460.8,
+      "text": "is, as I've been saying multiple times,"
+    },
+    {
+      "id": 174,
+      "start": 460.8,
+      "end": 463.72,
+      "text": "and we'll see throughout from now on in the semester,"
+    },
+    {
+      "id": 175,
+      "start": 463.72,
+      "end": 466.04,
+      "text": "is we don't have statistics because we're running"
+    },
+    {
+      "id": 176,
+      "start": 466.04,
+      "end": 470.16,
+      "text": "on data lakes, and adaptivity will help for certain things."
+    },
+    {
+      "id": 177,
+      "start": 470.16,
+      "end": 475.64,
+      "text": "But ideally, if we have adaptivity plus better statistics,"
+    },
+    {
+      "id": 178,
+      "start": 475.64,
+      "end": 478.36,
+      "text": "then that's the best world to be in."
+    },
+    {
+      "id": 179,
+      "start": 478.36,
+      "end": 483.36,
+      "text": "So what has evolved and come out over the last couple years,"
+    },
+    {
+      "id": 180,
+      "start": 484.32,
+      "end": 487.68,
+      "text": "since the first Dremel paper came out of just like,"
+    },
+    {
+      "id": 181,
+      "start": 487.68,
+      "end": 488.88,
+      "text": "is that I'm just assuming that everyone's"
+    },
+    {
+      "id": 182,
+      "start": 488.88,
+      "end": 491.72,
+      "text": "going to dump their files on S3, and your engines are"
+    },
+    {
+      "id": 183,
+      "start": 491.72,
+      "end": 495.56,
+      "text": "going to go try to make sense with it later on."
+    },
+    {
+      "id": 184,
+      "start": 495.56,
+      "end": 498.72,
+      "text": "The idea is that what if you provide a service or mechanism"
+    },
+    {
+      "id": 185,
+      "start": 498.72,
+      "end": 503.04,
+      "text": "to allow you to ingest data into your lake house or data lake?"
+    },
+    {
+      "id": 186,
+      "start": 503.04,
+      "end": 505.44,
+      "text": "And as that data gets ingested, you then"
+    },
+    {
+      "id": 187,
+      "start": 505.44,
+      "end": 507.84,
+      "text": "can collect statistics about it, keep track of it in your catalog,"
+    },
+    {
+      "id": 188,
+      "start": 507.84,
+      "end": 509.2,
+      "text": "other than just like, I have these files,"
+    },
+    {
+      "id": 189,
+      "start": 509.2,
+      "end": 510.44,
+      "text": "here's where they are."
+    },
+    {
+      "id": 190,
+      "start": 510.44,
+      "end": 513.8,
+      "text": "You now look at the data and keep track of statistics."
+    },
+    {
+      "id": 191,
+      "start": 513.8,
+      "end": 516.28,
+      "text": "And you can use that now in your query optimizer"
+    },
+    {
+      "id": 192,
+      "start": 516.28,
+      "end": 518.6,
+      "text": "for your cost model."
+    },
+    {
+      "id": 193,
+      "start": 518.6,
+      "end": 521.52,
+      "text": "So the photon paper, I think they mentioned"
+    },
+    {
+      "id": 194,
+      "start": 521.52,
+      "end": 523.28,
+      "text": "the Delta Lake stuff."
+    },
+    {
+      "id": 195,
+      "start": 523.28,
+      "end": 525.76,
+      "text": "But this is an open source project,"
+    },
+    {
+      "id": 196,
+      "start": 525.76,
+      "end": 528.28,
+      "text": "but this is specific to Databricks,"
+    },
+    {
+      "id": 197,
+      "start": 528.28,
+      "end": 532.4,
+      "text": "where it's a standalone service, but it's"
+    },
+    {
+      "id": 198,
+      "start": 532.4,
+      "end": 537.76,
+      "text": "sits in front of S3 and Spark, where you provide a basic interface"
+    },
+    {
+      "id": 199,
+      "start": 537.76,
+      "end": 541.36,
+      "text": "to send data into your lake house."
+    },
+    {
+      "id": 200,
+      "start": 541.36,
+      "end": 545.68,
+      "text": "And all it's really doing is just taking your updates,"
+    },
+    {
+      "id": 201,
+      "start": 545.68,
+      "end": 549.28,
+      "text": "writing them to some log file, and then in the background,"
+    },
+    {
+      "id": 202,
+      "start": 549.28,
+      "end": 552.28,
+      "text": "there's this compaction process that runs,"
+    },
+    {
+      "id": 203,
+      "start": 552.28,
+      "end": 554.92,
+      "text": "grabs the log file, converts it into parquet,"
+    },
+    {
+      "id": 204,
+      "start": 554.92,
+      "end": 558.16,
+      "text": "and then writes that into back to S3,"
+    },
+    {
+      "id": 205,
+      "start": 558.16,
+      "end": 559.84,
+      "text": "whatever your object store is."
+    },
+    {
+      "id": 206,
+      "start": 559.84,
+      "end": 562.16,
+      "text": "And then when it does this conversion to parquet,"
+    },
+    {
+      "id": 207,
+      "start": 562.16,
+      "end": 563.88,
+      "text": "that's when they compute statistics about what's"
+    },
+    {
+      "id": 208,
+      "start": 563.88,
+      "end": 566.64,
+      "text": "actually in the file, store that in their catalog,"
+    },
+    {
+      "id": 209,
+      "start": 566.64,
+      "end": 571.92,
+      "text": "and then now their query optimizer can access it."
+    },
+    {
+      "id": 210,
+      "start": 571.92,
+      "end": 575.68,
+      "text": "So no longer, some other service could be much of data,"
+    },
+    {
+      "id": 211,
+      "start": 575.68,
+      "end": 579.84,
+      "text": "and then plopping it down to S3 as a parquet file,"
+    },
+    {
+      "id": 212,
+      "start": 579.84,
+      "end": 582.08,
+      "text": "Delta Lake will join the parquet file for you,"
+    },
+    {
+      "id": 213,
+      "start": 582.08,
+      "end": 584.48,
+      "text": "but it has to scan the data and put it"
+    },
+    {
+      "id": 214,
+      "start": 584.48,
+      "end": 587.08,
+      "text": "into the columnar format of parquet."
+    },
+    {
+      "id": 215,
+      "start": 587.08,
+      "end": 591.2,
+      "text": "They that's when they collect statistics."
+    },
+    {
+      "id": 216,
+      "start": 591.2,
+      "end": 595.72,
+      "text": "So they're not the first for people to do this."
+    },
+    {
+      "id": 217,
+      "start": 595.72,
+      "end": 597.64,
+      "text": "It actually, one of the first versions of this"
+    },
+    {
+      "id": 218,
+      "start": 597.64,
+      "end": 602.28,
+      "text": "was from Caldera as an extension to Impala."
+    }
+  ],
+  "language": "en"
+}

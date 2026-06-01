@@ -1,0 +1,1451 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.6,
+      "text": "Nothing fancy, it's not hard."
+    },
+    {
+      "id": 1,
+      "start": 3.6,
+      "end": 6.64,
+      "text": "OK."
+    },
+    {
+      "id": 2,
+      "start": 6.64,
+      "end": 8.44,
+      "text": "Again, we'll see this later in the semester."
+    },
+    {
+      "id": 3,
+      "start": 8.44,
+      "end": 13.76,
+      "text": "But there'll be a catalog service that keeps track of this data"
+    },
+    {
+      "id": 4,
+      "start": 13.76,
+      "end": 14.16,
+      "text": "actually here."
+    },
+    {
+      "id": 5,
+      "start": 14.16,
+      "end": 18.08,
+      "text": "Still can be partitioned, even though we see these things"
+    },
+    {
+      "id": 6,
+      "start": 18.08,
+      "end": 19.92,
+      "text": "could be going to files on S3."
+    },
+    {
+      "id": 7,
+      "start": 19.92,
+      "end": 21.88,
+      "text": "And I could keep track of my catalog,"
+    },
+    {
+      "id": 8,
+      "start": 21.88,
+      "end": 24.52,
+      "text": "which of my compute notes is responsible for those files."
+    },
+    {
+      "id": 9,
+      "start": 24.52,
+      "end": 26.88,
+      "text": "And then if I increase or decrease my capacity,"
+    },
+    {
+      "id": 10,
+      "start": 26.88,
+      "end": 29.6,
+      "text": "I'd run the men's and update to my catalogs."
+    },
+    {
+      "id": 11,
+      "start": 29.6,
+      "end": 31.48,
+      "text": "They say, OK, these new notes are now"
+    },
+    {
+      "id": 12,
+      "start": 31.48,
+      "end": 33.0,
+      "text": "responsible for this other technique."
+    },
+    {
+      "id": 13,
+      "start": 33.0,
+      "end": 35.04,
+      "text": "And then for that one, in case like snowflake,"
+    },
+    {
+      "id": 14,
+      "start": 35.04,
+      "end": 36.8,
+      "text": "they'll just use consistent hashing"
+    },
+    {
+      "id": 15,
+      "start": 36.8,
+      "end": 38.8,
+      "text": "to avoid having to reshuffle everything."
+    },
+    {
+      "id": 16,
+      "start": 38.8,
+      "end": 42.76,
+      "text": "All the standard techniques still apply here."
+    },
+    {
+      "id": 17,
+      "start": 42.76,
+      "end": 47.4,
+      "text": "All right, so to finish up with the distinction, again,"
+    },
+    {
+      "id": 18,
+      "start": 47.4,
+      "end": 49.56,
+      "text": "in the shared nothing, it's hard to scale capacity."
+    },
+    {
+      "id": 19,
+      "start": 49.56,
+      "end": 52.36,
+      "text": "But potentially, it is faster, because now everything"
+    },
+    {
+      "id": 20,
+      "start": 52.36,
+      "end": 54.28,
+      "text": "is sort of local."
+    },
+    {
+      "id": 21,
+      "start": 54.28,
+      "end": 59.28,
+      "text": "But the engineering benefits and the operational benefits"
+    },
+    {
+      "id": 22,
+      "start": 59.28,
+      "end": 61.24,
+      "text": "you get from something like a shared disk architecture"
+    },
+    {
+      "id": 23,
+      "start": 61.24,
+      "end": 64.24,
+      "text": "is why basically every OLAP system built in the last 10"
+    },
+    {
+      "id": 24,
+      "start": 64.24,
+      "end": 66.0,
+      "text": "years uses this technique."
+    },
+    {
+      "id": 25,
+      "start": 66.0,
+      "end": 69.0,
+      "text": "And even systems that start off using shared nothing,"
+    },
+    {
+      "id": 26,
+      "start": 69.0,
+      "end": 72.8,
+      "text": "like Yellowbrick, have converted to this."
+    },
+    {
+      "id": 27,
+      "start": 72.8,
+      "end": 75.12,
+      "text": "Because the benefits are so significant."
+    },
+    {
+      "id": 28,
+      "start": 75.12,
+      "end": 79.2,
+      "text": "And again, like, Amazon's approving S3 all the time."
+    },
+    {
+      "id": 29,
+      "start": 79.2,
+      "end": 81.72,
+      "text": "So as they make those changes, your data"
+    },
+    {
+      "id": 30,
+      "start": 81.72,
+      "end": 84.08,
+      "text": "rises along the wave and gets all those updates"
+    },
+    {
+      "id": 31,
+      "start": 84.08,
+      "end": 85.68,
+      "text": "and new features as well."
+    },
+    {
+      "id": 32,
+      "start": 85.68,
+      "end": 87.64,
+      "text": "Because when S3 first came out, it didn't have that select"
+    },
+    {
+      "id": 33,
+      "start": 87.64,
+      "end": 88.84,
+      "text": "command now it does."
+    },
+    {
+      "id": 34,
+      "start": 88.84,
+      "end": 90.6,
+      "text": "That's something they've added that you can then"
+    },
+    {
+      "id": 35,
+      "start": 90.6,
+      "end": 91.84,
+      "text": "take the benefit of without having"
+    },
+    {
+      "id": 36,
+      "start": 91.84,
+      "end": 93.6,
+      "text": "to do any engineering for yourself."
+    },
+    {
+      "id": 37,
+      "start": 93.6,
+      "end": 95.76,
+      "text": "And S3 is pretty cheap."
+    },
+    {
+      "id": 38,
+      "start": 95.76,
+      "end": 99.68,
+      "text": "That's actually really cheap compared to EBS and other things."
+    },
+    {
+      "id": 39,
+      "start": 99.68,
+      "end": 101.32,
+      "text": "It's not the fastest."
+    },
+    {
+      "id": 40,
+      "start": 101.32,
+      "end": 102.28,
+      "text": "But then that's OK."
+    },
+    {
+      "id": 41,
+      "start": 102.28,
+      "end": 102.8,
+      "text": "We're database."
+    },
+    {
+      "id": 42,
+      "start": 102.8,
+      "end": 104.08,
+      "text": "We know how to do caching."
+    },
+    {
+      "id": 43,
+      "start": 104.08,
+      "end": 106.04,
+      "text": "It's basically a buffer pool manager, right?"
+    },
+    {
+      "id": 44,
+      "start": 106.04,
+      "end": 108.48,
+      "text": "We now do caching to avoid those long latency"
+    },
+    {
+      "id": 45,
+      "start": 108.48,
+      "end": 109.92,
+      "text": "of doing this access."
+    },
+    {
+      "id": 46,
+      "start": 109.92,
+      "end": 113.84,
+      "text": "So we can do all of that to hide the slow-late roundtrip"
+    },
+    {
+      "id": 47,
+      "start": 113.84,
+      "end": 117.4,
+      "text": "times from something like S3."
+    },
+    {
+      "id": 48,
+      "start": 117.4,
+      "end": 119.56,
+      "text": "So again, this semester we're going to focus on this"
+    },
+    {
+      "id": 49,
+      "start": 119.56,
+      "end": 120.32,
+      "text": "implementation."
+    },
+    {
+      "id": 50,
+      "start": 123.12,
+      "end": 125.36,
+      "text": "So this is not a new idea."
+    },
+    {
+      "id": 51,
+      "start": 125.36,
+      "end": 127.08,
+      "text": "Again, I should have showed that, oh, these things"
+    },
+    {
+      "id": 52,
+      "start": 127.08,
+      "end": 128.96,
+      "text": "became vogue in the 2010s."
+    },
+    {
+      "id": 53,
+      "start": 128.96,
+      "end": 130.92,
+      "text": "But it actually goes back to the 1980s."
+    },
+    {
+      "id": 54,
+      "start": 130.92,
+      "end": 132.4,
+      "text": "And traditionally, these things were terrible."
+    },
+    {
+      "id": 55,
+      "start": 132.4,
+      "end": 134.72,
+      "text": "These shared-disced data systems."
+    },
+    {
+      "id": 56,
+      "start": 134.72,
+      "end": 137.68,
+      "text": "But because of the cloud stores, because of all these,"
+    },
+    {
+      "id": 57,
+      "start": 137.68,
+      "end": 139.88,
+      "text": "every vendor has their own version,"
+    },
+    {
+      "id": 58,
+      "start": 139.88,
+      "end": 142.92,
+      "text": "there's local things like SEF and other stuff, or Gluster"
+    },
+    {
+      "id": 59,
+      "start": 142.92,
+      "end": 143.44,
+      "text": "FS."
+    },
+    {
+      "id": 60,
+      "start": 143.44,
+      "end": 147.24,
+      "text": "There's local object stores you could use."
+    },
+    {
+      "id": 61,
+      "start": 147.4,
+      "end": 148.76,
+      "text": "These things are so problem."
+    },
+    {
+      "id": 62,
+      "start": 148.76,
+      "end": 150.56,
+      "text": "Again, every system is based on this."
+    },
+    {
+      "id": 63,
+      "start": 150.56,
+      "end": 152.72,
+      "text": "So just give an example of what a non-cloud version"
+    },
+    {
+      "id": 64,
+      "start": 152.72,
+      "end": 154.32,
+      "text": "of a shared-discarbit texture would look like."
+    },
+    {
+      "id": 65,
+      "start": 154.32,
+      "end": 155.16,
+      "text": "That's old."
+    },
+    {
+      "id": 66,
+      "start": 155.16,
+      "end": 156.88,
+      "text": "This is Oracle Exadata."
+    },
+    {
+      "id": 67,
+      "start": 156.88,
+      "end": 159.84,
+      "text": "So when you buy Oracle Exadata, it's millions of dollars."
+    },
+    {
+      "id": 68,
+      "start": 159.84,
+      "end": 161.76,
+      "text": "They ship you a rack or a bunch of racks."
+    },
+    {
+      "id": 69,
+      "start": 161.76,
+      "end": 164.12,
+      "text": "And it's basically a shared-discarbit texture."
+    },
+    {
+      "id": 70,
+      "start": 164.12,
+      "end": 166.6,
+      "text": "That's going over like, infinity and n or fiber channel"
+    },
+    {
+      "id": 71,
+      "start": 166.6,
+      "end": 170.04,
+      "text": "from the compute nodes to the storage nodes."
+    },
+    {
+      "id": 72,
+      "start": 170.04,
+      "end": 172.2,
+      "text": "I think they can do predicate push down on the storage"
+    },
+    {
+      "id": 73,
+      "start": 172.2,
+      "end": 173.04,
+      "text": "size as well."
+    },
+    {
+      "id": 74,
+      "start": 173.04,
+      "end": 174.72,
+      "text": "And again, this is all running in the same rack"
+    },
+    {
+      "id": 75,
+      "start": 174.72,
+      "end": 178.0,
+      "text": "instead of like on the object store over the public network"
+    },
+    {
+      "id": 76,
+      "start": 178.0,
+      "end": 180.4,
+      "text": "in Amazon."
+    },
+    {
+      "id": 77,
+      "start": 180.4,
+      "end": 182.64,
+      "text": "But again, just showing that these ideas have been around"
+    },
+    {
+      "id": 78,
+      "start": 182.64,
+      "end": 183.24,
+      "text": "for a long time."
+    },
+    {
+      "id": 79,
+      "start": 186.12,
+      "end": 187.44,
+      "text": "All right, so let's talk about the object stores."
+    },
+    {
+      "id": 80,
+      "start": 187.44,
+      "end": 189.64,
+      "text": "From the portion that we care about."
+    },
+    {
+      "id": 81,
+      "start": 189.64,
+      "end": 194.68,
+      "text": "So again, from the Davies perspective, it's disk."
+    },
+    {
+      "id": 82,
+      "start": 194.68,
+      "end": 196.76,
+      "text": "And instead of going, again, we're not using the POSIX API."
+    },
+    {
+      "id": 83,
+      "start": 196.76,
+      "end": 199.84,
+      "text": "We're not using the libc calls."
+    },
+    {
+      "id": 84,
+      "start": 199.84,
+      "end": 204.12,
+      "text": "We're using whatever the API, the cloud vendors providing us."
+    },
+    {
+      "id": 85,
+      "start": 204.12,
+      "end": 205.76,
+      "text": "But we're going to be responsible for what we're actually"
+    },
+    {
+      "id": 86,
+      "start": 205.76,
+      "end": 207.36,
+      "text": "storing in it."
+    },
+    {
+      "id": 87,
+      "start": 207.36,
+      "end": 209.52,
+      "text": "And then whether it's going to be in a proprietary format"
+    },
+    {
+      "id": 88,
+      "start": 209.52,
+      "end": 213.52,
+      "text": "that's custom to the database system or a source format,"
+    },
+    {
+      "id": 89,
+      "start": 213.52,
+      "end": 216.36,
+      "text": "we'll cover next class."
+    },
+    {
+      "id": 90,
+      "start": 216.36,
+      "end": 217.84,
+      "text": "Again, it doesn't matter."
+    },
+    {
+      "id": 91,
+      "start": 217.84,
+      "end": 220.0,
+      "text": "So most of the, in most of these systems,"
+    },
+    {
+      "id": 92,
+      "start": 220.0,
+      "end": 222.56,
+      "text": "they're going to be storing it in the Pax format."
+    },
+    {
+      "id": 93,
+      "start": 222.56,
+      "end": 224.84,
+      "text": "Again, think of that as like, it's a columnar format."
+    },
+    {
+      "id": 94,
+      "start": 224.84,
+      "end": 227.92,
+      "text": "But the tables mean to divide it up into row groups"
+    },
+    {
+      "id": 95,
+      "start": 227.92,
+      "end": 229.56,
+      "text": "or blocks, big blocks of data."
+    },
+    {
+      "id": 96,
+      "start": 229.56,
+      "end": 232.16,
+      "text": "And then within that block, all the data for a single two"
+    },
+    {
+      "id": 97,
+      "start": 232.16,
+      "end": 234.56,
+      "text": "tables is going to be located in it."
+    },
+    {
+      "id": 98,
+      "start": 234.56,
+      "end": 237.0,
+      "text": "But it's just going to be stored in a columnar format."
+    },
+    {
+      "id": 99,
+      "start": 237.0,
+      "end": 239.48,
+      "text": "And that's different than like the really early column store"
+    },
+    {
+      "id": 100,
+      "start": 239.48,
+      "end": 240.24,
+      "text": "systems."
+    },
+    {
+      "id": 101,
+      "start": 240.24,
+      "end": 242.0,
+      "text": "Like in Vertica, for example, I think they"
+    },
+    {
+      "id": 102,
+      "start": 242.0,
+      "end": 243.68,
+      "text": "stored the entire column as a separate,"
+    },
+    {
+      "id": 103,
+      "start": 243.68,
+      "end": 244.72,
+      "text": "continuous file."
+    },
+    {
+      "id": 104,
+      "start": 244.72,
+      "end": 246.64,
+      "text": "And every column was its own file."
+    },
+    {
+      "id": 105,
+      "start": 246.64,
+      "end": 249.64,
+      "text": "In the Pax world, again, you combine things together"
+    },
+    {
+      "id": 106,
+      "start": 249.64,
+      "end": 252.08,
+      "text": "so that all the two tables are spatially close to each other"
+    },
+    {
+      "id": 107,
+      "start": 252.08,
+      "end": 254.76,
+      "text": "within the file, even though they're stored in a columnar"
+    },
+    {
+      "id": 108,
+      "start": 254.76,
+      "end": 256.28,
+      "text": "format."
+    },
+    {
+      "id": 109,
+      "start": 256.28,
+      "end": 257.84,
+      "text": "Again, and we'll cover this next class."
+    },
+    {
+      "id": 110,
+      "start": 257.84,
+      "end": 260.44,
+      "text": "But there'll be some got a header of footer for all these files."
+    },
+    {
+      "id": 111,
+      "start": 261.28,
+      "end": 262.24,
+      "text": "How to get to these offsets?"
+    },
+    {
+      "id": 112,
+      "start": 262.24,
+      "end": 263.72,
+      "text": "Because everything has to be fixed length,"
+    },
+    {
+      "id": 113,
+      "start": 263.72,
+      "end": 266.24,
+      "text": "to get to the different two tables that you need."
+    },
+    {
+      "id": 114,
+      "start": 266.24,
+      "end": 267.76,
+      "text": "How things are being compressed."
+    },
+    {
+      "id": 115,
+      "start": 267.76,
+      "end": 270.04,
+      "text": "Any additional sketches or indexes or metadata,"
+    },
+    {
+      "id": 116,
+      "start": 270.04,
+      "end": 271.84,
+      "text": "where you want to store if how what the data is."
+    },
+    {
+      "id": 117,
+      "start": 271.84,
+      "end": 273.72,
+      "text": "But again, we scan through the execution engine"
+    },
+    {
+      "id": 118,
+      "start": 273.72,
+      "end": 276.68,
+      "text": "and then feed that into the catalog."
+    },
+    {
+      "id": 119,
+      "start": 276.68,
+      "end": 278.2,
+      "text": "So that the planar can use it."
+    },
+    {
+      "id": 120,
+      "start": 278.2,
+      "end": 281.0,
+      "text": "Again, all this will cover and the next class."
+    },
+    {
+      "id": 121,
+      "start": 281.0,
+      "end": 282.8,
+      "text": "And again, basically what happens is you would"
+    },
+    {
+      "id": 122,
+      "start": 282.8,
+      "end": 285.36,
+      "text": "retrieve either the header or in case of Park K"
+    },
+    {
+      "id": 123,
+      "start": 285.36,
+      "end": 287.6,
+      "text": "and Ork, it's always the footer because it's"
+    },
+    {
+      "id": 124,
+      "start": 287.6,
+      "end": 289.24,
+      "text": "independently of stores."
+    },
+    {
+      "id": 125,
+      "start": 289.24,
+      "end": 291.52,
+      "text": "So you start writing up the file and then you realize,"
+    },
+    {
+      "id": 126,
+      "start": 291.52,
+      "end": 292.96,
+      "text": "OK, here's all the data I just stored."
+    },
+    {
+      "id": 127,
+      "start": 292.96,
+      "end": 294.2,
+      "text": "You put that in the footer."
+    },
+    {
+      "id": 128,
+      "start": 294.2,
+      "end": 296.68,
+      "text": "So you can use your object store to go just retrieve"
+    },
+    {
+      "id": 129,
+      "start": 296.68,
+      "end": 299.48,
+      "text": "the footer of the file and then figure out what's actually"
+    },
+    {
+      "id": 130,
+      "start": 299.48,
+      "end": 301.72,
+      "text": "inside of it."
+    },
+    {
+      "id": 131,
+      "start": 301.72,
+      "end": 303.64,
+      "text": "And I guess they all have their own version of Put Get"
+    },
+    {
+      "id": 132,
+      "start": 303.64,
+      "end": 305.28,
+      "text": "and Delete."
+    },
+    {
+      "id": 133,
+      "start": 305.28,
+      "end": 307.52,
+      "text": "So this is the one system we're going to cover later"
+    },
+    {
+      "id": 134,
+      "start": 307.52,
+      "end": 308.04,
+      "text": "in the semester."
+    },
+    {
+      "id": 135,
+      "start": 308.04,
+      "end": 309.68,
+      "text": "But I didn't bring it up now because it's"
+    },
+    {
+      "id": 136,
+      "start": 309.68,
+      "end": 310.92,
+      "text": "wild what they did."
+    },
+    {
+      "id": 137,
+      "start": 310.92,
+      "end": 315.56,
+      "text": "So yellow brick was originally an on-prem database system"
+    },
+    {
+      "id": 138,
+      "start": 315.56,
+      "end": 316.48,
+      "text": "that was shared nothing."
+    },
+    {
+      "id": 139,
+      "start": 316.48,
+      "end": 317.48,
+      "text": "It was an appliance."
+    },
+    {
+      "id": 140,
+      "start": 317.48,
+      "end": 321.16,
+      "text": "You would buy these custom hardware that they would put together"
+    },
+    {
+      "id": 141,
+      "start": 321.16,
+      "end": 322.92,
+      "text": "that was tuned for the database system"
+    },
+    {
+      "id": 142,
+      "start": 322.92,
+      "end": 324.28,
+      "text": "and you run this on-prem."
+    },
+    {
+      "id": 143,
+      "start": 324.28,
+      "end": 326.76,
+      "text": "They switch converted to a cloud-based database system,"
+    },
+    {
+      "id": 144,
+      "start": 326.76,
+      "end": 329.88,
+      "text": "like a snowflake or like a redshift and others."
+    },
+    {
+      "id": 145,
+      "start": 329.88,
+      "end": 333.16,
+      "text": "But they found that when they converted over"
+    },
+    {
+      "id": 146,
+      "start": 333.16,
+      "end": 337.08,
+      "text": "to run in the public cloud, the object store"
+    },
+    {
+      "id": 147,
+      "start": 337.08,
+      "end": 340.36,
+      "text": "was just so much slower than they were used to in their on-prem"
+    },
+    {
+      "id": 148,
+      "start": 340.36,
+      "end": 341.84,
+      "text": "version of the appliance version."
+    },
+    {
+      "id": 149,
+      "start": 341.84,
+      "end": 344.4,
+      "text": "So they ended up rewriting a lot of things that Amazon"
+    },
+    {
+      "id": 150,
+      "start": 344.4,
+      "end": 346.4,
+      "text": "provides you or like offices and provides you."
+    },
+    {
+      "id": 151,
+      "start": 346.4,
+      "end": 347.4,
+      "text": "And everything's all custom."
+    },
+    {
+      "id": 152,
+      "start": 347.4,
+      "end": 350.92,
+      "text": "So for example, they threw away the Amazon libraries"
+    },
+    {
+      "id": 153,
+      "start": 350.92,
+      "end": 354.76,
+      "text": "for their own libraries to call S3 using Intel DVDK."
+    },
+    {
+      "id": 154,
+      "start": 354.76,
+      "end": 356.48,
+      "text": "And so it's doing kernel bypass, which"
+    },
+    {
+      "id": 155,
+      "start": 356.48,
+      "end": 357.56,
+      "text": "will cover the latest semester."
+    },
+    {
+      "id": 156,
+      "start": 357.56,
+      "end": 361.28,
+      "text": "Basically to do fast lookups to S3, get the contents,"
+    },
+    {
+      "id": 157,
+      "start": 361.28,
+      "end": 364.44,
+      "text": "or get the data you need, and not make a copy in the kernel,"
+    },
+    {
+      "id": 158,
+      "start": 364.44,
+      "end": 366.8,
+      "text": "just immediately pass it up in user space."
+    },
+    {
+      "id": 159,
+      "start": 366.8,
+      "end": 368.04,
+      "text": "DVDK is a nightmare."
+    },
+    {
+      "id": 160,
+      "start": 368.04,
+      "end": 368.96,
+      "text": "We'll cover that."
+    },
+    {
+      "id": 161,
+      "start": 368.96,
+      "end": 370.68,
+      "text": "Why, Vazen, in the latest semester?"
+    },
+    {
+      "id": 162,
+      "start": 370.68,
+      "end": 373.88,
+      "text": "Or like instead of running over TCPIP,"
+    },
+    {
+      "id": 163,
+      "start": 374.76,
+      "end": 376.88,
+      "text": "they wrote their own network protocol over UDP,"
+    },
+    {
+      "id": 164,
+      "start": 376.88,
+      "end": 378.0,
+      "text": "because there's just so much faster than them."
+    },
+    {
+      "id": 165,
+      "start": 378.0,
+      "end": 379.84,
+      "text": "So they rewrote a ton of stuff and say,"
+    },
+    {
+      "id": 166,
+      "start": 379.84,
+      "end": 381.48,
+      "text": "they write their own PCIe drivers."
+    },
+    {
+      "id": 167,
+      "start": 381.48,
+      "end": 382.6,
+      "text": "Who does that?"
+    },
+    {
+      "id": 168,
+      "start": 382.6,
+      "end": 383.64,
+      "text": "Data is people, right?"
+    },
+    {
+      "id": 169,
+      "start": 383.64,
+      "end": 384.48,
+      "text": "It's awesome."
+    },
+    {
+      "id": 170,
+      "start": 384.48,
+      "end": 392.8,
+      "text": "So even though I said S3 is slow or relative to local disk,"
+    },
+    {
+      "id": 171,
+      "start": 392.8,
+      "end": 394.16,
+      "text": "there's ways to make it faster."
+    },
+    {
+      "id": 172,
+      "start": 394.16,
+      "end": 396.32,
+      "text": "And again, caching is also going to help us hide"
+    },
+    {
+      "id": 173,
+      "start": 396.32,
+      "end": 396.4,
+      "text": "those long late-"
+    },
+    {
+      "id": 174,
+      "start": 396.4,
+      "end": 398.08,
+      "text": "needs as well."
+    },
+    {
+      "id": 175,
+      "start": 398.08,
+      "end": 400.88,
+      "text": "We're relying on the local attached disk on the compute notes."
+    },
+    {
+      "id": 176,
+      "start": 404.08,
+      "end": 407.28,
+      "text": "OK, so to finish up, today again,"
+    },
+    {
+      "id": 177,
+      "start": 407.28,
+      "end": 412.28,
+      "text": "it was a vomiting a bunch of database stuff at you"
+    },
+    {
+      "id": 178,
+      "start": 412.28,
+      "end": 416.24,
+      "text": "to as a preview for where we're going to go this semester."
+    },
+    {
+      "id": 179,
+      "start": 416.24,
+      "end": 419.56,
+      "text": "And we're basically going to start from the bottom layer."
+    },
+    {
+      "id": 180,
+      "start": 419.56,
+      "end": 421.68,
+      "text": "We're not going to talk about how S3 works,"
+    },
+    {
+      "id": 181,
+      "start": 421.68,
+      "end": 423.0,
+      "text": "because that part we don't really care about."
+    },
+    {
+      "id": 182,
+      "start": 423.0,
+      "end": 425.4,
+      "text": "But we're going to talk about what the data is actually going to look like"
+    },
+    {
+      "id": 183,
+      "start": 425.4,
+      "end": 426.84,
+      "text": "in that we're going to put in S3."
+    },
+    {
+      "id": 184,
+      "start": 426.84,
+      "end": 429.64,
+      "text": "And then we'll start building the layers on top of that"
+    },
+    {
+      "id": 185,
+      "start": 429.64,
+      "end": 432.68,
+      "text": "or to be able to execute queries."
+    },
+    {
+      "id": 186,
+      "start": 432.88,
+      "end": 434.76,
+      "text": "So the opposite direction, what I showed in the beginning,"
+    },
+    {
+      "id": 187,
+      "start": 434.76,
+      "end": 438.4,
+      "text": "and going top down, we're going to go bottom up."
+    },
+    {
+      "id": 188,
+      "start": 438.4,
+      "end": 441.72,
+      "text": "And the idea really is about what are the state of our"
+    },
+    {
+      "id": 189,
+      "start": 441.72,
+      "end": 443.56,
+      "text": "implementation, the state of our methods, techniques,"
+    },
+    {
+      "id": 190,
+      "start": 443.56,
+      "end": 446.52,
+      "text": "and algorithms to do all the things that we laid out"
+    },
+    {
+      "id": 191,
+      "start": 446.52,
+      "end": 447.68,
+      "text": "at the head of time."
+    },
+    {
+      "id": 192,
+      "start": 447.68,
+      "end": 449.72,
+      "text": "And that's the papers that I've picked for you guys are really"
+    },
+    {
+      "id": 193,
+      "start": 449.72,
+      "end": 451.96,
+      "text": "designed to expose you to."
+    },
+    {
+      "id": 194,
+      "start": 451.96,
+      "end": 455.24,
+      "text": "Here's a certain way of how people approach these problems."
+    },
+    {
+      "id": 195,
+      "start": 455.24,
+      "end": 457.12,
+      "text": "But then we'll also cover other papers that are related to"
+    },
+    {
+      "id": 196,
+      "start": 457.12,
+      "end": 459.24,
+      "text": "the other techniques."
+    },
+    {
+      "id": 197,
+      "start": 459.24,
+      "end": 461.2,
+      "text": "OK?"
+    },
+    {
+      "id": 198,
+      "start": 461.2,
+      "end": 463.12,
+      "text": "So next class, the paper guys have a reading is actually"
+    },
+    {
+      "id": 199,
+      "start": 463.12,
+      "end": 465.96,
+      "text": "something that I wrote with my former PGA student."
+    },
+    {
+      "id": 200,
+      "start": 465.96,
+      "end": 470.16,
+      "text": "Basically, it's a survey of the internals of Parkane orc."
+    },
+    {
+      "id": 201,
+      "start": 470.16,
+      "end": 472.96,
+      "text": "It's going to talk a little bit about GPUs at the end."
+    },
+    {
+      "id": 202,
+      "start": 472.96,
+      "end": 475.16,
+      "text": "We're not going to cover GPUs or FPGAs the semester."
+    },
+    {
+      "id": 203,
+      "start": 475.16,
+      "end": 476.84,
+      "text": "A lot of that is a whole new line of work."
+    },
+    {
+      "id": 204,
+      "start": 476.84,
+      "end": 481.24,
+      "text": "We're only going to be focused on how we do X2 queries on CPUs for now."
+    },
+    {
+      "id": 205,
+      "start": 481.24,
+      "end": 482.12,
+      "text": "OK?"
+    },
+    {
+      "id": 206,
+      "start": 482.12,
+      "end": 485.24,
+      "text": "And then so next class will be Parkane orc,"
+    },
+    {
+      "id": 207,
+      "start": 485.24,
+      "end": 488.72,
+      "text": "the most widely used, open source file formats."
+    },
+    {
+      "id": 208,
+      "start": 488.72,
+      "end": 490.08,
+      "text": "And then the following class next Monday"
+    },
+    {
+      "id": 209,
+      "start": 490.08,
+      "end": 495.64,
+      "text": "will be here's new variations, new implementations of a file"
+    },
+    {
+      "id": 210,
+      "start": 495.64,
+      "end": 499.36,
+      "text": "format that supposedly are better than Parkane orc."
+    },
+    {
+      "id": 211,
+      "start": 499.36,
+      "end": 502.16,
+      "text": "So it's like the next generation file formats that are coming out."
+    },
+    {
+      "id": 212,
+      "start": 502.16,
+      "end": 503.8,
+      "text": "OK?"
+    },
+    {
+      "id": 213,
+      "start": 503.8,
+      "end": 504.8,
+      "text": "Any other questions?"
+    },
+    {
+      "id": 214,
+      "start": 504.8,
+      "end": 505.8,
+      "text": "Take out, you know."
+    },
+    {
+      "id": 215,
+      "start": 505.8,
+      "end": 506.44,
+      "text": "I'm glad you had it."
+    },
+    {
+      "id": 216,
+      "start": 506.44,
+      "end": 508.68,
+      "text": "You got a belt to get the 40 out of my."
+    },
+    {
+      "id": 217,
+      "start": 508.68,
+      "end": 511.52,
+      "text": "Get a grip, take a sip, and you'll be picking up models."
+    },
+    {
+      "id": 218,
+      "start": 511.52,
+      "end": 512.64,
+      "text": "Ain't ain't no bug all that doesn't."
+    },
+    {
+      "id": 219,
+      "start": 512.64,
+      "end": 513.48,
+      "text": "Because I'm more a man."
+    },
+    {
+      "id": 220,
+      "start": 513.48,
+      "end": 514.88,
+      "text": "I'm telling the 40 out of my 40."
+    },
+    {
+      "id": 221,
+      "start": 514.88,
+      "end": 516.24,
+      "text": "Got four cans."
+    },
+    {
+      "id": 222,
+      "start": 516.24,
+      "end": 518.32,
+      "text": "Stack six packs on a table."
+    },
+    {
+      "id": 223,
+      "start": 518.32,
+      "end": 520.56,
+      "text": "And I'm able to see St. John's on the label."
+    },
+    {
+      "id": 224,
+      "start": 520.56,
+      "end": 521.68,
+      "text": "No sure, put the truck."
+    },
+    {
+      "id": 225,
+      "start": 521.68,
+      "end": 522.56,
+      "text": "You know what got them?"
+    },
+    {
+      "id": 226,
+      "start": 522.56,
+      "end": 523.36,
+      "text": "I take off the cap."
+    },
+    {
+      "id": 227,
+      "start": 523.36,
+      "end": 525.16,
+      "text": "My first on tap on the bottle."
+    },
+    {
+      "id": 228,
+      "start": 525.16,
+      "end": 527.04,
+      "text": "Throw my three in the freezer, so I can kill it."
+    },
+    {
+      "id": 229,
+      "start": 527.04,
+      "end": 528.28,
+      "text": "Careful with the bottle, baby."
+    },
+    {
+      "id": 230,
+      "start": 528.28,
+      "end": 529.64,
+      "text": "I'm still silly."
+    },
+    {
+      "id": 231,
+      "start": 529.64,
+      "end": 530.68,
+      "text": "Because St. John's been saved."
+    },
+    {
+      "id": 232,
+      "start": 530.68,
+      "end": 531.84,
+      "text": "The pain I was wet."
+    },
+    {
+      "id": 233,
+      "start": 531.84,
+      "end": 534.16,
+      "text": "You drink it down with the guys little by the head."
+    },
+    {
+      "id": 234,
+      "start": 534.16,
+      "end": 535.88,
+      "text": "Take back the pack of drugs."
+    },
+    {
+      "id": 235,
+      "start": 535.88,
+      "end": 537.12,
+      "text": "You go get your soul saved now."
+    },
+    {
+      "id": 236,
+      "start": 537.12,
+      "end": 538.68,
+      "text": "So drink it to the front."
+    },
+    {
+      "id": 237,
+      "start": 538.68,
+      "end": 539.92,
+      "text": "Billy Dan's a chili tea."
+    },
+    {
+      "id": 238,
+      "start": 539.92,
+      "end": 541.28,
+      "text": "So tell me the wheat guys."
+    },
+    {
+      "id": 239,
+      "start": 541.28,
+      "end": 542.76,
+      "text": "Be a man to get a can of faith."
+    },
+    {
+      "id": 240,
+      "start": 542.76,
+      "end": 543.56,
+      "text": "Ah."
+    }
+  ],
+  "language": "en"
+}

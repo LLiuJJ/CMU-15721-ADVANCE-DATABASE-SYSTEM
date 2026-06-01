@@ -1,0 +1,851 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.0,
+      "text": "Um."
+    },
+    {
+      "id": 1,
+      "start": 3.0,
+      "end": 4.0,
+      "text": "Okay."
+    },
+    {
+      "id": 2,
+      "start": 4.0,
+      "end": 7.0,
+      "text": "Uh."
+    },
+    {
+      "id": 3,
+      "start": 7.0,
+      "end": 10.0,
+      "text": "Yeah, it's not that big of a secret."
+    },
+    {
+      "id": 4,
+      "start": 10.0,
+      "end": 13.0,
+      "text": "Anyhow, to your original point, I don't think it's not,"
+    },
+    {
+      "id": 5,
+      "start": 13.0,
+      "end": 14.0,
+      "text": "I don't think it's a video concern."
+    },
+    {
+      "id": 6,
+      "start": 14.0,
+      "end": 15.0,
+      "text": "Right?"
+    },
+    {
+      "id": 7,
+      "start": 15.0,
+      "end": 18.0,
+      "text": "And if you really, I think you can opt out of this and say like I want to run in it."
+    },
+    {
+      "id": 8,
+      "start": 18.0,
+      "end": 20.0,
+      "text": "You said it in the beginning."
+    },
+    {
+      "id": 9,
+      "start": 20.0,
+      "end": 21.0,
+      "text": "It didn't fit."
+    },
+    {
+      "id": 10,
+      "start": 21.0,
+      "end": 22.0,
+      "text": "No."
+    },
+    {
+      "id": 11,
+      "start": 22.0,
+      "end": 24.0,
+      "text": "It's not that."
+    },
+    {
+      "id": 12,
+      "start": 24.0,
+      "end": 27.0,
+      "text": "Right? This is not, this is not, I, this is not controversial."
+    },
+    {
+      "id": 13,
+      "start": 27.0,
+      "end": 28.0,
+      "text": "It's not in slow play code."
+    },
+    {
+      "id": 14,
+      "start": 28.0,
+      "end": 29.0,
+      "text": "It should be."
+    },
+    {
+      "id": 15,
+      "start": 29.0,
+      "end": 32.0,
+      "text": "Yeah, it's running through the code and you should be, because no one, yeah, there's other,"
+    },
+    {
+      "id": 16,
+      "start": 32.0,
+      "end": 34.0,
+      "text": "there's other things to be word out."
+    },
+    {
+      "id": 17,
+      "start": 34.0,
+      "end": 38.0,
+      "text": "And again, it's like, it's like, it's like the, the, the, the give of penny,"
+    },
+    {
+      "id": 18,
+      "start": 38.0,
+      "end": 39.0,
+      "text": "take a penny thing, right?"
+    },
+    {
+      "id": 19,
+      "start": 39.0,
+      "end": 43.0,
+      "text": "So like, right now my, my data warehouses, I'd also, yeah, if you,"
+    },
+    {
+      "id": 20,
+      "start": 43.0,
+      "end": 45.0,
+      "text": "someone else can take advantage of it, sure."
+    },
+    {
+      "id": 21,
+      "start": 45.0,
+      "end": 49.0,
+      "text": "But then went, you know, when I need it, then I can leverage somebody else's."
+    },
+    {
+      "id": 22,
+      "start": 49.0,
+      "end": 52.0,
+      "text": "And it all works out."
+    },
+    {
+      "id": 23,
+      "start": 52.0,
+      "end": 53.0,
+      "text": "Yes."
+    },
+    {
+      "id": 24,
+      "start": 53.0,
+      "end": 56.0,
+      "text": "It's not unique to stuff like, right?"
+    },
+    {
+      "id": 25,
+      "start": 56.0,
+      "end": 59.0,
+      "text": "Other, other, other, just a little bit of it?"
+    },
+    {
+      "id": 26,
+      "start": 59.0,
+      "end": 63.0,
+      "text": "It's question, this is not unique to, it's not even just like, dbms, just something like,"
+    },
+    {
+      "id": 27,
+      "start": 63.0,
+      "end": 64.0,
+      "text": "I don't know."
+    },
+    {
+      "id": 28,
+      "start": 64.0,
+      "end": 68.0,
+      "text": "It's like an example of, I feel like, I mean, so, so there was a, there was a,"
+    },
+    {
+      "id": 29,
+      "start": 68.0,
+      "end": 70.0,
+      "text": "there was a, there was a system out of the 80s that actually I worked on as,"
+    },
+    {
+      "id": 30,
+      "start": 70.0,
+      "end": 72.0,
+      "text": "like, what called my pre doc, this thing called condor."
+    },
+    {
+      "id": 31,
+      "start": 72.0,
+      "end": 74.0,
+      "text": "And it was, it was called a cycle scavenger."
+    },
+    {
+      "id": 32,
+      "start": 74.0,
+      "end": 77.0,
+      "text": "It's basically, you had a bunch of machines in the computer science department,"
+    },
+    {
+      "id": 33,
+      "start": 77.0,
+      "end": 80.0,
+      "text": "and night would recognize that no one's touched the keyboard and, or the mouse."
+    },
+    {
+      "id": 34,
+      "start": 80.0,
+      "end": 84.0,
+      "text": "And then it would start running, you know, computer heavy jobs on the machines."
+    },
+    {
+      "id": 35,
+      "start": 84.0,
+      "end": 88.0,
+      "text": "And then when you, you came back in the next morning, when you started using the mouse,"
+    },
+    {
+      "id": 36,
+      "start": 88.0,
+      "end": 91.0,
+      "text": "there was a little small pause, like, it affected the jobs, but then like, you know,"
+    },
+    {
+      "id": 37,
+      "start": 91.0,
+      "end": 93.0,
+      "text": "you got additional resources."
+    },
+    {
+      "id": 38,
+      "start": 93.0,
+      "end": 97.0,
+      "text": "So that, the, the, the idea of like, cycle scavenging is not new."
+    },
+    {
+      "id": 39,
+      "start": 97.0,
+      "end": 103.0,
+      "text": "Specific for databases, again, I think what's different about this is because it's in the cloud,"
+    },
+    {
+      "id": 40,
+      "start": 103.0,
+      "end": 108.0,
+      "text": "it's a single giant pool of all its compute capacity, right?"
+    },
+    {
+      "id": 41,
+      "start": 108.0,
+      "end": 113.0,
+      "text": "That's, that snowflake has, has under its control that you can do this."
+    },
+    {
+      "id": 42,
+      "start": 113.0,
+      "end": 116.0,
+      "text": "Amazon does, does it differently, right?"
+    },
+    {
+      "id": 43,
+      "start": 116.0,
+      "end": 118.0,
+      "text": "Amazon has spare EC2 resources."
+    },
+    {
+      "id": 44,
+      "start": 118.0,
+      "end": 121.0,
+      "text": "They try to sell them off as, as a spot instances at a low price."
+    },
+    {
+      "id": 45,
+      "start": 121.0,
+      "end": 127.0,
+      "text": "But of course, any time you could get evicted, because someone else wants to pay higher price."
+    },
+    {
+      "id": 46,
+      "start": 127.0,
+      "end": 132.0,
+      "text": "In terms of databases that, doing something similar,"
+    },
+    {
+      "id": 47,
+      "start": 132.0,
+      "end": 139.0,
+      "text": "I'll have to cut this, right?"
+    },
+    {
+      "id": 48,
+      "start": 139.0,
+      "end": 144.0,
+      "text": "Not exactly the same, but like, yeah, taking advantage of idle resources is a different thing."
+    },
+    {
+      "id": 49,
+      "start": 144.0,
+      "end": 148.0,
+      "text": "Well, Carl, also too, like thinking of the data system, like, maybe not so much for the,"
+    },
+    {
+      "id": 50,
+      "start": 148.0,
+      "end": 150.0,
+      "text": "oh, that's, actually, we'll see some micro partitions."
+    },
+    {
+      "id": 51,
+      "start": 150.0,
+      "end": 154.0,
+      "text": "Like, there's all background jobs, you want to run anyway, and you do this when you have downtime."
+    },
+    {
+      "id": 52,
+      "start": 154.0,
+      "end": 159.0,
+      "text": "Right? So it's, the idea is not far fetched, because again, because they're in a cloud,"
+    },
+    {
+      "id": 53,
+      "start": 159.0,
+      "end": 166.0,
+      "text": "this opens up opportunity to, you would not be able to get easily otherwise."
+    },
+    {
+      "id": 54,
+      "start": 166.0,
+      "end": 174.0,
+      "text": "Okay. So as I said before, the, they're going to rely on some object store,"
+    },
+    {
+      "id": 55,
+      "start": 174.0,
+      "end": 178.0,
+      "text": "again, originally S3, but of course, you know, there's downsides of this,"
+    },
+    {
+      "id": 56,
+      "start": 178.0,
+      "end": 182.0,
+      "text": "because this can be slower. You have to go make requests over, you know,"
+    },
+    {
+      "id": 57,
+      "start": 182.0,
+      "end": 186.0,
+      "text": "you can't do kernel bypass, you got to go over the network, make a HGPS recall,"
+    },
+    {
+      "id": 58,
+      "start": 186.0,
+      "end": 191.0,
+      "text": "call to their API, that's got to get encrypted, and decrypt it when it comes back."
+    },
+    {
+      "id": 59,
+      "start": 191.0,
+      "end": 194.0,
+      "text": "Right? That's expensive. We'll see next week we talk about yellow brick,"
+    },
+    {
+      "id": 60,
+      "start": 194.0,
+      "end": 200.0,
+      "text": "that they're super hardcore about this, and they wrote their own S3 drivers that use kernel bypass"
+    },
+    {
+      "id": 61,
+      "start": 200.0,
+      "end": 203.0,
+      "text": "to go as fast as possible talking to S3. I don't know whether Snooplake does it,"
+    },
+    {
+      "id": 62,
+      "start": 203.0,
+      "end": 207.0,
+      "text": "does something similar, but you can imagine they have a lot of money that they could."
+    },
+    {
+      "id": 63,
+      "start": 207.0,
+      "end": 212.0,
+      "text": "So instead of what they're going to do, and Snooplake is that instead of having to build their own,"
+    },
+    {
+      "id": 64,
+      "start": 212.0,
+      "end": 216.0,
+      "text": "again, in their, in their, their own object store, their own storage layer,"
+    },
+    {
+      "id": 65,
+      "start": 216.0,
+      "end": 220.0,
+      "text": "they're just going to build their own cache layer, caching layer on the worker nodes,"
+    },
+    {
+      "id": 66,
+      "start": 220.0,
+      "end": 226.0,
+      "text": "and make that as fast as possible, because now the benefit is, if they, if they do a really good job caching,"
+    },
+    {
+      "id": 67,
+      "start": 226.0,
+      "end": 230.0,
+      "text": "they end up paying less money to Amazon because they're making fewer requests to S3,"
+    },
+    {
+      "id": 68,
+      "start": 230.0,
+      "end": 234.0,
+      "text": "but it also makes the queries run faster because now you're, you're not going to S3."
+    },
+    {
+      "id": 69,
+      "start": 234.0,
+      "end": 238.0,
+      "text": "So it's like a winning-win situation for everyone, except maybe Amazon,"
+    },
+    {
+      "id": 70,
+      "start": 238.0,
+      "end": 242.0,
+      "text": "but like, they have enough money. Like, you know, so I think this was a smart engineering"
+    },
+    {
+      "id": 71,
+      "start": 242.0,
+      "end": 244.0,
+      "text": "decision for them to do."
+    },
+    {
+      "id": 72,
+      "start": 244.0,
+      "end": 248.0,
+      "text": "So it's a separate layer of nodes that I just acted as a cache?"
+    },
+    {
+      "id": 73,
+      "start": 248.0,
+      "end": 250.0,
+      "text": "No, the question is, is it a separate layer of nodes that I actually cache?"
+    },
+    {
+      "id": 74,
+      "start": 250.0,
+      "end": 255.0,
+      "text": "No, the worker nodes themselves have, each have a, have a local cache, right?"
+    },
+    {
+      "id": 75,
+      "start": 255.0,
+      "end": 259.0,
+      "text": "And then if that cache fills, they can then spill to S3."
+    },
+    {
+      "id": 76,
+      "start": 259.0,
+      "end": 263.0,
+      "text": "It is like an in-re-result, right? And then they're going to prioritize,"
+    },
+    {
+      "id": 77,
+      "start": 263.0,
+      "end": 266.0,
+      "text": "this paper talks about, I don't think the paper you guys read talks about it."
+    },
+    {
+      "id": 78,
+      "start": 266.0,
+      "end": 270.0,
+      "text": "They're going to prioritize the persistent files, sorry, they're going to prioritize"
+    },
+    {
+      "id": 79,
+      "start": 270.0,
+      "end": 275.0,
+      "text": "the animate results, keeping that local versus going out to,"
+    },
+    {
+      "id": 80,
+      "start": 275.0,
+      "end": 279.0,
+      "text": "versus maintaining their persistent files."
+    },
+    {
+      "id": 81,
+      "start": 279.0,
+      "end": 282.0,
+      "text": "Because the in-mere results are femoral, you want to be able to get them out really quickly"
+    },
+    {
+      "id": 82,
+      "start": 282.0,
+      "end": 284.0,
+      "text": "and make the queries run faster."
+    },
+    {
+      "id": 83,
+      "start": 284.0,
+      "end": 291.0,
+      "text": "And so you want to use as much as your local storage and your local cache for those in-mere results."
+    },
+    {
+      "id": 84,
+      "start": 291.0,
+      "end": 295.0,
+      "text": "And they're not doing anything fancy. They just talk about how they're using this LRU"
+    },
+    {
+      "id": 85,
+      "start": 295.0,
+      "end": 300.0,
+      "text": "to do cache from the question policy, and that's good enough for their environment."
+    },
+    {
+      "id": 86,
+      "start": 300.0,
+      "end": 301.0,
+      "text": "Yes?"
+    },
+    {
+      "id": 87,
+      "start": 301.0,
+      "end": 305.0,
+      "text": "Let's say traditional local manager, but it's still sort of a local manager"
+    },
+    {
+      "id": 88,
+      "start": 305.0,
+      "end": 308.0,
+      "text": "instead of local disk as S3."
+    },
+    {
+      "id": 89,
+      "start": 308.0,
+      "end": 314.0,
+      "text": "Same it is, it's not a traditional local manager where it's two layers,"
+    },
+    {
+      "id": 90,
+      "start": 314.0,
+      "end": 317.0,
+      "text": "either in memory or on disk. It's multi-layered, yes."
+    },
+    {
+      "id": 91,
+      "start": 317.0,
+      "end": 321.0,
+      "text": "It's either in memory or on disk or S3."
+    },
+    {
+      "id": 92,
+      "start": 321.0,
+      "end": 325.0,
+      "text": "And I think they talk about, at least in this paper, in 2020,"
+    },
+    {
+      "id": 93,
+      "start": 325.0,
+      "end": 331.0,
+      "text": "this is before there was a sort of persistent memory work or devices that Intel was putting out."
+    },
+    {
+      "id": 94,
+      "start": 331.0,
+      "end": 337.0,
+      "text": "And that was sort of seen as another layer, like you had DRAM memory,"
+    },
+    {
+      "id": 95,
+      "start": 337.0,
+      "end": 341.0,
+      "text": "then you would have persistent memory, like Optane, then you had SSD,"
+    },
+    {
+      "id": 96,
+      "start": 341.0,
+      "end": 346.0,
+      "text": "you would have, then the S3. Intel kept off the Optane, so that's not a thing anymore."
+    },
+    {
+      "id": 97,
+      "start": 346.0,
+      "end": 353.0,
+      "text": "But they talk about how having sort of a holistic view of a multi-level cache"
+    },
+    {
+      "id": 98,
+      "start": 353.0,
+      "end": 357.0,
+      "text": "is something that they're thinking about doing."
+    },
+    {
+      "id": 99,
+      "start": 360.0,
+      "end": 364.0,
+      "text": "Okay, so again, the original version of Snowflake, or I guess by default,"
+    },
+    {
+      "id": 100,
+      "start": 364.0,
+      "end": 369.0,
+      "text": "when you put data in Snowflake, they're going to be using their own proprietary storage format."
+    },
+    {
+      "id": 101,
+      "start": 369.0,
+      "end": 373.0,
+      "text": "And again, this is before PROK before ORC, but in a high load,"
+    },
+    {
+      "id": 102,
+      "start": 373.0,
+      "end": 379.0,
+      "text": "it's going to look, I've had students tell me that it looks basically equivalent to PROK and ORC."
+    },
+    {
+      "id": 103,
+      "start": 379.0,
+      "end": 383.0,
+      "text": "It's using Pax, it's columnar storage, it's doing dictionary encoding,"
+    },
+    {
+      "id": 104,
+      "start": 383.0,
+      "end": 385.0,
+      "text": "I think they're doing run length encoding."
+    },
+    {
+      "id": 105,
+      "start": 385.0,
+      "end": 389.0,
+      "text": "So there's nothing dramatically different or special about what they're doing there,"
+    },
+    {
+      "id": 106,
+      "start": 389.0,
+      "end": 391.0,
+      "text": "other than it's proprietary to them."
+    },
+    {
+      "id": 107,
+      "start": 391.0,
+      "end": 394.0,
+      "text": "They're not going to give you a binary file in the format,"
+    },
+    {
+      "id": 108,
+      "start": 394.0,
+      "end": 397.0,
+      "text": "because there's no readers externally for these things."
+    },
+    {
+      "id": 109,
+      "start": 397.0,
+      "end": 400.0,
+      "text": "But then one thing they're going to do is, for any data that shows up,"
+    },
+    {
+      "id": 110,
+      "start": 400.0,
+      "end": 402.0,
+      "text": "they're going to break it up into what they call micropartitions."
+    },
+    {
+      "id": 111,
+      "start": 402.0,
+      "end": 410.0,
+      "text": "And I think this is roughly like a, I'm just equivalent to like a row group that we talked about in PROK."
+    },
+    {
+      "id": 112,
+      "start": 410.0,
+      "end": 414.0,
+      "text": "And so the original data for micropartition range up to 50 to 500 megs,"
+    },
+    {
+      "id": 113,
+      "start": 414.0,
+      "end": 419.0,
+      "text": "but after doing all of the compression stuff, including, I think they run like a block-based compression,"
+    },
+    {
+      "id": 114,
+      "start": 419.0,
+      "end": 425.0,
+      "text": "like Snappy or Z standard, they'll get each micropartition down to 16 megabytes."
+    },
+    {
+      "id": 115,
+      "start": 426.0,
+      "end": 438.0,
+      "text": "Then in the background, they're going to periodically check to see whether the clustering of these micropartitions is actually ideal,"
+    },
+    {
+      "id": 116,
+      "start": 438.0,
+      "end": 447.0,
+      "text": "and they can reorganize and resort them based on how what join key people are using or what access key people are using for queries."
+    },
+    {
+      "id": 117,
+      "start": 448.0,
+      "end": 456.0,
+      "text": "So there's sort of this extra work that they're doing in the background to optimize the storage when it's in the proprietary format."
+    },
+    {
+      "id": 118,
+      "start": 456.0,
+      "end": 461.0,
+      "text": "And that's different than we talked about in Databricks and Spark SQL and Dremel,"
+    },
+    {
+      "id": 119,
+      "start": 461.0,
+      "end": 466.0,
+      "text": "where they just assume that people are putting random files on S3,"
+    },
+    {
+      "id": 120,
+      "start": 466.0,
+      "end": 470.0,
+      "text": "and they don't have the ability to go and rewrite them and modify them and reorganize them."
+    },
+    {
+      "id": 121,
+      "start": 470.0,
+      "end": 474.0,
+      "text": "And they just had to run the query on directly as the files as they existed,"
+    },
+    {
+      "id": 122,
+      "start": 475.0,
+      "end": 482.0,
+      "text": "whereas in Snowflake, again, using their internal format, they can use the extra cycles to do this, to speed things up."
+    },
+    {
+      "id": 123,
+      "start": 483.0,
+      "end": 489.0,
+      "text": "But we'll see how they can, you know, they have just more external tables and things where they can't do this,"
+    },
+    {
+      "id": 124,
+      "start": 489.0,
+      "end": 493.0,
+      "text": "and we'll talk a little bit about how they handle that."
+    },
+    {
+      "id": 125,
+      "start": 493.0,
+      "end": 502.0,
+      "text": "So now one thing that is interesting about Snowflake's proprietary format is how they want to handle semi-structured data."
+    },
+    {
+      "id": 126,
+      "start": 502.0,
+      "end": 509.0,
+      "text": "And so they have three types that are specific or unique to Snowflake, variant array and object."
+    },
+    {
+      "id": 127,
+      "start": 509.0,
+      "end": 515.0,
+      "text": "Variant basically means anything, like any kind of JSON hierarchy or something that rexml, think of like that."
+    },
+    {
+      "id": 128,
+      "start": 515.0,
+      "end": 521.0,
+      "text": "Arrays as the sounds, it's just an array of values of an arbitrary length."
+    },
+    {
+      "id": 129,
+      "start": 521.0,
+      "end": 530.0,
+      "text": "And an object, I think, is equivalent to the generic case of variant where it's a single level hierarchy,"
+    },
+    {
+      "id": 130,
+      "start": 530.0,
+      "end": 535.0,
+      "text": "whereas variant can go any arbitrary length or depth, right?"
+    },
+    {
+      "id": 131,
+      "start": 535.0,
+      "end": 542.0,
+      "text": "So in the case of the Dremel paper, they talked about how they were trying to process all these protobuff files that were internal to Google."
+    },
+    {
+      "id": 132,
+      "start": 542.0,
+      "end": 545.0,
+      "text": "Well, if it's a protobuff file, you have the schema."
+    },
+    {
+      "id": 133,
+      "start": 545.0,
+      "end": 553.0,
+      "text": "You know the data types of the data that feels that are inside of them, so they know how to convert them into the proper binary format."
+    },
+    {
+      "id": 134,
+      "start": 553.0,
+      "end": 557.0,
+      "text": "And doing the shredding or breaking out the separate columns that we talked about."
+    },
+    {
+      "id": 135,
+      "start": 557.0,
+      "end": 562.0,
+      "text": "In the case of Databricks and Photon, they didn't have the schema for these files."
+    },
+    {
+      "id": 136,
+      "start": 562.0,
+      "end": 574.0,
+      "text": "So the way they would handle that is that while the query was running, that they would do this runtime at activity where they would switch what version of a primitive they would use to say,"
+    },
+    {
+      "id": 137,
+      "start": 574.0,
+      "end": 581.0,
+      "text": "oh, I know I'm processing unicode data or ASCII data or date data versus random numbers, right?"
+    },
+    {
+      "id": 138,
+      "start": 581.0,
+      "end": 586.0,
+      "text": "And so they were trying to learn why they were running the query, what the data type actually was for these different fields."
+    },
+    {
+      "id": 139,
+      "start": 586.0,
+      "end": 592.0,
+      "text": "What Snowflake is going to do, it's different, is that they're going to try to figure things out upon ingestion."
+    },
+    {
+      "id": 140,
+      "start": 592.0,
+      "end": 601.0,
+      "text": "And again, this is when you use their proprietary format, you're calling insert into the database or your bulk list."
+    }
+  ],
+  "language": "en"
+}

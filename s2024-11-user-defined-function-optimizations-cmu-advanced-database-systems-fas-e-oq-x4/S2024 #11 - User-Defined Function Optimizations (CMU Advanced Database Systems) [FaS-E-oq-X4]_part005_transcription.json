@@ -1,0 +1,1397 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.72,
+      "text": "and they don't support updates."
+    },
+    {
+      "id": 1,
+      "start": 1.72,
+      "end": 3.2,
+      "text": "Again, in SQL Server, that's not a big deal,"
+    },
+    {
+      "id": 2,
+      "start": 3.2,
+      "end": 7.32,
+      "text": "but in Postgres and other queries,"
+    },
+    {
+      "id": 3,
+      "start": 7.32,
+      "end": 9.04,
+      "text": "or other data systems, you could."
+    },
+    {
+      "id": 4,
+      "start": 9.04,
+      "end": 10.52,
+      "text": "So the original question is like,"
+    },
+    {
+      "id": 5,
+      "start": 10.52,
+      "end": 13.24,
+      "text": "why do we need SQL, instead of just using UDS?"
+    },
+    {
+      "id": 6,
+      "start": 15.24,
+      "end": 16.64,
+      "text": "You still need both, right?"
+    },
+    {
+      "id": 7,
+      "start": 16.64,
+      "end": 18.24,
+      "text": "There's certain things you would not,"
+    },
+    {
+      "id": 8,
+      "start": 18.24,
+      "end": 21.6,
+      "text": "like to do the things you would want to do"
+    },
+    {
+      "id": 9,
+      "start": 21.6,
+      "end": 24.6,
+      "text": "in a on your database server,"
+    },
+    {
+      "id": 10,
+      "start": 24.6,
+      "end": 27.56,
+      "text": "like your UDS is gonna start making SQL query calls in it."
+    },
+    {
+      "id": 11,
+      "start": 28.56,
+      "end": 29.56,
+      "text": "Right?"
+    },
+    {
+      "id": 12,
+      "start": 30.56,
+      "end": 32.56,
+      "text": "So SQL doesn't go away."
+    },
+    {
+      "id": 13,
+      "start": 35.56,
+      "end": 39.56,
+      "text": "So this is the result they had in the paper that they shared,"
+    },
+    {
+      "id": 14,
+      "start": 39.56,
+      "end": 43.56,
+      "text": "where they had a bunch of different workloads"
+    },
+    {
+      "id": 15,
+      "start": 43.56,
+      "end": 44.56,
+      "text": "that are real from real customers,"
+    },
+    {
+      "id": 16,
+      "start": 44.56,
+      "end": 47.56,
+      "text": "and I think they got permission to extract out the UDS"
+    },
+    {
+      "id": 17,
+      "start": 47.56,
+      "end": 49.56,
+      "text": "and sampled the data,"
+    },
+    {
+      "id": 18,
+      "start": 49.56,
+      "end": 53.56,
+      "text": "and they showed what benefit they're getting for a bunch of UDS"
+    },
+    {
+      "id": 19,
+      "start": 53.56,
+      "end": 55.56,
+      "text": "by inlining it with Freud."
+    },
+    {
+      "id": 20,
+      "start": 55.76,
+      "end": 59.56,
+      "text": "So for the first workload, it had 90 UDS,"
+    },
+    {
+      "id": 21,
+      "start": 59.56,
+      "end": 63.8,
+      "text": "and 82 of them could be in line with Freud."
+    },
+    {
+      "id": 22,
+      "start": 63.8,
+      "end": 66.56,
+      "text": "The second one was 170 UDS,"
+    },
+    {
+      "id": 23,
+      "start": 66.56,
+      "end": 68.24,
+      "text": "and 150 were compatible."
+    },
+    {
+      "id": 24,
+      "start": 68.24,
+      "end": 71.68,
+      "text": "And so you can sort of see the long tail here,"
+    },
+    {
+      "id": 25,
+      "start": 71.68,
+      "end": 73.2,
+      "text": "for the first customer here,"
+    },
+    {
+      "id": 26,
+      "start": 73.2,
+      "end": 76.72,
+      "text": "with only one UDS actually had a regression."
+    },
+    {
+      "id": 27,
+      "start": 76.72,
+      "end": 77.48,
+      "text": "And that thing's gonna be,"
+    },
+    {
+      "id": 28,
+      "start": 77.48,
+      "end": 80.0,
+      "text": "because the SQL Server is gonna choke on the,"
+    },
+    {
+      "id": 29,
+      "start": 81.44,
+      "end": 83.56,
+      "text": "you know, gonna choke on handling"
+    },
+    {
+      "id": 30,
+      "start": 83.56,
+      "end": 85.96,
+      "text": "a large amount of lateral joins."
+    },
+    {
+      "id": 31,
+      "start": 85.96,
+      "end": 87.16,
+      "text": "Same thing for the other one here."
+    },
+    {
+      "id": 32,
+      "start": 87.16,
+      "end": 88.72,
+      "text": "But like this is pretty significant, right?"
+    },
+    {
+      "id": 33,
+      "start": 88.72,
+      "end": 93.88,
+      "text": "Some customers are getting almost 1,000 X speed up, right?"
+    },
+    {
+      "id": 34,
+      "start": 93.88,
+      "end": 95.56,
+      "text": "That's huge, that's insane."
+    },
+    {
+      "id": 35,
+      "start": 95.56,
+      "end": 97.76,
+      "text": "That almost never happens in databases,"
+    },
+    {
+      "id": 36,
+      "start": 97.76,
+      "end": 99.28,
+      "text": "unless you rewrite your application,"
+    },
+    {
+      "id": 37,
+      "start": 99.28,
+      "end": 100.16,
+      "text": "or like switch vendors,"
+    },
+    {
+      "id": 38,
+      "start": 100.16,
+      "end": 103.12,
+      "text": "go from like, you know, row store to a column store."
+    },
+    {
+      "id": 39,
+      "start": 103.12,
+      "end": 106.08,
+      "text": "Without having to make any changes to the UDS itself,"
+    },
+    {
+      "id": 40,
+      "start": 106.08,
+      "end": 107.4,
+      "text": "just with Freud in inlining,"
+    },
+    {
+      "id": 41,
+      "start": 107.4,
+      "end": 111.36,
+      "text": "the performance wind is significant, right?"
+    },
+    {
+      "id": 42,
+      "start": 111.36,
+      "end": 113.28,
+      "text": "And the inventor of Freud, this guy, Kartik,"
+    },
+    {
+      "id": 43,
+      "start": 113.28,
+      "end": 115.32,
+      "text": "he was a PTA student at IIT,"
+    },
+    {
+      "id": 44,
+      "start": 115.32,
+      "end": 117.52,
+      "text": "Bombay, which is the best database school in India."
+    },
+    {
+      "id": 45,
+      "start": 117.52,
+      "end": 121.16,
+      "text": "And then he was at the Grace Systems Lab"
+    },
+    {
+      "id": 46,
+      "start": 121.16,
+      "end": 123.0,
+      "text": "in Madison, Wisconsin with Jignesh,"
+    },
+    {
+      "id": 47,
+      "start": 124.28,
+      "end": 126.04,
+      "text": "and where he worked at Microsoft on this."
+    },
+    {
+      "id": 48,
+      "start": 126.04,
+      "end": 130.52,
+      "text": "So the paper came out, I think, in 2016, 2017,"
+    },
+    {
+      "id": 49,
+      "start": 132.08,
+      "end": 133.2,
+      "text": "and then the paper predates as,"
+    },
+    {
+      "id": 50,
+      "start": 133.2,
+      "end": 135.08,
+      "text": "but they got it shipped in SQL Server in 2019,"
+    },
+    {
+      "id": 51,
+      "start": 135.08,
+      "end": 137.2,
+      "text": "in like three years, which is insane."
+    },
+    {
+      "id": 52,
+      "start": 137.2,
+      "end": 138.68,
+      "text": "So there's a bunch of his tweets that shows it,"
+    },
+    {
+      "id": 53,
+      "start": 138.68,
+      "end": 140.16,
+      "text": "like, people are talking about how,"
+    },
+    {
+      "id": 54,
+      "start": 140.16,
+      "end": 141.64,
+      "text": "like the benefit they're getting with Freud"
+    },
+    {
+      "id": 55,
+      "start": 141.64,
+      "end": 144.72,
+      "text": "is 20x faster, you know, significantly more."
+    },
+    {
+      "id": 56,
+      "start": 145.72,
+      "end": 147.44,
+      "text": "Or this case, the query went from four minutes"
+    },
+    {
+      "id": 57,
+      "start": 147.44,
+      "end": 150.2,
+      "text": "to nine seconds, but just turning on the flags"
+    },
+    {
+      "id": 58,
+      "start": 150.2,
+      "end": 151.76,
+      "text": "is used for it."
+    },
+    {
+      "id": 59,
+      "start": 151.76,
+      "end": 152.96,
+      "text": "Again, that's a huge wind"
+    },
+    {
+      "id": 60,
+      "start": 152.96,
+      "end": 155.96,
+      "text": "without having to make any change to your application, right?"
+    },
+    {
+      "id": 61,
+      "start": 157.36,
+      "end": 160.04,
+      "text": "I think in the paper, they talk about the overall compatibility"
+    },
+    {
+      "id": 62,
+      "start": 160.04,
+      "end": 165.04,
+      "text": "or support for UDS in all of the top 100 Azure databases."
+    },
+    {
+      "id": 63,
+      "start": 166.12,
+      "end": 168.32,
+      "text": "I think was about like 60%."
+    },
+    {
+      "id": 64,
+      "start": 168.32,
+      "end": 170.4,
+      "text": "So 60% of the UDS could be converted"
+    },
+    {
+      "id": 65,
+      "start": 170.4,
+      "end": 172.56,
+      "text": "into, could be in line with Freud."
+    },
+    {
+      "id": 66,
+      "start": 177.96,
+      "end": 178.8,
+      "text": "All right, so this is one approach."
+    },
+    {
+      "id": 67,
+      "start": 178.8,
+      "end": 180.64,
+      "text": "This is like, this is how to again,"
+    },
+    {
+      "id": 68,
+      "start": 180.64,
+      "end": 184.64,
+      "text": "take the UDF, convert it into relation algebra,"
+    },
+    {
+      "id": 69,
+      "start": 185.8,
+      "end": 188.12,
+      "text": "and then inline that, and I showed how to do it"
+    },
+    {
+      "id": 70,
+      "start": 188.12,
+      "end": 188.96,
+      "text": "through SQL."
+    },
+    {
+      "id": 71,
+      "start": 190.76,
+      "end": 192.08,
+      "text": "So there's a nut, yes, questioning."
+    },
+    {
+      "id": 72,
+      "start": 192.08,
+      "end": 194.6,
+      "text": "So what are the challenges"
+    },
+    {
+      "id": 73,
+      "start": 194.6,
+      "end": 196.68,
+      "text": "in the same approach with effectively"
+    },
+    {
+      "id": 74,
+      "start": 196.68,
+      "end": 198.52,
+      "text": "the FY, the only solution?"
+    },
+    {
+      "id": 75,
+      "start": 199.52,
+      "end": 201.88,
+      "text": "The question is, what are the challenges"
+    },
+    {
+      "id": 76,
+      "start": 201.88,
+      "end": 204.52,
+      "text": "we're doing with scale UDS versus vector UDS?"
+    },
+    {
+      "id": 77,
+      "start": 204.52,
+      "end": 207.08,
+      "text": "Well, you've done it for scale UDS."
+    },
+    {
+      "id": 78,
+      "start": 207.08,
+      "end": 208.92,
+      "text": "We're moving to the scope of scale UDS."
+    },
+    {
+      "id": 79,
+      "start": 208.92,
+      "end": 210.08,
+      "text": "What are the additional challenges"
+    },
+    {
+      "id": 80,
+      "start": 210.08,
+      "end": 211.88,
+      "text": "that prevent it from just going to direct it?"
+    },
+    {
+      "id": 81,
+      "start": 211.88,
+      "end": 216.56,
+      "text": "Scale UDS is a construct in UDS,"
+    },
+    {
+      "id": 82,
+      "start": 216.56,
+      "end": 218.96,
+      "text": "like that you return a single value."
+    },
+    {
+      "id": 83,
+      "start": 218.96,
+      "end": 222.2,
+      "text": "If you return multiple values, they're called table value functions."
+    },
+    {
+      "id": 84,
+      "start": 222.2,
+      "end": 223.04,
+      "text": "Sorry, I mean the above."
+    },
+    {
+      "id": 85,
+      "start": 223.04,
+      "end": 223.88,
+      "text": "Yeah."
+    },
+    {
+      "id": 86,
+      "start": 224.88,
+      "end": 228.24,
+      "text": "So the question is, why can't you do this for everything?"
+    },
+    {
+      "id": 87,
+      "start": 233.08,
+      "end": 234.08,
+      "text": "I don't know."
+    },
+    {
+      "id": 88,
+      "start": 237.28,
+      "end": 239.28,
+      "text": "Here's a question I don't remember."
+    },
+    {
+      "id": 89,
+      "start": 240.28,
+      "end": 243.52,
+      "text": "Most functions out there are scale UDS anyway."
+    },
+    {
+      "id": 90,
+      "start": 243.52,
+      "end": 244.36,
+      "text": "Yes?"
+    },
+    {
+      "id": 91,
+      "start": 244.36,
+      "end": 247.72,
+      "text": "Are there any restrictions for UDS to make sure they always terminate?"
+    },
+    {
+      "id": 92,
+      "start": 247.72,
+      "end": 249.32,
+      "text": "The question is, are there restrictions on UDS"
+    },
+    {
+      "id": 93,
+      "start": 249.32,
+      "end": 250.56,
+      "text": "to make sure they always terminate?"
+    },
+    {
+      "id": 94,
+      "start": 250.56,
+      "end": 253.92,
+      "text": "That's usually a construct of the execution engine"
+    },
+    {
+      "id": 95,
+      "start": 253.92,
+      "end": 256.0,
+      "text": "itself, like how long a query can run."
+    },
+    {
+      "id": 96,
+      "start": 256.0,
+      "end": 261.32,
+      "text": "So you set your time out to say, the query can run for one minute."
+    },
+    {
+      "id": 97,
+      "start": 261.32,
+      "end": 263.04,
+      "text": "The data set doesn't care whether you're spending all your time"
+    },
+    {
+      "id": 98,
+      "start": 263.04,
+      "end": 264.16,
+      "text": "in UDS or not."
+    },
+    {
+      "id": 99,
+      "start": 264.16,
+      "end": 265.8,
+      "text": "So yes, could you write an infinite loop in UDS?"
+    },
+    {
+      "id": 100,
+      "start": 265.8,
+      "end": 266.64,
+      "text": "Yes."
+    },
+    {
+      "id": 101,
+      "start": 266.64,
+      "end": 269.08,
+      "text": "Is that why they can't convert for loop for long?"
+    },
+    {
+      "id": 102,
+      "start": 269.08,
+      "end": 271.84,
+      "text": "The question is, is that why they can't convert for loops?"
+    },
+    {
+      "id": 103,
+      "start": 271.84,
+      "end": 275.76,
+      "text": "I don't think it's a limitation of what a time out."
+    },
+    {
+      "id": 104,
+      "start": 275.76,
+      "end": 278.08,
+      "text": "I think there's a section of limitation in the paper."
+    },
+    {
+      "id": 105,
+      "start": 278.08,
+      "end": 280.16,
+      "text": "And they have recursive particles."
+    },
+    {
+      "id": 106,
+      "start": 280.16,
+      "end": 282.24,
+      "text": "They can't get out of the form."
+    },
+    {
+      "id": 107,
+      "start": 282.24,
+      "end": 285.4,
+      "text": "The point there is the limitation is that they're"
+    },
+    {
+      "id": 108,
+      "start": 285.4,
+      "end": 287.92,
+      "text": "sent to our memory and they don't want the UDS to end over there."
+    },
+    {
+      "id": 109,
+      "start": 287.92,
+      "end": 288.84,
+      "text": "Yeah."
+    },
+    {
+      "id": 110,
+      "start": 288.84,
+      "end": 290.2,
+      "text": "There's a follow-up paper we're not going to cover"
+    },
+    {
+      "id": 111,
+      "start": 290.2,
+      "end": 292.96,
+      "text": "called Agify where they show how to do aggregations,"
+    },
+    {
+      "id": 112,
+      "start": 292.96,
+      "end": 296.24,
+      "text": "like loops in an UDF."
+    },
+    {
+      "id": 113,
+      "start": 296.24,
+      "end": 297.96,
+      "text": "For that one, they're actually going to rewrite"
+    },
+    {
+      "id": 114,
+      "start": 297.96,
+      "end": 302.28,
+      "text": "your portion of the UDF as a user-oriented aggregate"
+    },
+    {
+      "id": 115,
+      "start": 302.28,
+      "end": 304.84,
+      "text": "and evoke that."
+    },
+    {
+      "id": 116,
+      "start": 304.84,
+      "end": 308.0,
+      "text": "That's a duty translation."
+    },
+    {
+      "id": 117,
+      "start": 308.0,
+      "end": 309.52,
+      "text": "We don't want to focus on that."
+    },
+    {
+      "id": 118,
+      "start": 309.52,
+      "end": 310.6,
+      "text": "And that, as far as I know, didn't"
+    },
+    {
+      "id": 119,
+      "start": 310.6,
+      "end": 311.36,
+      "text": "never make a production."
+    },
+    {
+      "id": 120,
+      "start": 314.44,
+      "end": 316.0,
+      "text": "Exceptions are the other way or one, too,"
+    },
+    {
+      "id": 121,
+      "start": 316.0,
+      "end": 317.84,
+      "text": "because they didn't know that it's a support."
+    },
+    {
+      "id": 122,
+      "start": 317.84,
+      "end": 318.92,
+      "text": "It's like a go-to statement."
+    },
+    {
+      "id": 123,
+      "start": 318.92,
+      "end": 320.24,
+      "text": "You're jumping to another part."
+    },
+    {
+      "id": 124,
+      "start": 320.24,
+      "end": 323.2,
+      "text": "And they don't support that."
+    },
+    {
+      "id": 125,
+      "start": 323.2,
+      "end": 324.2,
+      "text": "All right."
+    },
+    {
+      "id": 126,
+      "start": 324.2,
+      "end": 328.92,
+      "text": "I want to talk about how to do SQL or UDF into SQL,"
+    },
+    {
+      "id": 127,
+      "start": 328.92,
+      "end": 332.2,
+      "text": "using this app file approach from other set of Germans"
+    },
+    {
+      "id": 128,
+      "start": 332.2,
+      "end": 333.16,
+      "text": "to Bergen."
+    },
+    {
+      "id": 129,
+      "start": 333.16,
+      "end": 335.36,
+      "text": "And then when I finish up, I'm talking about batching,"
+    },
+    {
+      "id": 130,
+      "start": 335.36,
+      "end": 338.96,
+      "text": "which is another alternative to inlining."
+    },
+    {
+      "id": 131,
+      "start": 338.96,
+      "end": 340.96,
+      "text": "So for this app file approach, what they're going to do"
+    },
+    {
+      "id": 132,
+      "start": 340.96,
+      "end": 342.64,
+      "text": "is they're going to take your UDS"
+    },
+    {
+      "id": 133,
+      "start": 342.64,
+      "end": 348.28,
+      "text": "and they're going to vert them into commentable expressions,"
+    },
+    {
+      "id": 134,
+      "start": 348.28,
+      "end": 349.52,
+      "text": "basically, SQL statements."
+    },
+    {
+      "id": 135,
+      "start": 349.52,
+      "end": 351.56,
+      "text": "And this is going to allow them to do the looping that Freud"
+    },
+    {
+      "id": 136,
+      "start": 351.56,
+      "end": 355.12,
+      "text": "can't do and additional constructs that Freud can't handle."
+    },
+    {
+      "id": 137,
+      "start": 355.12,
+      "end": 356.72,
+      "text": "So instead of actually embedding this"
+    },
+    {
+      "id": 138,
+      "start": 356.72,
+      "end": 358.8,
+      "text": "and having a database server, they actually wrote this"
+    },
+    {
+      "id": 139,
+      "start": 358.8,
+      "end": 363.36,
+      "text": "as a separate middleware, as a standalone compiler."
+    },
+    {
+      "id": 140,
+      "start": 363.36,
+      "end": 366.12,
+      "text": "I can give a quick demo."
+    },
+    {
+      "id": 141,
+      "start": 366.12,
+      "end": 369.68,
+      "text": "So if you go to that website here, on one side,"
+    },
+    {
+      "id": 142,
+      "start": 369.68,
+      "end": 371.28,
+      "text": "you have the UDF."
+    },
+    {
+      "id": 143,
+      "start": 371.28,
+      "end": 374.04,
+      "text": "I think you're going to need to make a false name."
+    },
+    {
+      "id": 144,
+      "start": 374.04,
+      "end": 375.8,
+      "text": "For the horizontal actual."
+    },
+    {
+      "id": 145,
+      "start": 375.8,
+      "end": 376.32,
+      "text": "What's that?"
+    },
+    {
+      "id": 146,
+      "start": 376.32,
+      "end": 377.08,
+      "text": "The horizontal actual."
+    },
+    {
+      "id": 147,
+      "start": 377.08,
+      "end": 378.4,
+      "text": "Yeah, they're always going to have the call of a lateral."
+    },
+    {
+      "id": 148,
+      "start": 378.4,
+      "end": 382.2,
+      "text": "But they're going to recruit the CTs for this as well."
+    },
+    {
+      "id": 149,
+      "start": 382.2,
+      "end": 384.12,
+      "text": "So again, so this is the original UDF,"
+    },
+    {
+      "id": 150,
+      "start": 384.12,
+      "end": 387.0,
+      "text": "and then this is what it'll spit out."
+    },
+    {
+      "id": 151,
+      "start": 387.0,
+      "end": 389.48,
+      "text": "And you see a lot of lateral joins and mess acquires."
+    },
+    {
+      "id": 152,
+      "start": 389.48,
+      "end": 393.0,
+      "text": "So I can use something really stupid."
+    },
+    {
+      "id": 153,
+      "start": 393.0,
+      "end": 400.88,
+      "text": "X. And then it spits it out."
+    },
+    {
+      "id": 154,
+      "start": 400.88,
+      "end": 403.44,
+      "text": "And then you see now, like, it's including X variable."
+    },
+    {
+      "id": 155,
+      "start": 403.44,
+      "end": 405.16,
+      "text": "And it's doing some of the same things."
+    },
+    {
+      "id": 156,
+      "start": 405.16,
+      "end": 407.4,
+      "text": "Like it's setting up the variables in the same way"
+    },
+    {
+      "id": 157,
+      "start": 407.4,
+      "end": 409.4,
+      "text": "that we saw before."
+    },
+    {
+      "id": 158,
+      "start": 409.4,
+      "end": 412.72,
+      "text": "So I change this to 99."
+    },
+    {
+      "id": 159,
+      "start": 412.72,
+      "end": 414.36,
+      "text": "Then you get the same."
+    },
+    {
+      "id": 160,
+      "start": 414.36,
+      "end": 416.32,
+      "text": "It's very similar to what we saw in Freud."
+    },
+    {
+      "id": 161,
+      "start": 416.32,
+      "end": 419.68,
+      "text": "And then if I actually run this, though,"
+    },
+    {
+      "id": 162,
+      "start": 419.68,
+      "end": 422.24,
+      "text": "so this is Postgres."
+    },
+    {
+      "id": 163,
+      "start": 422.24,
+      "end": 423.2,
+      "text": "So I've already installed it."
+    },
+    {
+      "id": 164,
+      "start": 423.2,
+      "end": 426.64,
+      "text": "So here's the real simple function."
+    },
+    {
+      "id": 165,
+      "start": 426.64,
+      "end": 431.16,
+      "text": "And then I execute it as, what you can't see."
+    },
+    {
+      "id": 166,
+      "start": 434.4,
+      "end": 435.4,
+      "text": "Right?"
+    },
+    {
+      "id": 167,
+      "start": 435.4,
+      "end": 438.84,
+      "text": "So if I run it out, it takes about half a second to do"
+    },
+    {
+      "id": 168,
+      "start": 438.84,
+      "end": 440.12,
+      "text": "the original UDF."
+    },
+    {
+      "id": 169,
+      "start": 440.12,
+      "end": 448.2,
+      "text": "But if I run there, giant, the lateral join one like this,"
+    },
+    {
+      "id": 170,
+      "start": 448.2,
+      "end": 451.16,
+      "text": "that's how it's going to install it."
+    },
+    {
+      "id": 171,
+      "start": 451.16,
+      "end": 452.16,
+      "text": "That's a great function."
+    },
+    {
+      "id": 172,
+      "start": 452.16,
+      "end": 453.04,
+      "text": "So now I invoke it."
+    },
+    {
+      "id": 173,
+      "start": 456.6,
+      "end": 459.52,
+      "text": "Now we're taking what, two milliseconds?"
+    },
+    {
+      "id": 174,
+      "start": 459.52,
+      "end": 460.84,
+      "text": "Yeah."
+    },
+    {
+      "id": 175,
+      "start": 460.84,
+      "end": 463.8,
+      "text": "So in this case here, the UDF call in Postgres"
+    },
+    {
+      "id": 176,
+      "start": 463.8,
+      "end": 466.68,
+      "text": "is actually faster than using the Freud one."
+    },
+    {
+      "id": 177,
+      "start": 470.52,
+      "end": 472.24,
+      "text": "Totally explained."
+    },
+    {
+      "id": 178,
+      "start": 472.24,
+      "end": 473.24,
+      "text": "Yeah."
+    },
+    {
+      "id": 179,
+      "start": 473.24,
+      "end": 475.72,
+      "text": "Yep, yep, yep, yep, I got it."
+    },
+    {
+      "id": 180,
+      "start": 475.72,
+      "end": 476.88,
+      "text": "This is why I always use my laptop."
+    },
+    {
+      "id": 181,
+      "start": 476.88,
+      "end": 479.44,
+      "text": "And I give demos in the class."
+    },
+    {
+      "id": 182,
+      "start": 479.44,
+      "end": 481.96,
+      "text": "I want to keep it quick."
+    },
+    {
+      "id": 183,
+      "start": 481.96,
+      "end": 483.8,
+      "text": "And in this case here, there's the cost"
+    },
+    {
+      "id": 184,
+      "start": 483.8,
+      "end": 485.64,
+      "text": "just invoking that function."
+    },
+    {
+      "id": 185,
+      "start": 485.64,
+      "end": 489.36,
+      "text": "You see how Postgres at the optimization level"
+    },
+    {
+      "id": 186,
+      "start": 489.36,
+      "end": 491.56,
+      "text": "can expand the SQL query because it's"
+    },
+    {
+      "id": 187,
+      "start": 491.56,
+      "end": 492.92,
+      "text": "embedded inside that UDF."
+    },
+    {
+      "id": 188,
+      "start": 495.92,
+      "end": 498.52,
+      "text": "Again, the link's in the slides if you guys want to play"
+    },
+    {
+      "id": 189,
+      "start": 498.52,
+      "end": 500.0,
+      "text": "with it."
+    },
+    {
+      "id": 190,
+      "start": 500.0,
+      "end": 502.64,
+      "text": "All right, so this is a great little PLE and capyla"
+    },
+    {
+      "id": 191,
+      "start": 502.64,
+      "end": 504.0,
+      "text": "so bear with me."
+    },
+    {
+      "id": 192,
+      "start": 504.0,
+      "end": 505.6,
+      "text": "And again, I'm not an expert in this area."
+    },
+    {
+      "id": 193,
+      "start": 506.24,
+      "end": 508.2,
+      "text": "I know enough how it maps to the SQL stuff,"
+    },
+    {
+      "id": 194,
+      "start": 508.2,
+      "end": 513.4,
+      "text": "but beyond this, this is all."
+    },
+    {
+      "id": 195,
+      "start": 513.4,
+      "end": 514.88,
+      "text": "I can't go too deep in this."
+    },
+    {
+      "id": 196,
+      "start": 514.88,
+      "end": 517.84,
+      "text": "So the idea is that we're going to take our UDF"
+    },
+    {
+      "id": 197,
+      "start": 517.84,
+      "end": 523.8,
+      "text": "and we're going to convert this into a form called SSA,"
+    },
+    {
+      "id": 198,
+      "start": 523.8,
+      "end": 527.4,
+      "text": "a static single assignment form."
+    },
+    {
+      "id": 199,
+      "start": 527.4,
+      "end": 531.6,
+      "text": "And this is going to allow us to basically convert the arbitrary"
+    },
+    {
+      "id": 200,
+      "start": 531.6,
+      "end": 535.32,
+      "text": "code that we had in our UDF into some form that's"
+    },
+    {
+      "id": 201,
+      "start": 535.32,
+      "end": 538.2,
+      "text": "going to use go-tos to define blocks of things."
+    },
+    {
+      "id": 202,
+      "start": 538.2,
+      "end": 539.84,
+      "text": "And then we're going to take this SSA thing"
+    },
+    {
+      "id": 203,
+      "start": 539.84,
+      "end": 542.36,
+      "text": "and convert it into administrative normal form, which"
+    },
+    {
+      "id": 204,
+      "start": 542.36,
+      "end": 545.28,
+      "text": "is going to use mutually-tailed recursive functions"
+    },
+    {
+      "id": 205,
+      "start": 545.28,
+      "end": 548.04,
+      "text": "that allow us to simplify the blocks of the regions"
+    },
+    {
+      "id": 206,
+      "start": 548.04,
+      "end": 549.0,
+      "text": "themselves."
+    },
+    {
+      "id": 207,
+      "start": 549.0,
+      "end": 551.44,
+      "text": "Then we convert the administrative normal form"
+    },
+    {
+      "id": 208,
+      "start": 551.44,
+      "end": 554.56,
+      "text": "with using mutual recursion into direct conversion,"
+    },
+    {
+      "id": 209,
+      "start": 554.56,
+      "end": 555.88,
+      "text": "recursion."
+    },
+    {
+      "id": 210,
+      "start": 555.88,
+      "end": 562.4,
+      "text": "And then that gets converted into SQL with recursive CTEs."
+    },
+    {
+      "id": 211,
+      "start": 562.4,
+      "end": 564.24,
+      "text": "And then that produces our SQL query,"
+    },
+    {
+      "id": 212,
+      "start": 564.24,
+      "end": 566.2,
+      "text": "and we run it through our query optimizer."
+    },
+    {
+      "id": 213,
+      "start": 566.2,
+      "end": 566.96,
+      "text": "So buckle up."
+    },
+    {
+      "id": 214,
+      "start": 566.96,
+      "end": 568.56,
+      "text": "We'll go through the SQL list."
+    },
+    {
+      "id": 215,
+      "start": 568.56,
+      "end": 570.24,
+      "text": "All right, so this is a really simple function."
+    },
+    {
+      "id": 216,
+      "start": 570.24,
+      "end": 571.44,
+      "text": "This is PAL function."
+    },
+    {
+      "id": 217,
+      "start": 571.44,
+      "end": 573.2,
+      "text": "Give it an x, give it an n."
+    },
+    {
+      "id": 218,
+      "start": 573.2,
+      "end": 574.16,
+      "text": "We're just going to have this part we"
+    },
+    {
+      "id": 219,
+      "start": 574.16,
+      "end": 575.48,
+      "text": "care about as this loop here."
+    },
+    {
+      "id": 220,
+      "start": 575.48,
+      "end": 580.44,
+      "text": "We can add it every i and multiply x by itself,"
+    },
+    {
+      "id": 221,
+      "start": 580.44,
+      "end": 582.52,
+      "text": "but to some power."
+    },
+    {
+      "id": 222,
+      "start": 582.52,
+      "end": 584.04,
+      "text": "So in the first step, when we want to convert this"
+    },
+    {
+      "id": 223,
+      "start": 584.04,
+      "end": 587.2,
+      "text": "to SSA form, it's going to look something like this,"
+    },
+    {
+      "id": 224,
+      "start": 587.2,
+      "end": 590.08,
+      "text": "where we define these blocks with these labels,"
+    },
+    {
+      "id": 225,
+      "start": 590.08,
+      "end": 593.8,
+      "text": "and then we're using go-tos to jump around where we need."
+    },
+    {
+      "id": 226,
+      "start": 594.72,
+      "end": 596.24,
+      "text": "You're happy."
+    },
+    {
+      "id": 227,
+      "start": 596.24,
+      "end": 597.52,
+      "text": "Look how happy you are."
+    },
+    {
+      "id": 228,
+      "start": 597.52,
+      "end": 598.44,
+      "text": "See me on the ground."
+    },
+    {
+      "id": 229,
+      "start": 598.44,
+      "end": 599.32,
+      "text": "Yeah."
+    },
+    {
+      "id": 230,
+      "start": 599.32,
+      "end": 600.8,
+      "text": "All right."
+    },
+    {
+      "id": 231,
+      "start": 600.8,
+      "end": 602.24,
+      "text": "This is what this is what."
+    }
+  ],
+  "language": "en"
+}

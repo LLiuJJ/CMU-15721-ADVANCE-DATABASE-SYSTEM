@@ -1,0 +1,905 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.72,
+      "text": "So when another customer, they just pull from a cogent and cash and stitch it together."
+    },
+    {
+      "id": 1,
+      "start": 4.72,
+      "end": 6.92,
+      "text": "So that's kind of cool."
+    },
+    {
+      "id": 2,
+      "start": 6.92,
+      "end": 13.08,
+      "text": "Alright, so there, another interesting system to talk about is IBM's Leo, the learning"
+    },
+    {
+      "id": 3,
+      "start": 13.08,
+      "end": 14.32,
+      "text": "optimizer."
+    },
+    {
+      "id": 4,
+      "start": 14.32,
+      "end": 20.56,
+      "text": "And so this is an example of where you have a feedback loop being used to improve the"
+    },
+    {
+      "id": 5,
+      "start": 20.56,
+      "end": 22.4,
+      "text": "accuracy of the cost models in the system."
+    },
+    {
+      "id": 6,
+      "start": 22.64,
+      "end": 30.08,
+      "text": "I said the idea is that again, if I keep track of what my cost model estimates were when"
+    },
+    {
+      "id": 7,
+      "start": 30.08,
+      "end": 34.4,
+      "text": "I when I generated the query plan, and then when I run it, if I recognize that those"
+    },
+    {
+      "id": 8,
+      "start": 34.4,
+      "end": 38.4,
+      "text": "estimates are way off, I start recording information about what I'm seeing in the real"
+    },
+    {
+      "id": 9,
+      "start": 38.4,
+      "end": 39.4,
+      "text": "data."
+    },
+    {
+      "id": 10,
+      "start": 39.4,
+      "end": 45.04,
+      "text": "And then when my query completes, I return the result back to the user of the application"
+    },
+    {
+      "id": 11,
+      "start": 45.04,
+      "end": 51.48,
+      "text": "that requested the query, but I also go update my cost model, statistics with the new information"
+    },
+    {
+      "id": 12,
+      "start": 51.48,
+      "end": 53.28,
+      "text": "that I've collected."
+    },
+    {
+      "id": 13,
+      "start": 53.28,
+      "end": 59.32,
+      "text": "So IBM's Leo was actually shipped in production in DB2 today, but this is one of the, the"
+    },
+    {
+      "id": 14,
+      "start": 59.32,
+      "end": 66.8,
+      "text": "early examples of a commercial system applying one of these adeptic query processing techniques."
+    },
+    {
+      "id": 15,
+      "start": 66.8,
+      "end": 74.36,
+      "text": "Alright, so the the plan stitching stuff that we talked about or the version stuff is"
+    },
+    {
+      "id": 16,
+      "start": 74.36,
+      "end": 80.96,
+      "text": "about fixing future invocations of a query to improve them based on the results that"
+    },
+    {
+      "id": 17,
+      "start": 80.96,
+      "end": 83.64,
+      "text": "I'm seeing when I want to actually execute my query."
+    },
+    {
+      "id": 18,
+      "start": 83.64,
+      "end": 86.08,
+      "text": "But now we want to talk about how do we fix my query?"
+    },
+    {
+      "id": 19,
+      "start": 86.08,
+      "end": 92.08,
+      "text": "If I invoke my SQL query and I determine that I have a Bayer plan, what do I do?"
+    },
+    {
+      "id": 20,
+      "start": 92.08,
+      "end": 93.08,
+      "text": "How can I fix that?"
+    },
+    {
+      "id": 21,
+      "start": 93.08,
+      "end": 94.4,
+      "text": "Because I don't want to wait for the next invocation."
+    },
+    {
+      "id": 22,
+      "start": 94.4,
+      "end": 96.8,
+      "text": "I want to fix the one I have right now."
+    },
+    {
+      "id": 23,
+      "start": 96.8,
+      "end": 99.2,
+      "text": "So I'm calling this the replay in the current invocation."
+    },
+    {
+      "id": 24,
+      "start": 99.2,
+      "end": 104.32,
+      "text": "Again, the idea is that if I've determined that the observed behavior of the query plan"
+    },
+    {
+      "id": 25,
+      "start": 104.32,
+      "end": 110.12,
+      "text": "as I'm executing it is way off or divergent from what the estimated behavior was that"
+    },
+    {
+      "id": 26,
+      "start": 110.12,
+      "end": 117.16,
+      "text": "the cost models produced, then I can decide to potentially either stop the query and go"
+    },
+    {
+      "id": 27,
+      "start": 117.16,
+      "end": 125.28,
+      "text": "back and generate a new plan or I can decide to maybe how much smile recognize that I've"
+    },
+    {
+      "id": 28,
+      "start": 125.28,
+      "end": 131.2,
+      "text": "already produced some work for me and keep that portion of the data that I've already"
+    },
+    {
+      "id": 29,
+      "start": 131.2,
+      "end": 135.36,
+      "text": "processed and then return back to the optimizer and ask if it is just to generate a sub"
+    },
+    {
+      "id": 30,
+      "start": 135.36,
+      "end": 136.36,
+      "text": "plan."
+    },
+    {
+      "id": 31,
+      "start": 136.36,
+      "end": 144.28,
+      "text": "And you decide that continuing with the same query plan that I have now is going to be"
+    },
+    {
+      "id": 32,
+      "start": 144.28,
+      "end": 146.48,
+      "text": "worse than just starting over."
+    },
+    {
+      "id": 33,
+      "start": 146.48,
+      "end": 149.88,
+      "text": "Obviously, if you're at the last two, but the last operator, then it's the Bayer idea,"
+    },
+    {
+      "id": 34,
+      "start": 149.88,
+      "end": 150.88,
+      "text": "just let it finish."
+    },
+    {
+      "id": 35,
+      "start": 150.88,
+      "end": 153.72,
+      "text": "So it's striking right balance of this is difficult."
+    },
+    {
+      "id": 36,
+      "start": 153.72,
+      "end": 158.32,
+      "text": "And then the other approach is determining that, well, I'm doing 100 joins and I've already"
+    },
+    {
+      "id": 37,
+      "start": 158.32,
+      "end": 159.32,
+      "text": "done one of them."
+    },
+    {
+      "id": 38,
+      "start": 159.32,
+      "end": 164.04,
+      "text": "And then you keep that one that I have because that was expensive and then I'll replay"
+    },
+    {
+      "id": 39,
+      "start": 164.04,
+      "end": 165.96,
+      "text": "on the ordering for the other 99."
+    },
+    {
+      "id": 40,
+      "start": 165.96,
+      "end": 171.04,
+      "text": "And the whole idea here is that you're going back to the optimizer and saying, hey, generate"
+    },
+    {
+      "id": 41,
+      "start": 171.04,
+      "end": 174.08,
+      "text": "a new plan."
+    },
+    {
+      "id": 42,
+      "start": 174.08,
+      "end": 179.16,
+      "text": "So let me give you an example that does something sort of similar to like this."
+    },
+    {
+      "id": 43,
+      "start": 179.16,
+      "end": 186.2,
+      "text": "So this is from Apache Quickstep, Quickstep was it is an embedded analytical engines sort"
+    },
+    {
+      "id": 44,
+      "start": 186.2,
+      "end": 190.96,
+      "text": "of similar to ductyb, but I don't think it's supported SQL."
+    },
+    {
+      "id": 45,
+      "start": 190.96,
+      "end": 198.28,
+      "text": "It came out of University of Wisconsin and then it's been turned over to the Apache Foundation."
+    },
+    {
+      "id": 46,
+      "start": 198.28,
+      "end": 201.52,
+      "text": "I think it's been kicked out of the incubator program because I don't think they've updated"
+    },
+    {
+      "id": 47,
+      "start": 201.52,
+      "end": 202.52,
+      "text": "it recently."
+    },
+    {
+      "id": 48,
+      "start": 202.52,
+      "end": 206.16,
+      "text": "I don't know what's going on with Gignette's team, but I haven't really seen any updates"
+    },
+    {
+      "id": 49,
+      "start": 206.16,
+      "end": 207.32,
+      "text": "in a while."
+    },
+    {
+      "id": 50,
+      "start": 207.32,
+      "end": 211.96,
+      "text": "But they had this really interesting approach called Look ahead information passing where"
+    },
+    {
+      "id": 51,
+      "start": 211.96,
+      "end": 218.32,
+      "text": "I can do some work at the beginning of my query and pass that along to other operators"
+    },
+    {
+      "id": 52,
+      "start": 218.32,
+      "end": 223.8,
+      "text": "or other portions of my query plan and help me make a decision about what the right ordering"
+    },
+    {
+      "id": 53,
+      "start": 223.8,
+      "end": 227.0,
+      "text": "is for things up ahead."
+    },
+    {
+      "id": 54,
+      "start": 227.0,
+      "end": 232.24,
+      "text": "So for this example, say we have a simple data says three tables."
+    },
+    {
+      "id": 55,
+      "start": 232.24,
+      "end": 233.64,
+      "text": "So this would be a star schema."
+    },
+    {
+      "id": 56,
+      "start": 233.64,
+      "end": 235.68,
+      "text": "So this approach only works for star schema."
+    },
+    {
+      "id": 57,
+      "start": 235.68,
+      "end": 240.88,
+      "text": "We have a fact table in the middle and then you have dimension tables coming out of it."
+    },
+    {
+      "id": 58,
+      "start": 240.88,
+      "end": 246.8,
+      "text": "So it's not for arbitrary star schemas or arbitrary tree-based schemas."
+    },
+    {
+      "id": 59,
+      "start": 246.8,
+      "end": 250.84,
+      "text": "So the way it is going to work is say this is my SQL query like this."
+    },
+    {
+      "id": 60,
+      "start": 250.84,
+      "end": 254.88,
+      "text": "I'm doing a three-way join between the fact table and the two dimension tables."
+    },
+    {
+      "id": 61,
+      "start": 254.88,
+      "end": 262.24,
+      "text": "So what I'm going to do is before I start scanning the fact table and start computing"
+    },
+    {
+      "id": 62,
+      "start": 262.24,
+      "end": 268.76,
+      "text": "the hash tables for my join, I'm going to scan through the dimension tables and generate"
+    },
+    {
+      "id": 63,
+      "start": 268.76,
+      "end": 270.24,
+      "text": "a balloon filter."
+    },
+    {
+      "id": 64,
+      "start": 270.24,
+      "end": 273.36,
+      "text": "We saw this similar technique being used when we talked about joins."
+    },
+    {
+      "id": 65,
+      "start": 273.36,
+      "end": 276.72,
+      "text": "This idea came from vector wise that you can generate a balloon filter and pass it"
+    },
+    {
+      "id": 66,
+      "start": 276.72,
+      "end": 284.44,
+      "text": "along to the other side of the query plan so that maybe avoid a hash table probe."
+    },
+    {
+      "id": 67,
+      "start": 284.44,
+      "end": 285.84,
+      "text": "And we'll reset this."
+    },
+    {
+      "id": 68,
+      "start": 285.84,
+      "end": 288.08,
+      "text": "So the joins are going to be on the dimension tables."
+    },
+    {
+      "id": 69,
+      "start": 288.08,
+      "end": 291.04,
+      "text": "These are going to generate the hash tables and the fact table is just going to do a probe."
+    },
+    {
+      "id": 70,
+      "start": 291.04,
+      "end": 295.04,
+      "text": "So I want to generate the balloon filter and then check the balloon filter to see whether"
+    },
+    {
+      "id": 71,
+      "start": 295.04,
+      "end": 298.36,
+      "text": "the key I'm looking for can even exist in the hash table which is cheaper than doing"
+    },
+    {
+      "id": 72,
+      "start": 298.36,
+      "end": 300.52,
+      "text": "than the hash table probe."
+    },
+    {
+      "id": 73,
+      "start": 300.52,
+      "end": 303.2,
+      "text": "What we're going to do differently here is that we're actually going to pass these balloon"
+    },
+    {
+      "id": 74,
+      "start": 303.2,
+      "end": 309.44,
+      "text": "filters and when we pass it over here to the fact table, we're going to start do some sampling"
+    },
+    {
+      "id": 75,
+      "start": 309.44,
+      "end": 317.88,
+      "text": "to determine the selectivity of the different balloon filters for these different tables."
+    },
+    {
+      "id": 76,
+      "start": 317.88,
+      "end": 324.52,
+      "text": "And then if we determine that, well, the second table here, the second dimension table,"
+    },
+    {
+      "id": 77,
+      "start": 324.52,
+      "end": 330.48,
+      "text": "is actually more selective than the first one, then I want to reshuffle the, um,"
+    },
+    {
+      "id": 78,
+      "start": 331.48,
+      "end": 336.36,
+      "text": "reshuffle my joins so that I do the probe on this hash table first because I'm going to"
+    },
+    {
+      "id": 79,
+      "start": 336.36,
+      "end": 338.72,
+      "text": "end up throwing away more tuples."
+    },
+    {
+      "id": 80,
+      "start": 338.72,
+      "end": 342.76,
+      "text": "And we can do this before we actually start running anything because we've already built"
+    },
+    {
+      "id": 81,
+      "start": 342.76,
+      "end": 346.52,
+      "text": "the hash tables, we generate the balloon filter and we can make the decision before we"
+    },
+    {
+      "id": 82,
+      "start": 346.52,
+      "end": 348.64,
+      "text": "start scanning and doing the probe."
+    },
+    {
+      "id": 83,
+      "start": 348.64,
+      "end": 351.6,
+      "text": "So I think this is a really interesting idea as far as I know, a quick step is the"
+    },
+    {
+      "id": 84,
+      "start": 351.6,
+      "end": 356.04,
+      "text": "only one that does this and I don't know whether it actually made it into the open source"
+    },
+    {
+      "id": 85,
+      "start": 356.04,
+      "end": 359.2,
+      "text": "version."
+    },
+    {
+      "id": 86,
+      "start": 359.2,
+      "end": 364.28,
+      "text": "The last adaptive query optimization techniques, sort of, or category you want to talk about"
+    },
+    {
+      "id": 87,
+      "start": 364.28,
+      "end": 367.72,
+      "text": "is what I call sort of plan pivot points."
+    },
+    {
+      "id": 88,
+      "start": 367.72,
+      "end": 375.32,
+      "text": "And the idea here is that we want to introduce additional subplans in our query and then"
+    },
+    {
+      "id": 89,
+      "start": 375.32,
+      "end": 383.44,
+      "text": "have a, uh, have a sort of special synthetic operator that we put into our query plan that"
+    },
+    {
+      "id": 90,
+      "start": 383.44,
+      "end": 387.96,
+      "text": "allows us to pivot or switch which query, you know, which path in that query plan we want"
+    },
+    {
+      "id": 91,
+      "start": 387.96,
+      "end": 388.96,
+      "text": "to do."
+    },
+    {
+      "id": 92,
+      "start": 388.96,
+      "end": 397.12,
+      "text": "And the idea here is that we can put conditions in our, in the switch operator or the change"
+    },
+    {
+      "id": 93,
+      "start": 397.12,
+      "end": 403.2,
+      "text": "plan operator that if we determine that our data looks one way, we'll go down one path,"
+    },
+    {
+      "id": 94,
+      "start": 403.2,
+      "end": 406.24,
+      "text": "if it looks another way, we'll go down another, uh, the other path."
+    },
+    {
+      "id": 95,
+      "start": 406.24,
+      "end": 409.44,
+      "text": "Um, it doesn't have to be too, it can be multiple ones."
+    },
+    {
+      "id": 96,
+      "start": 409.44,
+      "end": 413.16,
+      "text": "So the sort of two most famous techniques for doing this are parametric optimization and"
+    },
+    {
+      "id": 97,
+      "start": 413.16,
+      "end": 414.16,
+      "text": "proactive reopposition."
+    },
+    {
+      "id": 98,
+      "start": 414.16,
+      "end": 416.92,
+      "text": "Again, at a high level, they're going to work exactly the same way."
+    },
+    {
+      "id": 99,
+      "start": 416.92,
+      "end": 421.8,
+      "text": "It's just the sophistication of their technique is slightly different."
+    },
+    {
+      "id": 100,
+      "start": 421.8,
+      "end": 427.12,
+      "text": "So parametric optimization was actually developed in the late 1980s in, uh, in the 1989."
+    },
+    {
+      "id": 101,
+      "start": 427.12,
+      "end": 429.04,
+      "text": "This actually came out of the volcano project."
+    },
+    {
+      "id": 102,
+      "start": 429.04,
+      "end": 433.88,
+      "text": "Again, the same one that does the volcano, uh, query optimizer, the volcano iterator model,"
+    },
+    {
+      "id": 103,
+      "start": 433.88,
+      "end": 438.04,
+      "text": "they also did early work on adaptive query optimization, which is, again, some same network"
+    },
+    {
+      "id": 104,
+      "start": 438.04,
+      "end": 439.92,
+      "text": "is very influential."
+    },
+    {
+      "id": 105,
+      "start": 439.92,
+      "end": 446.32,
+      "text": "So again, as I said, the idea is that for each pipeline and a query that we think, uh, that"
+    },
+    {
+      "id": 106,
+      "start": 446.32,
+      "end": 449.44,
+      "text": "there's different alternatives we could have that would make a big performance difference,"
+    },
+    {
+      "id": 107,
+      "start": 449.44,
+      "end": 452.12,
+      "text": "well generate different cell plans for them."
+    },
+    {
+      "id": 108,
+      "start": 452.12,
+      "end": 456.64,
+      "text": "And then now in our query, we'll have this choose plan operator that basically has kind"
+    },
+    {
+      "id": 109,
+      "start": 456.64,
+      "end": 463.24,
+      "text": "of an if clause that says, if the cardinality of the operator below me looks one way or it's"
+    },
+    {
+      "id": 110,
+      "start": 463.24,
+      "end": 466.48,
+      "text": "a certain size, then I want to choose the first plan."
+    },
+    {
+      "id": 111,
+      "start": 466.48,
+      "end": 469.48,
+      "text": "If it looks another way, then I'll choose this other plan."
+    },
+    {
+      "id": 112,
+      "start": 469.48,
+      "end": 470.48,
+      "text": "Right?"
+    },
+    {
+      "id": 113,
+      "start": 470.48,
+      "end": 475.04,
+      "text": "And in this case here, if I know that my data is really small, then maybe I want to do"
+    },
+    {
+      "id": 114,
+      "start": 475.04,
+      "end": 478.96,
+      "text": "an S-A-Loop joint because that's going to be cheaper than having to build a hash table"
+    },
+    {
+      "id": 115,
+      "start": 478.96,
+      "end": 480.84,
+      "text": "and probe it."
+    },
+    {
+      "id": 116,
+      "start": 480.84,
+      "end": 485.24,
+      "text": "But if my data is really big, then I maybe want to build a hash run, right?"
+    },
+    {
+      "id": 117,
+      "start": 485.24,
+      "end": 487.6,
+      "text": "Or do the hash run."
+    },
+    {
+      "id": 118,
+      "start": 487.6,
+      "end": 490.68,
+      "text": "So again, I think this is actually a very interesting idea."
+    },
+    {
+      "id": 119,
+      "start": 490.68,
+      "end": 495.72,
+      "text": "Of course, obviously the tricky thing is determining what this conditional, uh, you know, this"
+    },
+    {
+      "id": 120,
+      "start": 495.72,
+      "end": 498.56,
+      "text": "condition should be."
+    },
+    {
+      "id": 121,
+      "start": 498.56,
+      "end": 503.08,
+      "text": "And you know, there's, it's sort of through trial and error and as you develop the thing."
+    },
+    {
+      "id": 122,
+      "start": 503.08,
+      "end": 506.64,
+      "text": "And it's actually very dependent also on the, on the harbor."
+    },
+    {
+      "id": 123,
+      "start": 506.64,
+      "end": 510.28,
+      "text": "But the nice thing about this is like there's nothing we end up like not having to go back"
+    },
+    {
+      "id": 124,
+      "start": 510.28,
+      "end": 514.4,
+      "text": "to the optimizer and sort of replant everything."
+    },
+    {
+      "id": 125,
+      "start": 514.4,
+      "end": 518.48,
+      "text": "Um, the, and we don't throw away any of the data that we've collected, right?"
+    },
+    {
+      "id": 126,
+      "start": 518.48,
+      "end": 522.96,
+      "text": "So we do this hash join and then we just determine whether we want to go down one path versus"
+    },
+    {
+      "id": 127,
+      "start": 522.96,
+      "end": 524.76,
+      "text": "another."
+    },
+    {
+      "id": 128,
+      "start": 524.76,
+      "end": 529.64,
+      "text": "A more recent sophisticated approach to this is called proactive re optimization."
+    },
+    {
+      "id": 129,
+      "start": 529.64,
+      "end": 534.32,
+      "text": "And this is actually combining the ability to go back to the optimizer and generate"
+    },
+    {
+      "id": 130,
+      "start": 534.32,
+      "end": 540.04,
+      "text": "a new plan as well as to tweak it in the same way we saw in the previous example."
+    },
+    {
+      "id": 131,
+      "start": 540.04,
+      "end": 541.92,
+      "text": "So they actually can do both."
+    },
+    {
+      "id": 132,
+      "start": 541.92,
+      "end": 544.0,
+      "text": "And so at a high level, it works like this."
+    },
+    {
+      "id": 133,
+      "start": 544.0,
+      "end": 545.44,
+      "text": "So query shows up."
+    },
+    {
+      "id": 134,
+      "start": 545.44,
+      "end": 549.8,
+      "text": "We generate through the optimizer and so we'll generate different, uh, different switchable"
+    },
+    {
+      "id": 135,
+      "start": 549.8,
+      "end": 551.28,
+      "text": "plans just like before."
+    },
+    {
+      "id": 136,
+      "start": 551.28,
+      "end": 558.44,
+      "text": "But we're also going to now get to generate bounding boxes that allow us to determine whether"
+    },
+    {
+      "id": 137,
+      "start": 558.44,
+      "end": 561.84,
+      "text": "the assumptions we're making and our decisions about whether to go down one path versus"
+    },
+    {
+      "id": 138,
+      "start": 561.84,
+      "end": 565.0,
+      "text": "another are actually going to match up with reality, right?"
+    },
+    {
+      "id": 139,
+      "start": 565.0,
+      "end": 569.68,
+      "text": "It's basically trying to, uh, put a balance on the uncertainty we're seeing in the data"
+    },
+    {
+      "id": 140,
+      "start": 569.68,
+      "end": 571.0,
+      "text": "as we run."
+    },
+    {
+      "id": 141,
+      "start": 571.0,
+      "end": 576.44,
+      "text": "So now we start executing the query and just like before in, in Leo and other techniques,"
+    },
+    {
+      "id": 142,
+      "start": 576.44,
+      "end": 579.88,
+      "text": "we execute query, collect statistics about the data that we're seeing for our particular"
+    },
+    {
+      "id": 143,
+      "start": 579.88,
+      "end": 580.88,
+      "text": "query."
+    },
+    {
+      "id": 144,
+      "start": 580.88,
+      "end": 585.72,
+      "text": "And then we can switch the query plan just as we saw before if we determine that, you"
+    },
+    {
+      "id": 145,
+      "start": 585.72,
+      "end": 588.36,
+      "text": "know, one plan path might be better than another."
+    },
+    {
+      "id": 146,
+      "start": 588.36,
+      "end": 593.92,
+      "text": "But then if we also determine based on our, sort of exceeding our estimations in our,"
+    },
+    {
+      "id": 147,
+      "start": 593.92,
+      "end": 598.28,
+      "text": "in our bounding box thresholds, if we see that we're way out of, you know, way out of,"
+    },
+    {
+      "id": 148,
+      "start": 598.28,
+      "end": 603.8,
+      "text": "um, whack and our estimations are way off, then we just go back and can re-optimize and"
+    },
+    {
+      "id": 149,
+      "start": 603.8,
+      "end": 604.56,
+      "text": "then get you determine."
+    }
+  ],
+  "language": "en"
+}

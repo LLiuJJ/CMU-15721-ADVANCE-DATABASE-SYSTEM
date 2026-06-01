@@ -1,0 +1,14 @@
+## 物化策略与系统设计权衡
+早期物化(Early Materialization)与延迟物化(Late Materialization)之间的选择会显著影响查询性能(Query Performance)与内存带宽(Memory Bandwidth)的利用率。早期物化在底层表扫描(Table Scan)阶段即组装完整元组(Tuple)，并将构建完毕的行(Row)向上传递。虽然该方法逻辑简洁，且对窄表(Narrow Table)或行式存储(Row-oriented Storage)极为有效，但当查询仅访问少量列时，其执行效率会大幅下降。延迟物化则通过在算子(Operator)间仅传递最小必需属性（如连接键(Join Key)或元组标识符(Tuple ID)）来规避此问题，将完整元组的组装推迟至绝对必要时进行。尽管从理论上可行在两种策略间动态切换的混合方法(Hybrid Approach)，但这会引入繁重的状态维护(State Maintenance)与执行成本估算(Cost Estimation)复杂度。因此，大多数现代 OLAP 系统(Online Analytical Processing System)默认采用延迟物化，因其在工程实现上更为简洁，且已在分析型查询负载(Analytical Query Workload)中被验证具有更高效率。
+![关键帧](keyframes/part004_frame_00000000.jpg)
+
+## 统一内存数据表示的必要性
+现代数据湖仓架构(Data Lakehouse Architecture)必须摄取(Ingest)并处理以 Parquet、ORC 和 CSV 等多种磁盘存储格式(Disk Storage Format)保存的文件。为避免针对每种格式单独维护特定的查询算子(Query Operator)实现，执行引擎(Execution Engine)会将磁盘数据统一转换为标准化的内部内存表示(Internal Memory Representation)。该统一内存格式必须支持定长列布局(Fixed-length Column Layout)以实现可预测的内存访问模式，消除冗余的序列化与反序列化(Serialization & Deserialization)开销，并原生支持零拷贝内存传输(Zero-Copy Memory Transfer)。通过采用通用的内存模式(Memory Schema)，数据库能够高效地在算子间共享数据缓冲区(Data Buffer)，在集群节点(Cluster Node)间分发工作负载(Workload)时无需重新编码(Re-encoding)，甚至可直接将计算任务卸载(Compute Offloading)至 FPGA 或智能网卡(SmartNIC)等专用加速硬件(Specialized Acceleration Hardware)。
+![关键帧](keyframes/part004_frame_00137333.jpg)
+
+## Apache Arrow：面向 CPU 缓存与向量化的优化
+Apache Arrow 是内存列式数据(In-Memory Columnar Data)的行业标准规范，其架构设计旨在最大化 CPU 缓存命中率(CPU Cache Hit Rate)并全面支持向量化执行(Vectorized Execution)。与优先考虑高压缩率（如差分编码(Delta Encoding)或游程编码(Run-Length Encoding, RLE)）的磁盘格式不同，Arrow 采用轻量级编码策略(Lightweight Encoding Strategy)，使算子(Operator)能够进行快速的随机访问(Random Access)，并直接通过内存偏移量(Memory Offset)读取数值，无需解码整个数据块(Data Block)。Arrow 生态系统(Arrow Ecosystem)远不止于数据序列化格式，它还提供了统一的内存池(Memory Pool)、线程管理(Thread Management)、远程过程调用(RPC)框架，以及名为 Gandiva 的内置表达式求值引擎(Expression Evaluation Engine)。Gandiva 能够将过滤(Filter)与投影(Projection)逻辑树直接编译为 LLVM 中间表示(LLVM IR)，从而绕过传统解释器(Interpreter)的性能开销，为常规操作提供接近原生(Native)的执行速度。
+![关键帧](keyframes/part004_frame_00510633.jpg)
+
+## 字典编码与变长字符串处理
+为在查询性能与工程实现简易性(Implementation Simplicity)之间取得平衡，Arrow 主要采用字典编码(Dictionary Encoding)与轻量级的游程编码(Run-Length Encoding, RLE)变体，而非复杂的位图(Bitmap)或差分编码(Differential Encoding)方案。在字典编码机制下，列中的唯一值(Unique Value)（尤其是字符串类型）会被提取、去重排序，并集中存储于独立的字典数组(Dictionary Array)中。数据列本身仅保留紧凑的整数索引(Integer Index)或偏移量(Offset)，此举不仅显著降低了内存占用(Memory Footprint)，还大幅加速了等值比较操作(Equality Comparison)。针对变长字符串(Variable-Length String)的处理，Arrow 的底层设计在数据列中采用固定宽度（如 12 字节）的结构体来记录字符串长度与内存指针/偏移量，而实际的字符载荷(Character Payload)则存储于独立的连续内存缓冲区(Contiguous Memory Buffer)中。这种逻辑分离设计(Separation Design)使执行引擎能够维持定宽列语义(Fixed-Width Column Semantics)，从而支持高效的向量化遍历(Vectorized Traversal)，同时兼顾了处理动态长度数据类型(Dynamic-Length Data Type)所需的运行时灵活性。

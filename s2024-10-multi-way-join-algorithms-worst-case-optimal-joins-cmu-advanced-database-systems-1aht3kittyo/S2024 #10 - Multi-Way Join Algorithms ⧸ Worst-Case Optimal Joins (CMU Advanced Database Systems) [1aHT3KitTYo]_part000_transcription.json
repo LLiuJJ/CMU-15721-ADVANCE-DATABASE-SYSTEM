@@ -1,0 +1,665 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "text": "Carnegie Mellon University's Advanced Database Systems courses"
+    },
+    {
+      "id": 1,
+      "start": 6.0,
+      "end": 9.0,
+      "text": "filmed in front of a live studio audience."
+    },
+    {
+      "id": 2,
+      "start": 13.0,
+      "end": 15.0,
+      "text": "Today we're going to welcome to the public as well."
+    },
+    {
+      "id": 3,
+      "start": 15.0,
+      "end": 19.0,
+      "text": "This would be a lot different than kind of joins you see in the intro class"
+    },
+    {
+      "id": 4,
+      "start": 19.0,
+      "end": 22.0,
+      "text": "and even in the last lecture we just had about parallel as well."
+    },
+    {
+      "id": 5,
+      "start": 22.0,
+      "end": 26.0,
+      "text": "And we'll sort of see, sort of motivate why we want to do this,"
+    },
+    {
+      "id": 6,
+      "start": 26.0,
+      "end": 30.0,
+      "text": "discuss the sort of one of the first invitations of it"
+    },
+    {
+      "id": 7,
+      "start": 30.0,
+      "end": 33.0,
+      "text": "and then we'll see how the Germans are going to prove on it."
+    },
+    {
+      "id": 8,
+      "start": 33.0,
+      "end": 36.0,
+      "text": "And then I'll finish up with something from DuckDB that basically says"
+    },
+    {
+      "id": 9,
+      "start": 36.0,
+      "end": 40.0,
+      "text": "you may not actually need any of this if you build other things correctly."
+    },
+    {
+      "id": 10,
+      "start": 40.0,
+      "end": 46.0,
+      "text": "All right, so last class we spent the entire lecture on how to do hash joining"
+    },
+    {
+      "id": 11,
+      "start": 46.0,
+      "end": 47.0,
+      "text": "since fast as possible, right?"
+    },
+    {
+      "id": 12,
+      "start": 47.0,
+      "end": 50.0,
+      "text": "And the big focus was on how to use, run this in parallel."
+    },
+    {
+      "id": 13,
+      "start": 50.0,
+      "end": 54.0,
+      "text": "Again, not across multiple nodes, but across multiple workers running on the same box."
+    },
+    {
+      "id": 14,
+      "start": 54.0,
+      "end": 60.0,
+      "text": "Carnegie Mell in universities advanced database system courses"
+    },
+    {
+      "id": 15,
+      "start": 60.0,
+      "end": 62.0,
+      "text": "Filming in front of a live studio studio studio studio."
+    },
+    {
+      "id": 16,
+      "start": 62.0,
+      "end": 63.0,
+      "text": "studio."
+    },
+    {
+      "id": 17,
+      "start": 63.0,
+      "end": 64.0,
+      "text": "studio."
+    },
+    {
+      "id": 18,
+      "start": 64.0,
+      "end": 65.0,
+      "text": "studio."
+    },
+    {
+      "id": 19,
+      "start": 65.0,
+      "end": 68.0,
+      "text": "studio."
+    },
+    {
+      "id": 20,
+      "start": 68.0,
+      "end": 69.0,
+      "text": "Nobody know."
+    },
+    {
+      "id": 21,
+      "start": 69.0,
+      "end": 71.0,
+      "text": "Money is there."
+    },
+    {
+      "id": 22,
+      "start": 71.0,
+      "end": 75.0,
+      "text": "So today's class is different than what we talked about throughout the semester."
+    },
+    {
+      "id": 23,
+      "start": 75.0,
+      "end": 77.0,
+      "text": "Because most of the discuss about"
+    },
+    {
+      "id": 24,
+      "start": 77.0,
+      "end": 79.0,
+      "text": "different data sets is really challenging."
+    },
+    {
+      "id": 25,
+      "start": 79.0,
+      "end": 83.0,
+      "text": "So oftentimes, you should just do a non partition hash join."
+    },
+    {
+      "id": 26,
+      "start": 83.0,
+      "end": 86.0,
+      "text": "And that's right, you could have arbitrary things inside of this."
+    },
+    {
+      "id": 27,
+      "start": 86.0,
+      "end": 87.0,
+      "text": "Right?"
+    },
+    {
+      "id": 28,
+      "start": 87.0,
+      "end": 92.0,
+      "text": "That you couldn't be able to express through express through the case one exactly to express through the case one exactly."
+    },
+    {
+      "id": 29,
+      "start": 92.0,
+      "end": 93.0,
+      "text": "exactly."
+    },
+    {
+      "id": 30,
+      "start": 93.0,
+      "end": 97.0,
+      "text": "But yes, in this case here, I think there's been a really robust."
+    },
+    {
+      "id": 31,
+      "start": 97.0,
+      "end": 103.0,
+      "text": "Because they're going to say later on, once I get it to this form to my query optimizer,"
+    },
+    {
+      "id": 32,
+      "start": 103.0,
+      "end": 108.0,
+      "text": "and as you can imagine, these things are super common in pretty much every database system,"
+    },
+    {
+      "id": 33,
+      "start": 108.0,
+      "end": 110.0,
+      "text": "every relational database system."
+    },
+    {
+      "id": 34,
+      "start": 110.0,
+      "end": 115.0,
+      "text": "There's been years and years and years, decades of research and try to make hash joins go as fast as possible."
+    },
+    {
+      "id": 35,
+      "start": 115.0,
+      "end": 120.0,
+      "text": "Because I said I had a PHA student spent a little time trying to make the hash join go faster."
+    },
+    {
+      "id": 36,
+      "start": 120.0,
+      "end": 124.0,
+      "text": "And we were literally going, trying to count from going from 12 cycles per two-bole to 11 cycles per two-bole."
+    },
+    {
+      "id": 37,
+      "start": 124.0,
+      "end": 128.0,
+      "text": "But you're really getting down to the bone, the bare metal performance,"
+    },
+    {
+      "id": 38,
+      "start": 128.0,
+      "end": 131.0,
+      "text": "so there's not much else you can optimize."
+    },
+    {
+      "id": 39,
+      "start": 131.0,
+      "end": 136.0,
+      "text": "So the binary joins are going to be the preferred approach, the better approach,"
+    },
+    {
+      "id": 40,
+      "start": 136.0,
+      "end": 143.0,
+      "text": "when we know that the output of the join operator is going to be smaller than its inputs."
+    },
+    {
+      "id": 41,
+      "start": 143.0,
+      "end": 148.0,
+      "text": "Right? So in this case here, we're joining RS and T, we're taking, we'll join S and T,"
+    },
+    {
+      "id": 42,
+      "start": 148.0,
+      "end": 152.0,
+      "text": "we do a join, and then we're going to produce 10 tuples."
+    },
+    {
+      "id": 43,
+      "start": 152.0,
+      "end": 156.0,
+      "text": "Right? These are imaginary numbers. They're small, but think of, think of orders and magnitude bigger."
+    },
+    {
+      "id": 44,
+      "start": 156.0,
+      "end": 158.0,
+      "text": "Right? The output is going to be much smaller."
+    },
+    {
+      "id": 45,
+      "start": 158.0,
+      "end": 168.0,
+      "text": "The problem is going to be, though, and what we're going to try to adjust today is when the output of the join operator is going to be larger than the inputs."
+    },
+    {
+      "id": 46,
+      "start": 168.0,
+      "end": 172.0,
+      "text": "So, say for whatever reason, based on the data and what we're trying to join on, this thing,"
+    },
+    {
+      "id": 47,
+      "start": 172.0,
+      "end": 177.0,
+      "text": "the operator is not going to produce 1000 tuples. Right?"
+    },
+    {
+      "id": 48,
+      "start": 177.0,
+      "end": 180.0,
+      "text": "And this is the problem we want to, this is the worst case scenario for data,"
+    },
+    {
+      "id": 49,
+      "start": 180.0,
+      "end": 185.0,
+      "text": "because now we have to materialize that. And even though it's producing 1000 tuples here,"
+    },
+    {
+      "id": 50,
+      "start": 185.0,
+      "end": 189.0,
+      "text": "when we do the join on this output and R, now we're going to produce 10 tuples."
+    },
+    {
+      "id": 51,
+      "start": 189.0,
+      "end": 195.0,
+      "text": "So we had a bunch of data that we've materialized or synthesized from the join operator that we now have to deal with,"
+    },
+    {
+      "id": 52,
+      "start": 195.0,
+      "end": 201.0,
+      "text": "even though we're going to end up still ending up throwing a ton of it away."
+    },
+    {
+      "id": 53,
+      "start": 201.0,
+      "end": 205.0,
+      "text": "So another way to think about it, or look at it, is like this, we actually start using real tuples."
+    },
+    {
+      "id": 54,
+      "start": 205.0,
+      "end": 211.0,
+      "text": "Again, same query, trying to do a cycle join between our S and T. Right?"
+    },
+    {
+      "id": 55,
+      "start": 211.0,
+      "end": 215.0,
+      "text": "So the problem's going to be that no matter what order that I choose to join my tables,"
+    },
+    {
+      "id": 56,
+      "start": 215.0,
+      "end": 220.0,
+      "text": "if I choose to join R and S first, then join T."
+    },
+    {
+      "id": 57,
+      "start": 220.0,
+      "end": 223.0,
+      "text": "This intermediate result is going to get ballooned up and get bigger."
+    },
+    {
+      "id": 58,
+      "start": 223.0,
+      "end": 229.0,
+      "text": "Same thing, if I try to join R and T, and then join S, ballooned up, same thing,"
+    },
+    {
+      "id": 59,
+      "start": 229.0,
+      "end": 233.0,
+      "text": "do S and T, balloons up in the M."
+    },
+    {
+      "id": 60,
+      "start": 233.0,
+      "end": 236.0,
+      "text": "So again, the reason why this is going to be a problem for us is,"
+    },
+    {
+      "id": 61,
+      "start": 236.0,
+      "end": 244.0,
+      "text": "we've already said, it's been wasted storage, because now again, we have to materialize these results somewhere in memory,"
+    },
+    {
+      "id": 62,
+      "start": 244.0,
+      "end": 250.0,
+      "text": "and then if it gets too big, we have to end up having to spill a disk, and that'll be typically the local disk on the worker node."
+    },
+    {
+      "id": 63,
+      "start": 250.0,
+      "end": 256.0,
+      "text": "Worst case scenario, we spill to S3 of the object store, a TV installer."
+    },
+    {
+      "id": 64,
+      "start": 256.0,
+      "end": 260.0,
+      "text": "Then of course, off the, it's going to be a bunch of wasted computation, because, you know,"
+    },
+    {
+      "id": 65,
+      "start": 260.0,
+      "end": 269.0,
+      "text": "we're materializing tuples, we're passing them along, and then we're going to do the next join on the last table,"
+    },
+    {
+      "id": 66,
+      "start": 269.0,
+      "end": 272.0,
+      "text": "it's not going to match, we're going to throw it away."
+    },
+    {
+      "id": 67,
+      "start": 272.0,
+      "end": 278.0,
+      "text": "So ideally, we want to be able to identify, if we can, which of these tuples we actually don't need,"
+    },
+    {
+      "id": 68,
+      "start": 278.0,
+      "end": 286.0,
+      "text": "when we're going to join into the third table, or any other additional tables, to avoid having to, you know, again, materialize it."
+    },
+    {
+      "id": 69,
+      "start": 286.0,
+      "end": 294.0,
+      "text": "So that's the high level approach that we're going to problem-trying to solve today, is how to avoid this blow-up of the intermediate results."
+    },
+    {
+      "id": 70,
+      "start": 294.0,
+      "end": 303.0,
+      "text": "And what we'll see in the multi-way join, the way it's going to work is that, rather than sort of thinking the join operator in terms of like,"
+    },
+    {
+      "id": 71,
+      "start": 303.0,
+      "end": 308.0,
+      "text": "I got this table on this table, let me join it together, you're going to think in terms of attributes."
+    },
+    {
+      "id": 72,
+      "start": 308.0,
+      "end": 313.0,
+      "text": "And now you don't care where the attributes are coming from, whether it's table one, table two, table three years, and so forth,"
+    },
+    {
+      "id": 73,
+      "start": 313.0,
+      "end": 320.0,
+      "text": "and now you want to do comparison on these attributes, and then have that be what you synthesize as part of the output."
+    },
+    {
+      "id": 74,
+      "start": 320.0,
+      "end": 325.0,
+      "text": "So that's the big picture of what the multi-way join is going to try to do for us."
+    },
+    {
+      "id": 75,
+      "start": 325.0,
+      "end": 331.0,
+      "text": "So first start our background, what worst case optimal joins are, again, the lecture I'm calling multi-way joins,"
+    },
+    {
+      "id": 76,
+      "start": 331.0,
+      "end": 336.0,
+      "text": "because that's the idea, like we're joining more than just two tables, right?"
+    },
+    {
+      "id": 77,
+      "start": 336.0,
+      "end": 344.0,
+      "text": "So the class of algorithms are going to be multi-way joins, and then these category of the implementations that we'll see will be called worst case optimal joins."
+    },
+    {
+      "id": 78,
+      "start": 344.0,
+      "end": 347.0,
+      "text": "But typically the terms are used interchangeably."
+    },
+    {
+      "id": 79,
+      "start": 347.0,
+      "end": 356.0,
+      "text": "But the multi-way joins, the idea of multi-way joins existed in the literature, I think, back of the 80s, but the worst case optimal implementations that came along in the late 2000s."
+    },
+    {
+      "id": 80,
+      "start": 357.0,
+      "end": 363.0,
+      "text": "So first, first, again, the high-level idea of what worst case optimal joins are, then we'll look at the one of the earliest implementations of leapfrog join,"
+    },
+    {
+      "id": 81,
+      "start": 363.0,
+      "end": 372.0,
+      "text": "leapfrog tri-join, and then we'll see the Germans hash tri-join, which is sort of an optimization of the data structures they're going to use over the leapfrog join,"
+    },
+    {
+      "id": 82,
+      "start": 372.0,
+      "end": 375.0,
+      "text": "but at high level the method's still going to be the same."
+    },
+    {
+      "id": 83,
+      "start": 375.0,
+      "end": 383.0,
+      "text": "And then we'll finish up some quick optimizations from WDB, and then I want to briefly talk about how to do system profiling in a database system,"
+    },
+    {
+      "id": 84,
+      "start": 383.0,
+      "end": 390.0,
+      "text": "and then talk a little bit about the harbor counter stuff that he had a question about a few weeks ago."
+    },
+    {
+      "id": 85,
+      "start": 390.0,
+      "end": 400.0,
+      "text": "So again, the idea of a worst case optimal join is that we want to join three or more tables at the same time."
+    },
+    {
+      "id": 86,
+      "start": 400.0,
+      "end": 407.0,
+      "text": "And again, the way this is going to work is that rather than taking the entire two-pole from one table and the entire two-pole from another table,"
+    },
+    {
+      "id": 87,
+      "start": 407.0,
+      "end": 414.0,
+      "text": "and then comparing all the attributes in our join key, we're instead going to grab a single attribute for our join key,"
+    },
+    {
+      "id": 88,
+      "start": 414.0,
+      "end": 421.0,
+      "text": "it could be multiple columns. From all the tables we want to join together, mash them up, figure out whether we have any matches,"
+    },
+    {
+      "id": 89,
+      "start": 421.0,
+      "end": 432.0,
+      "text": "and only proceed with doing additional comparisons for a given attribute, for given two-pole, if we know that the subset of the values on our join key are actually matching already."
+    },
+    {
+      "id": 90,
+      "start": 432.0,
+      "end": 438.0,
+      "text": "Again, we want to avoid waste of work of doing a bunch of comparisons for things that are going to get thrown away."
+    },
+    {
+      "id": 91,
+      "start": 438.0,
+      "end": 446.0,
+      "text": "So as soon as we can identify that there isn't going to be a match on a given two-pole as we're doing our join, we can throw that way as soon as possible."
+    },
+    {
+      "id": 92,
+      "start": 446.0,
+      "end": 454.0,
+      "text": "So as I said, the idea of a multi-way join has existed for a while, but in terms of proving that you can have a worst case optimal join,"
+    },
+    {
+      "id": 93,
+      "start": 454.0,
+      "end": 465.0,
+      "text": "and the final bet is in a second, came from these other Germans in 2008, which I think was, for this paper, I think actually was Thomas Nomew's, Thomas Nomew's PC advisor, but I might be wrong."
+    },
+    {
+      "id": 94,
+      "start": 465.0,
+      "end": 479.0,
+      "text": "Then the first two implementations of this will be empty-headed at a Stanford, and then a commercial system called Logic Blocks, which is, I think, is like, is a answering database system that you use data log instead of SQL."
+    },
+    {
+      "id": 95,
+      "start": 479.0,
+      "end": 486.0,
+      "text": "Data log is another declared query language, but very few people actually use it other than Logic Blocks."
+    },
+    {
+      "id": 96,
+      "start": 486.0,
+      "end": 500.0,
+      "text": "So again, the interesting about these worst case optimal joins are, rather than thinking about the computational complexity in terms of the size of my input tuples,"
+    },
+    {
+      "id": 97,
+      "start": 500.0,
+      "end": 509.0,
+      "text": "the performance can be bounded by the size of the output, and the number attributes that we're actually going to compare against."
+    },
+    {
+      "id": 98,
+      "start": 509.0,
+      "end": 518.0,
+      "text": "And this is hard to actually have an exact estimation without selectivity information about the attributes to say, here's how much longer things are going to take."
+    },
+    {
+      "id": 99,
+      "start": 518.0,
+      "end": 526.0,
+      "text": "Whereas like a hash join, for example, you know you've got to build a hash table, there's a cost of that, you've got to probe a hash table, there's another cost of that,"
+    },
+    {
+      "id": 100,
+      "start": 526.0,
+      "end": 533.0,
+      "text": "and you can more or less ignore the selectivity of the hash join itself, because you're always going to do that work."
+    },
+    {
+      "id": 101,
+      "start": 533.0,
+      "end": 545.0,
+      "text": "Whereas in the worst case optimal join, because we can short-circuit comparisons, once we know an attribute within the join key does not going to match, then it actually is, you know, it'll vary."
+    },
+    {
+      "id": 102,
+      "start": 545.0,
+      "end": 558.0,
+      "text": "So what's also interesting about too is that the more tables we're going to throw at our worst case optimal join algorithm, the better its performance is actually going to be relative to the input, because the idea is that we're going to try to compare as much as we can all at once."
+    },
+    {
+      "id": 103,
+      "start": 558.0,
+      "end": 565.0,
+      "text": "Again, rather than having these stages in the, you know, in a binary join, yes."
+    },
+    {
+      "id": 104,
+      "start": 565.0,
+      "end": 569.0,
+      "text": "So all the things you're talking about would also be loaded with the join key which is my attribute?"
+    },
+    {
+      "id": 105,
+      "start": 569.0,
+      "end": 575.0,
+      "text": "The statement is a question, is would all the things I'm talking about here still hold, if it was join key which is one attribute?"
+    },
+    {
+      "id": 106,
+      "start": 575.0,
+      "end": 583.0,
+      "text": "In terms of would you, well you want to get the benefit of short-circuiting additional comparisons, right, for additional attributes."
+    },
+    {
+      "id": 107,
+      "start": 583.0,
+      "end": 587.0,
+      "text": "It gives you the better as easier problem if it's one attribute."
+    },
+    {
+      "id": 108,
+      "start": 587.0,
+      "end": 597.0,
+      "text": "The question is, is it an easier problem if it's one attribute to do a multi-way join?"
+    },
+    {
+      "id": 109,
+      "start": 597.0,
+      "end": 600.0,
+      "text": "So what I mean, you wouldn't, how does this?"
+    }
+  ],
+  "language": "en"
+}

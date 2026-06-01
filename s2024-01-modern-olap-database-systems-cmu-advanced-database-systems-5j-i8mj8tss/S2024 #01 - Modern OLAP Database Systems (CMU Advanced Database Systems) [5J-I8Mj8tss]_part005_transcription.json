@@ -1,0 +1,1493 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.12,
+      "text": "order the magnitude difference."
+    },
+    {
+      "id": 1,
+      "start": 2.12,
+      "end": 4.8,
+      "text": "So in the old days, this was considered"
+    },
+    {
+      "id": 2,
+      "start": 4.8,
+      "end": 6.8,
+      "text": "the primary way to do it, especially in a shared nothing"
+    },
+    {
+      "id": 3,
+      "start": 6.8,
+      "end": 7.52,
+      "text": "architecture."
+    },
+    {
+      "id": 4,
+      "start": 7.52,
+      "end": 10.6,
+      "text": "But in shared disk, you actually, if you just"
+    },
+    {
+      "id": 5,
+      "start": 10.6,
+      "end": 12.84,
+      "text": "can ignore the extra features you can get from object"
+    },
+    {
+      "id": 6,
+      "start": 12.84,
+      "end": 15.04,
+      "text": "stores, you would do this."
+    },
+    {
+      "id": 7,
+      "start": 15.04,
+      "end": 17.76,
+      "text": "And so the extra features I'm talking about are in things"
+    },
+    {
+      "id": 8,
+      "start": 17.76,
+      "end": 21.4,
+      "text": "like S3, they have a select operator, where now you can basically"
+    },
+    {
+      "id": 9,
+      "start": 21.4,
+      "end": 24.92,
+      "text": "send what looks like a SQL query down to S3 when you make"
+    },
+    {
+      "id": 10,
+      "start": 24.92,
+      "end": 26.84,
+      "text": "the get request."
+    },
+    {
+      "id": 11,
+      "start": 27.8,
+      "end": 30.48,
+      "text": "Here's run this filter on this data."
+    },
+    {
+      "id": 12,
+      "start": 30.48,
+      "end": 33.96,
+      "text": "And S3 actually knows the contents of what your objects"
+    },
+    {
+      "id": 13,
+      "start": 33.96,
+      "end": 34.8,
+      "text": "actually look like."
+    },
+    {
+      "id": 14,
+      "start": 34.8,
+      "end": 36.32,
+      "text": "So it's not a dumb key value store."
+    },
+    {
+      "id": 15,
+      "start": 36.32,
+      "end": 37.88,
+      "text": "We say, hey, give me this bucket."
+    },
+    {
+      "id": 16,
+      "start": 37.88,
+      "end": 39.12,
+      "text": "And I don't just give me the byte stream"
+    },
+    {
+      "id": 17,
+      "start": 39.12,
+      "end": 40.2,
+      "text": "I don't care what's in it."
+    },
+    {
+      "id": 18,
+      "start": 40.2,
+      "end": 44.16,
+      "text": "As they say here, they know that it's a CSV, a JSON,"
+    },
+    {
+      "id": 19,
+      "start": 44.16,
+      "end": 45.04,
+      "text": "of its parquet."
+    },
+    {
+      "id": 20,
+      "start": 45.04,
+      "end": 47.44,
+      "text": "And they actually can process that natively"
+    },
+    {
+      "id": 21,
+      "start": 47.44,
+      "end": 50.32,
+      "text": "where the data is actually being stored."
+    },
+    {
+      "id": 22,
+      "start": 50.32,
+      "end": 51.96,
+      "text": "I don't know how they charge you for this,"
+    },
+    {
+      "id": 23,
+      "start": 51.96,
+      "end": 54.36,
+      "text": "whether it's just the fetch command, or they charge you"
+    },
+    {
+      "id": 24,
+      "start": 54.36,
+      "end": 57.48,
+      "text": "at the runtime, because it runs as a lambda function."
+    },
+    {
+      "id": 25,
+      "start": 57.48,
+      "end": 58.76,
+      "text": "I actually have no idea."
+    },
+    {
+      "id": 26,
+      "start": 58.76,
+      "end": 61.88,
+      "text": "But again, this allows us to do predicate pushdown"
+    },
+    {
+      "id": 27,
+      "start": 61.88,
+      "end": 64.04,
+      "text": "in a shared disk architecture, which, again,"
+    },
+    {
+      "id": 28,
+      "start": 64.04,
+      "end": 68.76,
+      "text": "according to the text, you would not be able to do."
+    },
+    {
+      "id": 29,
+      "start": 68.76,
+      "end": 70.0,
+      "text": "Microsoft has the wrong thing."
+    },
+    {
+      "id": 30,
+      "start": 70.0,
+      "end": 72.84,
+      "text": "I don't know whether you get SQL, but you can kind of see"
+    },
+    {
+      "id": 31,
+      "start": 72.84,
+      "end": 77.52,
+      "text": "you pass in some kind of query there."
+    },
+    {
+      "id": 32,
+      "start": 77.52,
+      "end": 79.64,
+      "text": "And as far as I know, Google doesn't have this."
+    },
+    {
+      "id": 33,
+      "start": 79.64,
+      "end": 81.32,
+      "text": "So I didn't look this year, but the last year,"
+    },
+    {
+      "id": 34,
+      "start": 81.32,
+      "end": 82.8,
+      "text": "they didn't have this as well."
+    },
+    {
+      "id": 35,
+      "start": 82.8,
+      "end": 83.64,
+      "text": "So again, this is what I'm saying."
+    },
+    {
+      "id": 36,
+      "start": 83.64,
+      "end": 87.64,
+      "text": "The lines get blurred because you can do some predicate pushdown"
+    },
+    {
+      "id": 37,
+      "start": 87.64,
+      "end": 89.24,
+      "text": "and other things."
+    },
+    {
+      "id": 38,
+      "start": 89.24,
+      "end": 92.44,
+      "text": "And projection pushdown as well."
+    },
+    {
+      "id": 39,
+      "start": 92.44,
+      "end": 93.68,
+      "text": "Again, yes."
+    },
+    {
+      "id": 40,
+      "start": 93.68,
+      "end": 95.28,
+      "text": "When you always want to do that, I just"
+    },
+    {
+      "id": 41,
+      "start": 95.28,
+      "end": 96.76,
+      "text": "want to jump out from the algorithm."
+    },
+    {
+      "id": 42,
+      "start": 96.76,
+      "end": 97.84,
+      "text": "This question is, do you always want"
+    },
+    {
+      "id": 43,
+      "start": 97.84,
+      "end": 99.96,
+      "text": "to do predicate pushdown at the option is available?"
+    },
+    {
+      "id": 44,
+      "start": 99.96,
+      "end": 103.76,
+      "text": "No, because it may be the case that the block of data"
+    },
+    {
+      "id": 45,
+      "start": 103.76,
+      "end": 105.56,
+      "text": "you need is to use over and over again,"
+    },
+    {
+      "id": 46,
+      "start": 105.56,
+      "end": 107.72,
+      "text": "but a bunch of queries that have different predicates."
+    },
+    {
+      "id": 47,
+      "start": 107.72,
+      "end": 110.8,
+      "text": "So therefore, I'm making now multiple requests to S3"
+    },
+    {
+      "id": 48,
+      "start": 110.8,
+      "end": 112.56,
+      "text": "to get different portions of that same file,"
+    },
+    {
+      "id": 49,
+      "start": 112.56,
+      "end": 115.6,
+      "text": "where it would have been cheaper just to go get it once,"
+    },
+    {
+      "id": 50,
+      "start": 115.6,
+      "end": 117.88,
+      "text": "cache it, then do all my filtering locally."
+    },
+    {
+      "id": 51,
+      "start": 121.16,
+      "end": 123.28,
+      "text": "But how to figure that out?"
+    },
+    {
+      "id": 52,
+      "start": 123.28,
+      "end": 125.92,
+      "text": "It's hard."
+    },
+    {
+      "id": 53,
+      "start": 125.92,
+      "end": 128.52,
+      "text": "And that's why people pay a lot of money for databases."
+    },
+    {
+      "id": 54,
+      "start": 128.52,
+      "end": 130.76,
+      "text": "Because they'll do that all for you."
+    },
+    {
+      "id": 55,
+      "start": 130.76,
+      "end": 134.2,
+      "text": "I actually don't know how many systems actually do that."
+    },
+    {
+      "id": 56,
+      "start": 134.2,
+      "end": 135.68,
+      "text": "This trick, though."
+    },
+    {
+      "id": 57,
+      "start": 135.68,
+      "end": 138.68,
+      "text": "I think Redshift does it because they obviously built it."
+    },
+    {
+      "id": 58,
+      "start": 138.68,
+      "end": 142.32,
+      "text": "But I don't know what the snowflake does it."
+    },
+    {
+      "id": 59,
+      "start": 142.32,
+      "end": 142.6,
+      "text": "All right."
+    },
+    {
+      "id": 60,
+      "start": 142.6,
+      "end": 144.16,
+      "text": "So again, share nothing architecture."
+    },
+    {
+      "id": 61,
+      "start": 144.16,
+      "end": 146.96,
+      "text": "This is what we covered in the interclass,"
+    },
+    {
+      "id": 62,
+      "start": 146.96,
+      "end": 148.4,
+      "text": "classic textbook definition."
+    },
+    {
+      "id": 63,
+      "start": 148.4,
+      "end": 149.76,
+      "text": "Actually, it comes from Stonebreaker."
+    },
+    {
+      "id": 64,
+      "start": 149.76,
+      "end": 152.84,
+      "text": "This is something that he coined in the 1980s."
+    },
+    {
+      "id": 65,
+      "start": 152.84,
+      "end": 154.88,
+      "text": "And this was the prevailing architecture for distributed"
+    },
+    {
+      "id": 66,
+      "start": 154.88,
+      "end": 159.8,
+      "text": "databases, both for all the TPP and OLAP systems for 30 years"
+    },
+    {
+      "id": 67,
+      "start": 159.8,
+      "end": 164.12,
+      "text": "until the 2010s."
+    },
+    {
+      "id": 68,
+      "start": 164.12,
+      "end": 166.36,
+      "text": "Again, each node itself is going to have"
+    },
+    {
+      "id": 69,
+      "start": 166.36,
+      "end": 171.08,
+      "text": "its own local CPU, locally attached disk, and memory."
+    },
+    {
+      "id": 70,
+      "start": 171.08,
+      "end": 174.64,
+      "text": "And any time you want to send information to get data"
+    },
+    {
+      "id": 71,
+      "start": 174.64,
+      "end": 176.72,
+      "text": "from another node, you've got to go over the network"
+    },
+    {
+      "id": 72,
+      "start": 176.72,
+      "end": 180.76,
+      "text": "and send TCP or UDP requests."
+    },
+    {
+      "id": 73,
+      "start": 180.76,
+      "end": 183.92,
+      "text": "So we'll call each of these things as a single data system"
+    },
+    {
+      "id": 74,
+      "start": 183.92,
+      "end": 184.44,
+      "text": "node."
+    },
+    {
+      "id": 75,
+      "start": 184.44,
+      "end": 187.84,
+      "text": "So I think it's like EC2, you get an instance"
+    },
+    {
+      "id": 76,
+      "start": 187.84,
+      "end": 191.0,
+      "text": "that we're talking about that."
+    },
+    {
+      "id": 77,
+      "start": 191.0,
+      "end": 193.64,
+      "text": "The database has to be partitioned into disjoint subsets"
+    },
+    {
+      "id": 78,
+      "start": 193.64,
+      "end": 194.96,
+      "text": "across the nodes."
+    },
+    {
+      "id": 79,
+      "start": 194.96,
+      "end": 197.76,
+      "text": "It's been picking like a partition key."
+    },
+    {
+      "id": 80,
+      "start": 197.76,
+      "end": 199.56,
+      "text": "You can either range partitioning or hash partitioning"
+    },
+    {
+      "id": 81,
+      "start": 199.56,
+      "end": 203.96,
+      "text": "to divide them all up evenly across the different nodes."
+    },
+    {
+      "id": 82,
+      "start": 203.96,
+      "end": 206.44,
+      "text": "And then now since the data is being stored by the data"
+    },
+    {
+      "id": 83,
+      "start": 206.44,
+      "end": 211.52,
+      "text": "system that is local, then I can just use a POSIX API."
+    },
+    {
+      "id": 84,
+      "start": 211.52,
+      "end": 214.4,
+      "text": "I can use CIS calls to go get FRED or FOP and get"
+    },
+    {
+      "id": 85,
+      "start": 214.4,
+      "end": 216.04,
+      "text": "the file the data that actually need."
+    },
+    {
+      "id": 86,
+      "start": 216.04,
+      "end": 218.2,
+      "text": "Because everything, again, it's just files on disk"
+    },
+    {
+      "id": 87,
+      "start": 218.2,
+      "end": 221.28,
+      "text": "that I control my file system."
+    },
+    {
+      "id": 88,
+      "start": 221.28,
+      "end": 222.08,
+      "text": "Yes?"
+    },
+    {
+      "id": 89,
+      "start": 222.08,
+      "end": 223.64,
+      "text": "When did it add a new node?"
+    },
+    {
+      "id": 90,
+      "start": 223.64,
+      "end": 227.4,
+      "text": "Do you just think of data or as more data comes in?"
+    },
+    {
+      "id": 91,
+      "start": 227.4,
+      "end": 229.48,
+      "text": "Yeah, so his question is, if I add a new node,"
+    },
+    {
+      "id": 92,
+      "start": 229.48,
+      "end": 231.12,
+      "text": "do I have to move data immediately"
+    },
+    {
+      "id": 93,
+      "start": 231.12,
+      "end": 233.44,
+      "text": "or do I move data as it comes in?"
+    },
+    {
+      "id": 94,
+      "start": 233.44,
+      "end": 234.8,
+      "text": "So this is going to be one of the big problems"
+    },
+    {
+      "id": 95,
+      "start": 234.8,
+      "end": 235.96,
+      "text": "we're going to face and share nothing."
+    },
+    {
+      "id": 96,
+      "start": 235.96,
+      "end": 238.84,
+      "text": "Is that if we want to increase capacity here,"
+    },
+    {
+      "id": 97,
+      "start": 238.84,
+      "end": 240.0,
+      "text": "I have to add a new node."
+    },
+    {
+      "id": 98,
+      "start": 240.0,
+      "end": 241.6,
+      "text": "But then that node when it gets added,"
+    },
+    {
+      "id": 99,
+      "start": 241.6,
+      "end": 242.92,
+      "text": "does it have any data in it?"
+    },
+    {
+      "id": 100,
+      "start": 242.92,
+      "end": 244.8,
+      "text": "Aren't you as NFS mounts?"
+    },
+    {
+      "id": 101,
+      "start": 244.8,
+      "end": 248.84,
+      "text": "So is this Genshinus NFS mounts?"
+    },
+    {
+      "id": 102,
+      "start": 248.84,
+      "end": 253.76,
+      "text": "But then NFS has to be like a central storage."
+    },
+    {
+      "id": 103,
+      "start": 253.76,
+      "end": 256.16,
+      "text": "It can't be, you can't do a peer-to-peer file system."
+    },
+    {
+      "id": 104,
+      "start": 259.16,
+      "end": 260.52,
+      "text": "AFS is the same thing."
+    },
+    {
+      "id": 105,
+      "start": 260.52,
+      "end": 261.68,
+      "text": "It's a central storage."
+    },
+    {
+      "id": 106,
+      "start": 261.68,
+      "end": 263.24,
+      "text": "So that's a shared disk architecture."
+    },
+    {
+      "id": 107,
+      "start": 263.24,
+      "end": 264.52,
+      "text": "The difference is going to be, though,"
+    },
+    {
+      "id": 108,
+      "start": 264.52,
+      "end": 267.28,
+      "text": "is that in something like AFS or NFS,"
+    },
+    {
+      "id": 109,
+      "start": 267.28,
+      "end": 274.16,
+      "text": "the location or the distribution of the data physically"
+    },
+    {
+      "id": 110,
+      "start": 274.16,
+      "end": 276.08,
+      "text": "is transparent to the database system."
+    },
+    {
+      "id": 111,
+      "start": 276.08,
+      "end": 278.6,
+      "text": "Because it's a POSIX API."
+    },
+    {
+      "id": 112,
+      "start": 278.6,
+      "end": 280.64,
+      "text": "You just call F open and FRED."
+    },
+    {
+      "id": 113,
+      "start": 280.64,
+      "end": 282.28,
+      "text": "You don't actually know, I mean, the cover is where"
+    },
+    {
+      "id": 114,
+      "start": 282.28,
+      "end": 285.16,
+      "text": "that data is actually being stored."
+    },
+    {
+      "id": 115,
+      "start": 285.16,
+      "end": 287.96,
+      "text": "So unless you now somehow explicitly tell NFS"
+    },
+    {
+      "id": 116,
+      "start": 287.96,
+      "end": 289.8,
+      "text": "to partition things a certain way."
+    },
+    {
+      "id": 117,
+      "start": 289.8,
+      "end": 292.52,
+      "text": "And so that when you read this range versus that range,"
+    },
+    {
+      "id": 118,
+      "start": 292.52,
+      "end": 295.6,
+      "text": "you know that only a certain piece of data"
+    },
+    {
+      "id": 119,
+      "start": 295.6,
+      "end": 297.64,
+      "text": "that get it locally."
+    },
+    {
+      "id": 120,
+      "start": 297.64,
+      "end": 300.44,
+      "text": "But again, it's opaque storage that you don't understand."
+    },
+    {
+      "id": 121,
+      "start": 300.44,
+      "end": 302.4,
+      "text": "You can have a metadata service that tells you"
+    },
+    {
+      "id": 122,
+      "start": 302.4,
+      "end": 304.68,
+      "text": "when the data is located."
+    },
+    {
+      "id": 123,
+      "start": 304.68,
+      "end": 306.96,
+      "text": "But through NFS?"
+    },
+    {
+      "id": 124,
+      "start": 306.96,
+      "end": 308.08,
+      "text": "NFS doesn't expose you that."
+    },
+    {
+      "id": 125,
+      "start": 308.08,
+      "end": 308.8,
+      "text": "It shows that to you."
+    },
+    {
+      "id": 126,
+      "start": 308.8,
+      "end": 310.24,
+      "text": "But you can have a separate component"
+    },
+    {
+      "id": 127,
+      "start": 310.24,
+      "end": 312.44,
+      "text": "that the white stuff is."
+    },
+    {
+      "id": 128,
+      "start": 312.44,
+      "end": 316.12,
+      "text": "But then you've got to get that information out of NFS."
+    },
+    {
+      "id": 129,
+      "start": 316.12,
+      "end": 317.76,
+      "text": "And now you're basically building a database system."
+    },
+    {
+      "id": 130,
+      "start": 317.76,
+      "end": 319.24,
+      "text": "Why bother you?"
+    },
+    {
+      "id": 131,
+      "start": 319.24,
+      "end": 320.52,
+      "text": "No data."
+    },
+    {
+      "id": 132,
+      "start": 320.52,
+      "end": 324.24,
+      "text": "You don't want to run your data as all NFS."
+    },
+    {
+      "id": 133,
+      "start": 324.24,
+      "end": 325.4,
+      "text": "These videos scale like this."
+    },
+    {
+      "id": 134,
+      "start": 325.4,
+      "end": 326.64,
+      "text": "I'm not saying people do that."
+    },
+    {
+      "id": 135,
+      "start": 326.64,
+      "end": 329.56,
+      "text": "People run the sands all the time for distributed file"
+    },
+    {
+      "id": 136,
+      "start": 329.56,
+      "end": 330.2,
+      "text": "systems."
+    },
+    {
+      "id": 137,
+      "start": 330.2,
+      "end": 333.12,
+      "text": "But we can do better."
+    },
+    {
+      "id": 138,
+      "start": 333.12,
+      "end": 334.22,
+      "text": "The data systems can do better if it"
+    },
+    {
+      "id": 139,
+      "start": 334.22,
+      "end": 336.2,
+      "text": "knows exactly where the data is actually."
+    },
+    {
+      "id": 140,
+      "start": 336.24,
+      "end": 337.96,
+      "text": "Maybe not physically stored because if it's s3,"
+    },
+    {
+      "id": 141,
+      "start": 337.96,
+      "end": 340.12,
+      "text": "all that's abstracted away from you too as well."
+    },
+    {
+      "id": 142,
+      "start": 340.12,
+      "end": 344.52,
+      "text": "But like it's had a sense."
+    },
+    {
+      "id": 143,
+      "start": 344.52,
+      "end": 347.72,
+      "text": "The object store versus NFS would give you roughly"
+    },
+    {
+      "id": 144,
+      "start": 347.72,
+      "end": 350.48,
+      "text": "the same interface except that you"
+    },
+    {
+      "id": 145,
+      "start": 350.48,
+      "end": 355.56,
+      "text": "would have better control of what can you control?"
+    },
+    {
+      "id": 146,
+      "start": 355.56,
+      "end": 357.76,
+      "text": "You have control of things like georeplicator not."
+    },
+    {
+      "id": 147,
+      "start": 357.76,
+      "end": 359.04,
+      "text": "And NFS hides that from you."
+    },
+    {
+      "id": 148,
+      "start": 359.04,
+      "end": 360.76,
+      "text": "You get more metadata out of object stores."
+    },
+    {
+      "id": 149,
+      "start": 360.76,
+      "end": 363.12,
+      "text": "I'm aware of objectures where they use"
+    },
+    {
+      "id": 150,
+      "start": 363.64,
+      "end": 365.56,
+      "text": "like a metadata layer."
+    },
+    {
+      "id": 151,
+      "start": 365.56,
+      "end": 367.08,
+      "text": "That's the graph."
+    },
+    {
+      "id": 152,
+      "start": 367.08,
+      "end": 368.56,
+      "text": "Where is this pretty much the United States?"
+    },
+    {
+      "id": 153,
+      "start": 368.56,
+      "end": 370.2,
+      "text": "That's the catalog."
+    },
+    {
+      "id": 154,
+      "start": 370.2,
+      "end": 370.88,
+      "text": "You're talking about the catalog."
+    },
+    {
+      "id": 155,
+      "start": 370.88,
+      "end": 373.28,
+      "text": "So see if it is, oh, there's some systems used"
+    },
+    {
+      "id": 156,
+      "start": 373.28,
+      "end": 374.76,
+      "text": "Cassandra as the metadata layer."
+    },
+    {
+      "id": 157,
+      "start": 374.76,
+      "end": 377.0,
+      "text": "They keep track of where data is actually located."
+    },
+    {
+      "id": 158,
+      "start": 377.0,
+      "end": 378.08,
+      "text": "That's the catalog."
+    },
+    {
+      "id": 159,
+      "start": 378.08,
+      "end": 378.96,
+      "text": "Again, I mentioned snowflake."
+    },
+    {
+      "id": 160,
+      "start": 378.96,
+      "end": 380.32,
+      "text": "They use foundation DB."
+    },
+    {
+      "id": 161,
+      "start": 383.44,
+      "end": 383.96,
+      "text": "I can't think about it."
+    },
+    {
+      "id": 162,
+      "start": 383.96,
+      "end": 387.2,
+      "text": "I have a hand that uses Cassandra for this in databases."
+    },
+    {
+      "id": 163,
+      "start": 387.2,
+      "end": 388.28,
+      "text": "But yeah, it's the same idea."
+    },
+    {
+      "id": 164,
+      "start": 388.28,
+      "end": 390.44,
+      "text": "But that's a separate database"
+    },
+    {
+      "id": 165,
+      "start": 390.44,
+      "end": 392.12,
+      "text": "and they keep track of the metadata."
+    },
+    {
+      "id": 166,
+      "start": 392.2,
+      "end": 393.36,
+      "text": "That's not this, yeah."
+    },
+    {
+      "id": 167,
+      "start": 397.36,
+      "end": 401.12,
+      "text": "So in the shared system, again, we"
+    },
+    {
+      "id": 168,
+      "start": 401.12,
+      "end": 402.8,
+      "text": "have this separation between computing storage."
+    },
+    {
+      "id": 169,
+      "start": 402.8,
+      "end": 404.8,
+      "text": "If the compute layer, they're still locally attached"
+    },
+    {
+      "id": 170,
+      "start": 404.8,
+      "end": 406.36,
+      "text": "disk that yes."
+    },
+    {
+      "id": 171,
+      "start": 406.36,
+      "end": 408.56,
+      "text": "This is very different question about data."
+    },
+    {
+      "id": 172,
+      "start": 408.56,
+      "end": 410.48,
+      "text": "I'm saying, if one of the nodes go down,"
+    },
+    {
+      "id": 173,
+      "start": 410.48,
+      "end": 412.28,
+      "text": "here is the default access to it."
+    },
+    {
+      "id": 174,
+      "start": 412.28,
+      "end": 414.16,
+      "text": "Ah, yeah, I got a sidetrack."
+    },
+    {
+      "id": 175,
+      "start": 414.16,
+      "end": 414.48,
+      "text": "Sorry."
+    },
+    {
+      "id": 176,
+      "start": 414.48,
+      "end": 416.36,
+      "text": "First statement is, if one of the nodes goes down,"
+    },
+    {
+      "id": 177,
+      "start": 416.36,
+      "end": 418.16,
+      "text": "do you lose access to that data?"
+    },
+    {
+      "id": 178,
+      "start": 418.16,
+      "end": 418.84,
+      "text": "Yes."
+    },
+    {
+      "id": 179,
+      "start": 418.84,
+      "end": 420.8,
+      "text": "So therefore, you have to replicate it."
+    },
+    {
+      "id": 180,
+      "start": 420.8,
+      "end": 422.16,
+      "text": "And again, this was going back to the same before."
+    },
+    {
+      "id": 181,
+      "start": 422.16,
+      "end": 425.12,
+      "text": "It's now managed storage that the data systems controls"
+    },
+    {
+      "id": 182,
+      "start": 425.12,
+      "end": 426.96,
+      "text": "and they're in charge of replication."
+    },
+    {
+      "id": 183,
+      "start": 426.96,
+      "end": 428.88,
+      "text": "Then so they have to handle all that for you."
+    },
+    {
+      "id": 184,
+      "start": 428.88,
+      "end": 432.96,
+      "text": "And in S3, object store, Amazon handles that."
+    },
+    {
+      "id": 185,
+      "start": 432.96,
+      "end": 434.24,
+      "text": "Google handles that."
+    },
+    {
+      "id": 186,
+      "start": 434.24,
+      "end": 435.44,
+      "text": "I don't know how they do it."
+    },
+    {
+      "id": 187,
+      "start": 435.44,
+      "end": 437.32,
+      "text": "They guarantee certain amount of reliability."
+    },
+    {
+      "id": 188,
+      "start": 437.32,
+      "end": 440.96,
+      "text": "And for our purposes, it's good enough."
+    },
+    {
+      "id": 189,
+      "start": 440.96,
+      "end": 442.72,
+      "text": "Yeah, so like in this world, you have to manage it."
+    },
+    {
+      "id": 190,
+      "start": 442.72,
+      "end": 446.08,
+      "text": "And then the question was, if I add another new node"
+    },
+    {
+      "id": 191,
+      "start": 446.08,
+      "end": 448.2,
+      "text": "or take a node away, do I have the reshuffle data?"
+    },
+    {
+      "id": 192,
+      "start": 448.2,
+      "end": 448.96,
+      "text": "Yes."
+    },
+    {
+      "id": 193,
+      "start": 448.96,
+      "end": 450.12,
+      "text": "And the data semesters do that."
+    },
+    {
+      "id": 194,
+      "start": 450.44,
+      "end": 452.52,
+      "text": "You want to do this in a transactional manner"
+    },
+    {
+      "id": 195,
+      "start": 452.52,
+      "end": 457.12,
+      "text": "on your catalog so that you avoid false negatives."
+    },
+    {
+      "id": 196,
+      "start": 463.28,
+      "end": 465.0,
+      "text": "So in the shared disk system, again,"
+    },
+    {
+      "id": 197,
+      "start": 465.0,
+      "end": 468.08,
+      "text": "we have the compute layer and we have the storage layer here."
+    },
+    {
+      "id": 198,
+      "start": 468.08,
+      "end": 472.72,
+      "text": "And we just access this through some kind of API."
+    },
+    {
+      "id": 199,
+      "start": 472.72,
+      "end": 477.32,
+      "text": "And in the cloud world, instead of using positive API,"
+    },
+    {
+      "id": 200,
+      "start": 477.32,
+      "end": 479.2,
+      "text": "because you don't want to use a fused file system"
+    },
+    {
+      "id": 201,
+      "start": 479.2,
+      "end": 482.96,
+      "text": "to talk to S3, you instead use whatever the user space API"
+    },
+    {
+      "id": 202,
+      "start": 482.96,
+      "end": 484.8,
+      "text": "that the cloud provider provides for you."
+    },
+    {
+      "id": 203,
+      "start": 484.8,
+      "end": 488.8,
+      "text": "Like Amazon gives you a bunch of libraries to talk to S3."
+    },
+    {
+      "id": 204,
+      "start": 488.8,
+      "end": 491.52,
+      "text": "Some data systems go to extremes and throw that all away"
+    },
+    {
+      "id": 205,
+      "start": 491.52,
+      "end": 493.32,
+      "text": "and rewrite it themselves."
+    },
+    {
+      "id": 206,
+      "start": 493.32,
+      "end": 494.4,
+      "text": "We'll see one in a second."
+    },
+    {
+      "id": 207,
+      "start": 494.4,
+      "end": 497.4,
+      "text": "But that's how we're going to enact these things."
+    },
+    {
+      "id": 208,
+      "start": 497.4,
+      "end": 499.96,
+      "text": "And so now, the way to think about this"
+    },
+    {
+      "id": 209,
+      "start": 499.96,
+      "end": 503.56,
+      "text": "is the compute nodes are stateless."
+    },
+    {
+      "id": 210,
+      "start": 503.56,
+      "end": 507.16,
+      "text": "Like in my shared nothing system going back,"
+    },
+    {
+      "id": 211,
+      "start": 507.16,
+      "end": 510.36,
+      "text": "I actually pointed out, I partitioned my database"
+    },
+    {
+      "id": 212,
+      "start": 510.36,
+      "end": 512.0,
+      "text": "and now each node ignoring replication"
+    },
+    {
+      "id": 213,
+      "start": 512.0,
+      "end": 515.4,
+      "text": "is responsible for that partition of the data."
+    },
+    {
+      "id": 214,
+      "start": 515.4,
+      "end": 517.2,
+      "text": "And so if I want to take a node away,"
+    },
+    {
+      "id": 215,
+      "start": 517.2,
+      "end": 519.68,
+      "text": "well, I got to copy whatever's in it"
+    },
+    {
+      "id": 216,
+      "start": 519.68,
+      "end": 522.72,
+      "text": "and send it to all the other nodes to redistribute it."
+    },
+    {
+      "id": 217,
+      "start": 522.72,
+      "end": 526.64,
+      "text": "But in a shared disk system, if I want to take away"
+    },
+    {
+      "id": 218,
+      "start": 526.64,
+      "end": 529.76,
+      "text": "one of these compute nodes, well, OK, that's fine."
+    },
+    {
+      "id": 219,
+      "start": 529.76,
+      "end": 531.08,
+      "text": "Because the data is down here."
+    },
+    {
+      "id": 220,
+      "start": 531.08,
+      "end": 535.8,
+      "text": "So I can theory kill this thing and then not lose any data."
+    },
+    {
+      "id": 221,
+      "start": 535.8,
+      "end": 539.88,
+      "text": "Or I could turn them all off, not pay for the compute costs,"
+    },
+    {
+      "id": 222,
+      "start": 539.88,
+      "end": 542.76,
+      "text": "and then all my data is still retained."
+    },
+    {
+      "id": 223,
+      "start": 542.76,
+      "end": 544.24,
+      "text": "Whereas in a shared nothing system, I"
+    },
+    {
+      "id": 224,
+      "start": 544.24,
+      "end": 547.36,
+      "text": "got to keep the CPUs running because if they go away,"
+    },
+    {
+      "id": 225,
+      "start": 547.36,
+      "end": 549.88,
+      "text": "then the data goes away."
+    },
+    {
+      "id": 226,
+      "start": 549.88,
+      "end": 552.32,
+      "text": "Yeah, you can check Monte EBS and all that."
+    },
+    {
+      "id": 227,
+      "start": 552.32,
+      "end": 552.84,
+      "text": "Yes."
+    },
+    {
+      "id": 228,
+      "start": 552.84,
+      "end": 556.48,
+      "text": "So if we show up the compute way, we lose like a IR stuff."
+    },
+    {
+      "id": 229,
+      "start": 556.48,
+      "end": 559.28,
+      "text": "30 or 30 year of addition stuff that we're processing."
+    },
+    {
+      "id": 230,
+      "start": 559.28,
+      "end": 560.6,
+      "text": "We're like doing a query."
+    },
+    {
+      "id": 231,
+      "start": 560.6,
+      "end": 564.16,
+      "text": "So his statement is correct."
+    },
+    {
+      "id": 232,
+      "start": 564.16,
+      "end": 567.44,
+      "text": "If we shot, in the shared nothing or shared disk,"
+    },
+    {
+      "id": 233,
+      "start": 567.44,
+      "end": 569.32,
+      "text": "if I'm literally running a query at the time,"
+    },
+    {
+      "id": 234,
+      "start": 569.32,
+      "end": 571.56,
+      "text": "then yes, there is a femoral state for that query"
+    },
+    {
+      "id": 235,
+      "start": 571.56,
+      "end": 572.4,
+      "text": "that I would lose."
+    },
+    {
+      "id": 236,
+      "start": 572.4,
+      "end": 572.92,
+      "text": "Yes."
+    },
+    {
+      "id": 237,
+      "start": 572.92,
+      "end": 575.16,
+      "text": "If we could talk about how to handle fault tolerance"
+    },
+    {
+      "id": 238,
+      "start": 575.16,
+      "end": 577.6,
+      "text": "later on for that."
+    },
+    {
+      "id": 239,
+      "start": 577.6,
+      "end": 581.84,
+      "text": "But typically, again, if you say, ignoring unexpected failures,"
+    },
+    {
+      "id": 240,
+      "start": 581.84,
+      "end": 583.8,
+      "text": "when you do a shutdown, you basically,"
+    },
+    {
+      "id": 241,
+      "start": 583.8,
+      "end": 586.32,
+      "text": "you announce all the nodes, hey, I'm going to shut down,"
+    },
+    {
+      "id": 242,
+      "start": 586.32,
+      "end": 588.08,
+      "text": "finish whatever jobs you're doing,"
+    },
+    {
+      "id": 243,
+      "start": 588.08,
+      "end": 592.24,
+      "text": "and then once the last queries or plan fragments"
+    },
+    {
+      "id": 244,
+      "start": 592.24,
+      "end": 595.48,
+      "text": "leave the queue, then you can shut it down."
+    },
+    {
+      "id": 245,
+      "start": 595.48,
+      "end": 599.12,
+      "text": "The process of doing that is not nothing fancy."
+    },
+    {
+      "id": 246,
+      "start": 599.12,
+      "end": 602.08,
+      "text": "It's not hard."
+    },
+    {
+      "id": 247,
+      "start": 602.08,
+      "end": 603.08,
+      "text": "OK."
+    }
+  ],
+  "language": "en"
+}

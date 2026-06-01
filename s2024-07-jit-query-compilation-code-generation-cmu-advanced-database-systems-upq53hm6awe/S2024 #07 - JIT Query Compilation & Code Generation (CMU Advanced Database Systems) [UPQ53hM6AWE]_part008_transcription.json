@@ -1,0 +1,269 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.0,
+      "text": "and we can pick up a little bit of this on X-Clask."
+    },
+    {
+      "id": 1,
+      "start": 3.0,
+      "end": 6.0,
+      "text": "Because we want to talk about the project as well."
+    },
+    {
+      "id": 2,
+      "start": 6.0,
+      "end": 11.0,
+      "text": "But I didn't get to the single store, I'll bring this up in X-Clask."
+    },
+    {
+      "id": 3,
+      "start": 11.0,
+      "end": 14.0,
+      "text": "But the single store approach is the better way"
+    },
+    {
+      "id": 4,
+      "start": 14.0,
+      "end": 16.0,
+      "text": "if you do compilation."
+    },
+    {
+      "id": 5,
+      "start": 16.0,
+      "end": 21.0,
+      "text": "Basically, it's like the hyper approach"
+    },
+    {
+      "id": 6,
+      "start": 21.0,
+      "end": 25.0,
+      "text": "with this interpreter, then you can compile it."
+    },
+    {
+      "id": 7,
+      "start": 25.0,
+      "end": 27.0,
+      "text": "And then you would have an initial meter in step"
+    },
+    {
+      "id": 8,
+      "start": 27.0,
+      "end": 30.0,
+      "text": "that allows programmers to work through and figure out"
+    },
+    {
+      "id": 9,
+      "start": 30.0,
+      "end": 32.0,
+      "text": "if there's a failure."
+    },
+    {
+      "id": 10,
+      "start": 32.0,
+      "end": 34.0,
+      "text": "And then the flying start one is amazing,"
+    },
+    {
+      "id": 11,
+      "start": 34.0,
+      "end": 36.0,
+      "text": "but you have to be German to actually build that kind of stuff."
+    },
+    {
+      "id": 12,
+      "start": 36.0,
+      "end": 38.0,
+      "text": "And nobody else does what they're doing,"
+    },
+    {
+      "id": 13,
+      "start": 38.0,
+      "end": 41.0,
+      "text": "they're generating assembly, which is insane."
+    },
+    {
+      "id": 14,
+      "start": 41.0,
+      "end": 43.0,
+      "text": "All the newer systems, though, for the most part,"
+    },
+    {
+      "id": 15,
+      "start": 43.0,
+      "end": 46.0,
+      "text": "are going to choose to do a vectorized-style approach."
+    },
+    {
+      "id": 16,
+      "start": 46.0,
+      "end": 48.0,
+      "text": "Again, for the reasons we'll see in the photon paper"
+    },
+    {
+      "id": 17,
+      "start": 48.0,
+      "end": 50.0,
+      "text": "from Databricks."
+    },
+    {
+      "id": 18,
+      "start": 50.0,
+      "end": 51.0,
+      "text": "Okay?"
+    },
+    {
+      "id": 19,
+      "start": 51.0,
+      "end": 54.0,
+      "text": "All right, so next class, we'll do query test scheduling."
+    },
+    {
+      "id": 20,
+      "start": 54.0,
+      "end": 58.0,
+      "text": "Maybe I'll cover some of the compilation stuff that we missed."
+    },
+    {
+      "id": 21,
+      "start": 58.0,
+      "end": 61.0,
+      "text": "And then the paper you guys are reading is from the Germans again."
+    },
+    {
+      "id": 22,
+      "start": 61.0,
+      "end": 62.0,
+      "text": "This will be morsels."
+    },
+    {
+      "id": 23,
+      "start": 62.0,
+      "end": 64.0,
+      "text": "Even though it's going to be on a single node,"
+    },
+    {
+      "id": 24,
+      "start": 64.0,
+      "end": 68.0,
+      "text": "the idea of how you break up the query plant task into these morsels,"
+    },
+    {
+      "id": 25,
+      "start": 68.0,
+      "end": 71.0,
+      "text": "based on the data, that's going to be the sort of key idea"
+    },
+    {
+      "id": 26,
+      "start": 71.0,
+      "end": 73.0,
+      "text": "we want to build in our system."
+    },
+    {
+      "id": 27,
+      "start": 73.0,
+      "end": 74.0,
+      "text": "Take out your own great hiding."
+    },
+    {
+      "id": 28,
+      "start": 74.0,
+      "end": 76.0,
+      "text": "You got a belt to get the 40M file."
+    },
+    {
+      "id": 29,
+      "start": 76.0,
+      "end": 79.0,
+      "text": "Get a grip, take a sip, and you'll be picking up models."
+    },
+    {
+      "id": 30,
+      "start": 79.0,
+      "end": 81.0,
+      "text": "Ain't no bug all our girls, because I'm more a man."
+    },
+    {
+      "id": 31,
+      "start": 81.0,
+      "end": 83.0,
+      "text": "I'm telling the 40M, I'm 40. Got four cans."
+    },
+    {
+      "id": 32,
+      "start": 83.0,
+      "end": 85.0,
+      "text": "Stack them six packs on a table."
+    },
+    {
+      "id": 33,
+      "start": 85.0,
+      "end": 87.0,
+      "text": "And I'm able to see St. John's on the label."
+    },
+    {
+      "id": 34,
+      "start": 87.0,
+      "end": 89.0,
+      "text": "No short, with the cloth, you know what got them."
+    },
+    {
+      "id": 35,
+      "start": 89.0,
+      "end": 92.0,
+      "text": "I take off the cap, my first on tap on the bottom."
+    },
+    {
+      "id": 36,
+      "start": 92.0,
+      "end": 94.0,
+      "text": "Throw my three in the freezer, so I can kill it."
+    },
+    {
+      "id": 37,
+      "start": 94.0,
+      "end": 96.0,
+      "text": "Careful with the bottom, baby, we'll just throw the billet."
+    },
+    {
+      "id": 38,
+      "start": 96.0,
+      "end": 98.0,
+      "text": "Cause St. John's been saved, the paint lines wet."
+    },
+    {
+      "id": 39,
+      "start": 98.0,
+      "end": 100.0,
+      "text": "You drink it down with the gauze, little bicep."
+    },
+    {
+      "id": 40,
+      "start": 100.0,
+      "end": 102.0,
+      "text": "Take back the pack of drugs."
+    },
+    {
+      "id": 41,
+      "start": 102.0,
+      "end": 105.0,
+      "text": "It won't get you so safe now, so drink it to the front."
+    },
+    {
+      "id": 42,
+      "start": 105.0,
+      "end": 108.0,
+      "text": "Billy Dames, the chili teaks are down with the weak guys."
+    },
+    {
+      "id": 43,
+      "start": 108.0,
+      "end": 110.0,
+      "text": "Be a man to get a can of safe life."
+    }
+  ],
+  "language": "en"
+}

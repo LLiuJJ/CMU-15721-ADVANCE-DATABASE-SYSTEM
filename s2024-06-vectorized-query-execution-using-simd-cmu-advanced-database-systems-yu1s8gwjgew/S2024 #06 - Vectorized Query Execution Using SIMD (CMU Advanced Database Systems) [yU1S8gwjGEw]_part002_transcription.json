@@ -1,0 +1,1019 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.34,
+      "text": "You add this trick key where I'm not telling you that these arrays are going to be distinct"
+    },
+    {
+      "id": 1,
+      "start": 4.34,
+      "end": 11.16,
+      "text": "locations that were the, for the lifetime of the pointer, they're not going to change,"
+    },
+    {
+      "id": 2,
+      "start": 11.16,
+      "end": 12.16,
+      "text": "at least within this function."
+    },
+    {
+      "id": 3,
+      "start": 12.16,
+      "end": 15.88,
+      "text": "So therefore, it knows that it's safe to actually vectorize this."
+    },
+    {
+      "id": 4,
+      "start": 15.88,
+      "end": 19.36,
+      "text": "So this approach is widely used."
+    },
+    {
+      "id": 5,
+      "start": 19.36,
+      "end": 24.12,
+      "text": "So if you go look at like it in duck DB, you just search for restrict and then in C++,"
+    },
+    {
+      "id": 6,
+      "start": 24.12,
+      "end": 26.48,
+      "text": "it's underscore underscore restrict."
+    },
+    {
+      "id": 7,
+      "start": 26.48,
+      "end": 29.4,
+      "text": "So you see all these functions are set up to do this kind of stuff."
+    },
+    {
+      "id": 8,
+      "start": 29.4,
+      "end": 30.4,
+      "text": "Right?"
+    },
+    {
+      "id": 9,
+      "start": 30.4,
+      "end": 36.36,
+      "text": "And the goal here is that the duck DB wants the compiler to figure out how to auto vectorize"
+    },
+    {
+      "id": 10,
+      "start": 36.36,
+      "end": 37.36,
+      "text": "this."
+    },
+    {
+      "id": 11,
+      "start": 37.36,
+      "end": 39.4,
+      "text": "So it's passing that hint to it."
+    },
+    {
+      "id": 12,
+      "start": 39.4,
+      "end": 45.0,
+      "text": "A point also to here, you can see sort of two versions of doing this check here, right?"
+    },
+    {
+      "id": 13,
+      "start": 45.0,
+      "end": 51.52,
+      "text": "There's the, is all the bitmask I'm getting, is everything, if everything is not valid,"
+    },
+    {
+      "id": 14,
+      "start": 51.52,
+      "end": 54.04,
+      "text": "then I have to check my bitmask to see whether it's valid."
+    },
+    {
+      "id": 15,
+      "start": 54.04,
+      "end": 57.28,
+      "text": "If I know everything is valid, then I can skip that extra check."
+    },
+    {
+      "id": 16,
+      "start": 57.28,
+      "end": 63.04,
+      "text": "So we saw that sort of technique with checking for noils with, with Velox, right?"
+    },
+    {
+      "id": 17,
+      "start": 63.04,
+      "end": 68.08,
+      "text": "So even though there's a conditional here, it's worth it not to do that additional check"
+    },
+    {
+      "id": 18,
+      "start": 68.08,
+      "end": 70.32,
+      "text": "on rows."
+    },
+    {
+      "id": 19,
+      "start": 70.32,
+      "end": 71.32,
+      "text": "This is a click house."
+    },
+    {
+      "id": 20,
+      "start": 71.32,
+      "end": 73.52,
+      "text": "Click house does the same thing up above."
+    },
+    {
+      "id": 21,
+      "start": 73.52,
+      "end": 80.36,
+      "text": "So this is to do an aggregate sum computation, which I think would be horizontal vectorization."
+    },
+    {
+      "id": 22,
+      "start": 80.36,
+      "end": 84.12,
+      "text": "But again, you see this underscore, underscore restrict on the pointer."
+    },
+    {
+      "id": 23,
+      "start": 84.12,
+      "end": 88.44,
+      "text": "But then they had this other beast in here, which is, they're actually checking again, what"
+    },
+    {
+      "id": 24,
+      "start": 88.44,
+      "end": 95.08,
+      "text": "AVX 512 group the CPU actually has, then it has different implementations to do that"
+    },
+    {
+      "id": 25,
+      "start": 95.08,
+      "end": 96.08,
+      "text": "computation."
+    },
+    {
+      "id": 26,
+      "start": 96.08,
+      "end": 97.08,
+      "text": "Yes."
+    },
+    {
+      "id": 27,
+      "start": 97.08,
+      "end": 99.08,
+      "text": "You should be able to get step back, right?"
+    },
+    {
+      "id": 28,
+      "start": 99.08,
+      "end": 101.84,
+      "text": "It's question, should you should be able to, if death this, these are all like macros"
+    },
+    {
+      "id": 29,
+      "start": 101.84,
+      "end": 102.84,
+      "text": "too."
+    },
+    {
+      "id": 30,
+      "start": 102.84,
+      "end": 103.84,
+      "text": "Yeah."
+    },
+    {
+      "id": 31,
+      "start": 103.84,
+      "end": 104.84,
+      "text": "Oh, they're all macros."
+    },
+    {
+      "id": 32,
+      "start": 104.84,
+      "end": 106.08,
+      "text": "Yeah, one of the, these are all like crazy macros."
+    },
+    {
+      "id": 33,
+      "start": 106.08,
+      "end": 109.24,
+      "text": "They get, uh, you know, alternate gender to code."
+    },
+    {
+      "id": 34,
+      "start": 109.64,
+      "end": 113.32,
+      "text": "I don't, I don't know about, I think that's probably, that's probably also pound F."
+    },
+    {
+      "id": 35,
+      "start": 113.32,
+      "end": 120.52,
+      "text": "That's what if death, it's probably, I think it's a nif death."
+    },
+    {
+      "id": 36,
+      "start": 120.52,
+      "end": 127.72,
+      "text": "Manning above you have like, you know, use multi target CPU code."
+    },
+    {
+      "id": 37,
+      "start": 127.72,
+      "end": 134.96,
+      "text": "Yeah, it would be dead code, yes."
+    },
+    {
+      "id": 38,
+      "start": 134.96,
+      "end": 135.96,
+      "text": "Yeah."
+    },
+    {
+      "id": 39,
+      "start": 136.2,
+      "end": 140.48,
+      "text": "But the point is, this is a good example of like, hey, here's, you know, there's two versions"
+    },
+    {
+      "id": 40,
+      "start": 140.48,
+      "end": 145.36,
+      "text": "of AVX 512, there's AVX 2, there's SSE 4, which is pre-curse AVX 2, right?"
+    },
+    {
+      "id": 41,
+      "start": 145.36,
+      "end": 148.32,
+      "text": "So the main thing I came out of here, like, it's AVX 512."
+    },
+    {
+      "id": 42,
+      "start": 148.32,
+      "end": 152.0,
+      "text": "Oh, no, no, not really yet, yet to check what group you actually have."
+    },
+    {
+      "id": 43,
+      "start": 152.0,
+      "end": 153.0,
+      "text": "Right."
+    },
+    {
+      "id": 44,
+      "start": 153.0,
+      "end": 154.0,
+      "text": "All right."
+    },
+    {
+      "id": 45,
+      "start": 154.0,
+      "end": 159.68,
+      "text": "So restrict is probably the most common one on alternative is use these pragmas, uh, IV"
+    },
+    {
+      "id": 46,
+      "start": 159.68,
+      "end": 164.92,
+      "text": "depth, uh, which is basically ignore, uh, vector dependencies, vectorization dependencies,"
+    },
+    {
+      "id": 47,
+      "start": 164.92,
+      "end": 169.56,
+      "text": "open MP, the big parallelization framework library, they have like, uh, pragmas,"
+    },
+    {
+      "id": 48,
+      "start": 169.56,
+      "end": 171.36,
+      "text": "simd, like, there's different versions of this."
+    },
+    {
+      "id": 49,
+      "start": 171.36,
+      "end": 176.24,
+      "text": "This basically says ignore any of your aliasing checks when you do an auto vectorize this,"
+    },
+    {
+      "id": 50,
+      "start": 176.24,
+      "end": 177.24,
+      "text": "right?"
+    },
+    {
+      "id": 51,
+      "start": 177.24,
+      "end": 178.24,
+      "text": "And you would end up the same thing."
+    },
+    {
+      "id": 52,
+      "start": 178.24,
+      "end": 181.24,
+      "text": "And again, this is up to the data programmer to make sure that this is done correctly,"
+    },
+    {
+      "id": 53,
+      "start": 181.24,
+      "end": 185.4,
+      "text": "because the compiler would do whatever you, will likely do whatever you wanted to do."
+    },
+    {
+      "id": 54,
+      "start": 185.4,
+      "end": 188.4,
+      "text": "All right."
+    },
+    {
+      "id": 55,
+      "start": 188.4,
+      "end": 191.56,
+      "text": "The last alternative is to explicit vectorization."
+    },
+    {
+      "id": 56,
+      "start": 191.56,
+      "end": 195.44,
+      "text": "And for this one, we're gonna, we're gonna have to rely on what it's in trinzix or CPU"
+    },
+    {
+      "id": 57,
+      "start": 195.44,
+      "end": 196.92,
+      "text": "in trinzix."
+    },
+    {
+      "id": 58,
+      "start": 196.92,
+      "end": 202.0,
+      "text": "And you think of it in trinzick as like a, uh, like a, I don't think virtual function,"
+    },
+    {
+      "id": 59,
+      "start": 202.0,
+      "end": 205.56,
+      "text": "but it's like a fake function in the, in your C++ code."
+    },
+    {
+      "id": 60,
+      "start": 205.56,
+      "end": 208.52,
+      "text": "It looks like a function, but it has an underscore or double underscore in front of it."
+    },
+    {
+      "id": 61,
+      "start": 208.52,
+      "end": 213.44,
+      "text": "And it really is translating into the exact simd instruction that you want the compiler"
+    },
+    {
+      "id": 62,
+      "start": 213.44,
+      "end": 217.96,
+      "text": "to, to emit for that, that line of code, right?"
+    },
+    {
+      "id": 63,
+      "start": 217.96,
+      "end": 223.04,
+      "text": "And that's how you call it explicitly the, the simd operation that you want."
+    },
+    {
+      "id": 64,
+      "start": 223.04,
+      "end": 227.56,
+      "text": "Or, you know, put things into registers and what registers you want to touch and so forth."
+    },
+    {
+      "id": 65,
+      "start": 227.56,
+      "end": 231.8,
+      "text": "Um, now the problem with this is that, you know, if you want exact control of your database"
+    },
+    {
+      "id": 66,
+      "start": 231.8,
+      "end": 235.24,
+      "text": "system, this is what, you know, you need to use this."
+    },
+    {
+      "id": 67,
+      "start": 235.24,
+      "end": 238.56,
+      "text": "And, uh, talking to friends in industry, this is what BigQuery does."
+    },
+    {
+      "id": 68,
+      "start": 238.56,
+      "end": 242.52,
+      "text": "This is what, uh, this is what Redshift does in some other systems."
+    },
+    {
+      "id": 69,
+      "start": 242.52,
+      "end": 246.56,
+      "text": "And in that environment, because they're hosted database systems, they control the hardware,"
+    },
+    {
+      "id": 70,
+      "start": 246.56,
+      "end": 249.04,
+      "text": "they know what VMs they're running on in the cloud."
+    },
+    {
+      "id": 71,
+      "start": 249.04,
+      "end": 250.76,
+      "text": "So they can, they can make that choice."
+    },
+    {
+      "id": 72,
+      "start": 250.76,
+      "end": 253.84,
+      "text": "Then, you know, they're not trying to run a PowerPC, for example."
+    },
+    {
+      "id": 73,
+      "start": 253.84,
+      "end": 258.64,
+      "text": "But obviously, if you use like an X86 and Transect, you can't run on ARM or some other CPU."
+    },
+    {
+      "id": 74,
+      "start": 258.64,
+      "end": 263.32,
+      "text": "Now, there are some libraries that can hide some of these simd using Transects and have"
+    },
+    {
+      "id": 75,
+      "start": 263.32,
+      "end": 269.92,
+      "text": "ways to step down to, uh, to, you know, the smaller register size that's needed, they"
+    },
+    {
+      "id": 76,
+      "start": 269.92,
+      "end": 272.04,
+      "text": "want grouping or extensions to support."
+    },
+    {
+      "id": 77,
+      "start": 272.04,
+      "end": 274.04,
+      "text": "Google HiWay is probably the most common one."
+    },
+    {
+      "id": 78,
+      "start": 274.04,
+      "end": 276.28,
+      "text": "I don't know of any database systems that actually uses this."
+    },
+    {
+      "id": 79,
+      "start": 276.28,
+      "end": 280.16,
+      "text": "I guess we could just, you know, grab the source code, open source ones to figure it out."
+    },
+    {
+      "id": 80,
+      "start": 280.16,
+      "end": 284.72,
+      "text": "Um, LibSyMD is another one that's, that's why we use, again, not sure outside of the"
+    },
+    {
+      "id": 81,
+      "start": 284.72,
+      "end": 290.76,
+      "text": "database, is Rust has its own, uh, SIMD library, but I think it's only turned on for experimental"
+    },
+    {
+      "id": 82,
+      "start": 290.76,
+      "end": 291.76,
+      "text": "nightly."
+    },
+    {
+      "id": 83,
+      "start": 291.76,
+      "end": 293.76,
+      "text": "Um, I've never used it."
+    },
+    {
+      "id": 84,
+      "start": 293.76,
+      "end": 297.76,
+      "text": "Uh, the one student that was here before, she, he says he just uses, you just, you, you,"
+    },
+    {
+      "id": 85,
+      "start": 297.76,
+      "end": 299.76,
+      "text": "you just, let's alter vectorization handle everything."
+    },
+    {
+      "id": 86,
+      "start": 299.76,
+      "end": 303.64,
+      "text": "And as you said, because the compiler is in better shape to understand when there are"
+    },
+    {
+      "id": 87,
+      "start": 303.64,
+      "end": 308.44,
+      "text": "things that will collide, because there's more explicit control over, uh, memory locations."
+    },
+    {
+      "id": 88,
+      "start": 308.44,
+      "end": 309.44,
+      "text": "All right."
+    },
+    {
+      "id": 89,
+      "start": 309.44,
+      "end": 313.0,
+      "text": "So if you were using Transects without one of these libraries, it would essentially look"
+    },
+    {
+      "id": 90,
+      "start": 313.0,
+      "end": 314.0,
+      "text": "like this, right?"
+    },
+    {
+      "id": 91,
+      "start": 314.0,
+      "end": 319.36,
+      "text": "They had these data on the score underscore and then the, the, some prefix of what sort"
+    },
+    {
+      "id": 92,
+      "start": 319.36,
+      "end": 320.92,
+      "text": "of group of simd extensions you're using."
+    },
+    {
+      "id": 93,
+      "start": 320.92,
+      "end": 324.84,
+      "text": "Then you say what size the register you want, you know, in, in I means you're showing"
+    },
+    {
+      "id": 94,
+      "start": 324.84,
+      "end": 325.84,
+      "text": "integer."
+    },
+    {
+      "id": 95,
+      "start": 325.84,
+      "end": 329.96,
+      "text": "So all we're doing here is casting the, the integer vectors we, we were given, putting"
+    },
+    {
+      "id": 96,
+      "start": 329.96,
+      "end": 335.04,
+      "text": "them into the simb registers and then now we can do our, our, do our loop and do simd"
+    },
+    {
+      "id": 97,
+      "start": 335.04,
+      "end": 338.68,
+      "text": "addition and then store it in the, uh, in the output vector we want."
+    },
+    {
+      "id": 98,
+      "start": 338.68,
+      "end": 343.0,
+      "text": "And now you can see here our loop we're going, we're doing four additions at the same"
+    },
+    {
+      "id": 99,
+      "start": 343.0,
+      "end": 344.0,
+      "text": "time."
+    },
+    {
+      "id": 100,
+      "start": 344.0,
+      "end": 348.76,
+      "text": "So we don't, we need, you know, divide the number of iterations you'd have divided by four."
+    },
+    {
+      "id": 101,
+      "start": 348.76,
+      "end": 349.92,
+      "text": "Right?"
+    },
+    {
+      "id": 102,
+      "start": 349.92,
+      "end": 353.52,
+      "text": "So this is roughly what, what it looks like."
+    },
+    {
+      "id": 103,
+      "start": 353.52,
+      "end": 354.52,
+      "text": "All right."
+    },
+    {
+      "id": 104,
+      "start": 354.52,
+      "end": 358.52,
+      "text": "So which one do you think is the best?"
+    },
+    {
+      "id": 105,
+      "start": 358.52,
+      "end": 365.52,
+      "text": "What is the best for, for performance?"
+    },
+    {
+      "id": 106,
+      "start": 365.52,
+      "end": 370.52,
+      "text": "What's the easiest to write?"
+    },
+    {
+      "id": 107,
+      "start": 370.52,
+      "end": 378.52,
+      "text": "Yes, it's the same for, so let's see, uh, let's see how, what, so let's see what the"
+    },
+    {
+      "id": 108,
+      "start": 378.52,
+      "end": 382.52,
+      "text": "performance difference you get from like explicitly writing, uh, vectorized code."
+    },
+    {
+      "id": 109,
+      "start": 382.52,
+      "end": 388.48,
+      "text": "So this is the paper we did with the Germans a few years ago, um, where we compared again"
+    },
+    {
+      "id": 110,
+      "start": 388.52,
+      "end": 394.44,
+      "text": "to the vectorized, uh, the vectorized approach for, for doing, for processing and then the,"
+    },
+    {
+      "id": 111,
+      "start": 394.44,
+      "end": 399.04,
+      "text": "the hyper approach which we'll cover next class, um, and the, the student in Germany wrote"
+    },
+    {
+      "id": 112,
+      "start": 399.04,
+      "end": 402.64,
+      "text": "sort of one system that supported both, both these techniques and we did a bakeoff between"
+    },
+    {
+      "id": 113,
+      "start": 402.64,
+      "end": 403.64,
+      "text": "the two of them."
+    },
+    {
+      "id": 114,
+      "start": 403.64,
+      "end": 407.68,
+      "text": "And the idea is to strip out all the extra stuff that, that, that differentiates between,"
+    },
+    {
+      "id": 115,
+      "start": 407.68,
+      "end": 413.32,
+      "text": "you know, vector wise or hyper or other systems, get it down to a, a common substrate to"
+    },
+    {
+      "id": 116,
+      "start": 413.32,
+      "end": 416.8,
+      "text": "the extent that you can, um, for these two approaches and then that way you have a pure,"
+    },
+    {
+      "id": 117,
+      "start": 416.8,
+      "end": 419.8,
+      "text": "you know, apples, apples comparison between the different approaches, right?"
+    },
+    {
+      "id": 118,
+      "start": 419.8,
+      "end": 423.52,
+      "text": "Because there's, there's other things that would come up like the way hyper does numerics"
+    },
+    {
+      "id": 119,
+      "start": 423.52,
+      "end": 427.6,
+      "text": "would be different than vector wise and some queries and TPCH, you know, that would make"
+    },
+    {
+      "id": 120,
+      "start": 427.6,
+      "end": 429.52,
+      "text": "actually a big difference."
+    },
+    {
+      "id": 121,
+      "start": 429.52,
+      "end": 433.88,
+      "text": "So it was a single test bed system that did both vector wise and, and hyper which will"
+    },
+    {
+      "id": 122,
+      "start": 433.88,
+      "end": 435.24,
+      "text": "cover next class."
+    },
+    {
+      "id": 123,
+      "start": 435.24,
+      "end": 441.12,
+      "text": "And we just wanted to measure how well a compiler can, uh, can auto vectorize a bunch of"
+    },
+    {
+      "id": 124,
+      "start": 441.12,
+      "end": 442.88,
+      "text": "the vector wise primitives."
+    },
+    {
+      "id": 125,
+      "start": 443.16,
+      "end": 447.92,
+      "text": "Um, so again, thing of like a primitive being a single function that takes in a ray or"
+    },
+    {
+      "id": 126,
+      "start": 447.92,
+      "end": 452.16,
+      "text": "a vector of, of, of two balls of a certain type and runs like, you know, there's something"
+    },
+    {
+      "id": 127,
+      "start": 452.16,
+      "end": 453.96,
+      "text": "less than something, something greater than something."
+    },
+    {
+      "id": 128,
+      "start": 453.96,
+      "end": 457.4,
+      "text": "Like how well could it vectorize those sort of small loops of code, similar to what I"
+    },
+    {
+      "id": 129,
+      "start": 457.4,
+      "end": 458.8,
+      "text": "showed before?"
+    },
+    {
+      "id": 130,
+      "start": 458.8,
+      "end": 463.56,
+      "text": "And so we compare against, we used clang GCC and ICC, which is Intel's compiler."
+    },
+    {
+      "id": 131,
+      "start": 463.56,
+      "end": 467.56,
+      "text": "We, I mean, ICC, it's not free, it's not open source, but this is obviously way better"
+    },
+    {
+      "id": 132,
+      "start": 467.56,
+      "end": 471.4,
+      "text": "at auto vectorizing, at least a few years ago than, than GCC and clang was."
+    },
+    {
+      "id": 133,
+      "start": 471.4,
+      "end": 475.72,
+      "text": "Again, GCC and clang have gotten better, but at the time ICC was, was much, much better."
+    },
+    {
+      "id": 134,
+      "start": 475.72,
+      "end": 479.64,
+      "text": "And again, you pay for that because Intel, you know, Intel controls the hardware, they"
+    },
+    {
+      "id": 135,
+      "start": 479.64,
+      "end": 482.92,
+      "text": "obviously can write really good compilers for it to it as well."
+    },
+    {
+      "id": 136,
+      "start": 482.92,
+      "end": 486.72,
+      "text": "So we're going to basically do a comparison between hashing, selection, and projection."
+    },
+    {
+      "id": 137,
+      "start": 486.72,
+      "end": 490.2,
+      "text": "And some other operations we, that you have to run for the full query we didn't, we didn't"
+    },
+    {
+      "id": 138,
+      "start": 490.2,
+      "end": 491.88,
+      "text": "vectorize because you can't."
+    },
+    {
+      "id": 139,
+      "start": 491.88,
+      "end": 498.72,
+      "text": "All right, so this is running across, uh, some, some select number queries of TPCH."
+    },
+    {
+      "id": 140,
+      "start": 499.68,
+      "end": 504.2,
+      "text": "And the first bar here is complete auto vectorization, let the compiler do everything."
+    },
+    {
+      "id": 141,
+      "start": 504.2,
+      "end": 509.12,
+      "text": "The, the black bar would be just, if you, if you do it by hand, and then the, the red bar"
+    },
+    {
+      "id": 142,
+      "start": 509.12,
+      "end": 513.08,
+      "text": "would be the combination of, let the, let the compiler auto vectorize everything, then"
+    },
+    {
+      "id": 143,
+      "start": 513.08,
+      "end": 517.16,
+      "text": "we would go check and see whether, which function didn't get auto vectorized and we go back"
+    },
+    {
+      "id": 144,
+      "start": 517.16,
+      "end": 519.72,
+      "text": "and, and do that, and manually here."
+    },
+    {
+      "id": 145,
+      "start": 519.72,
+      "end": 524.88,
+      "text": "And what we're measuring here is the, uh, reduction of the, of the number instructions versus"
+    },
+    {
+      "id": 146,
+      "start": 524.88,
+      "end": 528.96,
+      "text": "like, uh, a, a scalar approach when you don't do any vectorization, you don't, you don't"
+    },
+    {
+      "id": 147,
+      "start": 528.96,
+      "end": 532.48,
+      "text": "let the compiler do any vectorization, right?"
+    },
+    {
+      "id": 148,
+      "start": 532.48,
+      "end": 538.4,
+      "text": "So, you know, the main takeaway here is that the, the, in this case, higher is better,"
+    },
+    {
+      "id": 149,
+      "start": 538.4,
+      "end": 544.92,
+      "text": "uh, but there are some cases where the, the, you know, the, the manual one, for whatever"
+    },
+    {
+      "id": 150,
+      "start": 544.92,
+      "end": 547.72,
+      "text": "reason, like because it was just, it was so complicated to actually write, we always"
+    },
+    {
+      "id": 151,
+      "start": 547.72,
+      "end": 551.56,
+      "text": "didn't get a huge improvement, uh, and the reduction of number instructions, but the"
+    },
+    {
+      "id": 152,
+      "start": 551.56,
+      "end": 554.72,
+      "text": "combination of, letting what the compiler does and then going back as a human and cleaning"
+    },
+    {
+      "id": 153,
+      "start": 554.72,
+      "end": 560.28,
+      "text": "things up, uh, you know, was actually the best approach for all these, right?"
+    },
+    {
+      "id": 154,
+      "start": 560.28,
+      "end": 562.28,
+      "text": "That's not actually feasible, right?"
+    },
+    {
+      "id": 155,
+      "start": 562.28,
+      "end": 566.28,
+      "text": "You don't know the queries before I leave them up, but, unless you're just, just assuming"
+    },
+    {
+      "id": 156,
+      "start": 566.28,
+      "end": 572.92,
+      "text": "me ultimately, it's a, uh, it's a, it's a, it's like, can you, with this not working"
+    },
+    {
+      "id": 157,
+      "start": 572.92,
+      "end": 575.16,
+      "text": "on a real system, because you don't want the queries ahead of time."
+    },
+    {
+      "id": 158,
+      "start": 575.16,
+      "end": 579.68,
+      "text": "Again, we're, we're, we're trying to vectorize the primitives, right?"
+    },
+    {
+      "id": 159,
+      "start": 579.68,
+      "end": 583.92,
+      "text": "And they're not specific to any one query, like, take our column integers, check to see"
+    },
+    {
+      "id": 160,
+      "start": 583.92,
+      "end": 587.0,
+      "text": "whether the, the numbers less than, than a, a single value."
+    },
+    {
+      "id": 161,
+      "start": 587.0,
+      "end": 588.0,
+      "text": "That's what we were auto vectorizing."
+    },
+    {
+      "id": 162,
+      "start": 588.0,
+      "end": 592.64,
+      "text": "It wasn't hard couldn't exactly for, you know, Q1, Q6 and so forth, right?"
+    },
+    {
+      "id": 163,
+      "start": 592.64,
+      "end": 595.2,
+      "text": "So technically, it was still a general-purpose system."
+    },
+    {
+      "id": 164,
+      "start": 595.2,
+      "end": 598.44,
+      "text": "We're just trying to auto vectorize, like, the actual low, low operations of primitives"
+    },
+    {
+      "id": 165,
+      "start": 598.44,
+      "end": 599.44,
+      "text": "within them."
+    },
+    {
+      "id": 166,
+      "start": 599.44,
+      "end": 600.44,
+      "text": "Yes?"
+    },
+    {
+      "id": 167,
+      "start": 600.44,
+      "end": 601.44,
+      "text": "Q6 would work?"
+    },
+    {
+      "id": 168,
+      "start": 601.44,
+      "end": 608.64,
+      "text": "Yeah, I forget what, I, I, I, I, I, I, I, I, I, I, I, I, I, I, I, I, I, I, I, I, I, I, I,"
+    }
+  ],
+  "language": "en"
+}

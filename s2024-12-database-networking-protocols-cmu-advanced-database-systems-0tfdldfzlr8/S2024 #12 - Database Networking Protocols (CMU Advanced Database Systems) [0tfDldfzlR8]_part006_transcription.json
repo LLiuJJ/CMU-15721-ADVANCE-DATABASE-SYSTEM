@@ -1,0 +1,1403 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.28,
+      "text": "I forgot a way that we can avoid the OS as much as possible."
+    },
+    {
+      "id": 1,
+      "start": 3.28,
+      "end": 5.32,
+      "text": "Yeah, we need the OS to survive."
+    },
+    {
+      "id": 2,
+      "start": 5.32,
+      "end": 9.2,
+      "text": "We needed to give us some memory and obviously schedule us."
+    },
+    {
+      "id": 3,
+      "start": 9.2,
+      "end": 12.68,
+      "text": "But after that, we want to avoid it as much as possible."
+    },
+    {
+      "id": 4,
+      "start": 12.68,
+      "end": 15.2,
+      "text": "And that's going to allow us our users to run faster."
+    },
+    {
+      "id": 5,
+      "start": 15.2,
+      "end": 16.64,
+      "text": "So what I'll talk about next is going"
+    },
+    {
+      "id": 6,
+      "start": 16.64,
+      "end": 21.04,
+      "text": "to be focusing primarily on for networking stuff,"
+    },
+    {
+      "id": 7,
+      "start": 21.04,
+      "end": 23.32,
+      "text": "but this also applies for disk."
+    },
+    {
+      "id": 8,
+      "start": 23.32,
+      "end": 27.76,
+      "text": "You want to avoid the OS for disk as much as possible, too."
+    },
+    {
+      "id": 9,
+      "start": 27.76,
+      "end": 31.6,
+      "text": "So the first approach to me, what I call kernel bypass."
+    },
+    {
+      "id": 10,
+      "start": 31.6,
+      "end": 34.2,
+      "text": "And the idea here is that we want to be able to get data"
+    },
+    {
+      "id": 11,
+      "start": 34.2,
+      "end": 36.0,
+      "text": "directly from the hardware."
+    },
+    {
+      "id": 12,
+      "start": 36.0,
+      "end": 38.64,
+      "text": "In this case, the NIC, the thing that the network interface,"
+    },
+    {
+      "id": 13,
+      "start": 38.64,
+      "end": 41.4,
+      "text": "we want to get that into our database system running"
+    },
+    {
+      "id": 14,
+      "start": 41.4,
+      "end": 43.52,
+      "text": "in user space, into our memory up there,"
+    },
+    {
+      "id": 15,
+      "start": 43.52,
+      "end": 46.04,
+      "text": "without having to go through us, without doing any copying,"
+    },
+    {
+      "id": 16,
+      "start": 46.04,
+      "end": 49.64,
+      "text": "ideally without having to talk to the OS TCP IP stack."
+    },
+    {
+      "id": 17,
+      "start": 52.68,
+      "end": 54.8,
+      "text": "And so there's three different ways you can do this."
+    },
+    {
+      "id": 18,
+      "start": 54.8,
+      "end": 58.6,
+      "text": "There's the DVDK, RDMA, and then IOU Ring"
+    },
+    {
+      "id": 19,
+      "start": 58.6,
+      "end": 62.68,
+      "text": "is going to be the newer one."
+    },
+    {
+      "id": 20,
+      "start": 62.68,
+      "end": 68.84,
+      "text": "So the way to think about this is Linux is a time-sharing system."
+    },
+    {
+      "id": 21,
+      "start": 68.84,
+      "end": 70.92,
+      "text": "And that means it's going to rely on these"
+    },
+    {
+      "id": 22,
+      "start": 70.92,
+      "end": 73.92,
+      "text": "slow, expensive interrops to, again, tell it when there's"
+    },
+    {
+      "id": 23,
+      "start": 73.92,
+      "end": 78.12,
+      "text": "something new showing up and take away"
+    },
+    {
+      "id": 24,
+      "start": 78.12,
+      "end": 80.96,
+      "text": "exuding some thread to go that now the kernel thread deal"
+    },
+    {
+      "id": 25,
+      "start": 80.96,
+      "end": 83.84,
+      "text": "with whatever that interrupt handler."
+    },
+    {
+      "id": 26,
+      "start": 83.84,
+      "end": 85.36,
+      "text": "And all these additional threads on the inside,"
+    },
+    {
+      "id": 27,
+      "start": 85.36,
+      "end": 86.8,
+      "text": "they're going to maintain their own latches,"
+    },
+    {
+      "id": 28,
+      "start": 86.8,
+      "end": 88.44,
+      "text": "and all those things are going to be problematic for us."
+    },
+    {
+      "id": 29,
+      "start": 88.44,
+      "end": 92.04,
+      "text": "Now, Linux has gotten a lot better in the last 10 years."
+    },
+    {
+      "id": 30,
+      "start": 92.04,
+      "end": 93.92,
+      "text": "The 10 years has gotten way better for handling"
+    },
+    {
+      "id": 31,
+      "start": 93.92,
+      "end": 97.6,
+      "text": "with larger core counts."
+    },
+    {
+      "id": 32,
+      "start": 97.6,
+      "end": 99.84,
+      "text": "It's got way more scale than it used to be."
+    },
+    {
+      "id": 33,
+      "start": 99.84,
+      "end": 103.72,
+      "text": "But whenever there's just contention, no matter how great"
+    },
+    {
+      "id": 34,
+      "start": 103.72,
+      "end": 105.64,
+      "text": "your code is, everything's always going to fall over."
+    },
+    {
+      "id": 35,
+      "start": 105.64,
+      "end": 108.32,
+      "text": "We're going to avoid as much as possible."
+    },
+    {
+      "id": 36,
+      "start": 108.32,
+      "end": 109.72,
+      "text": "So let's go through these one by one."
+    },
+    {
+      "id": 37,
+      "start": 109.72,
+      "end": 112.88,
+      "text": "So the DVDK, the data plane development kit,"
+    },
+    {
+      "id": 38,
+      "start": 112.88,
+      "end": 115.04,
+      "text": "this is something from Intel."
+    },
+    {
+      "id": 39,
+      "start": 115.04,
+      "end": 117.44,
+      "text": "So it's a set of libraries that allow your user-space"
+    },
+    {
+      "id": 40,
+      "start": 117.44,
+      "end": 120.56,
+      "text": "program to interact with the Nick directly."
+    },
+    {
+      "id": 41,
+      "start": 120.56,
+      "end": 124.28,
+      "text": "There's an equipment for in the storage world called the"
+    },
+    {
+      "id": 42,
+      "start": 124.28,
+      "end": 128.04,
+      "text": "SPDK, the storage plane data kit, also from Intel."
+    },
+    {
+      "id": 43,
+      "start": 128.04,
+      "end": 131.2,
+      "text": "And the idea here is that you treat whatever the"
+    },
+    {
+      "id": 44,
+      "start": 131.2,
+      "end": 133.52,
+      "text": "hardware device you're trying to interact with as a"
+    },
+    {
+      "id": 45,
+      "start": 133.52,
+      "end": 136.92,
+      "text": "raw device, meaning you're responsible for like reading"
+    },
+    {
+      "id": 46,
+      "start": 136.92,
+      "end": 141.2,
+      "text": "the low, low bits in the memory space of that device"
+    },
+    {
+      "id": 47,
+      "start": 141.2,
+      "end": 142.48,
+      "text": "and interacting with it."
+    },
+    {
+      "id": 48,
+      "start": 142.48,
+      "end": 144.56,
+      "text": "This goes against the unit's philosophy where everything's"
+    },
+    {
+      "id": 49,
+      "start": 144.56,
+      "end": 145.6,
+      "text": "a file."
+    },
+    {
+      "id": 50,
+      "start": 145.6,
+      "end": 147.56,
+      "text": "No matter whether it's a file on disk or it's a"
+    },
+    {
+      "id": 51,
+      "start": 147.56,
+      "end": 149.72,
+      "text": "hardware device, you interact with these things that's"
+    },
+    {
+      "id": 52,
+      "start": 149.72,
+      "end": 153.0,
+      "text": "files, your effort needs and so forth."
+    },
+    {
+      "id": 53,
+      "start": 153.0,
+      "end": 157.4,
+      "text": "But this breaks this model entirely."
+    },
+    {
+      "id": 54,
+      "start": 157.4,
+      "end": 162.88,
+      "text": "So now, because now the OS is removing the OS from the low"
+    },
+    {
+      "id": 55,
+      "start": 162.88,
+      "end": 166.12,
+      "text": "level layers like 3 and 4, that means that in our data"
+    },
+    {
+      "id": 56,
+      "start": 166.12,
+      "end": 168.36,
+      "text": "basis, and we're responsible for doing a bunch of stuff"
+    },
+    {
+      "id": 57,
+      "start": 168.36,
+      "end": 170.24,
+      "text": "that the OS would do for us."
+    },
+    {
+      "id": 58,
+      "start": 170.24,
+      "end": 172.44,
+      "text": "And ideally, we could do this better, but not"
+    },
+    {
+      "id": 59,
+      "start": 172.48,
+      "end": 173.32,
+      "text": "always."
+    },
+    {
+      "id": 60,
+      "start": 173.32,
+      "end": 175.44,
+      "text": "So the most obvious thing for doing this using the"
+    },
+    {
+      "id": 61,
+      "start": 175.44,
+      "end": 180.36,
+      "text": "DPTK to do networking stuff, well now, since there isn't"
+    },
+    {
+      "id": 62,
+      "start": 180.36,
+      "end": 184.0,
+      "text": "the TCP, the OS hasn't running the TCP IP stack for you on"
+    },
+    {
+      "id": 63,
+      "start": 184.0,
+      "end": 187.64,
+      "text": "the device, we have to do that in our database system."
+    },
+    {
+      "id": 64,
+      "start": 187.64,
+      "end": 190.28,
+      "text": "You either write it by hand, or you can use open source"
+    },
+    {
+      "id": 65,
+      "start": 190.28,
+      "end": 192.52,
+      "text": "library like F stack that basically re-implments in user"
+    },
+    {
+      "id": 66,
+      "start": 192.52,
+      "end": 195.88,
+      "text": "space TCP IP, like sending the sequence numbers, sending"
+    },
+    {
+      "id": 67,
+      "start": 195.88,
+      "end": 199.28,
+      "text": "Mac, X, all that we have to do ourselves, the OS isn't"
+    },
+    {
+      "id": 68,
+      "start": 199.28,
+      "end": 200.04,
+      "text": "going to do this."
+    },
+    {
+      "id": 69,
+      "start": 200.04,
+      "end": 201.6,
+      "text": "And the hardware doesn't do it."
+    },
+    {
+      "id": 70,
+      "start": 201.6,
+      "end": 203.72,
+      "text": "But the advantage is that we don't have any data copying,"
+    },
+    {
+      "id": 71,
+      "start": 203.72,
+      "end": 207.12,
+      "text": "because we're now getting literally raw buffers of packets."
+    },
+    {
+      "id": 72,
+      "start": 207.12,
+      "end": 212.0,
+      "text": "We get to manage what those are off the device."
+    },
+    {
+      "id": 73,
+      "start": 212.0,
+      "end": 213.04,
+      "text": "We're not calling a read."
+    },
+    {
+      "id": 74,
+      "start": 213.04,
+      "end": 213.56,
+      "text": "Excuse me."
+    },
+    {
+      "id": 75,
+      "start": 213.56,
+      "end": 214.92,
+      "text": "So there's no syscalls."
+    },
+    {
+      "id": 76,
+      "start": 214.92,
+      "end": 219.56,
+      "text": "Everything is done again, reading directly into memory."
+    },
+    {
+      "id": 77,
+      "start": 219.56,
+      "end": 221.88,
+      "text": "So this sounds amazing, right?"
+    },
+    {
+      "id": 78,
+      "start": 221.88,
+      "end": 224.16,
+      "text": "Well, it's not that common, right?"
+    },
+    {
+      "id": 79,
+      "start": 224.16,
+      "end": 226.48,
+      "text": "As far as we know, there's only two systems that actually"
+    },
+    {
+      "id": 80,
+      "start": 226.48,
+      "end": 228.52,
+      "text": "implement our used DPTK."
+    },
+    {
+      "id": 81,
+      "start": 228.52,
+      "end": 230.6,
+      "text": "The first is the ScaliaDBs."
+    },
+    {
+      "id": 82,
+      "start": 230.6,
+      "end": 233.0,
+      "text": "And they have this framework called C-star,"
+    },
+    {
+      "id": 83,
+      "start": 233.0,
+      "end": 234.32,
+      "text": "that they're built on top of."
+    },
+    {
+      "id": 84,
+      "start": 234.32,
+      "end": 239.2,
+      "text": "ScaliaDB is a re-implmentation of Apache Cassandra and C++"
+    },
+    {
+      "id": 85,
+      "start": 239.2,
+      "end": 241.36,
+      "text": "with like code routines and DPTK and some other"
+    },
+    {
+      "id": 86,
+      "start": 241.36,
+      "end": 244.76,
+      "text": "optimizations on where Cassandra's entirely in Java."
+    },
+    {
+      "id": 87,
+      "start": 244.76,
+      "end": 246.16,
+      "text": "And then yellow brick will cover later on."
+    },
+    {
+      "id": 88,
+      "start": 246.16,
+      "end": 247.76,
+      "text": "They also use this as well."
+    },
+    {
+      "id": 89,
+      "start": 247.76,
+      "end": 251.6,
+      "text": "But they had the ScaliaDB guys give a talk with us"
+    },
+    {
+      "id": 90,
+      "start": 251.6,
+      "end": 254.64,
+      "text": "a few years ago during the pandemic."
+    },
+    {
+      "id": 91,
+      "start": 254.64,
+      "end": 256.4,
+      "text": "And they mentioned how in the C-star, they're"
+    },
+    {
+      "id": 92,
+      "start": 256.4,
+      "end": 258.08,
+      "text": "yes, they use code routines, they use the UEDK."
+    },
+    {
+      "id": 93,
+      "start": 258.08,
+      "end": 260.32,
+      "text": "But DVDK for them has been a total nightmare"
+    },
+    {
+      "id": 94,
+      "start": 260.32,
+      "end": 261.24,
+      "text": "to deal with."
+    },
+    {
+      "id": 95,
+      "start": 261.24,
+      "end": 263.44,
+      "text": "And I think it's turned off by default at this point."
+    },
+    {
+      "id": 96,
+      "start": 263.44,
+      "end": 266.48,
+      "text": "I saw the yellow brick CTO a few weeks ago at Citer."
+    },
+    {
+      "id": 97,
+      "start": 266.48,
+      "end": 268.28,
+      "text": "And as far as I know, they're still using"
+    },
+    {
+      "id": 98,
+      "start": 268.28,
+      "end": 270.16,
+      "text": "the DBTK for their implementation."
+    },
+    {
+      "id": 99,
+      "start": 270.16,
+      "end": 273.2,
+      "text": "Again, they're doing this in the back end, not"
+    },
+    {
+      "id": 100,
+      "start": 273.2,
+      "end": 276.56,
+      "text": "between the client and the server."
+    },
+    {
+      "id": 101,
+      "start": 276.56,
+      "end": 277.72,
+      "text": "Why is it so hard?"
+    },
+    {
+      "id": 102,
+      "start": 277.72,
+      "end": 279.28,
+      "text": "Well, again, could you implement a bunch of stuff that"
+    },
+    {
+      "id": 103,
+      "start": 279.28,
+      "end": 281.12,
+      "text": "OS normally do for you if it's not for yourself?"
+    },
+    {
+      "id": 104,
+      "start": 281.12,
+      "end": 282.44,
+      "text": "And we tried this, and our system, we"
+    },
+    {
+      "id": 105,
+      "start": 282.44,
+      "end": 285.88,
+      "text": "had one of my best master students try to use F-stack to speed up"
+    },
+    {
+      "id": 106,
+      "start": 285.88,
+      "end": 287.8,
+      "text": "something another project we were doing to make a Postgres"
+    },
+    {
+      "id": 107,
+      "start": 287.8,
+      "end": 288.92,
+      "text": "proxy run faster."
+    },
+    {
+      "id": 108,
+      "start": 289.32,
+      "end": 291.36,
+      "text": "We couldn't make it work."
+    },
+    {
+      "id": 109,
+      "start": 291.36,
+      "end": 294.48,
+      "text": "The engineering cost is just way too high."
+    },
+    {
+      "id": 110,
+      "start": 294.48,
+      "end": 297.88,
+      "text": "So it's a bit crude, but this is one of my favorite treats"
+    },
+    {
+      "id": 111,
+      "start": 297.88,
+      "end": 299.0,
+      "text": "of all time."
+    },
+    {
+      "id": 112,
+      "start": 299.0,
+      "end": 301.32,
+      "text": "So this guy's talking about the SBDK, which again, that's"
+    },
+    {
+      "id": 113,
+      "start": 301.32,
+      "end": 302.4,
+      "text": "where the storage is made to get."
+    },
+    {
+      "id": 114,
+      "start": 302.4,
+      "end": 304.68,
+      "text": "But the DBTK certainly applies here."
+    },
+    {
+      "id": 115,
+      "start": 304.68,
+      "end": 306.72,
+      "text": "So all this kernel bypass stuff is fantastic."
+    },
+    {
+      "id": 116,
+      "start": 306.72,
+      "end": 308.12,
+      "text": "You think you're going to get a big win, but it's like"
+    },
+    {
+      "id": 117,
+      "start": 308.12,
+      "end": 310.6,
+      "text": "pin your pants, cut your cold, and then you regret it"
+    },
+    {
+      "id": 118,
+      "start": 310.6,
+      "end": 311.24,
+      "text": "pretty quickly."
+    },
+    {
+      "id": 119,
+      "start": 311.24,
+      "end": 313.44,
+      "text": "Is the guy who's the real Iadie ring?"
+    },
+    {
+      "id": 120,
+      "start": 313.44,
+      "end": 313.96,
+      "text": "Is it?"
+    },
+    {
+      "id": 121,
+      "start": 313.96,
+      "end": 314.16,
+      "text": "Yeah."
+    },
+    {
+      "id": 122,
+      "start": 314.16,
+      "end": 315.0,
+      "text": "OK, yeah."
+    },
+    {
+      "id": 123,
+      "start": 315.0,
+      "end": 316.0,
+      "text": "OK."
+    },
+    {
+      "id": 124,
+      "start": 316.0,
+      "end": 317.0,
+      "text": "Thank you."
+    },
+    {
+      "id": 125,
+      "start": 317.96,
+      "end": 318.8,
+      "text": "OK."
+    },
+    {
+      "id": 126,
+      "start": 318.8,
+      "end": 320.76,
+      "text": "All right."
+    },
+    {
+      "id": 127,
+      "start": 320.76,
+      "end": 322.64,
+      "text": "So the next approach is to do RDA back."
+    },
+    {
+      "id": 128,
+      "start": 322.64,
+      "end": 326.2,
+      "text": "And in this way, you have a, it's like NVMe."
+    },
+    {
+      "id": 129,
+      "start": 326.2,
+      "end": 330.12,
+      "text": "There's an API that the hardware provides allows you to do"
+    },
+    {
+      "id": 130,
+      "start": 330.12,
+      "end": 333.96,
+      "text": "right directly into the hardware device and get"
+    },
+    {
+      "id": 131,
+      "start": 333.96,
+      "end": 339.2,
+      "text": "to access things on a remote machine as if it was local."
+    },
+    {
+      "id": 132,
+      "start": 339.2,
+      "end": 341.32,
+      "text": "So for this one's a bit more tricky, because now, if you're"
+    },
+    {
+      "id": 133,
+      "start": 341.32,
+      "end": 343.92,
+      "text": "reading right into memory addresses on a remote machine,"
+    },
+    {
+      "id": 134,
+      "start": 343.92,
+      "end": 345.84,
+      "text": "you've got to be sure that what you're actually reading is"
+    },
+    {
+      "id": 135,
+      "start": 345.84,
+      "end": 346.72,
+      "text": "what you expect to read."
+    },
+    {
+      "id": 136,
+      "start": 346.72,
+      "end": 350.08,
+      "text": "So there is more handshaking up to do to set this up."
+    },
+    {
+      "id": 137,
+      "start": 350.08,
+      "end": 351.64,
+      "text": "So there's typically, again, something you maybe"
+    },
+    {
+      "id": 138,
+      "start": 351.64,
+      "end": 353.52,
+      "text": "want to use on a client in the server."
+    },
+    {
+      "id": 139,
+      "start": 353.52,
+      "end": 355.04,
+      "text": "You want to do this on the back end."
+    },
+    {
+      "id": 140,
+      "start": 355.04,
+      "end": 358.64,
+      "text": "But if you can pull this off, then you get a huge win."
+    },
+    {
+      "id": 141,
+      "start": 358.64,
+      "end": 361.24,
+      "text": "So it used to be you could only do this on a fina band, which"
+    },
+    {
+      "id": 142,
+      "start": 361.24,
+      "end": 364.04,
+      "text": "was sold by Melanox."
+    },
+    {
+      "id": 143,
+      "start": 364.04,
+      "end": 367.32,
+      "text": "I think the video about Melanox recently, or at some point."
+    },
+    {
+      "id": 144,
+      "start": 367.32,
+      "end": 368.36,
+      "text": "The video uses this."
+    },
+    {
+      "id": 145,
+      "start": 368.36,
+      "end": 369.16,
+      "text": "Yeah, the video uses this."
+    },
+    {
+      "id": 146,
+      "start": 369.16,
+      "end": 372.4,
+      "text": "Yeah, they have NVMe link as well."
+    },
+    {
+      "id": 147,
+      "start": 372.4,
+      "end": 377.48,
+      "text": "And then Baraki is basically Ardemy over converged ethernet"
+    },
+    {
+      "id": 148,
+      "start": 377.48,
+      "end": 380.28,
+      "text": "or something like this is more common now."
+    },
+    {
+      "id": 149,
+      "start": 380.28,
+      "end": 383.92,
+      "text": "So Ardemy is not used that often."
+    },
+    {
+      "id": 150,
+      "start": 383.92,
+      "end": 385.44,
+      "text": "The only system I know that does this,"
+    },
+    {
+      "id": 151,
+      "start": 385.44,
+      "end": 387.8,
+      "text": "those cells use Oracle for X-A-Data."
+    },
+    {
+      "id": 152,
+      "start": 387.8,
+      "end": 389.64,
+      "text": "Again, but that's like you buy the whole rack."
+    },
+    {
+      "id": 153,
+      "start": 389.64,
+      "end": 392.32,
+      "text": "You buy the rack of compute in the rack of storage,"
+    },
+    {
+      "id": 154,
+      "start": 392.32,
+      "end": 394.76,
+      "text": "and they're using Ardemy to communicate the compute"
+    },
+    {
+      "id": 155,
+      "start": 394.76,
+      "end": 396.68,
+      "text": "in the storage."
+    },
+    {
+      "id": 156,
+      "start": 396.68,
+      "end": 400.96,
+      "text": "You can get Ardemy on Amazon."
+    },
+    {
+      "id": 157,
+      "start": 401.92,
+      "end": 403.72,
+      "text": "Again, you would only be able to do the community"
+    },
+    {
+      "id": 158,
+      "start": 403.72,
+      "end": 405.2,
+      "text": "between your machines that have that."
+    },
+    {
+      "id": 159,
+      "start": 405.2,
+      "end": 408.08,
+      "text": "And it's a lot more work to get that set up."
+    },
+    {
+      "id": 160,
+      "start": 408.08,
+      "end": 408.6,
+      "text": "Yes."
+    },
+    {
+      "id": 161,
+      "start": 408.6,
+      "end": 412.2,
+      "text": "So how the source basically is that the client knows exactly"
+    },
+    {
+      "id": 162,
+      "start": 412.2,
+      "end": 415.2,
+      "text": "what address the state of storage on the server."
+    },
+    {
+      "id": 163,
+      "start": 415.2,
+      "end": 415.72,
+      "text": "Yes."
+    },
+    {
+      "id": 164,
+      "start": 415.72,
+      "end": 418.4,
+      "text": "It just says, can be 2x, 1, 2, 4."
+    },
+    {
+      "id": 165,
+      "start": 418.4,
+      "end": 419.08,
+      "text": "Yeah."
+    },
+    {
+      "id": 166,
+      "start": 419.08,
+      "end": 419.76,
+      "text": "So it's stable as it is."
+    },
+    {
+      "id": 167,
+      "start": 419.76,
+      "end": 420.44,
+      "text": "And it's correct."
+    },
+    {
+      "id": 168,
+      "start": 420.44,
+      "end": 423.12,
+      "text": "The way this works is that the client,"
+    },
+    {
+      "id": 169,
+      "start": 423.12,
+      "end": 425.08,
+      "text": "or it doesn't have to be again, the application"
+    },
+    {
+      "id": 170,
+      "start": 425.08,
+      "end": 428.08,
+      "text": "could just be the thing that's going to talk to some of the machine,"
+    },
+    {
+      "id": 171,
+      "start": 428.08,
+      "end": 431.16,
+      "text": "has to know what memory address it wants to read,"
+    },
+    {
+      "id": 172,
+      "start": 431.16,
+      "end": 432.12,
+      "text": "assuming it has permissions."
+    },
+    {
+      "id": 173,
+      "start": 432.12,
+      "end": 435.48,
+      "text": "And then the request is, give me the contents of that memory."
+    },
+    {
+      "id": 174,
+      "start": 435.48,
+      "end": 437.44,
+      "text": "So the harbor knows how to go up to memory,"
+    },
+    {
+      "id": 175,
+      "start": 437.44,
+      "end": 439.44,
+      "text": "get whatever you want, and pull it back down."
+    },
+    {
+      "id": 176,
+      "start": 439.44,
+      "end": 442.24,
+      "text": "And it doesn't notify the CPU that it's done that."
+    },
+    {
+      "id": 177,
+      "start": 442.24,
+      "end": 443.24,
+      "text": "Yes."
+    },
+    {
+      "id": 178,
+      "start": 443.24,
+      "end": 444.92,
+      "text": "Is there security problem on the map?"
+    },
+    {
+      "id": 179,
+      "start": 444.92,
+      "end": 447.24,
+      "text": "Question is there security problem for this?"
+    },
+    {
+      "id": 180,
+      "start": 447.24,
+      "end": 448.0,
+      "text": "Sure."
+    },
+    {
+      "id": 181,
+      "start": 448.0,
+      "end": 451.48,
+      "text": "But like, you run this in your VPC."
+    },
+    {
+      "id": 182,
+      "start": 451.48,
+      "end": 453.28,
+      "text": "You're not letting, you don't expose this"
+    },
+    {
+      "id": 183,
+      "start": 453.28,
+      "end": 454.6,
+      "text": "over the public internet."
+    },
+    {
+      "id": 184,
+      "start": 455.48,
+      "end": 462.12,
+      "text": "Again, if you're buying X data, these things are like millions of dollars."
+    },
+    {
+      "id": 185,
+      "start": 462.12,
+      "end": 463.44,
+      "text": "You're running this on-prem."
+    },
+    {
+      "id": 186,
+      "start": 463.44,
+      "end": 465.8,
+      "text": "It's a lock cage."
+    },
+    {
+      "id": 187,
+      "start": 465.8,
+      "end": 467.68,
+      "text": "The traffic is just between these two things."
+    },
+    {
+      "id": 188,
+      "start": 471.2,
+      "end": 471.4,
+      "text": "All right."
+    },
+    {
+      "id": 189,
+      "start": 471.4,
+      "end": 475.6,
+      "text": "So the last one is IOU Ring, which I think some of you guys are familiar with."
+    },
+    {
+      "id": 190,
+      "start": 475.6,
+      "end": 478.84,
+      "text": "But this was an extension to, in Linux,"
+    },
+    {
+      "id": 191,
+      "start": 478.84,
+      "end": 484.2,
+      "text": "to sort of clean up their asynchronous AIO API,"
+    },
+    {
+      "id": 192,
+      "start": 484.2,
+      "end": 489.88,
+      "text": "that allows you to do asynchronous requests to a harbor device,"
+    },
+    {
+      "id": 193,
+      "start": 489.88,
+      "end": 491.0,
+      "text": "either storage or network."
+    },
+    {
+      "id": 194,
+      "start": 491.0,
+      "end": 492.16,
+      "text": "It was originally storage, and then they"
+    },
+    {
+      "id": 195,
+      "start": 492.16,
+      "end": 495.16,
+      "text": "added networking two years ago."
+    },
+    {
+      "id": 196,
+      "start": 495.16,
+      "end": 498.0,
+      "text": "And basically, the idea is that you have these circular buffers"
+    },
+    {
+      "id": 197,
+      "start": 498.0,
+      "end": 502.44,
+      "text": "where you submit a request and say, I want this data from this storage device"
+    },
+    {
+      "id": 198,
+      "start": 502.44,
+      "end": 504.68,
+      "text": "or this harbor device."
+    },
+    {
+      "id": 199,
+      "start": 504.68,
+      "end": 506.24,
+      "text": "Then you get a call back."
+    },
+    {
+      "id": 200,
+      "start": 506.24,
+      "end": 509.56,
+      "text": "You provide it and say, OK, when it's available in my buffer, let me know."
+    },
+    {
+      "id": 201,
+      "start": 509.56,
+      "end": 512.28,
+      "text": "So you can make a bunch of these requests."
+    },
+    {
+      "id": 202,
+      "start": 512.28,
+      "end": 515.4,
+      "text": "I don't think it's not entirely bypassing the kernel."
+    },
+    {
+      "id": 203,
+      "start": 515.4,
+      "end": 518.88,
+      "text": "It's just less, you're not paying the overhead on making the syscall"
+    },
+    {
+      "id": 204,
+      "start": 518.88,
+      "end": 522.52,
+      "text": "to block waiting for the data."
+    },
+    {
+      "id": 205,
+      "start": 522.52,
+      "end": 524.52,
+      "text": "So you make the request to do whatever it is,"
+    },
+    {
+      "id": 206,
+      "start": 524.52,
+      "end": 528.96,
+      "text": "to read it right and whatever the memory that you provide the OS."
+    },
+    {
+      "id": 207,
+      "start": 528.96,
+      "end": 531.32,
+      "text": "The OS does it for you in a kernel thread."
+    },
+    {
+      "id": 208,
+      "start": 531.32,
+      "end": 535.36,
+      "text": "And then once it completes the task you have to do,"
+    },
+    {
+      "id": 209,
+      "start": 535.36,
+      "end": 540.08,
+      "text": "it puts the result in a queue and then gives you a call back."
+    },
+    {
+      "id": 210,
+      "start": 540.08,
+      "end": 546.0,
+      "text": "So again, there's a low-lane team way to avoid the overhead of a full syscall"
+    },
+    {
+      "id": 211,
+      "start": 546.0,
+      "end": 546.96,
+      "text": "to talk to a harbor device."
+    },
+    {
+      "id": 212,
+      "start": 546.96,
+      "end": 551.48,
+      "text": "But you're still relying on the OS to do the low-level martian data in off the device."
+    },
+    {
+      "id": 213,
+      "start": 551.48,
+      "end": 552.0,
+      "text": "Yes?"
+    },
+    {
+      "id": 214,
+      "start": 552.0,
+      "end": 553.92,
+      "text": "I think you know, but I thought those were called back."
+    },
+    {
+      "id": 215,
+      "start": 553.92,
+      "end": 556.64,
+      "text": "I thought you just checked the completion kit."
+    },
+    {
+      "id": 216,
+      "start": 556.64,
+      "end": 557.32,
+      "text": "The library."
+    },
+    {
+      "id": 217,
+      "start": 557.32,
+      "end": 558.48,
+      "text": "There's four different ways to do it."
+    },
+    {
+      "id": 218,
+      "start": 558.48,
+      "end": 563.92,
+      "text": "So you either be pulling, like, you're checking, or you can also lock if you want to."
+    },
+    {
+      "id": 219,
+      "start": 563.92,
+      "end": 567.52,
+      "text": "You can, yeah, you can also have it."
+    },
+    {
+      "id": 220,
+      "start": 567.52,
+      "end": 569.12,
+      "text": "There's much of these libraries."
+    },
+    {
+      "id": 221,
+      "start": 569.12,
+      "end": 570.32,
+      "text": "You guys look them up a rust."
+    },
+    {
+      "id": 222,
+      "start": 570.32,
+      "end": 574.12,
+      "text": "There's one in Linux or in C++."
+    },
+    {
+      "id": 223,
+      "start": 574.12,
+      "end": 576.44,
+      "text": "They provide different programming APIs."
+    },
+    {
+      "id": 224,
+      "start": 576.44,
+      "end": 578.2,
+      "text": "I don't know which one's the most common."
+    },
+    {
+      "id": 225,
+      "start": 578.2,
+      "end": 581.2,
+      "text": "That was the one I knew."
+    },
+    {
+      "id": 226,
+      "start": 581.2,
+      "end": 584.28,
+      "text": "So as far as I know, very few systems do this,"
+    },
+    {
+      "id": 227,
+      "start": 584.28,
+      "end": 588.08,
+      "text": "although you guys are only on the run and you can start with the pyramid."
+    },
+    {
+      "id": 228,
+      "start": 588.08,
+      "end": 589.92,
+      "text": "Well, there's two more."
+    },
+    {
+      "id": 229,
+      "start": 589.92,
+      "end": 591.44,
+      "text": "Yeah."
+    },
+    {
+      "id": 230,
+      "start": 591.44,
+      "end": 595.12,
+      "text": "So the first one is QuestDB."
+    },
+    {
+      "id": 231,
+      "start": 595.12,
+      "end": 600.6,
+      "text": "So they talk about in with the 2022 how they added IU U-ring."
+    },
+    {
+      "id": 232,
+      "start": 600.6,
+      "end": 603.84,
+      "text": "And then for this one, QuestDB is a Java that's..."
+    }
+  ],
+  "language": "en"
+}

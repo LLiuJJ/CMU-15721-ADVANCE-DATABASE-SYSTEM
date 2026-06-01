@@ -1,0 +1,1385 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.4,
+      "text": "Data Lego got bought for, you know,"
+    },
+    {
+      "id": 1,
+      "start": 2.4,
+      "end": 4.0,
+      "text": "these are all the $100 million dollars."
+    },
+    {
+      "id": 2,
+      "start": 4.0,
+      "end": 5.48,
+      "text": "They got it from 20 million."
+    },
+    {
+      "id": 3,
+      "start": 5.48,
+      "end": 7.48,
+      "text": "Just cutters at that."
+    },
+    {
+      "id": 4,
+      "start": 7.48,
+      "end": 9.2,
+      "text": "So this is what they did."
+    },
+    {
+      "id": 5,
+      "start": 9.2,
+      "end": 13.16,
+      "text": "And then they slapped it up on AWS and then started,"
+    },
+    {
+      "id": 6,
+      "start": 13.16,
+      "end": 15.76,
+      "text": "you know, selling it as a service."
+    },
+    {
+      "id": 7,
+      "start": 15.76,
+      "end": 18.88,
+      "text": "I think in 20, I say this is 2014,"
+    },
+    {
+      "id": 8,
+      "start": 18.88,
+      "end": 20.96,
+      "text": "but I think it was maybe a let's sooner."
+    },
+    {
+      "id": 9,
+      "start": 20.96,
+      "end": 22.08,
+      "text": "Right at the same time,"
+    },
+    {
+      "id": 10,
+      "start": 22.08,
+      "end": 24.0,
+      "text": "something snowflake came out."
+    },
+    {
+      "id": 11,
+      "start": 24.0,
+      "end": 26.44,
+      "text": "So this is redshifted, it's Amazon's,"
+    },
+    {
+      "id": 12,
+      "start": 26.44,
+      "end": 29.44,
+      "text": "what I call flagship OLAP database,"
+    },
+    {
+      "id": 13,
+      "start": 29.56,
+      "end": 31.8,
+      "text": "the management system of database as a service."
+    },
+    {
+      "id": 14,
+      "start": 31.8,
+      "end": 34.4,
+      "text": "And again, the lineage is that it comes from Paraccel,"
+    },
+    {
+      "id": 15,
+      "start": 34.4,
+      "end": 38.12,
+      "text": "which was a shared nothing fork of Postgres."
+    },
+    {
+      "id": 16,
+      "start": 38.12,
+      "end": 40.8,
+      "text": "And so you'll see that over time is evolved"
+    },
+    {
+      "id": 17,
+      "start": 40.8,
+      "end": 42.6,
+      "text": "to a shared system."
+    },
+    {
+      "id": 18,
+      "start": 42.6,
+      "end": 45.04,
+      "text": "Like they were, you know,"
+    },
+    {
+      "id": 19,
+      "start": 45.04,
+      "end": 46.36,
+      "text": "they didn't really start off with like,"
+    },
+    {
+      "id": 20,
+      "start": 46.36,
+      "end": 47.76,
+      "text": "you know, the way snowflake did it"
+    },
+    {
+      "id": 21,
+      "start": 47.76,
+      "end": 49.48,
+      "text": "being completely disaggregated storage,"
+    },
+    {
+      "id": 22,
+      "start": 49.48,
+      "end": 51.68,
+      "text": "they eventually had to add those pieces back in."
+    },
+    {
+      "id": 23,
+      "start": 51.68,
+      "end": 53.08,
+      "text": "And they did it, they tried to do this"
+    },
+    {
+      "id": 24,
+      "start": 53.08,
+      "end": 55.08,
+      "text": "in a couple of different ways."
+    },
+    {
+      "id": 25,
+      "start": 55.08,
+      "end": 59.0,
+      "text": "So they added just like I had a storage for S3 in 2017."
+    },
+    {
+      "id": 26,
+      "start": 59.6,
+      "end": 61.64,
+      "text": "And then they added recently support"
+    },
+    {
+      "id": 27,
+      "start": 61.64,
+      "end": 63.32,
+      "text": "for serverless deployments."
+    },
+    {
+      "id": 28,
+      "start": 63.32,
+      "end": 64.8,
+      "text": "Basically now I don't need a provision,"
+    },
+    {
+      "id": 29,
+      "start": 64.8,
+      "end": 66.68,
+      "text": "my computer cluster ahead of time,"
+    },
+    {
+      "id": 30,
+      "start": 66.68,
+      "end": 68.56,
+      "text": "the way you would have to do in snowflake,"
+    },
+    {
+      "id": 31,
+      "start": 68.56,
+      "end": 70.04,
+      "text": "at least in original version of snowflake,"
+    },
+    {
+      "id": 32,
+      "start": 70.04,
+      "end": 71.08,
+      "text": "you just say here's my queries,"
+    },
+    {
+      "id": 33,
+      "start": 71.08,
+      "end": 72.36,
+      "text": "I stored right at it."
+    },
+    {
+      "id": 34,
+      "start": 72.36,
+      "end": 74.72,
+      "text": "As far as I know, big queries always been serverless."
+    },
+    {
+      "id": 35,
+      "start": 74.72,
+      "end": 76.2,
+      "text": "Like that one you've never provisioned."
+    },
+    {
+      "id": 36,
+      "start": 76.2,
+      "end": 77.52,
+      "text": "Like I want these nodes,"
+    },
+    {
+      "id": 37,
+      "start": 77.52,
+      "end": 79.24,
+      "text": "you just say here's my credit card number,"
+    },
+    {
+      "id": 38,
+      "start": 79.24,
+      "end": 81.16,
+      "text": "give me a string where I can send queries to."
+    },
+    {
+      "id": 39,
+      "start": 81.16,
+      "end": 83.32,
+      "text": "And then if you want guarantee capacity,"
+    },
+    {
+      "id": 40,
+      "start": 83.32,
+      "end": 84.68,
+      "text": "you sort of pay extra for that."
+    },
+    {
+      "id": 41,
+      "start": 84.68,
+      "end": 87.08,
+      "text": "But there's no provisioning of machines."
+    },
+    {
+      "id": 42,
+      "start": 88.08,
+      "end": 91.6,
+      "text": "So I would say redshift is going to be a more,"
+    },
+    {
+      "id": 43,
+      "start": 91.6,
+      "end": 93.84,
+      "text": "it's going to look like a more traditional data warehouse"
+    },
+    {
+      "id": 44,
+      "start": 93.84,
+      "end": 97.08,
+      "text": "compared to BigQuery and Spark that we talked about before."
+    },
+    {
+      "id": 45,
+      "start": 97.08,
+      "end": 99.12,
+      "text": "Even though it sort of fits in the category"
+    },
+    {
+      "id": 46,
+      "start": 99.12,
+      "end": 101.08,
+      "text": "that we're always compared with these other"
+    },
+    {
+      "id": 47,
+      "start": 101.08,
+      "end": 103.64,
+      "text": "data lake house systems,"
+    },
+    {
+      "id": 48,
+      "start": 103.64,
+      "end": 106.08,
+      "text": "it's going to look more like a traditional"
+    },
+    {
+      "id": 49,
+      "start": 106.08,
+      "end": 108.24,
+      "text": "data warehouse similar to Yellowbric,"
+    },
+    {
+      "id": 50,
+      "start": 108.24,
+      "end": 110.72,
+      "text": "where they want to control all the data for you."
+    },
+    {
+      "id": 51,
+      "start": 110.72,
+      "end": 112.64,
+      "text": "So we're going to add the ability later on"
+    },
+    {
+      "id": 52,
+      "start": 112.64,
+      "end": 114.88,
+      "text": "to be able to read data off S3 directly,"
+    },
+    {
+      "id": 53,
+      "start": 114.88,
+      "end": 117.04,
+      "text": "like parquet files or whatever you have down there."
+    },
+    {
+      "id": 54,
+      "start": 118.04,
+      "end": 120.04,
+      "text": "But by default, they want to put everything"
+    },
+    {
+      "id": 55,
+      "start": 120.04,
+      "end": 123.52,
+      "text": "into what they call the redshift managed storage."
+    },
+    {
+      "id": 56,
+      "start": 123.52,
+      "end": 125.92,
+      "text": "So as part of this,"
+    },
+    {
+      "id": 57,
+      "start": 125.92,
+      "end": 128.92,
+      "text": "the design goal similar to what Snowflake was trying to achieve"
+    },
+    {
+      "id": 58,
+      "start": 128.92,
+      "end": 132.92,
+      "text": "is that they want to remove as much as the management"
+    },
+    {
+      "id": 59,
+      "start": 132.92,
+      "end": 134.64,
+      "text": "responsibilities from the user"
+    },
+    {
+      "id": 60,
+      "start": 134.64,
+      "end": 136.84,
+      "text": "and have everything being controlled much as possible."
+    },
+    {
+      "id": 61,
+      "start": 136.84,
+      "end": 138.44,
+      "text": "And as the paper you guys read,"
+    },
+    {
+      "id": 62,
+      "start": 138.44,
+      "end": 140.24,
+      "text": "they have a bunch of sort of ML based"
+    },
+    {
+      "id": 63,
+      "start": 140.24,
+      "end": 144.04,
+      "text": "or automatic based mechanisms to try to do this."
+    },
+    {
+      "id": 64,
+      "start": 144.68,
+      "end": 148.6,
+      "text": "But I think the original implementation of it was,"
+    },
+    {
+      "id": 65,
+      "start": 148.6,
+      "end": 150.32,
+      "text": "it was basically, the very first version of it"
+    },
+    {
+      "id": 66,
+      "start": 150.32,
+      "end": 153.6,
+      "text": "was basically ParkSell and you got exposed to all the"
+    },
+    {
+      "id": 67,
+      "start": 153.6,
+      "end": 157.28,
+      "text": "internal things about Postgres or ParkSell"
+    },
+    {
+      "id": 68,
+      "start": 157.28,
+      "end": 159.72,
+      "text": "that the really things that you had to deal with"
+    },
+    {
+      "id": 69,
+      "start": 159.72,
+      "end": 161.04,
+      "text": "as a user of the service."
+    },
+    {
+      "id": 70,
+      "start": 162.56,
+      "end": 167.2,
+      "text": "So what's sort of confusing about Amazon is that there's"
+    },
+    {
+      "id": 71,
+      "start": 167.2,
+      "end": 169.4,
+      "text": "two different versions of Redshift,"
+    },
+    {
+      "id": 72,
+      "start": 169.4,
+      "end": 170.88,
+      "text": "and then there's this other thing called Athena,"
+    },
+    {
+      "id": 73,
+      "start": 170.88,
+      "end": 172.48,
+      "text": "which I don't think the paper mentions,"
+    },
+    {
+      "id": 74,
+      "start": 172.48,
+      "end": 175.8,
+      "text": "but that's another OLAP system that they support."
+    },
+    {
+      "id": 75,
+      "start": 175.8,
+      "end": 177.56,
+      "text": "So the original version of Redshift,"
+    },
+    {
+      "id": 76,
+      "start": 177.56,
+      "end": 180.32,
+      "text": "I guess it says, I think came out in 2012, not 2014."
+    },
+    {
+      "id": 77,
+      "start": 181.56,
+      "end": 184.92,
+      "text": "And again, that was always being stored in,"
+    },
+    {
+      "id": 78,
+      "start": 184.92,
+      "end": 187.12,
+      "text": "that was always, there's a shared nothing system"
+    },
+    {
+      "id": 79,
+      "start": 187.12,
+      "end": 190.0,
+      "text": "with storing things on the compute nodes themselves."
+    },
+    {
+      "id": 80,
+      "start": 191.48,
+      "end": 196.4,
+      "text": "Then in 2016, they took Presto at a Facebook"
+    },
+    {
+      "id": 81,
+      "start": 196.4,
+      "end": 199.4,
+      "text": "and then they just rebranded as Athena."
+    },
+    {
+      "id": 82,
+      "start": 199.4,
+      "end": 201.44,
+      "text": "I think it's based on the Trino line now,"
+    },
+    {
+      "id": 83,
+      "start": 201.44,
+      "end": 204.96,
+      "text": "not the, which was based on Presto SQL,"
+    },
+    {
+      "id": 84,
+      "start": 204.96,
+      "end": 208.68,
+      "text": "not the Presto DB1 from the Facebook Steel Controls now."
+    },
+    {
+      "id": 85,
+      "start": 208.68,
+      "end": 212.72,
+      "text": "But they have sort of, this would be more akin"
+    },
+    {
+      "id": 86,
+      "start": 212.72,
+      "end": 216.28,
+      "text": "to a Lake House query engine where you just,"
+    },
+    {
+      "id": 87,
+      "start": 216.28,
+      "end": 217.68,
+      "text": "you just have a bunch of files on S3"
+    },
+    {
+      "id": 88,
+      "start": 217.68,
+      "end": 218.52,
+      "text": "and you can read from it."
+    },
+    {
+      "id": 89,
+      "start": 218.52,
+      "end": 222.44,
+      "text": "And again, that's what Presto was originally designed for."
+    },
+    {
+      "id": 90,
+      "start": 223.36,
+      "end": 226.36,
+      "text": "And then the spectrum extension to the original version"
+    },
+    {
+      "id": 91,
+      "start": 226.36,
+      "end": 229.16,
+      "text": "of Redshift came in 2017,"
+    },
+    {
+      "id": 92,
+      "start": 229.4,
+      "end": 232.4,
+      "text": "and this is basically allowing you to have,"
+    },
+    {
+      "id": 93,
+      "start": 232.4,
+      "end": 234.2,
+      "text": "through the Redshift interface,"
+    },
+    {
+      "id": 94,
+      "start": 234.2,
+      "end": 237.28,
+      "text": "a front end query data that's on S3"
+    },
+    {
+      "id": 95,
+      "start": 237.28,
+      "end": 239.16,
+      "text": "without having to first import them,"
+    },
+    {
+      "id": 96,
+      "start": 239.16,
+      "end": 244.16,
+      "text": "load them into the Redshift managed storage."
+    },
+    {
+      "id": 97,
+      "start": 245.4,
+      "end": 249.12,
+      "text": "So, again, so when you sign up now,"
+    },
+    {
+      "id": 98,
+      "start": 249.12,
+      "end": 251.72,
+      "text": "I think you, I think you just say I want Redshift"
+    },
+    {
+      "id": 99,
+      "start": 251.72,
+      "end": 253.84,
+      "text": "and then like if you end up querying data"
+    },
+    {
+      "id": 100,
+      "start": 253.84,
+      "end": 257.08,
+      "text": "that isn't, that you're not gonna suck into the managed storage,"
+    },
+    {
+      "id": 101,
+      "start": 257.08,
+      "end": 258.6,
+      "text": "that just sort of goes to the spectrum thing."
+    },
+    {
+      "id": 102,
+      "start": 258.6,
+      "end": 260.52,
+      "text": "I don't think you specify I want spectrum,"
+    },
+    {
+      "id": 103,
+      "start": 260.52,
+      "end": 262.72,
+      "text": "whereas a Fiener is a completely separate service."
+    },
+    {
+      "id": 104,
+      "start": 262.72,
+      "end": 264.28,
+      "text": "And then the set is just,"
+    },
+    {
+      "id": 105,
+      "start": 264.28,
+      "end": 268.04,
+      "text": "they're just reselling a repackaging Presto."
+    },
+    {
+      "id": 106,
+      "start": 269.32,
+      "end": 271.24,
+      "text": "Which Amazon does a lot for a lot of systems,"
+    },
+    {
+      "id": 107,
+      "start": 271.24,
+      "end": 276.56,
+      "text": "causes problems with some,"
+    },
+    {
+      "id": 108,
+      "start": 276.76,
+      "end": 278.36,
+      "text": "from data spenders for open source software"
+    },
+    {
+      "id": 109,
+      "start": 278.36,
+      "end": 281.2,
+      "text": "because Amazon oftentimes makes more money than they do."
+    },
+    {
+      "id": 110,
+      "start": 281.2,
+      "end": 282.76,
+      "text": "And then, so what ends up happening"
+    },
+    {
+      "id": 111,
+      "start": 282.76,
+      "end": 285.2,
+      "text": "is these major companies"
+    },
+    {
+      "id": 112,
+      "start": 285.2,
+      "end": 287.64,
+      "text": "and a re licensing open source software"
+    },
+    {
+      "id": 113,
+      "start": 287.64,
+      "end": 290.64,
+      "text": "to prevent Amazon from reselling it."
+    },
+    {
+      "id": 114,
+      "start": 290.64,
+      "end": 292.8,
+      "text": "Elastics probably the most famous one that has done this"
+    },
+    {
+      "id": 115,
+      "start": 292.8,
+      "end": 293.64,
+      "text": "would have had to change the license,"
+    },
+    {
+      "id": 116,
+      "start": 293.64,
+      "end": 296.0,
+      "text": "because Amazon was making more money on elastic search"
+    },
+    {
+      "id": 117,
+      "start": 296.0,
+      "end": 297.76,
+      "text": "than the actual company elastic was."
+    },
+    {
+      "id": 118,
+      "start": 300.2,
+      "end": 301.56,
+      "text": "Okay, so at high level,"
+    },
+    {
+      "id": 119,
+      "start": 301.56,
+      "end": 303.88,
+      "text": "this is what Redshift is gonna do for us."
+    },
+    {
+      "id": 120,
+      "start": 303.88,
+      "end": 305.84,
+      "text": "So again, a lot of this is gonna be the same"
+    },
+    {
+      "id": 121,
+      "start": 305.84,
+      "end": 307.24,
+      "text": "as to him before, share disk,"
+    },
+    {
+      "id": 122,
+      "start": 307.24,
+      "end": 308.32,
+      "text": "just saying I got a storage again,"
+    },
+    {
+      "id": 123,
+      "start": 308.32,
+      "end": 310.24,
+      "text": "even though it started off as a shared nothing,"
+    },
+    {
+      "id": 124,
+      "start": 310.24,
+      "end": 314.36,
+      "text": "but then they switched move to share disk."
+    },
+    {
+      "id": 125,
+      "start": 314.36,
+      "end": 317.52,
+      "text": "Then you push based vectorized query processing,"
+    },
+    {
+      "id": 126,
+      "start": 317.52,
+      "end": 318.36,
+      "text": "I'll talk about this in a second,"
+    },
+    {
+      "id": 127,
+      "start": 318.36,
+      "end": 319.88,
+      "text": "but they're gonna be doing in trinzix,"
+    },
+    {
+      "id": 128,
+      "start": 321.6,
+      "end": 325.84,
+      "text": "AVX2 and Cindy could written by hand by Amazon engineers."
+    },
+    {
+      "id": 129,
+      "start": 325.84,
+      "end": 329.36,
+      "text": "What is novel about what they're doing for cogeneration"
+    },
+    {
+      "id": 130,
+      "start": 329.36,
+      "end": 332.88,
+      "text": "than the other systems is that they're actually gonna do both."
+    },
+    {
+      "id": 131,
+      "start": 332.88,
+      "end": 336.52,
+      "text": "They're gonna do the vectorized style pre compile primitives"
+    },
+    {
+      "id": 132,
+      "start": 336.52,
+      "end": 341.36,
+      "text": "and also do the holistic source to source compilation"
+    },
+    {
+      "id": 133,
+      "start": 341.36,
+      "end": 343.24,
+      "text": "that we sell on high queue."
+    },
+    {
+      "id": 134,
+      "start": 343.24,
+      "end": 345.88,
+      "text": "So they're actually gonna be doing both these things."
+    },
+    {
+      "id": 135,
+      "start": 345.88,
+      "end": 347.48,
+      "text": "Well, how compute site caching,"
+    },
+    {
+      "id": 136,
+      "start": 347.48,
+      "end": 349.96,
+      "text": "tax column or storage will be the run proprietary storage."
+    },
+    {
+      "id": 137,
+      "start": 349.96,
+      "end": 351.56,
+      "text": "I think they're doing, they can do sort of mergers,"
+    },
+    {
+      "id": 138,
+      "start": 351.56,
+      "end": 353.92,
+      "text": "hash joins, another interesting aspect is that"
+    },
+    {
+      "id": 139,
+      "start": 353.92,
+      "end": 355.48,
+      "text": "they're gonna have their own sort of hard work"
+    },
+    {
+      "id": 140,
+      "start": 355.48,
+      "end": 357.96,
+      "text": "acceleration layer and they're upfront about it."
+    },
+    {
+      "id": 141,
+      "start": 357.96,
+      "end": 359.8,
+      "text": "What this is what it's actually doing,"
+    },
+    {
+      "id": 142,
+      "start": 359.8,
+      "end": 361.52,
+      "text": "where it's like big query, for example,"
+    },
+    {
+      "id": 143,
+      "start": 361.52,
+      "end": 364.12,
+      "text": "they don't publicly talk about the in-memory shuffle."
+    },
+    {
+      "id": 144,
+      "start": 364.12,
+      "end": 365.32,
+      "text": "And as far as the notes,"
+    },
+    {
+      "id": 145,
+      "start": 365.32,
+      "end": 367.44,
+      "text": "snowflake doesn't have anything that they do."
+    },
+    {
+      "id": 146,
+      "start": 367.44,
+      "end": 370.2,
+      "text": "And then they have a stratified query optimizer"
+    },
+    {
+      "id": 147,
+      "start": 370.2,
+      "end": 372.52,
+      "text": "that paper mentions, that's how they're gonna be able"
+    },
+    {
+      "id": 148,
+      "start": 372.52,
+      "end": 375.64,
+      "text": "to do the handle of the one off issues"
+    },
+    {
+      "id": 149,
+      "start": 375.64,
+      "end": 378.16,
+      "text": "that they have for queries by having their own"
+    },
+    {
+      "id": 150,
+      "start": 378.16,
+      "end": 379.16,
+      "text": "sort of rewrite or layer."
+    },
+    {
+      "id": 151,
+      "start": 380.2,
+      "end": 382.64,
+      "text": "So for today, I'm gonna mostly talk about this one"
+    },
+    {
+      "id": 152,
+      "start": 382.64,
+      "end": 384.72,
+      "text": "and this one, but then these other things"
+    },
+    {
+      "id": 153,
+      "start": 384.72,
+      "end": 386.4,
+      "text": "will come up as we go along."
+    },
+    {
+      "id": 154,
+      "start": 388.84,
+      "end": 392.6,
+      "text": "So this is the diagram from the actual paper itself."
+    },
+    {
+      "id": 155,
+      "start": 393.76,
+      "end": 397.48,
+      "text": "And you can see all the different bits and pieces"
+    },
+    {
+      "id": 156,
+      "start": 397.48,
+      "end": 402.48,
+      "text": "that make up the overall arching redshift system."
+    },
+    {
+      "id": 157,
+      "start": 403.2,
+      "end": 406.28,
+      "text": "So at the bottom, you have this storage layer here"
+    },
+    {
+      "id": 158,
+      "start": 406.28,
+      "end": 409.32,
+      "text": "and what's sort of confusing is that you have sort of S3 here"
+    },
+    {
+      "id": 159,
+      "start": 409.32,
+      "end": 412.04,
+      "text": "and then you have this redshift manage storage next to it."
+    },
+    {
+      "id": 160,
+      "start": 412.04,
+      "end": 415.08,
+      "text": "As far as I can tell, they're actually, you know,"
+    },
+    {
+      "id": 161,
+      "start": 415.08,
+      "end": 418.48,
+      "text": "like EC2 instances themselves and locally attach storage"
+    },
+    {
+      "id": 162,
+      "start": 418.48,
+      "end": 421.92,
+      "text": "who can then also, you know, spill over and write"
+    },
+    {
+      "id": 163,
+      "start": 421.92,
+      "end": 425.84,
+      "text": "read and write data from the S3 as well."
+    },
+    {
+      "id": 164,
+      "start": 427.6,
+      "end": 429.72,
+      "text": "There's this aqua thing that the hard work acceleration"
+    },
+    {
+      "id": 165,
+      "start": 429.72,
+      "end": 431.44,
+      "text": "we'll talk about in a second,"
+    },
+    {
+      "id": 166,
+      "start": 431.44,
+      "end": 433.84,
+      "text": "but that could be something that stands in between"
+    },
+    {
+      "id": 167,
+      "start": 433.84,
+      "end": 438.76,
+      "text": "the compute nodes and the redshift manage storage."
+    },
+    {
+      "id": 168,
+      "start": 438.76,
+      "end": 441.16,
+      "text": "They have these other spectrum nodes here."
+    },
+    {
+      "id": 169,
+      "start": 441.16,
+      "end": 444.8,
+      "text": "Again, I think these are just, I don't know if they're like,"
+    },
+    {
+      "id": 170,
+      "start": 444.8,
+      "end": 446.28,
+      "text": "I don't know if these things are just to be like,"
+    },
+    {
+      "id": 171,
+      "start": 446.28,
+      "end": 448.52,
+      "text": "it's software that can then run in here"
+    },
+    {
+      "id": 172,
+      "start": 448.52,
+      "end": 449.96,
+      "text": "in the actual compute nodes of the worker nodes"
+    },
+    {
+      "id": 173,
+      "start": 449.96,
+      "end": 452.76,
+      "text": "with running queries that can just know how to go read data"
+    },
+    {
+      "id": 174,
+      "start": 452.76,
+      "end": 454.12,
+      "text": "down from S3."
+    },
+    {
+      "id": 175,
+      "start": 455.12,
+      "end": 455.96,
+      "text": "Yes."
+    },
+    {
+      "id": 176,
+      "start": 455.96,
+      "end": 456.8,
+      "text": "It's a good question."
+    },
+    {
+      "id": 177,
+      "start": 456.8,
+      "end": 459.44,
+      "text": "What exactly, so expecting just an isolated thing"
+    },
+    {
+      "id": 178,
+      "start": 459.44,
+      "end": 461.92,
+      "text": "is it actually talking to anyone?"
+    },
+    {
+      "id": 179,
+      "start": 461.92,
+      "end": 462.76,
+      "text": "It's a question."
+    },
+    {
+      "id": 180,
+      "start": 462.76,
+      "end": 465.52,
+      "text": "The spectrum is an isolated thing, so there's no error."
+    },
+    {
+      "id": 181,
+      "start": 465.52,
+      "end": 466.32,
+      "text": "So this is what I'm saying."
+    },
+    {
+      "id": 182,
+      "start": 466.32,
+      "end": 471.12,
+      "text": "I don't, maybe I'm just misunderstanding what it's in the paper."
+    },
+    {
+      "id": 183,
+      "start": 471.12,
+      "end": 472.8,
+      "text": "In the hypocritical aspect of talk lecture,"
+    },
+    {
+      "id": 184,
+      "start": 472.8,
+      "end": 474.16,
+      "text": "I don't think he mentioned this."
+    },
+    {
+      "id": 185,
+      "start": 474.16,
+      "end": 475.96,
+      "text": "Like, I thought this is just software"
+    },
+    {
+      "id": 186,
+      "start": 475.96,
+      "end": 476.96,
+      "text": "because it's just like, okay,"
+    },
+    {
+      "id": 187,
+      "start": 476.96,
+      "end": 478.48,
+      "text": "you want to read some data on S3."
+    },
+    {
+      "id": 188,
+      "start": 478.48,
+      "end": 481.12,
+      "text": "My worker node knows how to go do that, right?"
+    },
+    {
+      "id": 189,
+      "start": 481.12,
+      "end": 482.92,
+      "text": "From what I understood from this talk this year"
+    },
+    {
+      "id": 190,
+      "start": 482.92,
+      "end": 486.8,
+      "text": "is that his spectrum basically will stop from the,"
+    },
+    {
+      "id": 191,
+      "start": 486.8,
+      "end": 489.2,
+      "text": "so the armist nodes are just S3 nodes,"
+    },
+    {
+      "id": 192,
+      "start": 489.2,
+      "end": 491.08,
+      "text": "with some more software on there."
+    },
+    {
+      "id": 193,
+      "start": 491.08,
+      "end": 494.44,
+      "text": "And like, the spectrum moves stuff from S3 to RMS."
+    },
+    {
+      "id": 194,
+      "start": 494.44,
+      "end": 495.44,
+      "text": "That was a good question."
+    },
+    {
+      "id": 195,
+      "start": 495.44,
+      "end": 498.4,
+      "text": "For the RMS stuff, these are just S3 nodes"
+    },
+    {
+      "id": 196,
+      "start": 498.4,
+      "end": 499.56,
+      "text": "with the extra stuff."
+    },
+    {
+      "id": 197,
+      "start": 499.56,
+      "end": 500.72,
+      "text": "Yes."
+    },
+    {
+      "id": 198,
+      "start": 500.72,
+      "end": 502.04,
+      "text": "And then the..."
+    },
+    {
+      "id": 199,
+      "start": 502.04,
+      "end": 503.28,
+      "text": "Is that move into this?"
+    },
+    {
+      "id": 200,
+      "start": 503.28,
+      "end": 504.12,
+      "text": "Into this?"
+    },
+    {
+      "id": 201,
+      "start": 504.12,
+      "end": 506.72,
+      "text": "Yes, because it does it take Amazon S3..."
+    },
+    {
+      "id": 202,
+      "start": 506.72,
+      "end": 509.64,
+      "text": "No, I thought the spectrum nodes are just compute, right?"
+    },
+    {
+      "id": 203,
+      "start": 509.64,
+      "end": 516.64,
+      "text": "Because you can join the RMS data with the S3 data, right?"
+    },
+    {
+      "id": 204,
+      "start": 516.64,
+      "end": 520.36,
+      "text": "So, we'll see slides in a second."
+    },
+    {
+      "id": 205,
+      "start": 520.36,
+      "end": 523.0,
+      "text": "And so therefore, if you're just doing query processing,"
+    },
+    {
+      "id": 206,
+      "start": 523.0,
+      "end": 524.92,
+      "text": "that's going to be done up with the compute nodes anyway."
+    },
+    {
+      "id": 207,
+      "start": 524.92,
+      "end": 528.24,
+      "text": "So I don't know what the separate spectrum nodes are actually mean."
+    },
+    {
+      "id": 208,
+      "start": 530.76,
+      "end": 532.16,
+      "text": "And then the..."
+    },
+    {
+      "id": 209,
+      "start": 532.16,
+      "end": 534.56,
+      "text": "I slice one cluster versus red-shot compute clusters."
+    },
+    {
+      "id": 210,
+      "start": 534.56,
+      "end": 537.44,
+      "text": "This is just like how you sort of provision it."
+    },
+    {
+      "id": 211,
+      "start": 537.44,
+      "end": 542.44,
+      "text": "Do I want to have some organization in my company"
+    },
+    {
+      "id": 212,
+      "start": 542.44,
+      "end": 547.44,
+      "text": "have access to a compute cluster that they can only use"
+    },
+    {
+      "id": 213,
+      "start": 547.44,
+      "end": 550.44,
+      "text": "and therefore it doesn't interfere with..."
+    },
+    {
+      "id": 214,
+      "start": 550.44,
+      "end": 552.72,
+      "text": "It doesn't get slowed down if people are sort of going"
+    },
+    {
+      "id": 215,
+      "start": 552.72,
+      "end": 554.44,
+      "text": "at the general pool for the organization."
+    },
+    {
+      "id": 216,
+      "start": 554.44,
+      "end": 557.04,
+      "text": "They also have the ability to scale up automatically"
+    },
+    {
+      "id": 217,
+      "start": 557.04,
+      "end": 559.72,
+      "text": "if you specify to say, hey, go bring some digital nodes"
+    },
+    {
+      "id": 218,
+      "start": 559.72,
+      "end": 561.88,
+      "text": "because these things are meant to be stateless."
+    },
+    {
+      "id": 219,
+      "start": 561.88,
+      "end": 566.44,
+      "text": "Although I think they also do have a local SSD cache as well."
+    },
+    {
+      "id": 220,
+      "start": 567.44,
+      "end": 570.6,
+      "text": "And then the compilation service, we'll talk about that in a second,"
+    },
+    {
+      "id": 221,
+      "start": 570.68,
+      "end": 574.56,
+      "text": "but that is basically, again, the thing that's going to run GCC"
+    },
+    {
+      "id": 222,
+      "start": 574.56,
+      "end": 577.6,
+      "text": "to do the compilation of the queries as they go along."
+    },
+    {
+      "id": 223,
+      "start": 581.08,
+      "end": 584.16,
+      "text": "And what's also confusing about the red-shift manage storage"
+    },
+    {
+      "id": 224,
+      "start": 584.16,
+      "end": 588.72,
+      "text": "and how it relates to like compute nodes is when you provision red-shift,"
+    },
+    {
+      "id": 225,
+      "start": 588.72,
+      "end": 592.28,
+      "text": "you specify you want the instance type to be the red-shift,"
+    },
+    {
+      "id": 226,
+      "start": 592.28,
+      "end": 593.72,
+      "text": "you know, in manage storage."
+    },
+    {
+      "id": 227,
+      "start": 593.72,
+      "end": 597.04,
+      "text": "And so that, sometimes the literature makes it sound like,"
+    },
+    {
+      "id": 228,
+      "start": 597.08,
+      "end": 601.04,
+      "text": "okay, well, it's the node itself just knows how to go talk to..."
+    },
+    {
+      "id": 229,
+      "start": 601.04,
+      "end": 602.04,
+      "text": "Sorry, like..."
+    }
+  ],
+  "language": "en"
+}

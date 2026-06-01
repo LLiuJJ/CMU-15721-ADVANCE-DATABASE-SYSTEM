@@ -1,0 +1,1451 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.64,
+      "text": "and you assume that the workload is fixed."
+    },
+    {
+      "id": 1,
+      "start": 2.64,
+      "end": 3.98,
+      "text": "But obviously in a database system,"
+    },
+    {
+      "id": 2,
+      "start": 3.98,
+      "end": 6.02,
+      "text": "query are coming and going all the time."
+    },
+    {
+      "id": 3,
+      "start": 6.02,
+      "end": 7.68,
+      "text": "So we can't make that assumption."
+    },
+    {
+      "id": 4,
+      "start": 7.68,
+      "end": 9.72,
+      "text": "So they have ways to fix that."
+    },
+    {
+      "id": 5,
+      "start": 9.72,
+      "end": 10.86,
+      "text": "Yes?"
+    },
+    {
+      "id": 6,
+      "start": 10.86,
+      "end": 13.16,
+      "text": "I'm sure the second fourth point,"
+    },
+    {
+      "id": 7,
+      "start": 13.16,
+      "end": 15.8,
+      "text": "it's essentially growing the morph sizes"
+    },
+    {
+      "id": 8,
+      "start": 15.8,
+      "end": 20.32,
+      "text": "to get a lower value of how long it takes to execute the query"
+    },
+    {
+      "id": 9,
+      "start": 20.32,
+      "end": 23.04,
+      "text": "for the execute the task."
+    },
+    {
+      "id": 10,
+      "start": 23.04,
+      "end": 26.74,
+      "text": "How do you know how our task is executed?"
+    },
+    {
+      "id": 11,
+      "start": 26.74,
+      "end": 28.38,
+      "text": "You don't. So the question is,"
+    },
+    {
+      "id": 12,
+      "start": 28.38,
+      "end": 31.8,
+      "text": "how do you know how long a task is going to take to execute it?"
+    },
+    {
+      "id": 13,
+      "start": 31.8,
+      "end": 32.64,
+      "text": "You don't."
+    },
+    {
+      "id": 14,
+      "start": 32.64,
+      "end": 36.94,
+      "text": "They just turn on monitoring on it and keep track of it over time."
+    },
+    {
+      "id": 15,
+      "start": 36.94,
+      "end": 39.96,
+      "text": "And so when they frequently grow the morph sizes,"
+    },
+    {
+      "id": 16,
+      "start": 39.96,
+      "end": 42.8,
+      "text": "is it like there's adding more data to the morphs along?"
+    },
+    {
+      "id": 17,
+      "start": 42.8,
+      "end": 43.32,
+      "text": "Yes."
+    },
+    {
+      "id": 18,
+      "start": 43.32,
+      "end": 45.32,
+      "text": "Dynamically?"
+    },
+    {
+      "id": 19,
+      "start": 45.32,
+      "end": 48.08,
+      "text": "Or is it just giving them more morphs instead?"
+    },
+    {
+      "id": 20,
+      "start": 48.08,
+      "end": 49.44,
+      "text": "So the thing about the morphs along the concept,"
+    },
+    {
+      "id": 21,
+      "start": 49.44,
+      "end": 51.32,
+      "text": "it's just a logical concept."
+    },
+    {
+      "id": 22,
+      "start": 51.32,
+      "end": 53.6,
+      "text": "Like here's the divider line of like, for one morphs of ends"
+    },
+    {
+      "id": 23,
+      "start": 53.6,
+      "end": 54.24,
+      "text": "and stops."
+    },
+    {
+      "id": 24,
+      "start": 54.24,
+      "end": 58.2,
+      "text": "So like, if you recognize that each task is computing each"
+    },
+    {
+      "id": 25,
+      "start": 58.2,
+      "end": 62.04,
+      "text": "morphs of really, really fast, then there's more bookkeeping."
+    },
+    {
+      "id": 26,
+      "start": 62.04,
+      "end": 63.3,
+      "text": "You have to go back and get more,"
+    },
+    {
+      "id": 27,
+      "start": 63.3,
+      "end": 64.56,
+      "text": "give me the next task."
+    },
+    {
+      "id": 28,
+      "start": 64.56,
+      "end": 67.74,
+      "text": "You sort of increase what the boundary is for the morphs."
+    },
+    {
+      "id": 29,
+      "start": 67.74,
+      "end": 70.98,
+      "text": "So that eventually the amount of work you do,"
+    },
+    {
+      "id": 30,
+      "start": 70.98,
+      "end": 73.28,
+      "text": "so the amount of time it takes to process that morphs of is one"
+    },
+    {
+      "id": 31,
+      "start": 73.28,
+      "end": 73.8,
+      "text": "level second."
+    },
+    {
+      "id": 32,
+      "start": 73.8,
+      "end": 74.0,
+      "text": "OK."
+    },
+    {
+      "id": 33,
+      "start": 74.0,
+      "end": 77.68,
+      "text": "So you're not changing like a given morphs of efforts created."
+    },
+    {
+      "id": 34,
+      "start": 77.68,
+      "end": 79.0,
+      "text": "It's like for future morphs,"
+    },
+    {
+      "id": 35,
+      "start": 79.0,
+      "end": 81.84,
+      "text": "you're going to make them bigger to better take advantage."
+    },
+    {
+      "id": 36,
+      "start": 81.84,
+      "end": 84.2,
+      "text": "It's the same as you're not changing morphs of their trade"
+    },
+    {
+      "id": 37,
+      "start": 84.2,
+      "end": 87.0,
+      "text": "and you're just making future morphs bigger."
+    },
+    {
+      "id": 38,
+      "start": 87.0,
+      "end": 87.5,
+      "text": "Yes."
+    },
+    {
+      "id": 39,
+      "start": 87.5,
+      "end": 91.32,
+      "text": "But again, make sure we're clear about when we say creation."
+    },
+    {
+      "id": 40,
+      "start": 91.32,
+      "end": 93.12,
+      "text": "It's just a logical boundary."
+    },
+    {
+      "id": 41,
+      "start": 93.12,
+      "end": 95.96,
+      "text": "It's not like I'm copying data and making it bigger."
+    },
+    {
+      "id": 42,
+      "start": 95.96,
+      "end": 99.16,
+      "text": "I'm just saying like, here's how to cut things off."
+    },
+    {
+      "id": 43,
+      "start": 99.16,
+      "end": 99.48,
+      "text": "OK."
+    },
+    {
+      "id": 44,
+      "start": 99.48,
+      "end": 100.56,
+      "text": "I'm just saying like, you don't go to."
+    },
+    {
+      "id": 45,
+      "start": 100.56,
+      "end": 101.72,
+      "text": "You don't go back to something that's already running."
+    },
+    {
+      "id": 46,
+      "start": 101.72,
+      "end": 102.6,
+      "text": "Hey, here's 10 more tuples."
+    },
+    {
+      "id": 47,
+      "start": 102.6,
+      "end": 103.36,
+      "text": "You didn't have before."
+    },
+    {
+      "id": 48,
+      "start": 103.36,
+      "end": 103.88,
+      "text": "You don't do that."
+    },
+    {
+      "id": 49,
+      "start": 103.88,
+      "end": 105.8,
+      "text": "I actually changed this value because I was asking,"
+    },
+    {
+      "id": 50,
+      "start": 105.8,
+      "end": 107.08,
+      "text": "we're never changing the value before."
+    },
+    {
+      "id": 51,
+      "start": 107.08,
+      "end": 108.12,
+      "text": "I think that's already running."
+    },
+    {
+      "id": 52,
+      "start": 108.12,
+      "end": 110.52,
+      "text": "It's like we changed the value to the other things"
+    },
+    {
+      "id": 53,
+      "start": 110.52,
+      "end": 111.64,
+      "text": "that haven't been processed."
+    },
+    {
+      "id": 54,
+      "start": 111.64,
+      "end": 113.8,
+      "text": "For the remaining parts of the data table."
+    },
+    {
+      "id": 55,
+      "start": 113.8,
+      "end": 114.6,
+      "text": "Yes."
+    },
+    {
+      "id": 56,
+      "start": 114.6,
+      "end": 117.4,
+      "text": "Is there some sort of small size that starts off with"
+    },
+    {
+      "id": 57,
+      "start": 117.4,
+      "end": 121.32,
+      "text": "that it just keeps growing until one of them takes longer"
+    },
+    {
+      "id": 58,
+      "start": 121.32,
+      "end": 122.28,
+      "text": "than one of those?"
+    },
+    {
+      "id": 59,
+      "start": 122.28,
+      "end": 122.8,
+      "text": "Yes, it is."
+    },
+    {
+      "id": 60,
+      "start": 122.8,
+      "end": 124.32,
+      "text": "And he's correct."
+    },
+    {
+      "id": 61,
+      "start": 124.32,
+      "end": 126.24,
+      "text": "Is it just that you start off with a small size"
+    },
+    {
+      "id": 62,
+      "start": 126.24,
+      "end": 128.12,
+      "text": "and say, OK, here's the amount of work"
+    },
+    {
+      "id": 63,
+      "start": 128.12,
+      "end": 129.56,
+      "text": "you're going to do in a task."
+    },
+    {
+      "id": 64,
+      "start": 129.56,
+      "end": 130.32,
+      "text": "It's going to be the morsel."
+    },
+    {
+      "id": 65,
+      "start": 130.32,
+      "end": 132.36,
+      "text": "It's going to be 100,000 tuples."
+    },
+    {
+      "id": 66,
+      "start": 132.36,
+      "end": 135.64,
+      "text": "But then if you complete that in less than 1 millisecond,"
+    },
+    {
+      "id": 67,
+      "start": 135.64,
+      "end": 137.68,
+      "text": "then the morsel size, so the next thing you're going to process"
+    },
+    {
+      "id": 68,
+      "start": 137.68,
+      "end": 138.76,
+      "text": "will be a little bit bigger."
+    },
+    {
+      "id": 69,
+      "start": 138.76,
+      "end": 139.76,
+      "text": "You keep making it a little bit bigger"
+    },
+    {
+      "id": 70,
+      "start": 139.76,
+      "end": 143.04,
+      "text": "until you exponentially bigger until your task takes"
+    },
+    {
+      "id": 71,
+      "start": 143.04,
+      "end": 145.16,
+      "text": "1 1 millisecond."
+    },
+    {
+      "id": 72,
+      "start": 145.16,
+      "end": 145.66,
+      "text": "Yes."
+    },
+    {
+      "id": 73,
+      "start": 145.66,
+      "end": 147.64,
+      "text": "There must be a bit of a non-issue."
+    },
+    {
+      "id": 74,
+      "start": 147.64,
+      "end": 149.52,
+      "text": "What happens if there's a shorting amount"
+    },
+    {
+      "id": 75,
+      "start": 149.52,
+      "end": 151.64,
+      "text": "is it takes like, for example, 5 milliseconds"
+    },
+    {
+      "id": 76,
+      "start": 151.64,
+      "end": 152.16,
+      "text": "to take."
+    },
+    {
+      "id": 77,
+      "start": 152.16,
+      "end": 153.16,
+      "text": "If there's never going to grow anymore,"
+    },
+    {
+      "id": 78,
+      "start": 153.16,
+      "end": 155.04,
+      "text": "the total of that trick will take a lot."
+    },
+    {
+      "id": 79,
+      "start": 155.04,
+      "end": 156.24,
+      "text": "It's really long amount of time."
+    },
+    {
+      "id": 80,
+      "start": 156.24,
+      "end": 159.0,
+      "text": "For some reason, they start with really big morsel sizes."
+    },
+    {
+      "id": 81,
+      "start": 159.0,
+      "end": 161.68,
+      "text": "It's question is, what if the, what do you start with?"
+    },
+    {
+      "id": 82,
+      "start": 161.68,
+      "end": 164.44,
+      "text": "1 billion tuples per morsel, and you're really big,"
+    },
+    {
+      "id": 83,
+      "start": 164.44,
+      "end": 165.04,
+      "text": "could you shrink it?"
+    },
+    {
+      "id": 84,
+      "start": 165.04,
+      "end": 166.08,
+      "text": "Yes."
+    },
+    {
+      "id": 85,
+      "start": 166.08,
+      "end": 166.88,
+      "text": "Why not?"
+    },
+    {
+      "id": 86,
+      "start": 166.88,
+      "end": 169.16,
+      "text": "OK, I just like I didn't know if it was a part of the system"
+    },
+    {
+      "id": 87,
+      "start": 169.16,
+      "end": 171.68,
+      "text": "design because it seemed like it was only growing."
+    },
+    {
+      "id": 88,
+      "start": 172.4,
+      "end": 173.76,
+      "text": "Yeah, but that's a trick I'll do."
+    },
+    {
+      "id": 89,
+      "start": 173.76,
+      "end": 174.6,
+      "text": "Yes."
+    },
+    {
+      "id": 90,
+      "start": 174.6,
+      "end": 176.08,
+      "text": "Why do they want to use these?"
+    },
+    {
+      "id": 91,
+      "start": 176.08,
+      "end": 178.36,
+      "text": "Is that like 1 just a bit different?"
+    },
+    {
+      "id": 92,
+      "start": 178.36,
+      "end": 182.12,
+      "text": "Why do they want to do 1 millisecond run?"
+    },
+    {
+      "id": 93,
+      "start": 182.12,
+      "end": 187.96,
+      "text": "Because it allows you to be more dynamic and not have a worker"
+    },
+    {
+      "id": 94,
+      "start": 187.96,
+      "end": 190.88,
+      "text": "just avoid the straggler problem."
+    },
+    {
+      "id": 95,
+      "start": 190.88,
+      "end": 195.2,
+      "text": "So it'll have to work through it."
+    },
+    {
+      "id": 96,
+      "start": 195.2,
+      "end": 201.2,
+      "text": "I think it is doing work-stealing,"
+    },
+    {
+      "id": 97,
+      "start": 201.2,
+      "end": 206.56,
+      "text": "but not in the, how does it, it is doing work-stealing."
+    },
+    {
+      "id": 98,
+      "start": 206.56,
+      "end": 218.32,
+      "text": "So it's not, it's work-stealing in that."
+    },
+    {
+      "id": 99,
+      "start": 218.32,
+      "end": 219.68,
+      "text": "There's still going to be a global queue,"
+    },
+    {
+      "id": 100,
+      "start": 219.68,
+      "end": 221.8,
+      "text": "but there will be clever how they maintain it."
+    },
+    {
+      "id": 101,
+      "start": 221.8,
+      "end": 223.52,
+      "text": "So when I got to say, what's the next thing I"
+    },
+    {
+      "id": 102,
+      "start": 223.52,
+      "end": 227.24,
+      "text": "want I need to go do, I got to go consider the location,"
+    },
+    {
+      "id": 103,
+      "start": 227.24,
+      "end": 231.16,
+      "text": "the data, plus a priority of what the next thing I need to run."
+    },
+    {
+      "id": 104,
+      "start": 232.12,
+      "end": 236.68,
+      "text": "So like in the morsel's approach,"
+    },
+    {
+      "id": 105,
+      "start": 236.68,
+      "end": 239.84,
+      "text": "it was this morsel has to be processed by this core,"
+    },
+    {
+      "id": 106,
+      "start": 239.84,
+      "end": 241.76,
+      "text": "because it's been assigned to that."
+    },
+    {
+      "id": 107,
+      "start": 241.76,
+      "end": 243.24,
+      "text": "And the work-stealing part is I'm"
+    },
+    {
+      "id": 108,
+      "start": 243.24,
+      "end": 247.4,
+      "text": "allowed to run tasks that are for data that aren't local to me."
+    },
+    {
+      "id": 109,
+      "start": 247.4,
+      "end": 249.28,
+      "text": "So in this one, they're doing the same thing,"
+    },
+    {
+      "id": 110,
+      "start": 249.28,
+      "end": 251.32,
+      "text": "but they're also not including the priority information"
+    },
+    {
+      "id": 111,
+      "start": 251.32,
+      "end": 254.36,
+      "text": "about the query itself."
+    },
+    {
+      "id": 112,
+      "start": 254.36,
+      "end": 260.36,
+      "text": "So it is doing work-stealing, but it's a natural,"
+    },
+    {
+      "id": 113,
+      "start": 260.36,
+      "end": 262.52,
+      "text": "natural is not the right word either."
+    },
+    {
+      "id": 114,
+      "start": 262.52,
+      "end": 264.48,
+      "text": "It just sort of just happens because the way they're"
+    },
+    {
+      "id": 115,
+      "start": 264.48,
+      "end": 266.12,
+      "text": "maintaining the queue."
+    },
+    {
+      "id": 116,
+      "start": 266.12,
+      "end": 269.32,
+      "text": "So what is the goal to make it one of the second"
+    },
+    {
+      "id": 117,
+      "start": 269.32,
+      "end": 271.76,
+      "text": "idea of what the thing is, is it like two-bath and two-baths?"
+    },
+    {
+      "id": 118,
+      "start": 271.76,
+      "end": 274.56,
+      "text": "It says the, why is it the goal to make it one millisecond"
+    },
+    {
+      "id": 119,
+      "start": 274.56,
+      "end": 275.16,
+      "text": "per task?"
+    },
+    {
+      "id": 120,
+      "start": 275.16,
+      "end": 276.4,
+      "text": "It's a balance it, absolutely, yes."
+    },
+    {
+      "id": 121,
+      "start": 280.08,
+      "end": 282.76,
+      "text": "He's the priority like assigned before the query's"
+    },
+    {
+      "id": 122,
+      "start": 282.76,
+      "end": 285.32,
+      "text": "exit, or something like that."
+    },
+    {
+      "id": 123,
+      "start": 285.32,
+      "end": 286.48,
+      "text": "I mean, we'll see a priority."
+    },
+    {
+      "id": 124,
+      "start": 286.48,
+      "end": 289.24,
+      "text": "The question is, is the priority assigned"
+    },
+    {
+      "id": 125,
+      "start": 289.96,
+      "end": 290.68,
+      "text": "when the query starts?"
+    },
+    {
+      "id": 126,
+      "start": 290.68,
+      "end": 291.52,
+      "text": "Yes."
+    },
+    {
+      "id": 127,
+      "start": 291.52,
+      "end": 294.72,
+      "text": "Like everyone starts with one, and the long you run,"
+    },
+    {
+      "id": 128,
+      "start": 294.72,
+      "end": 297.44,
+      "text": "then that decays."
+    },
+    {
+      "id": 129,
+      "start": 297.44,
+      "end": 299.64,
+      "text": "How do you ensure that the short run was like,"
+    },
+    {
+      "id": 130,
+      "start": 299.64,
+      "end": 302.48,
+      "text": "which, well, it's long run, like, this one?"
+    },
+    {
+      "id": 131,
+      "start": 302.48,
+      "end": 304.32,
+      "text": "The question is, how do you make sure that the short run"
+    },
+    {
+      "id": 132,
+      "start": 304.32,
+      "end": 306.04,
+      "text": "in query is finished more quickly,"
+    },
+    {
+      "id": 133,
+      "start": 306.04,
+      "end": 307.96,
+      "text": "and the long run in query is keep running?"
+    },
+    {
+      "id": 134,
+      "start": 307.96,
+      "end": 312.28,
+      "text": "No, it seems like the short run in the long run"
+    },
+    {
+      "id": 135,
+      "start": 312.28,
+      "end": 313.36,
+      "text": "is like, you guarantee the short run was like,"
+    },
+    {
+      "id": 136,
+      "start": 313.36,
+      "end": 314.2,
+      "text": "finish quickly."
+    },
+    {
+      "id": 137,
+      "start": 314.2,
+      "end": 314.72,
+      "text": "Yes?"
+    },
+    {
+      "id": 138,
+      "start": 314.72,
+      "end": 319.04,
+      "text": "How do you guarantee that the long run doesn't"
+    },
+    {
+      "id": 139,
+      "start": 319.04,
+      "end": 319.88,
+      "text": "get starved?"
+    },
+    {
+      "id": 140,
+      "start": 319.88,
+      "end": 321.68,
+      "text": "Because the stride scheduling will handle that."
+    },
+    {
+      "id": 141,
+      "start": 321.68,
+      "end": 323.96,
+      "text": "There's this notion of a pass."
+    },
+    {
+      "id": 142,
+      "start": 323.96,
+      "end": 329.96,
+      "text": "If I have it, if the global counter, this watermark,"
+    },
+    {
+      "id": 143,
+      "start": 329.96,
+      "end": 332.84,
+      "text": "it keeps ticking forward, and if my query is below that,"
+    },
+    {
+      "id": 144,
+      "start": 332.84,
+      "end": 336.0,
+      "text": "then I get an omelet, loud to run again."
+    },
+    {
+      "id": 145,
+      "start": 336.0,
+      "end": 337.84,
+      "text": "And any new query that shows up, the shorter run"
+    },
+    {
+      "id": 146,
+      "start": 337.84,
+      "end": 339.08,
+      "text": "in query that shows up, they're going"
+    },
+    {
+      "id": 147,
+      "start": 339.08,
+      "end": 342.8,
+      "text": "to be assigned a watermark that's above that global one,"
+    },
+    {
+      "id": 148,
+      "start": 342.8,
+      "end": 345.24,
+      "text": "so that they'll be starved out."
+    },
+    {
+      "id": 149,
+      "start": 345.24,
+      "end": 346.24,
+      "text": "Yes?"
+    },
+    {
+      "id": 150,
+      "start": 346.24,
+      "end": 351.8,
+      "text": "So in the most of these, the most of the moissants and buffers"
+    },
+    {
+      "id": 151,
+      "start": 351.8,
+      "end": 352.68,
+      "text": "were prioritized."
+    },
+    {
+      "id": 152,
+      "start": 352.68,
+      "end": 355.76,
+      "text": "Like, if there was data that could be processed,"
+    },
+    {
+      "id": 153,
+      "start": 355.76,
+      "end": 357.32,
+      "text": "what is in the buffer?"
+    },
+    {
+      "id": 154,
+      "start": 357.32,
+      "end": 360.08,
+      "text": "That task was prioritized for that given in query."
+    },
+    {
+      "id": 155,
+      "start": 360.08,
+      "end": 360.76,
+      "text": "Yes."
+    },
+    {
+      "id": 156,
+      "start": 360.76,
+      "end": 364.52,
+      "text": "So here, if the priority is global for each worker,"
+    },
+    {
+      "id": 157,
+      "start": 364.52,
+      "end": 367.92,
+      "text": "or the locality of data and buffer in most of this"
+    },
+    {
+      "id": 158,
+      "start": 367.92,
+      "end": 370.92,
+      "text": "is in the bucket pool, or they are in the bucket."
+    },
+    {
+      "id": 159,
+      "start": 370.92,
+      "end": 373.6,
+      "text": "So the question is, in the morsels case,"
+    },
+    {
+      "id": 160,
+      "start": 373.6,
+      "end": 378.88,
+      "text": "the priority was based on what data I need access in the morsel,"
+    },
+    {
+      "id": 161,
+      "start": 378.88,
+      "end": 381.28,
+      "text": "and where am I going to write it to?"
+    },
+    {
+      "id": 162,
+      "start": 381.28,
+      "end": 383.12,
+      "text": "What, in this case, am I not having"
+    },
+    {
+      "id": 163,
+      "start": 383.12,
+      "end": 384.64,
+      "text": "the notion of locality?"
+    },
+    {
+      "id": 164,
+      "start": 384.64,
+      "end": 385.56,
+      "text": "You do."
+    },
+    {
+      "id": 165,
+      "start": 385.56,
+      "end": 387.8,
+      "text": "And that would be, you would have a local priority."
+    },
+    {
+      "id": 166,
+      "start": 387.8,
+      "end": 388.8,
+      "text": "We'll cover that in a second."
+    },
+    {
+      "id": 167,
+      "start": 393.44,
+      "end": 394.6,
+      "text": "OK."
+    },
+    {
+      "id": 168,
+      "start": 394.6,
+      "end": 396.56,
+      "text": "So let's first describe how they're"
+    },
+    {
+      "id": 169,
+      "start": 396.56,
+      "end": 401.84,
+      "text": "going to avoid the global task cube."
+    },
+    {
+      "id": 170,
+      "start": 401.84,
+      "end": 404.12,
+      "text": "And so it still has a global task cube,"
+    },
+    {
+      "id": 171,
+      "start": 404.12,
+      "end": 408.84,
+      "text": "but the state about whether or not"
+    },
+    {
+      "id": 172,
+      "start": 408.84,
+      "end": 412.44,
+      "text": "I need to refer to it to figure out what actually changed"
+    },
+    {
+      "id": 173,
+      "start": 412.44,
+      "end": 416.24,
+      "text": "is we maintained in thread local storage at every worker."
+    },
+    {
+      "id": 174,
+      "start": 416.24,
+      "end": 418.72,
+      "text": "Again, assuming we're running on a single node."
+    },
+    {
+      "id": 175,
+      "start": 418.72,
+      "end": 420.76,
+      "text": "So there'll be a global task set, but all this"
+    },
+    {
+      "id": 176,
+      "start": 420.76,
+      "end": 423.6,
+      "text": "is just an array of pointers that tell you"
+    },
+    {
+      "id": 177,
+      "start": 423.6,
+      "end": 426.12,
+      "text": "to go where to go find the information about the tasks"
+    },
+    {
+      "id": 178,
+      "start": 426.12,
+      "end": 428.52,
+      "text": "that you have for a given query."
+    },
+    {
+      "id": 179,
+      "start": 428.52,
+      "end": 429.76,
+      "text": "And then with any worker, there's"
+    },
+    {
+      "id": 180,
+      "start": 429.76,
+      "end": 434.6,
+      "text": "going to be these masks that keep track of which slots"
+    },
+    {
+      "id": 181,
+      "start": 434.6,
+      "end": 439.12,
+      "text": "in my slot array above are active, and then change mask"
+    },
+    {
+      "id": 182,
+      "start": 439.12,
+      "end": 440.92,
+      "text": "and return mask, tell me whether something has changed"
+    },
+    {
+      "id": 183,
+      "start": 440.92,
+      "end": 443.8,
+      "text": "of above and whether I should go confer it."
+    },
+    {
+      "id": 184,
+      "start": 443.8,
+      "end": 445.72,
+      "text": "And so what they're going to do is they're"
+    },
+    {
+      "id": 185,
+      "start": 445.72,
+      "end": 447.76,
+      "text": "going to have their different workers across different threads"
+    },
+    {
+      "id": 186,
+      "start": 447.76,
+      "end": 450.2,
+      "text": "are allowed to go right into the memory"
+    },
+    {
+      "id": 187,
+      "start": 450.2,
+      "end": 453.96,
+      "text": "of this information for the other workers as well."
+    },
+    {
+      "id": 188,
+      "start": 453.96,
+      "end": 456.44,
+      "text": "But they're going to do atomic-capair and swap operations"
+    },
+    {
+      "id": 189,
+      "start": 456.44,
+      "end": 460.4,
+      "text": "just to flip bits or basically x-orges"
+    },
+    {
+      "id": 190,
+      "start": 460.4,
+      "end": 461.84,
+      "text": "and the single instruction."
+    },
+    {
+      "id": 191,
+      "start": 461.84,
+      "end": 464.68,
+      "text": "And that yes, there's cache line and validation"
+    },
+    {
+      "id": 192,
+      "start": 464.68,
+      "end": 467.12,
+      "text": "across interconnects, but that's not like you're"
+    },
+    {
+      "id": 193,
+      "start": 467.12,
+      "end": 467.96,
+      "text": "copying a bunch of data."
+    },
+    {
+      "id": 194,
+      "start": 467.96,
+      "end": 473.24,
+      "text": "You're just doing one-comparing swap over the network."
+    },
+    {
+      "id": 195,
+      "start": 473.24,
+      "end": 476.76,
+      "text": "So in my example here, I'm going to show that we have four slots"
+    },
+    {
+      "id": 196,
+      "start": 476.76,
+      "end": 479.04,
+      "text": "in our, there could be active any time."
+    },
+    {
+      "id": 197,
+      "start": 479.04,
+      "end": 482.72,
+      "text": "I think in the paper they talk about have 128 slots."
+    },
+    {
+      "id": 198,
+      "start": 482.72,
+      "end": 485.36,
+      "text": "And that's just to bound how much work can be run actually"
+    },
+    {
+      "id": 199,
+      "start": 485.36,
+      "end": 486.8,
+      "text": "running at a given time."
+    },
+    {
+      "id": 200,
+      "start": 486.8,
+      "end": 488.56,
+      "text": "And again, the classical stride scheduling"
+    },
+    {
+      "id": 201,
+      "start": 488.56,
+      "end": 491.36,
+      "text": "is the number of slots is unbounded."
+    },
+    {
+      "id": 202,
+      "start": 494.4,
+      "end": 499.88,
+      "text": "So again, the global task set slots, these are just pointers"
+    },
+    {
+      "id": 203,
+      "start": 499.88,
+      "end": 503.68,
+      "text": "to where to define the metadata in memory"
+    },
+    {
+      "id": 204,
+      "start": 503.68,
+      "end": 506.92,
+      "text": "about what these queries are actually running."
+    },
+    {
+      "id": 205,
+      "start": 506.92,
+      "end": 510.0,
+      "text": "So let's look at an example of when a query finishes"
+    },
+    {
+      "id": 206,
+      "start": 510.0,
+      "end": 512.04,
+      "text": "and when a new query arrives."
+    },
+    {
+      "id": 207,
+      "start": 512.2,
+      "end": 515.84,
+      "text": "Sorry, I want a task set finishes."
+    },
+    {
+      "id": 208,
+      "start": 515.84,
+      "end": 519.96,
+      "text": "So let's say that worker 1 here, he's running Q1, task"
+    },
+    {
+      "id": 209,
+      "start": 519.96,
+      "end": 523.2,
+      "text": "set 1, worker 2 is running Q2, task set 1."
+    },
+    {
+      "id": 210,
+      "start": 523.2,
+      "end": 526.04,
+      "text": "So when this thing finishes, we then"
+    },
+    {
+      "id": 211,
+      "start": 526.04,
+      "end": 530.0,
+      "text": "need to go back up to this task set slot array,"
+    },
+    {
+      "id": 212,
+      "start": 530.0,
+      "end": 532.68,
+      "text": "follow the pointer to go look and say, OK, is there"
+    },
+    {
+      "id": 213,
+      "start": 532.68,
+      "end": 535.92,
+      "text": "something else I should be doing for this task set"
+    },
+    {
+      "id": 214,
+      "start": 535.92,
+      "end": 536.96,
+      "text": "for this query?"
+    },
+    {
+      "id": 215,
+      "start": 536.96,
+      "end": 539.32,
+      "text": "And let's say in this case here, we've"
+    },
+    {
+      "id": 216,
+      "start": 539.32,
+      "end": 541.44,
+      "text": "processed all the morsels."
+    },
+    {
+      "id": 217,
+      "start": 541.44,
+      "end": 543.52,
+      "text": "So we know that this thing is done."
+    },
+    {
+      "id": 218,
+      "start": 543.52,
+      "end": 545.56,
+      "text": "So then now the worker thread is then responsible"
+    },
+    {
+      "id": 219,
+      "start": 545.56,
+      "end": 548.92,
+      "text": "for them taking the next task set and we're putting that back"
+    },
+    {
+      "id": 220,
+      "start": 548.92,
+      "end": 551.68,
+      "text": "in the queue."
+    },
+    {
+      "id": 221,
+      "start": 551.68,
+      "end": 555.08,
+      "text": "But now we want to notify all the workers that, hey,"
+    },
+    {
+      "id": 222,
+      "start": 555.08,
+      "end": 557.68,
+      "text": "something has changed in this task set queue up here."
+    },
+    {
+      "id": 223,
+      "start": 557.68,
+      "end": 559.8,
+      "text": "So let's go find out what it is."
+    },
+    {
+      "id": 224,
+      "start": 559.8,
+      "end": 562.96,
+      "text": "Because we want them to pull it and not have to push it."
+    },
+    {
+      "id": 225,
+      "start": 562.96,
+      "end": 564.4,
+      "text": "Because if you're not pushing things,"
+    },
+    {
+      "id": 226,
+      "start": 564.4,
+      "end": 566.24,
+      "text": "you have to maintain latches to make sure"
+    },
+    {
+      "id": 227,
+      "start": 566.24,
+      "end": 570.12,
+      "text": "that you're not overwriting information inappropriately."
+    },
+    {
+      "id": 228,
+      "start": 570.12,
+      "end": 574.12,
+      "text": "So all we need to do now is just update this return mask."
+    },
+    {
+      "id": 229,
+      "start": 574.12,
+      "end": 576.96,
+      "text": "We just do a compare and swap at each thread"
+    },
+    {
+      "id": 230,
+      "start": 576.96,
+      "end": 579.64,
+      "text": "to now say set a 1 to this slot."
+    },
+    {
+      "id": 231,
+      "start": 579.64,
+      "end": 582.6,
+      "text": "And then next time the worker comes back around says, OK,"
+    },
+    {
+      "id": 232,
+      "start": 582.6,
+      "end": 585.12,
+      "text": "I need to go get, I need to do something."
+    },
+    {
+      "id": 233,
+      "start": 585.12,
+      "end": 588.72,
+      "text": "I need another task to compute on."
+    },
+    {
+      "id": 234,
+      "start": 588.72,
+      "end": 590.64,
+      "text": "It knows that he's going to check the task"
+    },
+    {
+      "id": 235,
+      "start": 590.64,
+      "end": 593.56,
+      "text": "queue to find out new information that somebody posted about it."
+    },
+    {
+      "id": 236,
+      "start": 593.56,
+      "end": 595.52,
+      "text": "It's like a message board saying, hey, by the way,"
+    },
+    {
+      "id": 237,
+      "start": 595.52,
+      "end": 596.48,
+      "text": "here's a change."
+    },
+    {
+      "id": 238,
+      "start": 596.48,
+      "end": 597.88,
+      "text": "I'm not telling you what it is."
+    },
+    {
+      "id": 239,
+      "start": 597.88,
+      "end": 599.36,
+      "text": "It's like a new email notification."
+    },
+    {
+      "id": 240,
+      "start": 599.36,
+      "end": 601.0,
+      "text": "I'm not telling you what it is."
+    }
+  ],
+  "language": "en"
+}

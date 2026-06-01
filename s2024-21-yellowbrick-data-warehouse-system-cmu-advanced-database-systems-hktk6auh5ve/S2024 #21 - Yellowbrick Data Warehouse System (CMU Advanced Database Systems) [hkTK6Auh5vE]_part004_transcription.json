@@ -1,0 +1,1067 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.0,
+      "text": "Borg."
+    },
+    {
+      "id": 1,
+      "start": 1.0,
+      "end": 3.0,
+      "text": "Right."
+    },
+    {
+      "id": 2,
+      "start": 3.0,
+      "end": 5.0,
+      "text": "Right, but the paper doesn't like talk about that."
+    },
+    {
+      "id": 3,
+      "start": 5.0,
+      "end": 7.0,
+      "text": "Is Snowflake running on containers?"
+    },
+    {
+      "id": 4,
+      "start": 7.0,
+      "end": 8.0,
+      "text": "I don't know."
+    },
+    {
+      "id": 5,
+      "start": 8.0,
+      "end": 9.0,
+      "text": "We have to go email."
+    },
+    {
+      "id": 6,
+      "start": 9.0,
+      "end": 10.0,
+      "text": "They ask them."
+    },
+    {
+      "id": 7,
+      "start": 10.0,
+      "end": 12.0,
+      "text": "I don't know if they're running on their own systems."
+    },
+    {
+      "id": 8,
+      "start": 12.0,
+      "end": 15.0,
+      "text": "I think they have their own machine."
+    },
+    {
+      "id": 9,
+      "start": 15.0,
+      "end": 16.0,
+      "text": "Is Snowflake?"
+    },
+    {
+      "id": 10,
+      "start": 16.0,
+      "end": 20.0,
+      "text": "Yeah, Snowflake's running on AWS or whatever cloud plumber."
+    },
+    {
+      "id": 11,
+      "start": 20.0,
+      "end": 22.0,
+      "text": "I think they like to be a mountainist."
+    },
+    {
+      "id": 12,
+      "start": 22.0,
+      "end": 26.0,
+      "text": "Yeah, so you can get bare mental instances, but do you want to have..."
+    },
+    {
+      "id": 13,
+      "start": 27.0,
+      "end": 32.0,
+      "text": "Again, like going back to the same before."
+    },
+    {
+      "id": 14,
+      "start": 38.0,
+      "end": 40.0,
+      "text": "Like there's a bunch of stuff Kubernetes is going to do for you."
+    },
+    {
+      "id": 15,
+      "start": 40.0,
+      "end": 43.0,
+      "text": "Like fault tolerance, provisioning, system state management."
+    },
+    {
+      "id": 16,
+      "start": 43.0,
+      "end": 44.0,
+      "text": "What nodes are up?"
+    },
+    {
+      "id": 17,
+      "start": 44.0,
+      "end": 47.0,
+      "text": "If you don't use Kubernetes, you've got to roll that all yourself."
+    },
+    {
+      "id": 18,
+      "start": 47.0,
+      "end": 50.0,
+      "text": "Using like LCD or bookkeeper or zookeeper or whatever, right?"
+    },
+    {
+      "id": 19,
+      "start": 50.0,
+      "end": 53.0,
+      "text": "But Kubernetes, like Kubernetes, just runs the LCD, right?"
+    },
+    {
+      "id": 20,
+      "start": 53.0,
+      "end": 55.0,
+      "text": "Like it just does it for you."
+    },
+    {
+      "id": 21,
+      "start": 56.0,
+      "end": 59.0,
+      "text": "So like all of that, you don't have to write if you just run Kubernetes."
+    },
+    {
+      "id": 22,
+      "start": 59.0,
+      "end": 62.0,
+      "text": "And the big thing that paper talks about is for all the low-level optimizations"
+    },
+    {
+      "id": 23,
+      "start": 62.0,
+      "end": 65.0,
+      "text": "that they implemented, which we'll talk about next,"
+    },
+    {
+      "id": 24,
+      "start": 65.0,
+      "end": 68.0,
+      "text": "the containers did actually not impose a problem."
+    },
+    {
+      "id": 25,
+      "start": 71.0,
+      "end": 74.0,
+      "text": "Which to me, that was surprising."
+    },
+    {
+      "id": 26,
+      "start": 78.0,
+      "end": 79.0,
+      "text": "Okay."
+    },
+    {
+      "id": 27,
+      "start": 80.0,
+      "end": 84.0,
+      "text": "So I've said this many, many times, that the entire semester,"
+    },
+    {
+      "id": 28,
+      "start": 84.0,
+      "end": 88.0,
+      "text": "that the operating system is not our friend, it is our enemy, right?"
+    },
+    {
+      "id": 29,
+      "start": 88.0,
+      "end": 90.0,
+      "text": "Every day when you're datacism, you wake up and you're like,"
+    },
+    {
+      "id": 30,
+      "start": 90.0,
+      "end": 92.0,
+      "text": "oh man, I hope I don't talk about operating systems."
+    },
+    {
+      "id": 31,
+      "start": 92.0,
+      "end": 95.0,
+      "text": "It's always going to cause problems, right?"
+    },
+    {
+      "id": 32,
+      "start": 95.0,
+      "end": 105.0,
+      "text": "So if now we want to build a datacism where we avoid the operating system as much as possible,"
+    },
+    {
+      "id": 33,
+      "start": 106.0,
+      "end": 110.0,
+      "text": "in the extreme case, in the ways that we haven't really talked about before,"
+    },
+    {
+      "id": 34,
+      "start": 110.0,
+      "end": 116.0,
+      "text": "and we basically, one of the, our data processes to boot up,"
+    },
+    {
+      "id": 35,
+      "start": 116.0,
+      "end": 119.0,
+      "text": "maybe tell the OS, like, oh yeah, give us some of this, give us that,"
+    },
+    {
+      "id": 36,
+      "start": 119.0,
+      "end": 123.0,
+      "text": "and then push it aside and drive off without it,"
+    },
+    {
+      "id": 37,
+      "start": 123.0,
+      "end": 127.0,
+      "text": "and not ever talk to it again, what do we need to do to actually achieve that?"
+    },
+    {
+      "id": 38,
+      "start": 127.0,
+      "end": 130.0,
+      "text": "And that's what this paper describes how to do this."
+    },
+    {
+      "id": 39,
+      "start": 131.0,
+      "end": 136.0,
+      "text": "So what they are basically built a unicorn for their datacism system,"
+    },
+    {
+      "id": 40,
+      "start": 136.0,
+      "end": 141.0,
+      "text": "where upon boot up, the datacism talks to the OS a little bit,"
+    },
+    {
+      "id": 41,
+      "start": 141.0,
+      "end": 145.0,
+      "text": "makes six to ten, oh system calls, gets some memory, gets some allocation"
+    },
+    {
+      "id": 42,
+      "start": 145.0,
+      "end": 147.0,
+      "text": "to talk to the hardware yada yada yada,"
+    },
+    {
+      "id": 43,
+      "start": 147.0,
+      "end": 150.0,
+      "text": "installs whatever drivers it needs, and then that's it."
+    },
+    {
+      "id": 44,
+      "start": 150.0,
+      "end": 155.0,
+      "text": "At no point, will we ever have to go back and talk to the operating system for anything,"
+    },
+    {
+      "id": 45,
+      "start": 155.0,
+      "end": 158.0,
+      "text": "which is the way it should be in life."
+    },
+    {
+      "id": 46,
+      "start": 159.0,
+      "end": 164.0,
+      "text": "And so they list a bunch of things that they do, which again,"
+    },
+    {
+      "id": 47,
+      "start": 164.0,
+      "end": 166.0,
+      "text": "some of these things you probably would not do now,"
+    },
+    {
+      "id": 48,
+      "start": 166.0,
+      "end": 169.0,
+      "text": "like build on custom memory allocator, we can talk about that a little bit."
+    },
+    {
+      "id": 49,
+      "start": 169.0,
+      "end": 173.0,
+      "text": "But like, all the other stuff, again,"
+    },
+    {
+      "id": 50,
+      "start": 173.0,
+      "end": 179.0,
+      "text": "is basically had interact with hardware and manage our own runtime environment of the system,"
+    },
+    {
+      "id": 51,
+      "start": 179.0,
+      "end": 181.0,
+      "text": "we don't want to use the obvious system for any of that."
+    },
+    {
+      "id": 52,
+      "start": 181.0,
+      "end": 185.0,
+      "text": "And they'll talk about in the paper, or another public service that they've given,"
+    },
+    {
+      "id": 53,
+      "start": 186.0,
+      "end": 190.0,
+      "text": "about the performance benefit that they're getting by re-implementing a bunch of the stuff"
+    },
+    {
+      "id": 54,
+      "start": 190.0,
+      "end": 192.0,
+      "text": "that the operating system is trying to, you know,"
+    },
+    {
+      "id": 55,
+      "start": 192.0,
+      "end": 194.0,
+      "text": "sort of a general purpose implementation,"
+    },
+    {
+      "id": 56,
+      "start": 194.0,
+      "end": 198.0,
+      "text": "but they're going to have something that's highly tuned for their database system."
+    },
+    {
+      "id": 57,
+      "start": 198.0,
+      "end": 202.0,
+      "text": "And the reoccurring pattern, I'm going to just say the word over and over again,"
+    },
+    {
+      "id": 58,
+      "start": 202.0,
+      "end": 206.0,
+      "text": "custom, custom this, custom that, custom this, and again, they're trying to avoid the OS,"
+    },
+    {
+      "id": 59,
+      "start": 206.0,
+      "end": 210.0,
+      "text": "they end up re-implementing a bunch of the OS functionality inside their database system,"
+    },
+    {
+      "id": 60,
+      "start": 210.0,
+      "end": 213.0,
+      "text": "but if you want to get the extreme performance numbers that they're going to get,"
+    },
+    {
+      "id": 61,
+      "start": 213.0,
+      "end": 215.0,
+      "text": "you have to do this."
+    },
+    {
+      "id": 62,
+      "start": 215.0,
+      "end": 220.0,
+      "text": "So they're going to lie, they're going to make heavy use on asynchronous architecture using covert teams,"
+    },
+    {
+      "id": 63,
+      "start": 220.0,
+      "end": 224.0,
+      "text": "and they want to do this because they want to maximize the hardware utilization."
+    },
+    {
+      "id": 64,
+      "start": 224.0,
+      "end": 228.0,
+      "text": "At no point do they want any thread to stall, like I said,"
+    },
+    {
+      "id": 65,
+      "start": 228.0,
+      "end": 230.0,
+      "text": "because it's got to get something from memory."
+    },
+    {
+      "id": 66,
+      "start": 230.0,
+      "end": 235.0,
+      "text": "They want to keep everything in CPU caches, which is not easy to do, it's very impressive."
+    },
+    {
+      "id": 67,
+      "start": 235.0,
+      "end": 242.0,
+      "text": "You see this kind of architecture also too, I thought, Davis,"
+    },
+    {
+      "id": 68,
+      "start": 242.0,
+      "end": 246.0,
+      "text": "this is all what the high-future trading guys are doing, like the quants and things like that."
+    },
+    {
+      "id": 69,
+      "start": 246.0,
+      "end": 250.0,
+      "text": "Those guys are super hardcore about performance, and they're basically doing the same kind of thing,"
+    },
+    {
+      "id": 70,
+      "start": 250.0,
+      "end": 253.0,
+      "text": "where they, whatever the trading system they're building, you know,"
+    },
+    {
+      "id": 71,
+      "start": 253.0,
+      "end": 257.0,
+      "text": "for event notifications or triggers or whatnot, all that is going to run in user space,"
+    },
+    {
+      "id": 72,
+      "start": 257.0,
+      "end": 260.0,
+      "text": "and they don't want the kernel, the OS to do anything."
+    },
+    {
+      "id": 73,
+      "start": 260.0,
+      "end": 265.0,
+      "text": "So they're applying a lot of the tricks that are being done in like the Wall Street Wall and the FinTech Wall,"
+    },
+    {
+      "id": 74,
+      "start": 265.0,
+      "end": 269.0,
+      "text": "but for a database system."
+    },
+    {
+      "id": 75,
+      "start": 269.0,
+      "end": 273.0,
+      "text": "All right, so the first thing you're going to do is build a memory allocator."
+    },
+    {
+      "id": 76,
+      "start": 273.0,
+      "end": 279.0,
+      "text": "So they have a custom newerware allocator that sometimes they say they say it was latch or lock free."
+    },
+    {
+      "id": 77,
+      "start": 279.0,
+      "end": 284.0,
+      "text": "Other times they say, I think the paper says it does minimal locks."
+    },
+    {
+      "id": 78,
+      "start": 284.0,
+      "end": 287.0,
+      "text": "I would assume they're taking some locks in there, or some latches in there."
+    },
+    {
+      "id": 79,
+      "start": 288.0,
+      "end": 291.0,
+      "text": "But what's going to happen is when you boot up the operating system,"
+    },
+    {
+      "id": 80,
+      "start": 291.0,
+      "end": 296.0,
+      "text": "boot up the Davis system, it goes to the OS, doesn't use an M app for malloc,"
+    },
+    {
+      "id": 81,
+      "start": 296.0,
+      "end": 299.0,
+      "text": "like the allocate all the memory they're ever going to want,"
+    },
+    {
+      "id": 82,
+      "start": 299.0,
+      "end": 304.0,
+      "text": "and then manage all that in user space, and they're going to M lock it in the kernel"
+    },
+    {
+      "id": 83,
+      "start": 304.0,
+      "end": 306.0,
+      "text": "to prevent it from getting evicted and written out the disk."
+    },
+    {
+      "id": 84,
+      "start": 306.0,
+      "end": 311.0,
+      "text": "They keep all the memory pages pinned in memory and never written back to disk."
+    },
+    {
+      "id": 85,
+      "start": 312.0,
+      "end": 317.0,
+      "text": "And then when they hand out allocations to queries whether running,"
+    },
+    {
+      "id": 86,
+      "start": 317.0,
+      "end": 323.0,
+      "text": "they're going to do one trick to make sure that they're going to run one query"
+    },
+    {
+      "id": 87,
+      "start": 323.0,
+      "end": 325.0,
+      "text": "at a time, the entire cluster, we'll talk about that in a second."
+    },
+    {
+      "id": 88,
+      "start": 325.0,
+      "end": 329.0,
+      "text": "But they're going to make sure that the chunks that they're allocating are"
+    },
+    {
+      "id": 89,
+      "start": 329.0,
+      "end": 333.0,
+      "text": "are contiguous as much as possible to avoid fragmentation."
+    },
+    {
+      "id": 90,
+      "start": 333.0,
+      "end": 336.0,
+      "text": "So you don't want to have one query allocate on one megabyte chunk,"
+    },
+    {
+      "id": 91,
+      "start": 336.0,
+      "end": 339.0,
+      "text": "and then start freeing up little bits and pieces inside of it,"
+    },
+    {
+      "id": 92,
+      "start": 340.0,
+      "end": 344.0,
+      "text": "because then you can't reuse it without the query finishes."
+    },
+    {
+      "id": 93,
+      "start": 344.0,
+      "end": 348.0,
+      "text": "So you're going to hand things out in larger chunks and try to keep things aligned nicely."
+    },
+    {
+      "id": 94,
+      "start": 348.0,
+      "end": 352.0,
+      "text": "So they claimed that their allocator is a 100x faster than the libc malloc."
+    },
+    {
+      "id": 95,
+      "start": 352.0,
+      "end": 354.0,
+      "text": "That's not surprising."
+    },
+    {
+      "id": 96,
+      "start": 354.0,
+      "end": 359.0,
+      "text": "When I asked them when they gave a talk, like, what if you compare against like gemalloc or tc malloc,"
+    },
+    {
+      "id": 97,
+      "start": 359.0,
+      "end": 363.0,
+      "text": "I forgot the other one is from Microsoft, it's called me malloc,"
+    },
+    {
+      "id": 98,
+      "start": 363.0,
+      "end": 366.0,
+      "text": "which is especially better than the gemalloc now."
+    },
+    {
+      "id": 99,
+      "start": 367.0,
+      "end": 369.0,
+      "text": "And they haven't done experiments."
+    },
+    {
+      "id": 100,
+      "start": 369.0,
+      "end": 377.0,
+      "text": "But when they were building this in 2016, they were getting 100x faster than the libc malloc."
+    },
+    {
+      "id": 101,
+      "start": 379.0,
+      "end": 383.0,
+      "text": "In addition to this memory allocator, every worker is also going to have its own bufferable manager"
+    },
+    {
+      "id": 102,
+      "start": 383.0,
+      "end": 387.0,
+      "text": "using all the techniques that we talked about in the interclass."
+    },
+    {
+      "id": 103,
+      "start": 387.0,
+      "end": 394.0,
+      "text": "But for their eviction policy, they're going to use basically a primitive version of LUK"
+    },
+    {
+      "id": 104,
+      "start": 394.0,
+      "end": 400.0,
+      "text": "where it's basically two cues, two linked lists."
+    },
+    {
+      "id": 105,
+      "start": 400.0,
+      "end": 401.0,
+      "text": "We'll see in a second."
+    },
+    {
+      "id": 106,
+      "start": 401.0,
+      "end": 404.0,
+      "text": "And this is the same technique that my sickle is doing."
+    },
+    {
+      "id": 107,
+      "start": 404.0,
+      "end": 405.0,
+      "text": "Yes."
+    },
+    {
+      "id": 108,
+      "start": 405.0,
+      "end": 408.0,
+      "text": "Is this basically an allocator?"
+    },
+    {
+      "id": 109,
+      "start": 408.0,
+      "end": 410.0,
+      "text": "Is this a rena allocation?"
+    },
+    {
+      "id": 110,
+      "start": 410.0,
+      "end": 413.0,
+      "text": "Yes, where the rena is a query."
+    },
+    {
+      "id": 111,
+      "start": 413.0,
+      "end": 418.0,
+      "text": "Postgres calls it a pool, like a memory pool with a query, same idea."
+    },
+    {
+      "id": 112,
+      "start": 420.0,
+      "end": 423.0,
+      "text": "But the key thing is when it boots up, it gets all the memory."
+    },
+    {
+      "id": 113,
+      "start": 423.0,
+      "end": 426.0,
+      "text": "Whereas g malloc and other ones, I think they do it for mental."
+    },
+    {
+      "id": 114,
+      "start": 426.0,
+      "end": 429.0,
+      "text": "Why do we interest them much about how fast it is?"
+    },
+    {
+      "id": 115,
+      "start": 429.0,
+      "end": 430.0,
+      "text": "Which other question?"
+    },
+    {
+      "id": 116,
+      "start": 430.0,
+      "end": 431.0,
+      "text": "What's our?"
+    },
+    {
+      "id": 117,
+      "start": 431.0,
+      "end": 433.0,
+      "text": "It's only doing it once in the beginning."
+    },
+    {
+      "id": 118,
+      "start": 433.0,
+      "end": 436.0,
+      "text": "It's question, why do I care about how fast it is if it's only once in the beginning?"
+    },
+    {
+      "id": 119,
+      "start": 436.0,
+      "end": 438.0,
+      "text": "It's 100x faster at runtime."
+    },
+    {
+      "id": 120,
+      "start": 438.0,
+      "end": 440.0,
+      "text": "So I do the joint memory allocation in the beginning,"
+    },
+    {
+      "id": 121,
+      "start": 440.0,
+      "end": 445.0,
+      "text": "and then their own custom allocator is like when you call, say you called new, whatever."
+    },
+    {
+      "id": 122,
+      "start": 445.0,
+      "end": 447.0,
+      "text": "And then you get some chuckle memory."
+    },
+    {
+      "id": 123,
+      "start": 447.0,
+      "end": 451.0,
+      "text": "It's going through their code getting from this chunkle memory that they've already prealliqued."
+    },
+    {
+      "id": 124,
+      "start": 451.0,
+      "end": 452.0,
+      "text": "Yes."
+    },
+    {
+      "id": 125,
+      "start": 452.0,
+      "end": 458.0,
+      "text": "So, I remember you were saying that all of the queries, sorry, like each of the clusters"
+    },
+    {
+      "id": 126,
+      "start": 458.0,
+      "end": 459.0,
+      "text": "is running one query?"
+    },
+    {
+      "id": 127,
+      "start": 459.0,
+      "end": 460.0,
+      "text": "Yes."
+    },
+    {
+      "id": 128,
+      "start": 460.0,
+      "end": 466.0,
+      "text": "So, like, that's one query at a time, but they can be like concurrently doing a cluster of them."
+    },
+    {
+      "id": 129,
+      "start": 466.0,
+      "end": 473.0,
+      "text": "So the paper says that either I'm conflating papers and talks in the way they're as they have."
+    },
+    {
+      "id": 130,
+      "start": 473.0,
+      "end": 478.0,
+      "text": "At some point, they're saying that they're only going one query at a time in a cluster."
+    },
+    {
+      "id": 131,
+      "start": 478.0,
+      "end": 483.0,
+      "text": "But they talk about the memory allocator that, like, they keep track of memory on a per query lifetime."
+    },
+    {
+      "id": 132,
+      "start": 483.0,
+      "end": 487.0,
+      "text": "So that part is sort of confusing, I agree, that, like, if there's only one query running,"
+    },
+    {
+      "id": 133,
+      "start": 487.0,
+      "end": 490.0,
+      "text": "then, like, you just give all the memory back when the query is done."
+    },
+    {
+      "id": 134,
+      "start": 490.0,
+      "end": 491.0,
+      "text": "Right?"
+    },
+    {
+      "id": 135,
+      "start": 491.0,
+      "end": 494.0,
+      "text": "And this is what they said, sort of says."
+    },
+    {
+      "id": 136,
+      "start": 494.0,
+      "end": 496.0,
+      "text": "So I don't know exactly what they're doing."
+    },
+    {
+      "id": 137,
+      "start": 496.0,
+      "end": 499.0,
+      "text": "Same with the question, or Patrick or no?"
+    },
+    {
+      "id": 138,
+      "start": 499.0,
+      "end": 500.0,
+      "text": "Oh, no."
+    },
+    {
+      "id": 139,
+      "start": 500.0,
+      "end": 501.0,
+      "text": "Okay."
+    },
+    {
+      "id": 140,
+      "start": 501.0,
+      "end": 503.0,
+      "text": "Right."
+    },
+    {
+      "id": 141,
+      "start": 503.0,
+      "end": 507.0,
+      "text": "So, I want to go back to this thing, huge pages."
+    },
+    {
+      "id": 142,
+      "start": 507.0,
+      "end": 508.0,
+      "text": "Who are you here?"
+    },
+    {
+      "id": 143,
+      "start": 508.0,
+      "end": 509.0,
+      "text": "Sorry, yes."
+    },
+    {
+      "id": 144,
+      "start": 509.0,
+      "end": 511.0,
+      "text": "The question is, if you've got a bit of a thing from the OS at the beginning,"
+    },
+    {
+      "id": 145,
+      "start": 511.0,
+      "end": 513.0,
+      "text": "do you want to do more of this like, how?"
+    },
+    {
+      "id": 146,
+      "start": 513.0,
+      "end": 515.0,
+      "text": "You don't get more."
+    },
+    {
+      "id": 147,
+      "start": 515.0,
+      "end": 518.0,
+      "text": "The machine has, say, a machine has 100 gigs."
+    },
+    {
+      "id": 148,
+      "start": 518.0,
+      "end": 521.0,
+      "text": "You take 99 gigs."
+    },
+    {
+      "id": 149,
+      "start": 521.0,
+      "end": 522.0,
+      "text": "That's it."
+    },
+    {
+      "id": 150,
+      "start": 522.0,
+      "end": 524.0,
+      "text": "Okay, but do this not?"
+    },
+    {
+      "id": 151,
+      "start": 524.0,
+      "end": 529.0,
+      "text": "So, and so this, I say, this idea is not novel to them."
+    },
+    {
+      "id": 152,
+      "start": 529.0,
+      "end": 532.0,
+      "text": "So the embedded, some of the embedded databases that run on Stream hardware,"
+    },
+    {
+      "id": 153,
+      "start": 532.0,
+      "end": 538.0,
+      "text": "I think we, I think I mentioned ExtremeDB, they're running on low-level embedded devices."
+    },
+    {
+      "id": 154,
+      "start": 538.0,
+      "end": 543.0,
+      "text": "Like, for, in those real-time environments, or real-time operating systems,"
+    },
+    {
+      "id": 155,
+      "start": 543.0,
+      "end": 546.0,
+      "text": "when you boot up, you have to get all your memory at the very beginning,"
+    },
+    {
+      "id": 156,
+      "start": 546.0,
+      "end": 548.0,
+      "text": "and you can never go ask for more again for the OS."
+    },
+    {
+      "id": 157,
+      "start": 548.0,
+      "end": 550.0,
+      "text": "The OS actually doesn't allow you to do that."
+    },
+    {
+      "id": 158,
+      "start": 550.0,
+      "end": 551.0,
+      "text": "Right?"
+    },
+    {
+      "id": 159,
+      "start": 551.0,
+      "end": 554.0,
+      "text": "Because they don't want, like, you know, the missile will be flying,"
+    },
+    {
+      "id": 160,
+      "start": 554.0,
+      "end": 557.0,
+      "text": "and then you try to do malloc and malloc fails, and you have to handle that."
+    },
+    {
+      "id": 161,
+      "start": 557.0,
+      "end": 559.0,
+      "text": "So they allocate all the memory in the beginning."
+    },
+    {
+      "id": 162,
+      "start": 559.0,
+      "end": 562.0,
+      "text": "There's another system out of South Africa called Tiger Beetle."
+    },
+    {
+      "id": 163,
+      "start": 562.0,
+      "end": 563.0,
+      "text": "They do the same thing."
+    },
+    {
+      "id": 164,
+      "start": 563.0,
+      "end": 567.0,
+      "text": "System boots up, they get all the memory in the beginning, and never call malloc again."
+    },
+    {
+      "id": 165,
+      "start": 567.0,
+      "end": 572.0,
+      "text": "Everything's happening in user space."
+    },
+    {
+      "id": 166,
+      "start": 572.0,
+      "end": 575.0,
+      "text": "So from a system design structure, it's actually a good idea, right?"
+    },
+    {
+      "id": 167,
+      "start": 575.0,
+      "end": 578.0,
+      "text": "It's like, thinking how many times you call, you know, how many times,"
+    },
+    {
+      "id": 168,
+      "start": 578.0,
+      "end": 583.0,
+      "text": "if you call malloc or new inside your code, C++ or C code,"
+    },
+    {
+      "id": 169,
+      "start": 584.0,
+      "end": 587.0,
+      "text": "you're not checking with C whether that memory allocation fails."
+    },
+    {
+      "id": 170,
+      "start": 587.0,
+      "end": 588.0,
+      "text": "Right?"
+    },
+    {
+      "id": 171,
+      "start": 592.0,
+      "end": 593.0,
+      "text": "Yes?"
+    },
+    {
+      "id": 172,
+      "start": 593.0,
+      "end": 594.0,
+      "text": "You're laughing, yes."
+    },
+    {
+      "id": 173,
+      "start": 594.0,
+      "end": 595.0,
+      "text": "Okay."
+    },
+    {
+      "id": 174,
+      "start": 595.0,
+      "end": 597.0,
+      "text": "Again, like, a lot of code is written like that."
+    },
+    {
+      "id": 175,
+      "start": 597.0,
+      "end": 599.0,
+      "text": "If you're trying to make something super fault-ton, and resilient,"
+    },
+    {
+      "id": 176,
+      "start": 599.0,
+      "end": 601.0,
+      "text": "especially, like, for embedded devices."
+    }
+  ],
+  "language": "en"
+}

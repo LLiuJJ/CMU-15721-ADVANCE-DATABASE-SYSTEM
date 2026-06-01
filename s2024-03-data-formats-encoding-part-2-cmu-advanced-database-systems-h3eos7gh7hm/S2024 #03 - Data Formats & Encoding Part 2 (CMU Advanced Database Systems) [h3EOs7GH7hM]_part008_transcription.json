@@ -1,0 +1,275 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.2,
+      "text": "Oh, what do you have pointers to data?"
+    },
+    {
+      "id": 1,
+      "start": 2.2,
+      "end": 5.0,
+      "text": "And that, like, as someone who's like,"
+    },
+    {
+      "id": 2,
+      "start": 5.0,
+      "end": 6.8,
+      "text": "it hears the racial model, that gives me nightmares."
+    },
+    {
+      "id": 3,
+      "start": 6.8,
+      "end": 7.8,
+      "text": "Like, pointers to what?"
+    },
+    {
+      "id": 4,
+      "start": 7.8,
+      "end": 8.3,
+      "text": "Why?"
+    },
+    {
+      "id": 5,
+      "start": 8.3,
+      "end": 9.8,
+      "text": "Like, that's a bad idea."
+    },
+    {
+      "id": 6,
+      "start": 9.8,
+      "end": 11.92,
+      "text": "We want to be able to use just fixed length all sets"
+    },
+    {
+      "id": 7,
+      "start": 11.92,
+      "end": 13.76,
+      "text": "and do anything we want underneath the covers"
+    },
+    {
+      "id": 8,
+      "start": 13.76,
+      "end": 17.88,
+      "text": "and not worry about, you know,"
+    },
+    {
+      "id": 9,
+      "start": 17.88,
+      "end": 20.36,
+      "text": "be able to not worry about explicit pointers"
+    },
+    {
+      "id": 10,
+      "start": 20.36,
+      "end": 23.32,
+      "text": "or different things and not worry about,"
+    },
+    {
+      "id": 11,
+      "start": 23.32,
+      "end": 25.84,
+      "text": "programmers actually see those pointers, right?"
+    },
+    {
+      "id": 12,
+      "start": 25.84,
+      "end": 27.72,
+      "text": "Everything's done underneath the covers."
+    },
+    {
+      "id": 13,
+      "start": 27.72,
+      "end": 29.52,
+      "text": "And that way, they can do this right sequel, right?"
+    },
+    {
+      "id": 14,
+      "start": 29.52,
+      "end": 31.08,
+      "text": "Whatever Python code that we want,"
+    },
+    {
+      "id": 15,
+      "start": 31.08,
+      "end": 34.56,
+      "text": "operates on our system and nothing changes."
+    },
+    {
+      "id": 16,
+      "start": 34.56,
+      "end": 36.2,
+      "text": "And then the data parallelism through SIMD"
+    },
+    {
+      "id": 17,
+      "start": 36.2,
+      "end": 37.08,
+      "text": "is going to be really important tool"
+    },
+    {
+      "id": 18,
+      "start": 37.08,
+      "end": 39.16,
+      "text": "we'll see throughout the entire semester, right?"
+    },
+    {
+      "id": 19,
+      "start": 39.16,
+      "end": 42.12,
+      "text": "The paper on Monday next week will be the precursor"
+    },
+    {
+      "id": 20,
+      "start": 42.12,
+      "end": 44.84,
+      "text": "to using SIMD for stuff."
+    },
+    {
+      "id": 21,
+      "start": 44.84,
+      "end": 47.72,
+      "text": "It was written in 2006 or 2007."
+    },
+    {
+      "id": 22,
+      "start": 47.72,
+      "end": 52.56,
+      "text": "So SIMD wasn't as useful for databases as it is now,"
+    },
+    {
+      "id": 23,
+      "start": 52.56,
+      "end": 54.6,
+      "text": "but it's designing the query processing model"
+    },
+    {
+      "id": 24,
+      "start": 54.6,
+      "end": 56.32,
+      "text": "for the database system in such a way"
+    },
+    {
+      "id": 25,
+      "start": 56.32,
+      "end": 59.48,
+      "text": "that you can vectorize a bunch of stuff, okay?"
+    },
+    {
+      "id": 26,
+      "start": 60.04,
+      "end": 62.0,
+      "text": "But we'll see, Algonz had a new joins,"
+    },
+    {
+      "id": 27,
+      "start": 63.04,
+      "end": 65.64,
+      "text": "filters and other things using SIMD going forward."
+    },
+    {
+      "id": 28,
+      "start": 65.64,
+      "end": 67.84,
+      "text": "Can't count, you know, you've got a belt"
+    },
+    {
+      "id": 29,
+      "start": 67.84,
+      "end": 69.48,
+      "text": "to get the 40 ounce bottle."
+    },
+    {
+      "id": 30,
+      "start": 69.48,
+      "end": 72.28,
+      "text": "Get a grip, take a sip, and you'll be picking up bottles."
+    },
+    {
+      "id": 31,
+      "start": 72.28,
+      "end": 74.24,
+      "text": "Ain't ain't no puzzle, I just a cause I'm more a man."
+    },
+    {
+      "id": 32,
+      "start": 74.24,
+      "end": 77.0,
+      "text": "I'm down in the 40, and my sword is got four cans."
+    },
+    {
+      "id": 33,
+      "start": 77.0,
+      "end": 79.08,
+      "text": "Stack and six packs on a table."
+    },
+    {
+      "id": 34,
+      "start": 79.08,
+      "end": 81.32,
+      "text": "And I'm able to see St. Aslam, a label."
+    },
+    {
+      "id": 35,
+      "start": 81.32,
+      "end": 83.28,
+      "text": "No short, with the cloth, you know what got them?"
+    },
+    {
+      "id": 36,
+      "start": 83.28,
+      "end": 85.88,
+      "text": "I take off the cap, my first on tap on the bottle."
+    },
+    {
+      "id": 37,
+      "start": 85.88,
+      "end": 87.8,
+      "text": "Go by three in the freezer, so I can kill it."
+    },
+    {
+      "id": 38,
+      "start": 87.8,
+      "end": 90.4,
+      "text": "Careful with the bottle, baby, we'll just throw the billet."
+    },
+    {
+      "id": 39,
+      "start": 90.4,
+      "end": 92.6,
+      "text": "Go say now, it's insane, the pain I've wet."
+    },
+    {
+      "id": 40,
+      "start": 92.6,
+      "end": 94.96,
+      "text": "You drink it down with the gauze, little biceps."
+    },
+    {
+      "id": 41,
+      "start": 94.96,
+      "end": 96.64,
+      "text": "Take back the pack of drugs."
+    },
+    {
+      "id": 42,
+      "start": 96.64,
+      "end": 99.48,
+      "text": "It won't get you to say now, it's a drinker to the flush."
+    },
+    {
+      "id": 43,
+      "start": 99.48,
+      "end": 102.04,
+      "text": "Really dance, it's really tasty, down with the weak guys."
+    },
+    {
+      "id": 44,
+      "start": 102.04,
+      "end": 104.24,
+      "text": "Be a man of giddet, can't a fake heart."
+    }
+  ],
+  "language": "en"
+}

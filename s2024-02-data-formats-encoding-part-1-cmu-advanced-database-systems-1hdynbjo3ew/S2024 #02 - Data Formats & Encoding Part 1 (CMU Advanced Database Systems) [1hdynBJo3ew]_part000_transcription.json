@@ -1,0 +1,833 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 1.0,
+      "text": "!!"
+    },
+    {
+      "id": 1,
+      "start": 120.0,
+      "end": 124.08,
+      "text": "If you want to produce a final result, we may need to go find the other two pools, or"
+    },
+    {
+      "id": 2,
+      "start": 124.08,
+      "end": 127.2,
+      "text": "sorry, other attributes for a given two pool, and put things back together."
+    },
+    {
+      "id": 3,
+      "start": 127.2,
+      "end": 132.64,
+      "text": "We're not going to want to use a B plus tree or another data structure to do that for"
+    },
+    {
+      "id": 4,
+      "start": 132.64,
+      "end": 133.64,
+      "text": "us, the hash table."
+    },
+    {
+      "id": 5,
+      "start": 133.64,
+      "end": 138.4,
+      "text": "Again, just to contrast our minor selves from last semester, in an old-to-be environment,"
+    },
+    {
+      "id": 6,
+      "start": 138.4,
+      "end": 142.48,
+      "text": "old-to-be workloads, they care about finding individual things."
+    },
+    {
+      "id": 7,
+      "start": 142.48,
+      "end": 146.96,
+      "text": "Like, go find Andy's order orders, go find Andy's, you know, bank account."
+    },
+    {
+      "id": 8,
+      "start": 146.96,
+      "end": 152.32,
+      "text": "And in that world, we want to use, again, something like a B plus tree, be able to go find"
+    },
+    {
+      "id": 9,
+      "start": 152.32,
+      "end": 154.0,
+      "text": "those things officially."
+    },
+    {
+      "id": 10,
+      "start": 154.0,
+      "end": 158.28,
+      "text": "Because old-to-be systems also need to be able to support updates, insert updates,"
+    },
+    {
+      "id": 11,
+      "start": 158.28,
+      "end": 163.64,
+      "text": "deletes, these data structures have to be dynamic, automatically be size themselves"
+    },
+    {
+      "id": 12,
+      "start": 163.64,
+      "end": 165.8,
+      "text": "as we insert new data."
+    },
+    {
+      "id": 13,
+      "start": 165.8,
+      "end": 169.0,
+      "text": "We don't care about any of those things in our world, yes."
+    },
+    {
+      "id": 14,
+      "start": 169.0,
+      "end": 172.44,
+      "text": "So, why do we need to do it at the very end?"
+    },
+    {
+      "id": 15,
+      "start": 172.44,
+      "end": 175.92,
+      "text": "This question is, why would I have to do stitching at the very end?"
+    },
+    {
+      "id": 16,
+      "start": 175.92,
+      "end": 181.12,
+      "text": "It's a late materialization, which will cover two weeks."
+    },
+    {
+      "id": 17,
+      "start": 181.12,
+      "end": 182.12,
+      "text": "Yeah."
+    },
+    {
+      "id": 18,
+      "start": 182.12,
+      "end": 186.36,
+      "text": "But that's a basic idea is that, like, I want to avoid having stitch the two people together"
+    },
+    {
+      "id": 19,
+      "start": 186.36,
+      "end": 189.52,
+      "text": "for as long as possible, because I don't know whether I'm going to need even that two"
+    },
+    {
+      "id": 20,
+      "start": 189.52,
+      "end": 191.36,
+      "text": "people as I'm going up the query plan."
+    },
+    {
+      "id": 21,
+      "start": 191.36,
+      "end": 195.0,
+      "text": "So if I can hold off, actually, then you can have to put it back together to the very"
+    },
+    {
+      "id": 22,
+      "start": 195.0,
+      "end": 197.36,
+      "text": "end, then I avoid unnecessary IO."
+    },
+    {
+      "id": 23,
+      "start": 197.36,
+      "end": 201.8,
+      "text": "I think I'm going to sign with stitching."
+    },
+    {
+      "id": 24,
+      "start": 201.8,
+      "end": 204.56,
+      "text": "Again, it's going to be a comms sort of."
+    },
+    {
+      "id": 25,
+      "start": 204.56,
+      "end": 208.16,
+      "text": "Today's talk is about, we're going to break up it, two more in two different attributes."
+    },
+    {
+      "id": 26,
+      "start": 208.16,
+      "end": 210.4,
+      "text": "We've got to put it back together at the end."
+    },
+    {
+      "id": 27,
+      "start": 210.4,
+      "end": 211.4,
+      "text": "Stitch."
+    },
+    {
+      "id": 28,
+      "start": 211.4,
+      "end": 212.4,
+      "text": "Question?"
+    },
+    {
+      "id": 29,
+      "start": 212.4,
+      "end": 219.24,
+      "text": "We're not using the season all over the left for those."
+    },
+    {
+      "id": 30,
+      "start": 219.24,
+      "end": 223.32,
+      "text": "How do we, like, if we go to the, like, SQL stand five of the people that we want,"
+    },
+    {
+      "id": 31,
+      "start": 223.32,
+      "end": 228.12,
+      "text": "if they're repassing the people as we see it, then we want that, or is it later?"
+    },
+    {
+      "id": 32,
+      "start": 228.12,
+      "end": 229.12,
+      "text": "Yes."
+    },
+    {
+      "id": 33,
+      "start": 229.12,
+      "end": 231.36,
+      "text": "The question is, how can we stitch things back together?"
+    },
+    {
+      "id": 34,
+      "start": 231.36,
+      "end": 235.68,
+      "text": "What additional metadata we need to know is, hey, you're part of this two people, we'll"
+    },
+    {
+      "id": 35,
+      "start": 235.68,
+      "end": 236.96,
+      "text": "cover that later."
+    },
+    {
+      "id": 36,
+      "start": 236.96,
+      "end": 240.12,
+      "text": "The basic idea is that you just record offsets."
+    },
+    {
+      "id": 37,
+      "start": 240.12,
+      "end": 242.04,
+      "text": "That's the query processing."
+    },
+    {
+      "id": 38,
+      "start": 242.04,
+      "end": 244.04,
+      "text": "That's later."
+    },
+    {
+      "id": 39,
+      "start": 244.04,
+      "end": 252.8,
+      "text": "All right, so if all we're going to do for Olet workloads is mostly run squential scans,"
+    },
+    {
+      "id": 40,
+      "start": 252.8,
+      "end": 254.56,
+      "text": "again, it's not entirely true."
+    },
+    {
+      "id": 41,
+      "start": 254.56,
+      "end": 257.72,
+      "text": "Sometimes there's smaller range scans, we don't scan the entire thing."
+    },
+    {
+      "id": 42,
+      "start": 257.72,
+      "end": 260.76,
+      "text": "Sometimes you do need to go find individual two pulls."
+    },
+    {
+      "id": 43,
+      "start": 260.76,
+      "end": 264.24,
+      "text": "And for all that, we would have additional things we could add to our database system,"
+    },
+    {
+      "id": 44,
+      "start": 264.24,
+      "end": 267.68,
+      "text": "for now, we're going to ignore that."
+    },
+    {
+      "id": 45,
+      "start": 267.68,
+      "end": 272.48,
+      "text": "So if all you're going to do is nsquential scans, how can you actually optimize it?"
+    },
+    {
+      "id": 46,
+      "start": 272.48,
+      "end": 275.84,
+      "text": "So this list here is basically what we covered a lot."
+    },
+    {
+      "id": 47,
+      "start": 275.84,
+      "end": 279.84,
+      "text": "We talked a little bit about in the intro class, but a lot of these other things we're"
+    },
+    {
+      "id": 48,
+      "start": 279.84,
+      "end": 282.08,
+      "text": "going to talk about in this class."
+    },
+    {
+      "id": 49,
+      "start": 282.08,
+      "end": 285.0,
+      "text": "This is basically the menu what's available to us."
+    },
+    {
+      "id": 50,
+      "start": 285.0,
+      "end": 287.6,
+      "text": "So today's class is about data encoding and compression."
+    },
+    {
+      "id": 51,
+      "start": 287.6,
+      "end": 293.4,
+      "text": "So how to minimize the amount of storage space it takes to represent data, represent two"
+    },
+    {
+      "id": 52,
+      "start": 293.4,
+      "end": 296.0,
+      "text": "pulls."
+    },
+    {
+      "id": 53,
+      "start": 296.0,
+      "end": 300.76,
+      "text": "Prefetching is identifying what data I'm going to need as I'm scanning along the table"
+    },
+    {
+      "id": 54,
+      "start": 300.76,
+      "end": 305.64,
+      "text": "and go ahead and bring those things into memory before the execution ended and actually"
+    },
+    {
+      "id": 55,
+      "start": 305.64,
+      "end": 306.64,
+      "text": "needs it."
+    },
+    {
+      "id": 56,
+      "start": 306.64,
+      "end": 307.92,
+      "text": "So when it goes and says, hey, I need this block."
+    },
+    {
+      "id": 57,
+      "start": 307.92,
+      "end": 312.84,
+      "text": "Well, it's already here in memory or already in a local cache for us."
+    },
+    {
+      "id": 58,
+      "start": 312.84,
+      "end": 315.56,
+      "text": "Parallelizations allow us to run multiple queries at the same time."
+    },
+    {
+      "id": 59,
+      "start": 315.56,
+      "end": 320.16,
+      "text": "And within that single query, run multiple tasks or query plan fragments or different portions"
+    },
+    {
+      "id": 60,
+      "start": 320.16,
+      "end": 322.44,
+      "text": "of a query plan at the same time."
+    },
+    {
+      "id": 61,
+      "start": 322.44,
+      "end": 327.08,
+      "text": "Either cross-different threads, different processes, different nodes, kind of doesn't matter."
+    },
+    {
+      "id": 62,
+      "start": 327.08,
+      "end": 333.0,
+      "text": "Clustering sorting is identifying that the data can be sorted in such a way that when queries"
+    },
+    {
+      "id": 63,
+      "start": 333.0,
+      "end": 337.72,
+      "text": "go, you know, start asking for data within a given range or something, you can minimize"
+    },
+    {
+      "id": 64,
+      "start": 337.72,
+      "end": 341.64,
+      "text": "the amount of data you have to look at because you know that within some range it's located"
+    },
+    {
+      "id": 65,
+      "start": 341.64,
+      "end": 345.0,
+      "text": "spatially close to each other."
+    },
+    {
+      "id": 66,
+      "start": 345.0,
+      "end": 347.16,
+      "text": "Hey, materialization is what he was asking about."
+    },
+    {
+      "id": 67,
+      "start": 347.16,
+      "end": 351.2,
+      "text": "How do I, can I delay having to stick the two pull back together to the very end?"
+    },
+    {
+      "id": 68,
+      "start": 351.2,
+      "end": 355.6,
+      "text": "Because I don't want to pay the cost of going reading things from disk or from, you know,"
+    },
+    {
+      "id": 69,
+      "start": 355.6,
+      "end": 358.2,
+      "text": "from memory if I know I'm actually not going to need it."
+    },
+    {
+      "id": 70,
+      "start": 358.2,
+      "end": 362.88,
+      "text": "And I don't need to materialize, you know, take up memory to put things together either."
+    },
+    {
+      "id": 71,
+      "start": 362.88,
+      "end": 366.96,
+      "text": "Materialize Views, a result caching is basically identifying that I'm going to execute basically"
+    },
+    {
+      "id": 72,
+      "start": 366.96,
+      "end": 369.0,
+      "text": "the same query over and over again."
+    },
+    {
+      "id": 73,
+      "start": 369.0,
+      "end": 372.36,
+      "text": "Therefore, I can keep the result of that query around and that way in someone asked for it"
+    },
+    {
+      "id": 74,
+      "start": 372.36,
+      "end": 374.08,
+      "text": "again, it's already there."
+    },
+    {
+      "id": 75,
+      "start": 374.08,
+      "end": 377.88,
+      "text": "From materialize view is sort of specialized case of this where you recognize that there's"
+    },
+    {
+      "id": 76,
+      "start": 377.88,
+      "end": 383.92,
+      "text": "a bunch of queries that need to operate or process the same subset of data."
+    },
+    {
+      "id": 77,
+      "start": 383.92,
+      "end": 388.32,
+      "text": "Like give me all the orders within today's month or this month."
+    },
+    {
+      "id": 78,
+      "start": 388.32,
+      "end": 391.96,
+      "text": "So maybe I can pre-compute that portion of the query for the, give me all the orders"
+    },
+    {
+      "id": 79,
+      "start": 391.96,
+      "end": 393.8,
+      "text": "for today's, for this month."
+    },
+    {
+      "id": 80,
+      "start": 393.8,
+      "end": 397.96,
+      "text": "And even though the queries may do different things on that month's worth of data, right?"
+    },
+    {
+      "id": 81,
+      "start": 397.96,
+      "end": 401.48,
+      "text": "I've already done sort of the basic work of getting the month."
+    },
+    {
+      "id": 82,
+      "start": 401.48,
+      "end": 402.48,
+      "text": "Yes."
+    },
+    {
+      "id": 83,
+      "start": 403.48,
+      "end": 406.08,
+      "text": "It's questions, how's it different than data cube stuff?"
+    },
+    {
+      "id": 84,
+      "start": 406.08,
+      "end": 410.76,
+      "text": "So it's basically the same thing in the data cube world back in the day, even now, they're"
+    },
+    {
+      "id": 85,
+      "start": 410.76,
+      "end": 412.96,
+      "text": "probably not all very dynamic."
+    },
+    {
+      "id": 86,
+      "start": 412.96,
+      "end": 415.4,
+      "text": "But like you basically have to manually refresh."
+    },
+    {
+      "id": 87,
+      "start": 415.4,
+      "end": 421.32,
+      "text": "And materialize view, at least the idea is that if I make incremental changes, I can"
+    },
+    {
+      "id": 88,
+      "start": 421.32,
+      "end": 423.24,
+      "text": "then refresh the view."
+    },
+    {
+      "id": 89,
+      "start": 423.24,
+      "end": 428.4,
+      "text": "Now in the ideal case, you want to do this without recompending the entire query because"
+    },
+    {
+      "id": 90,
+      "start": 428.4,
+      "end": 429.72,
+      "text": "that's the dumbest thing you can do, right?"
+    },
+    {
+      "id": 91,
+      "start": 429.88,
+      "end": 435.2,
+      "text": "If I insert one two bulldoin and repeat this one second query or ten second query, no,"
+    },
+    {
+      "id": 92,
+      "start": 435.2,
+      "end": 437.68,
+      "text": "there are some systems that can do incremental updates."
+    },
+    {
+      "id": 93,
+      "start": 437.68,
+      "end": 439.76,
+      "text": "Immediately, this is the part of data systems I know the least about."
+    },
+    {
+      "id": 94,
+      "start": 439.76,
+      "end": 441.8,
+      "text": "This is super hard."
+    },
+    {
+      "id": 95,
+      "start": 441.8,
+      "end": 443.96,
+      "text": "And we're actually not going to cover that this semester."
+    },
+    {
+      "id": 96,
+      "start": 443.96,
+      "end": 444.96,
+      "text": "result caching is obvious."
+    },
+    {
+      "id": 97,
+      "start": 444.96,
+      "end": 446.52,
+      "text": "You just do pattern matching with the strings."
+    },
+    {
+      "id": 98,
+      "start": 446.52,
+      "end": 449.56,
+      "text": "They say it's the same thing and then reuse it."
+    },
+    {
+      "id": 99,
+      "start": 449.56,
+      "end": 453.04,
+      "text": "This is not that common either."
+    },
+    {
+      "id": 100,
+      "start": 453.04,
+      "end": 456.76,
+      "text": "Data skipping is being able to identify before actually looking at the data that I don't"
+    },
+    {
+      "id": 101,
+      "start": 456.76,
+      "end": 461.72,
+      "text": "need the data and not have to process it."
+    },
+    {
+      "id": 102,
+      "start": 461.72,
+      "end": 465.72,
+      "text": "Data parallelization or vectorization, this is going to be sort of specialization or"
+    },
+    {
+      "id": 103,
+      "start": 465.72,
+      "end": 467.32,
+      "text": "regular parallelization or task parallelization."
+    },
+    {
+      "id": 104,
+      "start": 467.32,
+      "end": 474.36,
+      "text": "The idea here is that within a single piece of data, or yeah, it's not a data, maybe multiple"
+    },
+    {
+      "id": 105,
+      "start": 474.36,
+      "end": 481.04,
+      "text": "two bulls, can I use things like SIMD to do process multiple units at the same time or"
+    },
+    {
+      "id": 106,
+      "start": 481.04,
+      "end": 483.84,
+      "text": "multiple pieces of the data at the same time."
+    },
+    {
+      "id": 107,
+      "start": 483.84,
+      "end": 487.12,
+      "text": "And then code specialization, compilation, again, we'll cover this later this semester."
+    },
+    {
+      "id": 108,
+      "start": 487.12,
+      "end": 492.68,
+      "text": "This idea is that since I'm, if I know the type of data I'm processing, I know what the"
+    },
+    {
+      "id": 109,
+      "start": 492.68,
+      "end": 497.94,
+      "text": "query is going to be, rather than have this engine, the execution to interpret what the"
+    },
+    {
+      "id": 110,
+      "start": 497.94,
+      "end": 502.2,
+      "text": "query wants to do, I could just literally generate C code that does exactly what the query"
+    },
+    {
+      "id": 111,
+      "start": 502.2,
+      "end": 504.36,
+      "text": "wants, compile that and run that."
+    },
+    {
+      "id": 112,
+      "start": 504.36,
+      "end": 509.2,
+      "text": "It doesn't have to be C, you could use intermediate languages and things like that."
+    },
+    {
+      "id": 113,
+      "start": 509.2,
+      "end": 511.76,
+      "text": "But this will be a big thing with a little cover later on."
+    },
+    {
+      "id": 114,
+      "start": 511.76,
+      "end": 515.6,
+      "text": "So again, for this semester, we're going to not talk about materialized views and we're"
+    },
+    {
+      "id": 115,
+      "start": 515.6,
+      "end": 520.04,
+      "text": "not going to talk about the pre-vegting one."
+    },
+    {
+      "id": 116,
+      "start": 520.04,
+      "end": 522.48,
+      "text": "And so for this class, though, we're going to talk about this lecture today, we're going"
+    },
+    {
+      "id": 117,
+      "start": 522.48,
+      "end": 524.24,
+      "text": "to talk about data encoding compression."
+    },
+    {
+      "id": 118,
+      "start": 524.24,
+      "end": 528.52,
+      "text": "And then the data encoding part is going to then help us for next class to talk about"
+    },
+    {
+      "id": 119,
+      "start": 528.52,
+      "end": 533.68,
+      "text": "how can we encode data in such a way that we can get better parallelism through vectorization."
+    },
+    {
+      "id": 120,
+      "start": 533.68,
+      "end": 534.68,
+      "text": "Yes."
+    },
+    {
+      "id": 121,
+      "start": 534.68,
+      "end": 536.88,
+      "text": "Can I get the summary materialized views?"
+    },
+    {
+      "id": 122,
+      "start": 536.88,
+      "end": 538.64,
+      "text": "This question, can I get the summary materialized views?"
+    },
+    {
+      "id": 123,
+      "start": 538.64,
+      "end": 542.92,
+      "text": "The basic idea of a materialized view is like, think of a regular view."
+    },
+    {
+      "id": 124,
+      "start": 542.92,
+      "end": 546.76,
+      "text": "Like, a view is almost like a macro of a query."
+    },
+    {
+      "id": 125,
+      "start": 546.76,
+      "end": 551.12,
+      "text": "So instead of having to, like in case of a query, a view would say, you know, it's just"
+    },
+    {
+      "id": 126,
+      "start": 551.12,
+      "end": 552.88,
+      "text": "a select query, creative view for it."
+    },
+    {
+      "id": 127,
+      "start": 552.88,
+      "end": 557.0,
+      "text": "Now, anytime that someone does any treat it like a virtual table and anytime you do a select"
+    },
+    {
+      "id": 128,
+      "start": 557.0,
+      "end": 562.44,
+      "text": "on it, the database system is basically replacing the name of the table with the nested query"
+    },
+    {
+      "id": 129,
+      "start": 562.44,
+      "end": 564.24,
+      "text": "that's defined in your view."
+    },
+    {
+      "id": 130,
+      "start": 564.24,
+      "end": 568.68,
+      "text": "And that in that world and regular views, every single time you run the query, you're"
+    },
+    {
+      "id": 131,
+      "start": 568.68,
+      "end": 572.56,
+      "text": "re-computing whatever the select query that the view points to."
+    },
+    {
+      "id": 132,
+      "start": 572.56,
+      "end": 579.24,
+      "text": "A materialized view basically says, generate the result when you just clear the view."
+    },
+    {
+      "id": 133,
+      "start": 579.24,
+      "end": 584.08,
+      "text": "And then anytime anyone's query that view, you don't have to re-comput it, you have the"
+    },
+    {
+      "id": 134,
+      "start": 584.08,
+      "end": 585.48,
+      "text": "result already."
+    },
+    {
+      "id": 135,
+      "start": 585.48,
+      "end": 593.64,
+      "text": "But then the thing you can do is you can find materialized views on maybe that exactly match"
+    },
+    {
+      "id": 136,
+      "start": 593.64,
+      "end": 597.24,
+      "text": "with the query once, like give me all the orders for this month."
+    },
+    {
+      "id": 137,
+      "start": 597.24,
+      "end": 600.0,
+      "text": "But then you define that as a materialized view."
+    }
+  ],
+  "language": "en"
+}

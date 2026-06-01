@@ -1,0 +1,1361 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.88,
+      "text": "And then now in this if clause about with the predicate,"
+    },
+    {
+      "id": 1,
+      "start": 2.88,
+      "end": 6.28,
+      "text": "I'm traversing that expression tree that I showed before,"
+    },
+    {
+      "id": 2,
+      "start": 6.28,
+      "end": 9.6,
+      "text": "pulling the values up, checking to see whether things match,"
+    },
+    {
+      "id": 3,
+      "start": 9.6,
+      "end": 11.76,
+      "text": "and then deciding whether to terminate early"
+    },
+    {
+      "id": 4,
+      "start": 11.76,
+      "end": 14.08,
+      "text": "or keep going or short circuit things,"
+    },
+    {
+      "id": 5,
+      "start": 14.08,
+      "end": 15.68,
+      "text": "and then return true of false."
+    },
+    {
+      "id": 6,
+      "start": 15.68,
+      "end": 17.96,
+      "text": "And maybe you have to cast things in the right data type"
+    },
+    {
+      "id": 7,
+      "start": 17.96,
+      "end": 22.84,
+      "text": "as you go along based on what the attributes you're looking at."
+    },
+    {
+      "id": 8,
+      "start": 22.84,
+      "end": 25.96,
+      "text": "So again, this is like an over complicated,"
+    },
+    {
+      "id": 9,
+      "start": 25.96,
+      "end": 29.6,
+      "text": "it's a high level explanation of what the query is actually"
+    },
+    {
+      "id": 10,
+      "start": 29.6,
+      "end": 30.28,
+      "text": "going to do."
+    },
+    {
+      "id": 11,
+      "start": 30.28,
+      "end": 32.08,
+      "text": "And maybe again, some of these things you can catch up,"
+    },
+    {
+      "id": 12,
+      "start": 32.08,
+      "end": 32.96,
+      "text": "in this part here."
+    },
+    {
+      "id": 13,
+      "start": 32.96,
+      "end": 35.76,
+      "text": "But again, if you're doing this on a perchable basis,"
+    },
+    {
+      "id": 14,
+      "start": 35.76,
+      "end": 39.52,
+      "text": "it's a bunch of ways to work to do the same thing over and over again."
+    },
+    {
+      "id": 15,
+      "start": 39.52,
+      "end": 44.56,
+      "text": "So what I could do is I'll generate a sort of stub code like this,"
+    },
+    {
+      "id": 16,
+      "start": 44.56,
+      "end": 47.68,
+      "text": "where you set up some parameters that are given to you"
+    },
+    {
+      "id": 17,
+      "start": 47.68,
+      "end": 49.4,
+      "text": "at when you invoke this."
+    },
+    {
+      "id": 18,
+      "start": 49.4,
+      "end": 51.88,
+      "text": "I think of this as a function for the query."
+    },
+    {
+      "id": 19,
+      "start": 51.88,
+      "end": 54.96,
+      "text": "And then now within my for loop,"
+    },
+    {
+      "id": 20,
+      "start": 54.96,
+      "end": 57.64,
+      "text": "now I'm not doing any lookups to say what's the size of the 2"
+    },
+    {
+      "id": 21,
+      "start": 57.64,
+      "end": 59.28,
+      "text": "4 or what we're offset are."
+    },
+    {
+      "id": 22,
+      "start": 59.28,
+      "end": 63.92,
+      "text": "All that's baked into the code, like little hard coded values."
+    },
+    {
+      "id": 23,
+      "start": 63.92,
+      "end": 66.0,
+      "text": "And standing to do the evaluation, same thing."
+    },
+    {
+      "id": 24,
+      "start": 66.0,
+      "end": 68.96,
+      "text": "The compiler can recognize that some number plus 1,"
+    },
+    {
+      "id": 25,
+      "start": 68.96,
+      "end": 72.08,
+      "text": "it can fold that in and evaluate that once,"
+    },
+    {
+      "id": 26,
+      "start": 72.08,
+      "end": 75.6,
+      "text": "and not repeat it over and over again."
+    },
+    {
+      "id": 27,
+      "start": 75.6,
+      "end": 75.8,
+      "text": "Yes."
+    },
+    {
+      "id": 28,
+      "start": 75.8,
+      "end": 79.44,
+      "text": "But here specifically, the predicate is the thing plus 1?"
+    },
+    {
+      "id": 29,
+      "start": 79.44,
+      "end": 80.44,
+      "text": "It's a question."
+    },
+    {
+      "id": 30,
+      "start": 80.44,
+      "end": 83.0,
+      "text": "Yeah, this e-vow predicate is like we"
+    },
+    {
+      "id": 31,
+      "start": 83.0,
+      "end": 85.56,
+      "text": "distracted it out and we say, oh, it's plus 1."
+    },
+    {
+      "id": 32,
+      "start": 85.56,
+      "end": 87.32,
+      "text": "And we hard coded that in the program."
+    },
+    {
+      "id": 33,
+      "start": 87.32,
+      "end": 89.76,
+      "text": "Is there ever a case where the expression tree is not"
+    },
+    {
+      "id": 34,
+      "start": 89.76,
+      "end": 91.84,
+      "text": "equals to your word, or is that a number?"
+    },
+    {
+      "id": 35,
+      "start": 91.84,
+      "end": 92.36,
+      "text": "It's question."
+    },
+    {
+      "id": 36,
+      "start": 92.36,
+      "end": 94.56,
+      "text": "Is there ever a case where the expression tree cannot be expressed"
+    },
+    {
+      "id": 37,
+      "start": 94.56,
+      "end": 95.32,
+      "text": "in C++?"
+    },
+    {
+      "id": 38,
+      "start": 95.32,
+      "end": 96.12,
+      "text": "No."
+    },
+    {
+      "id": 39,
+      "start": 96.12,
+      "end": 97.68,
+      "text": "Why wouldn't it?"
+    },
+    {
+      "id": 40,
+      "start": 97.68,
+      "end": 102.68,
+      "text": "Because literally, yeah, I can't think of anything."
+    },
+    {
+      "id": 41,
+      "start": 102.68,
+      "end": 106.04,
+      "text": "I mean, for in clauses, you can't generate exact."
+    },
+    {
+      "id": 42,
+      "start": 106.04,
+      "end": 110.32,
+      "text": "You may not be able to use a, like, not standard library."
+    },
+    {
+      "id": 43,
+      "start": 111.12,
+      "end": 113.96,
+      "text": "I think everything you could use, like, in clauses"
+    },
+    {
+      "id": 44,
+      "start": 113.96,
+      "end": 118.32,
+      "text": "or arrays or vectors, you could use a STL library for that."
+    },
+    {
+      "id": 45,
+      "start": 118.32,
+      "end": 120.2,
+      "text": "But everything else, you can get it down to me"
+    },
+    {
+      "id": 46,
+      "start": 120.2,
+      "end": 122.48,
+      "text": "as exact instructions."
+    },
+    {
+      "id": 47,
+      "start": 122.48,
+      "end": 127.52,
+      "text": "Again, think of like going back whatever that query was."
+    },
+    {
+      "id": 48,
+      "start": 127.52,
+      "end": 128.56,
+      "text": "I didn't have a query."
+    },
+    {
+      "id": 49,
+      "start": 128.56,
+      "end": 129.08,
+      "text": "Sorry."
+    },
+    {
+      "id": 50,
+      "start": 129.08,
+      "end": 131.08,
+      "text": "Sorry."
+    },
+    {
+      "id": 51,
+      "start": 131.08,
+      "end": 137.16,
+      "text": "Like, if the expression was where value equals input parameter"
+    },
+    {
+      "id": 52,
+      "start": 137.16,
+      "end": 140.16,
+      "text": "plus 1, that plus 1, you don't want to interpret"
+    },
+    {
+      "id": 53,
+      "start": 140.52,
+      "end": 141.52,
+      "text": "again."
+    },
+    {
+      "id": 54,
+      "start": 141.52,
+      "end": 143.68,
+      "text": "Since you have the input value, like, you bake that into the exact"
+    },
+    {
+      "id": 55,
+      "start": 143.68,
+      "end": 144.64,
+      "text": "C++ code."
+    },
+    {
+      "id": 56,
+      "start": 144.64,
+      "end": 147.48,
+      "text": "And then now the equal sign is just again the double-util sign"
+    },
+    {
+      "id": 57,
+      "start": 147.48,
+      "end": 149.28,
+      "text": "in C++."
+    },
+    {
+      "id": 58,
+      "start": 149.28,
+      "end": 150.84,
+      "text": "And the compiler knows how to go to town on that"
+    },
+    {
+      "id": 59,
+      "start": 150.84,
+      "end": 152.88,
+      "text": "and optimize that as much as possible."
+    },
+    {
+      "id": 60,
+      "start": 152.88,
+      "end": 154.88,
+      "text": "So is this plus 1?"
+    },
+    {
+      "id": 61,
+      "start": 154.88,
+      "end": 156.24,
+      "text": "Yeah, the plus 1 is from a SQL."
+    },
+    {
+      "id": 62,
+      "start": 156.24,
+      "end": 159.88,
+      "text": "Yeah, maybe I might have removed the SQL query by accident."
+    },
+    {
+      "id": 63,
+      "start": 159.88,
+      "end": 163.8,
+      "text": "Yeah, the query is like basic select start from tables."
+    },
+    {
+      "id": 64,
+      "start": 163.8,
+      "end": 169.8,
+      "text": "Select start from table where value equals input parameter plus 1."
+    },
+    {
+      "id": 65,
+      "start": 170.8,
+      "end": 176.32,
+      "text": "And then whether or not the query optimizer does that,"
+    },
+    {
+      "id": 66,
+      "start": 176.32,
+      "end": 180.16,
+      "text": "you know, evaluate the plus 1 before it gives it,"
+    },
+    {
+      "id": 67,
+      "start": 180.16,
+      "end": 183.36,
+      "text": "the production runs it, it depends on the"
+    },
+    {
+      "id": 68,
+      "start": 183.36,
+      "end": 185.76,
+      "text": "optimizer implementation."
+    },
+    {
+      "id": 69,
+      "start": 185.76,
+      "end": 186.76,
+      "text": "Yes."
+    },
+    {
+      "id": 70,
+      "start": 186.76,
+      "end": 190.76,
+      "text": "For systems that use expression compilation,"
+    },
+    {
+      "id": 71,
+      "start": 190.76,
+      "end": 196.16,
+      "text": "do they are often just like not to expression folding"
+    },
+    {
+      "id": 72,
+      "start": 196.16,
+      "end": 197.84,
+      "text": "as you as the optimizer?"
+    },
+    {
+      "id": 73,
+      "start": 197.84,
+      "end": 199.56,
+      "text": "Yeah, it's a question, and the go question."
+    },
+    {
+      "id": 74,
+      "start": 200.16,
+      "end": 205.0,
+      "text": "For the systems that do predicate compilation,"
+    },
+    {
+      "id": 75,
+      "start": 205.0,
+      "end": 208.32,
+      "text": "do they, do their query optimizers not do any of this folding"
+    },
+    {
+      "id": 76,
+      "start": 208.32,
+      "end": 210.48,
+      "text": "stuff ahead of time?"
+    },
+    {
+      "id": 77,
+      "start": 210.48,
+      "end": 214.84,
+      "text": "And they just punt them at the compiler and do that all for you?"
+    },
+    {
+      "id": 78,
+      "start": 214.84,
+      "end": 217.0,
+      "text": "For systems that they've retrofitted,"
+    },
+    {
+      "id": 79,
+      "start": 217.0,
+      "end": 220.44,
+      "text": "the compilation after the fact, I think"
+    },
+    {
+      "id": 80,
+      "start": 220.44,
+      "end": 222.16,
+      "text": "Postgres does this."
+    },
+    {
+      "id": 81,
+      "start": 222.16,
+      "end": 224.08,
+      "text": "They'll do that because it's getting in"
+    },
+    {
+      "id": 82,
+      "start": 224.08,
+      "end": 225.28,
+      "text": "had the other thing before."
+    },
+    {
+      "id": 83,
+      "start": 225.28,
+      "end": 227.28,
+      "text": "But obviously, if you know you're always going to compile stuff,"
+    },
+    {
+      "id": 84,
+      "start": 227.28,
+      "end": 229.24,
+      "text": "then you can just take advantage of that."
+    },
+    {
+      "id": 85,
+      "start": 229.24,
+      "end": 232.6,
+      "text": "As well as additional optimizations that, you know,"
+    },
+    {
+      "id": 86,
+      "start": 232.6,
+      "end": 235.24,
+      "text": "traditional source code compile will give you."
+    },
+    {
+      "id": 87,
+      "start": 235.24,
+      "end": 238.24,
+      "text": "I think there are some instances where you fold the"
+    },
+    {
+      "id": 88,
+      "start": 238.24,
+      "end": 241.24,
+      "text": "constant dot 1 and you can get that."
+    },
+    {
+      "id": 89,
+      "start": 247.24,
+      "end": 248.24,
+      "text": "OK."
+    },
+    {
+      "id": 90,
+      "start": 250.24,
+      "end": 253.0,
+      "text": "So what's interesting about the high-cube approach is that"
+    },
+    {
+      "id": 91,
+      "start": 253.0,
+      "end": 256.32,
+      "text": "the, since it's us as the data system engineer,"
+    },
+    {
+      "id": 92,
+      "start": 256.32,
+      "end": 260.64,
+      "text": "developing the code generation piece,"
+    },
+    {
+      "id": 93,
+      "start": 260.64,
+      "end": 262.64,
+      "text": "we can do anything we want in that."
+    },
+    {
+      "id": 94,
+      "start": 262.64,
+      "end": 266.0,
+      "text": "Meaning like we can invoke any other part of the system"
+    },
+    {
+      "id": 95,
+      "start": 266.0,
+      "end": 269.12,
+      "text": "inside of our generated code."
+    },
+    {
+      "id": 96,
+      "start": 269.12,
+      "end": 271.88,
+      "text": "So that means like we could call out to the network code"
+    },
+    {
+      "id": 97,
+      "start": 271.88,
+      "end": 274.2,
+      "text": "to send messages if we wanted to."
+    },
+    {
+      "id": 98,
+      "start": 274.2,
+      "end": 277.64,
+      "text": "We could go get data in and out of the buffer pool manager"
+    },
+    {
+      "id": 99,
+      "start": 277.64,
+      "end": 278.48,
+      "text": "if we wanted to."
+    },
+    {
+      "id": 100,
+      "start": 278.48,
+      "end": 280.08,
+      "text": "Current transactions, right?"
+    },
+    {
+      "id": 101,
+      "start": 280.08,
+      "end": 282.72,
+      "text": "So we can pretty much do anything we want because it's just,"
+    },
+    {
+      "id": 102,
+      "start": 282.72,
+      "end": 285.76,
+      "text": "it's as if the code was regenerating, which"
+    },
+    {
+      "id": 103,
+      "start": 285.76,
+      "end": 288.56,
+      "text": "shipped with the database system when it was being built"
+    },
+    {
+      "id": 104,
+      "start": 288.56,
+      "end": 291.04,
+      "text": "by the engineers, right?"
+    },
+    {
+      "id": 105,
+      "start": 291.04,
+      "end": 293.36,
+      "text": "And that means that we don't have to have any specialized"
+    },
+    {
+      "id": 106,
+      "start": 293.36,
+      "end": 296.0,
+      "text": "bridges to call out to other parts of the system."
+    },
+    {
+      "id": 107,
+      "start": 296.0,
+      "end": 298.44,
+      "text": "We just invoke it as if it was a, you know, a function built"
+    },
+    {
+      "id": 108,
+      "start": 298.44,
+      "end": 299.6,
+      "text": "in."
+    },
+    {
+      "id": 109,
+      "start": 299.6,
+      "end": 302.16,
+      "text": "And you see this a lot in, it's not exactly code"
+    },
+    {
+      "id": 110,
+      "start": 302.16,
+      "end": 305.6,
+      "text": "specialization, but you see this in a lot of the extensions"
+    },
+    {
+      "id": 111,
+      "start": 305.6,
+      "end": 309.56,
+      "text": "for Postgres because they're just linking and shared objects"
+    },
+    {
+      "id": 112,
+      "start": 309.56,
+      "end": 310.2,
+      "text": "for better or worse."
+    },
+    {
+      "id": 113,
+      "start": 310.2,
+      "end": 314.36,
+      "text": "They call all the parts of the database system because you can't"
+    },
+    {
+      "id": 114,
+      "start": 314.64,
+      "end": 317.04,
+      "text": "because it's just C code."
+    },
+    {
+      "id": 115,
+      "start": 317.04,
+      "end": 318.28,
+      "text": "Of course you have to manage memory."
+    },
+    {
+      "id": 116,
+      "start": 318.28,
+      "end": 321.08,
+      "text": "That's a whole nother issue."
+    },
+    {
+      "id": 117,
+      "start": 321.08,
+      "end": 324.92,
+      "text": "So the one key advantage though, even though the compilation"
+    },
+    {
+      "id": 118,
+      "start": 324.92,
+      "end": 327.32,
+      "text": "is going to be slower, a key advantage of the"
+    },
+    {
+      "id": 119,
+      "start": 327.32,
+      "end": 330.96,
+      "text": "translation approach is that debugging is going to be"
+    },
+    {
+      "id": 120,
+      "start": 330.96,
+      "end": 334.32,
+      "text": "relatively easier, easier relative to the, the"
+    },
+    {
+      "id": 121,
+      "start": 334.32,
+      "end": 336.28,
+      "text": "GIP compilation from hyper."
+    },
+    {
+      "id": 122,
+      "start": 336.28,
+      "end": 338.24,
+      "text": "Because what are you generating?"
+    },
+    {
+      "id": 123,
+      "start": 338.24,
+      "end": 339.24,
+      "text": "C++ code."
+    },
+    {
+      "id": 124,
+      "start": 339.24,
+      "end": 340.04,
+      "text": "What if it crashes?"
+    },
+    {
+      "id": 125,
+      "start": 340.04,
+      "end": 340.68,
+      "text": "What do you have?"
+    },
+    {
+      "id": 126,
+      "start": 340.68,
+      "end": 341.44,
+      "text": "C++ code."
+    },
+    {
+      "id": 127,
+      "start": 341.44,
+      "end": 343.24,
+      "text": "You can walk through in a debugger."
+    },
+    {
+      "id": 128,
+      "start": 343.24,
+      "end": 344.36,
+      "text": "You have nice tax traces."
+    },
+    {
+      "id": 129,
+      "start": 344.36,
+      "end": 345.6,
+      "text": "You have nice symbols."
+    },
+    {
+      "id": 130,
+      "start": 345.6,
+      "end": 347.8,
+      "text": "You can figure out what broke."
+    },
+    {
+      "id": 131,
+      "start": 347.8,
+      "end": 350.48,
+      "text": "Now you got to do a little extra work to maybe annotate the"
+    },
+    {
+      "id": 132,
+      "start": 350.48,
+      "end": 354.04,
+      "text": "generated C++ code or C code, whatever you're generating, to"
+    },
+    {
+      "id": 133,
+      "start": 354.04,
+      "end": 357.48,
+      "text": "reference back what part of the main system generated that"
+    },
+    {
+      "id": 134,
+      "start": 357.48,
+      "end": 358.16,
+      "text": "code."
+    },
+    {
+      "id": 135,
+      "start": 358.16,
+      "end": 360.68,
+      "text": "Because again, I don't want to debug the thing I just"
+    },
+    {
+      "id": 136,
+      "start": 360.68,
+      "end": 361.4,
+      "text": "co-gend."
+    },
+    {
+      "id": 137,
+      "start": 361.4,
+      "end": 364.44,
+      "text": "I want to debug the system that generated the code."
+    },
+    {
+      "id": 138,
+      "start": 364.44,
+      "end": 366.12,
+      "text": "But you can put annotations in there to figure out where"
+    },
+    {
+      "id": 139,
+      "start": 366.12,
+      "end": 367.4,
+      "text": "this thing came from."
+    },
+    {
+      "id": 140,
+      "start": 367.4,
+      "end": 373.04,
+      "text": "So now you just take any off the shelf C++ programmer, whoever"
+    },
+    {
+      "id": 141,
+      "start": 373.04,
+      "end": 375.68,
+      "text": "it is, and they're not used DDB in theory."
+    },
+    {
+      "id": 142,
+      "start": 375.68,
+      "end": 377.84,
+      "text": "And they know how to condemn debug your program."
+    },
+    {
+      "id": 143,
+      "start": 377.84,
+      "end": 379.64,
+      "text": "You don't only need specialized people that have to"
+    },
+    {
+      "id": 144,
+      "start": 379.64,
+      "end": 382.36,
+      "text": "understand LLVM or assembly to make all this work."
+    },
+    {
+      "id": 145,
+      "start": 384.84,
+      "end": 387.16,
+      "text": "And that'll be one of the things we see in Redshift."
+    },
+    {
+      "id": 146,
+      "start": 387.16,
+      "end": 390.28,
+      "text": "And when we read the photon paper later on from Databricks,"
+    },
+    {
+      "id": 147,
+      "start": 390.28,
+      "end": 394.28,
+      "text": "they talk about the debugging of a LLVM GIP"
+    },
+    {
+      "id": 148,
+      "start": 394.28,
+      "end": 398.58,
+      "text": "compilated compiled system is the engineering"
+    },
+    {
+      "id": 149,
+      "start": 398.58,
+      "end": 400.08,
+      "text": "burden is very, very high."
+    },
+    {
+      "id": 150,
+      "start": 400.08,
+      "end": 401.6,
+      "text": "And so they decide to avoid it."
+    },
+    {
+      "id": 151,
+      "start": 404.04,
+      "end": 404.76,
+      "text": "All right."
+    },
+    {
+      "id": 152,
+      "start": 404.76,
+      "end": 408.4,
+      "text": "So I'm going to show some results from the high-coup paper."
+    },
+    {
+      "id": 153,
+      "start": 408.4,
+      "end": 411.12,
+      "text": "And they're going to compare it against for their"
+    },
+    {
+      "id": 154,
+      "start": 411.12,
+      "end": 412.16,
+      "text": "implementations."
+    },
+    {
+      "id": 155,
+      "start": 412.16,
+      "end": 416.12,
+      "text": "So the first would be a generic volcano style database"
+    },
+    {
+      "id": 156,
+      "start": 416.12,
+      "end": 419.52,
+      "text": "system that is using generic predicates or"
+    },
+    {
+      "id": 157,
+      "start": 419.52,
+      "end": 420.92,
+      "text": "expression trees and vibrating them."
+    },
+    {
+      "id": 158,
+      "start": 420.92,
+      "end": 424.84,
+      "text": "So this is like the version 0 of any database in"
+    },
+    {
+      "id": 159,
+      "start": 424.84,
+      "end": 426.16,
+      "text": "somebody builds."
+    },
+    {
+      "id": 160,
+      "start": 426.16,
+      "end": 427.92,
+      "text": "Think of like bus tub."
+    },
+    {
+      "id": 161,
+      "start": 427.92,
+      "end": 430.24,
+      "text": "Then they'll have type of civic iterators using I think"
+    },
+    {
+      "id": 162,
+      "start": 430.24,
+      "end": 433.0,
+      "text": "C++ templates to in line as much as possible."
+    },
+    {
+      "id": 163,
+      "start": 433.0,
+      "end": 436.12,
+      "text": "Then they'll have a hard code implementation sort of"
+    },
+    {
+      "id": 164,
+      "start": 436.12,
+      "end": 438.08,
+      "text": "first pass written by a grad student."
+    },
+    {
+      "id": 165,
+      "start": 438.08,
+      "end": 439.84,
+      "text": "Then you have an optimized version written by another"
+    },
+    {
+      "id": 166,
+      "start": 439.84,
+      "end": 440.76,
+      "text": "grad student."
+    },
+    {
+      "id": 167,
+      "start": 440.76,
+      "end": 443.2,
+      "text": "And then you have the high-coup code."
+    },
+    {
+      "id": 168,
+      "start": 443.2,
+      "end": 445.48,
+      "text": "The one is generating the C++ code."
+    },
+    {
+      "id": 169,
+      "start": 445.48,
+      "end": 447.48,
+      "text": "Right."
+    },
+    {
+      "id": 170,
+      "start": 447.48,
+      "end": 451.6,
+      "text": "So in this here, the measurement, they actually measured"
+    },
+    {
+      "id": 171,
+      "start": 451.6,
+      "end": 454.28,
+      "text": "L1 catch misses, but it's so small we're going to ignore"
+    },
+    {
+      "id": 172,
+      "start": 454.28,
+      "end": 455.04,
+      "text": "that."
+    },
+    {
+      "id": 173,
+      "start": 455.04,
+      "end": 456.6,
+      "text": "And it's as you expected, right?"
+    },
+    {
+      "id": 174,
+      "start": 456.6,
+      "end": 458.12,
+      "text": "The generic implementation, the textual"
+    },
+    {
+      "id": 175,
+      "start": 458.12,
+      "end": 460.76,
+      "text": "implementation database system is going to be the slowest."
+    },
+    {
+      "id": 176,
+      "start": 460.76,
+      "end": 462.32,
+      "text": "But as you go along, as you start adding more"
+    },
+    {
+      "id": 177,
+      "start": 462.36,
+      "end": 464.76,
+      "text": "optimization, things are getting better and better."
+    },
+    {
+      "id": 178,
+      "start": 464.76,
+      "end": 468.88,
+      "text": "So the thing that we really care about is this part over"
+    },
+    {
+      "id": 179,
+      "start": 468.88,
+      "end": 472.68,
+      "text": "here, where the grad student was able to generate"
+    },
+    {
+      "id": 180,
+      "start": 472.68,
+      "end": 476.16,
+      "text": "optimized invitations of like, again, hand writing the"
+    },
+    {
+      "id": 181,
+      "start": 476.16,
+      "end": 477.72,
+      "text": "query plans."
+    },
+    {
+      "id": 182,
+      "start": 477.72,
+      "end": 478.56,
+      "text": "This is what?"
+    },
+    {
+      "id": 183,
+      "start": 478.56,
+      "end": 481.64,
+      "text": "This is TPCH I think, or this join query up here."
+    },
+    {
+      "id": 184,
+      "start": 481.64,
+      "end": 484.4,
+      "text": "And the number, the difference is quite small, but the"
+    },
+    {
+      "id": 185,
+      "start": 484.4,
+      "end": 487.0,
+      "text": "high-coup system is actually generate, is able to generate"
+    },
+    {
+      "id": 186,
+      "start": 487.0,
+      "end": 491.8,
+      "text": "C++ code that's better than the hand generated code."
+    },
+    {
+      "id": 187,
+      "start": 492.8,
+      "end": 497.56,
+      "text": "Again, and this is because you think about it, you only"
+    },
+    {
+      "id": 188,
+      "start": 497.56,
+      "end": 501.96,
+      "text": "need to build the cogent piece once, and you can put all"
+    },
+    {
+      "id": 189,
+      "start": 501.96,
+      "end": 503.76,
+      "text": "the tricks, you know, how to make the queries run fast"
+    },
+    {
+      "id": 190,
+      "start": 503.76,
+      "end": 505.48,
+      "text": "within that one implementation."
+    },
+    {
+      "id": 191,
+      "start": 505.48,
+      "end": 508.8,
+      "text": "Whereas if you're literally hard-coding the queries,"
+    },
+    {
+      "id": 192,
+      "start": 508.8,
+      "end": 513.92,
+      "text": "you've got to optimize every single one individually."
+    },
+    {
+      "id": 193,
+      "start": 513.92,
+      "end": 516.16,
+      "text": "So the optimized ones are just going to be faster"
+    },
+    {
+      "id": 194,
+      "start": 516.16,
+      "end": 517.88,
+      "text": "because there's fewer branch misses."
+    },
+    {
+      "id": 195,
+      "start": 517.88,
+      "end": 520.24,
+      "text": "There's allocating less memory."
+    },
+    {
+      "id": 196,
+      "start": 521.12,
+      "end": 523.84,
+      "text": "Fear memory jumps for functions because everything is"
+    },
+    {
+      "id": 197,
+      "start": 523.84,
+      "end": 524.96,
+      "text": "almost like inline."
+    },
+    {
+      "id": 198,
+      "start": 524.96,
+      "end": 525.48,
+      "text": "Yes."
+    },
+    {
+      "id": 199,
+      "start": 525.48,
+      "end": 534.56,
+      "text": "How do you know when L2 cache occurs?"
+    },
+    {
+      "id": 200,
+      "start": 534.56,
+      "end": 536.6,
+      "text": "Oh, how do you collect this data?"
+    },
+    {
+      "id": 201,
+      "start": 536.6,
+      "end": 538.88,
+      "text": "Oh, I didn't teach you guys about performance counters."
+    },
+    {
+      "id": 202,
+      "start": 538.88,
+      "end": 541.48,
+      "text": "Basically, the CPU can track all this for you."
+    },
+    {
+      "id": 203,
+      "start": 541.48,
+      "end": 544.48,
+      "text": "Every CPU has what we call performance counters."
+    },
+    {
+      "id": 204,
+      "start": 544.48,
+      "end": 546.88,
+      "text": "So in the inside, the CPU is maintaining all this"
+    },
+    {
+      "id": 205,
+      "start": 546.88,
+      "end": 548.48,
+      "text": "information about your programs."
+    },
+    {
+      "id": 206,
+      "start": 548.56,
+      "end": 550.92,
+      "text": "And you use the tool like Intel has VTune,"
+    },
+    {
+      "id": 207,
+      "start": 550.92,
+      "end": 552.68,
+      "text": "the Ubuntu or something in the presentation called Perf."
+    },
+    {
+      "id": 208,
+      "start": 552.68,
+      "end": 557.36,
+      "text": "It's almost like if you're used like Valgrin,"
+    },
+    {
+      "id": 209,
+      "start": 557.36,
+      "end": 559.72,
+      "text": "but like Valgrin is instrumenting the code as it runs,"
+    },
+    {
+      "id": 210,
+      "start": 559.72,
+      "end": 562.08,
+      "text": "this is like you don't do any instrumentation of the code."
+    },
+    {
+      "id": 211,
+      "start": 562.08,
+      "end": 563.76,
+      "text": "The CPU just counts it all for you."
+    },
+    {
+      "id": 212,
+      "start": 563.76,
+      "end": 565.24,
+      "text": "And then you can turn on Perf."
+    },
+    {
+      "id": 213,
+      "start": 565.24,
+      "end": 567.32,
+      "text": "There's a very little performance overhead,"
+    },
+    {
+      "id": 214,
+      "start": 567.32,
+      "end": 569.84,
+      "text": "and then dumps out like a Perf file that you can then"
+    },
+    {
+      "id": 215,
+      "start": 569.84,
+      "end": 572.6,
+      "text": "look through and see where the cache misses work."
+    },
+    {
+      "id": 216,
+      "start": 572.6,
+      "end": 573.6,
+      "text": "Yeah."
+    },
+    {
+      "id": 217,
+      "start": 573.6,
+      "end": 576.4,
+      "text": "Actually, who here is familiar with Perf?"
+    },
+    {
+      "id": 218,
+      "start": 576.4,
+      "end": 577.4,
+      "text": "All right, about half."
+    },
+    {
+      "id": 219,
+      "start": 577.48,
+      "end": 579.8,
+      "text": "So maybe we can cover that in a week or two."
+    },
+    {
+      "id": 220,
+      "start": 579.8,
+      "end": 583.92,
+      "text": "Just crash course of how to do performance debugging."
+    },
+    {
+      "id": 221,
+      "start": 583.92,
+      "end": 585.2,
+      "text": "Yeah, CPU is a great CPU."
+    },
+    {
+      "id": 222,
+      "start": 585.2,
+      "end": 587.96,
+      "text": "You can measure all this stuff for you."
+    },
+    {
+      "id": 223,
+      "start": 587.96,
+      "end": 590.8,
+      "text": "And again, we can measure down by L1, but cache misses,"
+    },
+    {
+      "id": 224,
+      "start": 590.8,
+      "end": 596.48,
+      "text": "but we're ignoring that because it would be way too small."
+    },
+    {
+      "id": 225,
+      "start": 596.48,
+      "end": 600.08,
+      "text": "So again, this paper is 13 years old, 14 years old."
+    }
+  ],
+  "language": "en"
+}

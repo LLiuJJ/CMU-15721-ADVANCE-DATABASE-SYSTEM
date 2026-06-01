@@ -1,0 +1,1115 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 8.0,
+      "text": "P. You know, that's not like mind-blowingly faster."
+    },
+    {
+      "id": 1,
+      "start": 8.0,
+      "end": 11.16,
+      "text": "But I think in the paper talk about there was one query, it was like 70 cent faster because"
+    },
+    {
+      "id": 2,
+      "start": 11.16,
+      "end": 12.88,
+      "text": "it was transferring a lot of data."
+    },
+    {
+      "id": 3,
+      "start": 12.88,
+      "end": 17.76,
+      "text": "So obviously it depends on the workload, depends on how much it's cash, of course."
+    },
+    {
+      "id": 4,
+      "start": 17.76,
+      "end": 22.64,
+      "text": "But again, these guys really care about performance and it's 20 percent matters."
+    },
+    {
+      "id": 5,
+      "start": 22.64,
+      "end": 28.88,
+      "text": "I also asked them to, like, you know, between the custom S3, all the PCIe drivers, the custom"
+    },
+    {
+      "id": 6,
+      "start": 28.88,
+      "end": 34.64,
+      "text": "drivers, and all the allocator, the scheduler, like, which one has the biggest win and"
+    },
+    {
+      "id": 7,
+      "start": 34.64,
+      "end": 35.64,
+      "text": "they didn't have an answer."
+    },
+    {
+      "id": 8,
+      "start": 35.64,
+      "end": 39.0,
+      "text": "Like, you know, if you're going to build a new company and pick one of those techniques,"
+    },
+    {
+      "id": 9,
+      "start": 39.0,
+      "end": 40.0,
+      "text": "which one should you target?"
+    },
+    {
+      "id": 10,
+      "start": 40.0,
+      "end": 45.4,
+      "text": "And they didn't have an answer because they said a lot of the stuff they built, 2015,"
+    },
+    {
+      "id": 11,
+      "start": 45.4,
+      "end": 50.56,
+      "text": "2016, and they haven't really really gone back and revisited it."
+    },
+    {
+      "id": 12,
+      "start": 50.56,
+      "end": 54.16,
+      "text": "And I think other things like the memory allocator, like J. E. Malak or me Malak or T. C. Malak,"
+    },
+    {
+      "id": 13,
+      "start": 54.16,
+      "end": 56.84,
+      "text": "those have gotten a lot better and they're not going to be worth it to build it from scratch"
+    },
+    {
+      "id": 14,
+      "start": 56.84,
+      "end": 57.84,
+      "text": "now."
+    },
+    {
+      "id": 15,
+      "start": 57.84,
+      "end": 58.84,
+      "text": "Yes?"
+    },
+    {
+      "id": 16,
+      "start": 58.84,
+      "end": 62.32,
+      "text": "I think the cost of money would have been, like, a lot of money."
+    },
+    {
+      "id": 17,
+      "start": 62.32,
+      "end": 65.56,
+      "text": "So is this UDP thing like slower than UDP?"
+    },
+    {
+      "id": 18,
+      "start": 65.56,
+      "end": 67.56,
+      "text": "It would be an interesting cost saving engine?"
+    },
+    {
+      "id": 19,
+      "start": 67.56,
+      "end": 73.24,
+      "text": "This question is, in FANABAN, cost a lot of money, but you can only get that on PrAM."
+    },
+    {
+      "id": 20,
+      "start": 73.24,
+      "end": 77.92,
+      "text": "Is UDP thing they're doing?"
+    },
+    {
+      "id": 21,
+      "start": 77.92,
+      "end": 81.88,
+      "text": "Are they doing this because it's cheaper?"
+    },
+    {
+      "id": 22,
+      "start": 81.88,
+      "end": 82.88,
+      "text": "I think no."
+    },
+    {
+      "id": 23,
+      "start": 82.88,
+      "end": 87.72,
+      "text": "I think they're doing this because if you just use, like, out of the box OS networking"
+    },
+    {
+      "id": 24,
+      "start": 87.72,
+      "end": 90.0,
+      "text": "back, it's going to be slower."
+    },
+    {
+      "id": 25,
+      "start": 90.0,
+      "end": 93.4,
+      "text": "So by building something custom, they get better performance."
+    },
+    {
+      "id": 26,
+      "start": 93.4,
+      "end": 98.2,
+      "text": "I don't think it achieves the FANABAN performance, but it moves you closer to it."
+    },
+    {
+      "id": 27,
+      "start": 98.2,
+      "end": 103.04,
+      "text": "Because 21st and 2nd, TCP doesn't sound like crazy at all."
+    },
+    {
+      "id": 28,
+      "start": 103.04,
+      "end": 107.2,
+      "text": "Again, it doesn't sound like crazy."
+    },
+    {
+      "id": 29,
+      "start": 107.2,
+      "end": 109.2,
+      "text": "You think you could do better or..."
+    },
+    {
+      "id": 30,
+      "start": 109.2,
+      "end": 112.68,
+      "text": "Well, TCP does like so much stuff in this communication."
+    },
+    {
+      "id": 31,
+      "start": 112.68,
+      "end": 116.24,
+      "text": "UDP would be just blasting fights in a wire like you would think that..."
+    },
+    {
+      "id": 32,
+      "start": 116.24,
+      "end": 117.68,
+      "text": "It would be much higher."
+    },
+    {
+      "id": 33,
+      "start": 117.68,
+      "end": 120.32,
+      "text": "Plus, the DPDK would do in kernel bypass anyway."
+    },
+    {
+      "id": 34,
+      "start": 120.32,
+      "end": 121.92,
+      "text": "It depends on the query."
+    },
+    {
+      "id": 35,
+      "start": 121.92,
+      "end": 126.76,
+      "text": "Again, there's one query in the TPCDS workload where they were getting a 77% improvement."
+    },
+    {
+      "id": 36,
+      "start": 126.76,
+      "end": 128.64,
+      "text": "Because I think transfer to a ton of data."
+    },
+    {
+      "id": 37,
+      "start": 128.64,
+      "end": 130.64,
+      "text": "On average, it's 20%."
+    },
+    {
+      "id": 38,
+      "start": 130.64,
+      "end": 132.64,
+      "text": "Yeah, couple of questions."
+    },
+    {
+      "id": 39,
+      "start": 132.64,
+      "end": 135.64,
+      "text": "Please, you have to do TCP via sender, right?"
+    },
+    {
+      "id": 40,
+      "start": 135.64,
+      "end": 138.64,
+      "text": "I mean, do you think the average is 100%?"
+    },
+    {
+      "id": 41,
+      "start": 138.64,
+      "end": 140.64,
+      "text": "I don't think so."
+    },
+    {
+      "id": 42,
+      "start": 140.64,
+      "end": 142.64,
+      "text": "So your question is..."
+    },
+    {
+      "id": 43,
+      "start": 142.64,
+      "end": 143.64,
+      "text": "Yeah."
+    },
+    {
+      "id": 44,
+      "start": 143.64,
+      "end": 146.24,
+      "text": "Do you think there's a lot of work?"
+    },
+    {
+      "id": 45,
+      "start": 146.24,
+      "end": 147.24,
+      "text": "Yeah, so there's quick..."
+    },
+    {
+      "id": 46,
+      "start": 147.24,
+      "end": 150.24,
+      "text": "So the profession is like, how do you show a lot of what delivery you get there still"
+    },
+    {
+      "id": 47,
+      "start": 150.24,
+      "end": 151.24,
+      "text": "do sequence numbers?"
+    },
+    {
+      "id": 48,
+      "start": 151.24,
+      "end": 152.24,
+      "text": "Yes."
+    },
+    {
+      "id": 49,
+      "start": 152.24,
+      "end": 153.24,
+      "text": "But..."
+    },
+    {
+      "id": 50,
+      "start": 153.24,
+      "end": 155.24,
+      "text": "So, I can..."
+    },
+    {
+      "id": 51,
+      "start": 155.24,
+      "end": 159.92,
+      "text": "They don't say how they do it, but you can imagine like, okay, like, I know I need to"
+    },
+    {
+      "id": 52,
+      "start": 159.92,
+      "end": 161.64,
+      "text": "send 10 packets."
+    },
+    {
+      "id": 53,
+      "start": 161.64,
+      "end": 165.36,
+      "text": "So when I start sending you data, it's like, here's one of 10, two of 10, three of 10."
+    },
+    {
+      "id": 54,
+      "start": 165.36,
+      "end": 171.28,
+      "text": "And if I don't see like four of 10, I go back and ask where back."
+    },
+    {
+      "id": 55,
+      "start": 171.28,
+      "end": 175.52,
+      "text": "But yes, they are re-implementing something that looks like TCP."
+    },
+    {
+      "id": 56,
+      "start": 175.52,
+      "end": 179.12,
+      "text": "But TCP sends acts for everything, right?"
+    },
+    {
+      "id": 57,
+      "start": 179.12,
+      "end": 180.4,
+      "text": "Like, here's a packet."
+    },
+    {
+      "id": 58,
+      "start": 180.4,
+      "end": 181.4,
+      "text": "Did you get it?"
+    },
+    {
+      "id": 59,
+      "start": 181.4,
+      "end": 182.4,
+      "text": "Yeah, I got it."
+    },
+    {
+      "id": 60,
+      "start": 182.4,
+      "end": 183.4,
+      "text": "All right, here's the next one."
+    },
+    {
+      "id": 61,
+      "start": 183.4,
+      "end": 184.4,
+      "text": "Did you get it?"
+    },
+    {
+      "id": 62,
+      "start": 184.4,
+      "end": 185.4,
+      "text": "Yeah, I got it, right?"
+    },
+    {
+      "id": 63,
+      "start": 185.4,
+      "end": 187.4,
+      "text": "And this is like, okay, I should have sent you 10."
+    },
+    {
+      "id": 64,
+      "start": 187.4,
+      "end": 188.4,
+      "text": "Did you get 10?"
+    },
+    {
+      "id": 65,
+      "start": 188.4,
+      "end": 189.4,
+      "text": "Yes."
+    },
+    {
+      "id": 66,
+      "start": 189.4,
+      "end": 192.4,
+      "text": "Yeah, but I don't feel like more simple ways."
+    },
+    {
+      "id": 67,
+      "start": 192.4,
+      "end": 199.4,
+      "text": "Like, some instruments, like, you can just move here and you can rewrite them."
+    },
+    {
+      "id": 68,
+      "start": 199.4,
+      "end": 204.4,
+      "text": "Okay."
+    },
+    {
+      "id": 69,
+      "start": 204.4,
+      "end": 205.4,
+      "text": "Okay."
+    },
+    {
+      "id": 70,
+      "start": 205.4,
+      "end": 210.4,
+      "text": "I think that's like, what they just do, you can, you can do the best for this in terms of"
+    },
+    {
+      "id": 71,
+      "start": 210.4,
+      "end": 215.8,
+      "text": "like, in five years ago was the only choice before EPBF, right?"
+    },
+    {
+      "id": 72,
+      "start": 215.8,
+      "end": 225.32,
+      "text": "Or say you can go back to like 2016, 2017, I think there's papers around, even 2020,"
+    },
+    {
+      "id": 73,
+      "start": 225.32,
+      "end": 231.04,
+      "text": "that show like, in like the Linux networking stack, we just hammered the hell out of it."
+    },
+    {
+      "id": 74,
+      "start": 231.04,
+      "end": 233.6,
+      "text": "Fifty percent of the time it spent men copying in the kernel."
+    },
+    {
+      "id": 75,
+      "start": 233.6,
+      "end": 235.32,
+      "text": "So, DBDK will avoid that."
+    },
+    {
+      "id": 76,
+      "start": 235.32,
+      "end": 239.32,
+      "text": "So, now if you want to reduce them on round trips, I have to do, you have to use something,"
+    },
+    {
+      "id": 77,
+      "start": 239.32,
+      "end": 242.84,
+      "text": "like, it's like a Viz UDP thing."
+    },
+    {
+      "id": 78,
+      "start": 242.84,
+      "end": 244.8,
+      "text": "And you can only do this for inter-node communication."
+    },
+    {
+      "id": 79,
+      "start": 244.8,
+      "end": 248.32,
+      "text": "Like, obviously, Amazon's not going to know your funky UDP protocol when you start talking"
+    },
+    {
+      "id": 80,
+      "start": 248.32,
+      "end": 249.32,
+      "text": "S3, right?"
+    },
+    {
+      "id": 81,
+      "start": 249.32,
+      "end": 252.4,
+      "text": "So, you have to use what they want for that."
+    },
+    {
+      "id": 82,
+      "start": 252.4,
+      "end": 258.4,
+      "text": "And you can use DBDK to get that data up quickly as possible on the client side."
+    },
+    {
+      "id": 83,
+      "start": 258.4,
+      "end": 265.72,
+      "text": "So, Stabin is, he's skeptical, it's worth engineering, I'll do this."
+    },
+    {
+      "id": 84,
+      "start": 265.72,
+      "end": 269.72,
+      "text": "Let's, we can, through much slides, we can revisit this."
+    },
+    {
+      "id": 85,
+      "start": 269.72,
+      "end": 270.72,
+      "text": "Yes."
+    },
+    {
+      "id": 86,
+      "start": 270.72,
+      "end": 272.72,
+      "text": "Other questions?"
+    },
+    {
+      "id": 87,
+      "start": 272.72,
+      "end": 273.72,
+      "text": "All right."
+    },
+    {
+      "id": 88,
+      "start": 273.72,
+      "end": 278.2,
+      "text": "So, as I said, I like to pay for it because they actually have benchmark results, which"
+    },
+    {
+      "id": 89,
+      "start": 278.2,
+      "end": 282.28,
+      "text": "I think they're the ones that actually do, with absolute numbers, not relative numbers."
+    },
+    {
+      "id": 90,
+      "start": 282.28,
+      "end": 285.08,
+      "text": "And so, for this, they're running all TPC, DS, scale factor one."
+    },
+    {
+      "id": 91,
+      "start": 285.08,
+      "end": 289.88,
+      "text": "So, it's not that big, but TPC DS has 100 queries."
+    },
+    {
+      "id": 92,
+      "start": 289.88,
+      "end": 293.24,
+      "text": "And they show the total runtime of the workload."
+    },
+    {
+      "id": 93,
+      "start": 293.24,
+      "end": 297.04,
+      "text": "And so, you can see, they compare against yellow brick, snowflake, redshift, big query,"
+    },
+    {
+      "id": 94,
+      "start": 297.04,
+      "end": 298.04,
+      "text": "synapse and database."
+    },
+    {
+      "id": 95,
+      "start": 298.04,
+      "end": 302.2,
+      "text": "Again, redshift will cover on Wednesday."
+    },
+    {
+      "id": 96,
+      "start": 302.2,
+      "end": 305.56,
+      "text": "Synapse is from Microsoft and Azure."
+    },
+    {
+      "id": 97,
+      "start": 305.56,
+      "end": 309.52,
+      "text": "We were supposed to cover that, but then, whatever, diarrhea."
+    },
+    {
+      "id": 98,
+      "start": 309.52,
+      "end": 318.88,
+      "text": "So, but anyway, so, so, so off the bat, you see that again, for this workload, they're"
+    },
+    {
+      "id": 99,
+      "start": 318.88,
+      "end": 319.88,
+      "text": "the fastest."
+    },
+    {
+      "id": 100,
+      "start": 319.88,
+      "end": 326.28,
+      "text": "But again, like, all these systems abstract away what the harbor actually is."
+    },
+    {
+      "id": 101,
+      "start": 326.28,
+      "end": 330.44,
+      "text": "You say, I want 10, you know, I'm a data warehouse that have 10 units."
+    },
+    {
+      "id": 102,
+      "start": 330.44,
+      "end": 331.44,
+      "text": "What does that mean?"
+    },
+    {
+      "id": 103,
+      "start": 331.44,
+      "end": 332.44,
+      "text": "What is the disk?"
+    },
+    {
+      "id": 104,
+      "start": 332.44,
+      "end": 333.44,
+      "text": "What is the CPU?"
+    },
+    {
+      "id": 105,
+      "start": 333.44,
+      "end": 334.44,
+      "text": "What is the memory?"
+    },
+    {
+      "id": 106,
+      "start": 334.44,
+      "end": 335.44,
+      "text": "So, all that's abstraction away."
+    },
+    {
+      "id": 107,
+      "start": 335.44,
+      "end": 340.76,
+      "text": "And you say, okay, what's the cost to actually run this per hour for these queries?"
+    },
+    {
+      "id": 108,
+      "start": 340.76,
+      "end": 344.88,
+      "text": "And then you divide that time, it takes them on the workload by the cost per hour, and"
+    },
+    {
+      "id": 109,
+      "start": 344.88,
+      "end": 348.28,
+      "text": "you can get what, you know, what is actual cost to actually running this thing."
+    },
+    {
+      "id": 110,
+      "start": 348.28,
+      "end": 352.56,
+      "text": "And in this case, yellow brick is, you know, significantly cheaper than the others."
+    },
+    {
+      "id": 111,
+      "start": 352.56,
+      "end": 358.64,
+      "text": "And yeah, we're talking about $2, but like, this is like for workload that took 900 seconds,"
+    },
+    {
+      "id": 112,
+      "start": 358.64,
+      "end": 363.8,
+      "text": "think of like in a real enterprise system, these queries are running all the time."
+    },
+    {
+      "id": 113,
+      "start": 363.8,
+      "end": 365.84,
+      "text": "And things are running all the time."
+    },
+    {
+      "id": 114,
+      "start": 365.84,
+      "end": 368.12,
+      "text": "And you know, this was certainly sort of to add up."
+    },
+    {
+      "id": 115,
+      "start": 368.12,
+      "end": 373.24,
+      "text": "And like I said, scale factor one is not that big of a wearer, big of a size we do."
+    },
+    {
+      "id": 116,
+      "start": 373.24,
+      "end": 380.4,
+      "text": "All right, so do we trust these numbers as much as we like looking at them?"
+    },
+    {
+      "id": 117,
+      "start": 380.4,
+      "end": 381.4,
+      "text": "No, maybe."
+    },
+    {
+      "id": 118,
+      "start": 381.4,
+      "end": 382.4,
+      "text": "Maybe?"
+    },
+    {
+      "id": 119,
+      "start": 382.4,
+      "end": 383.4,
+      "text": "Why, why maybe?"
+    },
+    {
+      "id": 120,
+      "start": 383.4,
+      "end": 384.4,
+      "text": "What's the TPC?"
+    },
+    {
+      "id": 121,
+      "start": 384.4,
+      "end": 385.4,
+      "text": "Is it TPC DS?"
+    },
+    {
+      "id": 122,
+      "start": 385.4,
+      "end": 386.4,
+      "text": "Yeah, no, what would it look like?"
+    },
+    {
+      "id": 123,
+      "start": 386.4,
+      "end": 387.4,
+      "text": "Oh, with TPC H numbers?"
+    },
+    {
+      "id": 124,
+      "start": 387.4,
+      "end": 388.4,
+      "text": "Maybe similar?"
+    },
+    {
+      "id": 125,
+      "start": 388.4,
+      "end": 389.4,
+      "text": "Yes, that's what it looks like."
+    },
+    {
+      "id": 126,
+      "start": 389.4,
+      "end": 391.4,
+      "text": "TPC DS is more complicated."
+    },
+    {
+      "id": 127,
+      "start": 391.4,
+      "end": 392.4,
+      "text": "Exactly, right?"
+    },
+    {
+      "id": 128,
+      "start": 392.4,
+      "end": 393.4,
+      "text": "So, simpler."
+    },
+    {
+      "id": 129,
+      "start": 393.4,
+      "end": 394.4,
+      "text": "Yes, that's what I was thinking."
+    },
+    {
+      "id": 130,
+      "start": 394.4,
+      "end": 396.4,
+      "text": "TPC DS is more complicated."
+    },
+    {
+      "id": 131,
+      "start": 396.4,
+      "end": 397.4,
+      "text": "Exactly, right?"
+    },
+    {
+      "id": 132,
+      "start": 397.4,
+      "end": 398.4,
+      "text": "So, simpler."
+    },
+    {
+      "id": 133,
+      "start": 398.4,
+      "end": 399.4,
+      "text": "Yeah."
+    },
+    {
+      "id": 134,
+      "start": 399.4,
+      "end": 406.4,
+      "text": "So, I was thinking maybe they would chose the TPC DS strategically to really display what"
+    },
+    {
+      "id": 135,
+      "start": 406.4,
+      "end": 407.4,
+      "text": "theirs can do better."
+    },
+    {
+      "id": 136,
+      "start": 407.4,
+      "end": 413.4,
+      "text": "But when it comes to maybe like every day analytical queries that are probably simpler than"
+    },
+    {
+      "id": 137,
+      "start": 413.4,
+      "end": 418.4,
+      "text": "TPC DS, perhaps the cost savings on to do that."
+    },
+    {
+      "id": 138,
+      "start": 419.4,
+      "end": 420.4,
+      "text": "Okay."
+    },
+    {
+      "id": 139,
+      "start": 423.4,
+      "end": 424.4,
+      "text": "Yes."
+    },
+    {
+      "id": 140,
+      "start": 424.4,
+      "end": 426.4,
+      "text": "Maybe they didn't account for uploading the data."
+    },
+    {
+      "id": 141,
+      "start": 426.4,
+      "end": 430.4,
+      "text": "I said maybe they didn't account for uploading the data like we saw with Snowflake."
+    },
+    {
+      "id": 142,
+      "start": 430.4,
+      "end": 432.4,
+      "text": "That one I'm blessed word about."
+    },
+    {
+      "id": 143,
+      "start": 432.4,
+      "end": 441.4,
+      "text": "I don't think they would be that about sort of looking for."
+    },
+    {
+      "id": 144,
+      "start": 441.4,
+      "end": 445.4,
+      "text": "I don't think they would be that naive."
+    },
+    {
+      "id": 145,
+      "start": 445.4,
+      "end": 449.4,
+      "text": "So, like, yeah, this is TPC DS for a given workload."
+    },
+    {
+      "id": 146,
+      "start": 449.4,
+      "end": 451.4,
+      "text": "But we just said they're a query optimizer."
+    },
+    {
+      "id": 147,
+      "start": 451.4,
+      "end": 455.4,
+      "text": "You know, they inject rules and make sure they generate the query plan, right?"
+    },
+    {
+      "id": 148,
+      "start": 455.4,
+      "end": 457.4,
+      "text": "So, okay, I must say they play tricks."
+    },
+    {
+      "id": 149,
+      "start": 457.4,
+      "end": 461.4,
+      "text": "But like, you don't know what the query plan looks like."
+    },
+    {
+      "id": 150,
+      "start": 461.4,
+      "end": 466.4,
+      "text": "Maybe for whatever reason, redshift or synapse just picked a crappy query plan."
+    },
+    {
+      "id": 151,
+      "start": 466.4,
+      "end": 467.4,
+      "text": "Right?"
+    },
+    {
+      "id": 152,
+      "start": 467.4,
+      "end": 469.4,
+      "text": "Or in this case here, synapse is $6 an hour."
+    },
+    {
+      "id": 153,
+      "start": 469.4,
+      "end": 470.4,
+      "text": "Right?"
+    },
+    {
+      "id": 154,
+      "start": 470.4,
+      "end": 473.4,
+      "text": "Maybe this is, you know, just running on fewer machines."
+    },
+    {
+      "id": 155,
+      "start": 474.4,
+      "end": 476.4,
+      "text": "Because the next one, the next one, $1.12 an hour."
+    },
+    {
+      "id": 156,
+      "start": 476.4,
+      "end": 479.4,
+      "text": "But maybe that will cut the time down to what Ellibor could do."
+    },
+    {
+      "id": 157,
+      "start": 479.4,
+      "end": 487.4,
+      "text": "So, the main takeaway from all of this is that there's so many different factors in databases that it's really hard to be able to say like, you know, from one workload is one better than another."
+    },
+    {
+      "id": 158,
+      "start": 487.4,
+      "end": 496.4,
+      "text": "Now, maybe say, okay, the TPC thing that I made fun of before, that solves this problem because that can guarantee you have a level playing field."
+    },
+    {
+      "id": 159,
+      "start": 496.4,
+      "end": 501.4,
+      "text": "But that accounts for just like, you know, are you running the process correctly?"
+    },
+    {
+      "id": 160,
+      "start": 501.4,
+      "end": 504.4,
+      "text": "It doesn't explain why things are actually better than another."
+    },
+    {
+      "id": 161,
+      "start": 504.4,
+      "end": 509.4,
+      "text": "Right? Because again, yellow brick is going to do high-coo style, steepless compilation of query plans."
+    },
+    {
+      "id": 162,
+      "start": 509.4,
+      "end": 512.4,
+      "text": "Well, guess what? Redshift does the same thing. Right?"
+    },
+    {
+      "id": 163,
+      "start": 512.4,
+      "end": 515.4,
+      "text": "Snowflake and BigQuery aren't doing any compilation."
+    },
+    {
+      "id": 164,
+      "start": 515.4,
+      "end": 518.4,
+      "text": "Databricks doesn't do that either, right? Any more."
+    },
+    {
+      "id": 165,
+      "start": 518.4,
+      "end": 519.4,
+      "text": "Unless you're running Spark SQL."
+    },
+    {
+      "id": 166,
+      "start": 519.4,
+      "end": 524.4,
+      "text": "Or how do you know that this was running photon and not regular Spark SQL?"
+    },
+    {
+      "id": 167,
+      "start": 524.4,
+      "end": 528.4,
+      "text": "So, again, it's nice to look at, but it isn't until they tell the whole story."
+    },
+    {
+      "id": 168,
+      "start": 528.4,
+      "end": 533.4,
+      "text": "And obviously, the end of the day, you really only care about not TPC DS numbers,"
+    },
+    {
+      "id": 169,
+      "start": 533.4,
+      "end": 537.4,
+      "text": "care about what your workload actually can do."
+    },
+    {
+      "id": 170,
+      "start": 537.4,
+      "end": 544.4,
+      "text": "And so what leads me to my finishing comment, like, the, it's very impressive what they did."
+    },
+    {
+      "id": 171,
+      "start": 544.4,
+      "end": 545.4,
+      "text": "Right? And insane."
+    },
+    {
+      "id": 172,
+      "start": 545.4,
+      "end": 549.4,
+      "text": "I have not come across another system that does all these optimizations that the way they have."
+    },
+    {
+      "id": 173,
+      "start": 549.4,
+      "end": 554.4,
+      "text": "And if you were like a brand new startup today and say, hey, I'm going to build a brand new system and you would, you know,"
+    },
+    {
+      "id": 174,
+      "start": 554.4,
+      "end": 562.4,
+      "text": "I would not go the path that they went down to like, you know, implement all this low-level hardware stuff that they did."
+    },
+    {
+      "id": 175,
+      "start": 562.4,
+      "end": 564.4,
+      "text": "But again, it's, it's fascinating."
+    },
+    {
+      "id": 176,
+      "start": 564.4,
+      "end": 568.4,
+      "text": "Some things you wouldn't do anymore. I don't think you would want to use DBDK."
+    },
+    {
+      "id": 177,
+      "start": 568.4,
+      "end": 571.4,
+      "text": "I think you'd want to use BPF. And that could give you most of the same benefit."
+    },
+    {
+      "id": 178,
+      "start": 571.4,
+      "end": 574.4,
+      "text": "Either you ring might help in other situations as well."
+    },
+    {
+      "id": 179,
+      "start": 574.4,
+      "end": 578.4,
+      "text": "And I don't think when the gatekeeper talked to us, they were doing that."
+    },
+    {
+      "id": 180,
+      "start": 578.4,
+      "end": 582.4,
+      "text": "But the key thing that matters in related to the last slide is all this,"
+    },
+    {
+      "id": 181,
+      "start": 582.4,
+      "end": 587.4,
+      "text": "all these optimizations, these OS level stuff they're doing, does not matter if you pick crappy quarter plants."
+    },
+    {
+      "id": 182,
+      "start": 587.4,
+      "end": 594.4,
+      "text": "If your join orders are just wrong, then who cares that you're doing kernel bypass with custom PCIe drivers?"
+    },
+    {
+      "id": 183,
+      "start": 594.4,
+      "end": 598.4,
+      "text": "Because your join, your query plan is going to be absolutely terrible."
+    },
+    {
+      "id": 184,
+      "start": 598.4,
+      "end": 600.4,
+      "text": "And that's, that's going to be."
+    }
+  ],
+  "language": "en"
+}

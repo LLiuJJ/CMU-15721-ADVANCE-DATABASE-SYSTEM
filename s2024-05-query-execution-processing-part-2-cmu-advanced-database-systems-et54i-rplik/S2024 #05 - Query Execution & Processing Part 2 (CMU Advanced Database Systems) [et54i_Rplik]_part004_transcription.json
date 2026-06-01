@@ -1,0 +1,1319 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.64,
+      "text": "things from disk again or from the object store"
+    },
+    {
+      "id": 1,
+      "start": 2.64,
+      "end": 3.92,
+      "text": "could be expensive."
+    },
+    {
+      "id": 2,
+      "start": 3.92,
+      "end": 5.6,
+      "text": "Again, if it's cash, you avoid that."
+    },
+    {
+      "id": 3,
+      "start": 5.6,
+      "end": 8.36,
+      "text": "That I want to materialize everything early."
+    },
+    {
+      "id": 4,
+      "start": 8.36,
+      "end": 10.0,
+      "text": "But again, if I have a billion tuples"
+    },
+    {
+      "id": 5,
+      "start": 10.0,
+      "end": 11.72,
+      "text": "and the joint produces one tuple,"
+    },
+    {
+      "id": 6,
+      "start": 11.72,
+      "end": 14.04,
+      "text": "then I'm passing along a billion tuples of one to columns"
+    },
+    {
+      "id": 7,
+      "start": 14.04,
+      "end": 15.0,
+      "text": "I don't actually need."
+    },
+    {
+      "id": 8,
+      "start": 15.0,
+      "end": 18.88,
+      "text": "And it's better to do late materialization."
+    },
+    {
+      "id": 9,
+      "start": 18.88,
+      "end": 20.04,
+      "text": "So this is an old idea."
+    },
+    {
+      "id": 10,
+      "start": 20.04,
+      "end": 23.32,
+      "text": "It was back about 15 years ago."
+    },
+    {
+      "id": 11,
+      "start": 23.32,
+      "end": 25.48,
+      "text": "I don't know whether the first column storage stuff"
+    },
+    {
+      "id": 12,
+      "start": 25.48,
+      "end": 30.12,
+      "text": "did this in the 90s from Cybase-AQ."
+    },
+    {
+      "id": 13,
+      "start": 30.12,
+      "end": 33.16,
+      "text": "But I know MoniB did this, Vertica did this."
+    },
+    {
+      "id": 14,
+      "start": 33.16,
+      "end": 36.16,
+      "text": "This is an old idea, but pretty much everyone does today."
+    },
+    {
+      "id": 15,
+      "start": 36.16,
+      "end": 42.24,
+      "text": "Again, we did do in the Pax model or the column store"
+    },
+    {
+      "id": 16,
+      "start": 42.24,
+      "end": 45.0,
+      "text": "because we can go fetch individual columns as needed"
+    },
+    {
+      "id": 17,
+      "start": 45.0,
+      "end": 47.88,
+      "text": "and put things together."
+    },
+    {
+      "id": 18,
+      "start": 47.88,
+      "end": 48.38,
+      "text": "Yes?"
+    },
+    {
+      "id": 19,
+      "start": 48.38,
+      "end": 53.82,
+      "text": "So what we do is create a column and use a column at the bottom"
+    },
+    {
+      "id": 20,
+      "start": 53.82,
+      "end": 56.7,
+      "text": "to use, and it's only ever used again back at the top."
+    },
+    {
+      "id": 21,
+      "start": 56.7,
+      "end": 58.58,
+      "text": "Then do you drop it within the unit?"
+    },
+    {
+      "id": 22,
+      "start": 58.58,
+      "end": 61.34,
+      "text": "So this question is, if you have a, say, really high query"
+    },
+    {
+      "id": 23,
+      "start": 61.34,
+      "end": 66.1,
+      "text": "plan, a lot of steps going up, and there's an attribute"
+    },
+    {
+      "id": 24,
+      "start": 66.1,
+      "end": 67.42,
+      "text": "that's used at the top and the bottom,"
+    },
+    {
+      "id": 25,
+      "start": 67.42,
+      "end": 68.1,
+      "text": "I know where it in between."
+    },
+    {
+      "id": 26,
+      "start": 68.1,
+      "end": 70.02,
+      "text": "Would you drop it in the add-up back?"
+    },
+    {
+      "id": 27,
+      "start": 70.02,
+      "end": 72.34,
+      "text": "You could, but I don't think anybody does that."
+    },
+    {
+      "id": 28,
+      "start": 72.34,
+      "end": 75.18,
+      "text": "Just too much bookkeeping, I think."
+    },
+    {
+      "id": 29,
+      "start": 75.26,
+      "end": 77.42,
+      "text": "Also, here, it depends on like, like."
+    },
+    {
+      "id": 30,
+      "start": 77.42,
+      "end": 78.62,
+      "text": "The second about, but."
+    },
+    {
+      "id": 31,
+      "start": 78.62,
+      "end": 80.5,
+      "text": "Yeah, then you have to estimate things."
+    },
+    {
+      "id": 32,
+      "start": 80.5,
+      "end": 82.46,
+      "text": "It would be hard to get it right."
+    },
+    {
+      "id": 33,
+      "start": 82.46,
+      "end": 83.46,
+      "text": "Yes?"
+    },
+    {
+      "id": 34,
+      "start": 83.46,
+      "end": 86.82,
+      "text": "I know, we know which context of the materialization"
+    },
+    {
+      "id": 35,
+      "start": 86.82,
+      "end": 88.82,
+      "text": "we're showing the materialization to it in."
+    },
+    {
+      "id": 36,
+      "start": 88.82,
+      "end": 91.58,
+      "text": "But like, in terms of actually designing systems,"
+    },
+    {
+      "id": 37,
+      "start": 91.58,
+      "end": 94.54,
+      "text": "do systems like, we can just plot"
+    },
+    {
+      "id": 38,
+      "start": 94.54,
+      "end": 96.3,
+      "text": "or we have a higher approach"
+    },
+    {
+      "id": 39,
+      "start": 96.3,
+      "end": 98.42,
+      "text": "and how to use the value of the process."
+    },
+    {
+      "id": 40,
+      "start": 98.42,
+      "end": 100.18,
+      "text": "So this question is, those pros and cons"
+    },
+    {
+      "id": 41,
+      "start": 100.18,
+      "end": 101.06,
+      "text": "are both of these."
+    },
+    {
+      "id": 42,
+      "start": 101.06,
+      "end": 101.98,
+      "text": "I'm rephrasing."
+    },
+    {
+      "id": 43,
+      "start": 101.98,
+      "end": 104.9,
+      "text": "There's pros and cons both of these."
+    },
+    {
+      "id": 44,
+      "start": 104.9,
+      "end": 107.34,
+      "text": "Do most systems just pick one to use that"
+    },
+    {
+      "id": 45,
+      "start": 107.34,
+      "end": 109.7,
+      "text": "or they try to be clever and do a hybrid approach?"
+    },
+    {
+      "id": 46,
+      "start": 109.7,
+      "end": 111.14,
+      "text": "I mean, similar to what he was saying,"
+    },
+    {
+      "id": 47,
+      "start": 111.14,
+      "end": 112.98,
+      "text": "can you try to figure out, like."
+    },
+    {
+      "id": 48,
+      "start": 112.98,
+      "end": 115.18,
+      "text": "Can you, well, he's an extreme example."
+    },
+    {
+      "id": 49,
+      "start": 115.18,
+      "end": 116.94,
+      "text": "Like, can you try to figure out for any query plan"
+    },
+    {
+      "id": 50,
+      "start": 116.94,
+      "end": 120.18,
+      "text": "should I use early materialization or late materialization?"
+    },
+    {
+      "id": 51,
+      "start": 120.18,
+      "end": 121.46,
+      "text": "I think some systems do."
+    },
+    {
+      "id": 52,
+      "start": 121.46,
+      "end": 123.78,
+      "text": "The enterprise ones, I don't know about the open source ones."
+    },
+    {
+      "id": 53,
+      "start": 123.78,
+      "end": 125.58,
+      "text": "I don't know what DuckDB does."
+    },
+    {
+      "id": 54,
+      "start": 125.58,
+      "end": 127.26,
+      "text": "I think probably what is most common"
+    },
+    {
+      "id": 55,
+      "start": 127.26,
+      "end": 130.06,
+      "text": "is just pick late materialization and do that."
+    },
+    {
+      "id": 56,
+      "start": 130.06,
+      "end": 131.06,
+      "text": "Because it's less engineering."
+    },
+    {
+      "id": 57,
+      "start": 137.98,
+      "end": 142.38,
+      "text": "So now we know, again, we're doing late materialization."
+    },
+    {
+      "id": 58,
+      "start": 142.38,
+      "end": 144.5,
+      "text": "And we know that what we're sending up"
+    },
+    {
+      "id": 59,
+      "start": 144.5,
+      "end": 149.34,
+      "text": "is going to be columns of values."
+    },
+    {
+      "id": 60,
+      "start": 149.34,
+      "end": 151.3,
+      "text": "It's the bare minimum of what we actually need"
+    },
+    {
+      "id": 61,
+      "start": 151.3,
+      "end": 154.22,
+      "text": "to process each operator as we go up."
+    },
+    {
+      "id": 62,
+      "start": 154.22,
+      "end": 156.66,
+      "text": "Now we need to talk about what the encoding of that data,"
+    },
+    {
+      "id": 63,
+      "start": 156.66,
+      "end": 159.74,
+      "text": "those columns actually look like."
+    },
+    {
+      "id": 64,
+      "start": 159.82,
+      "end": 162.1,
+      "text": "And the challenge here is going to be"
+    },
+    {
+      "id": 65,
+      "start": 162.1,
+      "end": 165.54,
+      "text": "for these lake house systems, these overlap systems,"
+    },
+    {
+      "id": 66,
+      "start": 165.54,
+      "end": 169.98,
+      "text": "that want to read data from a bunch of files on S3,"
+    },
+    {
+      "id": 67,
+      "start": 169.98,
+      "end": 172.5,
+      "text": "all those files can be encoded in different ways,"
+    },
+    {
+      "id": 68,
+      "start": 172.5,
+      "end": 175.98,
+      "text": "like parquet or whatever, CSVs."
+    },
+    {
+      "id": 69,
+      "start": 175.98,
+      "end": 179.74,
+      "text": "And that means that you need a way to transform whatever"
+    },
+    {
+      "id": 70,
+      "start": 179.74,
+      "end": 183.38,
+      "text": "the on-disk representation of that data that you're reading"
+    },
+    {
+      "id": 71,
+      "start": 183.38,
+      "end": 187.3,
+      "text": "into some common format that the execution engine"
+    },
+    {
+      "id": 72,
+      "start": 187.3,
+      "end": 190.5,
+      "text": "can actually understand and support."
+    },
+    {
+      "id": 73,
+      "start": 190.5,
+      "end": 191.94,
+      "text": "Because you would not want to say,"
+    },
+    {
+      "id": 74,
+      "start": 191.94,
+      "end": 196.5,
+      "text": "here's my Scuncher scan operator or my join operator for parquet data,"
+    },
+    {
+      "id": 75,
+      "start": 196.5,
+      "end": 200.34,
+      "text": "here's my Scuncher scan join operator for orq data."
+    },
+    {
+      "id": 76,
+      "start": 200.34,
+      "end": 203.38,
+      "text": "Like that just be so much code to maintain,"
+    },
+    {
+      "id": 77,
+      "start": 203.38,
+      "end": 205.06,
+      "text": "it wouldn't be worth it."
+    },
+    {
+      "id": 78,
+      "start": 205.06,
+      "end": 207.94,
+      "text": "So all these systems are going to translate or transform"
+    },
+    {
+      "id": 79,
+      "start": 207.94,
+      "end": 212.62,
+      "text": "the disk format into some internal representation."
+    },
+    {
+      "id": 80,
+      "start": 212.62,
+      "end": 214.46,
+      "text": "And that's what's going to get propagated from one operator"
+    },
+    {
+      "id": 81,
+      "start": 214.46,
+      "end": 216.38,
+      "text": "the next as we go up in the query plan."
+    },
+    {
+      "id": 82,
+      "start": 218.7,
+      "end": 222.66,
+      "text": "So the internal representation or internal encoding,"
+    },
+    {
+      "id": 83,
+      "start": 222.66,
+      "end": 224.7,
+      "text": "again, just as I said, is how this system is going to"
+    },
+    {
+      "id": 84,
+      "start": 224.7,
+      "end": 226.86,
+      "text": "represent data on the inside."
+    },
+    {
+      "id": 85,
+      "start": 226.86,
+      "end": 231.38,
+      "text": "And this may not be what can then expose to you as the user,"
+    },
+    {
+      "id": 86,
+      "start": 231.38,
+      "end": 233.58,
+      "text": "as a result of the query, like it may come out as arrow,"
+    },
+    {
+      "id": 87,
+      "start": 233.58,
+      "end": 235.18,
+      "text": "may come out as a parquet file, whatever."
+    },
+    {
+      "id": 88,
+      "start": 235.18,
+      "end": 237.14,
+      "text": "But as it's going from one operator to the next,"
+    },
+    {
+      "id": 89,
+      "start": 237.14,
+      "end": 239.18,
+      "text": "it's going to be different."
+    },
+    {
+      "id": 90,
+      "start": 240.18,
+      "end": 241.94,
+      "text": "And so just like when it was on disk,"
+    },
+    {
+      "id": 91,
+      "start": 241.94,
+      "end": 244.94,
+      "text": "we want our columns to be the values within each"
+    },
+    {
+      "id": 92,
+      "start": 244.94,
+      "end": 248.34,
+      "text": "colony fixed length, because then we can find the corresponding"
+    },
+    {
+      "id": 93,
+      "start": 248.34,
+      "end": 251.86,
+      "text": "matches across tuples very easily."
+    },
+    {
+      "id": 94,
+      "start": 251.86,
+      "end": 254.66,
+      "text": "Ideally, you want to be able to move data and use data"
+    },
+    {
+      "id": 95,
+      "start": 254.66,
+      "end": 256.78,
+      "text": "structures and move them from one operator to the next"
+    },
+    {
+      "id": 96,
+      "start": 256.78,
+      "end": 259.66,
+      "text": "without serializing, without having to run like in better"
+    },
+    {
+      "id": 97,
+      "start": 259.66,
+      "end": 261.62,
+      "text": "blocks or ran that algorithm to like,"
+    },
+    {
+      "id": 98,
+      "start": 261.62,
+      "end": 263.58,
+      "text": "to do three passes to try to encode it."
+    },
+    {
+      "id": 99,
+      "start": 263.58,
+      "end": 266.58,
+      "text": "That's super slow to do that while we're actually running a query."
+    },
+    {
+      "id": 100,
+      "start": 266.58,
+      "end": 268.66,
+      "text": "So we want something that can ideally,"
+    },
+    {
+      "id": 101,
+      "start": 268.66,
+      "end": 272.14,
+      "text": "natively operate on the encoded data and move that along"
+    },
+    {
+      "id": 102,
+      "start": 272.14,
+      "end": 275.5,
+      "text": "without having it to deserialize it first."
+    },
+    {
+      "id": 103,
+      "start": 275.5,
+      "end": 280.9,
+      "text": "Similar to we also nice to have zero copy memory access,"
+    },
+    {
+      "id": 104,
+      "start": 280.9,
+      "end": 282.94,
+      "text": "because that would then potentially allow us to take our"
+    },
+    {
+      "id": 105,
+      "start": 282.94,
+      "end": 287.22,
+      "text": "internal representation of our data and be able to share that"
+    },
+    {
+      "id": 106,
+      "start": 287.22,
+      "end": 290.62,
+      "text": "with external processes."
+    },
+    {
+      "id": 107,
+      "start": 290.62,
+      "end": 292.22,
+      "text": "Now this is a new idea."
+    },
+    {
+      "id": 108,
+      "start": 292.22,
+      "end": 295.62,
+      "text": "This is actually what arrow is really predicated on."
+    },
+    {
+      "id": 109,
+      "start": 295.62,
+      "end": 297.94,
+      "text": "But think of something like, actually ducting meters is"
+    },
+    {
+      "id": 110,
+      "start": 297.94,
+      "end": 298.66,
+      "text": "really well."
+    },
+    {
+      "id": 111,
+      "start": 298.66,
+      "end": 302.74,
+      "text": "So when you can use duct Db inside a Python code,"
+    },
+    {
+      "id": 112,
+      "start": 302.74,
+      "end": 307.18,
+      "text": "and it looks like a data frames API, and you can access data"
+    },
+    {
+      "id": 113,
+      "start": 307.18,
+      "end": 309.58,
+      "text": "that's running in memory in duct Db."
+    },
+    {
+      "id": 114,
+      "start": 309.58,
+      "end": 311.38,
+      "text": "And all it's doing is just passing a pointer, because it's"
+    },
+    {
+      "id": 115,
+      "start": 311.38,
+      "end": 312.62,
+      "text": "the same process."
+    },
+    {
+      "id": 116,
+      "start": 312.62,
+      "end": 316.14,
+      "text": "You don't need to serialize it and deserialize it to transfer"
+    },
+    {
+      "id": 117,
+      "start": 316.14,
+      "end": 318.14,
+      "text": "data."
+    },
+    {
+      "id": 118,
+      "start": 318.14,
+      "end": 321.14,
+      "text": "And so if you have the ability to have this common"
+    },
+    {
+      "id": 119,
+      "start": 321.14,
+      "end": 323.5,
+      "text": "representation that everyone can potentially support,"
+    },
+    {
+      "id": 120,
+      "start": 323.5,
+      "end": 326.98,
+      "text": "then you can do that zero copy memory access."
+    },
+    {
+      "id": 121,
+      "start": 326.98,
+      "end": 329.3,
+      "text": "That's sort of an extreme example."
+    },
+    {
+      "id": 122,
+      "start": 329.3,
+      "end": 335.18,
+      "text": "But think of like, I could send data from one node to another"
+    },
+    {
+      "id": 123,
+      "start": 335.18,
+      "end": 336.82,
+      "text": "node over the network."
+    },
+    {
+      "id": 124,
+      "start": 336.82,
+      "end": 339.94,
+      "text": "And if my transfer scheme or transfer encoding scheme is the"
+    },
+    {
+      "id": 125,
+      "start": 339.94,
+      "end": 342.94,
+      "text": "same as the internal representation of data in my operators,"
+    },
+    {
+      "id": 126,
+      "start": 342.94,
+      "end": 346.46,
+      "text": "then I don't need to serialize it as a word of protoboffers."
+    },
+    {
+      "id": 127,
+      "start": 346.46,
+      "end": 347.9,
+      "text": "I just send over that data."
+    },
+    {
+      "id": 128,
+      "start": 347.9,
+      "end": 350.54,
+      "text": "And then soon the bytes arrive on the other node, it just"
+    },
+    {
+      "id": 129,
+      "start": 350.54,
+      "end": 352.46,
+      "text": "starts crunching them."
+    },
+    {
+      "id": 130,
+      "start": 352.46,
+      "end": 355.18,
+      "text": "Even crazier, you can put things down on the FPGA on the"
+    },
+    {
+      "id": 131,
+      "start": 355.18,
+      "end": 356.82,
+      "text": "nick and then start crunching them."
+    },
+    {
+      "id": 132,
+      "start": 356.82,
+      "end": 358.66,
+      "text": "That'll have to decompress it first."
+    },
+    {
+      "id": 133,
+      "start": 358.66,
+      "end": 361.5,
+      "text": "And there's some systems that do that."
+    },
+    {
+      "id": 134,
+      "start": 361.5,
+      "end": 365.26,
+      "text": "So this is obviously leading up to what Apache Arrow is."
+    },
+    {
+      "id": 135,
+      "start": 365.26,
+      "end": 369.26,
+      "text": "And so in the same way, Parkay and Ork are defined as open source"
+    },
+    {
+      "id": 136,
+      "start": 369.26,
+      "end": 372.3,
+      "text": "formats for storing data on files on disk."
+    },
+    {
+      "id": 137,
+      "start": 372.3,
+      "end": 378.42,
+      "text": "Arrow is an open source format to describe how to store data"
+    },
+    {
+      "id": 138,
+      "start": 378.42,
+      "end": 381.86,
+      "text": "in memory in a common art fashion."
+    },
+    {
+      "id": 139,
+      "start": 381.86,
+      "end": 385.7,
+      "text": "And the idea is that it's going to set the sort of encode data"
+    },
+    {
+      "id": 140,
+      "start": 385.7,
+      "end": 388.54,
+      "text": "in such a way that an implementation of something that"
+    },
+    {
+      "id": 141,
+      "start": 388.54,
+      "end": 391.22,
+      "text": "operates on Arrow data will be able to do all the cache"
+    },
+    {
+      "id": 142,
+      "start": 391.22,
+      "end": 393.3,
+      "text": "efficient vectorized stuff that we're talking about throughout"
+    },
+    {
+      "id": 143,
+      "start": 393.3,
+      "end": 395.22,
+      "text": "the entire semester."
+    },
+    {
+      "id": 144,
+      "start": 395.22,
+      "end": 397.66,
+      "text": "The one thing that is going to be much different than Arrow,"
+    },
+    {
+      "id": 145,
+      "start": 397.66,
+      "end": 400.06,
+      "text": "sorry, Parkay and Ork is that they're also going to be"
+    },
+    {
+      "id": 146,
+      "start": 400.06,
+      "end": 402.1,
+      "text": "able to support random access more efficiently."
+    },
+    {
+      "id": 147,
+      "start": 402.1,
+      "end": 405.98,
+      "text": "I can jump to an offset and get the exact value for that"
+    },
+    {
+      "id": 148,
+      "start": 405.98,
+      "end": 410.26,
+      "text": "tuple without having to be decode using RLE or delta encoding"
+    },
+    {
+      "id": 149,
+      "start": 410.26,
+      "end": 413.18,
+      "text": "all the stuff that we talked about before."
+    },
+    {
+      "id": 150,
+      "start": 413.18,
+      "end": 415.42,
+      "text": "And this is going to access into ripping through the columns"
+    },
+    {
+      "id": 151,
+      "start": 415.42,
+      "end": 417.58,
+      "text": "and processing things."
+    },
+    {
+      "id": 152,
+      "start": 417.58,
+      "end": 419.02,
+      "text": "So Arrow is a lot of stuff."
+    },
+    {
+      "id": 153,
+      "start": 419.02,
+      "end": 422.86,
+      "text": "Like it's meant to be sort of this framework that comes"
+    },
+    {
+      "id": 154,
+      "start": 422.86,
+      "end": 429.86,
+      "text": "with memory management, thread management, RPC mechanisms."
+    },
+    {
+      "id": 155,
+      "start": 429.86,
+      "end": 433.66,
+      "text": "They have a SQL parser and a SQL transport layer as well."
+    },
+    {
+      "id": 156,
+      "start": 433.66,
+      "end": 436.22,
+      "text": "But I'm talking about here today is just going to be the encoding"
+    },
+    {
+      "id": 157,
+      "start": 436.22,
+      "end": 438.3,
+      "text": "scheme for the columns and the data"
+    },
+    {
+      "id": 158,
+      "start": 438.3,
+      "end": 439.98,
+      "text": "that we're passing from one operative to the next."
+    },
+    {
+      "id": 159,
+      "start": 439.98,
+      "end": 442.34,
+      "text": "Again, whether it's on the same box or a different box,"
+    },
+    {
+      "id": 160,
+      "start": 442.34,
+      "end": 444.1,
+      "text": "it doesn't matter."
+    },
+    {
+      "id": 161,
+      "start": 444.1,
+      "end": 450.9,
+      "text": "You also have a sort of not simplistic but a basic expression"
+    },
+    {
+      "id": 162,
+      "start": 450.9,
+      "end": 453.18,
+      "text": "engine for evaluating expression trees,"
+    },
+    {
+      "id": 163,
+      "start": 453.18,
+      "end": 455.42,
+      "text": "like similar filters and projections."
+    },
+    {
+      "id": 164,
+      "start": 455.42,
+      "end": 459.42,
+      "text": "So you can't do all of the complicated functions"
+    },
+    {
+      "id": 165,
+      "start": 459.42,
+      "end": 461.42,
+      "text": "that you would want or could do in Velocs."
+    },
+    {
+      "id": 166,
+      "start": 461.42,
+      "end": 463.1,
+      "text": "They can do really basic things."
+    },
+    {
+      "id": 167,
+      "start": 463.1,
+      "end": 465.62,
+      "text": "There's this column equal to this and so forth."
+    },
+    {
+      "id": 168,
+      "start": 465.62,
+      "end": 469.42,
+      "text": "They actually compile it down into LLVM using this engine"
+    },
+    {
+      "id": 169,
+      "start": 469.42,
+      "end": 472.34,
+      "text": "they have called Gindiba."
+    },
+    {
+      "id": 170,
+      "start": 472.34,
+      "end": 473.7,
+      "text": "So Arrow is much different than a parking"
+    },
+    {
+      "id": 171,
+      "start": 473.7,
+      "end": 474.22,
+      "text": "in Ork."
+    },
+    {
+      "id": 172,
+      "start": 474.22,
+      "end": 475.98,
+      "text": "And again, because they want to be lightweight,"
+    },
+    {
+      "id": 173,
+      "start": 475.98,
+      "end": 478.58,
+      "text": "they only support two encoding schemes."
+    },
+    {
+      "id": 174,
+      "start": 478.58,
+      "end": 483.06,
+      "text": "They're dictionary encoding and some variation of RLE."
+    },
+    {
+      "id": 175,
+      "start": 483.06,
+      "end": 484.22,
+      "text": "They're not doing Devlin coding."
+    },
+    {
+      "id": 176,
+      "start": 484.22,
+      "end": 487.82,
+      "text": "They're not doing all the bitmap stuff"
+    },
+    {
+      "id": 177,
+      "start": 487.82,
+      "end": 489.86,
+      "text": "that BetterBox is doing."
+    },
+    {
+      "id": 178,
+      "start": 489.86,
+      "end": 493.86,
+      "text": "It's just going to be these two things."
+    },
+    {
+      "id": 179,
+      "start": 493.86,
+      "end": 497.34,
+      "text": "And so the way they're going to dictionary encoding,"
+    },
+    {
+      "id": 180,
+      "start": 497.34,
+      "end": 499.46,
+      "text": "at least the original version, was just"
+    },
+    {
+      "id": 181,
+      "start": 499.46,
+      "end": 503.94,
+      "text": "taking all the strings that are in a column, sorting them,"
+    },
+    {
+      "id": 182,
+      "start": 503.94,
+      "end": 506.66,
+      "text": "and then the offsets are the codes you're going to embed"
+    },
+    {
+      "id": 183,
+      "start": 506.66,
+      "end": 510.9,
+      "text": "in the column itself."
+    },
+    {
+      "id": 184,
+      "start": 510.9,
+      "end": 511.7,
+      "text": "Yes?"
+    },
+    {
+      "id": 185,
+      "start": 511.7,
+      "end": 512.7,
+      "text": "I'm not sure I'm going to be sure that's"
+    },
+    {
+      "id": 186,
+      "start": 512.7,
+      "end": 513.22,
+      "text": "a second point."
+    },
+    {
+      "id": 187,
+      "start": 513.22,
+      "end": 514.1,
+      "text": "What is expression?"
+    },
+    {
+      "id": 188,
+      "start": 514.1,
+      "end": 517.3,
+      "text": "I mean, this is a memory representation."
+    },
+    {
+      "id": 189,
+      "start": 517.3,
+      "end": 519.7,
+      "text": "Why do they have expression and evivoration?"
+    },
+    {
+      "id": 190,
+      "start": 519.7,
+      "end": 521.1,
+      "text": "Yes."
+    },
+    {
+      "id": 191,
+      "start": 521.5,
+      "end": 525.54,
+      "text": "There's the specification of what the encoding looks like."
+    },
+    {
+      "id": 192,
+      "start": 525.54,
+      "end": 527.82,
+      "text": "And then there's an implementation of it"
+    },
+    {
+      "id": 193,
+      "start": 527.82,
+      "end": 530.98,
+      "text": "of being operated on it in C++."
+    },
+    {
+      "id": 194,
+      "start": 530.98,
+      "end": 533.74,
+      "text": "And so as part of that implementation,"
+    },
+    {
+      "id": 195,
+      "start": 533.74,
+      "end": 538.58,
+      "text": "they include the ability to find the matching"
+    },
+    {
+      "id": 196,
+      "start": 538.58,
+      "end": 540.3,
+      "text": "two-blows or something equals something."
+    },
+    {
+      "id": 197,
+      "start": 540.3,
+      "end": 541.74,
+      "text": "And the way they're going to execute it,"
+    },
+    {
+      "id": 198,
+      "start": 541.74,
+      "end": 543.42,
+      "text": "we'll see in a second, instead of traversing the tree,"
+    },
+    {
+      "id": 199,
+      "start": 543.42,
+      "end": 547.7,
+      "text": "they're going to compile it down to LLVM."
+    },
+    {
+      "id": 200,
+      "start": 547.7,
+      "end": 550.22,
+      "text": "Again, it's hard to say, it's debating whether even"
+    },
+    {
+      "id": 201,
+      "start": 550.22,
+      "end": 551.62,
+      "text": "I mentioned it because we haven't talked about query"
+    },
+    {
+      "id": 202,
+      "start": 551.62,
+      "end": 554.7,
+      "text": "compilation, which is next week."
+    },
+    {
+      "id": 203,
+      "start": 554.7,
+      "end": 556.66,
+      "text": "And we'll see how you can do this for expressions in a second."
+    },
+    {
+      "id": 204,
+      "start": 556.66,
+      "end": 559.86,
+      "text": "But again, it's more than the spec."
+    },
+    {
+      "id": 205,
+      "start": 559.86,
+      "end": 562.58,
+      "text": "There's an invitation library for it as well."
+    },
+    {
+      "id": 206,
+      "start": 566.3,
+      "end": 567.94,
+      "text": "So I should have talked about this earlier"
+    },
+    {
+      "id": 207,
+      "start": 567.94,
+      "end": 572.5,
+      "text": "when we talked about data encoding of how you actually"
+    },
+    {
+      "id": 208,
+      "start": 572.5,
+      "end": 574.1,
+      "text": "want to represent strings."
+    },
+    {
+      "id": 209,
+      "start": 574.1,
+      "end": 575.98,
+      "text": "Again, strings are very well-length."
+    },
+    {
+      "id": 210,
+      "start": 575.98,
+      "end": 578.86,
+      "text": "You want to convert them into fixed-length values."
+    },
+    {
+      "id": 211,
+      "start": 578.86,
+      "end": 581.1,
+      "text": "And store them in your columns."
+    },
+    {
+      "id": 212,
+      "start": 581.1,
+      "end": 584.14,
+      "text": "But then what are you actually storing for that value"
+    },
+    {
+      "id": 213,
+      "start": 584.14,
+      "end": 585.1,
+      "text": "in the fixed-length column?"
+    },
+    {
+      "id": 214,
+      "start": 585.1,
+      "end": 587.14,
+      "text": "And then what are you actually storing"
+    },
+    {
+      "id": 215,
+      "start": 587.14,
+      "end": 589.1,
+      "text": "the very well-length string?"
+    },
+    {
+      "id": 216,
+      "start": 589.1,
+      "end": 592.98,
+      "text": "So what Error originally did was the fixed-length data"
+    },
+    {
+      "id": 217,
+      "start": 592.98,
+      "end": 597.94,
+      "text": "would just be a size and a pointer, so 12 bytes."
+    },
+    {
+      "id": 218,
+      "start": 597.94,
+      "end": 600.58,
+      "text": "And then the pointer would just be an offset in some way."
+    }
+  ],
+  "language": "en"
+}

@@ -1,0 +1,533 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.24,
+      "text": "way more branching, way more conditionals."
+    },
+    {
+      "id": 1,
+      "start": 2.24,
+      "end": 3.68,
+      "text": "If I just blindly just keep track of it,"
+    },
+    {
+      "id": 2,
+      "start": 3.68,
+      "end": 6.54,
+      "text": "here's what it doesn't match, this is wavehazard."
+    },
+    {
+      "id": 3,
+      "start": 6.54,
+      "end": 9.74,
+      "text": "Again, as humans, this goes back to the branchless,"
+    },
+    {
+      "id": 4,
+      "start": 9.74,
+      "end": 12.4,
+      "text": "conditional I showed before, or this branch of the scan."
+    },
+    {
+      "id": 5,
+      "start": 12.4,
+      "end": 14.2,
+      "text": "As you're all coming up with examples of like,"
+    },
+    {
+      "id": 6,
+      "start": 14.2,
+      "end": 15.64,
+      "text": "hey, this seems kind of wasteful, you're passing along"
+    },
+    {
+      "id": 7,
+      "start": 15.64,
+      "end": 20.68,
+      "text": "tuples, like, what if I 1024, my vector size is 1024,"
+    },
+    {
+      "id": 8,
+      "start": 20.68,
+      "end": 23.96,
+      "text": "all but one of them are thrown away."
+    },
+    {
+      "id": 9,
+      "start": 23.96,
+      "end": 26.32,
+      "text": "Well, again, it's just faster to pass along"
+    },
+    {
+      "id": 10,
+      "start": 26.32,
+      "end": 30.08,
+      "text": "the other 1023 useless tuples,"
+    },
+    {
+      "id": 11,
+      "start": 30.08,
+      "end": 32.24,
+      "text": "then rather than having to do what he's proposing,"
+    },
+    {
+      "id": 12,
+      "start": 32.24,
+      "end": 36.72,
+      "text": "I'm going getting any results and filling in the empty space,"
+    },
+    {
+      "id": 13,
+      "start": 36.72,
+      "end": 37.52,
+      "text": "it's not worth it."
+    },
+    {
+      "id": 14,
+      "start": 37.52,
+      "end": 42.48,
+      "text": "Do exactly, if you do the same thing that's very straightforward,"
+    },
+    {
+      "id": 15,
+      "start": 42.48,
+      "end": 46.16,
+      "text": "and even though you may end up executing more instructions,"
+    },
+    {
+      "id": 16,
+      "start": 46.16,
+      "end": 48.56,
+      "text": "but you end up using fewer cycles, because again,"
+    },
+    {
+      "id": 17,
+      "start": 48.56,
+      "end": 51.24,
+      "text": "it's set up in a way that CPU wants."
+    },
+    {
+      "id": 18,
+      "start": 54.24,
+      "end": 55.24,
+      "text": "Yes?"
+    },
+    {
+      "id": 19,
+      "start": 55.24,
+      "end": 58.36,
+      "text": "So the selection vector is exactly like getting"
+    },
+    {
+      "id": 20,
+      "start": 58.36,
+      "end": 60.92,
+      "text": "the right order."
+    },
+    {
+      "id": 21,
+      "start": 60.92,
+      "end": 62.36,
+      "text": "The statement is, with the selection vector,"
+    },
+    {
+      "id": 22,
+      "start": 62.36,
+      "end": 64.64,
+      "text": "getting shorter and shorter, well, it depends"
+    },
+    {
+      "id": 23,
+      "start": 64.64,
+      "end": 66.72,
+      "text": "on the query, it depends on the data, right?"
+    },
+    {
+      "id": 24,
+      "start": 66.72,
+      "end": 70.4,
+      "text": "But you would typically size it for the exact size"
+    },
+    {
+      "id": 25,
+      "start": 70.4,
+      "end": 74.12,
+      "text": "of the vector you're passing along, so like, 1024,"
+    },
+    {
+      "id": 26,
+      "start": 74.12,
+      "end": 76.8,
+      "text": "and there's have a length to say where the offset is."
+    },
+    {
+      "id": 27,
+      "start": 76.8,
+      "end": 79.6,
+      "text": "Where the end actually is, right?"
+    },
+    {
+      "id": 28,
+      "start": 79.6,
+      "end": 82.76,
+      "text": "And again, these aren't, have to be 64-bit IDs."
+    },
+    {
+      "id": 29,
+      "start": 83.28,
+      "end": 86.84,
+      "text": "If you only have 1024 possible values,"
+    },
+    {
+      "id": 30,
+      "start": 86.84,
+      "end": 89.88,
+      "text": "you could store that in 16-bit numbers."
+    },
+    {
+      "id": 31,
+      "start": 89.88,
+      "end": 91.28,
+      "text": "So it's not that big."
+    },
+    {
+      "id": 32,
+      "start": 91.28,
+      "end": 91.8,
+      "text": "Yes?"
+    },
+    {
+      "id": 33,
+      "start": 91.8,
+      "end": 97.52,
+      "text": "In the size of the vector, the size meaning,"
+    },
+    {
+      "id": 34,
+      "start": 97.52,
+      "end": 101.36,
+      "text": "like, the allocated size or the actual contents."
+    },
+    {
+      "id": 35,
+      "start": 101.36,
+      "end": 102.92,
+      "text": "But why?"
+    },
+    {
+      "id": 36,
+      "start": 102.92,
+      "end": 103.92,
+      "text": "I don't know."
+    },
+    {
+      "id": 37,
+      "start": 103.92,
+      "end": 106.0,
+      "text": "Maybe if you have all the ends, you know,"
+    },
+    {
+      "id": 38,
+      "start": 106.0,
+      "end": 110.08,
+      "text": "you might be able to tell people more."
+    },
+    {
+      "id": 39,
+      "start": 110.08,
+      "end": 111.72,
+      "text": "But it's not, I think what you're saying is,"
+    },
+    {
+      "id": 40,
+      "start": 112.68,
+      "end": 114.48,
+      "text": "could you basically do a slight slap allocation?"
+    },
+    {
+      "id": 41,
+      "start": 114.48,
+      "end": 118.76,
+      "text": "To say, here's my 10 value vector, and here's my 30 value vector,"
+    },
+    {
+      "id": 42,
+      "start": 118.76,
+      "end": 120.76,
+      "text": "whatever, like, 32 value of 64."
+    },
+    {
+      "id": 43,
+      "start": 120.76,
+      "end": 125.4,
+      "text": "And as I get full in one vector, then I go use the other one,"
+    },
+    {
+      "id": 44,
+      "start": 125.4,
+      "end": 128.84,
+      "text": "and therefore, things hang around in L3, sorry, L1 more."
+    },
+    {
+      "id": 45,
+      "start": 128.84,
+      "end": 129.72,
+      "text": "But it's not that big."
+    },
+    {
+      "id": 46,
+      "start": 129.72,
+      "end": 132.6,
+      "text": "1024 times 16 bits is not that big."
+    },
+    {
+      "id": 47,
+      "start": 132.6,
+      "end": 133.52,
+      "text": "Yeah."
+    },
+    {
+      "id": 48,
+      "start": 133.52,
+      "end": 136.4,
+      "text": "Okay, what you're proposing is you could do,"
+    },
+    {
+      "id": 49,
+      "start": 136.4,
+      "end": 137.84,
+      "text": "is that the CPU wants though."
+    },
+    {
+      "id": 50,
+      "start": 137.84,
+      "end": 139.64,
+      "text": "No."
+    },
+    {
+      "id": 51,
+      "start": 139.64,
+      "end": 141.24,
+      "text": "Because the worst thing the possible idea"
+    },
+    {
+      "id": 52,
+      "start": 141.24,
+      "end": 144.04,
+      "text": "is called malloc while we're doing any of this."
+    },
+    {
+      "id": 53,
+      "start": 144.04,
+      "end": 147.72,
+      "text": "Because who we're talking to, we call malloc."
+    },
+    {
+      "id": 54,
+      "start": 147.72,
+      "end": 148.96,
+      "text": "The operating system, right?"
+    },
+    {
+      "id": 55,
+      "start": 148.96,
+      "end": 150.32,
+      "text": "He's going to screw us over."
+    },
+    {
+      "id": 56,
+      "start": 150.32,
+      "end": 153.68,
+      "text": "So we don't want to, we pre-allocate everything ahead of time."
+    },
+    {
+      "id": 57,
+      "start": 153.68,
+      "end": 157.04,
+      "text": "Yes, there would be wasted space, but it's better than having,"
+    },
+    {
+      "id": 58,
+      "start": 157.04,
+      "end": 160.8,
+      "text": "again, this, it's better than having code to figure out,"
+    },
+    {
+      "id": 59,
+      "start": 160.8,
+      "end": 162.48,
+      "text": "okay, try to be clever."
+    },
+    {
+      "id": 60,
+      "start": 162.48,
+      "end": 163.8,
+      "text": "Simple is better in this case."
+    },
+    {
+      "id": 61,
+      "start": 163.8,
+      "end": 165.48,
+      "text": "Because again, it's just ripping through two pulls"
+    },
+    {
+      "id": 62,
+      "start": 165.48,
+      "end": 166.92,
+      "text": "as fast as possible."
+    },
+    {
+      "id": 63,
+      "start": 166.92,
+      "end": 169.6,
+      "text": "Okay?"
+    },
+    {
+      "id": 64,
+      "start": 169.6,
+      "end": 171.4,
+      "text": "All right, we're over time."
+    },
+    {
+      "id": 65,
+      "start": 171.4,
+      "end": 175.6,
+      "text": "We'll cover, we'll cover pale execution,"
+    },
+    {
+      "id": 66,
+      "start": 175.6,
+      "end": 177.44,
+      "text": "bidding class on Wednesday, okay?"
+    },
+    {
+      "id": 67,
+      "start": 178.52,
+      "end": 179.68,
+      "text": "All right guys, see ya."
+    },
+    {
+      "id": 68,
+      "start": 179.68,
+      "end": 181.76,
+      "text": "Take out, you know, I'm glad you had a belt"
+    },
+    {
+      "id": 69,
+      "start": 181.76,
+      "end": 183.52,
+      "text": "to get the 40-L spot."
+    },
+    {
+      "id": 70,
+      "start": 183.52,
+      "end": 184.68,
+      "text": "Get a grip, take a sip,"
+    },
+    {
+      "id": 71,
+      "start": 184.68,
+      "end": 186.28,
+      "text": "and you'll be picking up models."
+    },
+    {
+      "id": 72,
+      "start": 186.28,
+      "end": 187.48,
+      "text": "Any no puzzle I'll go through,"
+    },
+    {
+      "id": 73,
+      "start": 187.48,
+      "end": 189.2,
+      "text": "cause I'm more a man, I'm down in the 40,"
+    },
+    {
+      "id": 74,
+      "start": 189.2,
+      "end": 191.0,
+      "text": "I'm a 40-Style 4K."
+    },
+    {
+      "id": 75,
+      "start": 191.0,
+      "end": 193.12,
+      "text": "Stacked and sick, packed, so on a table."
+    },
+    {
+      "id": 76,
+      "start": 193.12,
+      "end": 195.36,
+      "text": "And I'm able to see St. A. I'm so unlabeled."
+    },
+    {
+      "id": 77,
+      "start": 195.36,
+      "end": 197.32,
+      "text": "No sure, put the cross, you know what I got them."
+    },
+    {
+      "id": 78,
+      "start": 197.32,
+      "end": 199.56,
+      "text": "I take off the cap, but first I'll tap on the bottom."
+    },
+    {
+      "id": 79,
+      "start": 199.92,
+      "end": 201.84,
+      "text": "Throw my three in the freezer, so I can kill it."
+    },
+    {
+      "id": 80,
+      "start": 201.84,
+      "end": 204.44,
+      "text": "Careful with the bottle, baby, you can still spill it."
+    },
+    {
+      "id": 81,
+      "start": 204.44,
+      "end": 206.6,
+      "text": "Cause ain't ours, it says the pain lies wet."
+    },
+    {
+      "id": 82,
+      "start": 206.6,
+      "end": 208.96,
+      "text": "You drink it down with the gals, it'll bite head."
+    },
+    {
+      "id": 83,
+      "start": 208.96,
+      "end": 210.64,
+      "text": "Take back the pack of drugs."
+    },
+    {
+      "id": 84,
+      "start": 210.64,
+      "end": 213.48,
+      "text": "It won't get you to say no, so drink it to the front."
+    },
+    {
+      "id": 85,
+      "start": 213.48,
+      "end": 214.72,
+      "text": "Billy Dains, the chili tea,"
+    },
+    {
+      "id": 86,
+      "start": 214.72,
+      "end": 216.08,
+      "text": "she's telling me we gots."
+    },
+    {
+      "id": 87,
+      "start": 216.08,
+      "end": 218.36,
+      "text": "Feel man to get a can of fake life."
+    }
+  ],
+  "language": "en"
+}

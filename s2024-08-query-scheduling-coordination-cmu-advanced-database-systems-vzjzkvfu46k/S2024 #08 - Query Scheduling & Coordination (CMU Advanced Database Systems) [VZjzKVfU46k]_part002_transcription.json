@@ -1,0 +1,1397 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.46,
+      "text": "right, saying two hyper threads."
+    },
+    {
+      "id": 1,
+      "start": 2.46,
+      "end": 5.7,
+      "text": "Then they're both trying to do something to amount of work,"
+    },
+    {
+      "id": 2,
+      "start": 5.7,
+      "end": 9.34,
+      "text": "and they want things that need bring in the L3 cache,"
+    },
+    {
+      "id": 3,
+      "start": 9.34,
+      "end": 11.66,
+      "text": "or the brand in your caches, and that's gonna pollute it."
+    },
+    {
+      "id": 4,
+      "start": 11.66,
+      "end": 13.82,
+      "text": "And then whereas it's been better off just letting one thread"
+    },
+    {
+      "id": 5,
+      "start": 13.82,
+      "end": 16.46,
+      "text": "run to completion, yes."
+    },
+    {
+      "id": 6,
+      "start": 16.46,
+      "end": 18.86,
+      "text": "For your desktop, sure, because like you're browsing the web,"
+    },
+    {
+      "id": 7,
+      "start": 18.86,
+      "end": 20.54,
+      "text": "listening to music, watching videos,"
+    },
+    {
+      "id": 8,
+      "start": 20.54,
+      "end": 23.18,
+      "text": "there's a ton of stalls of that, who cares?"
+    },
+    {
+      "id": 9,
+      "start": 23.18,
+      "end": 25.66,
+      "text": "But for the deabysism, you're not running random,"
+    },
+    {
+      "id": 10,
+      "start": 25.66,
+      "end": 29.78,
+      "text": "like Bitcoin mining on it, like you know, snowcronged jobs."
+    },
+    {
+      "id": 11,
+      "start": 29.78,
+      "end": 32.54,
+      "text": "If you really care about your deabysism, right?"
+    },
+    {
+      "id": 12,
+      "start": 32.54,
+      "end": 34.86,
+      "text": "If it's a blog, you're running like my SQL Postgres,"
+    },
+    {
+      "id": 13,
+      "start": 34.86,
+      "end": 37.66,
+      "text": "just to service the blog, no, who cares, sure."
+    },
+    {
+      "id": 14,
+      "start": 37.66,
+      "end": 39.86,
+      "text": "But if it's like a high-end deabysism,"
+    },
+    {
+      "id": 15,
+      "start": 39.86,
+      "end": 41.1,
+      "text": "you're not letting anybody just essentially"
+    },
+    {
+      "id": 16,
+      "start": 41.1,
+      "end": 43.7,
+      "text": "into and run random stuff, right?"
+    },
+    {
+      "id": 17,
+      "start": 46.14,
+      "end": 50.5,
+      "text": "So this is an older experiment that students did here at CMU,"
+    },
+    {
+      "id": 18,
+      "start": 50.5,
+      "end": 52.9,
+      "text": "where it was just sort of toy in memory engine,"
+    },
+    {
+      "id": 19,
+      "start": 54.1,
+      "end": 56.58,
+      "text": "and it's just damaging between"
+    },
+    {
+      "id": 20,
+      "start": 57.58,
+      "end": 61.46,
+      "text": "letting the deabysism decide where it actually plays data"
+    },
+    {
+      "id": 21,
+      "start": 61.46,
+      "end": 62.9,
+      "text": "in a new architecture."
+    },
+    {
+      "id": 22,
+      "start": 62.9,
+      "end": 64.7,
+      "text": "Does everyone know what Numa is?"
+    },
+    {
+      "id": 23,
+      "start": 64.7,
+      "end": 65.86,
+      "text": "Who doesn't know what Numa is?"
+    },
+    {
+      "id": 24,
+      "start": 66.9,
+      "end": 68.66,
+      "text": "Perfect, excellent, yeah."
+    },
+    {
+      "id": 25,
+      "start": 68.66,
+      "end": 70.9,
+      "text": "So the idea is like, do you let the data system figure out,"
+    },
+    {
+      "id": 26,
+      "start": 70.9,
+      "end": 73.54,
+      "text": "okay, this piece of data is gonna go this core"
+    },
+    {
+      "id": 27,
+      "start": 73.54,
+      "end": 76.14,
+      "text": "at this location, or this Numa region,"
+    },
+    {
+      "id": 28,
+      "start": 76.14,
+      "end": 78.02,
+      "text": "or you let the OS figure it out for you."
+    },
+    {
+      "id": 29,
+      "start": 78.02,
+      "end": 80.3,
+      "text": "And so what you see here is that,"
+    },
+    {
+      "id": 30,
+      "start": 80.3,
+      "end": 82.82,
+      "text": "before you get to the hyper-threading line, right?"
+    },
+    {
+      "id": 31,
+      "start": 82.82,
+      "end": 84.26,
+      "text": "You're gonna get better scalable performance,"
+    },
+    {
+      "id": 32,
+      "start": 85.26,
+      "end": 87.78,
+      "text": "when the deabysism controls exactly"
+    },
+    {
+      "id": 33,
+      "start": 87.78,
+      "end": 89.86,
+      "text": "where the data is relocated,"
+    },
+    {
+      "id": 34,
+      "start": 89.86,
+      "end": 92.42,
+      "text": "because now, if you have data that's local to it,"
+    },
+    {
+      "id": 35,
+      "start": 92.42,
+      "end": 94.46,
+      "text": "you don't have to go over the interconnect,"
+    },
+    {
+      "id": 36,
+      "start": 94.46,
+      "end": 97.14,
+      "text": "which in some cases can be 2x latency, right?"
+    },
+    {
+      "id": 37,
+      "start": 97.14,
+      "end": 99.02,
+      "text": "So that's why this thing is gonna play."
+    },
+    {
+      "id": 38,
+      "start": 99.02,
+      "end": 101.7,
+      "text": "Now to your point, why not leave hyper-threading on?"
+    },
+    {
+      "id": 39,
+      "start": 101.7,
+      "end": 104.5,
+      "text": "This is when hyper-threading kicks in, right?"
+    },
+    {
+      "id": 40,
+      "start": 104.5,
+      "end": 106.26,
+      "text": "And now you see you can leave flatlines,"
+    },
+    {
+      "id": 41,
+      "start": 106.26,
+      "end": 109.3,
+      "text": "because for either one, because they're not,"
+    },
+    {
+      "id": 42,
+      "start": 109.3,
+      "end": 112.38,
+      "text": "it's CPU bound computation, right?"
+    },
+    {
+      "id": 43,
+      "start": 112.38,
+      "end": 114.78,
+      "text": "And in the cases when it has to go to memory,"
+    },
+    {
+      "id": 44,
+      "start": 114.78,
+      "end": 117.06,
+      "text": "to go fetch something to fill out, it's caches,"
+    },
+    {
+      "id": 45,
+      "start": 117.06,
+      "end": 118.9,
+      "text": "well, if I'm running another hyper-thread,"
+    },
+    {
+      "id": 46,
+      "start": 118.9,
+      "end": 120.42,
+      "text": "it's gonna do the exact same thing,"
+    },
+    {
+      "id": 47,
+      "start": 120.42,
+      "end": 123.62,
+      "text": "and now it's, you know, I'm not gonna get any benefit."
+    },
+    {
+      "id": 48,
+      "start": 123.62,
+      "end": 126.7,
+      "text": "So here, I'm throwing more threads at it,"
+    },
+    {
+      "id": 49,
+      "start": 126.7,
+      "end": 128.66,
+      "text": "but performance is plateaued."
+    },
+    {
+      "id": 50,
+      "start": 132.3,
+      "end": 133.14,
+      "text": "Yes?"
+    },
+    {
+      "id": 51,
+      "start": 133.14,
+      "end": 134.62,
+      "text": "At some point, the fetching method,"
+    },
+    {
+      "id": 52,
+      "start": 134.62,
+      "end": 136.42,
+      "text": "I don't know if there's some, I'm gonna lose,"
+    },
+    {
+      "id": 53,
+      "start": 136.42,
+      "end": 137.42,
+      "text": "I mean, all of these are, right?"
+    },
+    {
+      "id": 54,
+      "start": 137.42,
+      "end": 140.46,
+      "text": "Like, all these are fetching from memory."
+    },
+    {
+      "id": 55,
+      "start": 142.86,
+      "end": 146.86,
+      "text": "But like, if I'm stalled, fetching from memory is so expensive."
+    },
+    {
+      "id": 56,
+      "start": 146.86,
+      "end": 148.74,
+      "text": "If I'm fetching from memory, and I'm waiting for that,"
+    },
+    {
+      "id": 57,
+      "start": 148.74,
+      "end": 150.82,
+      "text": "then you start running, well, what are you gonna do?"
+    },
+    {
+      "id": 58,
+      "start": 150.82,
+      "end": 154.02,
+      "text": "Fetch from memories, it's the exact same thing I am."
+    },
+    {
+      "id": 59,
+      "start": 154.02,
+      "end": 156.38,
+      "text": "So, and now you're blocked on the bandwidth"
+    },
+    {
+      "id": 60,
+      "start": 156.38,
+      "end": 159.22,
+      "text": "of getting things from the dims to the CPU."
+    },
+    {
+      "id": 61,
+      "start": 159.22,
+      "end": 160.62,
+      "text": "Plus you're polluting your cache."
+    },
+    {
+      "id": 62,
+      "start": 162.46,
+      "end": 164.62,
+      "text": "Furthermore, you might, I mean, this is,"
+    },
+    {
+      "id": 63,
+      "start": 166.06,
+      "end": 167.06,
+      "text": "it's talked to the architecture people,"
+    },
+    {
+      "id": 64,
+      "start": 167.06,
+      "end": 168.7,
+      "text": "but now you like, I don't know how well"
+    },
+    {
+      "id": 65,
+      "start": 168.7,
+      "end": 170.3,
+      "text": "the hard-repeat fetching is gonna be,"
+    },
+    {
+      "id": 66,
+      "start": 170.3,
+      "end": 173.06,
+      "text": "because now, like, I would have been better off"
+    },
+    {
+      "id": 67,
+      "start": 173.06,
+      "end": 175.06,
+      "text": "having one thread rip through a larger chunk of data"
+    },
+    {
+      "id": 68,
+      "start": 175.06,
+      "end": 177.02,
+      "text": "versus having two threads start different spots"
+    },
+    {
+      "id": 69,
+      "start": 177.02,
+      "end": 179.02,
+      "text": "and try to pre-fetch those."
+    },
+    {
+      "id": 70,
+      "start": 179.02,
+      "end": 180.54,
+      "text": "Again, I think the hard-repeat fetching stuff"
+    },
+    {
+      "id": 71,
+      "start": 180.54,
+      "end": 182.06,
+      "text": "could probably handle that, but it's just,"
+    },
+    {
+      "id": 72,
+      "start": 182.06,
+      "end": 183.3,
+      "text": "it's just making things more complicated."
+    },
+    {
+      "id": 73,
+      "start": 183.3,
+      "end": 185.46,
+      "text": "Whereas if you keep the system more simple,"
+    },
+    {
+      "id": 74,
+      "start": 185.46,
+      "end": 188.78,
+      "text": "you know, we can get better utilization of what we have."
+    },
+    {
+      "id": 75,
+      "start": 192.74,
+      "end": 196.66,
+      "text": "Okay, so, hyper-threading, nice, in general,"
+    },
+    {
+      "id": 76,
+      "start": 196.66,
+      "end": 197.62,
+      "text": "but not for databases."
+    },
+    {
+      "id": 77,
+      "start": 198.62,
+      "end": 202.62,
+      "text": "Okay, so we were, all right, so the next thing we gotta consider"
+    },
+    {
+      "id": 78,
+      "start": 205.86,
+      "end": 209.98,
+      "text": "is how we're actually gonna get our tasks to our workers."
+    },
+    {
+      "id": 79,
+      "start": 209.98,
+      "end": 211.46,
+      "text": "And there's basically two approaches,"
+    },
+    {
+      "id": 80,
+      "start": 211.46,
+      "end": 213.14,
+      "text": "either push versus the pool."
+    },
+    {
+      "id": 81,
+      "start": 213.14,
+      "end": 216.58,
+      "text": "And the, the push approach, there's some kind of centralized"
+    },
+    {
+      "id": 82,
+      "start": 216.58,
+      "end": 220.3,
+      "text": "dispatch or schedule component that has a global view"
+    },
+    {
+      "id": 83,
+      "start": 220.3,
+      "end": 224.22,
+      "text": "or a view of what the workers that are on,"
+    },
+    {
+      "id": 84,
+      "start": 224.22,
+      "end": 226.1,
+      "text": "it's purview or administrative control."
+    },
+    {
+      "id": 85,
+      "start": 227.1,
+      "end": 228.98,
+      "text": "It knows what tasks they're doing."
+    },
+    {
+      "id": 86,
+      "start": 228.98,
+      "end": 233.98,
+      "text": "And then as new tasks arrive, it's pushing those requests,"
+    },
+    {
+      "id": 87,
+      "start": 233.98,
+      "end": 237.82,
+      "text": "those tasks requests to the different workers"
+    },
+    {
+      "id": 88,
+      "start": 237.82,
+      "end": 240.26,
+      "text": "always give them something to do, right?"
+    },
+    {
+      "id": 89,
+      "start": 240.26,
+      "end": 241.9,
+      "text": "And then when the worker notifies"
+    },
+    {
+      "id": 90,
+      "start": 241.9,
+      "end": 243.82,
+      "text": "if batcher is finished, you know,"
+    },
+    {
+      "id": 91,
+      "start": 243.82,
+      "end": 245.02,
+      "text": "it's immediately gonna be given here"
+    },
+    {
+      "id": 92,
+      "start": 245.02,
+      "end": 246.54,
+      "text": "it's the next thing to do."
+    },
+    {
+      "id": 93,
+      "start": 247.54,
+      "end": 249.34,
+      "text": "The pool-based approach, which is gonna be the better approach"
+    },
+    {
+      "id": 94,
+      "start": 249.34,
+      "end": 252.54,
+      "text": "or which everyone's gonna do, is gonna be that"
+    },
+    {
+      "id": 95,
+      "start": 253.54,
+      "end": 257.34,
+      "text": "the sum's schedule component that's maintaining the queue"
+    },
+    {
+      "id": 96,
+      "start": 257.34,
+      "end": 260.34,
+      "text": "of all possible tasks that could be executed"
+    },
+    {
+      "id": 97,
+      "start": 260.34,
+      "end": 261.82,
+      "text": "at any given time."
+    },
+    {
+      "id": 98,
+      "start": 261.82,
+      "end": 264.54,
+      "text": "With additional metadata of maybe about what data"
+    },
+    {
+      "id": 99,
+      "start": 264.54,
+      "end": 266.78,
+      "text": "they're trying to access and where's that located."
+    },
+    {
+      "id": 100,
+      "start": 266.78,
+      "end": 269.42,
+      "text": "And then now the workers, when they need something to do,"
+    },
+    {
+      "id": 101,
+      "start": 269.42,
+      "end": 274.18,
+      "text": "they come to this queue and get the next thing to do."
+    },
+    {
+      "id": 102,
+      "start": 276.18,
+      "end": 280.54,
+      "text": "Right, and this is just easier because it's less coordination"
+    },
+    {
+      "id": 103,
+      "start": 281.34,
+      "end": 285.54,
+      "text": "or maintaining state about where each worker is in competition."
+    },
+    {
+      "id": 104,
+      "start": 286.54,
+      "end": 288.22,
+      "text": "It just says, hey, here's much stuff to do."
+    },
+    {
+      "id": 105,
+      "start": 288.22,
+      "end": 290.86,
+      "text": "It's all a cart and people can come and pull things"
+    },
+    {
+      "id": 106,
+      "start": 290.86,
+      "end": 293.58,
+      "text": "off the buffet tray when they're ready for it."
+    },
+    {
+      "id": 107,
+      "start": 295.86,
+      "end": 296.7,
+      "text": "Yes."
+    },
+    {
+      "id": 108,
+      "start": 296.7,
+      "end": 298.22,
+      "text": "Which one has lower overhead?"
+    },
+    {
+      "id": 109,
+      "start": 298.22,
+      "end": 301.38,
+      "text": "Question, which one has lower overhead from what?"
+    },
+    {
+      "id": 110,
+      "start": 301.38,
+      "end": 303.38,
+      "text": "We don't want to make too much time."
+    },
+    {
+      "id": 111,
+      "start": 303.38,
+      "end": 306.54,
+      "text": "And so, naturally, if you're at a work"
+    },
+    {
+      "id": 112,
+      "start": 306.54,
+      "end": 308.14,
+      "text": "you have to go forth from the queue"
+    },
+    {
+      "id": 113,
+      "start": 308.14,
+      "end": 311.46,
+      "text": "that probably is too easy to see if you cycle them doing that."
+    },
+    {
+      "id": 114,
+      "start": 311.46,
+      "end": 313.34,
+      "text": "So, yeah, so his statement is,"
+    },
+    {
+      "id": 115,
+      "start": 314.5,
+      "end": 315.9,
+      "text": "actually two parts of it."
+    },
+    {
+      "id": 116,
+      "start": 315.9,
+      "end": 318.98,
+      "text": "His statement is, question is, which one has lower overhead?"
+    },
+    {
+      "id": 117,
+      "start": 318.98,
+      "end": 321.3,
+      "text": "If it's the pull-based approach, then you have every worker thread"
+    },
+    {
+      "id": 118,
+      "start": 321.3,
+      "end": 324.42,
+      "text": "going to say, what should I be doing next on their own"
+    },
+    {
+      "id": 119,
+      "start": 324.42,
+      "end": 328.14,
+      "text": "and want that incur a penalty for, you know,"
+    },
+    {
+      "id": 120,
+      "start": 328.14,
+      "end": 329.54,
+      "text": "when they could be running queries?"
+    },
+    {
+      "id": 121,
+      "start": 329.54,
+      "end": 330.94,
+      "text": "Sure, yes."
+    },
+    {
+      "id": 122,
+      "start": 330.94,
+      "end": 333.7,
+      "text": "In some ways, and the second aspect also too, is like,"
+    },
+    {
+      "id": 123,
+      "start": 333.7,
+      "end": 336.34,
+      "text": "this queue thing, which we'll see in the hyperpaper,"
+    },
+    {
+      "id": 124,
+      "start": 336.34,
+      "end": 339.3,
+      "text": "is a global data structure, which now you have to protect"
+    },
+    {
+      "id": 125,
+      "start": 339.3,
+      "end": 341.1,
+      "text": "with latches or locks."
+    },
+    {
+      "id": 126,
+      "start": 341.1,
+      "end": 342.82,
+      "text": "And then now everybody could be potentially"
+    },
+    {
+      "id": 127,
+      "start": 342.82,
+      "end": 343.86,
+      "text": "contended on that."
+    },
+    {
+      "id": 128,
+      "start": 344.86,
+      "end": 349.1,
+      "text": "So, everyone's still going to choose this just because it's,"
+    },
+    {
+      "id": 129,
+      "start": 349.1,
+      "end": 352.46,
+      "text": "you can build this schedule as a separate service"
+    },
+    {
+      "id": 130,
+      "start": 352.46,
+      "end": 356.3,
+      "text": "and not worry about exact knowledge of what every single"
+    },
+    {
+      "id": 131,
+      "start": 356.3,
+      "end": 357.3,
+      "text": "worker's actually doing."
+    },
+    {
+      "id": 132,
+      "start": 357.3,
+      "end": 359.46,
+      "text": "Because the worker may die, right?"
+    },
+    {
+      "id": 133,
+      "start": 359.46,
+      "end": 362.38,
+      "text": "And then now you've got to figure out, like, you know,"
+    },
+    {
+      "id": 134,
+      "start": 362.38,
+      "end": 364.5,
+      "text": "that I told a bunch of stuff ahead of time"
+    },
+    {
+      "id": 135,
+      "start": 365.18,
+      "end": 366.18,
+      "text": "and now I can't do it."
+    },
+    {
+      "id": 136,
+      "start": 366.18,
+      "end": 367.9,
+      "text": "Where you just say, here's everything I need to do."
+    },
+    {
+      "id": 137,
+      "start": 367.9,
+      "end": 369.02,
+      "text": "And then now each worker thread"
+    },
+    {
+      "id": 138,
+      "start": 369.02,
+      "end": 371.02,
+      "text": "and then figure out on their own, what's the best thing"
+    },
+    {
+      "id": 139,
+      "start": 371.02,
+      "end": 371.86,
+      "text": "for them to do?"
+    },
+    {
+      "id": 140,
+      "start": 371.86,
+      "end": 374.78,
+      "text": "They're all sort of working globally to solve the problem."
+    },
+    {
+      "id": 141,
+      "start": 374.78,
+      "end": 377.14,
+      "text": "Also, it's less intelligent, isn't it?"
+    },
+    {
+      "id": 142,
+      "start": 377.14,
+      "end": 378.06,
+      "text": "The pull-based approach."
+    },
+    {
+      "id": 143,
+      "start": 378.06,
+      "end": 378.9,
+      "text": "Yeah."
+    },
+    {
+      "id": 144,
+      "start": 381.3,
+      "end": 385.46,
+      "text": "He says it's less intelligent, but like, relative to what?"
+    },
+    {
+      "id": 145,
+      "start": 385.46,
+      "end": 386.38,
+      "text": "To this?"
+    },
+    {
+      "id": 146,
+      "start": 386.38,
+      "end": 388.82,
+      "text": "To that, because you can have priorities in the push-up."
+    },
+    {
+      "id": 147,
+      "start": 388.82,
+      "end": 391.3,
+      "text": "You would have a priority as a pull-on,"
+    },
+    {
+      "id": 148,
+      "start": 391.3,
+      "end": 393.98,
+      "text": "just because hyper-dozen doesn't mean you can't."
+    },
+    {
+      "id": 149,
+      "start": 393.98,
+      "end": 395.58,
+      "text": "We'll see you in a second."
+    },
+    {
+      "id": 150,
+      "start": 395.58,
+      "end": 397.94,
+      "text": "You mentioned like push-based approach like"
+    },
+    {
+      "id": 151,
+      "start": 397.94,
+      "end": 398.78,
+      "text": "for workers dying."
+    },
+    {
+      "id": 152,
+      "start": 398.78,
+      "end": 399.58,
+      "text": "It comes to issue."
+    },
+    {
+      "id": 153,
+      "start": 399.58,
+      "end": 400.94,
+      "text": "How other roles are not in issue with a pull-based?"
+    },
+    {
+      "id": 154,
+      "start": 400.94,
+      "end": 402.18,
+      "text": "Yeah, he's right."
+    },
+    {
+      "id": 155,
+      "start": 402.18,
+      "end": 404.1,
+      "text": "If a push-based approach has workers dying,"
+    },
+    {
+      "id": 156,
+      "start": 404.1,
+      "end": 406.02,
+      "text": "you've got to figure it out."
+    },
+    {
+      "id": 157,
+      "start": 406.02,
+      "end": 410.46,
+      "text": "Actually, that'd be a approach to not approach one."
+    },
+    {
+      "id": 158,
+      "start": 410.46,
+      "end": 411.62,
+      "text": "You start to deal with it in the pull-in."
+    },
+    {
+      "id": 159,
+      "start": 411.62,
+      "end": 412.14,
+      "text": "Yes or right?"
+    },
+    {
+      "id": 160,
+      "start": 412.14,
+      "end": 413.5,
+      "text": "Because you basically need a hard-peed to figure out"
+    },
+    {
+      "id": 161,
+      "start": 413.5,
+      "end": 414.5,
+      "text": "or they didn't come back."
+    },
+    {
+      "id": 162,
+      "start": 418.26,
+      "end": 420.06,
+      "text": "Another way to think about it in the pull-based approach"
+    },
+    {
+      "id": 163,
+      "start": 420.06,
+      "end": 422.38,
+      "text": "is that you can have the logic to figure out"
+    },
+    {
+      "id": 164,
+      "start": 422.38,
+      "end": 428.94,
+      "text": "what task the worker needs to execute itself next"
+    },
+    {
+      "id": 165,
+      "start": 428.94,
+      "end": 431.42,
+      "text": "is basically that logic is being distributed"
+    },
+    {
+      "id": 166,
+      "start": 431.42,
+      "end": 433.1,
+      "text": "across multiple workers."
+    },
+    {
+      "id": 167,
+      "start": 433.1,
+      "end": 435.7,
+      "text": "Whereas if it's a single centralized service,"
+    },
+    {
+      "id": 168,
+      "start": 435.7,
+      "end": 437.66,
+      "text": "then it's one beefy box or whatever"
+    },
+    {
+      "id": 169,
+      "start": 437.66,
+      "end": 440.18,
+      "text": "it has to then figure this out."
+    },
+    {
+      "id": 170,
+      "start": 440.18,
+      "end": 442.1,
+      "text": "I'd probably say that's the main distinction."
+    },
+    {
+      "id": 171,
+      "start": 442.1,
+      "end": 442.94,
+      "text": "Yes?"
+    },
+    {
+      "id": 172,
+      "start": 442.94,
+      "end": 444.62,
+      "text": "In the pull-based approach, does the performance"
+    },
+    {
+      "id": 173,
+      "start": 444.62,
+      "end": 447.94,
+      "text": "really need to be talked about how long you trust the date?"
+    },
+    {
+      "id": 174,
+      "start": 447.94,
+      "end": 449.58,
+      "text": "Her question is, in the pull-based approach,"
+    },
+    {
+      "id": 175,
+      "start": 449.58,
+      "end": 451.46,
+      "text": "is the schedule need to keep track of how long"
+    },
+    {
+      "id": 176,
+      "start": 451.46,
+      "end": 452.9,
+      "text": "each asset is going to take?"
+    },
+    {
+      "id": 177,
+      "start": 452.9,
+      "end": 454.22,
+      "text": "Yes."
+    },
+    {
+      "id": 178,
+      "start": 454.22,
+      "end": 455.42,
+      "text": "Hyper doesn't do that."
+    },
+    {
+      "id": 179,
+      "start": 455.42,
+      "end": 456.74,
+      "text": "We'll see you at the next number."
+    },
+    {
+      "id": 180,
+      "start": 456.74,
+      "end": 459.98,
+      "text": "Can you say cost model at one of the three optimizations?"
+    },
+    {
+      "id": 181,
+      "start": 459.98,
+      "end": 462.06,
+      "text": "Her question is, can you use the same cost model"
+    },
+    {
+      "id": 182,
+      "start": 462.06,
+      "end": 463.34,
+      "text": "as the query optimizer?"
+    },
+    {
+      "id": 183,
+      "start": 469.26,
+      "end": 472.46,
+      "text": "So the challenge there is that some cost models"
+    },
+    {
+      "id": 184,
+      "start": 472.46,
+      "end": 476.42,
+      "text": "in some systems, you can't map whatever"
+    },
+    {
+      "id": 185,
+      "start": 476.42,
+      "end": 480.94,
+      "text": "that the cost estimate to a wall clock time."
+    },
+    {
+      "id": 186,
+      "start": 480.94,
+      "end": 484.06,
+      "text": "Here I looked at Postgres, it's some number."
+    },
+    {
+      "id": 187,
+      "start": 484.06,
+      "end": 486.38,
+      "text": "It's a combination of like, is this?"
+    },
+    {
+      "id": 188,
+      "start": 486.38,
+      "end": 487.78,
+      "text": "So I'm just saying, I ran a scan how much data"
+    },
+    {
+      "id": 189,
+      "start": 487.78,
+      "end": 488.82,
+      "text": "to read and so forth."
+    },
+    {
+      "id": 190,
+      "start": 488.82,
+      "end": 490.98,
+      "text": "So I don't maybe people have tried this,"
+    },
+    {
+      "id": 191,
+      "start": 490.98,
+      "end": 493.06,
+      "text": "but I don't think anybody, you can't just take that number."
+    },
+    {
+      "id": 192,
+      "start": 493.06,
+      "end": 494.98,
+      "text": "Oh, it's 10 milliseconds or something like that."
+    },
+    {
+      "id": 193,
+      "start": 494.98,
+      "end": 496.54,
+      "text": "Now, the high in enterprise data systems"
+    },
+    {
+      "id": 194,
+      "start": 496.54,
+      "end": 498.94,
+      "text": "do try to give you cost estimates and say,"
+    },
+    {
+      "id": 195,
+      "start": 498.94,
+      "end": 501.22,
+      "text": "here's the relative cost of the query, which"
+    },
+    {
+      "id": 196,
+      "start": 501.22,
+      "end": 502.74,
+      "text": "is an internal value that you can use"
+    },
+    {
+      "id": 197,
+      "start": 502.74,
+      "end": 505.78,
+      "text": "to compare different query plans, but inside the same system."
+    },
+    {
+      "id": 198,
+      "start": 505.78,
+      "end": 506.94,
+      "text": "But then you also can then spit out,"
+    },
+    {
+      "id": 199,
+      "start": 506.94,
+      "end": 508.7,
+      "text": "I think it's going to take this amount of time."
+    },
+    {
+      "id": 200,
+      "start": 508.7,
+      "end": 512.02,
+      "text": "So you could do that."
+    },
+    {
+      "id": 201,
+      "start": 512.02,
+      "end": 513.82,
+      "text": "But again, we'll see this in a few weeks."
+    },
+    {
+      "id": 202,
+      "start": 513.82,
+      "end": 516.34,
+      "text": "Cost models are always widely off."
+    },
+    {
+      "id": 203,
+      "start": 516.34,
+      "end": 519.22,
+      "text": "So in the umbra, which I keep, the umbra scheduling"
+    },
+    {
+      "id": 204,
+      "start": 519.22,
+      "end": 522.54,
+      "text": "at paper, which I keep alluding to,"
+    },
+    {
+      "id": 205,
+      "start": 522.54,
+      "end": 525.7,
+      "text": "they're actually going to watch how long it test takes,"
+    },
+    {
+      "id": 206,
+      "start": 525.7,
+      "end": 529.46,
+      "text": "and then use that to figure out, to get"
+    },
+    {
+      "id": 207,
+      "start": 529.46,
+      "end": 531.74,
+      "text": "a rough estimate of what the scheduling time should be"
+    },
+    {
+      "id": 208,
+      "start": 531.74,
+      "end": 532.42,
+      "text": "for certain things."
+    },
+    {
+      "id": 209,
+      "start": 536.54,
+      "end": 537.86,
+      "text": "OK."
+    },
+    {
+      "id": 210,
+      "start": 537.86,
+      "end": 541.06,
+      "text": "So regardless of how we're going to allocate workers or tasks"
+    },
+    {
+      "id": 211,
+      "start": 541.06,
+      "end": 547.42,
+      "text": "to our resources and our system, as we said already,"
+    },
+    {
+      "id": 212,
+      "start": 547.42,
+      "end": 549.38,
+      "text": "that it's important to make sure that the data they're"
+    },
+    {
+      "id": 213,
+      "start": 549.38,
+      "end": 552.82,
+      "text": "going to process ideally is going to be local to whatever"
+    },
+    {
+      "id": 214,
+      "start": 552.82,
+      "end": 555.1,
+      "text": "that worker is."
+    },
+    {
+      "id": 215,
+      "start": 555.1,
+      "end": 560.18,
+      "text": "And in the case of the hyperpaper, it's an n-memory database."
+    },
+    {
+      "id": 216,
+      "start": 560.18,
+      "end": 563.18,
+      "text": "So local means it's in the same NUMA region."
+    },
+    {
+      "id": 217,
+      "start": 563.18,
+      "end": 565.38,
+      "text": "Obviously, in a distributed system,"
+    },
+    {
+      "id": 218,
+      "start": 565.38,
+      "end": 567.5,
+      "text": "especially within a shared disk architecture,"
+    },
+    {
+      "id": 219,
+      "start": 567.5,
+      "end": 571.22,
+      "text": "well, the cost of going to get data from S3"
+    },
+    {
+      "id": 220,
+      "start": 571.22,
+      "end": 573.34,
+      "text": "could be basically the same for every single worker node,"
+    },
+    {
+      "id": 221,
+      "start": 573.34,
+      "end": 576.22,
+      "text": "assuming you're in the same data center in the same region."
+    },
+    {
+      "id": 222,
+      "start": 576.22,
+      "end": 579.46,
+      "text": "But once we start caching things, which we'll see later"
+    },
+    {
+      "id": 223,
+      "start": 579.46,
+      "end": 582.1,
+      "text": "in the semester, like every compute node could have"
+    },
+    {
+      "id": 224,
+      "start": 582.1,
+      "end": 587.14,
+      "text": "its own local copy of, you know, follows red from S3."
+    },
+    {
+      "id": 225,
+      "start": 587.14,
+      "end": 589.14,
+      "text": "And then now when I want to, when I assign tasks,"
+    },
+    {
+      "id": 226,
+      "start": 589.14,
+      "end": 591.7,
+      "text": "I want to make sure that the task is assigned to the node"
+    },
+    {
+      "id": 227,
+      "start": 591.7,
+      "end": 594.14,
+      "text": "that's going to have a local copy of that data."
+    },
+    {
+      "id": 228,
+      "start": 594.14,
+      "end": 595.14,
+      "text": "Yes."
+    },
+    {
+      "id": 229,
+      "start": 595.14,
+      "end": 597.42,
+      "text": "This is also another reason my code would be slightly"
+    },
+    {
+      "id": 230,
+      "start": 597.42,
+      "end": 599.46,
+      "text": "number because it doesn't know more about what,"
+    },
+    {
+      "id": 231,
+      "start": 599.46,
+      "end": 600.3,
+      "text": "if it just looks like this."
+    }
+  ],
+  "language": "en"
+}

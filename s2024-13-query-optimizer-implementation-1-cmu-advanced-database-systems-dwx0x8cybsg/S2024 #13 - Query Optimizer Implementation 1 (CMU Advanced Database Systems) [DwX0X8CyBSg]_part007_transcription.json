@@ -1,0 +1,1349 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.0,
+      "text": "violating any of those community properties,"
+    },
+    {
+      "id": 1,
+      "start": 4.0,
+      "end": 7.56,
+      "text": "or other properties that we care about, relation algebra."
+    },
+    {
+      "id": 2,
+      "start": 7.56,
+      "end": 10.12,
+      "text": "So then now we have the definition of a group."
+    },
+    {
+      "id": 3,
+      "start": 10.12,
+      "end": 13.0,
+      "text": "And that'll be, for a given expression,"
+    },
+    {
+      "id": 4,
+      "start": 13.0,
+      "end": 17.28,
+      "text": "it'll be all the logical and physical expressions"
+    },
+    {
+      "id": 5,
+      "start": 17.28,
+      "end": 21.24,
+      "text": "that are equivalent to some output that it expect."
+    },
+    {
+      "id": 6,
+      "start": 21.24,
+      "end": 23.72,
+      "text": "So in this case here, I want to produce the result"
+    },
+    {
+      "id": 7,
+      "start": 23.72,
+      "end": 25.8,
+      "text": "of joining A, B, and C together."
+    },
+    {
+      "id": 8,
+      "start": 25.8,
+      "end": 27.8,
+      "text": "And my logical expressions within that group"
+    },
+    {
+      "id": 9,
+      "start": 27.8,
+      "end": 31.88,
+      "text": "will be all the different permutations of doing those joins."
+    },
+    {
+      "id": 10,
+      "start": 31.88,
+      "end": 32.96,
+      "text": "And then the physical expressions will"
+    },
+    {
+      "id": 11,
+      "start": 32.96,
+      "end": 35.56,
+      "text": "be all the actual implementations of that."
+    },
+    {
+      "id": 12,
+      "start": 38.08,
+      "end": 39.4,
+      "text": "So again, it's all the logical forms,"
+    },
+    {
+      "id": 13,
+      "start": 39.4,
+      "end": 41.48,
+      "text": "and then all the physical forms that can"
+    },
+    {
+      "id": 14,
+      "start": 41.48,
+      "end": 47.36,
+      "text": "be derived from these logical forms."
+    },
+    {
+      "id": 15,
+      "start": 47.36,
+      "end": 50.32,
+      "text": "So the entire collection of these things is the group."
+    },
+    {
+      "id": 16,
+      "start": 50.32,
+      "end": 53.8,
+      "text": "In addition, with the properties that we need to be enforced"
+    },
+    {
+      "id": 17,
+      "start": 53.8,
+      "end": 55.2,
+      "text": "going into this."
+    },
+    {
+      "id": 18,
+      "start": 55.2,
+      "end": 57.36,
+      "text": "And then we have all, again, all the equivalent expressions"
+    },
+    {
+      "id": 19,
+      "start": 57.36,
+      "end": 61.0,
+      "text": "for the logical and physical."
+    },
+    {
+      "id": 20,
+      "start": 61.0,
+      "end": 63.28,
+      "text": "And then now we're going to find a multi-expression,"
+    },
+    {
+      "id": 21,
+      "start": 63.28,
+      "end": 64.8,
+      "text": "which is sort of confusing."
+    },
+    {
+      "id": 22,
+      "start": 64.8,
+      "end": 68.52,
+      "text": "But that's basically meant to be as a placeholder to say,"
+    },
+    {
+      "id": 23,
+      "start": 68.52,
+      "end": 72.04,
+      "text": "here's some expression that I have,"
+    },
+    {
+      "id": 24,
+      "start": 72.04,
+      "end": 74.52,
+      "text": "but I don't know exactly the details"
+    },
+    {
+      "id": 25,
+      "start": 74.52,
+      "end": 76.0,
+      "text": "of what's going on inside of it."
+    },
+    {
+      "id": 26,
+      "start": 76.0,
+      "end": 77.76,
+      "text": "And it's a placeholder to say there's something below me"
+    },
+    {
+      "id": 27,
+      "start": 77.76,
+      "end": 79.12,
+      "text": "in the search tree."
+    },
+    {
+      "id": 28,
+      "start": 79.12,
+      "end": 82.6,
+      "text": "So for example, I want to join A, B, and C. So I could have,"
+    },
+    {
+      "id": 29,
+      "start": 82.6,
+      "end": 83.72,
+      "text": "oops, sorry."
+    },
+    {
+      "id": 30,
+      "start": 83.72,
+      "end": 87.24,
+      "text": "I could have a multi-expression to say, OK,"
+    },
+    {
+      "id": 31,
+      "start": 87.24,
+      "end": 89.36,
+      "text": "there's a joint and A and B together."
+    },
+    {
+      "id": 32,
+      "start": 89.36,
+      "end": 92.04,
+      "text": "I don't know what order in which way, logically."
+    },
+    {
+      "id": 33,
+      "start": 92.04,
+      "end": 94.56,
+      "text": "And then I join with C. Or I could join B and C."
+    },
+    {
+      "id": 34,
+      "start": 94.56,
+      "end": 97.08,
+      "text": "And I don't define, again, what way I'm doing that."
+    },
+    {
+      "id": 35,
+      "start": 97.08,
+      "end": 98.72,
+      "text": "But it's just a placeholder to say, something below me"
+    },
+    {
+      "id": 36,
+      "start": 98.72,
+      "end": 101.84,
+      "text": "in the tree is going to be, tell me how to do this."
+    },
+    {
+      "id": 37,
+      "start": 101.84,
+      "end": 103.92,
+      "text": "And the idea is that we're using these multi-expressions"
+    },
+    {
+      "id": 38,
+      "start": 103.92,
+      "end": 107.4,
+      "text": "as a way to reduce the number of unique operators"
+    },
+    {
+      "id": 39,
+      "start": 107.4,
+      "end": 110.32,
+      "text": "that we have to look at in this giant search tree."
+    },
+    {
+      "id": 40,
+      "start": 113.44,
+      "end": 115.24,
+      "text": "So the idea, because we're top down,"
+    },
+    {
+      "id": 41,
+      "start": 115.24,
+      "end": 119.48,
+      "text": "we can make decisions by looking at this placeholder,"
+    },
+    {
+      "id": 42,
+      "start": 119.48,
+      "end": 121.12,
+      "text": "at this point, at some level in the tree,"
+    },
+    {
+      "id": 43,
+      "start": 121.12,
+      "end": 123.08,
+      "text": "without having to go all the way to the bottom."
+    },
+    {
+      "id": 44,
+      "start": 123.08,
+      "end": 125.68,
+      "text": "In the case of a bottom-ups optimizer,"
+    },
+    {
+      "id": 45,
+      "start": 125.68,
+      "end": 128.4,
+      "text": "you're enumerating all the multi-expressions one at time"
+    },
+    {
+      "id": 46,
+      "start": 128.4,
+      "end": 131.72,
+      "text": "and putting them together going up to the top."
+    },
+    {
+      "id": 47,
+      "start": 131.72,
+      "end": 134.92,
+      "text": "So in that case, they have not been materialized yet,"
+    },
+    {
+      "id": 48,
+      "start": 134.92,
+      "end": 136.64,
+      "text": "because you're starting from the bottom, going to the top."
+    },
+    {
+      "id": 49,
+      "start": 136.64,
+      "end": 138.36,
+      "text": "In the case of the top down one, you"
+    },
+    {
+      "id": 50,
+      "start": 138.36,
+      "end": 140.76,
+      "text": "assume, sort of, roughly that you have the path going down"
+    },
+    {
+      "id": 51,
+      "start": 140.76,
+      "end": 143.04,
+      "text": "to the bottom, even though you don't actually at this point."
+    },
+    {
+      "id": 52,
+      "start": 146.24,
+      "end": 148.04,
+      "text": "So this we've already talked about before,"
+    },
+    {
+      "id": 53,
+      "start": 148.04,
+      "end": 149.48,
+      "text": "but they're basically transformation rules,"
+    },
+    {
+      "id": 54,
+      "start": 149.48,
+      "end": 151.36,
+      "text": "logical, logical, logical, physical."
+    },
+    {
+      "id": 55,
+      "start": 151.36,
+      "end": 153.6,
+      "text": "In the cascades parlance, they'll say,"
+    },
+    {
+      "id": 56,
+      "start": 153.6,
+      "end": 155.56,
+      "text": "a transformation rule is logical, logical,"
+    },
+    {
+      "id": 57,
+      "start": 155.56,
+      "end": 157.88,
+      "text": "and implementation rule is logical, physical."
+    },
+    {
+      "id": 58,
+      "start": 157.88,
+      "end": 159.2,
+      "text": "And then they'll have this pattern defined"
+    },
+    {
+      "id": 59,
+      "start": 159.2,
+      "end": 162.28,
+      "text": "to structure the logical expression that you want to look for."
+    },
+    {
+      "id": 60,
+      "start": 162.28,
+      "end": 165.28,
+      "text": "And then you have a substitution to define the rule"
+    },
+    {
+      "id": 61,
+      "start": 165.28,
+      "end": 169.24,
+      "text": "of the new structure you expect to see after you do this."
+    },
+    {
+      "id": 62,
+      "start": 169.24,
+      "end": 172.32,
+      "text": "Now, in some cases that you don't actually"
+    },
+    {
+      "id": 63,
+      "start": 172.32,
+      "end": 174.92,
+      "text": "want to maintain the previous history,"
+    },
+    {
+      "id": 64,
+      "start": 175.84,
+      "end": 179.64,
+      "text": "the previous plan you've permitted or transformed the plan"
+    },
+    {
+      "id": 65,
+      "start": 179.64,
+      "end": 182.04,
+      "text": "into, because you know it's something you always want to do."
+    },
+    {
+      "id": 66,
+      "start": 182.04,
+      "end": 187.24,
+      "text": "So for example, converting one equals to in a false,"
+    },
+    {
+      "id": 67,
+      "start": 187.24,
+      "end": 189.0,
+      "text": "I don't want to maintain that history of like,"
+    },
+    {
+      "id": 68,
+      "start": 189.0,
+      "end": 190.84,
+      "text": "oh, yeah, I did this transformation to convert one"
+    },
+    {
+      "id": 69,
+      "start": 190.84,
+      "end": 194.52,
+      "text": "equals to a false, because you never want to go back."
+    },
+    {
+      "id": 70,
+      "start": 194.52,
+      "end": 199.12,
+      "text": "And so there are ways to just always apply the change"
+    },
+    {
+      "id": 71,
+      "start": 199.12,
+      "end": 200.8,
+      "text": "and then not keep history, because you"
+    },
+    {
+      "id": 72,
+      "start": 200.8,
+      "end": 202.88,
+      "text": "don't want to balloon up your history space."
+    },
+    {
+      "id": 73,
+      "start": 204.92,
+      "end": 208.12,
+      "text": "So here's a look at an example of a rule."
+    },
+    {
+      "id": 74,
+      "start": 208.12,
+      "end": 212.04,
+      "text": "So my pattern is that I want to have two equa joins"
+    },
+    {
+      "id": 75,
+      "start": 212.04,
+      "end": 215.0,
+      "text": "with a right deep joint tree."
+    },
+    {
+      "id": 76,
+      "start": 215.0,
+      "end": 217.0,
+      "text": "So each of these nodes here are corresponding to groups,"
+    },
+    {
+      "id": 77,
+      "start": 217.0,
+      "end": 220.44,
+      "text": "because I'm not defining, at the rule level,"
+    },
+    {
+      "id": 78,
+      "start": 220.44,
+      "end": 222.96,
+      "text": "what actually is going on inside this group."
+    },
+    {
+      "id": 79,
+      "start": 222.96,
+      "end": 224.88,
+      "text": "This could be an in-ex scan, it could be another joint,"
+    },
+    {
+      "id": 80,
+      "start": 224.88,
+      "end": 226.36,
+      "text": "it could be whatever, it doesn't matter."
+    },
+    {
+      "id": 81,
+      "start": 226.36,
+      "end": 228.48,
+      "text": "It's just some group, it's a placeholder."
+    },
+    {
+      "id": 82,
+      "start": 228.48,
+      "end": 230.6,
+      "text": "We have to have a distinct equa join,"
+    },
+    {
+      "id": 83,
+      "start": 230.6,
+      "end": 232.72,
+      "text": "these are logical operatives, in this case here,"
+    },
+    {
+      "id": 84,
+      "start": 232.72,
+      "end": 235.76,
+      "text": "you know, I'm joining two tables together."
+    },
+    {
+      "id": 85,
+      "start": 235.76,
+      "end": 239.76,
+      "text": "So say this is my plan that matches this."
+    },
+    {
+      "id": 86,
+      "start": 239.76,
+      "end": 242.6,
+      "text": "So again, you see that I have my multi-expression at the top,"
+    },
+    {
+      "id": 87,
+      "start": 242.6,
+      "end": 244.4,
+      "text": "join A and B, but I'm not defining how I actually"
+    },
+    {
+      "id": 88,
+      "start": 244.4,
+      "end": 246.18,
+      "text": "want to do this, but then when you traverse down"
+    },
+    {
+      "id": 89,
+      "start": 246.18,
+      "end": 248.8,
+      "text": "and below, it says I'm joining A and B, and below that,"
+    },
+    {
+      "id": 90,
+      "start": 248.8,
+      "end": 251.2,
+      "text": "we have some get operator corresponding to the axis"
+    },
+    {
+      "id": 91,
+      "start": 251.2,
+      "end": 253.72,
+      "text": "path, the way you're actually retrieving this data."
+    },
+    {
+      "id": 92,
+      "start": 253.72,
+      "end": 260.36,
+      "text": "So this plan here, a logical plan, would match to this rule."
+    },
+    {
+      "id": 93,
+      "start": 260.36,
+      "end": 262.28,
+      "text": "And I could have two times the transformation."
+    },
+    {
+      "id": 94,
+      "start": 263.08,
+      "end": 266.04,
+      "text": "Two types of permutations, I don't really"
+    },
+    {
+      "id": 95,
+      "start": 266.04,
+      "end": 268.56,
+      "text": "need to transformation, because that's a type of rule."
+    },
+    {
+      "id": 96,
+      "start": 268.56,
+      "end": 270.76,
+      "text": "But I could do a transformation rule that"
+    },
+    {
+      "id": 97,
+      "start": 270.76,
+      "end": 274.32,
+      "text": "converts me from a left-deep joint to a right-deep joint,"
+    },
+    {
+      "id": 98,
+      "start": 274.32,
+      "end": 277.28,
+      "text": "just rotating the tree so that the joints are coming down"
+    },
+    {
+      "id": 99,
+      "start": 277.28,
+      "end": 278.48,
+      "text": "the right side."
+    },
+    {
+      "id": 100,
+      "start": 278.48,
+      "end": 280.32,
+      "text": "But again, this is converting a logical operator"
+    },
+    {
+      "id": 101,
+      "start": 280.32,
+      "end": 282.56,
+      "text": "as to another set of logical operators."
+    },
+    {
+      "id": 102,
+      "start": 282.56,
+      "end": 284.24,
+      "text": "Or I could have an implementation rule"
+    },
+    {
+      "id": 103,
+      "start": 284.24,
+      "end": 288.04,
+      "text": "that converts all the aqua joins into, then,"
+    },
+    {
+      "id": 104,
+      "start": 288.04,
+      "end": 290.44,
+      "text": "to be all certainers joins, or hash joins,"
+    },
+    {
+      "id": 105,
+      "start": 290.44,
+      "end": 293.24,
+      "text": "or whatever I want."
+    },
+    {
+      "id": 106,
+      "start": 293.24,
+      "end": 294.44,
+      "text": "So again, these are kind of, this is"
+    },
+    {
+      "id": 107,
+      "start": 294.44,
+      "end": 296.2,
+      "text": "what the patterns are going to look like."
+    },
+    {
+      "id": 108,
+      "start": 296.2,
+      "end": 299.84,
+      "text": "And then we would match on this, and then we can do these changes"
+    },
+    {
+      "id": 109,
+      "start": 299.84,
+      "end": 302.48,
+      "text": "based on that."
+    },
+    {
+      "id": 110,
+      "start": 302.48,
+      "end": 305.48,
+      "text": "In this case here, you can see how, in this case,"
+    },
+    {
+      "id": 111,
+      "start": 305.48,
+      "end": 309.24,
+      "text": "we've joined with A and B on the sort of a join."
+    },
+    {
+      "id": 112,
+      "start": 309.24,
+      "end": 310.52,
+      "text": "But again, in this one here, we have"
+    },
+    {
+      "id": 113,
+      "start": 310.52,
+      "end": 312.08,
+      "text": "to start the placeholder for the multi-expression,"
+    },
+    {
+      "id": 114,
+      "start": 312.08,
+      "end": 316.36,
+      "text": "because that's feeding up into it."
+    },
+    {
+      "id": 115,
+      "start": 316.36,
+      "end": 321.44,
+      "text": "So one obvious problem with this top one here,"
+    },
+    {
+      "id": 116,
+      "start": 321.44,
+      "end": 323.76,
+      "text": "because I'm going logical and logical."
+    },
+    {
+      "id": 117,
+      "start": 323.76,
+      "end": 327.4,
+      "text": "See, I have another plan that does right to left."
+    },
+    {
+      "id": 118,
+      "start": 327.4,
+      "end": 329.92,
+      "text": "What could I end up with?"
+    },
+    {
+      "id": 119,
+      "start": 329.92,
+      "end": 331.48,
+      "text": "Same plan, infinite loop."
+    },
+    {
+      "id": 120,
+      "start": 331.48,
+      "end": 333.92,
+      "text": "You just keep flipping it back and forth."
+    },
+    {
+      "id": 121,
+      "start": 333.92,
+      "end": 335.68,
+      "text": "So this is where the memo table is going to help us out,"
+    },
+    {
+      "id": 122,
+      "start": 335.68,
+      "end": 338.12,
+      "text": "because we can use that to keep track of,"
+    },
+    {
+      "id": 123,
+      "start": 338.12,
+      "end": 339.92,
+      "text": "oh, I've already applied this transformation,"
+    },
+    {
+      "id": 124,
+      "start": 339.92,
+      "end": 342.96,
+      "text": "because I know the cost of the query plan at this point"
+    },
+    {
+      "id": 125,
+      "start": 342.96,
+      "end": 346.76,
+      "text": "to avoid getting stuck in these infinite loops."
+    },
+    {
+      "id": 126,
+      "start": 346.76,
+      "end": 349.2,
+      "text": "So the memo table, at least in the original implementation"
+    },
+    {
+      "id": 127,
+      "start": 349.2,
+      "end": 351.32,
+      "text": "or definition of the Columbia paper,"
+    },
+    {
+      "id": 128,
+      "start": 351.32,
+      "end": 353.12,
+      "text": "talks about being a separate data structure,"
+    },
+    {
+      "id": 129,
+      "start": 353.12,
+      "end": 354.64,
+      "text": "but you could actually embed this information"
+    },
+    {
+      "id": 130,
+      "start": 354.64,
+      "end": 358.12,
+      "text": "into the groups themselves."
+    },
+    {
+      "id": 131,
+      "start": 358.12,
+      "end": 359.36,
+      "text": "Yeah, in the sake of time, this is too"
+    },
+    {
+      "id": 132,
+      "start": 359.36,
+      "end": 364.32,
+      "text": "heavy to go into for like the last three minutes."
+    },
+    {
+      "id": 133,
+      "start": 364.32,
+      "end": 368.16,
+      "text": "But let me show one example now, and then we'll come back"
+    },
+    {
+      "id": 134,
+      "start": 368.16,
+      "end": 369.12,
+      "text": "to this."
+    },
+    {
+      "id": 135,
+      "start": 369.12,
+      "end": 372.52,
+      "text": "We'll start next class with this all over again."
+    },
+    {
+      "id": 136,
+      "start": 373.48,
+      "end": 376.28,
+      "text": "It's all this build, or at least I want to show what it looks like."
+    },
+    {
+      "id": 137,
+      "start": 376.28,
+      "end": 378.12,
+      "text": "So say this is our query plan we want to look like."
+    },
+    {
+      "id": 138,
+      "start": 378.12,
+      "end": 380.6,
+      "text": "Again, the memo table just keeps track of for any multi-expression."
+    },
+    {
+      "id": 139,
+      "start": 380.6,
+      "end": 383.64,
+      "text": "Here's the best physical expression we've"
+    },
+    {
+      "id": 140,
+      "start": 383.64,
+      "end": 385.28,
+      "text": "seen with the given cost."
+    },
+    {
+      "id": 141,
+      "start": 385.28,
+      "end": 387.48,
+      "text": "So in the very beginning, again, we start at the top."
+    },
+    {
+      "id": 142,
+      "start": 387.48,
+      "end": 389.48,
+      "text": "We want to have a joint between A, B, and C."
+    },
+    {
+      "id": 143,
+      "start": 389.48,
+      "end": 390.6,
+      "text": "And we have no physical properties,"
+    },
+    {
+      "id": 144,
+      "start": 390.6,
+      "end": 392.76,
+      "text": "because we're not doing the order by it for simplicity."
+    },
+    {
+      "id": 145,
+      "start": 392.76,
+      "end": 397.2,
+      "text": "So I could do a logical transformation"
+    },
+    {
+      "id": 146,
+      "start": 397.72,
+      "end": 403.0,
+      "text": "to convert the transformation rule, apply it to my output,"
+    },
+    {
+      "id": 147,
+      "start": 403.0,
+      "end": 407.8,
+      "text": "to generate a multi-expression on A and B joined by C."
+    },
+    {
+      "id": 148,
+      "start": 407.8,
+      "end": 409.36,
+      "text": "So now I want to start costing this inside,"
+    },
+    {
+      "id": 149,
+      "start": 409.36,
+      "end": 413.04,
+      "text": "whether it's a worth pursuing further inspection"
+    },
+    {
+      "id": 150,
+      "start": 413.04,
+      "end": 417.2,
+      "text": "of this multi-expression by traversing down to the query plan,"
+    },
+    {
+      "id": 151,
+      "start": 417.2,
+      "end": 420.88,
+      "text": "say now my output would be A joined A and B."
+    },
+    {
+      "id": 152,
+      "start": 420.88,
+      "end": 422.52,
+      "text": "Well, I could join A."
+    },
+    {
+      "id": 153,
+      "start": 422.52,
+      "end": 424.6,
+      "text": "The one way to do this is join A followed by join B."
+    },
+    {
+      "id": 154,
+      "start": 424.6,
+      "end": 426.28,
+      "text": "And the reason my A and B are both the expressions,"
+    },
+    {
+      "id": 155,
+      "start": 426.28,
+      "end": 428.92,
+      "text": "because I'm not defining how I'm actually getting this data."
+    },
+    {
+      "id": 156,
+      "start": 428.92,
+      "end": 430.88,
+      "text": "I'm not defining what the access method is."
+    },
+    {
+      "id": 157,
+      "start": 430.88,
+      "end": 432.56,
+      "text": "So to get further information about what"
+    },
+    {
+      "id": 158,
+      "start": 432.56,
+      "end": 435.64,
+      "text": "this possible subplank will look like,"
+    },
+    {
+      "id": 159,
+      "start": 435.64,
+      "end": 437.88,
+      "text": "I have to go down down to the tree now."
+    },
+    {
+      "id": 160,
+      "start": 437.88,
+      "end": 440.44,
+      "text": "And now in this case here, the only way to access A"
+    },
+    {
+      "id": 161,
+      "start": 440.44,
+      "end": 443.44,
+      "text": "is to do a logical operator called getA."
+    },
+    {
+      "id": 162,
+      "start": 443.44,
+      "end": 444.16,
+      "text": "That's not interesting."
+    },
+    {
+      "id": 163,
+      "start": 444.16,
+      "end": 445.88,
+      "text": "I can't cost that because it doesn't tell me how I'm going"
+    },
+    {
+      "id": 164,
+      "start": 445.88,
+      "end": 446.64,
+      "text": "to do it."
+    },
+    {
+      "id": 165,
+      "start": 446.64,
+      "end": 448.72,
+      "text": "But I can then do implementation rules"
+    },
+    {
+      "id": 166,
+      "start": 448.72,
+      "end": 451.72,
+      "text": "to transform this into either sequential scan on A"
+    },
+    {
+      "id": 167,
+      "start": 451.72,
+      "end": 455.04,
+      "text": "or an index scan on A."
+    },
+    {
+      "id": 168,
+      "start": 455.12,
+      "end": 457.92,
+      "text": "But then let's say for whatever reason for this data,"
+    },
+    {
+      "id": 169,
+      "start": 457.92,
+      "end": 462.52,
+      "text": "whether this query plan is, the sequential scan is faster."
+    },
+    {
+      "id": 170,
+      "start": 462.52,
+      "end": 468.08,
+      "text": "So now in my memo table for the multi-expression on looking up A,"
+    },
+    {
+      "id": 171,
+      "start": 468.08,
+      "end": 471.28,
+      "text": "the sequential scan is the best physical operator I have for this,"
+    },
+    {
+      "id": 172,
+      "start": 471.28,
+      "end": 473.6,
+      "text": "and then the cost is 10."
+    },
+    {
+      "id": 173,
+      "start": 473.6,
+      "end": 474.4,
+      "text": "I do the same thing."
+    },
+    {
+      "id": 174,
+      "start": 474.4,
+      "end": 476.12,
+      "text": "I bounce up back up here."
+    },
+    {
+      "id": 175,
+      "start": 476.12,
+      "end": 477.64,
+      "text": "Do you look on the other side of the join?"
+    },
+    {
+      "id": 176,
+      "start": 477.64,
+      "end": 480.92,
+      "text": "Now I do a look at the B multi-expression, same thing."
+    },
+    {
+      "id": 177,
+      "start": 480.92,
+      "end": 483.04,
+      "text": "I have a logical operator B, and I can"
+    },
+    {
+      "id": 178,
+      "start": 483.04,
+      "end": 485.0,
+      "text": "transform that into a sequential scan on B,"
+    },
+    {
+      "id": 179,
+      "start": 485.0,
+      "end": 487.28,
+      "text": "index scan on B, for whatever reason"
+    },
+    {
+      "id": 180,
+      "start": 487.28,
+      "end": 488.96,
+      "text": "it's sequential scan is faster."
+    },
+    {
+      "id": 181,
+      "start": 488.96,
+      "end": 492.88,
+      "text": "Then I update my memo table here."
+    },
+    {
+      "id": 182,
+      "start": 492.88,
+      "end": 496.36,
+      "text": "So now I bounce back up here, and now I just,"
+    },
+    {
+      "id": 183,
+      "start": 496.36,
+      "end": 500.08,
+      "text": "now the transformation rule to go from swapping the order"
+    },
+    {
+      "id": 184,
+      "start": 500.08,
+      "end": 502.6,
+      "text": "for B and A, and that's commuter if that's a lot to do."
+    },
+    {
+      "id": 185,
+      "start": 502.6,
+      "end": 504.0,
+      "text": "But now when I would do the same thing,"
+    },
+    {
+      "id": 186,
+      "start": 504.0,
+      "end": 506.28,
+      "text": "I say I have this multi-expression on B,"
+    },
+    {
+      "id": 187,
+      "start": 506.28,
+      "end": 509.24,
+      "text": "and a multi-expression on A, I got to go down to the groups"
+    },
+    {
+      "id": 188,
+      "start": 509.24,
+      "end": 512.08,
+      "text": "below me and figure out what the cost of those things are."
+    },
+    {
+      "id": 189,
+      "start": 512.08,
+      "end": 513.36,
+      "text": "Well, I've already done that, right?"
+    },
+    {
+      "id": 190,
+      "start": 513.36,
+      "end": 515.68,
+      "text": "Because I can go look up on my memo table,"
+    },
+    {
+      "id": 191,
+      "start": 515.68,
+      "end": 519.48,
+      "text": "recognize that I know the best operator for B,"
+    },
+    {
+      "id": 192,
+      "start": 519.48,
+      "end": 523.12,
+      "text": "and the best operator for A, based on what's up in here."
+    },
+    {
+      "id": 193,
+      "start": 523.12,
+      "end": 524.92,
+      "text": "So I actually don't need to do that traversal,"
+    },
+    {
+      "id": 194,
+      "start": 524.92,
+      "end": 527.32,
+      "text": "because I have this information already."
+    },
+    {
+      "id": 195,
+      "start": 527.32,
+      "end": 531.84,
+      "text": "I just have to look up on the memo table."
+    },
+    {
+      "id": 196,
+      "start": 531.84,
+      "end": 534.52,
+      "text": "So now, since I've exhausted all my logical expressions"
+    },
+    {
+      "id": 197,
+      "start": 534.52,
+      "end": 536.88,
+      "text": "or transformations that I could do,"
+    },
+    {
+      "id": 198,
+      "start": 536.88,
+      "end": 538.96,
+      "text": "then I start generating all the physical expressions."
+    },
+    {
+      "id": 199,
+      "start": 538.96,
+      "end": 540.04,
+      "text": "But again, I would do this incrementally."
+    },
+    {
+      "id": 200,
+      "start": 540.04,
+      "end": 541.56,
+      "text": "I'm showing this for, but again, you"
+    },
+    {
+      "id": 201,
+      "start": 541.56,
+      "end": 544.76,
+      "text": "think of all possible combinations of joint ordering"
+    },
+    {
+      "id": 202,
+      "start": 544.76,
+      "end": 547.16,
+      "text": "and all possible combinations of different joint"
+    },
+    {
+      "id": 203,
+      "start": 547.16,
+      "end": 549.64,
+      "text": "algorithm I want to use."
+    },
+    {
+      "id": 204,
+      "start": 549.64,
+      "end": 551.64,
+      "text": "So now, say for whatever reason, when I"
+    },
+    {
+      "id": 205,
+      "start": 551.64,
+      "end": 554.56,
+      "text": "cost this the hash join between A and B,"
+    },
+    {
+      "id": 206,
+      "start": 554.56,
+      "end": 556.32,
+      "text": "it turns out to be the best, the fastest."
+    },
+    {
+      "id": 207,
+      "start": 556.32,
+      "end": 558.24,
+      "text": "So then the cost of this now multi-expression"
+    },
+    {
+      "id": 208,
+      "start": 558.24,
+      "end": 562.32,
+      "text": "is just the cost of accessing A, the cost of accessing B,"
+    },
+    {
+      "id": 209,
+      "start": 562.32,
+      "end": 564.56,
+      "text": "plus the cost of doing the hash join."
+    },
+    {
+      "id": 210,
+      "start": 564.56,
+      "end": 566.52,
+      "text": "Again, these are all just made up numbers."
+    },
+    {
+      "id": 211,
+      "start": 566.52,
+      "end": 568.72,
+      "text": "And so it's the summation of all of them,"
+    },
+    {
+      "id": 212,
+      "start": 568.72,
+      "end": 570.64,
+      "text": "and now the cost is 80."
+    },
+    {
+      "id": 213,
+      "start": 570.64,
+      "end": 574.36,
+      "text": "So for the multi-expression AB, the best physical plan"
+    },
+    {
+      "id": 214,
+      "start": 574.36,
+      "end": 579.04,
+      "text": "is the hash join on A and B, and the cost is 80."
+    },
+    {
+      "id": 215,
+      "start": 579.04,
+      "end": 581.28,
+      "text": "And now I bounce up the top and do the same thing down"
+    },
+    {
+      "id": 216,
+      "start": 581.28,
+      "end": 582.56,
+      "text": "on the other side and so forth."
+    },
+    {
+      "id": 217,
+      "start": 585.56,
+      "end": 588.48,
+      "text": "So this is what basically a cascade is doing."
+    },
+    {
+      "id": 218,
+      "start": 588.48,
+      "end": 589.56,
+      "text": "Again, the devil's in the details"
+    },
+    {
+      "id": 219,
+      "start": 589.56,
+      "end": 591.28,
+      "text": "about how you actually apply the transformation rules."
+    },
+    {
+      "id": 220,
+      "start": 591.28,
+      "end": 592.88,
+      "text": "I'm not showing anything about priorities."
+    },
+    {
+      "id": 221,
+      "start": 592.88,
+      "end": 594.32,
+      "text": "I'm not showing anything about properties."
+    },
+    {
+      "id": 222,
+      "start": 594.32,
+      "end": 595.2,
+      "text": "But this is the high level."
+    },
+    {
+      "id": 223,
+      "start": 595.2,
+      "end": 596.52,
+      "text": "This is what the search looks like."
+    }
+  ],
+  "language": "en"
+}

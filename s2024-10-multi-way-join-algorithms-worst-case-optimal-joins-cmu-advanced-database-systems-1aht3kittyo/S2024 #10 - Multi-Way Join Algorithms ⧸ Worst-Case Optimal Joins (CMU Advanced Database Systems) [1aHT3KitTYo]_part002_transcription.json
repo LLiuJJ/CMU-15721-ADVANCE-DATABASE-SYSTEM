@@ -1,0 +1,1073 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 5.32,
+      "text": "But the next value is greater than equal to 3."
+    },
+    {
+      "id": 1,
+      "start": 5.32,
+      "end": 8.32,
+      "text": "So even though it has a 2, so we know this guy is pointing at 3."
+    },
+    {
+      "id": 2,
+      "start": 8.32,
+      "end": 9.8,
+      "text": "So we know that there isn't going to be a match."
+    },
+    {
+      "id": 3,
+      "start": 9.8,
+      "end": 12.08,
+      "text": "Because otherwise, this thing would be pointing at 2 as well."
+    },
+    {
+      "id": 4,
+      "start": 12.08,
+      "end": 13.2,
+      "text": "So we skip this."
+    },
+    {
+      "id": 5,
+      "start": 13.2,
+      "end": 16.84,
+      "text": "So he's now going to leap for all their jump over to 6."
+    },
+    {
+      "id": 6,
+      "start": 16.84,
+      "end": 17.92,
+      "text": "Same thing, come down here."
+    },
+    {
+      "id": 7,
+      "start": 17.92,
+      "end": 18.88,
+      "text": "He's at 2."
+    },
+    {
+      "id": 8,
+      "start": 18.88,
+      "end": 19.96,
+      "text": "2 is less than 6."
+    },
+    {
+      "id": 9,
+      "start": 19.96,
+      "end": 21.32,
+      "text": "2 is less than 3."
+    },
+    {
+      "id": 10,
+      "start": 21.32,
+      "end": 23.68,
+      "text": "So we need to find something that's going to be greater than"
+    },
+    {
+      "id": 11,
+      "start": 23.68,
+      "end": 26.36,
+      "text": "or equal to 6, which is 8 here."
+    },
+    {
+      "id": 12,
+      "start": 26.36,
+      "end": 28.84,
+      "text": "Then we loop back around and do the same thing."
+    },
+    {
+      "id": 13,
+      "start": 28.84,
+      "end": 32.76,
+      "text": "Now the x-a-derector jump to 8, the y-a-derector jump to 8,"
+    },
+    {
+      "id": 14,
+      "start": 32.76,
+      "end": 35.64,
+      "text": "and then lo and behold, we have a match."
+    },
+    {
+      "id": 15,
+      "start": 35.64,
+      "end": 37.2,
+      "text": "So at a high level, this is a conceptually"
+    },
+    {
+      "id": 16,
+      "start": 37.2,
+      "end": 38.84,
+      "text": "what we're trying to do."
+    },
+    {
+      "id": 17,
+      "start": 38.84,
+      "end": 40.36,
+      "text": "But obviously, the devil's in the details,"
+    },
+    {
+      "id": 18,
+      "start": 40.36,
+      "end": 43.52,
+      "text": "because how am I doing this jump?"
+    },
+    {
+      "id": 19,
+      "start": 43.52,
+      "end": 46.44,
+      "text": "Because you, such a scan, would be stupid and slow."
+    },
+    {
+      "id": 20,
+      "start": 46.44,
+      "end": 49.28,
+      "text": "And I'm also only showing how to do this for a single"
+    },
+    {
+      "id": 21,
+      "start": 49.28,
+      "end": 52.36,
+      "text": "single attribute."
+    },
+    {
+      "id": 22,
+      "start": 52.36,
+      "end": 58.12,
+      "text": "So the way they're going to represent these values in sort"
+    },
+    {
+      "id": 23,
+      "start": 58.12,
+      "end": 60.64,
+      "text": "of a manner is through a try."
+    },
+    {
+      "id": 24,
+      "start": 60.64,
+      "end": 62.04,
+      "text": "So we have everyone here knows how to try it, right?"
+    },
+    {
+      "id": 25,
+      "start": 62.04,
+      "end": 64.08,
+      "text": "Because that's the project 0."
+    },
+    {
+      "id": 26,
+      "start": 64.08,
+      "end": 67.04,
+      "text": "OK, so I'll skip into tries."
+    },
+    {
+      "id": 27,
+      "start": 67.04,
+      "end": 70.24,
+      "text": "Actually, the guy that coined the name Edward Franken,"
+    },
+    {
+      "id": 28,
+      "start": 70.24,
+      "end": 71.12,
+      "text": "he was his faculty, same you."
+    },
+    {
+      "id": 29,
+      "start": 71.12,
+      "end": 72.72,
+      "text": "I think he just died last year."
+    },
+    {
+      "id": 30,
+      "start": 72.72,
+      "end": 73.72,
+      "text": "So the try guy died."
+    },
+    {
+      "id": 31,
+      "start": 77.28,
+      "end": 82.92,
+      "text": "OK, so we now need to build a try for every single table"
+    },
+    {
+      "id": 32,
+      "start": 82.92,
+      "end": 85.4,
+      "text": "and where we're going to have each level in the try is going"
+    },
+    {
+      "id": 33,
+      "start": 85.4,
+      "end": 87.12,
+      "text": "to represent a single attribute."
+    },
+    {
+      "id": 34,
+      "start": 87.12,
+      "end": 90.2,
+      "text": "So we slightly different than the try representation."
+    },
+    {
+      "id": 35,
+      "start": 90.2,
+      "end": 92.88,
+      "text": "We think of it in databases to replace a B plus tree."
+    },
+    {
+      "id": 36,
+      "start": 92.88,
+      "end": 97.04,
+      "text": "Because in a try, you would take a string value"
+    },
+    {
+      "id": 37,
+      "start": 97.04,
+      "end": 99.88,
+      "text": "and you break it up to different digits or red X's"
+    },
+    {
+      "id": 38,
+      "start": 99.88,
+      "end": 102.04,
+      "text": "and store those as a single level."
+    },
+    {
+      "id": 39,
+      "start": 102.04,
+      "end": 106.08,
+      "text": "And here, we can store the entire value in a node"
+    },
+    {
+      "id": 40,
+      "start": 106.08,
+      "end": 110.24,
+      "text": "at a level for corresponding to a two-ball at a table."
+    },
+    {
+      "id": 41,
+      "start": 110.24,
+      "end": 112.56,
+      "text": "But we're not going to have any duplicate values."
+    },
+    {
+      "id": 42,
+      "start": 112.56,
+      "end": 114.88,
+      "text": "So if we see the same value for a given attribute"
+    },
+    {
+      "id": 43,
+      "start": 114.88,
+      "end": 117.76,
+      "text": "over and over again, we'll just have one instance of it."
+    },
+    {
+      "id": 44,
+      "start": 117.76,
+      "end": 119.8,
+      "text": "But we have multiple pointers coming out of it"
+    },
+    {
+      "id": 45,
+      "start": 119.8,
+      "end": 123.16,
+      "text": "for the different sub-values for the next attribute."
+    },
+    {
+      "id": 46,
+      "start": 123.16,
+      "end": 124.76,
+      "text": "All right, so again, I'm going to just flip it"
+    },
+    {
+      "id": 47,
+      "start": 124.76,
+      "end": 127.56,
+      "text": "on its side to make it easier to visualize."
+    },
+    {
+      "id": 48,
+      "start": 127.56,
+      "end": 129.56,
+      "text": "So we have two attributes, A and B."
+    },
+    {
+      "id": 49,
+      "start": 129.56,
+      "end": 134.2,
+      "text": "So in the first step here, we want to add an entry"
+    },
+    {
+      "id": 50,
+      "start": 134.2,
+      "end": 137.08,
+      "text": "in our try for these three zeros."
+    },
+    {
+      "id": 51,
+      "start": 137.08,
+      "end": 140.56,
+      "text": "So we always start with the root, traverse down,"
+    },
+    {
+      "id": 52,
+      "start": 140.56,
+      "end": 143.12,
+      "text": "and generate the 0 node."
+    },
+    {
+      "id": 53,
+      "start": 143.12,
+      "end": 146.28,
+      "text": "And then we come down to the B."
+    },
+    {
+      "id": 54,
+      "start": 146.28,
+      "end": 150.36,
+      "text": "And then for all the B values that correspond to the 0 values,"
+    },
+    {
+      "id": 55,
+      "start": 150.36,
+      "end": 153.56,
+      "text": "we're going to have edges coming out of them"
+    },
+    {
+      "id": 56,
+      "start": 153.56,
+      "end": 156.88,
+      "text": "and have those three values."
+    },
+    {
+      "id": 57,
+      "start": 156.88,
+      "end": 159.52,
+      "text": "And I can just scan down the line to do the same thing"
+    },
+    {
+      "id": 58,
+      "start": 159.52,
+      "end": 163.16,
+      "text": "for 1 and 0, and then for 2 and 0."
+    },
+    {
+      "id": 59,
+      "start": 163.16,
+      "end": 167.64,
+      "text": "So again, this first level here, ignoring the root,"
+    },
+    {
+      "id": 60,
+      "start": 167.64,
+      "end": 170.36,
+      "text": "this is corresponds to attribute A. Everything below that,"
+    },
+    {
+      "id": 61,
+      "start": 170.36,
+      "end": 172.08,
+      "text": "the second level is going to be attribute B."
+    },
+    {
+      "id": 62,
+      "start": 172.08,
+      "end": 174.32,
+      "text": "And then depending on how many attributes I have my join key,"
+    },
+    {
+      "id": 63,
+      "start": 174.32,
+      "end": 178.04,
+      "text": "this keeps going down and down."
+    },
+    {
+      "id": 64,
+      "start": 178.04,
+      "end": 180.2,
+      "text": "And then in this leaf node here, obviously,"
+    },
+    {
+      "id": 65,
+      "start": 180.2,
+      "end": 183.84,
+      "text": "when they have the same parent, there"
+    },
+    {
+      "id": 66,
+      "start": 183.84,
+      "end": 185.04,
+      "text": "are going to be in sorted order."
+    },
+    {
+      "id": 67,
+      "start": 188.52,
+      "end": 189.56,
+      "text": "All right, so now let's put this together"
+    },
+    {
+      "id": 68,
+      "start": 189.56,
+      "end": 197.8,
+      "text": "in a complete example to do a join between RS and T here."
+    },
+    {
+      "id": 69,
+      "start": 197.8,
+      "end": 202.2,
+      "text": "So I've already built the tries for the three tables."
+    },
+    {
+      "id": 70,
+      "start": 202.2,
+      "end": 205.64,
+      "text": "And again, here in our join, we're trying to join RS and T."
+    },
+    {
+      "id": 71,
+      "start": 205.64,
+      "end": 210.8,
+      "text": "We're trying to join our r.a equals T at dot A. r.b equals s dot b,"
+    },
+    {
+      "id": 72,
+      "start": 210.8,
+      "end": 212.56,
+      "text": "and s dot c equals T dot c."
+    },
+    {
+      "id": 73,
+      "start": 212.56,
+      "end": 214.92,
+      "text": "So in this case here, one relation does not"
+    },
+    {
+      "id": 74,
+      "start": 214.92,
+      "end": 219.92,
+      "text": "have all of the attributes that we need to compute the join."
+    },
+    {
+      "id": 75,
+      "start": 219.92,
+      "end": 221.92,
+      "text": "And so assuming that the op-marsers figured out"
+    },
+    {
+      "id": 76,
+      "start": 221.92,
+      "end": 225.84,
+      "text": "that the optimal join, sort of optimal evaluation ordering"
+    },
+    {
+      "id": 77,
+      "start": 225.84,
+      "end": 228.6,
+      "text": "for attributes is going to be ab and c."
+    },
+    {
+      "id": 78,
+      "start": 228.6,
+      "end": 232.28,
+      "text": "So for this, say we start with table R. And we start"
+    },
+    {
+      "id": 79,
+      "start": 232.28,
+      "end": 233.4,
+      "text": "the root traverse down."
+    },
+    {
+      "id": 80,
+      "start": 233.4,
+      "end": 236.72,
+      "text": "The first entry is going to be, the first level is going to be A."
+    },
+    {
+      "id": 81,
+      "start": 236.72,
+      "end": 239.36,
+      "text": "The first value you can see for A is 0."
+    },
+    {
+      "id": 82,
+      "start": 239.36,
+      "end": 244.12,
+      "text": "So then we can use this value to now do a look up in the table T."
+    },
+    {
+      "id": 83,
+      "start": 244.12,
+      "end": 247.68,
+      "text": "Again, it's just our join is r dot a dot equals T dot a."
+    },
+    {
+      "id": 84,
+      "start": 247.68,
+      "end": 251.32,
+      "text": "So then now as an entry point going into the root of this try,"
+    },
+    {
+      "id": 85,
+      "start": 251.32,
+      "end": 254.16,
+      "text": "we come down to the first level."
+    },
+    {
+      "id": 86,
+      "start": 254.16,
+      "end": 257.16,
+      "text": "We have A equals 0."
+    },
+    {
+      "id": 87,
+      "start": 257.16,
+      "end": 259.92,
+      "text": "We have a matching value there."
+    },
+    {
+      "id": 88,
+      "start": 259.92,
+      "end": 263.32,
+      "text": "So now what we need to do is traverse down, at this point here,"
+    },
+    {
+      "id": 89,
+      "start": 263.32,
+      "end": 268.8,
+      "text": "since we know we have a match for r dot a equals 0 and T dot a equals 0,"
+    },
+    {
+      "id": 90,
+      "start": 268.8,
+      "end": 270.52,
+      "text": "then we need to now go to the level below them"
+    },
+    {
+      "id": 91,
+      "start": 270.52,
+      "end": 272.44,
+      "text": "and actually start comparing the two pulls"
+    },
+    {
+      "id": 92,
+      "start": 272.44,
+      "end": 275.76,
+      "text": "of the values for the different attributes at the next level."
+    },
+    {
+      "id": 93,
+      "start": 275.76,
+      "end": 280.48,
+      "text": "So in this case here, the next level for table R is going to be b."
+    },
+    {
+      "id": 94,
+      "start": 280.48,
+      "end": 283.28,
+      "text": "So when we go down to go down the left side,"
+    },
+    {
+      "id": 95,
+      "start": 283.28,
+      "end": 284.84,
+      "text": "the first value we're going to hit is 0."
+    },
+    {
+      "id": 96,
+      "start": 284.84,
+      "end": 290.4,
+      "text": "So we can use that now as the probe into the try for table S"
+    },
+    {
+      "id": 97,
+      "start": 290.4,
+      "end": 294.44,
+      "text": "because we're trying to do r dot b equals s dot b, right?"
+    },
+    {
+      "id": 98,
+      "start": 294.44,
+      "end": 298.84,
+      "text": "And the, you know, and our where it calls up there."
+    },
+    {
+      "id": 99,
+      "start": 298.84,
+      "end": 300.84,
+      "text": "So same thing, we enter r, sorry,"
+    },
+    {
+      "id": 100,
+      "start": 300.84,
+      "end": 304.96,
+      "text": "enter the try for s, traverse down, now we match for b."
+    },
+    {
+      "id": 101,
+      "start": 304.96,
+      "end": 305.28,
+      "text": "Great."
+    },
+    {
+      "id": 102,
+      "start": 305.28,
+      "end": 309.08,
+      "text": "So now we know that we have for a match, at least for a match"
+    },
+    {
+      "id": 103,
+      "start": 309.08,
+      "end": 315.0,
+      "text": "for r dot a to T dot a and r dot b into s dot b."
+    },
+    {
+      "id": 104,
+      "start": 315.0,
+      "end": 321.68,
+      "text": "So the last step now is to do the comparison for where s dot c equals T dot c."
+    },
+    {
+      "id": 105,
+      "start": 321.68,
+      "end": 327.64,
+      "text": "So to do this, we're just going to have iterators in the region that,"
+    },
+    {
+      "id": 106,
+      "start": 327.64,
+      "end": 334.12,
+      "text": "the link list or the list that's below the first attribute in the try for T and s."
+    },
+    {
+      "id": 107,
+      "start": 334.12,
+      "end": 340.12,
+      "text": "And we're just going to scan along and accumulate all the values for C across"
+    },
+    {
+      "id": 108,
+      "start": 340.12,
+      "end": 345.16,
+      "text": "these two different, you know, for these two different tables, right?"
+    },
+    {
+      "id": 109,
+      "start": 345.16,
+      "end": 352.72,
+      "text": "And then now we have a set, we just do the intersection and we tell us whether we have matches."
+    },
+    {
+      "id": 110,
+      "start": 352.72,
+      "end": 359.28,
+      "text": "And we know how to fill in the values for a and b because we know how we got into our try in the first place."
+    },
+    {
+      "id": 111,
+      "start": 359.28,
+      "end": 361.92,
+      "text": "So we prove, probity here got a equals 0."
+    },
+    {
+      "id": 112,
+      "start": 361.92,
+      "end": 363.0,
+      "text": "We had a match there."
+    },
+    {
+      "id": 113,
+      "start": 363.0,
+      "end": 365.64,
+      "text": "Then we had b equals 0, had a match over there."
+    },
+    {
+      "id": 114,
+      "start": 365.64,
+      "end": 369.6,
+      "text": "So when we fill this out, we know the values at a and b are."
+    },
+    {
+      "id": 115,
+      "start": 369.6,
+      "end": 372.52,
+      "text": "So we're just doing the intersection over c."
+    },
+    {
+      "id": 116,
+      "start": 372.52,
+      "end": 373.32,
+      "text": "Yes."
+    },
+    {
+      "id": 117,
+      "start": 373.32,
+      "end": 379.28,
+      "text": "What is the order in the, the region has come like b to b?"
+    },
+    {
+      "id": 118,
+      "start": 379.28,
+      "end": 382.24,
+      "text": "Question is, what if the ordering of the,"
+    },
+    {
+      "id": 119,
+      "start": 382.24,
+      "end": 388.84,
+      "text": "if the c goes on top of the b, how would it go?"
+    },
+    {
+      "id": 120,
+      "start": 388.84,
+      "end": 391.72,
+      "text": "Sorry, the c goes on top of b, what do you mean?"
+    },
+    {
+      "id": 121,
+      "start": 391.72,
+      "end": 392.24,
+      "text": "Yeah."
+    },
+    {
+      "id": 122,
+      "start": 392.24,
+      "end": 396.84,
+      "text": "So it's like b being the first order, does it find?"
+    },
+    {
+      "id": 123,
+      "start": 396.84,
+      "end": 402.2,
+      "text": "Oh, sorry, so if I put this above this, you can't do that."
+    },
+    {
+      "id": 124,
+      "start": 402.2,
+      "end": 408.08,
+      "text": "Because I know what, I know the global order, I know the global evaluation ordering, a, b, c."
+    },
+    {
+      "id": 125,
+      "start": 408.08,
+      "end": 413.44,
+      "text": "So in my try, even though I don't have all the attributes for a given table,"
+    },
+    {
+      "id": 126,
+      "start": 413.44,
+      "end": 415.72,
+      "text": "I still have to follow that ordering."
+    },
+    {
+      "id": 127,
+      "start": 415.72,
+      "end": 417.64,
+      "text": "So b's got to come before c."
+    },
+    {
+      "id": 128,
+      "start": 417.64,
+      "end": 419.88,
+      "text": "So the order is determined, determined."
+    },
+    {
+      "id": 129,
+      "start": 419.88,
+      "end": 425.48,
+      "text": "The order is determined by the query optimizer before you start running this."
+    },
+    {
+      "id": 130,
+      "start": 425.48,
+      "end": 429.04,
+      "text": "It's the same as join order when you're doing a binary join."
+    },
+    {
+      "id": 131,
+      "start": 429.04,
+      "end": 432.28,
+      "text": "Yes."
+    },
+    {
+      "id": 132,
+      "start": 432.28,
+      "end": 438.16,
+      "text": "Is there a k to have one tri per table or do we need one for every possible order and"
+    },
+    {
+      "id": 133,
+      "start": 438.16,
+      "end": 439.92,
+      "text": "subset of the boundary?"
+    },
+    {
+      "id": 134,
+      "start": 439.92,
+      "end": 443.92,
+      "text": "This question is, is it okay to have one tri per table or do you need to have one"
+    },
+    {
+      "id": 135,
+      "start": 443.92,
+      "end": 446.04,
+      "text": "tri for every possible join ordering?"
+    },
+    {
+      "id": 136,
+      "start": 446.04,
+      "end": 448.64,
+      "text": "So this brings up a good point."
+    },
+    {
+      "id": 137,
+      "start": 448.64,
+      "end": 455.96,
+      "text": "The empty headed paper, and I think this paper says you'd want to pre-compute these ahead"
+    },
+    {
+      "id": 138,
+      "start": 455.96,
+      "end": 456.96,
+      "text": "of time."
+    },
+    {
+      "id": 139,
+      "start": 456.96,
+      "end": 459.44,
+      "text": "So all possible join orderings, you would have to pre-compute them."
+    },
+    {
+      "id": 140,
+      "start": 459.44,
+      "end": 463.92,
+      "text": "The umber guys claim and think they're cracked, that's super wasteful."
+    },
+    {
+      "id": 141,
+      "start": 463.92,
+      "end": 471.56,
+      "text": "And you would just build it on the fly, and that's better than trying to pre-populate everything."
+    },
+    {
+      "id": 142,
+      "start": 472.56,
+      "end": 477.56,
+      "text": "Okay, so we did a match where a equals zero, b equals zero, and we got all the c's for"
+    },
+    {
+      "id": 143,
+      "start": 477.56,
+      "end": 478.56,
+      "text": "that."
+    },
+    {
+      "id": 144,
+      "start": 478.56,
+      "end": 483.56,
+      "text": "So now all we need to do is start back over here with our b iterator in table r."
+    },
+    {
+      "id": 145,
+      "start": 483.56,
+      "end": 485.32,
+      "text": "Just go to the next one."
+    },
+    {
+      "id": 146,
+      "start": 485.32,
+      "end": 486.32,
+      "text": "Do the same thing."
+    },
+    {
+      "id": 147,
+      "start": 486.32,
+      "end": 488.56,
+      "text": "Probe into table s."
+    },
+    {
+      "id": 148,
+      "start": 488.56,
+      "end": 491.96,
+      "text": "Follow along the path to get the b."
+    },
+    {
+      "id": 149,
+      "start": 491.96,
+      "end": 495.76,
+      "text": "Now we have an iterator for the c value over here."
+    },
+    {
+      "id": 150,
+      "start": 495.76,
+      "end": 500.56,
+      "text": "For this one here, because we're still at the same a value that we don't need to,"
+    },
+    {
+      "id": 151,
+      "start": 501.56,
+      "end": 505.56,
+      "text": "we don't need to switch over to another leaf node."
+    },
+    {
+      "id": 152,
+      "start": 505.56,
+      "end": 509.56,
+      "text": "We just restart and go back at the beginning of our linked list here."
+    },
+    {
+      "id": 153,
+      "start": 509.56,
+      "end": 511.56,
+      "text": "Same thing, scan along."
+    },
+    {
+      "id": 154,
+      "start": 511.56,
+      "end": 515.56,
+      "text": "And so now we would only end up with one entry for s.c."
+    },
+    {
+      "id": 155,
+      "start": 515.56,
+      "end": 517.56,
+      "text": "And then three entries for t.c."
+    },
+    {
+      "id": 156,
+      "start": 517.56,
+      "end": 520.56,
+      "text": "You obviously could cache this, because you know it's going to be the same thing every time."
+    },
+    {
+      "id": 157,
+      "start": 520.56,
+      "end": 526.56,
+      "text": "Compute the intersection, and then we end up with one table."
+    },
+    {
+      "id": 158,
+      "start": 526.56,
+      "end": 528.56,
+      "text": "Then do the same thing."
+    },
+    {
+      "id": 159,
+      "start": 528.56,
+      "end": 532.56,
+      "text": "Next one, traverse down into the s."
+    },
+    {
+      "id": 160,
+      "start": 532.56,
+      "end": 539.56,
+      "text": "Get our sets of c values intersect and produce the table."
+    },
+    {
+      "id": 161,
+      "start": 539.56,
+      "end": 543.56,
+      "text": "So again, now at this point here, since we've exhausted all the b's,"
+    },
+    {
+      "id": 162,
+      "start": 543.56,
+      "end": 547.56,
+      "text": "and so we're done with this a, we go back up in the root, come down to the next side."
+    },
+    {
+      "id": 163,
+      "start": 547.56,
+      "end": 553.56,
+      "text": "Now we get a equals 1, probe into the tri-for-t, a equals 1, we got a match."
+    },
+    {
+      "id": 164,
+      "start": 553.56,
+      "end": 557.56,
+      "text": "Do the same thing, scan along, and then do the intersection."
+    },
+    {
+      "id": 165,
+      "start": 557.56,
+      "end": 560.56,
+      "text": "Same thing, come to the 2, and so forth like that."
+    },
+    {
+      "id": 166,
+      "start": 560.56,
+      "end": 566.56,
+      "text": "Not so bad."
+    },
+    {
+      "id": 167,
+      "start": 566.56,
+      "end": 573.56,
+      "text": "So related to his point, either pre-computing or building a tri on the fly,"
+    },
+    {
+      "id": 168,
+      "start": 573.56,
+      "end": 576.56,
+      "text": "every time you want to do this joint, is going to be expensive."
+    },
+    {
+      "id": 169,
+      "start": 576.56,
+      "end": 578.56,
+      "text": "And always thinking of extremes."
+    },
+    {
+      "id": 170,
+      "start": 578.56,
+      "end": 582.56,
+      "text": "If you have billions of tuples having to build this tri,"
+    },
+    {
+      "id": 171,
+      "start": 582.56,
+      "end": 586.56,
+      "text": "and cross everything on table, everything on time, it's going to be slow."
+    },
+    {
+      "id": 172,
+      "start": 586.56,
+      "end": 590.56,
+      "text": "And even though in our world, we're assuming our data set is read only,"
+    },
+    {
+      "id": 173,
+      "start": 590.56,
+      "end": 594.56,
+      "text": "where's the hyperfavorite they were talking about supporting incumbent updates,"
+    },
+    {
+      "id": 174,
+      "start": 594.56,
+      "end": 597.56,
+      "text": "again, trying to figure out all possible joy and energy ahead of time,"
+    },
+    {
+      "id": 175,
+      "start": 597.56,
+      "end": 600.56,
+      "text": "and then materialize them, and then fetch them from disk every time you get a joint,"
+    },
+    {
+      "id": 176,
+      "start": 600.56,
+      "end": 602.56,
+      "text": "is going to be impractal. Yes?"
+    },
+    {
+      "id": 177,
+      "start": 602.56,
+      "end": 604.56,
+      "text": "What do you mean by building?"
+    }
+  ],
+  "language": "en"
+}

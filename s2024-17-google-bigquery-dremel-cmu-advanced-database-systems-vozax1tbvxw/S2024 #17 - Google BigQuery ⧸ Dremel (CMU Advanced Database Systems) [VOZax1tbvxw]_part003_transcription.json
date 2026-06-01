@@ -1,0 +1,1433 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.4,
+      "text": "So doing this, what if you always went data on the same worker?"
+    },
+    {
+      "id": 1,
+      "start": 3.4,
+      "end": 6.08,
+      "text": "OK, so this is what I've been saying before."
+    },
+    {
+      "id": 2,
+      "start": 6.08,
+      "end": 11.44,
+      "text": "I think I said back here, the caught stages,"
+    },
+    {
+      "id": 3,
+      "start": 11.44,
+      "end": 13.8,
+      "text": "they're not always pipeline breakers though."
+    },
+    {
+      "id": 4,
+      "start": 13.8,
+      "end": 20.16,
+      "text": "In some cases, you can have the second stage kick off"
+    },
+    {
+      "id": 5,
+      "start": 20.16,
+      "end": 23.32,
+      "text": "while this stage is still running."
+    },
+    {
+      "id": 6,
+      "start": 23.32,
+      "end": 27.32,
+      "text": "And you can start processing ahead of time."
+    },
+    {
+      "id": 7,
+      "start": 27.32,
+      "end": 29.04,
+      "text": "So that's one advantage there that you could"
+    },
+    {
+      "id": 8,
+      "start": 29.04,
+      "end": 31.16,
+      "text": "start doing this."
+    },
+    {
+      "id": 9,
+      "start": 31.16,
+      "end": 32.56,
+      "text": "You could have this thing get fired up and start"
+    },
+    {
+      "id": 10,
+      "start": 32.56,
+      "end": 35.88,
+      "text": "reading the data before these guys even finish."
+    },
+    {
+      "id": 11,
+      "start": 35.88,
+      "end": 37.28,
+      "text": "From a software engineering standpoint,"
+    },
+    {
+      "id": 12,
+      "start": 37.28,
+      "end": 42.28,
+      "text": "also too, that now you no longer have to embed logic"
+    },
+    {
+      "id": 13,
+      "start": 42.28,
+      "end": 45.96,
+      "text": "of how to scale up or scale down or do other organizations"
+    },
+    {
+      "id": 14,
+      "start": 45.96,
+      "end": 49.96,
+      "text": "will see in a second at all your workers."
+    },
+    {
+      "id": 15,
+      "start": 49.96,
+      "end": 52.12,
+      "text": "Because now it's just a coordinator that says, OK,"
+    },
+    {
+      "id": 16,
+      "start": 52.12,
+      "end": 52.96,
+      "text": "I need more workers."
+    },
+    {
+      "id": 17,
+      "start": 52.96,
+      "end": 55.72,
+      "text": "Do it this way or move the data of this here and there."
+    },
+    {
+      "id": 18,
+      "start": 55.72,
+      "end": 57.84,
+      "text": "And from a software engineering perspective,"
+    },
+    {
+      "id": 19,
+      "start": 57.84,
+      "end": 59.52,
+      "text": "the worker implementation is much more simple now."
+    },
+    {
+      "id": 20,
+      "start": 64.96,
+      "end": 66.92,
+      "text": "So again, at the end, the last stage"
+    },
+    {
+      "id": 21,
+      "start": 66.92,
+      "end": 70.24,
+      "text": "you're doing a certain limit, one worker can handle that."
+    },
+    {
+      "id": 22,
+      "start": 70.24,
+      "end": 72.56,
+      "text": "As far as I know, these are just like containers"
+    },
+    {
+      "id": 23,
+      "start": 72.56,
+      "end": 76.72,
+      "text": "and running in Bork, which is the precursor to Kubernetes."
+    },
+    {
+      "id": 24,
+      "start": 76.72,
+      "end": 78.8,
+      "text": "So they're meant to be stateless."
+    },
+    {
+      "id": 25,
+      "start": 78.8,
+      "end": 82.36,
+      "text": "So these things can get killed and swapped out at any time."
+    },
+    {
+      "id": 26,
+      "start": 82.36,
+      "end": 83.96,
+      "text": "Is that why they're doing the memory shuffle?"
+    },
+    {
+      "id": 27,
+      "start": 83.96,
+      "end": 85.76,
+      "text": "Because this was for stateless, and they don't want"
+    },
+    {
+      "id": 28,
+      "start": 85.76,
+      "end": 88.2,
+      "text": "to keep them alive, something stateless alive?"
+    },
+    {
+      "id": 29,
+      "start": 88.2,
+      "end": 89.56,
+      "text": "It's a question."
+    },
+    {
+      "id": 30,
+      "start": 89.56,
+      "end": 90.92,
+      "text": "Is that why doing the memory shuffle?"
+    },
+    {
+      "id": 31,
+      "start": 90.92,
+      "end": 91.84,
+      "text": "Because these things are stateless."
+    },
+    {
+      "id": 32,
+      "start": 91.84,
+      "end": 93.64,
+      "text": "You don't want to keep them alive."
+    },
+    {
+      "id": 33,
+      "start": 93.64,
+      "end": 94.24,
+      "text": "Potential."
+    },
+    {
+      "id": 34,
+      "start": 94.24,
+      "end": 97.04,
+      "text": "I mean, it's one of the ideas, yes."
+    },
+    {
+      "id": 35,
+      "start": 97.04,
+      "end": 102.24,
+      "text": "But again, there's database query plan advantages"
+    },
+    {
+      "id": 36,
+      "start": 102.24,
+      "end": 105.44,
+      "text": "that we can leverage if we have the section stage."
+    },
+    {
+      "id": 37,
+      "start": 105.44,
+      "end": 106.24,
+      "text": "We'll see in a second."
+    },
+    {
+      "id": 38,
+      "start": 108.72,
+      "end": 113.04,
+      "text": "So the shuffle is basically a producer consumer model."
+    },
+    {
+      "id": 39,
+      "start": 113.04,
+      "end": 114.32,
+      "text": "It's just a way to send the admirates"
+    },
+    {
+      "id": 40,
+      "start": 114.32,
+      "end": 117.2,
+      "text": "out from one stage to the next."
+    },
+    {
+      "id": 41,
+      "start": 117.2,
+      "end": 119.56,
+      "text": "Using this dedicated service, and then saying,"
+    },
+    {
+      "id": 42,
+      "start": 119.56,
+      "end": 122.44,
+      "text": "in the paper talks about this MRE service is used,"
+    },
+    {
+      "id": 43,
+      "start": 122.44,
+      "end": 125.72,
+      "text": "not just for Dremel."
+    },
+    {
+      "id": 44,
+      "start": 125.72,
+      "end": 130.88,
+      "text": "I think Dremel is the main consumer of this service."
+    },
+    {
+      "id": 45,
+      "start": 130.88,
+      "end": 133.08,
+      "text": "It's using other services within Google as well."
+    },
+    {
+      "id": 46,
+      "start": 135.84,
+      "end": 137.04,
+      "text": "So again, the workers just send their output"
+    },
+    {
+      "id": 47,
+      "start": 137.04,
+      "end": 137.8,
+      "text": "at the shuffle nodes."
+    },
+    {
+      "id": 48,
+      "start": 137.8,
+      "end": 141.96,
+      "text": "And then if the shuffle nodes get run out of space,"
+    },
+    {
+      "id": 49,
+      "start": 141.96,
+      "end": 146.2,
+      "text": "they can spill to GFS if necessary."
+    },
+    {
+      "id": 50,
+      "start": 146.2,
+      "end": 149.96,
+      "text": "And then the workers in the next stage"
+    },
+    {
+      "id": 51,
+      "start": 149.96,
+      "end": 155.12,
+      "text": "just say, get more data from the shuffle nodes."
+    },
+    {
+      "id": 52,
+      "start": 155.12,
+      "end": 158.0,
+      "text": "So in this case here, say that all the workers"
+    },
+    {
+      "id": 53,
+      "start": 158.0,
+      "end": 161.28,
+      "text": "are consuming data from the previous stage."
+    },
+    {
+      "id": 54,
+      "start": 161.28,
+      "end": 164.84,
+      "text": "In this case, here, it could be from the distributed file"
+    },
+    {
+      "id": 55,
+      "start": 164.84,
+      "end": 166.44,
+      "text": "system, the data reading, or could be"
+    },
+    {
+      "id": 56,
+      "start": 166.44,
+      "end": 168.44,
+      "text": "from the shuffle service itself."
+    },
+    {
+      "id": 57,
+      "start": 168.44,
+      "end": 169.88,
+      "text": "And then they're processing the data,"
+    },
+    {
+      "id": 58,
+      "start": 169.88,
+      "end": 174.68,
+      "text": "and they're doing end-waped traffic on the outside, going out."
+    },
+    {
+      "id": 59,
+      "start": 174.68,
+      "end": 175.92,
+      "text": "And if I run a memory, I can always"
+    },
+    {
+      "id": 60,
+      "start": 175.92,
+      "end": 178.52,
+      "text": "spill to the distributed file system."
+    },
+    {
+      "id": 61,
+      "start": 178.52,
+      "end": 180.72,
+      "text": "And then another key advantage of why you want to do this"
+    },
+    {
+      "id": 62,
+      "start": 180.72,
+      "end": 184.96,
+      "text": "is that I no longer have to do end-to-end communication"
+    },
+    {
+      "id": 63,
+      "start": 184.96,
+      "end": 188.32,
+      "text": "or end-to-end communication between the one stage to the next."
+    },
+    {
+      "id": 64,
+      "start": 188.32,
+      "end": 190.84,
+      "text": "Because this data could be partitioned,"
+    },
+    {
+      "id": 65,
+      "start": 190.84,
+      "end": 194.24,
+      "text": "that I only need to get the data from a subset of the workers"
+    },
+    {
+      "id": 66,
+      "start": 194.24,
+      "end": 197.56,
+      "text": "rather than sending it to all the possible workers."
+    },
+    {
+      "id": 67,
+      "start": 197.56,
+      "end": 199.28,
+      "text": "So without the shuffle service, without having"
+    },
+    {
+      "id": 68,
+      "start": 199.28,
+      "end": 202.64,
+      "text": "to know exactly what, because the coordinator is going to tell us,"
+    },
+    {
+      "id": 69,
+      "start": 202.64,
+      "end": 205.16,
+      "text": "here's the data you need, here's the shuffle nodes go get it from."
+    },
+    {
+      "id": 70,
+      "start": 205.16,
+      "end": 207.56,
+      "text": "Without that, potentially, I have to pull all these guys"
+    },
+    {
+      "id": 71,
+      "start": 207.56,
+      "end": 210.2,
+      "text": "and say, do you have any data that I could be consuming?"
+    },
+    {
+      "id": 72,
+      "start": 210.2,
+      "end": 212.4,
+      "text": "So from that perspective, this is way more efficient"
+    },
+    {
+      "id": 73,
+      "start": 212.4,
+      "end": 213.92,
+      "text": "in terms of communication traffic."
+    },
+    {
+      "id": 74,
+      "start": 217.8,
+      "end": 219.72,
+      "text": "And then I think also, too, they can pull"
+    },
+    {
+      "id": 75,
+      "start": 219.72,
+      "end": 222.28,
+      "text": "from the distributed file system rather than having"
+    },
+    {
+      "id": 76,
+      "start": 222.28,
+      "end": 224.72,
+      "text": "to go and get it from the shuffle service, if any, gets"
+    },
+    {
+      "id": 77,
+      "start": 224.72,
+      "end": 225.56,
+      "text": "a total disk."
+    },
+    {
+      "id": 78,
+      "start": 229.28,
+      "end": 231.6,
+      "text": "So the shuffle is basically just like a checkpoint"
+    },
+    {
+      "id": 79,
+      "start": 231.6,
+      "end": 233.6,
+      "text": "in the query plan."
+    },
+    {
+      "id": 80,
+      "start": 233.6,
+      "end": 237.44,
+      "text": "And so this part is actually unique to Dremel"
+    },
+    {
+      "id": 81,
+      "start": 237.44,
+      "end": 240.6,
+      "text": "because historically, parallel to distributed databases"
+    },
+    {
+      "id": 82,
+      "start": 240.6,
+      "end": 243.12,
+      "text": "didn't do checkpoints and they weren't fault-tolerant"
+    },
+    {
+      "id": 83,
+      "start": 243.12,
+      "end": 244.64,
+      "text": "within the query itself, meaning like,"
+    },
+    {
+      "id": 84,
+      "start": 244.64,
+      "end": 247.24,
+      "text": "if I had a two-hour query that was going to run"
+    },
+    {
+      "id": 85,
+      "start": 247.24,
+      "end": 249.76,
+      "text": "and one node happens to die partway through,"
+    },
+    {
+      "id": 86,
+      "start": 249.76,
+      "end": 252.84,
+      "text": "then the whole query dies and I got to restart."
+    },
+    {
+      "id": 87,
+      "start": 253.36,
+      "end": 255.84,
+      "text": "From the database systems perspective,"
+    },
+    {
+      "id": 88,
+      "start": 255.84,
+      "end": 262.84,
+      "text": "the disk was so slow that it was just not worth it"
+    },
+    {
+      "id": 89,
+      "start": 262.84,
+      "end": 266.08,
+      "text": "to do right now, animate results."
+    },
+    {
+      "id": 90,
+      "start": 266.08,
+      "end": 267.96,
+      "text": "Whereas Hadoop, as he mentioned,"
+    },
+    {
+      "id": 91,
+      "start": 267.96,
+      "end": 269.36,
+      "text": "gives doing that between every shuffle"
+    },
+    {
+      "id": 92,
+      "start": 269.36,
+      "end": 271.04,
+      "text": "was always writing things out to local disk"
+    },
+    {
+      "id": 93,
+      "start": 271.04,
+      "end": 275.12,
+      "text": "and then replicating out things on an A, G, F, S."
+    },
+    {
+      "id": 94,
+      "start": 275.12,
+      "end": 277.72,
+      "text": "And that was really slow because, but that was Google's model"
+    },
+    {
+      "id": 95,
+      "start": 277.72,
+      "end": 280.4,
+      "text": "of like, okay, we're running on cheap pizza box machines"
+    },
+    {
+      "id": 96,
+      "start": 281.12,
+      "end": 283.08,
+      "text": "that could die anytime."
+    },
+    {
+      "id": 97,
+      "start": 283.08,
+      "end": 286.2,
+      "text": "Whereas from a parallel database system perspective,"
+    },
+    {
+      "id": 98,
+      "start": 286.2,
+      "end": 287.92,
+      "text": "it was better to design the system,"
+    },
+    {
+      "id": 99,
+      "start": 287.92,
+      "end": 289.76,
+      "text": "assuming you're running on, you know,"
+    },
+    {
+      "id": 100,
+      "start": 289.76,
+      "end": 292.2,
+      "text": "not a thousand dollar rack machines,"
+    },
+    {
+      "id": 101,
+      "start": 292.2,
+      "end": 294.84,
+      "text": "but like high M machines that aren't gonna crash that often."
+    },
+    {
+      "id": 102,
+      "start": 294.84,
+      "end": 297.12,
+      "text": "And so you get better performance,"
+    },
+    {
+      "id": 103,
+      "start": 297.12,
+      "end": 299.64,
+      "text": "but you're not fault-tolerant to,"
+    },
+    {
+      "id": 104,
+      "start": 299.64,
+      "end": 301.48,
+      "text": "if one of those nodes go down."
+    },
+    {
+      "id": 105,
+      "start": 301.48,
+      "end": 304.04,
+      "text": "So the A memory service allows them to give that fault-tolerance"
+    },
+    {
+      "id": 106,
+      "start": 304.04,
+      "end": 306.16,
+      "text": "by taking a checkpoint between the different stages"
+    },
+    {
+      "id": 107,
+      "start": 306.16,
+      "end": 308.68,
+      "text": "of the query plan, but because it's an in-memory service,"
+    },
+    {
+      "id": 108,
+      "start": 308.68,
+      "end": 312.44,
+      "text": "it's in memory, it's not really as slow as writing to disk."
+    },
+    {
+      "id": 109,
+      "start": 313.4,
+      "end": 317.08,
+      "text": "Now with NDE drives, maybe less of an issue"
+    },
+    {
+      "id": 110,
+      "start": 317.08,
+      "end": 318.96,
+      "text": "because disk got really, really fast,"
+    },
+    {
+      "id": 111,
+      "start": 318.96,
+      "end": 320.88,
+      "text": "but you know, 10 years ago,"
+    },
+    {
+      "id": 112,
+      "start": 320.88,
+      "end": 323.08,
+      "text": "that this obviously was a big concern."
+    },
+    {
+      "id": 113,
+      "start": 324.52,
+      "end": 326.92,
+      "text": "So you get fault times because at any time,"
+    },
+    {
+      "id": 114,
+      "start": 326.92,
+      "end": 330.8,
+      "text": "of a node crashes, you know, you just get the data"
+    },
+    {
+      "id": 115,
+      "start": 330.8,
+      "end": 333.52,
+      "text": "that you need from the memory shuffle"
+    },
+    {
+      "id": 116,
+      "start": 333.52,
+      "end": 336.2,
+      "text": "and run the task on another service because it's either potent,"
+    },
+    {
+      "id": 117,
+      "start": 336.2,
+      "end": 338.24,
+      "text": "you can run it again with that any side effects."
+    },
+    {
+      "id": 118,
+      "start": 339.2,
+      "end": 342.04,
+      "text": "If a, you know, task is running too slow"
+    },
+    {
+      "id": 119,
+      "start": 342.04,
+      "end": 344.36,
+      "text": "because the worker node is for whatever reason slow,"
+    },
+    {
+      "id": 120,
+      "start": 344.36,
+      "end": 346.48,
+      "text": "the big query guys told me that one big problem they faced"
+    },
+    {
+      "id": 121,
+      "start": 346.48,
+      "end": 349.56,
+      "text": "is sometimes they'll land on to run a query on a node"
+    },
+    {
+      "id": 122,
+      "start": 349.56,
+      "end": 354.36,
+      "text": "that where another container is like doing encoding for YouTube."
+    },
+    {
+      "id": 123,
+      "start": 354.36,
+      "end": 355.48,
+      "text": "And you can look at the traffic and actually know"
+    },
+    {
+      "id": 124,
+      "start": 355.48,
+      "end": 357.6,
+      "text": "it's YouTube and that's slow down the query."
+    },
+    {
+      "id": 125,
+      "start": 357.6,
+      "end": 359.0,
+      "text": "So if you have a straggler, then you can go ahead"
+    },
+    {
+      "id": 126,
+      "start": 359.0,
+      "end": 361.48,
+      "text": "and just kill it and assign the task to another worker"
+    },
+    {
+      "id": 127,
+      "start": 361.48,
+      "end": 362.4,
+      "text": "that can run faster."
+    },
+    {
+      "id": 128,
+      "start": 364.28,
+      "end": 366.48,
+      "text": "And then also too, as I so related to,"
+    },
+    {
+      "id": 129,
+      "start": 366.48,
+      "end": 368.48,
+      "text": "it's gonna allow, because we have this explicit stage,"
+    },
+    {
+      "id": 130,
+      "start": 368.48,
+      "end": 371.2,
+      "text": "like okay, we can take a step back,"
+    },
+    {
+      "id": 131,
+      "start": 371.2,
+      "end": 373.0,
+      "text": "look what that query has done so far,"
+    },
+    {
+      "id": 132,
+      "start": 373.0,
+      "end": 374.52,
+      "text": "look what the data looks like,"
+    },
+    {
+      "id": 133,
+      "start": 374.52,
+      "end": 376.52,
+      "text": "and then decide at the next stage,"
+    },
+    {
+      "id": 134,
+      "start": 376.52,
+      "end": 378.92,
+      "text": "we need to scale up or scale down the number of workers"
+    },
+    {
+      "id": 135,
+      "start": 378.92,
+      "end": 380.24,
+      "text": "we need to process the query."
+    },
+    {
+      "id": 136,
+      "start": 382.36,
+      "end": 383.68,
+      "text": "So look at both of these examples here."
+    },
+    {
+      "id": 137,
+      "start": 383.68,
+      "end": 385.2,
+      "text": "So the workers are running,"
+    },
+    {
+      "id": 138,
+      "start": 385.2,
+      "end": 387.84,
+      "text": "they're producing data that they're sending to the shuffle nodes"
+    },
+    {
+      "id": 139,
+      "start": 388.84,
+      "end": 391.16,
+      "text": "and say for whatever reason this node is just falling behind"
+    },
+    {
+      "id": 140,
+      "start": 391.16,
+      "end": 392.48,
+      "text": "and can't keep up."
+    },
+    {
+      "id": 141,
+      "start": 392.48,
+      "end": 396.2,
+      "text": "So if we can start to go ahead and kill it"
+    },
+    {
+      "id": 142,
+      "start": 396.2,
+      "end": 399.08,
+      "text": "and it's reassigned the task to this other worker here."
+    },
+    {
+      "id": 143,
+      "start": 399.08,
+      "end": 400.32,
+      "text": "Again, it's just getting the data"
+    },
+    {
+      "id": 144,
+      "start": 400.32,
+      "end": 403.68,
+      "text": "either from the distributed file system,"
+    },
+    {
+      "id": 145,
+      "start": 403.68,
+      "end": 406.12,
+      "text": "it'll be there or from the shuffle service,"
+    },
+    {
+      "id": 146,
+      "start": 406.12,
+      "end": 407.52,
+      "text": "which again will always be there."
+    },
+    {
+      "id": 147,
+      "start": 408.68,
+      "end": 412.76,
+      "text": "And then once I collect all my data in my in my in my storage,"
+    },
+    {
+      "id": 148,
+      "start": 412.76,
+      "end": 414.32,
+      "text": "sorry, in the shuffle storage,"
+    },
+    {
+      "id": 149,
+      "start": 414.32,
+      "end": 416.6,
+      "text": "I post that information to the core data,"
+    },
+    {
+      "id": 150,
+      "start": 416.6,
+      "end": 418.24,
+      "text": "you can look at the statistics of what the data"
+    },
+    {
+      "id": 151,
+      "start": 418.24,
+      "end": 421.28,
+      "text": "actually looks like, and then decide based on"
+    },
+    {
+      "id": 152,
+      "start": 421.28,
+      "end": 425.4,
+      "text": "what the SLI requirements are for the query."
+    },
+    {
+      "id": 153,
+      "start": 425.64,
+      "end": 428.16,
+      "text": "Do I have too many workers or not enough workers?"
+    },
+    {
+      "id": 154,
+      "start": 429.32,
+      "end": 432.72,
+      "text": "And then if I want to, I can regenerate, add more."
+    },
+    {
+      "id": 155,
+      "start": 432.72,
+      "end": 435.44,
+      "text": "And then I don't have to move any of those data around,"
+    },
+    {
+      "id": 156,
+      "start": 435.44,
+      "end": 437.08,
+      "text": "I just reassign what workers"
+    },
+    {
+      "id": 157,
+      "start": 437.08,
+      "end": 439.08,
+      "text": "gonna mean, what data from the shuffle service."
+    },
+    {
+      "id": 158,
+      "start": 441.56,
+      "end": 442.4,
+      "text": "Yes."
+    },
+    {
+      "id": 159,
+      "start": 442.4,
+      "end": 444.56,
+      "text": "I just want to clarify what you mean by checkpoints."
+    },
+    {
+      "id": 160,
+      "start": 444.56,
+      "end": 446.96,
+      "text": "So I think you said that the shuffle service"
+    },
+    {
+      "id": 161,
+      "start": 446.96,
+      "end": 449.0,
+      "text": "only is still to this, if it's not a..."
+    },
+    {
+      "id": 162,
+      "start": 449.0,
+      "end": 451.68,
+      "text": "So checkpoint meaning, very clear."
+    },
+    {
+      "id": 163,
+      "start": 451.68,
+      "end": 452.52,
+      "text": "Yes."
+    },
+    {
+      "id": 164,
+      "start": 452.52,
+      "end": 455.28,
+      "text": "So it's not a checkpoint in that we think about"
+    },
+    {
+      "id": 165,
+      "start": 455.28,
+      "end": 457.64,
+      "text": "in the intro Davis class where I'm taking all the contents"
+    },
+    {
+      "id": 166,
+      "start": 457.64,
+      "end": 459.6,
+      "text": "of memory, I'm writing at the disk."
+    },
+    {
+      "id": 167,
+      "start": 459.6,
+      "end": 461.4,
+      "text": "I think it's a, I don't want you to do it"
+    },
+    {
+      "id": 168,
+      "start": 461.4,
+      "end": 463.84,
+      "text": "at staging point because these are already current stages."
+    },
+    {
+      "id": 169,
+      "start": 463.84,
+      "end": 465.84,
+      "text": "But it's like a, it's a,"
+    },
+    {
+      "id": 170,
+      "start": 466.92,
+      "end": 468.24,
+      "text": "Paul's is also not the right word,"
+    },
+    {
+      "id": 171,
+      "start": 468.24,
+      "end": 470.2,
+      "text": "because it's not like you're stopping anything,"
+    },
+    {
+      "id": 172,
+      "start": 470.2,
+      "end": 472.72,
+      "text": "but it's not a word for a checkpoint."
+    },
+    {
+      "id": 173,
+      "start": 472.72,
+      "end": 474.32,
+      "text": "It's a kind of like,"
+    },
+    {
+      "id": 174,
+      "start": 474.32,
+      "end": 476.76,
+      "text": "say point is there's some very some explicit either."
+    },
+    {
+      "id": 175,
+      "start": 476.76,
+      "end": 477.6,
+      "text": "Sorry, say again."
+    },
+    {
+      "id": 176,
+      "start": 477.6,
+      "end": 479.12,
+      "text": "It's kind of like you're replicating"
+    },
+    {
+      "id": 177,
+      "start": 479.12,
+      "end": 481.24,
+      "text": "it's still been memory, but it's been..."
+    },
+    {
+      "id": 178,
+      "start": 481.24,
+      "end": 483.84,
+      "text": "It's more from a logistical standpoint"
+    },
+    {
+      "id": 179,
+      "start": 483.84,
+      "end": 488.52,
+      "text": "that like I can, before I start executing the next stage,"
+    },
+    {
+      "id": 180,
+      "start": 488.52,
+      "end": 492.36,
+      "text": "I can decide do I need to change my query plan"
+    },
+    {
+      "id": 181,
+      "start": 492.36,
+      "end": 495.72,
+      "text": "or change my topology of the query plan"
+    },
+    {
+      "id": 182,
+      "start": 495.72,
+      "end": 498.64,
+      "text": "or the number of workers I have in the subsequent stages,"
+    },
+    {
+      "id": 183,
+      "start": 498.64,
+      "end": 501.44,
+      "text": "because I've seen the data that got generated"
+    },
+    {
+      "id": 184,
+      "start": 501.44,
+      "end": 502.64,
+      "text": "from the previous stage."
+    },
+    {
+      "id": 185,
+      "start": 504.44,
+      "end": 506.88,
+      "text": "Yeah, so checkpoint, I don't mean that like,"
+    },
+    {
+      "id": 186,
+      "start": 506.88,
+      "end": 508.8,
+      "text": "everything in here always gets written in the disk"
+    },
+    {
+      "id": 187,
+      "start": 508.8,
+      "end": 510.44,
+      "text": "because they want to keep things in memory as possible."
+    },
+    {
+      "id": 188,
+      "start": 510.44,
+      "end": 513.56,
+      "text": "In the intermediate results, who cares about like,"
+    },
+    {
+      "id": 189,
+      "start": 513.56,
+      "end": 516.0,
+      "text": "I don't need the data beyond the query"
+    },
+    {
+      "id": 190,
+      "start": 516.0,
+      "end": 517.72,
+      "text": "I'm actually trying to run right now."
+    },
+    {
+      "id": 191,
+      "start": 517.72,
+      "end": 519.6,
+      "text": "There are some papers about how we use data structures"
+    },
+    {
+      "id": 192,
+      "start": 519.6,
+      "end": 522.12,
+      "text": "from QuintedNex, sort of like a mini materialized view."
+    },
+    {
+      "id": 193,
+      "start": 522.12,
+      "end": 523.52,
+      "text": "Like if I hash table for,"
+    },
+    {
+      "id": 194,
+      "start": 523.52,
+      "end": 524.88,
+      "text": "if I hash table for a join,"
+    },
+    {
+      "id": 195,
+      "start": 524.88,
+      "end": 527.48,
+      "text": "kind of keep that hash table around from one query to the next."
+    },
+    {
+      "id": 196,
+      "start": 527.48,
+      "end": 528.32,
+      "text": "They're not doing that."
+    },
+    {
+      "id": 197,
+      "start": 528.32,
+      "end": 529.84,
+      "text": "Literally it's just like,"
+    },
+    {
+      "id": 198,
+      "start": 529.84,
+      "end": 531.28,
+      "text": "I get all my data in this location,"
+    },
+    {
+      "id": 199,
+      "start": 531.28,
+      "end": 533.6,
+      "text": "I can then have a global view of what's going on"
+    },
+    {
+      "id": 200,
+      "start": 533.6,
+      "end": 535.64,
+      "text": "and decide where to go next."
+    },
+    {
+      "id": 201,
+      "start": 535.64,
+      "end": 537.44,
+      "text": "Or what to do next."
+    },
+    {
+      "id": 202,
+      "start": 537.44,
+      "end": 538.28,
+      "text": "Yes."
+    },
+    {
+      "id": 203,
+      "start": 538.28,
+      "end": 539.04,
+      "text": "What's different like,"
+    },
+    {
+      "id": 204,
+      "start": 539.04,
+      "end": 541.12,
+      "text": "Shuffle nodes going to your cloud?"
+    },
+    {
+      "id": 205,
+      "start": 541.12,
+      "end": 543.2,
+      "text": "This question is, are different Shuffle nodes stored where?"
+    },
+    {
+      "id": 206,
+      "start": 543.2,
+      "end": 544.04,
+      "text": "Sorry."
+    },
+    {
+      "id": 207,
+      "start": 544.04,
+      "end": 545.0,
+      "text": "So in different files,"
+    },
+    {
+      "id": 208,
+      "start": 545.0,
+      "end": 549.04,
+      "text": "I'll be using what's in here."
+    },
+    {
+      "id": 209,
+      "start": 549.04,
+      "end": 550.52,
+      "text": "I mean, this is just in memory."
+    },
+    {
+      "id": 210,
+      "start": 550.52,
+      "end": 551.68,
+      "text": "Think of it in memory hash table."
+    },
+    {
+      "id": 211,
+      "start": 551.68,
+      "end": 553.04,
+      "text": "So like, you have to wait."
+    },
+    {
+      "id": 212,
+      "start": 553.04,
+      "end": 553.88,
+      "text": "Yes."
+    },
+    {
+      "id": 213,
+      "start": 553.88,
+      "end": 554.88,
+      "text": "So in here,"
+    },
+    {
+      "id": 214,
+      "start": 554.88,
+      "end": 555.72,
+      "text": "Oh yeah, yeah, yeah."
+    },
+    {
+      "id": 215,
+      "start": 555.72,
+      "end": 556.72,
+      "text": "So it's questions like,"
+    },
+    {
+      "id": 216,
+      "start": 556.72,
+      "end": 557.56,
+      "text": "are these, yes."
+    },
+    {
+      "id": 217,
+      "start": 557.56,
+      "end": 558.6,
+      "text": "So think of this as like,"
+    },
+    {
+      "id": 218,
+      "start": 563.0,
+      "end": 565.12,
+      "text": "like I produce some work,"
+    },
+    {
+      "id": 219,
+      "start": 565.12,
+      "end": 567.68,
+      "text": "I test process some data,"
+    },
+    {
+      "id": 220,
+      "start": 567.68,
+      "end": 570.96,
+      "text": "and then I have a key on the data."
+    },
+    {
+      "id": 221,
+      "start": 570.96,
+      "end": 574.12,
+      "text": "I hash and I mod a by the number of,"
+    },
+    {
+      "id": 222,
+      "start": 574.12,
+      "end": 576.52,
+      "text": "of, yeah."
+    },
+    {
+      "id": 223,
+      "start": 576.52,
+      "end": 578.88,
+      "text": "It's just like,"
+    },
+    {
+      "id": 224,
+      "start": 578.88,
+      "end": 582.72,
+      "text": "think of like a consistent hash table."
+    },
+    {
+      "id": 225,
+      "start": 582.72,
+      "end": 583.56,
+      "text": "Yes."
+    },
+    {
+      "id": 226,
+      "start": 583.56,
+      "end": 586.72,
+      "text": "Does this also respond to the same work nodes?"
+    },
+    {
+      "id": 227,
+      "start": 586.72,
+      "end": 588.16,
+      "text": "It was completely separate."
+    },
+    {
+      "id": 228,
+      "start": 588.16,
+      "end": 589.44,
+      "text": "This is a police ever service."
+    },
+    {
+      "id": 229,
+      "start": 589.44,
+      "end": 590.84,
+      "text": "This is a colossus GFS."
+    },
+    {
+      "id": 230,
+      "start": 590.84,
+      "end": 592.72,
+      "text": "This is their S3."
+    },
+    {
+      "id": 231,
+      "start": 592.72,
+      "end": 595.24,
+      "text": "So I guess from the perspective of the work,"
+    },
+    {
+      "id": 232,
+      "start": 595.24,
+      "end": 598.0,
+      "text": "they don't care if it's a memory or not."
+    },
+    {
+      "id": 233,
+      "start": 598.0,
+      "end": 598.8,
+      "text": "I mean, you care about it's in memory,"
+    },
+    {
+      "id": 234,
+      "start": 598.8,
+      "end": 600.32,
+      "text": "because you want to be able to get handed to the person"
+    },
+    {
+      "id": 235,
+      "start": 600.32,
+      "end": 602.56,
+      "text": "as quickly as possible, whoever asks for it."
+    },
+    {
+      "id": 236,
+      "start": 602.56,
+      "end": 603.4,
+      "text": "That's the whole point of like,"
+    },
+    {
+      "id": 237,
+      "start": 603.4,
+      "end": 604.72,
+      "text": "these things, these are large memory."
+    }
+  ],
+  "language": "en"
+}

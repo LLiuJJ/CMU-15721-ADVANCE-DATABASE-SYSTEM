@@ -1,0 +1,1403 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.0,
+      "text": "That's not a big mess, right?"
+    },
+    {
+      "id": 1,
+      "start": 2.0,
+      "end": 3.2,
+      "text": "It's just like a instruction."
+    },
+    {
+      "id": 2,
+      "start": 3.2,
+      "end": 3.7,
+      "text": "Yes?"
+    },
+    {
+      "id": 3,
+      "start": 3.7,
+      "end": 5.44,
+      "text": "No, no, all options."
+    },
+    {
+      "id": 4,
+      "start": 5.44,
+      "end": 6.44,
+      "text": "Yes, question."
+    },
+    {
+      "id": 5,
+      "start": 6.44,
+      "end": 8.4,
+      "text": "It's just a register."
+    },
+    {
+      "id": 6,
+      "start": 8.4,
+      "end": 9.4,
+      "text": "Yeah."
+    },
+    {
+      "id": 7,
+      "start": 9.4,
+      "end": 11.08,
+      "text": "And there might be any semi-instructions"
+    },
+    {
+      "id": 8,
+      "start": 11.08,
+      "end": 13.2,
+      "text": "that can convert this automatically now,"
+    },
+    {
+      "id": 9,
+      "start": 13.2,
+      "end": 14.56,
+      "text": "but I'm just visually showing it."
+    },
+    {
+      "id": 10,
+      "start": 19.92,
+      "end": 21.92,
+      "text": "Right?"
+    },
+    {
+      "id": 11,
+      "start": 21.92,
+      "end": 25.64,
+      "text": "So again, how jacked you into this in a real system?"
+    },
+    {
+      "id": 12,
+      "start": 25.64,
+      "end": 28.68,
+      "text": "Well, again, if you take the vectorized approach, which"
+    },
+    {
+      "id": 13,
+      "start": 28.68,
+      "end": 30.52,
+      "text": "I'll give you a cover more in the next class,"
+    },
+    {
+      "id": 14,
+      "start": 30.52,
+      "end": 35.36,
+      "text": "you would have an explicit function that says,"
+    },
+    {
+      "id": 15,
+      "start": 35.36,
+      "end": 40.44,
+      "text": "you know, string, input column of eight elements,"
+    },
+    {
+      "id": 16,
+      "start": 40.44,
+      "end": 44.0,
+      "text": "or some number elements, of a certain type,"
+    },
+    {
+      "id": 17,
+      "start": 44.0,
+      "end": 46.04,
+      "text": "run the greater than or equal to comparison operator"
+    },
+    {
+      "id": 18,
+      "start": 46.04,
+      "end": 47.16,
+      "text": "for a given constant."
+    },
+    {
+      "id": 19,
+      "start": 47.16,
+      "end": 51.68,
+      "text": "So you invoke that function with the pointer to the column"
+    },
+    {
+      "id": 20,
+      "start": 51.68,
+      "end": 54.96,
+      "text": "and the constant value, and then it just loops through that"
+    },
+    {
+      "id": 21,
+      "start": 54.96,
+      "end": 57.48,
+      "text": "and does the comparison one by one."
+    },
+    {
+      "id": 22,
+      "start": 57.48,
+      "end": 60.24,
+      "text": "So then the compiler can then alter vectorize that"
+    },
+    {
+      "id": 23,
+      "start": 60.24,
+      "end": 62.76,
+      "text": "to do the semi-instruction to put the data"
+    },
+    {
+      "id": 24,
+      "start": 62.76,
+      "end": 64.6,
+      "text": "that you're trying to compare against into a semi-register,"
+    },
+    {
+      "id": 25,
+      "start": 64.6,
+      "end": 68.8,
+      "text": "run the semi-comparent, and take the output."
+    },
+    {
+      "id": 26,
+      "start": 68.8,
+      "end": 69.64,
+      "text": "Yes?"
+    },
+    {
+      "id": 27,
+      "start": 69.64,
+      "end": 72.32,
+      "text": "Do I change the vector store to take a bit mask"
+    },
+    {
+      "id": 28,
+      "start": 72.32,
+      "end": 74.24,
+      "text": "and simply store it in the memory?"
+    },
+    {
+      "id": 29,
+      "start": 74.24,
+      "end": 76.68,
+      "text": "Why do you have to decompress?"
+    },
+    {
+      "id": 30,
+      "start": 76.68,
+      "end": 78.2,
+      "text": "I'm not going to say."
+    },
+    {
+      "id": 31,
+      "start": 78.2,
+      "end": 79.72,
+      "text": "This question doesn't the select of a store,"
+    },
+    {
+      "id": 32,
+      "start": 79.72,
+      "end": 82.88,
+      "text": "take a bit max, and store it in the memory where you want it."
+    },
+    {
+      "id": 33,
+      "start": 83.8,
+      "end": 89.0,
+      "text": "I'm just showing you how to take this, correct this"
+    },
+    {
+      "id": 34,
+      "start": 89.0,
+      "end": 90.16,
+      "text": "into a position list."
+    },
+    {
+      "id": 35,
+      "start": 90.16,
+      "end": 91.0,
+      "text": "You can."
+    },
+    {
+      "id": 36,
+      "start": 96.56,
+      "end": 98.28,
+      "text": "Actually, he brought up a question earlier."
+    },
+    {
+      "id": 37,
+      "start": 100.88,
+      "end": 102.12,
+      "text": "Excuse me."
+    },
+    {
+      "id": 38,
+      "start": 102.12,
+      "end": 105.52,
+      "text": "I'm like, how can I generate all the primitives"
+    },
+    {
+      "id": 39,
+      "start": 105.52,
+      "end": 107.84,
+      "text": "for all possible variations of where clauses?"
+    },
+    {
+      "id": 40,
+      "start": 108.84,
+      "end": 110.16,
+      "text": "And this is good as I have aware,"
+    },
+    {
+      "id": 41,
+      "start": 110.16,
+      "end": 111.68,
+      "text": "maybe auto vectorization isn't gonna be"
+    },
+    {
+      "id": 42,
+      "start": 111.68,
+      "end": 118.28,
+      "text": "exactly what we want because, again, this thing,"
+    },
+    {
+      "id": 43,
+      "start": 118.28,
+      "end": 120.88,
+      "text": "the primitive that's going to deduce the evaluation,"
+    },
+    {
+      "id": 44,
+      "start": 120.88,
+      "end": 123.0,
+      "text": "if it produces this match offset,"
+    },
+    {
+      "id": 45,
+      "start": 123.0,
+      "end": 128.92,
+      "text": "what I really want is the bit mask so that I can then take the two"
+    },
+    {
+      "id": 46,
+      "start": 128.92,
+      "end": 131.04,
+      "text": "outputs and run this simbm myself."
+    },
+    {
+      "id": 47,
+      "start": 131.04,
+      "end": 135.4,
+      "text": "So there are going to be variations of the primitives"
+    },
+    {
+      "id": 48,
+      "start": 135.4,
+      "end": 138.8,
+      "text": "where sometimes you want to just produce this match offset list"
+    },
+    {
+      "id": 49,
+      "start": 138.84,
+      "end": 140.2,
+      "text": "immediately."
+    },
+    {
+      "id": 50,
+      "start": 140.2,
+      "end": 142.44,
+      "text": "And other times, you actually want a bit mask out"
+    },
+    {
+      "id": 51,
+      "start": 142.44,
+      "end": 144.16,
+      "text": "because then feed that into some of the operations that"
+    },
+    {
+      "id": 52,
+      "start": 144.16,
+      "end": 147.16,
+      "text": "take two bit masks and can run them together."
+    },
+    {
+      "id": 53,
+      "start": 148.32,
+      "end": 151.88,
+      "text": "So how to auto vectorize all of this is actually not trivial."
+    },
+    {
+      "id": 54,
+      "start": 152.84,
+      "end": 155.0,
+      "text": "Again, it has to take a few minutes to come and figure out"
+    },
+    {
+      "id": 55,
+      "start": 155.0,
+      "end": 157.32,
+      "text": "how to compose these operations together based on"
+    },
+    {
+      "id": 56,
+      "start": 157.32,
+      "end": 160.64,
+      "text": "what you know the additional things you need to do in the query."
+    },
+    {
+      "id": 57,
+      "start": 160.64,
+      "end": 162.68,
+      "text": "Again, we'll cover more of that next class."
+    },
+    {
+      "id": 58,
+      "start": 163.48,
+      "end": 166.84,
+      "text": "So we can now go back to that paper we said before"
+    },
+    {
+      "id": 59,
+      "start": 166.84,
+      "end": 168.64,
+      "text": "from the Germans plus me."
+    },
+    {
+      "id": 60,
+      "start": 168.64,
+      "end": 172.84,
+      "text": "LMP to bond, he's Dutch, but the vectorized guy."
+    },
+    {
+      "id": 61,
+      "start": 172.84,
+      "end": 176.64,
+      "text": "But now we can actually run his version of the vector wise"
+    },
+    {
+      "id": 62,
+      "start": 176.64,
+      "end": 178.68,
+      "text": "and he's going to use AVX512 for everything"
+    },
+    {
+      "id": 63,
+      "start": 178.68,
+      "end": 182.0,
+      "text": "because it's easier to again use the bit mask registers"
+    },
+    {
+      "id": 64,
+      "start": 182.0,
+      "end": 184.0,
+      "text": "to do vertical vectorization."
+    },
+    {
+      "id": 65,
+      "start": 184.0,
+      "end": 188.28,
+      "text": "So I'm going to show results for both the, for,"
+    },
+    {
+      "id": 66,
+      "start": 188.28,
+      "end": 190.16,
+      "text": "for, for, for, for, for, for, for,"
+    },
+    {
+      "id": 67,
+      "start": 190.16,
+      "end": 193.68,
+      "text": "for, for, for, for, for three different operations"
+    },
+    {
+      "id": 68,
+      "start": 193.68,
+      "end": 197.24,
+      "text": "within a scan, so the hashing to, to hash something put"
+    },
+    {
+      "id": 69,
+      "start": 197.24,
+      "end": 199.64,
+      "text": "into a hash table without putting in the hash table,"
+    },
+    {
+      "id": 70,
+      "start": 199.64,
+      "end": 202.52,
+      "text": "a gather operation and then, and then join probing it."
+    },
+    {
+      "id": 71,
+      "start": 202.52,
+      "end": 205.32,
+      "text": "And then we can see, you know, how much the,"
+    },
+    {
+      "id": 72,
+      "start": 205.32,
+      "end": 208.36,
+      "text": "the SIMD stuff helps for over a scalar instructions."
+    },
+    {
+      "id": 73,
+      "start": 208.36,
+      "end": 210.24,
+      "text": "So that again, to strip out the rest of the system to say,"
+    },
+    {
+      "id": 74,
+      "start": 210.24,
+      "end": 213.28,
+      "text": "for actually the core algorithm of doing the scan operations"
+    },
+    {
+      "id": 75,
+      "start": 213.28,
+      "end": 215.72,
+      "text": "and other things in the query plan, how much the SIMD help."
+    },
+    {
+      "id": 76,
+      "start": 217.08,
+      "end": 220.12,
+      "text": "And so what you see is that across hashing gather and join,"
+    },
+    {
+      "id": 77,
+      "start": 220.28,
+      "end": 223.24,
+      "text": "if you vectorize it, you get a bigger win for hashing"
+    },
+    {
+      "id": 78,
+      "start": 223.24,
+      "end": 225.96,
+      "text": "and a bigger win than join over the scalar value, right?"
+    },
+    {
+      "id": 79,
+      "start": 225.96,
+      "end": 228.68,
+      "text": "So up to 2.3X improvement performance."
+    },
+    {
+      "id": 80,
+      "start": 229.64,
+      "end": 231.28,
+      "text": "But that again, that's just doing the,"
+    },
+    {
+      "id": 81,
+      "start": 231.28,
+      "end": 233.68,
+      "text": "the bare minimum you need within that scan operation,"
+    },
+    {
+      "id": 82,
+      "start": 233.68,
+      "end": 235.96,
+      "text": "right, just doing the hashing or doing the,"
+    },
+    {
+      "id": 83,
+      "start": 235.96,
+      "end": 238.44,
+      "text": "the, the join probs, all right."
+    },
+    {
+      "id": 84,
+      "start": 238.44,
+      "end": 240.04,
+      "text": "When you bring it to the rest of the system,"
+    },
+    {
+      "id": 85,
+      "start": 240.04,
+      "end": 242.32,
+      "text": "now start worrying about getting data in and out"
+    },
+    {
+      "id": 86,
+      "start": 242.32,
+      "end": 243.84,
+      "text": "of the registers, materializing results,"
+    },
+    {
+      "id": 87,
+      "start": 243.84,
+      "end": 246.08,
+      "text": "going from one operative to the next,"
+    },
+    {
+      "id": 88,
+      "start": 246.08,
+      "end": 247.28,
+      "text": "then you see the performance difference"
+    },
+    {
+      "id": 89,
+      "start": 247.28,
+      "end": 249.44,
+      "text": "is not that significant anymore, right?"
+    },
+    {
+      "id": 90,
+      "start": 249.44,
+      "end": 252.4,
+      "text": "So you put in a full query the difference"
+    },
+    {
+      "id": 91,
+      "start": 252.4,
+      "end": 253.92,
+      "text": "between the scalar operations is,"
+    },
+    {
+      "id": 92,
+      "start": 253.92,
+      "end": 256.4,
+      "text": "and the vectorized one is actually not that much."
+    },
+    {
+      "id": 93,
+      "start": 257.6,
+      "end": 259.92,
+      "text": "And this is the best case scenario of like,"
+    },
+    {
+      "id": 94,
+      "start": 259.92,
+      "end": 263.96,
+      "text": "tan written code, it's, everything's in memory."
+    },
+    {
+      "id": 95,
+      "start": 263.96,
+      "end": 265.92,
+      "text": "I forget whether it's what scale factor one,"
+    },
+    {
+      "id": 96,
+      "start": 265.92,
+      "end": 269.32,
+      "text": "yeah, it's gonna fit in CPU cache is not that big."
+    },
+    {
+      "id": 97,
+      "start": 269.32,
+      "end": 270.8,
+      "text": "Our most is gonna fit CPU cache."
+    },
+    {
+      "id": 98,
+      "start": 271.68,
+      "end": 273.8,
+      "text": "So what gets, right?"
+    },
+    {
+      "id": 99,
+      "start": 274.96,
+      "end": 278.2,
+      "text": "But again, the, the, what's going on is that,"
+    },
+    {
+      "id": 100,
+      "start": 278.2,
+      "end": 281.12,
+      "text": "it's not just a matter of like, okay, we, you know,"
+    },
+    {
+      "id": 101,
+      "start": 281.12,
+      "end": 283.24,
+      "text": "it's Omdes Law, what portion of the query is actually"
+    },
+    {
+      "id": 102,
+      "start": 283.24,
+      "end": 285.48,
+      "text": "gonna be the part that could be vectorizing"
+    },
+    {
+      "id": 103,
+      "start": 285.48,
+      "end": 286.84,
+      "text": "and get the biggest win?"
+    },
+    {
+      "id": 104,
+      "start": 286.84,
+      "end": 290.44,
+      "text": "It's not all of it, it's not a size well chunk."
+    },
+    {
+      "id": 105,
+      "start": 290.44,
+      "end": 292.08,
+      "text": "So you're only gonna get maybe, you know,"
+    },
+    {
+      "id": 106,
+      "start": 292.08,
+      "end": 296.36,
+      "text": "but 10%, 10% bump for, for vectorizing this thing,"
+    },
+    {
+      "id": 107,
+      "start": 296.36,
+      "end": 298.12,
+      "text": "that one small piece of the code."
+    },
+    {
+      "id": 108,
+      "start": 299.12,
+      "end": 300.84,
+      "text": "So all the materialization overhead that's,"
+    },
+    {
+      "id": 109,
+      "start": 300.84,
+      "end": 303.28,
+      "text": "that's gonna slow us down, and that you can't vectorize."
+    },
+    {
+      "id": 110,
+      "start": 305.16,
+      "end": 307.0,
+      "text": "So this is somewhat deflating, like again,"
+    },
+    {
+      "id": 111,
+      "start": 307.0,
+      "end": 308.96,
+      "text": "if I just said, you know, spending entire lecture"
+    },
+    {
+      "id": 112,
+      "start": 308.96,
+      "end": 311.88,
+      "text": "about how great vectorization is and how great, you know,"
+    },
+    {
+      "id": 113,
+      "start": 311.88,
+      "end": 314.32,
+      "text": "and how much can help, but you know,"
+    },
+    {
+      "id": 114,
+      "start": 314.32,
+      "end": 315.4,
+      "text": "it doesn't actually make a big difference"
+    },
+    {
+      "id": 115,
+      "start": 315.4,
+      "end": 317.84,
+      "text": "when you run a full query, that's true for a lot of things"
+    },
+    {
+      "id": 116,
+      "start": 317.84,
+      "end": 318.88,
+      "text": "in databases."
+    },
+    {
+      "id": 117,
+      "start": 320.96,
+      "end": 324.36,
+      "text": "But these things are cumulative, you obviously don't want to,"
+    },
+    {
+      "id": 118,
+      "start": 324.36,
+      "end": 325.72,
+      "text": "you can build the greatest query optimizer,"
+    },
+    {
+      "id": 119,
+      "start": 325.72,
+      "end": 328.12,
+      "text": "but if your query engine sucks, it's gonna run slow."
+    },
+    {
+      "id": 120,
+      "start": 328.12,
+      "end": 329.56,
+      "text": "But if you have an amazingly fast query engine,"
+    },
+    {
+      "id": 121,
+      "start": 329.56,
+      "end": 332.2,
+      "text": "but you have a back query plan, it's gonna run slow."
+    },
+    {
+      "id": 122,
+      "start": 332.2,
+      "end": 335.48,
+      "text": "So it's, you know, all the lectures put together"
+    },
+    {
+      "id": 123,
+      "start": 335.48,
+      "end": 336.44,
+      "text": "is what you need to put, you know,"
+    },
+    {
+      "id": 124,
+      "start": 336.44,
+      "end": 338.32,
+      "text": "get things to run faster, you know,"
+    },
+    {
+      "id": 125,
+      "start": 338.32,
+      "end": 340.36,
+      "text": "get that order magnitude before it's difference."
+    },
+    {
+      "id": 126,
+      "start": 343.28,
+      "end": 346.28,
+      "text": "Okay, so one of the problems that,"
+    },
+    {
+      "id": 127,
+      "start": 346.28,
+      "end": 348.84,
+      "text": "in the paper you guys read, was that they,"
+    },
+    {
+      "id": 128,
+      "start": 348.84,
+      "end": 350.48,
+      "text": "they spent, I think two chapters on,"
+    },
+    {
+      "id": 129,
+      "start": 350.48,
+      "end": 354.04,
+      "text": "or two sections on, was the problem of honor utilization,"
+    },
+    {
+      "id": 130,
+      "start": 354.04,
+      "end": 358.08,
+      "text": "where you have some lanes being containing tuples"
+    },
+    {
+      "id": 131,
+      "start": 358.08,
+      "end": 361.4,
+      "text": "that have been invalidated, or should be discarded,"
+    },
+    {
+      "id": 132,
+      "start": 361.4,
+      "end": 364.52,
+      "text": "but because we don't wanna always move things"
+    },
+    {
+      "id": 133,
+      "start": 364.52,
+      "end": 366.32,
+      "text": "in the amount of registers, you may have to,"
+    },
+    {
+      "id": 134,
+      "start": 366.32,
+      "end": 368.92,
+      "text": "can you processing dead tuples, so to speak,"
+    },
+    {
+      "id": 135,
+      "start": 370.32,
+      "end": 374.84,
+      "text": "and essentially wasting resources, right?"
+    },
+    {
+      "id": 136,
+      "start": 375.6,
+      "end": 377.68,
+      "text": "So situation would sort of be like this."
+    },
+    {
+      "id": 137,
+      "start": 377.68,
+      "end": 379.84,
+      "text": "So if I say I have a query, select count start from table,"
+    },
+    {
+      "id": 138,
+      "start": 379.84,
+      "end": 381.32,
+      "text": "where age is greater than 20."
+    },
+    {
+      "id": 139,
+      "start": 381.32,
+      "end": 385.56,
+      "text": "And so in my sort of pseudo code of this,"
+    },
+    {
+      "id": 140,
+      "start": 385.56,
+      "end": 387.84,
+      "text": "again, I realize this is a branching version,"
+    },
+    {
+      "id": 141,
+      "start": 387.84,
+      "end": 390.32,
+      "text": "sort of as a branchless, but for now it's fine, right?"
+    },
+    {
+      "id": 142,
+      "start": 390.32,
+      "end": 391.6,
+      "text": "As I'm scanning along the table,"
+    },
+    {
+      "id": 143,
+      "start": 391.6,
+      "end": 392.76,
+      "text": "I may have a bunch of tuples here"
+    },
+    {
+      "id": 144,
+      "start": 392.76,
+      "end": 394.84,
+      "text": "that would get invalidated,"
+    },
+    {
+      "id": 145,
+      "start": 394.84,
+      "end": 397.32,
+      "text": "and I don't wanna include them in my aggregation."
+    },
+    {
+      "id": 146,
+      "start": 397.32,
+      "end": 402.32,
+      "text": "So if it's, if it's, if it's scalar code, no big deal, right?"
+    },
+    {
+      "id": 147,
+      "start": 402.32,
+      "end": 406.68,
+      "text": "Cause I just loop back around and go get the next batch."
+    },
+    {
+      "id": 148,
+      "start": 406.68,
+      "end": 408.56,
+      "text": "But it's vectorized code, I may have, you know,"
+    },
+    {
+      "id": 149,
+      "start": 408.56,
+      "end": 411.56,
+      "text": "eight, four to eight, 12 tuples in my vector,"
+    },
+    {
+      "id": 150,
+      "start": 411.56,
+      "end": 413.68,
+      "text": "and some of them might not satisfy this predicate,"
+    },
+    {
+      "id": 151,
+      "start": 413.68,
+      "end": 415.88,
+      "text": "but now they're gonna be strung along in my,"
+    },
+    {
+      "id": 152,
+      "start": 418.12,
+      "end": 422.04,
+      "text": "in my, sorry, in my, in my, my vectors."
+    },
+    {
+      "id": 153,
+      "start": 422.04,
+      "end": 424.52,
+      "text": "So you sort of think of like this piece right here"
+    },
+    {
+      "id": 154,
+      "start": 424.52,
+      "end": 426.12,
+      "text": "is the sort of the first pipeline,"
+    },
+    {
+      "id": 155,
+      "start": 426.12,
+      "end": 428.88,
+      "text": "and then the second pipeline is this piece here."
+    },
+    {
+      "id": 156,
+      "start": 428.88,
+      "end": 432.6,
+      "text": "So we're gonna avoid having to pass along dead tuples in this,"
+    },
+    {
+      "id": 157,
+      "start": 432.6,
+      "end": 433.8,
+      "text": "right?"
+    },
+    {
+      "id": 158,
+      "start": 433.8,
+      "end": 436.28,
+      "text": "And so the, the idea that I'm about to show you"
+    },
+    {
+      "id": 159,
+      "start": 436.28,
+      "end": 440.16,
+      "text": "is basically, instead of having the materialization,"
+    },
+    {
+      "id": 160,
+      "start": 440.16,
+      "end": 442.16,
+      "text": "you know, point B at the, at the,"
+    },
+    {
+      "id": 161,
+      "start": 443.72,
+      "end": 445.12,
+      "text": "you know, the pipeline breaker,"
+    },
+    {
+      "id": 162,
+      "start": 445.12,
+      "end": 448.16,
+      "text": "we actually could introduce artificial pipeline breakers,"
+    },
+    {
+      "id": 163,
+      "start": 448.16,
+      "end": 449.92,
+      "text": "or synthetic pipeline breakers,"
+    },
+    {
+      "id": 164,
+      "start": 449.92,
+      "end": 452.08,
+      "text": "that we could materialize from results,"
+    },
+    {
+      "id": 165,
+      "start": 452.08,
+      "end": 454.24,
+      "text": "go back in our loop, get more data,"
+    },
+    {
+      "id": 166,
+      "start": 454.24,
+      "end": 457.52,
+      "text": "and keep filling up this, this mini buffer, if you will."
+    },
+    {
+      "id": 167,
+      "start": 457.52,
+      "end": 460.16,
+      "text": "And then once that's, uh, filled up,"
+    },
+    {
+      "id": 168,
+      "start": 460.16,
+      "end": 461.88,
+      "text": "we know all the tuples there aren't dead,"
+    },
+    {
+      "id": 169,
+      "start": 461.88,
+      "end": 463.08,
+      "text": "or they're all useful,"
+    },
+    {
+      "id": 170,
+      "start": 463.08,
+      "end": 464.8,
+      "text": "they haven't been perceived up to the rest of the,"
+    },
+    {
+      "id": 171,
+      "start": 464.8,
+      "end": 466.6,
+      "text": "the computation in the, in the pipeline."
+    },
+    {
+      "id": 172,
+      "start": 468.56,
+      "end": 471.16,
+      "text": "So this is a paper, uh, I think it's citation 16,"
+    },
+    {
+      "id": 173,
+      "start": 471.16,
+      "end": 472.32,
+      "text": "in the paper, you guys read."
+    },
+    {
+      "id": 174,
+      "start": 472.32,
+      "end": 474.28,
+      "text": "It's a paper that I, we worked on here with my PC student,"
+    },
+    {
+      "id": 175,
+      "start": 474.28,
+      "end": 476.96,
+      "text": "Prashant, um, is now building, you know,"
+    },
+    {
+      "id": 176,
+      "start": 477.0,
+      "end": 480.04,
+      "text": "working on the photon vectorized engine at, at vector wise."
+    },
+    {
+      "id": 177,
+      "start": 481.04,
+      "end": 483.44,
+      "text": "So this is the idea that we're gonna decompose pipelines"
+    },
+    {
+      "id": 178,
+      "start": 483.44,
+      "end": 487.04,
+      "text": "into sub stages that can operate on vectors of tuples,"
+    },
+    {
+      "id": 179,
+      "start": 487.04,
+      "end": 489.08,
+      "text": "just as, you know, just with vectorized processing,"
+    },
+    {
+      "id": 180,
+      "start": 489.08,
+      "end": 490.88,
+      "text": "using SIMD when possible."
+    },
+    {
+      "id": 181,
+      "start": 490.88,
+      "end": 493.32,
+      "text": "But then the idea is that we can,"
+    },
+    {
+      "id": 182,
+      "start": 494.4,
+      "end": 497.28,
+      "text": "you know, start storing things in buffers,"
+    },
+    {
+      "id": 183,
+      "start": 497.28,
+      "end": 499.12,
+      "text": "fill up a SIME register,"
+    },
+    {
+      "id": 184,
+      "start": 499.12,
+      "end": 501.52,
+      "text": "and then move on to the next stage, this, again,"
+    },
+    {
+      "id": 185,
+      "start": 501.52,
+      "end": 503.76,
+      "text": "so we don't have wasted, waste of computation,"
+    },
+    {
+      "id": 186,
+      "start": 503.76,
+      "end": 505.08,
+      "text": "waste of resources."
+    },
+    {
+      "id": 187,
+      "start": 506.08,
+      "end": 508.6,
+      "text": "So the idea, uh, so it's called the Lact-operative Fusion,"
+    },
+    {
+      "id": 188,
+      "start": 508.6,
+      "end": 511.16,
+      "text": "because the idea is like you're taking the fuse,"
+    },
+    {
+      "id": 189,
+      "start": 511.16,
+      "end": 513.52,
+      "text": "the operator fusion approach from the hyper guys,"
+    },
+    {
+      "id": 190,
+      "start": 513.52,
+      "end": 515.2,
+      "text": "and actually relaxing a little bit"
+    },
+    {
+      "id": 191,
+      "start": 515.2,
+      "end": 517.16,
+      "text": "and introducing these, these breakpoints."
+    },
+    {
+      "id": 192,
+      "start": 518.16,
+      "end": 519.4,
+      "text": "So they think, first thing is that you,"
+    },
+    {
+      "id": 193,
+      "start": 519.4,
+      "end": 521.24,
+      "text": "you figure out these are the vectorization candidates."
+    },
+    {
+      "id": 194,
+      "start": 521.24,
+      "end": 523.64,
+      "text": "Clearly I want to filter, I want to vectorize"
+    },
+    {
+      "id": 195,
+      "start": 523.64,
+      "end": 525.96,
+      "text": "the filter operation, and that,"
+    },
+    {
+      "id": 196,
+      "start": 525.96,
+      "end": 528.4,
+      "text": "but before I maybe do the aggregation step,"
+    },
+    {
+      "id": 197,
+      "start": 528.4,
+      "end": 530.48,
+      "text": "I want to materialize some results,"
+    },
+    {
+      "id": 198,
+      "start": 530.48,
+      "end": 531.64,
+      "text": "make sure that all gets filled up,"
+    },
+    {
+      "id": 199,
+      "start": 531.64,
+      "end": 534.24,
+      "text": "and then I can do the aggregation computation,"
+    },
+    {
+      "id": 200,
+      "start": 534.56,
+      "end": 536.16,
+      "text": "using SIMD and vectorize that,"
+    },
+    {
+      "id": 201,
+      "start": 536.16,
+      "end": 537.68,
+      "text": "without worrying about throwing out,"
+    },
+    {
+      "id": 202,
+      "start": 537.68,
+      "end": 539.8,
+      "text": "wait, throwing away on needed results."
+    },
+    {
+      "id": 203,
+      "start": 541.84,
+      "end": 542.84,
+      "text": "Right?"
+    },
+    {
+      "id": 204,
+      "start": 542.84,
+      "end": 544.08,
+      "text": "So the code basically looks like this."
+    },
+    {
+      "id": 205,
+      "start": 544.08,
+      "end": 546.84,
+      "text": "So I'm scanning through the, as a vector tuple,"
+    },
+    {
+      "id": 206,
+      "start": 546.84,
+      "end": 551.4,
+      "text": "I do my comparison, if my buffer is full,"
+    },
+    {
+      "id": 207,
+      "start": 551.4,
+      "end": 554.68,
+      "text": "then I can go, uh, go fill, you know,"
+    },
+    {
+      "id": 208,
+      "start": 554.68,
+      "end": 555.64,
+      "text": "if this thing gets full,"
+    },
+    {
+      "id": 209,
+      "start": 555.64,
+      "end": 556.76,
+      "text": "then I can go to the next stage"
+    },
+    {
+      "id": 210,
+      "start": 556.76,
+      "end": 558.64,
+      "text": "within my pipeline and do the aggregation."
+    },
+    {
+      "id": 211,
+      "start": 558.64,
+      "end": 560.84,
+      "text": "Otherwise I loop back around and, you know,"
+    },
+    {
+      "id": 212,
+      "start": 560.84,
+      "end": 562.56,
+      "text": "get the next batch."
+    },
+    {
+      "id": 213,
+      "start": 562.6,
+      "end": 564.28,
+      "text": "So this buffer is sort of incrementally getting,"
+    },
+    {
+      "id": 214,
+      "start": 564.28,
+      "end": 565.24,
+      "text": "getting full of values,"
+    },
+    {
+      "id": 215,
+      "start": 565.24,
+      "end": 566.8,
+      "text": "so then I can then fire this off,"
+    },
+    {
+      "id": 216,
+      "start": 567.72,
+      "end": 569.32,
+      "text": "again, in a vectorized manner."
+    },
+    {
+      "id": 217,
+      "start": 570.4,
+      "end": 572.72,
+      "text": "So yeah, this is the first part here,"
+    },
+    {
+      "id": 218,
+      "start": 572.72,
+      "end": 575.04,
+      "text": "and then this is the second part here, right?"
+    },
+    {
+      "id": 219,
+      "start": 576.24,
+      "end": 578.76,
+      "text": "And then obviously they made it the end."
+    },
+    {
+      "id": 220,
+      "start": 578.76,
+      "end": 580.52,
+      "text": "So one of the tricks that we figured out with this though"
+    },
+    {
+      "id": 221,
+      "start": 580.52,
+      "end": 582.36,
+      "text": "is that because you have this like staging point"
+    },
+    {
+      "id": 222,
+      "start": 582.36,
+      "end": 583.64,
+      "text": "and it's really tight loop,"
+    },
+    {
+      "id": 223,
+      "start": 583.64,
+      "end": 586.12,
+      "text": "you actually can start doing software prefetching."
+    },
+    {
+      "id": 224,
+      "start": 587.04,
+      "end": 588.0,
+      "text": "So there's hardware prefetching"
+    },
+    {
+      "id": 225,
+      "start": 588.0,
+      "end": 589.36,
+      "text": "where the CPU is going to try to figure out"
+    },
+    {
+      "id": 226,
+      "start": 589.36,
+      "end": 591.56,
+      "text": "what, what piece is the memory you're going to need next,"
+    },
+    {
+      "id": 227,
+      "start": 591.56,
+      "end": 593.32,
+      "text": "and start bringing that into your CPU cache."
+    },
+    {
+      "id": 228,
+      "start": 593.32,
+      "end": 595.76,
+      "text": "Like if you're scanning along some long stride of memory,"
+    },
+    {
+      "id": 229,
+      "start": 595.76,
+      "end": 598.12,
+      "text": "it starts bringing in cache lines ahead of it,"
+    },
+    {
+      "id": 230,
+      "start": 598.12,
+      "end": 599.92,
+      "text": "ahead of what you actually need."
+    },
+    {
+      "id": 231,
+      "start": 599.92,
+      "end": 602.16,
+      "text": "But in x86, you actually can pass,"
+    },
+    {
+      "id": 232,
+      "start": 602.16,
+      "end": 603.16,
+      "text": "here,"
+    }
+  ],
+  "language": "en"
+}

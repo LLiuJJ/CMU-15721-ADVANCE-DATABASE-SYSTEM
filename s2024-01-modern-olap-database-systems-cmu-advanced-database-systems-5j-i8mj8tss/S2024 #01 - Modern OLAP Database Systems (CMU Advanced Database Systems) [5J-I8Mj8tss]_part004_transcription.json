@@ -1,0 +1,1541 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.96,
+      "text": "our worker nodes when we execute query is going to be a pipeline."
+    },
+    {
+      "id": 1,
+      "start": 2.96,
+      "end": 5.0,
+      "text": "And then we have to obviously stop at a pipeline breaker"
+    },
+    {
+      "id": 2,
+      "start": 5.0,
+      "end": 8.88,
+      "text": "and then potentially distribute data around as needed."
+    },
+    {
+      "id": 3,
+      "start": 8.88,
+      "end": 10.56,
+      "text": "So the way we would distribute data around"
+    },
+    {
+      "id": 4,
+      "start": 10.56,
+      "end": 14.04,
+      "text": "is one way to do is through shuffle nodes."
+    },
+    {
+      "id": 5,
+      "start": 14.04,
+      "end": 16.6,
+      "text": "The idea here is that you just, you hash whatever"
+    },
+    {
+      "id": 6,
+      "start": 16.6,
+      "end": 19.72,
+      "text": "some partitioning key is on the data that you're scanning"
+    },
+    {
+      "id": 7,
+      "start": 19.72,
+      "end": 21.32,
+      "text": "that you're producing at any of your results."
+    },
+    {
+      "id": 8,
+      "start": 21.32,
+      "end": 25.6,
+      "text": "And then you distribute it across them to these shuffle nodes."
+    },
+    {
+      "id": 9,
+      "start": 25.6,
+      "end": 29.16,
+      "text": "And then this is sort of, again, this is the pipeline breaker."
+    },
+    {
+      "id": 10,
+      "start": 29.16,
+      "end": 30.64,
+      "text": "And then now these shuffle nodes are responsible"
+    },
+    {
+      "id": 11,
+      "start": 30.64,
+      "end": 32.92,
+      "text": "for distributing this data to the next stage of the query"
+    },
+    {
+      "id": 12,
+      "start": 32.92,
+      "end": 34.48,
+      "text": "plan, the worker nodes."
+    },
+    {
+      "id": 13,
+      "start": 34.48,
+      "end": 36.6,
+      "text": "So there's really no computation being done here."
+    },
+    {
+      "id": 14,
+      "start": 36.6,
+      "end": 38.52,
+      "text": "It's just basically in and out, storing things"
+    },
+    {
+      "id": 15,
+      "start": 38.52,
+      "end": 40.88,
+      "text": "as a key value pair in memory and then sending out"
+    },
+    {
+      "id": 16,
+      "start": 40.88,
+      "end": 42.76,
+      "text": "to the worker nodes."
+    },
+    {
+      "id": 17,
+      "start": 42.76,
+      "end": 45.4,
+      "text": "I'm saying this is optional because most, not all"
+    },
+    {
+      "id": 18,
+      "start": 45.4,
+      "end": 47.36,
+      "text": "old lab data systems do this."
+    },
+    {
+      "id": 19,
+      "start": 47.36,
+      "end": 50.6,
+      "text": "BigQuery and Dremel is probably the most famous one that does this."
+    },
+    {
+      "id": 20,
+      "start": 50.6,
+      "end": 52.08,
+      "text": "And Google does insane stuff."
+    },
+    {
+      "id": 21,
+      "start": 52.08,
+      "end": 53.28,
+      "text": "They actually have specialized hardware"
+    },
+    {
+      "id": 22,
+      "start": 53.28,
+      "end": 54.64,
+      "text": "on these things to keep everything in memory"
+    },
+    {
+      "id": 23,
+      "start": 54.64,
+      "end": 57.0,
+      "text": "and runs as fast as possible."
+    },
+    {
+      "id": 24,
+      "start": 57.0,
+      "end": 59.76,
+      "text": "And it allows them to do a bunch of tricks"
+    },
+    {
+      "id": 25,
+      "start": 59.76,
+      "end": 61.12,
+      "text": "for scaling things in and out."
+    },
+    {
+      "id": 26,
+      "start": 61.12,
+      "end": 63.2,
+      "text": "Because now you have this pipeline breaker."
+    },
+    {
+      "id": 27,
+      "start": 63.2,
+      "end": 65.12,
+      "text": "You can go look and see, I thought the data"
+    },
+    {
+      "id": 28,
+      "start": 65.12,
+      "end": 67.04,
+      "text": "was going to be the order this size or this amount."
+    },
+    {
+      "id": 29,
+      "start": 67.04,
+      "end": 68.56,
+      "text": "But actually have this amount."
+    },
+    {
+      "id": 30,
+      "start": 68.56,
+      "end": 70.08,
+      "text": "Do I need more nodes or less nodes?"
+    },
+    {
+      "id": 31,
+      "start": 70.08,
+      "end": 72.08,
+      "text": "Should I change anything up in the query plan?"
+    },
+    {
+      "id": 32,
+      "start": 72.08,
+      "end": 72.92,
+      "text": "Yes."
+    },
+    {
+      "id": 33,
+      "start": 72.92,
+      "end": 74.92,
+      "text": "So this is like a, as a part of the breakout place,"
+    },
+    {
+      "id": 34,
+      "start": 74.92,
+      "end": 77.28,
+      "text": "where you can insert the adaptability of your query plan."
+    },
+    {
+      "id": 35,
+      "start": 77.28,
+      "end": 77.52,
+      "text": "Yes."
+    },
+    {
+      "id": 36,
+      "start": 77.52,
+      "end": 79.84,
+      "text": "So statement is, as a pipeline breaker,"
+    },
+    {
+      "id": 37,
+      "start": 79.84,
+      "end": 83.64,
+      "text": "is this a good, I'm saying, stop point."
+    },
+    {
+      "id": 38,
+      "start": 83.64,
+      "end": 84.64,
+      "text": "It's a point in the query plan."
+    },
+    {
+      "id": 39,
+      "start": 84.64,
+      "end": 88.24,
+      "text": "You can say, OK, let me reassess what is coming into me."
+    },
+    {
+      "id": 40,
+      "start": 88.24,
+      "end": 90.28,
+      "text": "And do I want to change anything upstream?"
+    },
+    {
+      "id": 41,
+      "start": 90.28,
+      "end": 91.96,
+      "text": "So Google does that here."
+    },
+    {
+      "id": 42,
+      "start": 91.96,
+      "end": 93.36,
+      "text": "Yes."
+    },
+    {
+      "id": 43,
+      "start": 93.36,
+      "end": 96.96,
+      "text": "So some of this idea comes from the map-produced world."
+    },
+    {
+      "id": 44,
+      "start": 96.96,
+      "end": 98.72,
+      "text": "They would have explicit shuffle phase."
+    },
+    {
+      "id": 45,
+      "start": 98.72,
+      "end": 100.4,
+      "text": "But the difference is in the map-produced world,"
+    },
+    {
+      "id": 46,
+      "start": 100.4,
+      "end": 102.48,
+      "text": "if you're familiar with things like Hadoop,"
+    },
+    {
+      "id": 47,
+      "start": 102.48,
+      "end": 103.92,
+      "text": "which I don't recommend using."
+    },
+    {
+      "id": 48,
+      "start": 103.92,
+      "end": 105.6,
+      "text": "You don't want to use that anymore."
+    },
+    {
+      "id": 49,
+      "start": 105.6,
+      "end": 107.44,
+      "text": "But in that world, it was all batch base,"
+    },
+    {
+      "id": 50,
+      "start": 107.44,
+      "end": 109.88,
+      "text": "meaning you had to accumulate all the intermediate results"
+    },
+    {
+      "id": 51,
+      "start": 109.88,
+      "end": 112.96,
+      "text": "of the shuffle phase before you could start the next phase."
+    },
+    {
+      "id": 52,
+      "start": 112.96,
+      "end": 115.68,
+      "text": "In a modern in-lapse system, you can use it in a streaming manner."
+    },
+    {
+      "id": 53,
+      "start": 115.68,
+      "end": 118.08,
+      "text": "So as the data arrives, you can start"
+    },
+    {
+      "id": 54,
+      "start": 118.08,
+      "end": 120.32,
+      "text": "pushing it into a streaming fashion"
+    },
+    {
+      "id": 55,
+      "start": 120.32,
+      "end": 122.2,
+      "text": "up to the next worker node."
+    },
+    {
+      "id": 56,
+      "start": 122.2,
+      "end": 123.32,
+      "text": "Start executing right away."
+    },
+    {
+      "id": 57,
+      "start": 123.32,
+      "end": 126.12,
+      "text": "It's having this long pause."
+    },
+    {
+      "id": 58,
+      "start": 126.12,
+      "end": 127.96,
+      "text": "The other thing point out too, for some publicity"
+    },
+    {
+      "id": 59,
+      "start": 127.96,
+      "end": 130.16,
+      "text": "of showing this in PowerPoint, I"
+    },
+    {
+      "id": 60,
+      "start": 130.16,
+      "end": 132.44,
+      "text": "have the same number of worker nodes as shuffle nodes."
+    },
+    {
+      "id": 61,
+      "start": 132.44,
+      "end": 133.4,
+      "text": "You don't need to do that."
+    },
+    {
+      "id": 62,
+      "start": 133.4,
+      "end": 136.08,
+      "text": "You can scale things up and down accordingly."
+    },
+    {
+      "id": 63,
+      "start": 136.08,
+      "end": 138.24,
+      "text": "Because if sometimes the intermediate data"
+    },
+    {
+      "id": 64,
+      "start": 138.24,
+      "end": 141.48,
+      "text": "could be larger than your persistent data."
+    },
+    {
+      "id": 65,
+      "start": 141.48,
+      "end": 143.28,
+      "text": "We'll see this later this semester when you do"
+    },
+    {
+      "id": 66,
+      "start": 143.28,
+      "end": 144.6,
+      "text": "worst case optimal joins."
+    },
+    {
+      "id": 67,
+      "start": 144.6,
+      "end": 147.72,
+      "text": "That the intermediate and balloons to be much, much larger"
+    },
+    {
+      "id": 68,
+      "start": 147.72,
+      "end": 148.88,
+      "text": "than the persistent data."
+    },
+    {
+      "id": 69,
+      "start": 148.88,
+      "end": 150.84,
+      "text": "Even the final result will be much smaller,"
+    },
+    {
+      "id": 70,
+      "start": 150.84,
+      "end": 152.04,
+      "text": "but this thing can get quite large."
+    },
+    {
+      "id": 71,
+      "start": 154.68,
+      "end": 156.72,
+      "text": "And then now, again, we do the next phase."
+    },
+    {
+      "id": 72,
+      "start": 156.72,
+      "end": 159.6,
+      "text": "These worker nodes produce more intermediate results."
+    },
+    {
+      "id": 73,
+      "start": 159.6,
+      "end": 161.6,
+      "text": "And then we send this now to some final node"
+    },
+    {
+      "id": 74,
+      "start": 161.6,
+      "end": 163.68,
+      "text": "to do some final call-lessing or aggregation"
+    },
+    {
+      "id": 75,
+      "start": 163.68,
+      "end": 168.44,
+      "text": "to produce the final result that we send back to the user."
+    },
+    {
+      "id": 76,
+      "start": 168.44,
+      "end": 169.56,
+      "text": "And so I'm not sharing this here."
+    },
+    {
+      "id": 77,
+      "start": 169.56,
+      "end": 171.92,
+      "text": "But the thing that's above all of this,"
+    },
+    {
+      "id": 78,
+      "start": 171.92,
+      "end": 174.16,
+      "text": "keep track of what's going on, what"
+    },
+    {
+      "id": 79,
+      "start": 174.16,
+      "end": 177.76,
+      "text": "workers are still alive, what stage they are in execution,"
+    },
+    {
+      "id": 80,
+      "start": 177.76,
+      "end": 180.48,
+      "text": "how much data they're generating,"
+    },
+    {
+      "id": 81,
+      "start": 180.48,
+      "end": 185.12,
+      "text": "that's the scheduler and the coordinator, all above this."
+    },
+    {
+      "id": 82,
+      "start": 185.12,
+      "end": 187.24,
+      "text": "It's different than the orchestrator in Kubernetes."
+    },
+    {
+      "id": 83,
+      "start": 187.24,
+      "end": 191.4,
+      "text": "Because Kubernetes is just seeing is the pod still up."
+    },
+    {
+      "id": 84,
+      "start": 191.4,
+      "end": 193.4,
+      "text": "Doesn't actually know what's going on inside of it."
+    },
+    {
+      "id": 85,
+      "start": 193.4,
+      "end": 195.6,
+      "text": "That's you have to build that ourselves in our data"
+    },
+    {
+      "id": 86,
+      "start": 195.6,
+      "end": 198.96,
+      "text": "so keep track of like, OK, what are you actually doing?"
+    },
+    {
+      "id": 87,
+      "start": 198.96,
+      "end": 200.32,
+      "text": "Because Kubernetes, again, that doesn't"
+    },
+    {
+      "id": 88,
+      "start": 200.32,
+      "end": 202.2,
+      "text": "can't see inside your query."
+    },
+    {
+      "id": 89,
+      "start": 205.2,
+      "end": 207.28,
+      "text": "So I've already said it's at this, but the distinction"
+    },
+    {
+      "id": 90,
+      "start": 207.28,
+      "end": 209.72,
+      "text": "is between persistent data and meter data,"
+    },
+    {
+      "id": 91,
+      "start": 209.72,
+      "end": 213.48,
+      "text": "persistent data is the source of record for our database."
+    },
+    {
+      "id": 92,
+      "start": 213.48,
+      "end": 217.24,
+      "text": "Again, it could be files in S3, could be proprietary storage"
+    },
+    {
+      "id": 93,
+      "start": 217.24,
+      "end": 220.24,
+      "text": "that the data manages itself."
+    },
+    {
+      "id": 94,
+      "start": 220.24,
+      "end": 223.68,
+      "text": "One key thing, though, is that all these modern systems,"
+    },
+    {
+      "id": 95,
+      "start": 223.68,
+      "end": 227.84,
+      "text": "because you assume you're going to run on something like S3."
+    },
+    {
+      "id": 96,
+      "start": 227.84,
+      "end": 229.36,
+      "text": "And S3 is immutable."
+    },
+    {
+      "id": 97,
+      "start": 229.36,
+      "end": 231.44,
+      "text": "And I can't store file or object in S3,"
+    },
+    {
+      "id": 98,
+      "start": 231.44,
+      "end": 234.12,
+      "text": "and then go back and make in place updates to particular bytes."
+    },
+    {
+      "id": 99,
+      "start": 234.12,
+      "end": 238.08,
+      "text": "If I want to do that, I've got to overwrite the entire thing."
+    },
+    {
+      "id": 100,
+      "start": 238.08,
+      "end": 241.52,
+      "text": "And so that means they're all me using sort of pen-only"
+    },
+    {
+      "id": 101,
+      "start": 241.52,
+      "end": 245.32,
+      "text": "architectures for how they design the data encodes"
+    },
+    {
+      "id": 102,
+      "start": 245.32,
+      "end": 246.28,
+      "text": "in the storage formats."
+    },
+    {
+      "id": 103,
+      "start": 246.28,
+      "end": 247.64,
+      "text": "That's sort of the thing I mentioned in the Lake House"
+    },
+    {
+      "id": 104,
+      "start": 247.64,
+      "end": 250.56,
+      "text": "before, like log structure, a bunch of changes."
+    },
+    {
+      "id": 105,
+      "start": 250.56,
+      "end": 252.36,
+      "text": "I think I might distort this JSON."
+    },
+    {
+      "id": 106,
+      "start": 252.36,
+      "end": 254.36,
+      "text": "And then they batch it together in the storage park,"
+    },
+    {
+      "id": 107,
+      "start": 254.36,
+      "end": 257.8,
+      "text": "because it's one right out to the outer store."
+    },
+    {
+      "id": 108,
+      "start": 258.28,
+      "end": 260.68,
+      "text": "For the animated data, again, these are short-lived artifacts"
+    },
+    {
+      "id": 109,
+      "start": 260.68,
+      "end": 265.32,
+      "text": "that we're going to generate as we execute the query."
+    },
+    {
+      "id": 110,
+      "start": 265.32,
+      "end": 268.8,
+      "text": "And because they are only really useful for the lifetime"
+    },
+    {
+      "id": 111,
+      "start": 268.8,
+      "end": 270.96,
+      "text": "of the query itself, we don't have to worry"
+    },
+    {
+      "id": 112,
+      "start": 270.96,
+      "end": 273.08,
+      "text": "about durability and fault-tons in the same way"
+    },
+    {
+      "id": 113,
+      "start": 273.08,
+      "end": 275.08,
+      "text": "we would with persistent data."
+    },
+    {
+      "id": 114,
+      "start": 275.08,
+      "end": 276.64,
+      "text": "Now with persistent data, because we're"
+    },
+    {
+      "id": 115,
+      "start": 276.64,
+      "end": 278.48,
+      "text": "again, assuming we're running on an object store,"
+    },
+    {
+      "id": 116,
+      "start": 278.48,
+      "end": 282.2,
+      "text": "they handle all that fault-tons and resiliency for us."
+    },
+    {
+      "id": 117,
+      "start": 282.2,
+      "end": 283.4,
+      "text": "Which is, again, one less thing"
+    },
+    {
+      "id": 118,
+      "start": 283.4,
+      "end": 284.52,
+      "text": "that they're worried about as we've"
+    },
+    {
+      "id": 119,
+      "start": 284.52,
+      "end": 285.8,
+      "text": "built a database system."
+    },
+    {
+      "id": 120,
+      "start": 285.8,
+      "end": 287.88,
+      "text": "But for the animated data, wherever"
+    },
+    {
+      "id": 121,
+      "start": 287.88,
+      "end": 289.24,
+      "text": "is responsible for maintaining it,"
+    },
+    {
+      "id": 122,
+      "start": 289.24,
+      "end": 291.52,
+      "text": "ideally, we don't want to store it on S3,"
+    },
+    {
+      "id": 123,
+      "start": 291.52,
+      "end": 294.2,
+      "text": "because that's slow and cost money."
+    },
+    {
+      "id": 124,
+      "start": 294.2,
+      "end": 296.4,
+      "text": "So we'll try to keep this in local caches, either"
+    },
+    {
+      "id": 125,
+      "start": 296.4,
+      "end": 298.76,
+      "text": "in memory or in disk."
+    },
+    {
+      "id": 126,
+      "start": 298.76,
+      "end": 302.36,
+      "text": "But again, a node goes down."
+    },
+    {
+      "id": 127,
+      "start": 302.36,
+      "end": 304.64,
+      "text": "We can handle that."
+    },
+    {
+      "id": 128,
+      "start": 304.64,
+      "end": 307.36,
+      "text": "We don't have to make sure we store a good"
+    },
+    {
+      "id": 129,
+      "start": 307.36,
+      "end": 309.44,
+      "text": "Julian copies of animated data, because who cares?"
+    },
+    {
+      "id": 130,
+      "start": 309.44,
+      "end": 311.72,
+      "text": "When the query is over, we throw it away."
+    },
+    {
+      "id": 131,
+      "start": 311.72,
+      "end": 314.96,
+      "text": "There has been some research in maybe reusing"
+    },
+    {
+      "id": 132,
+      "start": 314.96,
+      "end": 318.12,
+      "text": "animated results from one query to the next."
+    },
+    {
+      "id": 133,
+      "start": 318.12,
+      "end": 320.24,
+      "text": "No system, as I know, actually supports that."
+    },
+    {
+      "id": 134,
+      "start": 320.24,
+      "end": 321.4,
+      "text": "Because if you want to do that, then you just"
+    },
+    {
+      "id": 135,
+      "start": 321.4,
+      "end": 322.64,
+      "text": "define a materialized view."
+    },
+    {
+      "id": 136,
+      "start": 322.64,
+      "end": 325.32,
+      "text": "Because it's basically the same thing."
+    },
+    {
+      "id": 137,
+      "start": 325.32,
+      "end": 325.84,
+      "text": "Yes?"
+    },
+    {
+      "id": 138,
+      "start": 325.84,
+      "end": 327.16,
+      "text": "Do you say, little is node correlation"
+    },
+    {
+      "id": 139,
+      "start": 327.16,
+      "end": 329.92,
+      "text": "with the process security in the operator?"
+    },
+    {
+      "id": 140,
+      "start": 329.92,
+      "end": 331.28,
+      "text": "Like, is there not a string number"
+    },
+    {
+      "id": 141,
+      "start": 331.28,
+      "end": 333.56,
+      "text": "bound in the object, in which I'm like,"
+    },
+    {
+      "id": 142,
+      "start": 333.56,
+      "end": 336.12,
+      "text": "to data that you've given from the process data?"
+    },
+    {
+      "id": 143,
+      "start": 336.12,
+      "end": 338.0,
+      "text": "This question is, I'm not sure."
+    },
+    {
+      "id": 144,
+      "start": 338.0,
+      "end": 340.04,
+      "text": "There's a comment here that says that there's"
+    },
+    {
+      "id": 145,
+      "start": 340.04,
+      "end": 343.84,
+      "text": "no correlation between the amount of animated data"
+    },
+    {
+      "id": 146,
+      "start": 343.84,
+      "end": 345.4,
+      "text": "that the query generates."
+    },
+    {
+      "id": 147,
+      "start": 345.4,
+      "end": 347.24,
+      "text": "There's no correlation between the size of the process"
+    },
+    {
+      "id": 148,
+      "start": 347.24,
+      "end": 349.64,
+      "text": "and data that they're reading in or the execution time."
+    },
+    {
+      "id": 149,
+      "start": 349.64,
+      "end": 352.2,
+      "text": "So this result comes from the snowflake paper"
+    },
+    {
+      "id": 150,
+      "start": 352.2,
+      "end": 356.6,
+      "text": "from two or three years ago, or last year."
+    },
+    {
+      "id": 151,
+      "start": 356.6,
+      "end": 358.76,
+      "text": "But they looked at all the queries that are actually"
+    },
+    {
+      "id": 152,
+      "start": 358.76,
+      "end": 359.56,
+      "text": "executed in snowflake."
+    },
+    {
+      "id": 153,
+      "start": 359.56,
+      "end": 362.28,
+      "text": "And they saw that this wasn't the case at all."
+    },
+    {
+      "id": 154,
+      "start": 362.28,
+      "end": 364.08,
+      "text": "And so your statement is, oh, could there"
+    },
+    {
+      "id": 155,
+      "start": 364.08,
+      "end": 367.8,
+      "text": "just be an upper bound where I know the max limit of the amount"
+    },
+    {
+      "id": 156,
+      "start": 367.8,
+      "end": 368.84,
+      "text": "of data I could have generated?"
+    },
+    {
+      "id": 157,
+      "start": 368.84,
+      "end": 369.36,
+      "text": "Well, no."
+    },
+    {
+      "id": 158,
+      "start": 369.36,
+      "end": 371.4,
+      "text": "Because my query, I can do anything."
+    },
+    {
+      "id": 159,
+      "start": 371.4,
+      "end": 374.92,
+      "text": "I can just do a billion times and generate a bunch"
+    },
+    {
+      "id": 160,
+      "start": 374.92,
+      "end": 376.8,
+      "text": "of random stuff."
+    },
+    {
+      "id": 161,
+      "start": 376.8,
+      "end": 377.52,
+      "text": "It costs you money."
+    },
+    {
+      "id": 162,
+      "start": 377.52,
+      "end": 379.16,
+      "text": "You'd be stupid to do it, but you could do it."
+    },
+    {
+      "id": 163,
+      "start": 383.08,
+      "end": 385.68,
+      "text": "And the challenge for query optimization"
+    },
+    {
+      "id": 164,
+      "start": 385.68,
+      "end": 388.16,
+      "text": "is to know when this is going to happen."
+    },
+    {
+      "id": 165,
+      "start": 388.16,
+      "end": 389.36,
+      "text": "When, like, you have an operator that's"
+    },
+    {
+      "id": 166,
+      "start": 389.36,
+      "end": 393.36,
+      "text": "going to generate more animated results than the data"
+    },
+    {
+      "id": 167,
+      "start": 393.36,
+      "end": 394.2,
+      "text": "going into it."
+    },
+    {
+      "id": 168,
+      "start": 394.2,
+      "end": 395.4,
+      "text": "Because you want to use that to figure out,"
+    },
+    {
+      "id": 169,
+      "start": 395.4,
+      "end": 397.12,
+      "text": "OK, what join algorithm should I use?"
+    },
+    {
+      "id": 170,
+      "start": 397.12,
+      "end": 399.2,
+      "text": "Where's case optimal or hash drawn?"
+    },
+    {
+      "id": 171,
+      "start": 399.2,
+      "end": 402.96,
+      "text": "Again, I keep saying this will cover the later this measure."
+    },
+    {
+      "id": 172,
+      "start": 402.96,
+      "end": 406.68,
+      "text": "I mean, hopefully, again, I remember when I was taking classes"
+    },
+    {
+      "id": 173,
+      "start": 406.68,
+      "end": 409.56,
+      "text": "back in the day, the professor would say a bunch of stuff"
+    },
+    {
+      "id": 174,
+      "start": 409.56,
+      "end": 411.4,
+      "text": "in the beginning, like, what the hell is he talking about?"
+    },
+    {
+      "id": 175,
+      "start": 411.4,
+      "end": 413.36,
+      "text": "And then later on, you see, oh, yeah,"
+    },
+    {
+      "id": 176,
+      "start": 413.36,
+      "end": 415.16,
+      "text": "you learn all that stuff, and it clicks."
+    },
+    {
+      "id": 177,
+      "start": 415.16,
+      "end": 416.24,
+      "text": "So I'm bringing this stuff up now,"
+    },
+    {
+      "id": 178,
+      "start": 416.24,
+      "end": 417.44,
+      "text": "because when we hit those lectures,"
+    },
+    {
+      "id": 179,
+      "start": 417.44,
+      "end": 418.88,
+      "text": "oh, yeah, that's what he meant by this."
+    },
+    {
+      "id": 180,
+      "start": 418.88,
+      "end": 419.68,
+      "text": "Where's case optimal joins?"
+    },
+    {
+      "id": 181,
+      "start": 419.68,
+      "end": 421.04,
+      "text": "OK, now I know what that is."
+    },
+    {
+      "id": 182,
+      "start": 421.04,
+      "end": 424.12,
+      "text": "So that's a prelude for what's the common."
+    },
+    {
+      "id": 183,
+      "start": 424.12,
+      "end": 427.2,
+      "text": "Hopefully, you can see I'm getting excited."
+    },
+    {
+      "id": 184,
+      "start": 427.2,
+      "end": 428.28,
+      "text": "Because data is awesome."
+    },
+    {
+      "id": 185,
+      "start": 428.28,
+      "end": 430.96,
+      "text": "OK."
+    },
+    {
+      "id": 186,
+      "start": 430.96,
+      "end": 433.68,
+      "text": "So the other thing that they consider now"
+    },
+    {
+      "id": 187,
+      "start": 433.68,
+      "end": 438.32,
+      "text": "to in our system architecture is the way in which we're"
+    },
+    {
+      "id": 188,
+      "start": 438.32,
+      "end": 440.4,
+      "text": "going to transfer data between the different operators"
+    },
+    {
+      "id": 189,
+      "start": 440.4,
+      "end": 442.56,
+      "text": "of the nodes."
+    },
+    {
+      "id": 190,
+      "start": 442.56,
+      "end": 443.52,
+      "text": "And this really is going to come down"
+    },
+    {
+      "id": 191,
+      "start": 443.52,
+      "end": 447.32,
+      "text": "to where that persistent data is actually going to be stored."
+    },
+    {
+      "id": 192,
+      "start": 447.32,
+      "end": 450.32,
+      "text": "And again, the highlight detail is"
+    },
+    {
+      "id": 193,
+      "start": 450.32,
+      "end": 453.6,
+      "text": "like if it was a shared nothing system, which"
+    },
+    {
+      "id": 194,
+      "start": 453.6,
+      "end": 455.44,
+      "text": "are covered in a second, you primarily"
+    },
+    {
+      "id": 195,
+      "start": 455.44,
+      "end": 459.2,
+      "text": "use push query to the data in a shared system,"
+    },
+    {
+      "id": 196,
+      "start": 459.2,
+      "end": 461.32,
+      "text": "you would think it primarily would be by textbook definition"
+    },
+    {
+      "id": 197,
+      "start": 461.32,
+      "end": 462.56,
+      "text": "pulling data to the query."
+    },
+    {
+      "id": 198,
+      "start": 462.56,
+      "end": 464.64,
+      "text": "But we'll see in a modern setting,"
+    },
+    {
+      "id": 199,
+      "start": 464.64,
+      "end": 466.52,
+      "text": "these lines get blurred very quickly."
+    },
+    {
+      "id": 200,
+      "start": 466.52,
+      "end": 469.76,
+      "text": "Because for the animated results, you"
+    },
+    {
+      "id": 201,
+      "start": 469.76,
+      "end": 471.6,
+      "text": "push the query to the data sometimes."
+    },
+    {
+      "id": 202,
+      "start": 471.6,
+      "end": 474.44,
+      "text": "And in other cases, in some object storage,"
+    },
+    {
+      "id": 203,
+      "start": 474.44,
+      "end": 476.08,
+      "text": "you can actually push the query to the data down"
+    },
+    {
+      "id": 204,
+      "start": 476.08,
+      "end": 477.56,
+      "text": "to the actual object store."
+    },
+    {
+      "id": 205,
+      "start": 477.56,
+      "end": 479.48,
+      "text": "Other cases, you start moving things around."
+    },
+    {
+      "id": 206,
+      "start": 479.48,
+      "end": 480.28,
+      "text": "It can get jumbled."
+    },
+    {
+      "id": 207,
+      "start": 480.28,
+      "end": 483.92,
+      "text": "So there's not really clean divide between different models."
+    },
+    {
+      "id": 208,
+      "start": 483.92,
+      "end": 485.84,
+      "text": "But it's good to understand them in the context again"
+    },
+    {
+      "id": 209,
+      "start": 485.84,
+      "end": 487.88,
+      "text": "of the system that we're trying to build conceptually"
+    },
+    {
+      "id": 210,
+      "start": 487.88,
+      "end": 490.64,
+      "text": "in our minds."
+    },
+    {
+      "id": 211,
+      "start": 490.64,
+      "end": 493.76,
+      "text": "So the push approach, again, is that the idea"
+    },
+    {
+      "id": 212,
+      "start": 493.76,
+      "end": 497.56,
+      "text": "is that the query itself, either the SQL string"
+    },
+    {
+      "id": 213,
+      "start": 497.56,
+      "end": 500.04,
+      "text": "or the intermediate representation of the query plan,"
+    },
+    {
+      "id": 214,
+      "start": 500.04,
+      "end": 502.56,
+      "text": "is going to be much smaller than the data."
+    },
+    {
+      "id": 215,
+      "start": 502.56,
+      "end": 504.92,
+      "text": "So why transfer a bunch of data over to the node"
+    },
+    {
+      "id": 216,
+      "start": 504.92,
+      "end": 506.16,
+      "text": "just to execute it?"
+    },
+    {
+      "id": 217,
+      "start": 506.16,
+      "end": 507.92,
+      "text": "Why not to send the query, which is much smaller"
+    },
+    {
+      "id": 218,
+      "start": 507.92,
+      "end": 510.6,
+      "text": "over to where the data is actually being stored?"
+    },
+    {
+      "id": 219,
+      "start": 510.6,
+      "end": 512.24,
+      "text": "And I can do the processing there."
+    },
+    {
+      "id": 220,
+      "start": 513.12,
+      "end": 516.08,
+      "text": "And then send back the animated results, which ideally"
+    },
+    {
+      "id": 221,
+      "start": 516.08,
+      "end": 519.68,
+      "text": "should be smaller than the persistent data."
+    },
+    {
+      "id": 222,
+      "start": 519.68,
+      "end": 521.6,
+      "text": "And so this made a lot of sense in the old days"
+    },
+    {
+      "id": 223,
+      "start": 521.6,
+      "end": 527.8,
+      "text": "when disks were super slow and networking was super slow."
+    },
+    {
+      "id": 224,
+      "start": 527.8,
+      "end": 529.24,
+      "text": "And usually the network is always considered"
+    },
+    {
+      "id": 225,
+      "start": 529.24,
+      "end": 530.48,
+      "text": "much slower than the disk."
+    },
+    {
+      "id": 226,
+      "start": 530.48,
+      "end": 533.08,
+      "text": "That's not really that true anymore."
+    },
+    {
+      "id": 227,
+      "start": 533.08,
+      "end": 534.52,
+      "text": "The car was gotten really good."
+    },
+    {
+      "id": 228,
+      "start": 534.52,
+      "end": 537.64,
+      "text": "So the challenge in this space, though,"
+    },
+    {
+      "id": 229,
+      "start": 537.64,
+      "end": 541.36,
+      "text": "is that you may not have the computational capabilities"
+    },
+    {
+      "id": 230,
+      "start": 541.36,
+      "end": 543.4,
+      "text": "on wherever the data is actually being stored"
+    },
+    {
+      "id": 231,
+      "start": 543.4,
+      "end": 547.56,
+      "text": "to do any processing on that side."
+    },
+    {
+      "id": 232,
+      "start": 547.56,
+      "end": 550.36,
+      "text": "Again, you think of using S3."
+    },
+    {
+      "id": 233,
+      "start": 550.36,
+      "end": 551.72,
+      "text": "If you ignore the select operator, which"
+    },
+    {
+      "id": 234,
+      "start": 551.72,
+      "end": 554.0,
+      "text": "is talking about the second, it's just"
+    },
+    {
+      "id": 235,
+      "start": 554.0,
+      "end": 557.12,
+      "text": "the API's get, put, and delete."
+    },
+    {
+      "id": 236,
+      "start": 557.12,
+      "end": 559.36,
+      "text": "You can't say, oh, by the way, also execute this part"
+    },
+    {
+      "id": 237,
+      "start": 559.36,
+      "end": 560.36,
+      "text": "of the query plan for me."
+    },
+    {
+      "id": 238,
+      "start": 560.36,
+      "end": 562.6,
+      "text": "You can, we'll talk about that in a second."
+    },
+    {
+      "id": 239,
+      "start": 562.6,
+      "end": 564.6,
+      "text": "That's usually what the API is expecting."
+    },
+    {
+      "id": 240,
+      "start": 564.6,
+      "end": 567.24,
+      "text": "Actually, in Google, that's all they expect to do."
+    },
+    {
+      "id": 241,
+      "start": 567.24,
+      "end": 568.76,
+      "text": "So you can't do any competition there."
+    },
+    {
+      "id": 242,
+      "start": 568.76,
+      "end": 570.48,
+      "text": "So you can't push the query to the data."
+    },
+    {
+      "id": 243,
+      "start": 570.48,
+      "end": 573.12,
+      "text": "You instead have to pull the query to the data."
+    },
+    {
+      "id": 244,
+      "start": 573.12,
+      "end": 576.08,
+      "text": "You bring the data that you need, do the processing there,"
+    },
+    {
+      "id": 245,
+      "start": 576.08,
+      "end": 580.68,
+      "text": "generate it in the results, and then send it to the next stage."
+    },
+    {
+      "id": 246,
+      "start": 580.68,
+      "end": 583.08,
+      "text": "And again, the idea is, again, the size of the query relative"
+    },
+    {
+      "id": 247,
+      "start": 583.08,
+      "end": 585.04,
+      "text": "to the size of the data that you're processing"
+    },
+    {
+      "id": 248,
+      "start": 585.04,
+      "end": 586.12,
+      "text": "is going to be much smaller."
+    },
+    {
+      "id": 249,
+      "start": 586.12,
+      "end": 589.2,
+      "text": "The largest query I've ever heard of in the pure SQL string"
+    },
+    {
+      "id": 250,
+      "start": 589.2,
+      "end": 592.32,
+      "text": "itself is 10 megabytes from Google."
+    },
+    {
+      "id": 251,
+      "start": 592.32,
+      "end": 593.32,
+      "text": "That's a huge ass query."
+    },
+    {
+      "id": 252,
+      "start": 593.32,
+      "end": 594.16,
+      "text": "It's big."
+    },
+    {
+      "id": 253,
+      "start": 594.16,
+      "end": 596.76,
+      "text": "But the processing terabytes of data,"
+    },
+    {
+      "id": 254,
+      "start": 596.76,
+      "end": 600.4,
+      "text": "it's not even close, or does it make a difference."
+    },
+    {
+      "id": 255,
+      "start": 600.4,
+      "end": 602.0,
+      "text": "It's not-"
+    }
+  ],
+  "language": "en"
+}

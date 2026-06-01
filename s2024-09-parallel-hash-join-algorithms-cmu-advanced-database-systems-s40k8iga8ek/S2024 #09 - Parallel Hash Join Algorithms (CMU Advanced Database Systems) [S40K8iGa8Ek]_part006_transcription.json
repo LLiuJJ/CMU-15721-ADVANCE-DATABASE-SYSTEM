@@ -1,0 +1,1397 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.76,
+      "text": "double the rickies I expect to have."
+    },
+    {
+      "id": 1,
+      "start": 2.76,
+      "end": 5.5,
+      "text": "And on the resize you just double it again."
+    },
+    {
+      "id": 2,
+      "start": 5.5,
+      "end": 9.46,
+      "text": "So there's this observation in the 80s"
+    },
+    {
+      "id": 3,
+      "start": 9.46,
+      "end": 11.94,
+      "text": "that recognizes this obvious problem"
+    },
+    {
+      "id": 4,
+      "start": 11.94,
+      "end": 14.58,
+      "text": "with the linear probing schema of interesting."
+    },
+    {
+      "id": 5,
+      "start": 14.58,
+      "end": 16.82,
+      "text": "And they came up with an idea that tried"
+    },
+    {
+      "id": 6,
+      "start": 16.82,
+      "end": 22.66,
+      "text": "to limit the number of lookups I have to do"
+    },
+    {
+      "id": 7,
+      "start": 22.7,
+      "end": 24.46,
+      "text": "when I'm starting to read the hash table."
+    },
+    {
+      "id": 8,
+      "start": 24.46,
+      "end": 28.74,
+      "text": "Again, in a hash join, we have these clued"
+    },
+    {
+      "id": 9,
+      "start": 28.74,
+      "end": 30.5,
+      "text": "clearly two phases where I'm going to build it,"
+    },
+    {
+      "id": 10,
+      "start": 30.5,
+      "end": 32.42,
+      "text": "I'm going to then probe it."
+    },
+    {
+      "id": 11,
+      "start": 32.42,
+      "end": 34.9,
+      "text": "And I want the smaller relation to be always"
+    },
+    {
+      "id": 12,
+      "start": 34.9,
+      "end": 36.74,
+      "text": "on the build side because I want my hash"
+    },
+    {
+      "id": 13,
+      "start": 36.74,
+      "end": 38.34,
+      "text": "to be as small as possible."
+    },
+    {
+      "id": 14,
+      "start": 38.34,
+      "end": 40.86,
+      "text": "And so the idea is that what if I spend a little more"
+    },
+    {
+      "id": 15,
+      "start": 40.86,
+      "end": 44.34,
+      "text": "extra instructions on the build side"
+    },
+    {
+      "id": 16,
+      "start": 44.34,
+      "end": 48.74,
+      "text": "to reorganize my hash table so that when I do my probes,"
+    },
+    {
+      "id": 17,
+      "start": 48.74,
+      "end": 51.54,
+      "text": "the length of the distance I have to go look potentially"
+    },
+    {
+      "id": 18,
+      "start": 51.54,
+      "end": 55.98,
+      "text": "to find the thing I'm looking for is potentially reduced."
+    },
+    {
+      "id": 19,
+      "start": 55.98,
+      "end": 58.14,
+      "text": "So the two approaches to do this are the Robinhood hashing"
+    },
+    {
+      "id": 20,
+      "start": 58.14,
+      "end": 59.38,
+      "text": "and the hopscout hashing."
+    },
+    {
+      "id": 21,
+      "start": 59.38,
+      "end": 61.58,
+      "text": "And the Robinhood hashing came out in the 80s,"
+    },
+    {
+      "id": 22,
+      "start": 61.58,
+      "end": 65.58,
+      "text": "hopscout hashing came out in the 2000s."
+    },
+    {
+      "id": 23,
+      "start": 65.58,
+      "end": 68.82,
+      "text": "And the idea here is that rather than when I,"
+    },
+    {
+      "id": 24,
+      "start": 68.82,
+      "end": 71.46,
+      "text": "just like an open dressing hash table,"
+    },
+    {
+      "id": 25,
+      "start": 71.46,
+      "end": 74.82,
+      "text": "but as I'm trying to find my slot, instead of just trying"
+    },
+    {
+      "id": 26,
+      "start": 74.82,
+      "end": 77.78,
+      "text": "to say what's the first free one go put my thing in there,"
+    },
+    {
+      "id": 27,
+      "start": 77.78,
+      "end": 80.58,
+      "text": "I actually look at the entries that are in the place"
+    },
+    {
+      "id": 28,
+      "start": 80.58,
+      "end": 83.58,
+      "text": "where I want to be and I can decide whether to go steal"
+    },
+    {
+      "id": 29,
+      "start": 83.58,
+      "end": 85.3,
+      "text": "their slot."
+    },
+    {
+      "id": 30,
+      "start": 85.9,
+      "end": 88.74,
+      "text": "The goal is that the idea is that you want"
+    },
+    {
+      "id": 31,
+      "start": 88.74,
+      "end": 94.06,
+      "text": "to minimize the average distance that any key is from where"
+    },
+    {
+      "id": 32,
+      "start": 94.06,
+      "end": 99.18,
+      "text": "it should be by swapping keys that are farther away from where"
+    },
+    {
+      "id": 33,
+      "start": 99.18,
+      "end": 102.22,
+      "text": "they want to be versus keys that are closer."
+    },
+    {
+      "id": 34,
+      "start": 102.22,
+      "end": 104.74,
+      "text": "It's like stealing from the rich to give to the poor."
+    },
+    {
+      "id": 35,
+      "start": 104.74,
+      "end": 107.74,
+      "text": "Hence the name Robinhood hashing."
+    },
+    {
+      "id": 36,
+      "start": 107.74,
+      "end": 113.98,
+      "text": "So the more recent research from the Starlin Germans"
+    },
+    {
+      "id": 37,
+      "start": 113.98,
+      "end": 115.06,
+      "text": "for the paper to be guys read,"
+    },
+    {
+      "id": 38,
+      "start": 115.06,
+      "end": 117.22,
+      "text": "they talk about how Robinhood hashing is actually"
+    },
+    {
+      "id": 39,
+      "start": 117.22,
+      "end": 120.78,
+      "text": "the better approach, better than linear hashing."
+    },
+    {
+      "id": 40,
+      "start": 120.78,
+      "end": 122.98,
+      "text": "The hyper guys, or the umber guys in their latest paper"
+    },
+    {
+      "id": 41,
+      "start": 122.98,
+      "end": 126.14,
+      "text": "in 2021, they also use Robinhood hashing,"
+    },
+    {
+      "id": 42,
+      "start": 126.14,
+      "end": 130.9,
+      "text": "citing the Starlin paper about why you want to do this."
+    },
+    {
+      "id": 43,
+      "start": 130.9,
+      "end": 133.46,
+      "text": "But every so often you see various database companies"
+    },
+    {
+      "id": 44,
+      "start": 133.46,
+      "end": 135.82,
+      "text": "try out Robinhood hashing and it actually"
+    },
+    {
+      "id": 45,
+      "start": 135.82,
+      "end": 137.46,
+      "text": "doesn't pan out in the real world."
+    },
+    {
+      "id": 46,
+      "start": 137.46,
+      "end": 139.26,
+      "text": "So I'm not trying to pick on these guys, QuestDB,"
+    },
+    {
+      "id": 47,
+      "start": 139.26,
+      "end": 141.62,
+      "text": "but this is the most recent one that I found."
+    },
+    {
+      "id": 48,
+      "start": 141.62,
+      "end": 143.62,
+      "text": "So they had a blog article came out in November last year"
+    },
+    {
+      "id": 49,
+      "start": 143.62,
+      "end": 146.14,
+      "text": "and says, hey look, we swapped out our hash map"
+    },
+    {
+      "id": 50,
+      "start": 146.14,
+      "end": 149.62,
+      "text": "with the new, do you join this new fast map invitation?"
+    },
+    {
+      "id": 51,
+      "start": 149.62,
+      "end": 152.98,
+      "text": "They're in Java, but we can ignore that for now."
+    },
+    {
+      "id": 52,
+      "start": 152.98,
+      "end": 155.62,
+      "text": "And at the very bottom of this, they're all happy"
+    },
+    {
+      "id": 53,
+      "start": 155.62,
+      "end": 157.02,
+      "text": "to have these nice hash table."
+    },
+    {
+      "id": 54,
+      "start": 157.02,
+      "end": 162.14,
+      "text": "It's better than the chain hash table in Java,"
+    },
+    {
+      "id": 55,
+      "start": 162.14,
+      "end": 164.78,
+      "text": "because now they're using open addressing or linear probing."
+    },
+    {
+      "id": 56,
+      "start": 164.78,
+      "end": 166.22,
+      "text": "But then there's this little blurb of the bottom here"
+    },
+    {
+      "id": 57,
+      "start": 166.22,
+      "end": 167.66,
+      "text": "that says someone on Reddit told him, hey,"
+    },
+    {
+      "id": 58,
+      "start": 167.66,
+      "end": 170.1,
+      "text": "you should try Robinhood hashing, right?"
+    },
+    {
+      "id": 59,
+      "start": 170.1,
+      "end": 172.5,
+      "text": "And he talks about, oh yeah, the early numbers actually"
+    },
+    {
+      "id": 60,
+      "start": 172.5,
+      "end": 175.06,
+      "text": "look pretty good, we think we want to do this."
+    },
+    {
+      "id": 61,
+      "start": 175.06,
+      "end": 178.9,
+      "text": "But then if you follow the pull request link here"
+    },
+    {
+      "id": 62,
+      "start": 178.9,
+      "end": 182.14,
+      "text": "from November, you go to the very bottom where now in January"
+    },
+    {
+      "id": 63,
+      "start": 182.14,
+      "end": 185.5,
+      "text": "says it turns out Robinhood hashing made things worse."
+    },
+    {
+      "id": 64,
+      "start": 185.5,
+      "end": 189.82,
+      "text": "So they end up turning it off, reversing, right?"
+    },
+    {
+      "id": 65,
+      "start": 189.82,
+      "end": 192.34,
+      "text": "A few years ago, we had the influx DVD will show up,"
+    },
+    {
+      "id": 66,
+      "start": 192.34,
+      "end": 194.5,
+      "text": "and they were all boasting how they were using Robinhood"
+    },
+    {
+      "id": 67,
+      "start": 194.5,
+      "end": 195.18,
+      "text": "hashing."
+    },
+    {
+      "id": 68,
+      "start": 195.18,
+      "end": 196.38,
+      "text": "Dave Anderson was in the audience."
+    },
+    {
+      "id": 69,
+      "start": 196.38,
+      "end": 197.42,
+      "text": "He asked him why you're doing this."
+    },
+    {
+      "id": 70,
+      "start": 197.42,
+      "end": 199.1,
+      "text": "And they said, oh, we saw someone in hack or news"
+    },
+    {
+      "id": 71,
+      "start": 199.1,
+      "end": 200.5,
+      "text": "said to use it, so they used it."
+    },
+    {
+      "id": 72,
+      "start": 200.5,
+      "end": 203.26,
+      "text": "But then it turns out I think it made things slower too, right?"
+    },
+    {
+      "id": 73,
+      "start": 203.26,
+      "end": 205.34,
+      "text": "So to me, I think there's a still open question."
+    },
+    {
+      "id": 74,
+      "start": 205.34,
+      "end": 207.86,
+      "text": "I don't know what's the best one to use at this point."
+    },
+    {
+      "id": 75,
+      "start": 207.86,
+      "end": 209.86,
+      "text": "But it's good to understand what Robinhood and Hopscotch"
+    },
+    {
+      "id": 76,
+      "start": 209.86,
+      "end": 212.5,
+      "text": "actually do."
+    },
+    {
+      "id": 77,
+      "start": 212.5,
+      "end": 215.66,
+      "text": "OK, so getting the basic idea is that it's just like linear"
+    },
+    {
+      "id": 78,
+      "start": 215.66,
+      "end": 216.18,
+      "text": "probing."
+    },
+    {
+      "id": 79,
+      "start": 216.18,
+      "end": 218.9,
+      "text": "When I want to store something in, I'm going to store it."
+    },
+    {
+      "id": 80,
+      "start": 218.9,
+      "end": 221.3,
+      "text": "The first location that's free in my slot"
+    },
+    {
+      "id": 81,
+      "start": 221.3,
+      "end": 222.06,
+      "text": "reg."
+    },
+    {
+      "id": 82,
+      "start": 222.06,
+      "end": 225.5,
+      "text": "But then in addition to storing the key or the hash key,"
+    },
+    {
+      "id": 83,
+      "start": 225.5,
+      "end": 226.82,
+      "text": "we'll talk about in a second."
+    },
+    {
+      "id": 84,
+      "start": 226.82,
+      "end": 228.7,
+      "text": "And the payload of the value, I'm also"
+    },
+    {
+      "id": 85,
+      "start": 228.7,
+      "end": 230.94,
+      "text": "going to store the number of jumps I am from where I should have"
+    },
+    {
+      "id": 86,
+      "start": 230.94,
+      "end": 232.54,
+      "text": "been when I hashed directly into it."
+    },
+    {
+      "id": 87,
+      "start": 232.54,
+      "end": 234.74,
+      "text": "So in this case here, when we hashed A and put it in,"
+    },
+    {
+      "id": 88,
+      "start": 234.74,
+      "end": 236.22,
+      "text": "there wasn't any else in the slot."
+    },
+    {
+      "id": 89,
+      "start": 236.22,
+      "end": 240.5,
+      "text": "So it's positioned in or it's distance is 0."
+    },
+    {
+      "id": 90,
+      "start": 240.5,
+      "end": 242.94,
+      "text": "So now when I be same thing distance is 0,"
+    },
+    {
+      "id": 91,
+      "start": 242.94,
+      "end": 245.18,
+      "text": "so now I'm going to put C in."
+    },
+    {
+      "id": 92,
+      "start": 245.18,
+      "end": 247.1,
+      "text": "C wants to go over A as so it can't."
+    },
+    {
+      "id": 93,
+      "start": 247.1,
+      "end": 250.62,
+      "text": "But now I compare from where the distance C is from where"
+    },
+    {
+      "id": 94,
+      "start": 250.62,
+      "end": 254.3,
+      "text": "it wants to go, from where A is from it, where it should be."
+    },
+    {
+      "id": 95,
+      "start": 254.3,
+      "end": 256.02,
+      "text": "In this case here, they're both 0."
+    },
+    {
+      "id": 96,
+      "start": 256.02,
+      "end": 258.66,
+      "text": "So C's not going to steal a slot."
+    },
+    {
+      "id": 97,
+      "start": 258.66,
+      "end": 259.66,
+      "text": "And it goes down the next one."
+    },
+    {
+      "id": 98,
+      "start": 259.66,
+      "end": 262.74,
+      "text": "But now that I store that it's one hop away"
+    },
+    {
+      "id": 99,
+      "start": 262.74,
+      "end": 265.38,
+      "text": "from where it wants to be."
+    },
+    {
+      "id": 100,
+      "start": 265.38,
+      "end": 270.82,
+      "text": "So now when D wants to go or C is, at the very beginning,"
+    },
+    {
+      "id": 101,
+      "start": 270.82,
+      "end": 273.34,
+      "text": "the number of hops that is from where it wants to be is 0."
+    },
+    {
+      "id": 102,
+      "start": 273.34,
+      "end": 276.5,
+      "text": "And that's less than D, or sorry, C, which is 1."
+    },
+    {
+      "id": 103,
+      "start": 276.5,
+      "end": 279.54,
+      "text": "So D cannot steal from C. So we leave C alone."
+    },
+    {
+      "id": 104,
+      "start": 279.54,
+      "end": 280.62,
+      "text": "And then D is going to be right here."
+    },
+    {
+      "id": 105,
+      "start": 280.62,
+      "end": 283.5,
+      "text": "And then it's hop is 1."
+    },
+    {
+      "id": 106,
+      "start": 283.5,
+      "end": 286.9,
+      "text": "Now I want to start E. Same thing at the very beginning."
+    },
+    {
+      "id": 107,
+      "start": 286.9,
+      "end": 288.34,
+      "text": "A is 0 hops away."
+    },
+    {
+      "id": 108,
+      "start": 288.34,
+      "end": 289.86,
+      "text": "E is 0 hops away at this step."
+    },
+    {
+      "id": 109,
+      "start": 289.86,
+      "end": 291.02,
+      "text": "We leave them alone."
+    },
+    {
+      "id": 110,
+      "start": 291.02,
+      "end": 292.74,
+      "text": "Now we get down here."
+    },
+    {
+      "id": 111,
+      "start": 292.74,
+      "end": 294.02,
+      "text": "C is 1 hop away."
+    },
+    {
+      "id": 112,
+      "start": 294.02,
+      "end": 295.14,
+      "text": "E is 1 hop away."
+    },
+    {
+      "id": 113,
+      "start": 295.14,
+      "end": 296.3,
+      "text": "Leave that one alone."
+    },
+    {
+      "id": 114,
+      "start": 296.3,
+      "end": 298.82,
+      "text": "But now when you get here, D is 1 hop away."
+    },
+    {
+      "id": 115,
+      "start": 298.82,
+      "end": 300.22,
+      "text": "Because one of the go where C was."
+    },
+    {
+      "id": 116,
+      "start": 300.22,
+      "end": 303.1,
+      "text": "But now E is 2 hops away because one of the go where A is."
+    },
+    {
+      "id": 117,
+      "start": 303.1,
+      "end": 306.54,
+      "text": "So in this case here, E is allowed to steal from D."
+    },
+    {
+      "id": 118,
+      "start": 306.54,
+      "end": 308.22,
+      "text": "Shoot them in the head, take it slot."
+    },
+    {
+      "id": 119,
+      "start": 308.22,
+      "end": 310.42,
+      "text": "And then D pops out, and we've got to put it back down"
+    },
+    {
+      "id": 120,
+      "start": 310.42,
+      "end": 311.14,
+      "text": "into the next slot."
+    },
+    {
+      "id": 121,
+      "start": 311.14,
+      "end": 312.7,
+      "text": "And we would run that same protocol."
+    },
+    {
+      "id": 122,
+      "start": 312.7,
+      "end": 314.3,
+      "text": "If there was something else here, we would decide whether we"
+    },
+    {
+      "id": 123,
+      "start": 314.3,
+      "end": 317.22,
+      "text": "want to steal that slot or not."
+    },
+    {
+      "id": 124,
+      "start": 317.22,
+      "end": 319.26,
+      "text": "All right?"
+    },
+    {
+      "id": 125,
+      "start": 319.26,
+      "end": 322.18,
+      "text": "Then F, again, same thing goes like this."
+    },
+    {
+      "id": 126,
+      "start": 322.18,
+      "end": 322.66,
+      "text": "Yes."
+    },
+    {
+      "id": 127,
+      "start": 322.66,
+      "end": 325.14,
+      "text": "So instead it's going to be really, really slow."
+    },
+    {
+      "id": 128,
+      "start": 325.14,
+      "end": 326.94,
+      "text": "His question is, can answers be really, really slow?"
+    },
+    {
+      "id": 129,
+      "start": 326.94,
+      "end": 328.14,
+      "text": "Yes."
+    },
+    {
+      "id": 130,
+      "start": 328.14,
+      "end": 329.34,
+      "text": "Right?"
+    },
+    {
+      "id": 131,
+      "start": 329.34,
+      "end": 329.94,
+      "text": "Because what are we doing?"
+    },
+    {
+      "id": 132,
+      "start": 329.94,
+      "end": 331.18,
+      "text": "We're copying."
+    },
+    {
+      "id": 133,
+      "start": 331.18,
+      "end": 332.38,
+      "text": "For example, we're doing branch, branch,"
+    },
+    {
+      "id": 134,
+      "start": 332.38,
+      "end": 334.14,
+      "text": "branch, mis-predictions."
+    },
+    {
+      "id": 135,
+      "start": 334.14,
+      "end": 336.14,
+      "text": "Because we've got to do if then else is to figure out"
+    },
+    {
+      "id": 136,
+      "start": 336.14,
+      "end": 338.3,
+      "text": "whether we want to steal or not."
+    },
+    {
+      "id": 137,
+      "start": 338.3,
+      "end": 342.3,
+      "text": "So but again, now when I do lookups,"
+    },
+    {
+      "id": 138,
+      "start": 342.3,
+      "end": 349.38,
+      "text": "if I'm looking for E, for example, well, it could have been here,"
+    },
+    {
+      "id": 139,
+      "start": 349.38,
+      "end": 350.38,
+      "text": "but I'm going to get here."
+    },
+    {
+      "id": 140,
+      "start": 350.38,
+      "end": 353.7,
+      "text": "So I'm going to be one for your hop, doing the lookup."
+    },
+    {
+      "id": 141,
+      "start": 353.7,
+      "end": 357.94,
+      "text": "So again, is the tradeoff always the right thing to do"
+    },
+    {
+      "id": 142,
+      "start": 357.94,
+      "end": 360.22,
+      "text": "to pay higher costs on the right side"
+    },
+    {
+      "id": 143,
+      "start": 360.22,
+      "end": 362.26,
+      "text": "to make the read side go faster, or the build"
+    },
+    {
+      "id": 144,
+      "start": 362.26,
+      "end": 363.38,
+      "text": "side or the pro side?"
+    },
+    {
+      "id": 145,
+      "start": 363.38,
+      "end": 364.62,
+      "text": "Say anything about partitioning."
+    },
+    {
+      "id": 146,
+      "start": 364.62,
+      "end": 367.54,
+      "text": "It's a bunch of actual work I'm doing before I even do"
+    },
+    {
+      "id": 147,
+      "start": 367.54,
+      "end": 369.26,
+      "text": "the other two steps in my join."
+    },
+    {
+      "id": 148,
+      "start": 369.26,
+      "end": 371.66,
+      "text": "But ideally, I'm setting things up to make things faster"
+    },
+    {
+      "id": 149,
+      "start": 371.66,
+      "end": 375.38,
+      "text": "when I run later."
+    },
+    {
+      "id": 150,
+      "start": 375.38,
+      "end": 375.98,
+      "text": "Yes?"
+    },
+    {
+      "id": 151,
+      "start": 375.98,
+      "end": 376.98,
+      "text": "Let's do the lookup."
+    },
+    {
+      "id": 152,
+      "start": 376.98,
+      "end": 380.98,
+      "text": "Like you have to look for subsequent values."
+    },
+    {
+      "id": 153,
+      "start": 380.98,
+      "end": 384.58,
+      "text": "And otherwise, you might get false negative."
+    },
+    {
+      "id": 154,
+      "start": 384.58,
+      "end": 386.02,
+      "text": "Question is do you still look for values"
+    },
+    {
+      "id": 155,
+      "start": 386.02,
+      "end": 386.9,
+      "text": "otherwise you get a false negative?"
+    },
+    {
+      "id": 156,
+      "start": 386.9,
+      "end": 388.1,
+      "text": "Why would you get a false negative?"
+    },
+    {
+      "id": 157,
+      "start": 388.1,
+      "end": 388.62,
+      "text": "You can't."
+    },
+    {
+      "id": 158,
+      "start": 388.62,
+      "end": 390.62,
+      "text": "Because you don't know if definitely"
+    },
+    {
+      "id": 159,
+      "start": 390.62,
+      "end": 393.02,
+      "text": "at that position you expect to go to actually a"
+    },
+    {
+      "id": 160,
+      "start": 393.02,
+      "end": 395.42,
+      "text": "better position for the job."
+    },
+    {
+      "id": 161,
+      "start": 395.42,
+      "end": 399.54,
+      "text": "So if I'm looking for F, maybe I'm going back."
+    },
+    {
+      "id": 162,
+      "start": 399.54,
+      "end": 401.54,
+      "text": "Say I look for, what is it?"
+    },
+    {
+      "id": 163,
+      "start": 401.54,
+      "end": 404.94,
+      "text": "E, one of the B here, right?"
+    },
+    {
+      "id": 164,
+      "start": 404.94,
+      "end": 407.42,
+      "text": "Say I'm looking for D. So D was start here."
+    },
+    {
+      "id": 165,
+      "start": 407.42,
+      "end": 409.54,
+      "text": "D was a, what does it matter?"
+    },
+    {
+      "id": 166,
+      "start": 409.54,
+      "end": 411.18,
+      "text": "So say it starts here."
+    },
+    {
+      "id": 167,
+      "start": 411.18,
+      "end": 416.1,
+      "text": "I'm going to scan through until I find D or I find empty slot."
+    },
+    {
+      "id": 168,
+      "start": 416.1,
+      "end": 417.82,
+      "text": "But I find empty slot that I know doesn't exist."
+    },
+    {
+      "id": 169,
+      "start": 417.82,
+      "end": 419.06,
+      "text": "So I don't have a false negative."
+    },
+    {
+      "id": 170,
+      "start": 419.06,
+      "end": 420.34,
+      "text": "But you have to go to the back."
+    },
+    {
+      "id": 171,
+      "start": 420.34,
+      "end": 422.22,
+      "text": "But I would have to do that with linear probing anyway,"
+    },
+    {
+      "id": 172,
+      "start": 422.22,
+      "end": 426.02,
+      "text": "without Robin Hatch."
+    },
+    {
+      "id": 173,
+      "start": 426.02,
+      "end": 426.82,
+      "text": "Yes?"
+    },
+    {
+      "id": 174,
+      "start": 426.82,
+      "end": 430.02,
+      "text": "So it's all a job that doesn't mention that job should"
+    },
+    {
+      "id": 175,
+      "start": 430.02,
+      "end": 431.02,
+      "text": "be the same."
+    },
+    {
+      "id": 176,
+      "start": 431.7,
+      "end": 433.26,
+      "text": "Questions, what's our?"
+    },
+    {
+      "id": 177,
+      "start": 433.26,
+      "end": 439.1,
+      "text": "I mean, the total of the system is the same."
+    },
+    {
+      "id": 178,
+      "start": 439.1,
+      "end": 442.1,
+      "text": "Oh, sorry, this thing?"
+    },
+    {
+      "id": 179,
+      "start": 442.1,
+      "end": 444.38,
+      "text": "The every end of the summation of the system."
+    },
+    {
+      "id": 180,
+      "start": 444.38,
+      "end": 448.86,
+      "text": "The summation across all entries should be the same."
+    },
+    {
+      "id": 181,
+      "start": 448.86,
+      "end": 450.34,
+      "text": "As linear probing?"
+    },
+    {
+      "id": 182,
+      "start": 450.34,
+      "end": 452.38,
+      "text": "Yeah, I think yes."
+    },
+    {
+      "id": 183,
+      "start": 452.38,
+      "end": 453.94,
+      "text": "It's all over old age."
+    },
+    {
+      "id": 184,
+      "start": 453.94,
+      "end": 456.54,
+      "text": "There should be the same amount of field"
+    },
+    {
+      "id": 185,
+      "start": 456.54,
+      "end": 459.74,
+      "text": "in the unit to the actual number."
+    },
+    {
+      "id": 186,
+      "start": 460.7,
+      "end": 463.02,
+      "text": "He's pointing out and he's correct."
+    },
+    {
+      "id": 187,
+      "start": 463.02,
+      "end": 465.1,
+      "text": "Even though I'm rebalancing things"
+    },
+    {
+      "id": 188,
+      "start": 465.1,
+      "end": 469.66,
+      "text": "so that I try to minimize the jumps,"
+    },
+    {
+      "id": 189,
+      "start": 469.66,
+      "end": 472.3,
+      "text": "or the distance between one position for where it should have been,"
+    },
+    {
+      "id": 190,
+      "start": 472.3,
+      "end": 476.34,
+      "text": "it's the same as if I didn't do the shuffling thing."
+    },
+    {
+      "id": 191,
+      "start": 476.34,
+      "end": 478.98,
+      "text": "But depending on the keys, I'm trying to look up."
+    },
+    {
+      "id": 192,
+      "start": 478.98,
+      "end": 482.54,
+      "text": "I may be if I'm highly skewed on the looking up the same key"
+    },
+    {
+      "id": 193,
+      "start": 482.54,
+      "end": 485.26,
+      "text": "and over again, and that key is closer than what it should have been,"
+    },
+    {
+      "id": 194,
+      "start": 485.26,
+      "end": 486.66,
+      "text": "it might be in a better position."
+    },
+    {
+      "id": 195,
+      "start": 486.66,
+      "end": 488.3,
+      "text": "But you can't algorithmically prove that,"
+    },
+    {
+      "id": 196,
+      "start": 488.3,
+      "end": 489.7,
+      "text": "because it depends on the data."
+    },
+    {
+      "id": 197,
+      "start": 490.7,
+      "end": 491.62,
+      "text": "That's what I'm saying."
+    },
+    {
+      "id": 198,
+      "start": 491.62,
+      "end": 494.82,
+      "text": "You don't want to keep it as you can't algorithmically prove it."
+    },
+    {
+      "id": 199,
+      "start": 494.82,
+      "end": 500.42,
+      "text": "The goal is in practice that this works out for certain distributions of the data."
+    },
+    {
+      "id": 200,
+      "start": 500.42,
+      "end": 504.26,
+      "text": "Would you be able to prevent long scans"
+    },
+    {
+      "id": 201,
+      "start": 504.26,
+      "end": 507.74,
+      "text": "where the elements don't exist?"
+    },
+    {
+      "id": 202,
+      "start": 507.74,
+      "end": 509.86,
+      "text": "This question is, would you be able to prevent long scans"
+    },
+    {
+      "id": 203,
+      "start": 509.86,
+      "end": 512.46,
+      "text": "from data that does exist by putting a blueprint in front of this?"
+    },
+    {
+      "id": 204,
+      "start": 512.46,
+      "end": 513.98,
+      "text": "Yeah, we'll see this in the second joint."
+    },
+    {
+      "id": 205,
+      "start": 513.98,
+      "end": 515.66,
+      "text": "Yes."
+    },
+    {
+      "id": 206,
+      "start": 515.66,
+      "end": 517.46,
+      "text": "All right?"
+    },
+    {
+      "id": 207,
+      "start": 517.46,
+      "end": 520.7,
+      "text": "We hope the lymphocytes is everywhere."
+    },
+    {
+      "id": 208,
+      "start": 520.7,
+      "end": 525.06,
+      "text": "All right, so again, this one is,"
+    },
+    {
+      "id": 209,
+      "start": 525.06,
+      "end": 526.94,
+      "text": "this one can swap forever, right?"
+    },
+    {
+      "id": 210,
+      "start": 526.94,
+      "end": 531.06,
+      "text": "It doesn't try to bound the, how far it thinks actually going to be."
+    },
+    {
+      "id": 211,
+      "start": 531.06,
+      "end": 535.74,
+      "text": "The modern variation called hotscot-hashing is an extension of this,"
+    },
+    {
+      "id": 212,
+      "start": 535.74,
+      "end": 539.02,
+      "text": "but the idea is that we can still move things around,"
+    },
+    {
+      "id": 213,
+      "start": 539.02,
+      "end": 541.54,
+      "text": "like in Robinhood and hashing, but we only move things around"
+    },
+    {
+      "id": 214,
+      "start": 541.54,
+      "end": 544.18,
+      "text": "if it can be in the same neighborhood."
+    },
+    {
+      "id": 215,
+      "start": 544.18,
+      "end": 545.98,
+      "text": "There's a way to sort of artificially restrict"
+    },
+    {
+      "id": 216,
+      "start": 545.98,
+      "end": 550.02,
+      "text": "how far we can move something away from where it should have been."
+    },
+    {
+      "id": 217,
+      "start": 550.02,
+      "end": 554.46,
+      "text": "And if we can't find something in our neighborhood that we know it doesn't exist,"
+    },
+    {
+      "id": 218,
+      "start": 554.46,
+      "end": 557.22,
+      "text": "likewise, if we try to reshuffle things and there isn't room in the neighborhood"
+    },
+    {
+      "id": 219,
+      "start": 557.22,
+      "end": 559.7,
+      "text": "where something needs to go, then we say our hash table was too big"
+    },
+    {
+      "id": 220,
+      "start": 559.7,
+      "end": 564.34,
+      "text": "and we have to stop what we're doing and resize it."
+    },
+    {
+      "id": 221,
+      "start": 564.34,
+      "end": 567.34,
+      "text": "So the goal is, again, to have the cost of accessing a neighborhood"
+    },
+    {
+      "id": 222,
+      "start": 567.34,
+      "end": 571.02,
+      "text": "be the same as finding a key, because if we size our neighborhoods to be"
+    },
+    {
+      "id": 223,
+      "start": 571.02,
+      "end": 573.18,
+      "text": "then cache lines and things are nicely aligned,"
+    },
+    {
+      "id": 224,
+      "start": 573.22,
+      "end": 578.26,
+      "text": "then it doesn't matter whether we're looking for a key in the last position"
+    },
+    {
+      "id": 225,
+      "start": 578.26,
+      "end": 580.82,
+      "text": "of the neighborhood or the first key position of the neighborhood,"
+    },
+    {
+      "id": 226,
+      "start": 580.82,
+      "end": 586.7,
+      "text": "since we brought everything in our CPU cache anyway, it's the same."
+    },
+    {
+      "id": 227,
+      "start": 586.7,
+      "end": 590.54,
+      "text": "So for this one, for simplicity, we're going to say that our neighborhood size is three."
+    },
+    {
+      "id": 228,
+      "start": 590.54,
+      "end": 594.26,
+      "text": "So you would say for the first three slots, that's the neighborhood one,"
+    },
+    {
+      "id": 229,
+      "start": 594.26,
+      "end": 597.46,
+      "text": "next three slots, the neighborhood two and so forth, and they're overlapping."
+    },
+    {
+      "id": 230,
+      "start": 597.46,
+      "end": 600.9,
+      "text": "In the case of the last neighborhood, six, again, that's the last two positions"
+    },
+    {
+      "id": 231,
+      "start": 600.9,
+      "end": 603.7,
+      "text": "and then it wraps around. We have a seven would be here as well."
+    }
+  ],
+  "language": "en"
+}

@@ -1,0 +1,1415 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.4,
+      "text": "So what are the advantages and disadvantages?"
+    },
+    {
+      "id": 1,
+      "start": 2.4,
+      "end": 3.24,
+      "text": "Hash table."
+    },
+    {
+      "id": 2,
+      "start": 3.24,
+      "end": 5.16,
+      "text": "So we'll see arrow later on."
+    },
+    {
+      "id": 3,
+      "start": 5.16,
+      "end": 6.52,
+      "text": "Arrow does it this way because then you"
+    },
+    {
+      "id": 4,
+      "start": 6.52,
+      "end": 7.92,
+      "text": "don't have to serialize the hash table."
+    },
+    {
+      "id": 5,
+      "start": 7.92,
+      "end": 11.08,
+      "text": "You pre-sort everything and then jump into it more easily."
+    },
+    {
+      "id": 6,
+      "start": 11.08,
+      "end": 12.76,
+      "text": "What's the key if you just have a right"
+    },
+    {
+      "id": 7,
+      "start": 12.76,
+      "end": 15.88,
+      "text": "to go up to the right as it's indexed index?"
+    },
+    {
+      "id": 8,
+      "start": 15.88,
+      "end": 17.52,
+      "text": "Oh, no, it's a little more because they're variable."
+    },
+    {
+      "id": 9,
+      "start": 17.52,
+      "end": 18.48,
+      "text": "Think, yep."
+    },
+    {
+      "id": 10,
+      "start": 18.48,
+      "end": 20.28,
+      "text": "OK."
+    },
+    {
+      "id": 11,
+      "start": 20.28,
+      "end": 21.6,
+      "text": "Any of us sort of dictionary?"
+    },
+    {
+      "id": 12,
+      "start": 21.6,
+      "end": 25.2,
+      "text": "Again, you get all the dictionary bags ahead of time"
+    },
+    {
+      "id": 13,
+      "start": 25.2,
+      "end": 28.04,
+      "text": "and then you sort them."
+    },
+    {
+      "id": 14,
+      "start": 28.04,
+      "end": 30.8,
+      "text": "And then you, again, it's just like before you"
+    },
+    {
+      "id": 15,
+      "start": 30.8,
+      "end": 34.32,
+      "text": "have positioned into the dictionary or an offset,"
+    },
+    {
+      "id": 16,
+      "start": 34.32,
+      "end": 36.36,
+      "text": "the bite offset."
+    },
+    {
+      "id": 17,
+      "start": 36.36,
+      "end": 39.56,
+      "text": "But you can kind of see now, like here in this example here,"
+    },
+    {
+      "id": 18,
+      "start": 39.56,
+      "end": 41.64,
+      "text": "like I have Andy repeated a bunch of times."
+    },
+    {
+      "id": 19,
+      "start": 41.64,
+      "end": 45.56,
+      "text": "Well, one is now I've heard things to integers"
+    },
+    {
+      "id": 20,
+      "start": 45.56,
+      "end": 47.12,
+      "text": "in my dictionary codes."
+    },
+    {
+      "id": 21,
+      "start": 47.12,
+      "end": 49.0,
+      "text": "But now I have repeated values."
+    },
+    {
+      "id": 22,
+      "start": 49.0,
+      "end": 53.72,
+      "text": "So then I can take this and say, oh, I have four twos in a row."
+    },
+    {
+      "id": 23,
+      "start": 53.72,
+      "end": 55.76,
+      "text": "Let me compress that with RLE."
+    },
+    {
+      "id": 24,
+      "start": 55.76,
+      "end": 58.64,
+      "text": "Or I could do, you know, delta encoding"
+    },
+    {
+      "id": 25,
+      "start": 58.64,
+      "end": 60.56,
+      "text": "or sort of frame reference."
+    },
+    {
+      "id": 26,
+      "start": 60.56,
+      "end": 62.68,
+      "text": "Where now I just say, OK, these are all integers."
+    },
+    {
+      "id": 27,
+      "start": 62.68,
+      "end": 64.36,
+      "text": "They're all in a small domain because I only have four"
+    },
+    {
+      "id": 28,
+      "start": 64.36,
+      "end": 66.24,
+      "text": "different unique values in my dictionary."
+    },
+    {
+      "id": 29,
+      "start": 66.24,
+      "end": 68.96,
+      "text": "And I can then compress these things."
+    },
+    {
+      "id": 30,
+      "start": 68.96,
+      "end": 70.04,
+      "text": "Yes?"
+    },
+    {
+      "id": 31,
+      "start": 70.04,
+      "end": 75.08,
+      "text": "When we talked about doing a conversing variable values"
+    },
+    {
+      "id": 32,
+      "start": 75.08,
+      "end": 77.0,
+      "text": "in a single column, we talked about the linear"
+    },
+    {
+      "id": 33,
+      "start": 77.0,
+      "end": 78.32,
+      "text": "linear linear engineering question."
+    },
+    {
+      "id": 34,
+      "start": 78.32,
+      "end": 80.48,
+      "text": "But what happens if the number of distinct values"
+    },
+    {
+      "id": 35,
+      "start": 80.48,
+      "end": 85.72,
+      "text": "extremely high for very strange to do indirect something?"
+    },
+    {
+      "id": 36,
+      "start": 85.72,
+      "end": 86.72,
+      "text": "Oh."
+    },
+    {
+      "id": 37,
+      "start": 86.72,
+      "end": 87.72,
+      "text": "Yeah, it's questions."
+    },
+    {
+      "id": 38,
+      "start": 87.72,
+      "end": 92.56,
+      "text": "OK, so if I recognize that I have a bunch of random strings"
+    },
+    {
+      "id": 39,
+      "start": 92.56,
+      "end": 95.84,
+      "text": "and I can't do dictionary encoding,"
+    },
+    {
+      "id": 40,
+      "start": 95.84,
+      "end": 97.12,
+      "text": "but now I have a bunch of very long data."
+    },
+    {
+      "id": 41,
+      "start": 97.12,
+      "end": 97.96,
+      "text": "How do I handle that?"
+    },
+    {
+      "id": 42,
+      "start": 97.96,
+      "end": 98.76,
+      "text": "You have auxiliary data."
+    },
+    {
+      "id": 43,
+      "start": 98.76,
+      "end": 101.64,
+      "text": "And then now you're just storing the offsets into that blob."
+    },
+    {
+      "id": 44,
+      "start": 107.88,
+      "end": 109.92,
+      "text": "OK, so a couple of design situations"
+    },
+    {
+      "id": 45,
+      "start": 109.92,
+      "end": 112.2,
+      "text": "we have to make is what data we actually"
+    },
+    {
+      "id": 46,
+      "start": 112.2,
+      "end": 113.92,
+      "text": "want to be compressed with dictionary encoding."
+    },
+    {
+      "id": 47,
+      "start": 114.2,
+      "end": 115.0,
+      "text": "We're running short of time."
+    },
+    {
+      "id": 48,
+      "start": 115.0,
+      "end": 115.52,
+      "text": "Sorry."
+    },
+    {
+      "id": 49,
+      "start": 115.52,
+      "end": 117.0,
+      "text": "You know, it's all I'm going to get to."
+    },
+    {
+      "id": 50,
+      "start": 117.0,
+      "end": 117.76,
+      "text": "Sorry."
+    },
+    {
+      "id": 51,
+      "start": 117.76,
+      "end": 119.76,
+      "text": "So as I said before, parquet, they"
+    },
+    {
+      "id": 52,
+      "start": 119.76,
+      "end": 120.48,
+      "text": "compress everything."
+    },
+    {
+      "id": 53,
+      "start": 120.48,
+      "end": 122.52,
+      "text": "Flows, integers, strings, dates, right?"
+    },
+    {
+      "id": 54,
+      "start": 122.52,
+      "end": 123.84,
+      "text": "They have again small and reprimanded types,"
+    },
+    {
+      "id": 55,
+      "start": 123.84,
+      "end": 125.84,
+      "text": "they compress all that."
+    },
+    {
+      "id": 56,
+      "start": 125.84,
+      "end": 128.8,
+      "text": "In ORC, they only compress strings."
+    },
+    {
+      "id": 57,
+      "start": 128.8,
+      "end": 135.52,
+      "text": "And this seems like common sense because most of the variability"
+    },
+    {
+      "id": 58,
+      "start": 135.52,
+      "end": 138.36,
+      "text": "you can see is for the randomness you"
+    },
+    {
+      "id": 59,
+      "start": 138.36,
+      "end": 140.2,
+      "text": "would see in values are going to be mostly,"
+    },
+    {
+      "id": 60,
+      "start": 140.2,
+      "end": 142.48,
+      "text": "or sorry, the repeated values will be in strings,"
+    },
+    {
+      "id": 61,
+      "start": 142.48,
+      "end": 146.88,
+      "text": "not in integers and flits, right?"
+    },
+    {
+      "id": 62,
+      "start": 146.88,
+      "end": 148.44,
+      "text": "But when we did our analysis, it actually"
+    },
+    {
+      "id": 63,
+      "start": 148.44,
+      "end": 150.44,
+      "text": "turned out to be the work way."
+    },
+    {
+      "id": 64,
+      "start": 150.44,
+      "end": 153.2,
+      "text": "Sorry, the parquet way is better."
+    },
+    {
+      "id": 65,
+      "start": 153.2,
+      "end": 157.72,
+      "text": "Next question is, can you compress the encoded data?"
+    },
+    {
+      "id": 66,
+      "start": 157.72,
+      "end": 159.2,
+      "text": "So parquet is pretty simplistic."
+    },
+    {
+      "id": 67,
+      "start": 159.2,
+      "end": 161.0,
+      "text": "They'll just do RLE and bitpacking."
+    },
+    {
+      "id": 68,
+      "start": 161.0,
+      "end": 165.36,
+      "text": "Again, bitpacking is just saying, oh, I recognize that my dictionary"
+    },
+    {
+      "id": 69,
+      "start": 165.36,
+      "end": 169.96,
+      "text": "codes are 33 bit integers, but my values are within 0 to 20."
+    },
+    {
+      "id": 70,
+      "start": 169.96,
+      "end": 171.56,
+      "text": "So I can use 8 bit integers for that,"
+    },
+    {
+      "id": 71,
+      "start": 171.56,
+      "end": 173.04,
+      "text": "for even some smaller amount."
+    },
+    {
+      "id": 72,
+      "start": 173.04,
+      "end": 174.92,
+      "text": "And now my column gets compressed even further."
+    },
+    {
+      "id": 73,
+      "start": 174.92,
+      "end": 177.36,
+      "text": "And then I've had repeated values that can do RLE on that."
+    },
+    {
+      "id": 74,
+      "start": 177.36,
+      "end": 181.0,
+      "text": "But again, they only kick RLE, only kicks in"
+    },
+    {
+      "id": 75,
+      "start": 181.0,
+      "end": 182.96,
+      "text": "if you have 8 or more values."
+    },
+    {
+      "id": 76,
+      "start": 182.96,
+      "end": 184.48,
+      "text": "In ORC, they have a bunch of different things"
+    },
+    {
+      "id": 77,
+      "start": 184.48,
+      "end": 185.72,
+      "text": "you could do, right?"
+    },
+    {
+      "id": 78,
+      "start": 185.72,
+      "end": 189.72,
+      "text": "RLE, delta encoding, bitpacking, frame of reference."
+    },
+    {
+      "id": 79,
+      "start": 189.72,
+      "end": 191.32,
+      "text": "And they basically have a greedy algorithm."
+    },
+    {
+      "id": 80,
+      "start": 191.32,
+      "end": 193.8,
+      "text": "They look ahead and the buffer to try"
+    },
+    {
+      "id": 81,
+      "start": 193.8,
+      "end": 195.04,
+      "text": "to figure out what the data looks like,"
+    },
+    {
+      "id": 82,
+      "start": 195.04,
+      "end": 197.24,
+      "text": "run some heuristics to figure out which of these approaches"
+    },
+    {
+      "id": 83,
+      "start": 197.24,
+      "end": 200.04,
+      "text": "is the best, right?"
+    },
+    {
+      "id": 84,
+      "start": 200.04,
+      "end": 201.72,
+      "text": "It always tries to use RLE first."
+    },
+    {
+      "id": 85,
+      "start": 201.72,
+      "end": 203.2,
+      "text": "And then if you can't, then it drives delta."
+    },
+    {
+      "id": 86,
+      "start": 203.2,
+      "end": 205.24,
+      "text": "And then if you can't do that, it uses either bitpacking"
+    },
+    {
+      "id": 87,
+      "start": 205.24,
+      "end": 208.08,
+      "text": "or frame of reference."
+    },
+    {
+      "id": 88,
+      "start": 208.08,
+      "end": 211.52,
+      "text": "And then another design station is the dictionary that's"
+    },
+    {
+      "id": 89,
+      "start": 211.52,
+      "end": 213.72,
+      "text": "being generated for this encoded values."
+    },
+    {
+      "id": 90,
+      "start": 213.72,
+      "end": 218.0,
+      "text": "Do you expose that to the outside of the file format,"
+    },
+    {
+      "id": 91,
+      "start": 218.0,
+      "end": 221.48,
+      "text": "or the library that's processing the file?"
+    },
+    {
+      "id": 92,
+      "start": 221.48,
+      "end": 222.88,
+      "text": "Let me take a guess why you'd want to do that."
+    },
+    {
+      "id": 93,
+      "start": 222.88,
+      "end": 230.0,
+      "text": "So we'll go back here."
+    },
+    {
+      "id": 94,
+      "start": 230.0,
+      "end": 239.6,
+      "text": "So say I want to look up, find all the, my query is,"
+    },
+    {
+      "id": 95,
+      "start": 239.6,
+      "end": 245.2,
+      "text": "select count from the table where name equals Andy."
+    },
+    {
+      "id": 96,
+      "start": 245.2,
+      "end": 250.56,
+      "text": "So if I can then look at the dictionary,"
+    },
+    {
+      "id": 97,
+      "start": 250.56,
+      "end": 251.88,
+      "text": "I can eat the zoom as I go to the zoom out."
+    },
+    {
+      "id": 98,
+      "start": 251.88,
+      "end": 255.52,
+      "text": "Whether it's any is even there or not."
+    },
+    {
+      "id": 99,
+      "start": 255.52,
+      "end": 257.92,
+      "text": "Or select more."
+    },
+    {
+      "id": 100,
+      "start": 257.92,
+      "end": 259.88,
+      "text": "What's that?"
+    },
+    {
+      "id": 101,
+      "start": 259.88,
+      "end": 265.4,
+      "text": "It seems like a range dictionary."
+    },
+    {
+      "id": 102,
+      "start": 265.4,
+      "end": 266.4,
+      "text": "So range query, maybe I'll say,"
+    },
+    {
+      "id": 103,
+      "start": 266.4,
+      "end": 269.4,
+      "text": "you have a sort of dictionary."
+    },
+    {
+      "id": 104,
+      "start": 269.4,
+      "end": 272.4,
+      "text": "Yeah, you want to count all the unique values"
+    },
+    {
+      "id": 105,
+      "start": 272.4,
+      "end": 273.6,
+      "text": "within a given range."
+    },
+    {
+      "id": 106,
+      "start": 273.6,
+      "end": 276.08,
+      "text": "I could do that by looking at the dictionary."
+    },
+    {
+      "id": 107,
+      "start": 276.08,
+      "end": 278.12,
+      "text": "It's another example."
+    },
+    {
+      "id": 108,
+      "start": 278.12,
+      "end": 281.16,
+      "text": "So parking or do not do this."
+    },
+    {
+      "id": 109,
+      "start": 281.16,
+      "end": 284.44,
+      "text": "So in the library implementations, when you say scan some column,"
+    },
+    {
+      "id": 110,
+      "start": 284.44,
+      "end": 287.12,
+      "text": "you basically get an iterator through their library."
+    },
+    {
+      "id": 111,
+      "start": 287.12,
+      "end": 289.4,
+      "text": "And that's going to give you back the columns that you"
+    },
+    {
+      "id": 112,
+      "start": 289.4,
+      "end": 292.4,
+      "text": "were asked for in their original form."
+    },
+    {
+      "id": 113,
+      "start": 292.4,
+      "end": 293.76,
+      "text": "So underneath the cover is the library"
+    },
+    {
+      "id": 114,
+      "start": 293.76,
+      "end": 297.92,
+      "text": "is doing all the decoding, depressing for you."
+    },
+    {
+      "id": 115,
+      "start": 297.92,
+      "end": 301.04,
+      "text": "So again, that means that you can't really push down"
+    },
+    {
+      "id": 116,
+      "start": 301.04,
+      "end": 303.88,
+      "text": "predicates all the way down to the lowest level of looking"
+    },
+    {
+      "id": 117,
+      "start": 303.88,
+      "end": 305.4,
+      "text": "at the file itself."
+    },
+    {
+      "id": 118,
+      "start": 305.4,
+      "end": 309.68,
+      "text": "You do have to do whatever the library spits out back to you."
+    },
+    {
+      "id": 119,
+      "start": 309.68,
+      "end": 311.92,
+      "text": "So this is in recognized as a problem."
+    },
+    {
+      "id": 120,
+      "start": 311.92,
+      "end": 315.8,
+      "text": "So there's a paper we're not going to cover from Google"
+    },
+    {
+      "id": 121,
+      "start": 315.8,
+      "end": 317.6,
+      "text": "for a system called Prasella."
+    },
+    {
+      "id": 122,
+      "start": 317.6,
+      "end": 321.92,
+      "text": "This was developed at in-house for YouTube to process,"
+    },
+    {
+      "id": 123,
+      "start": 321.92,
+      "end": 325.88,
+      "text": "do analytics, but also serving data online manner, which"
+    },
+    {
+      "id": 124,
+      "start": 325.88,
+      "end": 327.16,
+      "text": "we don't want to care about right now."
+    },
+    {
+      "id": 125,
+      "start": 327.16,
+      "end": 329.0,
+      "text": "But there's this little blurb here."
+    },
+    {
+      "id": 126,
+      "start": 329.0,
+      "end": 331.88,
+      "text": "They developed their own file system, or so a file format."
+    },
+    {
+      "id": 127,
+      "start": 331.88,
+      "end": 334.16,
+      "text": "Instead of using Oracle Parkay called Artists."
+    },
+    {
+      "id": 128,
+      "start": 334.16,
+      "end": 335.84,
+      "text": "And one advantage they talk about in Artists"
+    },
+    {
+      "id": 129,
+      "start": 336.12,
+      "end": 339.04,
+      "text": "is that, oh, they actually expose the dictionary to the query"
+    },
+    {
+      "id": 130,
+      "start": 339.04,
+      "end": 341.8,
+      "text": "engine so that you can do the predicate push down"
+    },
+    {
+      "id": 131,
+      "start": 341.8,
+      "end": 344.32,
+      "text": "that you want to do."
+    },
+    {
+      "id": 132,
+      "start": 344.32,
+      "end": 346.24,
+      "text": "So this is something I said I meant before."
+    },
+    {
+      "id": 133,
+      "start": 346.24,
+      "end": 347.76,
+      "text": "This is a known problem parking work."
+    },
+    {
+      "id": 134,
+      "start": 347.76,
+      "end": 351.28,
+      "text": "And then the newer stuff that people are looking at,"
+    },
+    {
+      "id": 135,
+      "start": 351.28,
+      "end": 353.16,
+      "text": "once the solve the problem is exposed"
+    },
+    {
+      "id": 136,
+      "start": 353.16,
+      "end": 355.76,
+      "text": "to you what the dictionary is."
+    },
+    {
+      "id": 137,
+      "start": 355.76,
+      "end": 358.28,
+      "text": "Because then now you can do evaluation directly"
+    },
+    {
+      "id": 138,
+      "start": 358.28,
+      "end": 361.6,
+      "text": "in compressed data by compressing your predicate"
+    },
+    {
+      "id": 139,
+      "start": 361.6,
+      "end": 364.08,
+      "text": "and then comparing your predicate versus the compressed data"
+    },
+    {
+      "id": 140,
+      "start": 364.16,
+      "end": 365.88,
+      "text": "rather than decompressing everything first."
+    },
+    {
+      "id": 141,
+      "start": 369.2,
+      "end": 371.76,
+      "text": "Next thing is do block compression."
+    },
+    {
+      "id": 142,
+      "start": 371.76,
+      "end": 373.72,
+      "text": "And this is basically taking off the shelf,"
+    },
+    {
+      "id": 143,
+      "start": 373.72,
+      "end": 377.52,
+      "text": "naive, general purpose, compression algorithm"
+    },
+    {
+      "id": 144,
+      "start": 377.52,
+      "end": 380.0,
+      "text": "to take the blocks, the row groups, and just run that"
+    },
+    {
+      "id": 145,
+      "start": 380.0,
+      "end": 382.28,
+      "text": "and compress it."
+    },
+    {
+      "id": 146,
+      "start": 382.28,
+      "end": 385.56,
+      "text": "And the paper talks about parking work."
+    },
+    {
+      "id": 147,
+      "start": 385.56,
+      "end": 387.84,
+      "text": "I mean, the default is snappy."
+    },
+    {
+      "id": 148,
+      "start": 387.84,
+      "end": 390.56,
+      "text": "The modern, the best compression algorithm"
+    },
+    {
+      "id": 149,
+      "start": 390.56,
+      "end": 392.96,
+      "text": "you want to use right now is actually Z standard from Facebook."
+    },
+    {
+      "id": 150,
+      "start": 392.96,
+      "end": 395.04,
+      "text": "There's a newer version that's not out yet."
+    },
+    {
+      "id": 151,
+      "start": 395.04,
+      "end": 397.24,
+      "text": "It's called something different."
+    },
+    {
+      "id": 152,
+      "start": 397.24,
+      "end": 400.04,
+      "text": "That supposedly is better, but parking work, again,"
+    },
+    {
+      "id": 153,
+      "start": 400.04,
+      "end": 403.12,
+      "text": "may come with snappy because that was the thing back"
+    },
+    {
+      "id": 154,
+      "start": 403.12,
+      "end": 406.76,
+      "text": "in the day when those fault arts are invented."
+    },
+    {
+      "id": 155,
+      "start": 406.76,
+      "end": 409.76,
+      "text": "So there's this, the things you have to consider,"
+    },
+    {
+      "id": 156,
+      "start": 409.76,
+      "end": 411.4,
+      "text": "whether you actually want to do this or not,"
+    },
+    {
+      "id": 157,
+      "start": 411.4,
+      "end": 415.44,
+      "text": "is whether you're willing to pay the computational overhead"
+    },
+    {
+      "id": 158,
+      "start": 415.44,
+      "end": 417.28,
+      "text": "of decompression or decompression of the data,"
+    },
+    {
+      "id": 159,
+      "start": 417.28,
+      "end": 419.68,
+      "text": "the blocks when it comes back, even though it's already"
+    },
+    {
+      "id": 160,
+      "start": 419.68,
+      "end": 421.32,
+      "text": "been encoded with one dictionary and coding"
+    },
+    {
+      "id": 161,
+      "start": 421.32,
+      "end": 422.16,
+      "text": "of other schemes."
+    },
+    {
+      "id": 162,
+      "start": 422.16,
+      "end": 425.08,
+      "text": "You can still get some compression benefits,"
+    },
+    {
+      "id": 163,
+      "start": 425.08,
+      "end": 428.12,
+      "text": "but now it's going to make processing the data much slower"
+    },
+    {
+      "id": 164,
+      "start": 428.12,
+      "end": 430.04,
+      "text": "because you have to do this extra step to decompress it."
+    },
+    {
+      "id": 165,
+      "start": 430.04,
+      "end": 432.92,
+      "text": "Because these are opaque compression schemes."
+    },
+    {
+      "id": 166,
+      "start": 432.92,
+      "end": 435.8,
+      "text": "Meaning if I run something through snappy or Z standard,"
+    },
+    {
+      "id": 167,
+      "start": 435.8,
+      "end": 437.64,
+      "text": "the bytes come out, the data system"
+    },
+    {
+      "id": 168,
+      "start": 437.64,
+      "end": 439.56,
+      "text": "is known with this bytes mean."
+    },
+    {
+      "id": 169,
+      "start": 439.56,
+      "end": 441.36,
+      "text": "And I can't jump to arbitrary offsets with them"
+    },
+    {
+      "id": 170,
+      "start": 441.36,
+      "end": 442.92,
+      "text": "and to go find data I'm looking for,"
+    },
+    {
+      "id": 171,
+      "start": 442.92,
+      "end": 445.04,
+      "text": "I've got to decompress the whole block."
+    },
+    {
+      "id": 172,
+      "start": 445.04,
+      "end": 448.12,
+      "text": "And again, this made sense in 2013, 2012,"
+    },
+    {
+      "id": 173,
+      "start": 448.12,
+      "end": 450.08,
+      "text": "when these fault formats were designed,"
+    },
+    {
+      "id": 174,
+      "start": 450.08,
+      "end": 453.0,
+      "text": "because disk was slow, net was slow."
+    },
+    {
+      "id": 175,
+      "start": 453.0,
+      "end": 454.76,
+      "text": "So if I can reduce the amount of data"
+    },
+    {
+      "id": 176,
+      "start": 454.76,
+      "end": 459.12,
+      "text": "at the go read from some local source"
+    },
+    {
+      "id": 177,
+      "start": 459.12,
+      "end": 461.24,
+      "text": "I would restore it and bring it to my memory,"
+    },
+    {
+      "id": 178,
+      "start": 461.24,
+      "end": 465.4,
+      "text": "then I'm willing to pay that CPU cost."
+    },
+    {
+      "id": 179,
+      "start": 465.4,
+      "end": 467.92,
+      "text": "But things have changed a lot now."
+    },
+    {
+      "id": 180,
+      "start": 467.92,
+      "end": 471.08,
+      "text": "The CPU's actually one of the slower things."
+    },
+    {
+      "id": 181,
+      "start": 471.08,
+      "end": 473.16,
+      "text": "So this actually doesn't make sense anymore."
+    },
+    {
+      "id": 182,
+      "start": 473.16,
+      "end": 473.68,
+      "text": "All right."
+    },
+    {
+      "id": 183,
+      "start": 476.44,
+      "end": 479.8,
+      "text": "So the additional metadata we can keep track of are the filters."
+    },
+    {
+      "id": 184,
+      "start": 479.8,
+      "end": 481.68,
+      "text": "So the only two types of filters that they would have"
+    },
+    {
+      "id": 185,
+      "start": 481.68,
+      "end": 484.28,
+      "text": "are zone maps and blue filters."
+    },
+    {
+      "id": 186,
+      "start": 484.28,
+      "end": 486.6,
+      "text": "Again, I remember, even though the paper calls it a page index,"
+    },
+    {
+      "id": 187,
+      "start": 486.6,
+      "end": 488.8,
+      "text": "what's the difference between the index and a filter?"
+    },
+    {
+      "id": 188,
+      "start": 493.08,
+      "end": 496.2,
+      "text": "Index tells you where something is and what if it exists?"
+    },
+    {
+      "id": 189,
+      "start": 496.2,
+      "end": 498.92,
+      "text": "A filter tells you something could exist or does exist."
+    },
+    {
+      "id": 190,
+      "start": 498.92,
+      "end": 500.84,
+      "text": "Doesn't tell you where it is though."
+    },
+    {
+      "id": 191,
+      "start": 500.84,
+      "end": 503.0,
+      "text": "So zone maps can say here's my minimax value."
+    },
+    {
+      "id": 192,
+      "start": 503.0,
+      "end": 505.84,
+      "text": "So I'm trying to find something within a given range."
+    },
+    {
+      "id": 193,
+      "start": 505.84,
+      "end": 508.32,
+      "text": "If it's in that minimax range, then it exists,"
+    },
+    {
+      "id": 194,
+      "start": 508.32,
+      "end": 509.28,
+      "text": "but I don't know where it is."
+    },
+    {
+      "id": 195,
+      "start": 509.8,
+      "end": 511.88,
+      "text": "I got to go to a Swential Scan to find it."
+    },
+    {
+      "id": 196,
+      "start": 511.88,
+      "end": 514.84,
+      "text": "Whereas a V plus G would say, hey, you're at this offset,"
+    },
+    {
+      "id": 197,
+      "start": 514.84,
+      "end": 517.36,
+      "text": "which we don't care about."
+    },
+    {
+      "id": 198,
+      "start": 517.36,
+      "end": 520.76,
+      "text": "So we're ready to write zone maps."
+    },
+    {
+      "id": 199,
+      "start": 520.76,
+      "end": 522.2,
+      "text": "And again, my default parking or going"
+    },
+    {
+      "id": 200,
+      "start": 522.2,
+      "end": 524.64,
+      "text": "to start on the zone maps in the header, each group,"
+    },
+    {
+      "id": 201,
+      "start": 524.64,
+      "end": 526.0,
+      "text": "you can store it in the file level,"
+    },
+    {
+      "id": 202,
+      "start": 526.0,
+      "end": 528.6,
+      "text": "but I don't think that's on my default."
+    },
+    {
+      "id": 203,
+      "start": 528.6,
+      "end": 531.84,
+      "text": "And then for blue filters, within each row group,"
+    },
+    {
+      "id": 204,
+      "start": 531.84,
+      "end": 535.16,
+      "text": "they can keep track of whether a value could exist"
+    },
+    {
+      "id": 205,
+      "start": 535.16,
+      "end": 537.64,
+      "text": "for a given column."
+    },
+    {
+      "id": 206,
+      "start": 537.64,
+      "end": 540.16,
+      "text": "Again, a blue filter is a probabilistic data structure."
+    },
+    {
+      "id": 207,
+      "start": 540.16,
+      "end": 542.96,
+      "text": "It can tell you definitely that something does not exist,"
+    },
+    {
+      "id": 208,
+      "start": 542.96,
+      "end": 546.64,
+      "text": "but it could tell you that something may exist."
+    },
+    {
+      "id": 209,
+      "start": 546.64,
+      "end": 549.48,
+      "text": "You can get false positives, but not false negatives."
+    },
+    {
+      "id": 210,
+      "start": 549.48,
+      "end": 550.08,
+      "text": "Yes."
+    },
+    {
+      "id": 211,
+      "start": 550.08,
+      "end": 553.08,
+      "text": "Why does it matter if it's a cluster of both blue?"
+    },
+    {
+      "id": 212,
+      "start": 553.08,
+      "end": 555.52,
+      "text": "So why does it matter whether values are"
+    },
+    {
+      "id": 213,
+      "start": 555.52,
+      "end": 558.76,
+      "text": "closer for a blue filter?"
+    },
+    {
+      "id": 214,
+      "start": 558.76,
+      "end": 561.64,
+      "text": "Because the, have you seen this?"
+    },
+    {
+      "id": 215,
+      "start": 561.64,
+      "end": 564.48,
+      "text": "Let me see this."
+    },
+    {
+      "id": 216,
+      "start": 564.48,
+      "end": 565.84,
+      "text": "Yes, I have a good question."
+    },
+    {
+      "id": 217,
+      "start": 565.84,
+      "end": 568.16,
+      "text": "I don't know why I wrote that."
+    },
+    {
+      "id": 218,
+      "start": 568.16,
+      "end": 570.2,
+      "text": "It doesn't matter what order you reserve."
+    },
+    {
+      "id": 219,
+      "start": 570.2,
+      "end": 571.16,
+      "text": "It's the ones that's there."
+    },
+    {
+      "id": 220,
+      "start": 571.16,
+      "end": 572.96,
+      "text": "Because you hash it in the scatter."
+    },
+    {
+      "id": 221,
+      "start": 572.96,
+      "end": 574.8,
+      "text": "It's not as much like multiple blue filters"
+    },
+    {
+      "id": 222,
+      "start": 574.8,
+      "end": 577.24,
+      "text": "like in different parts of the data."
+    },
+    {
+      "id": 223,
+      "start": 577.24,
+      "end": 579.52,
+      "text": "So you have the clusters that you can"
+    },
+    {
+      "id": 224,
+      "start": 579.52,
+      "end": 581.04,
+      "text": "sort of do the sort of like one part."
+    },
+    {
+      "id": 225,
+      "start": 581.04,
+      "end": 584.36,
+      "text": "Now this might be for this, right?"
+    },
+    {
+      "id": 226,
+      "start": 584.36,
+      "end": 586.32,
+      "text": "This, yeah, this, sorry, this is a type of,"
+    },
+    {
+      "id": 227,
+      "start": 586.32,
+      "end": 587.52,
+      "text": "this should be for this."
+    },
+    {
+      "id": 228,
+      "start": 587.52,
+      "end": 588.72,
+      "text": "Zone map matters with the cluster,"
+    },
+    {
+      "id": 229,
+      "start": 588.72,
+      "end": 590.68,
+      "text": "because now the range will be much smaller,"
+    },
+    {
+      "id": 230,
+      "start": 590.68,
+      "end": 592.16,
+      "text": "and I can throw things out, right?"
+    },
+    {
+      "id": 231,
+      "start": 592.16,
+      "end": 594.92,
+      "text": "If it's 0 to infinity, then that's a useless zone map."
+    },
+    {
+      "id": 232,
+      "start": 594.92,
+      "end": 596.0,
+      "text": "Yes, sorry, this should be for this."
+    },
+    {
+      "id": 233,
+      "start": 596.0,
+      "end": 597.72,
+      "text": "Thank you."
+    },
+    {
+      "id": 234,
+      "start": 597.72,
+      "end": 600.24,
+      "text": "Real quick, the slip, slip lock, blue filter is base."
+    }
+  ],
+  "language": "en"
+}

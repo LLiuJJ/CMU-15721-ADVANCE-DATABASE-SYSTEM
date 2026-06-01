@@ -1,0 +1,341 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.28,
+      "text": "That was a great idea too, like a sequel-liver analytics"
+    },
+    {
+      "id": 1,
+      "start": 3.28,
+      "end": 6.32,
+      "text": "to be an embedded database, hyper number or not."
+    },
+    {
+      "id": 2,
+      "start": 6.32,
+      "end": 8.92,
+      "text": "So the combination of that packaging"
+    },
+    {
+      "id": 3,
+      "start": 8.92,
+      "end": 10.44,
+      "text": "plus the idea of some hyper and number"
+    },
+    {
+      "id": 4,
+      "start": 10.44,
+      "end": 14.48,
+      "text": "and improvements of it, certainly, the phenomenal."
+    },
+    {
+      "id": 5,
+      "start": 14.48,
+      "end": 15.92,
+      "text": "That was a really good idea."
+    },
+    {
+      "id": 6,
+      "start": 15.92,
+      "end": 18.56,
+      "text": "And for me, we were betting a system that I wanted to be,"
+    },
+    {
+      "id": 7,
+      "start": 18.56,
+      "end": 22.48,
+      "text": "have adoption outside of CMU, but I was putting all my eggs"
+    },
+    {
+      "id": 8,
+      "start": 22.48,
+      "end": 25.68,
+      "text": "in the basket on in memory databases."
+    },
+    {
+      "id": 9,
+      "start": 25.68,
+      "end": 28.68,
+      "text": "And that certainly did not pan out, because Deer and Prices"
+    },
+    {
+      "id": 10,
+      "start": 28.68,
+      "end": 30.16,
+      "text": "could have stayed stagnated."
+    },
+    {
+      "id": 11,
+      "start": 30.16,
+      "end": 34.88,
+      "text": "And SSDs got really fast and really cheap."
+    },
+    {
+      "id": 12,
+      "start": 34.88,
+      "end": 39.44,
+      "text": "And so memory databases aren't invoked anymore."
+    },
+    {
+      "id": 13,
+      "start": 39.44,
+      "end": 41.64,
+      "text": "Everything is always SSD based."
+    },
+    {
+      "id": 14,
+      "start": 41.64,
+      "end": 42.76,
+      "text": "So."
+    },
+    {
+      "id": 15,
+      "start": 42.76,
+      "end": 45.8,
+      "text": "And we had other complications that I could take off on."
+    },
+    {
+      "id": 16,
+      "start": 45.8,
+      "end": 47.72,
+      "text": "So again, I think DuckDB is a great system."
+    },
+    {
+      "id": 17,
+      "start": 47.72,
+      "end": 48.48,
+      "text": "And I use it."
+    },
+    {
+      "id": 18,
+      "start": 48.48,
+      "end": 50.36,
+      "text": "Like, this is my default choice of like, oh, I got a CSV."
+    },
+    {
+      "id": 19,
+      "start": 50.36,
+      "end": 52.48,
+      "text": "I got to do some analyzing on it."
+    },
+    {
+      "id": 20,
+      "start": 52.48,
+      "end": 55.48,
+      "text": "It used to be open up Excel or whatever, Google Sheets,"
+    },
+    {
+      "id": 21,
+      "start": 55.48,
+      "end": 57.24,
+      "text": "Nounced DuckDB."
+    },
+    {
+      "id": 22,
+      "start": 57.24,
+      "end": 58.48,
+      "text": "So you should have that in your mind."
+    },
+    {
+      "id": 23,
+      "start": 58.48,
+      "end": 63.0,
+      "text": "So like, throw DuckDB at everything for quick and dirty things."
+    },
+    {
+      "id": 24,
+      "start": 63.0,
+      "end": 65.72,
+      "text": "All right, so next class, we're going to be about Yellowbrick."
+    },
+    {
+      "id": 25,
+      "start": 65.72,
+      "end": 66.92,
+      "text": "And as I said before, the reason why we're"
+    },
+    {
+      "id": 26,
+      "start": 66.92,
+      "end": 70.24,
+      "text": "reading this paper, which also just came out in 2024,"
+    },
+    {
+      "id": 27,
+      "start": 70.24,
+      "end": 71.88,
+      "text": "is they're going to do a bunch of low-level things"
+    },
+    {
+      "id": 28,
+      "start": 71.88,
+      "end": 74.24,
+      "text": "that nobody else does."
+    },
+    {
+      "id": 29,
+      "start": 74.24,
+      "end": 76.96,
+      "text": "That we talked a little bit about this semester,"
+    },
+    {
+      "id": 30,
+      "start": 76.96,
+      "end": 79.12,
+      "text": "but you see how there's going to be super hardcore about it."
+    },
+    {
+      "id": 31,
+      "start": 79.12,
+      "end": 81.76,
+      "text": "It's a very fascinating system."
+    },
+    {
+      "id": 32,
+      "start": 81.76,
+      "end": 83.32,
+      "text": "And like I said, they have real numbers in there"
+    },
+    {
+      "id": 33,
+      "start": 83.32,
+      "end": 85.04,
+      "text": "that nobody else does."
+    },
+    {
+      "id": 34,
+      "start": 85.04,
+      "end": 85.54,
+      "text": "OK?"
+    },
+    {
+      "id": 35,
+      "start": 87.72,
+      "end": 90.72,
+      "text": "All right, so I'll cut this."
+    },
+    {
+      "id": 36,
+      "start": 90.72,
+      "end": 92.4,
+      "text": "The worst idea I've ever heard."
+    },
+    {
+      "id": 37,
+      "start": 92.4,
+      "end": 93.76,
+      "text": "Can't go, you know, I'm getting high,"
+    },
+    {
+      "id": 38,
+      "start": 93.76,
+      "end": 96.16,
+      "text": "and you've got a belt to get the 40-ounce box."
+    },
+    {
+      "id": 39,
+      "start": 96.16,
+      "end": 99.04,
+      "text": "Get a grip, take a sip, and you'll be picking up bottles."
+    },
+    {
+      "id": 40,
+      "start": 99.04,
+      "end": 100.64,
+      "text": "Ain't ain't no puzzle, I'll go through the door,"
+    },
+    {
+      "id": 41,
+      "start": 100.64,
+      "end": 101.64,
+      "text": "because I'm more a man."
+    },
+    {
+      "id": 42,
+      "start": 101.64,
+      "end": 103.84,
+      "text": "I'm down in the 40, and I'm a 40-ounce, got four cans."
+    },
+    {
+      "id": 43,
+      "start": 103.84,
+      "end": 105.84,
+      "text": "Stack two sick attacks on a table."
+    },
+    {
+      "id": 44,
+      "start": 105.84,
+      "end": 108.16,
+      "text": "And I'm able to see St. A' and I'm so unable."
+    },
+    {
+      "id": 45,
+      "start": 108.16,
+      "end": 110.12,
+      "text": "No sure, I put the truck, you know what got them."
+    },
+    {
+      "id": 46,
+      "start": 110.12,
+      "end": 112.76,
+      "text": "I take off the cap, but first I tap on the bottle."
+    },
+    {
+      "id": 47,
+      "start": 112.76,
+      "end": 114.64,
+      "text": "Throw my green and freeze it so I can kill it."
+    },
+    {
+      "id": 48,
+      "start": 114.64,
+      "end": 117.24,
+      "text": "Careful with the bottle, baby, you can still spill it."
+    },
+    {
+      "id": 49,
+      "start": 117.24,
+      "end": 119.44,
+      "text": "Cause they know I can save the pain I've wet."
+    },
+    {
+      "id": 50,
+      "start": 119.44,
+      "end": 121.76,
+      "text": "You drink it down with the gauze, little bouts head."
+    },
+    {
+      "id": 51,
+      "start": 121.76,
+      "end": 123.48,
+      "text": "Take back the pack of drugs."
+    },
+    {
+      "id": 52,
+      "start": 123.48,
+      "end": 124.76,
+      "text": "You won't get your soul saved now,"
+    },
+    {
+      "id": 53,
+      "start": 124.76,
+      "end": 126.28,
+      "text": "so drink it till it's done."
+    },
+    {
+      "id": 54,
+      "start": 126.28,
+      "end": 128.88,
+      "text": "Billy Dan's the chili taste to tell me the weak guys."
+    },
+    {
+      "id": 55,
+      "start": 128.88,
+      "end": 131.08,
+      "text": "Be a man and get a can of safe heart."
+    }
+  ],
+  "language": "en"
+}

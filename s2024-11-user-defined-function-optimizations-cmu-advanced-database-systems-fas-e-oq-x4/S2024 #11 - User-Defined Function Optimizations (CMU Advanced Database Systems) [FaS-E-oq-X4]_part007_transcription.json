@@ -1,0 +1,1445 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 2.68,
+      "text": "There isn't actually any advantage using inlining or batching"
+    },
+    {
+      "id": 1,
+      "start": 2.68,
+      "end": 5.56,
+      "text": "because this UDF is just invoked once."
+    },
+    {
+      "id": 2,
+      "start": 5.56,
+      "end": 8.44,
+      "text": "There's really nothing special about it."
+    },
+    {
+      "id": 3,
+      "start": 8.44,
+      "end": 10.96,
+      "text": "The ones that matter the most is you have things like,"
+    },
+    {
+      "id": 4,
+      "start": 10.96,
+      "end": 15.18,
+      "text": "what we told before, you are passing in some kind of input"
+    },
+    {
+      "id": 5,
+      "start": 15.18,
+      "end": 18.12,
+      "text": "value that you're iterating over in the calling query"
+    },
+    {
+      "id": 6,
+      "start": 18.12,
+      "end": 20.92,
+      "text": "on the outside."
+    },
+    {
+      "id": 7,
+      "start": 20.92,
+      "end": 25.28,
+      "text": "So I think that when Sam did his analysis,"
+    },
+    {
+      "id": 8,
+      "start": 25.28,
+      "end": 28.76,
+      "text": "looking for a prop bench, despite Microsoft inventing"
+    },
+    {
+      "id": 9,
+      "start": 28.76,
+      "end": 30.68,
+      "text": "the inlining technique with Freud,"
+    },
+    {
+      "id": 10,
+      "start": 30.68,
+      "end": 33.04,
+      "text": "they could only inline a small portion of what's"
+    },
+    {
+      "id": 11,
+      "start": 33.04,
+      "end": 34.72,
+      "text": "in their bench mark of these queries."
+    },
+    {
+      "id": 12,
+      "start": 34.72,
+      "end": 37.12,
+      "text": "Because a bunch of them just couldn't reason about"
+    },
+    {
+      "id": 13,
+      "start": 37.12,
+      "end": 38.28,
+      "text": "and wasn't able to handle that."
+    },
+    {
+      "id": 14,
+      "start": 38.28,
+      "end": 40.12,
+      "text": "Or in some cases did it did do it,"
+    },
+    {
+      "id": 15,
+      "start": 40.12,
+      "end": 42.68,
+      "text": "it didn't actually get a performance benefit"
+    },
+    {
+      "id": 16,
+      "start": 42.68,
+      "end": 44.84,
+      "text": "because it wasn't able to do that decorelation"
+    },
+    {
+      "id": 17,
+      "start": 44.84,
+      "end": 45.76,
+      "text": "of the sub queries."
+    },
+    {
+      "id": 18,
+      "start": 45.76,
+      "end": 46.28,
+      "text": "Yes?"
+    },
+    {
+      "id": 19,
+      "start": 46.28,
+      "end": 47.72,
+      "text": "The question to Sam, actually."
+    },
+    {
+      "id": 20,
+      "start": 47.72,
+      "end": 51.56,
+      "text": "So was it because the if conditions were to complex,"
+    },
+    {
+      "id": 21,
+      "start": 51.56,
+      "end": 54.04,
+      "text": "or was it that there was some things that it just didn't,"
+    },
+    {
+      "id": 22,
+      "start": 54.04,
+      "end": 56.76,
+      "text": "like there was the clear set and there was something"
+    },
+    {
+      "id": 23,
+      "start": 56.76,
+      "end": 59.0,
+      "text": "that was in DC one that didn't know how to apply them"
+    },
+    {
+      "id": 24,
+      "start": 59.0,
+      "end": 60.68,
+      "text": "to the forum."
+    },
+    {
+      "id": 25,
+      "start": 60.68,
+      "end": 62.72,
+      "text": "Yeah, so I guess Andy can explain this."
+    },
+    {
+      "id": 26,
+      "start": 62.72,
+      "end": 66.12,
+      "text": "But essentially the problem is that when you get in the"
+    },
+    {
+      "id": 27,
+      "start": 66.12,
+      "end": 69.72,
+      "text": "end, and then you inline it, you get a very complicated"
+    },
+    {
+      "id": 28,
+      "start": 69.72,
+      "end": 72.16,
+      "text": "sub query with a bunch of them going."
+    },
+    {
+      "id": 29,
+      "start": 72.16,
+      "end": 75.52,
+      "text": "And then when you put that into SQL7 optimizer,"
+    },
+    {
+      "id": 30,
+      "start": 75.52,
+      "end": 78.08,
+      "text": "it's unable to be calling that sub query."
+    },
+    {
+      "id": 31,
+      "start": 78.08,
+      "end": 80.8,
+      "text": "And then you get that problem."
+    },
+    {
+      "id": 32,
+      "start": 80.8,
+      "end": 81.6,
+      "text": "Yeah."
+    },
+    {
+      "id": 33,
+      "start": 81.6,
+      "end": 82.44,
+      "text": "Where is it used?"
+    },
+    {
+      "id": 34,
+      "start": 82.44,
+      "end": 85.12,
+      "text": "The German way of decoiling sub queries"
+    },
+    {
+      "id": 35,
+      "start": 85.12,
+      "end": 86.76,
+      "text": "can be called any sub query."
+    },
+    {
+      "id": 36,
+      "start": 86.76,
+      "end": 89.04,
+      "text": "And you get a really good sub query."
+    },
+    {
+      "id": 37,
+      "start": 89.04,
+      "end": 90.84,
+      "text": "Yes."
+    },
+    {
+      "id": 38,
+      "start": 90.84,
+      "end": 91.68,
+      "text": "We'll cover that."
+    },
+    {
+      "id": 39,
+      "start": 91.68,
+      "end": 94.32,
+      "text": "We'll cover this in more detail next week as well."
+    },
+    {
+      "id": 40,
+      "start": 94.32,
+      "end": 99.68,
+      "text": "So this is the table we had in the paper that we just came"
+    },
+    {
+      "id": 41,
+      "start": 99.68,
+      "end": 101.4,
+      "text": "out two months ago."
+    },
+    {
+      "id": 42,
+      "start": 101.4,
+      "end": 102.76,
+      "text": "And we compared it against SQL7 Oracle,"
+    },
+    {
+      "id": 43,
+      "start": 102.76,
+      "end": 103.76,
+      "text": "dot, db, and Postgres."
+    },
+    {
+      "id": 44,
+      "start": 103.76,
+      "end": 106.64,
+      "text": "So Postgres, again, just can't handle any of these things."
+    },
+    {
+      "id": 45,
+      "start": 106.64,
+      "end": 109.0,
+      "text": "Because the optimizer is not as sophisticated"
+    },
+    {
+      "id": 46,
+      "start": 109.0,
+      "end": 110.24,
+      "text": "as the commercial ones."
+    },
+    {
+      "id": 47,
+      "start": 110.24,
+      "end": 112.48,
+      "text": "Oracle will just ignore."
+    },
+    {
+      "id": 48,
+      "start": 112.48,
+      "end": 115.84,
+      "text": "But in the case of here, ductyb, well, ductyb got"
+    },
+    {
+      "id": 49,
+      "start": 115.84,
+      "end": 117.4,
+      "text": "to handle everything."
+    },
+    {
+      "id": 50,
+      "start": 117.4,
+      "end": 118.72,
+      "text": "How is that the case?"
+    },
+    {
+      "id": 51,
+      "start": 118.72,
+      "end": 121.44,
+      "text": "Well, because last year, the SAM 721 project with two"
+    },
+    {
+      "id": 52,
+      "start": 121.44,
+      "end": 124.28,
+      "text": "other master students added support for flattening"
+    },
+    {
+      "id": 53,
+      "start": 124.28,
+      "end": 126.4,
+      "text": "nested lateral joins so that they can"
+    },
+    {
+      "id": 54,
+      "start": 126.4,
+      "end": 129.16,
+      "text": "support the inlining and the bashing stuff that we've"
+    },
+    {
+      "id": 55,
+      "start": 129.16,
+      "end": 130.36,
+      "text": "been talking about."
+    },
+    {
+      "id": 56,
+      "start": 130.36,
+      "end": 131.08,
+      "text": "Oh, sorry."
+    },
+    {
+      "id": 57,
+      "start": 131.08,
+      "end": 134.44,
+      "text": "And furthermore, they actually submitted the PR to ductyb"
+    },
+    {
+      "id": 58,
+      "start": 134.44,
+      "end": 135.28,
+      "text": "that actually got merged."
+    },
+    {
+      "id": 59,
+      "start": 135.28,
+      "end": 138.24,
+      "text": "When you download ductyb, you're getting SAMs and other 721"
+    },
+    {
+      "id": 60,
+      "start": 138.24,
+      "end": 142.44,
+      "text": "students code to handle the inlining stuff."
+    },
+    {
+      "id": 61,
+      "start": 142.44,
+      "end": 144.0,
+      "text": "Well, what about Microsoft, right?"
+    },
+    {
+      "id": 62,
+      "start": 144.0,
+      "end": 149.92,
+      "text": "So inlining, you can see for these select UDS in Proc"
+    },
+    {
+      "id": 63,
+      "start": 149.92,
+      "end": 151.72,
+      "text": "bench, then the Microsoft benchmark base"
+    },
+    {
+      "id": 64,
+      "start": 151.72,
+      "end": 154.88,
+      "text": "on their UDS, they can only handle two of them."
+    },
+    {
+      "id": 65,
+      "start": 154.88,
+      "end": 156.88,
+      "text": "So what's going on?"
+    },
+    {
+      "id": 66,
+      "start": 156.88,
+      "end": 160.2,
+      "text": "And the issue is that, because, as Samardy said,"
+    },
+    {
+      "id": 67,
+      "start": 160.2,
+      "end": 162.96,
+      "text": "they're not as sophisticated as their approach"
+    },
+    {
+      "id": 68,
+      "start": 162.96,
+      "end": 164.2,
+      "text": "to decoralating subquers."
+    },
+    {
+      "id": 69,
+      "start": 164.2,
+      "end": 166.48,
+      "text": "It's not as sophisticated as this German approach"
+    },
+    {
+      "id": 70,
+      "start": 166.48,
+      "end": 168.32,
+      "text": "which we keep alluding to."
+    },
+    {
+      "id": 71,
+      "start": 168.32,
+      "end": 169.6,
+      "text": "And instead, they're going to basically"
+    },
+    {
+      "id": 72,
+      "start": 169.6,
+      "end": 172.44,
+      "text": "have these handwritten rules that allow you"
+    },
+    {
+      "id": 73,
+      "start": 172.44,
+      "end": 174.68,
+      "text": "to do the rewriting inside the query optimizer"
+    },
+    {
+      "id": 74,
+      "start": 174.68,
+      "end": 178.92,
+      "text": "for different use cases, but not all of them."
+    },
+    {
+      "id": 75,
+      "start": 178.92,
+      "end": 182.32,
+      "text": "And this paper came out in 2001."
+    },
+    {
+      "id": 76,
+      "start": 182.32,
+      "end": 186.8,
+      "text": "It's before Freud and these computer-generated monstrosity"
+    },
+    {
+      "id": 77,
+      "start": 186.8,
+      "end": 190.16,
+      "text": "queries that all these lateral joins existed."
+    },
+    {
+      "id": 78,
+      "start": 190.16,
+      "end": 193.8,
+      "text": "So they didn't, I guess they didn't know."
+    },
+    {
+      "id": 79,
+      "start": 193.8,
+      "end": 195.08,
+      "text": "These things at the time, they didn't"
+    },
+    {
+      "id": 80,
+      "start": 195.08,
+      "end": 197.16,
+      "text": "try to cover them in their rule base."
+    },
+    {
+      "id": 81,
+      "start": 197.16,
+      "end": 199.4,
+      "text": "And they haven't updated it since then."
+    },
+    {
+      "id": 82,
+      "start": 199.4,
+      "end": 201.68,
+      "text": "So in this case here, Microsoft is simply"
+    },
+    {
+      "id": 83,
+      "start": 201.68,
+      "end": 203.52,
+      "text": "the sequence that we simply can't handle"
+    },
+    {
+      "id": 84,
+      "start": 203.52,
+      "end": 207.16,
+      "text": "the monstrosity queries that something like Freud or Op-Fell"
+    },
+    {
+      "id": 85,
+      "start": 207.16,
+      "end": 209.48,
+      "text": "is going to generate."
+    },
+    {
+      "id": 86,
+      "start": 209.48,
+      "end": 212.56,
+      "text": "And so the German approach, which we'll see next week,"
+    },
+    {
+      "id": 87,
+      "start": 212.56,
+      "end": 219.4,
+      "text": "can handle any possible decorrelation for subquers."
+    },
+    {
+      "id": 88,
+      "start": 219.4,
+      "end": 221.52,
+      "text": "Because one, they're going to be able to,"
+    },
+    {
+      "id": 89,
+      "start": 221.52,
+      "end": 223.68,
+      "text": "there's going to be more DAGs instead of trees"
+    },
+    {
+      "id": 90,
+      "start": 223.68,
+      "end": 226.88,
+      "text": "in the query plans because allows them reuse the computation"
+    },
+    {
+      "id": 91,
+      "start": 226.88,
+      "end": 230.28,
+      "text": "for one nested query for another part of a query."
+    },
+    {
+      "id": 92,
+      "start": 230.28,
+      "end": 232.36,
+      "text": "And they're going to introduce these additional constructs"
+    },
+    {
+      "id": 93,
+      "start": 232.36,
+      "end": 234.68,
+      "text": "like an dependent join to keep track of the dependencies"
+    },
+    {
+      "id": 94,
+      "start": 234.68,
+      "end": 238.84,
+      "text": "between two different where clauses from clauses and so forth."
+    },
+    {
+      "id": 95,
+      "start": 238.84,
+      "end": 241.16,
+      "text": "And therefore, they can take any possible subquery combination"
+    },
+    {
+      "id": 96,
+      "start": 241.16,
+      "end": 243.56,
+      "text": "you can think of and throw it at the query optimizer"
+    },
+    {
+      "id": 97,
+      "start": 243.56,
+      "end": 246.36,
+      "text": "and it'll be able to handle this."
+    },
+    {
+      "id": 98,
+      "start": 246.36,
+      "end": 248.0,
+      "text": "Dr. Beacon knew this because they're based off"
+    },
+    {
+      "id": 99,
+      "start": 248.0,
+      "end": 251.4,
+      "text": "of what Umbra did or hyper did."
+    },
+    {
+      "id": 100,
+      "start": 251.4,
+      "end": 253.44,
+      "text": "And then Sam and his team came along and extended"
+    },
+    {
+      "id": 101,
+      "start": 253.44,
+      "end": 256.88,
+      "text": "for the lateral join stuff that we needed."
+    },
+    {
+      "id": 102,
+      "start": 256.88,
+      "end": 259.0,
+      "text": "So that's the preview for next week."
+    },
+    {
+      "id": 103,
+      "start": 259.0,
+      "end": 264.6,
+      "text": "We're going to talk about how this works in hyper."
+    },
+    {
+      "id": 104,
+      "start": 264.6,
+      "end": 270.0,
+      "text": "So the main takeaway going back to this table here,"
+    },
+    {
+      "id": 105,
+      "start": 270.0,
+      "end": 271.92,
+      "text": "inline is fantastic."
+    },
+    {
+      "id": 106,
+      "start": 271.92,
+      "end": 273.76,
+      "text": "If your database server query optimizer"
+    },
+    {
+      "id": 107,
+      "start": 273.76,
+      "end": 278.16,
+      "text": "can handle the large queries that this thing is going to spit out"
+    },
+    {
+      "id": 108,
+      "start": 278.16,
+      "end": 278.76,
+      "text": "and few can."
+    },
+    {
+      "id": 109,
+      "start": 281.64,
+      "end": 282.68,
+      "text": "OK."
+    },
+    {
+      "id": 110,
+      "start": 282.68,
+      "end": 286.92,
+      "text": "So again, I said this before, but this is a big deal."
+    },
+    {
+      "id": 111,
+      "start": 286.92,
+      "end": 290.48,
+      "text": "If you can get, if your query optimizer can handle the kind"
+    },
+    {
+      "id": 112,
+      "start": 290.48,
+      "end": 293.32,
+      "text": "of things that that app felt or forward is going to generate,"
+    },
+    {
+      "id": 113,
+      "start": 293.32,
+      "end": 296.08,
+      "text": "then you get a huge win for speeding up a UDS"
+    },
+    {
+      "id": 114,
+      "start": 296.08,
+      "end": 298.52,
+      "text": "without making any changes to your application code."
+    },
+    {
+      "id": 115,
+      "start": 298.52,
+      "end": 303.32,
+      "text": "And that rarely happens in the world CS or software."
+    },
+    {
+      "id": 116,
+      "start": 303.32,
+      "end": 303.92,
+      "text": "So that's a big deal."
+    },
+    {
+      "id": 117,
+      "start": 303.92,
+      "end": 307.16,
+      "text": "But again, you need to sort the German style, the Umbra style"
+    },
+    {
+      "id": 118,
+      "start": 307.16,
+      "end": 308.76,
+      "text": "de-coilation."
+    },
+    {
+      "id": 119,
+      "start": 309.72,
+      "end": 313.32,
+      "text": "We talked a little bit about how to compile the machine code."
+    },
+    {
+      "id": 120,
+      "start": 313.32,
+      "end": 316.6,
+      "text": "This is going to help some performance slowdown."
+    },
+    {
+      "id": 121,
+      "start": 316.6,
+      "end": 318.0,
+      "text": "But again, since it's still a little bit"
+    },
+    {
+      "id": 122,
+      "start": 318.0,
+      "end": 320.56,
+      "text": "a black box of the optimizer, it's not"
+    },
+    {
+      "id": 123,
+      "start": 320.56,
+      "end": 324.24,
+      "text": "going to get the best performance."
+    },
+    {
+      "id": 124,
+      "start": 324.24,
+      "end": 327.32,
+      "text": "All right, any questions?"
+    },
+    {
+      "id": 125,
+      "start": 327.32,
+      "end": 328.08,
+      "text": "Yes?"
+    },
+    {
+      "id": 126,
+      "start": 328.08,
+      "end": 330.48,
+      "text": "So this is some time."
+    },
+    {
+      "id": 127,
+      "start": 330.48,
+      "end": 332.68,
+      "text": "Can I ask a question about the code that we looked at"
+    },
+    {
+      "id": 128,
+      "start": 332.68,
+      "end": 334.68,
+      "text": "for the conversion?"
+    },
+    {
+      "id": 129,
+      "start": 334.68,
+      "end": 335.16,
+      "text": "Sure."
+    },
+    {
+      "id": 130,
+      "start": 335.16,
+      "end": 335.96,
+      "text": "Yes."
+    },
+    {
+      "id": 131,
+      "start": 335.96,
+      "end": 338.08,
+      "text": "I mean, this one?"
+    },
+    {
+      "id": 132,
+      "start": 338.08,
+      "end": 338.92,
+      "text": "Yes?"
+    },
+    {
+      "id": 133,
+      "start": 338.92,
+      "end": 341.92,
+      "text": "No, actually the one that we looked at for this Detroit example."
+    },
+    {
+      "id": 134,
+      "start": 341.92,
+      "end": 342.76,
+      "text": "Oh."
+    },
+    {
+      "id": 135,
+      "start": 347.04,
+      "end": 348.8,
+      "text": "So they're going back like this?"
+    },
+    {
+      "id": 136,
+      "start": 348.8,
+      "end": 352.44,
+      "text": "I was thinking this might actually not be possible if we have,"
+    },
+    {
+      "id": 137,
+      "start": 352.44,
+      "end": 355.32,
+      "text": "instead of the else clause, right there, the third one."
+    },
+    {
+      "id": 138,
+      "start": 355.32,
+      "end": 359.32,
+      "text": "It would replace that else with a simple if condition."
+    },
+    {
+      "id": 139,
+      "start": 359.32,
+      "end": 362.36,
+      "text": "That just says if at total is less than a million."
+    },
+    {
+      "id": 140,
+      "start": 362.36,
+      "end": 363.36,
+      "text": "I can definitely look here."
+    },
+    {
+      "id": 141,
+      "start": 363.36,
+      "end": 364.32,
+      "text": "Millions."
+    },
+    {
+      "id": 142,
+      "start": 364.32,
+      "end": 368.16,
+      "text": "In that case, if you look at the block over there,"
+    },
+    {
+      "id": 143,
+      "start": 368.16,
+      "end": 370.08,
+      "text": "it says ER2.level."
+    },
+    {
+      "id": 144,
+      "start": 370.08,
+      "end": 373.16,
+      "text": "It won't be able to do ER2.level."
+    },
+    {
+      "id": 145,
+      "start": 373.16,
+      "end": 375.68,
+      "text": "It would need to do ER1 or ER2, depending"
+    },
+    {
+      "id": 146,
+      "start": 375.68,
+      "end": 377.96,
+      "text": "on whether that condition is true."
+    },
+    {
+      "id": 147,
+      "start": 377.96,
+      "end": 383.76,
+      "text": "So it won't easily translate from the left to the right."
+    },
+    {
+      "id": 148,
+      "start": 383.76,
+      "end": 386.16,
+      "text": "So it's statement is, if you have it now inside of this,"
+    },
+    {
+      "id": 149,
+      "start": 386.16,
+      "end": 388.24,
+      "text": "another after nested if clause."
+    },
+    {
+      "id": 150,
+      "start": 388.24,
+      "end": 389.2,
+      "text": "No, not nested."
+    },
+    {
+      "id": 151,
+      "start": 389.2,
+      "end": 392.48,
+      "text": "It could just replace the else with this replace the else."
+    },
+    {
+      "id": 152,
+      "start": 392.48,
+      "end": 396.4,
+      "text": "Oh, so this if ends, then you have another if."
+    },
+    {
+      "id": 153,
+      "start": 396.4,
+      "end": 398.32,
+      "text": "Yes."
+    },
+    {
+      "id": 154,
+      "start": 398.32,
+      "end": 403.88,
+      "text": "And then in that case, if it's less than a million,"
+    },
+    {
+      "id": 155,
+      "start": 403.88,
+      "end": 406.24,
+      "text": "set it to regular."
+    },
+    {
+      "id": 156,
+      "start": 406.24,
+      "end": 412.32,
+      "text": "And in that case, implicitly, then the value is ER1, which is no."
+    },
+    {
+      "id": 157,
+      "start": 412.32,
+      "end": 415.16,
+      "text": "Would it happen to be or if you get to use it?"
+    },
+    {
+      "id": 158,
+      "start": 415.16,
+      "end": 416.44,
+      "text": "It sounds bad, it's actually difficult,"
+    },
+    {
+      "id": 159,
+      "start": 416.44,
+      "end": 418.56,
+      "text": "because you don't know any of the other conditionals."
+    },
+    {
+      "id": 160,
+      "start": 418.56,
+      "end": 423.56,
+      "text": "You can have an initialize."
+    },
+    {
+      "id": 161,
+      "start": 423.56,
+      "end": 424.4,
+      "text": "Exactly."
+    },
+    {
+      "id": 162,
+      "start": 424.4,
+      "end": 425.88,
+      "text": "How will it happen there?"
+    },
+    {
+      "id": 163,
+      "start": 425.88,
+      "end": 430.88,
+      "text": "But the level is initialized as no."
+    },
+    {
+      "id": 164,
+      "start": 430.88,
+      "end": 432.28,
+      "text": "At the top, so you just manage to return no."
+    },
+    {
+      "id": 165,
+      "start": 437.28,
+      "end": 440.4,
+      "text": "OK, you see what I know there is ER2.level, right?"
+    },
+    {
+      "id": 166,
+      "start": 440.4,
+      "end": 440.92,
+      "text": "Yes."
+    },
+    {
+      "id": 167,
+      "start": 440.92,
+      "end": 445.2,
+      "text": "My problem is that the ER2.level, no, that's exactly."
+    },
+    {
+      "id": 168,
+      "start": 445.2,
+      "end": 448.92,
+      "text": "That one will have some complete change."
+    },
+    {
+      "id": 169,
+      "start": 448.92,
+      "end": 449.44,
+      "text": "Yeah, that's OK."
+    },
+    {
+      "id": 170,
+      "start": 449.44,
+      "end": 451.08,
+      "text": "You can call it ER1."
+    },
+    {
+      "id": 171,
+      "start": 451.08,
+      "end": 457.28,
+      "text": "But that's not the logic that the UDF would be trying to represent here."
+    },
+    {
+      "id": 172,
+      "start": 457.28,
+      "end": 461.92,
+      "text": "So if level less than a million sets a regular, right?"
+    },
+    {
+      "id": 173,
+      "start": 461.92,
+      "end": 465.24,
+      "text": "So that would just be similar to this."
+    },
+    {
+      "id": 174,
+      "start": 469.88,
+      "end": 472.36,
+      "text": "I saved your saying, because there'd be."
+    },
+    {
+      "id": 175,
+      "start": 472.36,
+      "end": 473.92,
+      "text": "It's changed in ER2."
+    },
+    {
+      "id": 176,
+      "start": 473.92,
+      "end": 477.8,
+      "text": "And we want to activate ER2 if the dimension is true."
+    },
+    {
+      "id": 177,
+      "start": 477.8,
+      "end": 480.76,
+      "text": "Or we want to access ER1.level if a different condition."
+    },
+    {
+      "id": 178,
+      "start": 480.76,
+      "end": 481.84,
+      "text": "I understand your point."
+    },
+    {
+      "id": 179,
+      "start": 484.96,
+      "end": 486.56,
+      "text": "You can imagine, I don't know if it does this."
+    },
+    {
+      "id": 180,
+      "start": 486.56,
+      "end": 488.36,
+      "text": "Do you get the imagines combining them if and else?"
+    },
+    {
+      "id": 181,
+      "start": 488.36,
+      "end": 490.24,
+      "text": "Well, in the distance, yes."
+    },
+    {
+      "id": 182,
+      "start": 490.24,
+      "end": 490.76,
+      "text": "Go for it."
+    },
+    {
+      "id": 183,
+      "start": 490.76,
+      "end": 491.26,
+      "text": "Yes."
+    },
+    {
+      "id": 184,
+      "start": 491.26,
+      "end": 491.76,
+      "text": "Yes."
+    },
+    {
+      "id": 185,
+      "start": 491.76,
+      "end": 494.32,
+      "text": "So basically, the idea is you'll have one table"
+    },
+    {
+      "id": 186,
+      "start": 494.32,
+      "end": 497.24,
+      "text": "which will have the column with level."
+    },
+    {
+      "id": 187,
+      "start": 497.24,
+      "end": 500.88,
+      "text": "And then you have another table which is going to say, OK,"
+    },
+    {
+      "id": 188,
+      "start": 500.88,
+      "end": 503.8,
+      "text": "if this condition is true, then it's just new value."
+    },
+    {
+      "id": 189,
+      "start": 503.8,
+      "end": 507.8,
+      "text": "Otherwise, it's the level from the previous table."
+    },
+    {
+      "id": 190,
+      "start": 507.8,
+      "end": 511.16,
+      "text": "And you can follow and apparently keep doing this."
+    },
+    {
+      "id": 191,
+      "start": 511.16,
+      "end": 513.24,
+      "text": "So each thing is just a region that"
+    },
+    {
+      "id": 192,
+      "start": 513.24,
+      "end": 515.76,
+      "text": "refers to the column from the previous table."
+    },
+    {
+      "id": 193,
+      "start": 515.76,
+      "end": 518.76,
+      "text": "So it's basically doing the opposite."
+    },
+    {
+      "id": 194,
+      "start": 518.76,
+      "end": 519.96,
+      "text": "OK."
+    },
+    {
+      "id": 195,
+      "start": 519.96,
+      "end": 520.46,
+      "text": "OK."
+    },
+    {
+      "id": 196,
+      "start": 520.46,
+      "end": 522.28,
+      "text": "Use another case within this lecture."
+    },
+    {
+      "id": 197,
+      "start": 522.28,
+      "end": 523.72,
+      "text": "We can choose between those."
+    },
+    {
+      "id": 198,
+      "start": 523.72,
+      "end": 524.72,
+      "text": "OK."
+    },
+    {
+      "id": 199,
+      "start": 524.72,
+      "end": 525.76,
+      "text": "Wait a minute."
+    },
+    {
+      "id": 200,
+      "start": 525.76,
+      "end": 527.0,
+      "text": "OK."
+    },
+    {
+      "id": 201,
+      "start": 527.0,
+      "end": 527.72,
+      "text": "We are over time."
+    },
+    {
+      "id": 202,
+      "start": 527.72,
+      "end": 530.0,
+      "text": "So let me jump to."
+    },
+    {
+      "id": 203,
+      "start": 533.0,
+      "end": 533.16,
+      "text": "All right."
+    },
+    {
+      "id": 204,
+      "start": 533.16,
+      "end": 535.68,
+      "text": "So next class, we're going to be doing the conducting protocols."
+    },
+    {
+      "id": 205,
+      "start": 535.68,
+      "end": 539.68,
+      "text": "And the reason why I'm doing this after UDS is because this UDF"
+    },
+    {
+      "id": 206,
+      "start": 539.68,
+      "end": 542.12,
+      "text": "idea is like, OK, I have my application logic."
+    },
+    {
+      "id": 207,
+      "start": 542.12,
+      "end": 544.2,
+      "text": "Let me try to embed that in the database server."
+    },
+    {
+      "id": 208,
+      "start": 544.2,
+      "end": 547.04,
+      "text": "The arrow guys and ductyb guys are saying, no, no, no."
+    },
+    {
+      "id": 209,
+      "start": 547.04,
+      "end": 548.96,
+      "text": "It's actually the opposite."
+    },
+    {
+      "id": 210,
+      "start": 548.96,
+      "end": 553.2,
+      "text": "Embed your database system inside of your application."
+    },
+    {
+      "id": 211,
+      "start": 553.2,
+      "end": 555.24,
+      "text": "And then use something like arrow to get the data in and out"
+    },
+    {
+      "id": 212,
+      "start": 555.24,
+      "end": 556.56,
+      "text": "very quickly."
+    },
+    {
+      "id": 213,
+      "start": 556.56,
+      "end": 557.64,
+      "text": "OK."
+    },
+    {
+      "id": 214,
+      "start": 557.64,
+      "end": 560.88,
+      "text": "So the paper you'll read is from the ductyb guys."
+    },
+    {
+      "id": 215,
+      "start": 560.88,
+      "end": 563.92,
+      "text": "I think it's on Monday to be like, before ductyb was embedded."
+    },
+    {
+      "id": 216,
+      "start": 563.92,
+      "end": 566.32,
+      "text": "But it's basically showing how terrible existing networking"
+    },
+    {
+      "id": 217,
+      "start": 566.32,
+      "end": 569.2,
+      "text": "protocols are for database servers and how that for OLAP queries"
+    },
+    {
+      "id": 218,
+      "start": 569.2,
+      "end": 570.32,
+      "text": "is not the ideal."
+    },
+    {
+      "id": 219,
+      "start": 570.32,
+      "end": 572.56,
+      "text": "And then we'll see how arrow will fix this"
+    },
+    {
+      "id": 220,
+      "start": 572.56,
+      "end": 577.52,
+      "text": "and then another project out of Simon Frager University."
+    },
+    {
+      "id": 221,
+      "start": 577.52,
+      "end": 579.04,
+      "text": "OK."
+    },
+    {
+      "id": 222,
+      "start": 579.04,
+      "end": 579.68,
+      "text": "All right guys."
+    },
+    {
+      "id": 223,
+      "start": 579.68,
+      "end": 580.52,
+      "text": "See ya."
+    },
+    {
+      "id": 224,
+      "start": 580.52,
+      "end": 581.36,
+      "text": "I'm ready."
+    },
+    {
+      "id": 225,
+      "start": 581.36,
+      "end": 581.84,
+      "text": "I'm ready."
+    },
+    {
+      "id": 226,
+      "start": 581.84,
+      "end": 584.12,
+      "text": "I got a belt to get the 40M bar."
+    },
+    {
+      "id": 227,
+      "start": 584.12,
+      "end": 584.64,
+      "text": "Get a grip."
+    },
+    {
+      "id": 228,
+      "start": 584.64,
+      "end": 585.16,
+      "text": "Take a sip."
+    },
+    {
+      "id": 229,
+      "start": 585.16,
+      "end": 586.92,
+      "text": "And you'll be picking up bottles."
+    },
+    {
+      "id": 230,
+      "start": 586.92,
+      "end": 587.64,
+      "text": "Ain't ain't no puzzle."
+    },
+    {
+      "id": 231,
+      "start": 587.64,
+      "end": 588.88,
+      "text": "I'll go through some more, man."
+    },
+    {
+      "id": 232,
+      "start": 588.88,
+      "end": 589.88,
+      "text": "I'm telling the 40M."
+    },
+    {
+      "id": 233,
+      "start": 589.88,
+      "end": 591.64,
+      "text": "I sure it's got four cans."
+    },
+    {
+      "id": 234,
+      "start": 591.64,
+      "end": 593.72,
+      "text": "Stack two six packs on a table."
+    },
+    {
+      "id": 235,
+      "start": 593.72,
+      "end": 595.96,
+      "text": "And I'm able to see St. Aslan label."
+    },
+    {
+      "id": 236,
+      "start": 595.96,
+      "end": 597.08,
+      "text": "No short, put the cloth."
+    },
+    {
+      "id": 237,
+      "start": 597.08,
+      "end": 597.96,
+      "text": "You know what got them?"
+    },
+    {
+      "id": 238,
+      "start": 597.96,
+      "end": 598.76,
+      "text": "I take off the cap."
+    },
+    {
+      "id": 239,
+      "start": 598.76,
+      "end": 600.16,
+      "text": "My first attack on a bottle."
+    }
+  ],
+  "language": "en"
+}

@@ -1,0 +1,1343 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.02,
+      "text": "And so they're going to run slightly add order,"
+    },
+    {
+      "id": 1,
+      "start": 3.02,
+      "end": 8.06,
+      "text": "meaning like the instructions may execute differently than the order that they appear in the code."
+    },
+    {
+      "id": 2,
+      "start": 8.06,
+      "end": 10.54,
+      "text": "But then the CPU, at least in case of Xeons,"
+    },
+    {
+      "id": 3,
+      "start": 10.54,
+      "end": 15.7,
+      "text": "are going to do a bunch of extra work to make sure that once you get all the data that you needed,"
+    },
+    {
+      "id": 4,
+      "start": 15.7,
+      "end": 23.7,
+      "text": "you then check to see whether the output of those add-all instructions would have matched the same as if it ran in order."
+    },
+    {
+      "id": 5,
+      "start": 23.7,
+      "end": 27.14,
+      "text": "Right? AMD is doing such thing, same thing."
+    },
+    {
+      "id": 6,
+      "start": 27.14,
+      "end": 30.42,
+      "text": "Like all the super scalars CPUs are doing essentially the same thing."
+    },
+    {
+      "id": 7,
+      "start": 30.42,
+      "end": 32.2,
+      "text": "The GPU cores are not, yes."
+    },
+    {
+      "id": 8,
+      "start": 32.2,
+      "end": 32.7,
+      "text": "Okay."
+    },
+    {
+      "id": 9,
+      "start": 32.7,
+      "end": 34.72,
+      "text": "Precisely what does this is a super scalars?"
+    },
+    {
+      "id": 10,
+      "start": 34.72,
+      "end": 36.36,
+      "text": "Is it just multiple cores?"
+    },
+    {
+      "id": 11,
+      "start": 36.36,
+      "end": 38.88,
+      "text": "No, multiple pipelines."
+    },
+    {
+      "id": 12,
+      "start": 38.88,
+      "end": 41.28,
+      "text": "So within one core you'll have multiple pipelines."
+    },
+    {
+      "id": 13,
+      "start": 41.28,
+      "end": 42.66,
+      "text": "That's okay."
+    },
+    {
+      "id": 14,
+      "start": 42.66,
+      "end": 43.3,
+      "text": "Yeah."
+    },
+    {
+      "id": 15,
+      "start": 43.3,
+      "end": 44.3,
+      "text": "Okay, we're done."
+    },
+    {
+      "id": 16,
+      "start": 44.3,
+      "end": 45.26,
+      "text": "One core, yes."
+    },
+    {
+      "id": 17,
+      "start": 45.26,
+      "end": 46.26,
+      "text": "But then what?"
+    },
+    {
+      "id": 18,
+      "start": 46.26,
+      "end": 48.5,
+      "text": "Well, CPUs are not CPUs."
+    },
+    {
+      "id": 19,
+      "start": 48.5,
+      "end": 50.7,
+      "text": "Oh, do you think so?"
+    },
+    {
+      "id": 20,
+      "start": 50.7,
+      "end": 52.34,
+      "text": "Oh, the read-all one, okay."
+    },
+    {
+      "id": 21,
+      "start": 52.34,
+      "end": 54.04,
+      "text": "So what did you say there?"
+    },
+    {
+      "id": 22,
+      "start": 54.04,
+      "end": 55.94,
+      "text": "The 90s, you had the 90s."
+    },
+    {
+      "id": 23,
+      "start": 56.06,
+      "end": 58.06,
+      "text": "But GPU cores, I don't think do this as well, right?"
+    },
+    {
+      "id": 24,
+      "start": 58.06,
+      "end": 59.66,
+      "text": "You're in order."
+    },
+    {
+      "id": 25,
+      "start": 59.66,
+      "end": 60.86,
+      "text": "Right?"
+    },
+    {
+      "id": 26,
+      "start": 60.86,
+      "end": 62.58,
+      "text": "Because this is actually really complex to do."
+    },
+    {
+      "id": 27,
+      "start": 62.58,
+      "end": 66.06,
+      "text": "You're like, basically, it's the same thing as like optimistic or commercial for transactions."
+    },
+    {
+      "id": 28,
+      "start": 66.06,
+      "end": 68.46,
+      "text": "You're assuming everything's going to be okay,"
+    },
+    {
+      "id": 29,
+      "start": 68.46,
+      "end": 70.54,
+      "text": "you let things run sort of speculatively,"
+    },
+    {
+      "id": 30,
+      "start": 70.54,
+      "end": 74.18,
+      "text": "and then you just check at the end, did it actually match out, right?"
+    },
+    {
+      "id": 31,
+      "start": 74.18,
+      "end": 75.22,
+      "text": "So this is fantastic, right?"
+    },
+    {
+      "id": 32,
+      "start": 75.22,
+      "end": 78.14,
+      "text": "Everything works great when you get it right."
+    },
+    {
+      "id": 33,
+      "start": 78.14,
+      "end": 83.86,
+      "text": "And if the CPU recognizes that there's a dependency,"
+    },
+    {
+      "id": 34,
+      "start": 83.86,
+      "end": 85.98,
+      "text": "like I need to know the output of one instruction,"
+    },
+    {
+      "id": 35,
+      "start": 85.98,
+      "end": 87.78,
+      "text": "but more to do the next instruction,"
+    },
+    {
+      "id": 36,
+      "start": 87.78,
+      "end": 90.18,
+      "text": "or if I do a misprediction, right?"
+    },
+    {
+      "id": 37,
+      "start": 90.18,
+      "end": 92.82,
+      "text": "Meaning like there's an if clause, it sees that,"
+    },
+    {
+      "id": 38,
+      "start": 92.82,
+      "end": 95.62,
+      "text": "and this is a branch instruction,"
+    },
+    {
+      "id": 39,
+      "start": 95.62,
+      "end": 98.78,
+      "text": "it sees that and tries to predict which path down the branch you're going to go,"
+    },
+    {
+      "id": 40,
+      "start": 98.78,
+      "end": 100.98,
+      "text": "like if then else, it tries to pick which one you're going to go,"
+    },
+    {
+      "id": 41,
+      "start": 100.98,
+      "end": 104.1,
+      "text": "and then specically executes whatever things the path you're going to take."
+    },
+    {
+      "id": 42,
+      "start": 104.1,
+      "end": 105.74,
+      "text": "And then if you get it wrong,"
+    },
+    {
+      "id": 43,
+      "start": 105.74,
+      "end": 109.7,
+      "text": "you have to flush the pipeline and roll everything back and restart."
+    },
+    {
+      "id": 44,
+      "start": 109.7,
+      "end": 110.86,
+      "text": "And that's really expensive."
+    },
+    {
+      "id": 45,
+      "start": 111.86,
+      "end": 115.86,
+      "text": "So again, these stairs can occur in the two ways that they're set about."
+    },
+    {
+      "id": 46,
+      "start": 115.86,
+      "end": 117.06,
+      "text": "So one is dependencies, right?"
+    },
+    {
+      "id": 47,
+      "start": 117.06,
+      "end": 119.42,
+      "text": "If one instruction depends on the output of another instruction,"
+    },
+    {
+      "id": 48,
+      "start": 119.42,
+      "end": 124.98,
+      "text": "then you can't immediately put that in the same pipeline, right?"
+    },
+    {
+      "id": 49,
+      "start": 124.98,
+      "end": 126.66,
+      "text": "You get the stall and wait, yes."
+    },
+    {
+      "id": 50,
+      "start": 126.66,
+      "end": 129.58,
+      "text": "Does one pipeline correspond to one for?"
+    },
+    {
+      "id": 51,
+      "start": 129.58,
+      "end": 130.98,
+      "text": "Because if you keep cycles,"
+    },
+    {
+      "id": 52,
+      "start": 130.98,
+      "end": 133.54,
+      "text": "do you take a one-on-a-four item from each pipeline?"
+    },
+    {
+      "id": 53,
+      "start": 133.54,
+      "end": 134.06,
+      "text": "No, it's a question."
+    },
+    {
+      "id": 54,
+      "start": 134.06,
+      "end": 135.7,
+      "text": "Does one pipeline correspond to each one core?"
+    },
+    {
+      "id": 55,
+      "start": 135.7,
+      "end": 137.74,
+      "text": "No. Every core does multiple pipelines."
+    },
+    {
+      "id": 56,
+      "start": 141.26,
+      "end": 142.06,
+      "text": "The pipelines are short."
+    },
+    {
+      "id": 57,
+      "start": 142.06,
+      "end": 148.02,
+      "text": "I think the latest yarns are like 20 instructions on a pipeline."
+    },
+    {
+      "id": 58,
+      "start": 148.02,
+      "end": 152.82,
+      "text": "Or not, like we're not in the X100 paper."
+    },
+    {
+      "id": 59,
+      "start": 152.82,
+      "end": 155.46,
+      "text": "They talk about how like, I think the Pentium 4's are one of them"
+    },
+    {
+      "id": 60,
+      "start": 155.46,
+      "end": 157.86,
+      "text": "have like 31 instructions, who's insane."
+    },
+    {
+      "id": 61,
+      "start": 157.86,
+      "end": 159.62,
+      "text": "They're now more reasonable."
+    },
+    {
+      "id": 62,
+      "start": 159.62,
+      "end": 161.86,
+      "text": "But again, if you still have one of these,"
+    },
+    {
+      "id": 63,
+      "start": 161.86,
+      "end": 164.1,
+      "text": "if it predicts something wrong,"
+    },
+    {
+      "id": 64,
+      "start": 164.1,
+      "end": 167.82,
+      "text": "you've got to flush the pipeline undue stuff and install until you bring back"
+    },
+    {
+      "id": 65,
+      "start": 167.82,
+      "end": 170.82,
+      "text": "an instruction so you should have executed, right?"
+    },
+    {
+      "id": 66,
+      "start": 171.82,
+      "end": 174.62,
+      "text": "Right? So, in the case of this first one, dependencies,"
+    },
+    {
+      "id": 67,
+      "start": 174.62,
+      "end": 177.26,
+      "text": "this could occur when there is, you know,"
+    },
+    {
+      "id": 68,
+      "start": 177.26,
+      "end": 178.7,
+      "text": "if we're scanning a tuple,"
+    },
+    {
+      "id": 69,
+      "start": 178.7,
+      "end": 183.54,
+      "text": "and we need to store the data in an output buffer before we can execute anything else,"
+    },
+    {
+      "id": 70,
+      "start": 183.54,
+      "end": 186.18,
+      "text": "like we need to know what the result of that computation was"
+    },
+    {
+      "id": 71,
+      "start": 186.18,
+      "end": 188.54,
+      "text": "before we can go on to do the next thing."
+    },
+    {
+      "id": 72,
+      "start": 188.54,
+      "end": 189.06,
+      "text": "Yes?"
+    },
+    {
+      "id": 73,
+      "start": 189.06,
+      "end": 193.1,
+      "text": "Does that mean you could put the pipeline in different pipelines?"
+    },
+    {
+      "id": 74,
+      "start": 193.1,
+      "end": 197.62,
+      "text": "This question, so, the first one says,"
+    },
+    {
+      "id": 75,
+      "start": 197.62,
+      "end": 200.02,
+      "text": "then it cannot be pushed immediately into the same pipeline."
+    },
+    {
+      "id": 76,
+      "start": 200.06,
+      "end": 203.5,
+      "text": "No, because you basically have to wait until you figure out what's going to happen"
+    },
+    {
+      "id": 77,
+      "start": 203.5,
+      "end": 205.14,
+      "text": "and then you put it in."
+    },
+    {
+      "id": 78,
+      "start": 205.14,
+      "end": 205.74,
+      "text": "Yeah."
+    },
+    {
+      "id": 79,
+      "start": 205.74,
+      "end": 208.02,
+      "text": "But actually, I don't know whether you could have like,"
+    },
+    {
+      "id": 80,
+      "start": 208.02,
+      "end": 210.26,
+      "text": "here's the pipeline I'm really running, but here's the pipeline."
+    },
+    {
+      "id": 81,
+      "start": 210.26,
+      "end": 212.5,
+      "text": "As soon as I find out with the first one, then I can run the other one."
+    },
+    {
+      "id": 82,
+      "start": 212.5,
+      "end": 213.74,
+      "text": "I don't know if it does that."
+    },
+    {
+      "id": 83,
+      "start": 213.74,
+      "end": 214.74,
+      "text": "I don't think it does."
+    },
+    {
+      "id": 84,
+      "start": 217.62,
+      "end": 220.26,
+      "text": "The second one is for branch prediction."
+    },
+    {
+      "id": 85,
+      "start": 220.26,
+      "end": 224.46,
+      "text": "And this is basically means that like, if, as I said, there's an if clause"
+    },
+    {
+      "id": 86,
+      "start": 224.46,
+      "end": 226.14,
+      "text": "or some kind of conditional statement,"
+    },
+    {
+      "id": 87,
+      "start": 226.14,
+      "end": 228.86,
+      "text": "it's going to try to predict what you're going to do."
+    },
+    {
+      "id": 88,
+      "start": 228.98,
+      "end": 232.7,
+      "text": "And this part is super sophisticated in CPUs, like AMD and Intel."
+    },
+    {
+      "id": 89,
+      "start": 232.7,
+      "end": 234.98,
+      "text": "Like, this is like the secret sauce of the CPUs,"
+    },
+    {
+      "id": 90,
+      "start": 234.98,
+      "end": 238.34,
+      "text": "and they don't share what exactly the branch predictor is actually doing."
+    },
+    {
+      "id": 91,
+      "start": 238.34,
+      "end": 242.14,
+      "text": "Because the Intel's very sophisticated."
+    },
+    {
+      "id": 92,
+      "start": 242.14,
+      "end": 244.42,
+      "text": "Actually, they all are."
+    },
+    {
+      "id": 93,
+      "start": 244.42,
+      "end": 248.78,
+      "text": "So again, the idea is that if we build our system in such a way"
+    },
+    {
+      "id": 94,
+      "start": 248.78,
+      "end": 253.22,
+      "text": "that we have a lot of conditionals, we may end up making things worse for us"
+    },
+    {
+      "id": 95,
+      "start": 253.22,
+      "end": 256.86,
+      "text": "because think of like your scanning data."
+    },
+    {
+      "id": 96,
+      "start": 256.86,
+      "end": 258.62,
+      "text": "You don't actually know what path you're going to take,"
+    },
+    {
+      "id": 97,
+      "start": 258.62,
+      "end": 261.22,
+      "text": "because it's going to depend on what the query is, like the conditionals"
+    },
+    {
+      "id": 98,
+      "start": 261.22,
+      "end": 263.9,
+      "text": "or the wear clause, depend on what your data looks like."
+    },
+    {
+      "id": 99,
+      "start": 263.9,
+      "end": 266.94,
+      "text": "So there's no way, that easy way to really predict"
+    },
+    {
+      "id": 100,
+      "start": 266.94,
+      "end": 270.22,
+      "text": "for every single query what path you're going to take down for different conditionals."
+    },
+    {
+      "id": 101,
+      "start": 273.46,
+      "end": 277.22,
+      "text": "So for this last one here, we'll talk a little bit about how to fix it."
+    },
+    {
+      "id": 102,
+      "start": 277.22,
+      "end": 279.42,
+      "text": "So again, because we have these long pipe lines,"
+    },
+    {
+      "id": 103,
+      "start": 279.42,
+      "end": 280.9,
+      "text": "we're going to try to expect it to execute branches."
+    },
+    {
+      "id": 104,
+      "start": 280.9,
+      "end": 282.46,
+      "text": "Because it wants to stall the,"
+    },
+    {
+      "id": 105,
+      "start": 282.46,
+      "end": 285.66,
+      "text": "sorry, wants to hide these long stalls between these pen instructions"
+    },
+    {
+      "id": 106,
+      "start": 285.66,
+      "end": 290.9,
+      "text": "and going fetching things from L3 cache, L2 cache into our registers."
+    },
+    {
+      "id": 107,
+      "start": 290.9,
+      "end": 292.98,
+      "text": "Right?"
+    },
+    {
+      "id": 108,
+      "start": 292.98,
+      "end": 295.54,
+      "text": "The one spot of the data system that's,"
+    },
+    {
+      "id": 109,
+      "start": 295.54,
+      "end": 297.06,
+      "text": "this is going to come up a lot,"
+    },
+    {
+      "id": 110,
+      "start": 297.06,
+      "end": 300.22,
+      "text": "is just the basic filter operations when we do sequential scans."
+    },
+    {
+      "id": 111,
+      "start": 300.22,
+      "end": 305.34,
+      "text": "As I said, because it's going to depend on the filter basically conditional,"
+    },
+    {
+      "id": 112,
+      "start": 305.34,
+      "end": 309.34,
+      "text": "like where something equals something, that's a nif clause."
+    },
+    {
+      "id": 113,
+      "start": 309.34,
+      "end": 312.98,
+      "text": "And whether or not that that predicate is going to be able to true,"
+    },
+    {
+      "id": 114,
+      "start": 312.98,
+      "end": 315.54,
+      "text": "depends on the data."
+    },
+    {
+      "id": 115,
+      "start": 315.54,
+      "end": 316.54,
+      "text": "Right?"
+    },
+    {
+      "id": 116,
+      "start": 316.54,
+      "end": 320.3,
+      "text": "So this is nearly impossible for, you know,"
+    },
+    {
+      "id": 117,
+      "start": 320.3,
+      "end": 321.9,
+      "text": "even us as the database system,"
+    },
+    {
+      "id": 118,
+      "start": 321.9,
+      "end": 324.82,
+      "text": "we're actually running the code to predict, let alone the CPU,"
+    },
+    {
+      "id": 119,
+      "start": 324.82,
+      "end": 326.66,
+      "text": "because the CPU doesn't know anything about, you know,"
+    },
+    {
+      "id": 120,
+      "start": 326.66,
+      "end": 329.38,
+      "text": "what a database system is or what a query is."
+    },
+    {
+      "id": 121,
+      "start": 329.38,
+      "end": 333.5,
+      "text": "And imagine, if any, know a compiler hint you can potentially use to,"
+    },
+    {
+      "id": 122,
+      "start": 333.5,
+      "end": 335.14,
+      "text": "to resolve this."
+    },
+    {
+      "id": 123,
+      "start": 335.14,
+      "end": 337.1,
+      "text": "I don't know what I had to do in a broth,"
+    },
+    {
+      "id": 124,
+      "start": 337.1,
+      "end": 340.3,
+      "text": "but in C++, there's, there's something in the standard."
+    },
+    {
+      "id": 125,
+      "start": 341.3,
+      "end": 344.74,
+      "text": "You can call likely and unlikely."
+    },
+    {
+      "id": 126,
+      "start": 344.74,
+      "end": 347.46,
+      "text": "So they have these, these, these compiler directors,"
+    },
+    {
+      "id": 127,
+      "start": 347.46,
+      "end": 351.06,
+      "text": "where you can specify whether a,"
+    },
+    {
+      "id": 128,
+      "start": 351.06,
+      "end": 352.66,
+      "text": "a conditional clause is going to be,"
+    },
+    {
+      "id": 129,
+      "start": 352.66,
+      "end": 355.1,
+      "text": "or code path is going to be likely or unlikely."
+    },
+    {
+      "id": 130,
+      "start": 355.1,
+      "end": 356.58,
+      "text": "Right?"
+    },
+    {
+      "id": 131,
+      "start": 356.58,
+      "end": 358.98,
+      "text": "C doesn't have this, they, I think they avoided this."
+    },
+    {
+      "id": 132,
+      "start": 358.98,
+      "end": 361.5,
+      "text": "Again, I don't know whether Rust has this."
+    },
+    {
+      "id": 133,
+      "start": 361.5,
+      "end": 366.38,
+      "text": "And this, this is, I did some quick searching to see what systems actually supported."
+    },
+    {
+      "id": 134,
+      "start": 366.38,
+      "end": 368.46,
+      "text": "Clickhouse has this, I know duct-de-beat does not,"
+    },
+    {
+      "id": 135,
+      "start": 368.46,
+      "end": 370.02,
+      "text": "because they're trying to be portable."
+    },
+    {
+      "id": 136,
+      "start": 370.06,
+      "end": 372.86,
+      "text": "Postgres has this, right?"
+    },
+    {
+      "id": 137,
+      "start": 372.86,
+      "end": 378.7,
+      "text": "But the, these are not hints actually to the CPU."
+    },
+    {
+      "id": 138,
+      "start": 378.7,
+      "end": 381.18,
+      "text": "You can't tell the CPU, like the branch-factor could behave,"
+    },
+    {
+      "id": 139,
+      "start": 381.18,
+      "end": 383.42,
+      "text": "I'm lucky to go down this path, right?"
+    },
+    {
+      "id": 140,
+      "start": 383.42,
+      "end": 386.54,
+      "text": "I think Intel had, had some capabilities in the early days to do this,"
+    },
+    {
+      "id": 141,
+      "start": 386.54,
+      "end": 389.1,
+      "text": "but in 2006, they took it out, right?"
+    },
+    {
+      "id": 142,
+      "start": 389.1,
+      "end": 393.86,
+      "text": "So this is, this is just a hint to the compiler for it to potentially reorganize"
+    },
+    {
+      "id": 143,
+      "start": 393.86,
+      "end": 399.42,
+      "text": "your code itself so that the likely path is maybe at the top of something, right?"
+    },
+    {
+      "id": 144,
+      "start": 399.46,
+      "end": 402.1,
+      "text": "And then if you read this blog article from a, I think,"
+    },
+    {
+      "id": 145,
+      "start": 402.1,
+      "end": 406.34,
+      "text": "a compiler engineer at Intel, he basically says, don't use this."
+    },
+    {
+      "id": 146,
+      "start": 406.34,
+      "end": 408.66,
+      "text": "It's going to make, sometimes it's going to actually make things worse."
+    },
+    {
+      "id": 147,
+      "start": 408.66,
+      "end": 412.38,
+      "text": "And it's not often going to actually make things better for you, right?"
+    },
+    {
+      "id": 148,
+      "start": 412.38,
+      "end": 415.1,
+      "text": "So I think the interesting thing, we take, clickhouse,"
+    },
+    {
+      "id": 149,
+      "start": 415.1,
+      "end": 417.46,
+      "text": "take all these systems that do use this, like,"
+    },
+    {
+      "id": 150,
+      "start": 417.46,
+      "end": 420.62,
+      "text": "because they're all just pounded to fines, so you can just hide it."
+    },
+    {
+      "id": 151,
+      "start": 420.62,
+      "end": 421.98,
+      "text": "You can see whether it actually makes a difference."
+    },
+    {
+      "id": 152,
+      "start": 421.98,
+      "end": 422.58,
+      "text": "I have no idea."
+    },
+    {
+      "id": 153,
+      "start": 422.58,
+      "end": 423.1,
+      "text": "What?"
+    },
+    {
+      "id": 154,
+      "start": 423.1,
+      "end": 424.1,
+      "text": "It is in Rust."
+    },
+    {
+      "id": 155,
+      "start": 424.1,
+      "end": 424.46,
+      "text": "It's unstable."
+    },
+    {
+      "id": 156,
+      "start": 424.46,
+      "end": 425.3,
+      "text": "OK, it's unstable."
+    },
+    {
+      "id": 157,
+      "start": 425.3,
+      "end": 426.5,
+      "text": "OK, yes?"
+    },
+    {
+      "id": 158,
+      "start": 426.5,
+      "end": 431.06,
+      "text": "I know many people use this for something important when you have basically a code they have"
+    },
+    {
+      "id": 159,
+      "start": 431.06,
+      "end": 431.66,
+      "text": "in the air."
+    },
+    {
+      "id": 160,
+      "start": 431.66,
+      "end": 431.94,
+      "text": "Yes."
+    },
+    {
+      "id": 161,
+      "start": 431.94,
+      "end": 437.58,
+      "text": "But it's not, but again, it doesn't help the CPU manage predictor."
+    },
+    {
+      "id": 162,
+      "start": 437.58,
+      "end": 441.22,
+      "text": "So when you then use it to build?"
+    },
+    {
+      "id": 163,
+      "start": 441.22,
+      "end": 444.38,
+      "text": "I mean, for ASICs, or is it like for like, embedded?"
+    },
+    {
+      "id": 164,
+      "start": 444.38,
+      "end": 445.62,
+      "text": "Is it what's that?"
+    },
+    {
+      "id": 165,
+      "start": 445.62,
+      "end": 446.74,
+      "text": "It's for ASICs."
+    },
+    {
+      "id": 166,
+      "start": 446.74,
+      "end": 449.58,
+      "text": "No, I think it's like for a person to create and just like,"
+    },
+    {
+      "id": 167,
+      "start": 449.58,
+      "end": 453.1,
+      "text": "you know, you're running on the internet or something like that?"
+    },
+    {
+      "id": 168,
+      "start": 453.1,
+      "end": 454.82,
+      "text": "All right, so that's like the specialized hardware."
+    },
+    {
+      "id": 169,
+      "start": 454.82,
+      "end": 455.82,
+      "text": "I have no idea."
+    },
+    {
+      "id": 170,
+      "start": 455.82,
+      "end": 457.02,
+      "text": "I'm for Zeyons."
+    },
+    {
+      "id": 171,
+      "start": 457.02,
+      "end": 458.74,
+      "text": "This doesn't do it."
+    },
+    {
+      "id": 172,
+      "start": 458.74,
+      "end": 461.18,
+      "text": "Sorry, for the CPU, I've actually had FPGA."
+    },
+    {
+      "id": 173,
+      "start": 461.18,
+      "end": 468.74,
+      "text": "So you're saying for the network hardware stuff or sorry, for the network boxes, they take"
+    },
+    {
+      "id": 174,
+      "start": 468.74,
+      "end": 471.02,
+      "text": "heavy advantage of this."
+    },
+    {
+      "id": 175,
+      "start": 471.02,
+      "end": 475.02,
+      "text": "But again, I'm telling you, you can't tell the CPU that, yes, so I don't know what they're"
+    },
+    {
+      "id": 176,
+      "start": 475.02,
+      "end": 476.02,
+      "text": "doing."
+    },
+    {
+      "id": 177,
+      "start": 476.02,
+      "end": 477.38,
+      "text": "I don't know what they're doing."
+    },
+    {
+      "id": 178,
+      "start": 477.38,
+      "end": 479.18,
+      "text": "No, it's a compiler directive."
+    },
+    {
+      "id": 179,
+      "start": 479.18,
+      "end": 480.38,
+      "text": "It's up to the couple of minutes."
+    },
+    {
+      "id": 180,
+      "start": 480.38,
+      "end": 481.38,
+      "text": "Oh, sure."
+    },
+    {
+      "id": 181,
+      "start": 481.38,
+      "end": 484.9,
+      "text": "It's changing the order of the assembly."
+    },
+    {
+      "id": 182,
+      "start": 484.9,
+      "end": 488.5,
+      "text": "So that the likely pass are closer to the top when you go into the conditional."
+    },
+    {
+      "id": 183,
+      "start": 488.5,
+      "end": 489.5,
+      "text": "Do you remember these hardware?"
+    },
+    {
+      "id": 184,
+      "start": 489.5,
+      "end": 490.5,
+      "text": "How do I get the pass right?"
+    },
+    {
+      "id": 185,
+      "start": 490.5,
+      "end": 493.5,
+      "text": "Like, do you think these ones, again, do you call them these ones?"
+    },
+    {
+      "id": 186,
+      "start": 493.5,
+      "end": 497.5,
+      "text": "So it might work first, but won't go the time?"
+    },
+    {
+      "id": 187,
+      "start": 497.5,
+      "end": 499.34,
+      "text": "Again, I don't know if this is custom hardware or not."
+    },
+    {
+      "id": 188,
+      "start": 499.34,
+      "end": 502.5,
+      "text": "Like, yeah."
+    },
+    {
+      "id": 189,
+      "start": 502.5,
+      "end": 504.5,
+      "text": "I don't know what this matters for data systems."
+    },
+    {
+      "id": 190,
+      "start": 504.5,
+      "end": 506.46,
+      "text": "Not every system they actually use."
+    },
+    {
+      "id": 191,
+      "start": 506.46,
+      "end": 509.86,
+      "text": "Post-Guest does, look how it does, and a few others do."
+    },
+    {
+      "id": 192,
+      "start": 509.86,
+      "end": 510.86,
+      "text": "Yes?"
+    },
+    {
+      "id": 193,
+      "start": 510.86,
+      "end": 513.18,
+      "text": "Are there any architectures for you?"
+    },
+    {
+      "id": 194,
+      "start": 513.18,
+      "end": 516.42,
+      "text": "But give a hint to the branch ratio?"
+    },
+    {
+      "id": 195,
+      "start": 516.42,
+      "end": 517.42,
+      "text": "Yeah."
+    },
+    {
+      "id": 196,
+      "start": 517.42,
+      "end": 526.1,
+      "text": "There used to be an opcode that you could tell the CPU, but that was 2005 and earlier."
+    },
+    {
+      "id": 197,
+      "start": 526.1,
+      "end": 528.62,
+      "text": "Intel supported it back in the day."
+    },
+    {
+      "id": 198,
+      "start": 528.62,
+      "end": 529.62,
+      "text": "But not now."
+    },
+    {
+      "id": 199,
+      "start": 529.62,
+      "end": 534.02,
+      "text": "Because it was thinking things must have affected."
+    },
+    {
+      "id": 200,
+      "start": 534.02,
+      "end": 535.02,
+      "text": "Yeah."
+    },
+    {
+      "id": 201,
+      "start": 535.02,
+      "end": 537.62,
+      "text": "Because people just like, or stupid with it too."
+    },
+    {
+      "id": 202,
+      "start": 537.62,
+      "end": 541.62,
+      "text": "Also, data is a little bit more difficult for you to actually data wanted."
+    },
+    {
+      "id": 203,
+      "start": 541.62,
+      "end": 547.22,
+      "text": "CPU is the same design to know that that secret source that I've been talking about, that's"
+    },
+    {
+      "id": 204,
+      "start": 547.22,
+      "end": 548.22,
+      "text": "been designed for 20-30 years."
+    },
+    {
+      "id": 205,
+      "start": 548.22,
+      "end": 552.74,
+      "text": "It's really good at figuring out which products you can't do much in a state."
+    },
+    {
+      "id": 206,
+      "start": 552.74,
+      "end": 556.7,
+      "text": "So when you do this, you kind of ask about that."
+    },
+    {
+      "id": 207,
+      "start": 556.7,
+      "end": 560.5,
+      "text": "Let's look at a case where, like, even if you had it, it wouldn't help."
+    },
+    {
+      "id": 208,
+      "start": 560.5,
+      "end": 561.5,
+      "text": "Right?"
+    },
+    {
+      "id": 209,
+      "start": 561.5,
+      "end": 564.38,
+      "text": "So the favorite simple query here, a select start from table where key is greater than"
+    },
+    {
+      "id": 210,
+      "start": 564.38,
+      "end": 567.42,
+      "text": "low value and key less than high value."
+    },
+    {
+      "id": 211,
+      "start": 567.42,
+      "end": 569.58,
+      "text": "So this is how you probably write this code."
+    },
+    {
+      "id": 212,
+      "start": 569.58,
+      "end": 571.66,
+      "text": "Again, I don't want to show code in slides, but this is simple enough."
+    },
+    {
+      "id": 213,
+      "start": 571.66,
+      "end": 573.9,
+      "text": "I think you guys can get it."
+    },
+    {
+      "id": 214,
+      "start": 573.9,
+      "end": 577.46,
+      "text": "This is how you write this code in bus top or a basic implementation."
+    },
+    {
+      "id": 215,
+      "start": 577.46,
+      "end": 580.14,
+      "text": "You have a four-lip iterates over two every two-pool in the table."
+    },
+    {
+      "id": 216,
+      "start": 580.14,
+      "end": 583.86,
+      "text": "You go grab the key, then you have the if clause if key greater than low and key less"
+    },
+    {
+      "id": 217,
+      "start": 583.86,
+      "end": 586.7,
+      "text": "than high, then you copy it in the output buffer."
+    },
+    {
+      "id": 218,
+      "start": 586.7,
+      "end": 591.06,
+      "text": "Then you iterate whatever the buffer offset by one."
+    },
+    {
+      "id": 219,
+      "start": 591.06,
+      "end": 596.98,
+      "text": "So what's the problem for the CPU in this code?"
+    },
+    {
+      "id": 220,
+      "start": 596.98,
+      "end": 597.98,
+      "text": "The if clause."
+    },
+    {
+      "id": 221,
+      "start": 597.98,
+      "end": 598.98,
+      "text": "Right?"
+    },
+    {
+      "id": 222,
+      "start": 598.98,
+      "end": 599.98,
+      "text": "Yeah."
+    }
+  ],
+  "language": "en"
+}

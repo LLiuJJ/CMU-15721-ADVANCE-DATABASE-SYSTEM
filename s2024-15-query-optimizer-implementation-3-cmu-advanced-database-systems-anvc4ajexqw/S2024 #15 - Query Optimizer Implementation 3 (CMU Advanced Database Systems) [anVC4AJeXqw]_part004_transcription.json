@@ -1,0 +1,335 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.54,
+      "text": "you determine whether to pin the portions of the query plan that you've already executed"
+    },
+    {
+      "id": 1,
+      "start": 4.54,
+      "end": 10.6,
+      "text": "because you know they're expensive, or you can just throw everything away and start over."
+    },
+    {
+      "id": 2,
+      "start": 10.6,
+      "end": 17.48,
+      "text": "So this is sort of a crash course on adaptive query optimization."
+    },
+    {
+      "id": 3,
+      "start": 17.48,
+      "end": 21.44,
+      "text": "I actually really like these techniques and there's for obvious reasons, right?"
+    },
+    {
+      "id": 4,
+      "start": 21.44,
+      "end": 24.84,
+      "text": "Like, it doesn't rely on getting it right at the very beginning."
+    },
+    {
+      "id": 5,
+      "start": 24.84,
+      "end": 30.32,
+      "text": "Like you can sort of correct yourself as you actually run in the query."
+    },
+    {
+      "id": 6,
+      "start": 30.32,
+      "end": 34.82,
+      "text": "So again, we'll see in the next class when we talk about cost models of how bad things"
+    },
+    {
+      "id": 7,
+      "start": 34.82,
+      "end": 36.82,
+      "text": "can actually get."
+    },
+    {
+      "id": 8,
+      "start": 36.82,
+      "end": 40.12,
+      "text": "But the way you actually need to implement this is super important that it's just not,"
+    },
+    {
+      "id": 9,
+      "start": 40.12,
+      "end": 44.92,
+      "text": "you know, you don't want to implement your optimizer and your execution engine completely"
+    },
+    {
+      "id": 10,
+      "start": 44.92,
+      "end": 46.56,
+      "text": "separately from each other."
+    },
+    {
+      "id": 11,
+      "start": 46.56,
+      "end": 51.52,
+      "text": "It's sort of a symbiotic relationship where you have to know what kind of strategies could"
+    },
+    {
+      "id": 12,
+      "start": 51.52,
+      "end": 56.0,
+      "text": "be employed by the execution and the optimizer in terms of like switching pass or throwing"
+    },
+    {
+      "id": 13,
+      "start": 56.0,
+      "end": 57.76,
+      "text": "weight intermediaries also not."
+    },
+    {
+      "id": 14,
+      "start": 57.76,
+      "end": 64.08,
+      "text": "And then you build your optimizer around what your execution engine can actually do."
+    },
+    {
+      "id": 15,
+      "start": 64.08,
+      "end": 71.04,
+      "text": "So for this reason, I think applying this technique for using this technique with sort of"
+    },
+    {
+      "id": 16,
+      "start": 71.04,
+      "end": 77.08,
+      "text": "this optimizer as a service like Orca or CalSide could actually be tricky because there's"
+    },
+    {
+      "id": 17,
+      "start": 77.08,
+      "end": 81.44,
+      "text": "different approaches for how you can actually support adaptive query execution in the system"
+    },
+    {
+      "id": 18,
+      "start": 81.44,
+      "end": 83.12,
+      "text": "itself."
+    },
+    {
+      "id": 19,
+      "start": 83.12,
+      "end": 92.2,
+      "text": "So in addition to having sort of more robust or more sophisticated query optimizers, all"
+    },
+    {
+      "id": 20,
+      "start": 92.2,
+      "end": 97.88,
+      "text": "versus the open source systems, all the major database vendors now support this within"
+    },
+    {
+      "id": 21,
+      "start": 97.88,
+      "end": 98.88,
+      "text": "the last."
+    },
+    {
+      "id": 22,
+      "start": 98.88,
+      "end": 102.76,
+      "text": "Actually, mostly in the last three or four years, like DB2 had this Leo thing in early"
+    },
+    {
+      "id": 23,
+      "start": 102.76,
+      "end": 104.76,
+      "text": "2000s."
+    },
+    {
+      "id": 24,
+      "start": 104.76,
+      "end": 110.68,
+      "text": "But really in the last three years, about Oracle and SQL Server and now Teradata also"
+    },
+    {
+      "id": 25,
+      "start": 110.68,
+      "end": 113.2,
+      "text": "included the ability to do adaptive query optimization."
+    },
+    {
+      "id": 26,
+      "start": 113.2,
+      "end": 117.28,
+      "text": "But the best my knowledge and postgres and my SQL simply can't do this."
+    },
+    {
+      "id": 27,
+      "start": 117.28,
+      "end": 120.88,
+      "text": "And none of this, sort of the newer open source systems that have come around in the"
+    },
+    {
+      "id": 28,
+      "start": 120.88,
+      "end": 123.04,
+      "text": "last decade and support anything like this."
+    },
+    {
+      "id": 29,
+      "start": 123.04,
+      "end": 124.68,
+      "text": "So all right."
+    },
+    {
+      "id": 30,
+      "start": 124.68,
+      "end": 128.56,
+      "text": "So again, this was just sort of the show you that you don't have to build the optimizer,"
+    },
+    {
+      "id": 31,
+      "start": 128.56,
+      "end": 131.16,
+      "text": "the way we described it where you sort of plan once and run it."
+    },
+    {
+      "id": 32,
+      "start": 131.16,
+      "end": 134.2,
+      "text": "There are techniques to actually modify the query while it's running."
+    },
+    {
+      "id": 33,
+      "start": 134.2,
+      "end": 137.4,
+      "text": "And they get feedback from execution and put it into the system."
+    },
+    {
+      "id": 34,
+      "start": 137.4,
+      "end": 139.4,
+      "text": "So what the fuck are you doing?"
+    },
+    {
+      "id": 35,
+      "start": 139.4,
+      "end": 141.4,
+      "text": "All right, sorry."
+    },
+    {
+      "id": 36,
+      "start": 141.4,
+      "end": 146.64,
+      "text": "So next class, we'll then start discussing how cost models work."
+    },
+    {
+      "id": 37,
+      "start": 146.64,
+      "end": 148.64,
+      "text": "And we'll see why they're so bad."
+    },
+    {
+      "id": 38,
+      "start": 148.64,
+      "end": 149.64,
+      "text": "OK?"
+    },
+    {
+      "id": 39,
+      "start": 149.64,
+      "end": 152.64,
+      "text": "I'm glad you had a belt to get the 40-ounce bottle."
+    },
+    {
+      "id": 40,
+      "start": 152.64,
+      "end": 155.64,
+      "text": "Get a grip, take a sip, and you'll be picking up models."
+    },
+    {
+      "id": 41,
+      "start": 155.64,
+      "end": 157.64,
+      "text": "Ain't it no puzzle, I'll go some cause I'm more a man."
+    },
+    {
+      "id": 42,
+      "start": 157.64,
+      "end": 159.64,
+      "text": "I'm telling the 40, I'm a 40-ounce glass floor cans."
+    },
+    {
+      "id": 43,
+      "start": 159.64,
+      "end": 161.64,
+      "text": "Stack the six packs on a table."
+    },
+    {
+      "id": 44,
+      "start": 161.64,
+      "end": 164.64,
+      "text": "And I'm able to see St. Aslan label."
+    },
+    {
+      "id": 45,
+      "start": 164.64,
+      "end": 166.64,
+      "text": "No short, put the trust you know what got them."
+    },
+    {
+      "id": 46,
+      "start": 166.64,
+      "end": 168.64,
+      "text": "I take off the cap, my first attempt on the bottle."
+    },
+    {
+      "id": 47,
+      "start": 168.64,
+      "end": 170.64,
+      "text": "Throw my three in the freezer, throw my controller."
+    },
+    {
+      "id": 48,
+      "start": 170.64,
+      "end": 173.64,
+      "text": "Careful with the bottle, baby, you can still fill it."
+    },
+    {
+      "id": 49,
+      "start": 173.64,
+      "end": 175.64,
+      "text": "Cause St. Aslan said, the paint lines wet."
+    },
+    {
+      "id": 50,
+      "start": 175.64,
+      "end": 177.64,
+      "text": "You drink it down with the gauze, little bottle head."
+    },
+    {
+      "id": 51,
+      "start": 177.64,
+      "end": 179.64,
+      "text": "Take back the pack of drugs."
+    },
+    {
+      "id": 52,
+      "start": 179.64,
+      "end": 182.64,
+      "text": "You won't get your suicide knives to drink it to the front."
+    },
+    {
+      "id": 53,
+      "start": 182.64,
+      "end": 184.64,
+      "text": "Billie Danes, the TNT, the Delted Weed Boss."
+    },
+    {
+      "id": 54,
+      "start": 184.64,
+      "end": 187.64,
+      "text": "For your man to get a can of fake heart."
+    }
+  ],
+  "language": "en"
+}

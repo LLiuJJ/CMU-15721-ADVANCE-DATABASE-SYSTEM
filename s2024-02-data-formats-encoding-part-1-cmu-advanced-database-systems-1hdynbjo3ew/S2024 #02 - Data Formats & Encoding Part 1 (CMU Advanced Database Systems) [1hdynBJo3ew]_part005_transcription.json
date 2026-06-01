@@ -1,0 +1,719 @@
+{
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.84,
+      "text": "tuples, then you have to like, you have branched for predictions, because now you're"
+    },
+    {
+      "id": 1,
+      "start": 4.84,
+      "end": 7.56,
+      "text": "different code bats, you mean you consider. Plus, there's the engineering complexity"
+    },
+    {
+      "id": 2,
+      "start": 7.56,
+      "end": 13.16,
+      "text": "now to support both. So, parquet does this or does that. There's other things too, like"
+    },
+    {
+      "id": 3,
+      "start": 13.16,
+      "end": 18.32,
+      "text": "in bringing like for like a transactional system, should you flush the log buffer when you've"
+    },
+    {
+      "id": 4,
+      "start": 18.32,
+      "end": 24.0,
+      "text": "written so many transactions or when the log files are certain size or when you've run"
+    },
+    {
+      "id": 5,
+      "start": 24.0,
+      "end": 28.36,
+      "text": "for a certain amount of time? Yeah, there's pros and cons to all these different choices,"
+    },
+    {
+      "id": 6,
+      "start": 28.36,
+      "end": 32.24,
+      "text": "but from the engineering perspective, it's just easier to pick one. Or should I use two"
+    },
+    {
+      "id": 7,
+      "start": 32.24,
+      "end": 37.0,
+      "text": "phase locking or OCC? Yeah, there's times one versus the other, but everyone does"
+    },
+    {
+      "id": 8,
+      "start": 37.0,
+      "end": 42.36,
+      "text": "just one. It's so hard to build the whole system. Why add additional complexity? Yes?"
+    },
+    {
+      "id": 9,
+      "start": 42.36,
+      "end": 46.36,
+      "text": "Q. Please, come back to what's the mean? The technical and the other smart thing is you get"
+    },
+    {
+      "id": 10,
+      "start": 46.36,
+      "end": 50.36,
+      "text": "all the log group into memory in the first place, and if not being able to stick together"
+    },
+    {
+      "id": 11,
+      "start": 50.36,
+      "end": 52.36,
+      "text": "is one thing for us."
+    },
+    {
+      "id": 12,
+      "start": 52.36,
+      "end": 55.92,
+      "text": "His question is why is not having being able to put a rogue group entirely in memory of"
+    },
+    {
+      "id": 13,
+      "start": 55.92,
+      "end": 61.88,
+      "text": "that idea? So, I got to go fetch it from somewhere. I bring it to the node that's going"
+    },
+    {
+      "id": 14,
+      "start": 61.88,
+      "end": 67.12,
+      "text": "to process it. I don't have enough memory for it. Where does it got to go? To disk."
+    },
+    {
+      "id": 15,
+      "start": 67.12,
+      "end": 70.96,
+      "text": "Q. Actually, you can process five or five of your writing, but you can process same"
+    },
+    {
+      "id": 16,
+      "start": 70.96,
+      "end": 71.96,
+      "text": "value."
+    },
+    {
+      "id": 17,
+      "start": 71.96,
+      "end": 79.16,
+      "text": "Yes, same it is that could you break up the rogue group and execute it incrementally? Yes."
+    },
+    {
+      "id": 18,
+      "start": 79.16,
+      "end": 81.6,
+      "text": "Then if another requester would get more data as they need."
+    },
+    {
+      "id": 19,
+      "start": 81.6,
+      "end": 83.6,
+      "text": "Q. So, what's the problem?"
+    },
+    {
+      "id": 20,
+      "start": 83.6,
+      "end": 92.24,
+      "text": "Q. So, this is just a diagram from Databricks showing sort of a tutorial what Park A looks"
+    },
+    {
+      "id": 21,
+      "start": 92.24,
+      "end": 96.2,
+      "text": "like. You can sort of see in all things we talked about here, here's the footer, there's"
+    },
+    {
+      "id": 22,
+      "start": 96.2,
+      "end": 100.04,
+      "text": "these rogue groups that are numbered. Then within them you have a column chunk. Within"
+    },
+    {
+      "id": 23,
+      "start": 100.04,
+      "end": 105.24,
+      "text": "the column chunk, you would have additional page metadata for the encoder bags and so"
+    },
+    {
+      "id": 24,
+      "start": 105.24,
+      "end": 106.24,
+      "text": "forth."
+    },
+    {
+      "id": 25,
+      "start": 106.24,
+      "end": 109.76,
+      "text": "The exact distinction of how we're going to lay out those internal parts versus Park"
+    },
+    {
+      "id": 26,
+      "start": 109.76,
+      "end": 115.32,
+      "text": "A and Ork, I don't care that much about, but again, the idea is that there is this hierarchal"
+    },
+    {
+      "id": 27,
+      "start": 115.32,
+      "end": 120.88,
+      "text": "nature to the file and we can store additional metadata as we go along. The right size of"
+    },
+    {
+      "id": 28,
+      "start": 120.88,
+      "end": 125.0,
+      "text": "each part depends on a bunch of different things."
+    },
+    {
+      "id": 29,
+      "start": 125.0,
+      "end": 131.84,
+      "text": "Q. So, we're at CMU and they love type systems in the PL group, so we have to worry about"
+    },
+    {
+      "id": 30,
+      "start": 131.84,
+      "end": 135.76,
+      "text": "loud about a little bit. So, type systems is going to find in our file format, you're"
+    },
+    {
+      "id": 31,
+      "start": 135.76,
+      "end": 138.0,
+      "text": "shaking your head, yes."
+    },
+    {
+      "id": 32,
+      "start": 138.0,
+      "end": 143.68,
+      "text": "The type systems are going to find how we actually can store types themselves and what"
+    },
+    {
+      "id": 33,
+      "start": 143.68,
+      "end": 147.56,
+      "text": "are the bytes going to look like. So, there's the physical type and that's the lowest level"
+    },
+    {
+      "id": 34,
+      "start": 147.56,
+      "end": 152.28,
+      "text": "representation you'd have for a given value. For this, we're not going to think special."
+    },
+    {
+      "id": 35,
+      "start": 152.28,
+      "end": 157.72,
+      "text": "For the most part, for integers and floating point numbers, we're going to use the IEEE"
+    },
+    {
+      "id": 36,
+      "start": 157.72,
+      "end": 162.48,
+      "text": "734 standard and that specifies how a hardware should represent the data. You can think"
+    },
+    {
+      "id": 37,
+      "start": 162.48,
+      "end": 168.36,
+      "text": "of like a regular Claire integer in 32 on C++, that's the 74 standard, that's what I get"
+    },
+    {
+      "id": 38,
+      "start": 168.36,
+      "end": 174.4,
+      "text": "because that's the hardware you see. We'll talk about strings in a few more lectures."
+    },
+    {
+      "id": 39,
+      "start": 174.4,
+      "end": 178.08,
+      "text": "Again, there's some tricks we can do to speed that up. And then the logical types will"
+    },
+    {
+      "id": 40,
+      "start": 178.08,
+      "end": 182.24,
+      "text": "be built on top of the physical types and it's basically going to find how we would map"
+    },
+    {
+      "id": 41,
+      "start": 182.24,
+      "end": 187.36,
+      "text": "some logical type to a physical type. So, for example, if I want to store timestamps,"
+    },
+    {
+      "id": 42,
+      "start": 187.36,
+      "end": 191.2,
+      "text": "what is a timestamp? It's just the number of seconds or milliseconds or nanoseconds,"
+    },
+    {
+      "id": 43,
+      "start": 191.2,
+      "end": 196.2,
+      "text": "from some starting point, well, that's just a number. So, I can just store that as a physical"
+    },
+    {
+      "id": 44,
+      "start": 196.2,
+      "end": 200.36,
+      "text": "type as an int64 and then I have a notion of a logical type that says how to parse the"
+    },
+    {
+      "id": 45,
+      "start": 200.36,
+      "end": 206.88,
+      "text": "bits within that physical type. So, a parking arc have different complexity to their"
+    },
+    {
+      "id": 46,
+      "start": 206.88,
+      "end": 212.24,
+      "text": "type system and then that determines how much work you have to do upstream is the thing"
+    },
+    {
+      "id": 47,
+      "start": 212.24,
+      "end": 215.76,
+      "text": "actually generating data for these file formats or actually consuming it. How much are you"
+    },
+    {
+      "id": 48,
+      "start": 215.76,
+      "end": 220.24,
+      "text": "working up to do to interpret the contents? So, in parking, they have the bare minimum of"
+    },
+    {
+      "id": 49,
+      "start": 220.24,
+      "end": 226.56,
+      "text": "types. They only have int32 and int64 and int64 and then the 750 or standard and then"
+    },
+    {
+      "id": 50,
+      "start": 226.56,
+      "end": 232.0,
+      "text": "the byte arrays and then the only have strings because you would interpret that as a byte"
+    },
+    {
+      "id": 51,
+      "start": 232.0,
+      "end": 239.36,
+      "text": "array. So, it's interesting, they don't store an Ape and int or 16 bit int. So, if you declare"
+    },
+    {
+      "id": 52,
+      "start": 239.36,
+      "end": 243.36,
+      "text": "I want an Ape and int or 16 bit int, they're still going to store it as a 32 bit int."
+    },
+    {
+      "id": 53,
+      "start": 243.36,
+      "end": 248.12,
+      "text": "32 bit int and the reason is that, well, yeah, there's a bunch of zeros in my bits that"
+    },
+    {
+      "id": 54,
+      "start": 248.12,
+      "end": 252.68,
+      "text": "I'm not using, well, a lot of this compress out and that reduces the complexity of what"
+    },
+    {
+      "id": 55,
+      "start": 252.68,
+      "end": 259.56,
+      "text": "they have to support. Or, because much larger, they have all these various types. Some of"
+    },
+    {
+      "id": 56,
+      "start": 259.56,
+      "end": 263.56,
+      "text": "these are logical, some of these are physical, they don't really make a distinction but you"
+    },
+    {
+      "id": 57,
+      "start": 263.56,
+      "end": 270.92,
+      "text": "can find way more things than you can with in the parking. I'm not saying one is bad versus"
+    },
+    {
+      "id": 58,
+      "start": 270.92,
+      "end": 274.16,
+      "text": "the other, this is how they choose the implement things."
+    },
+    {
+      "id": 59,
+      "start": 275.12,
+      "end": 280.08,
+      "text": "So, now the encoding seems going to specify, for a given physical or logical type, yes."
+    },
+    {
+      "id": 60,
+      "start": 280.08,
+      "end": 284.16,
+      "text": "Why is it more better because if you have more types, you can do different coding."
+    },
+    {
+      "id": 61,
+      "start": 284.16,
+      "end": 287.76,
+      "text": "So, I should say why isn't org better because if you have more types, you can do more things"
+    },
+    {
+      "id": 62,
+      "start": 287.76,
+      "end": 293.36,
+      "text": "encoding them. So, the par kb will say you just represent those logical types and you extend the"
+    },
+    {
+      "id": 63,
+      "start": 293.36,
+      "end": 299.28,
+      "text": "file from that way. I've never taken type system class, this is my understanding."
+    },
+    {
+      "id": 64,
+      "start": 299.6,
+      "end": 305.28,
+      "text": "So, again, the coding scheme is going to specify for the physical or logical types, the actual"
+    },
+    {
+      "id": 65,
+      "start": 305.28,
+      "end": 312.8,
+      "text": "bits themselves, how can we actually store them for contiguous or related tuples within our"
+    },
+    {
+      "id": 66,
+      "start": 312.8,
+      "end": 317.44,
+      "text": "column chunk. And the paper talks about a bunch of different schemes that we've covered in"
+    },
+    {
+      "id": 67,
+      "start": 317.44,
+      "end": 322.08,
+      "text": "the intro class. I don't think I mentioned frame a reference in the intro class. It's basically"
+    },
+    {
+      "id": 68,
+      "start": 322.08,
+      "end": 326.32,
+      "text": "like delta encoding but instead of having like in delta encoding, it's like what's the"
+    },
+    {
+      "id": 69,
+      "start": 327.28,
+      "end": 335.12,
+      "text": "difference between the value before you. You pick some starting point, maybe the min value of a"
+    },
+    {
+      "id": 70,
+      "start": 335.12,
+      "end": 339.68,
+      "text": "column chunk and then now you're just storing the delta from that global value."
+    },
+    {
+      "id": 71,
+      "start": 341.36,
+      "end": 348.32,
+      "text": "It's sort of variant of delta encoding. And then there's partial frame of reference coding,"
+    },
+    {
+      "id": 72,
+      "start": 348.32,
+      "end": 352.88,
+      "text": "which I think the paper mentions p4. That's basically for any outliers that would wreck your"
+    },
+    {
+      "id": 73,
+      "start": 352.88,
+      "end": 356.72,
+      "text": "encoding scheme. They have a way to handle those separately, but we could ignore that."
+    },
+    {
+      "id": 74,
+      "start": 356.72,
+      "end": 359.44,
+      "text": "The one I was spending time talking about is actually dictionary encoding because one,"
+    },
+    {
+      "id": 75,
+      "start": 359.44,
+      "end": 364.48,
+      "text": "this is the most common coding scheme that most data systems support. This is where you get most"
+    },
+    {
+      "id": 76,
+      "start": 364.48,
+      "end": 372.16,
+      "text": "of the win for getting compression. And for these, the different schemes here vary not in how"
+    },
+    {
+      "id": 77,
+      "start": 372.16,
+      "end": 377.44,
+      "text": "they implemented but more like when it's triggered. Like in ORC, they're very aggressive using RLE,"
+    },
+    {
+      "id": 78,
+      "start": 377.52,
+      "end": 385.28,
+      "text": "like if they see three or more particular values, then RLE kicks in. If you're in parkay, it has to be"
+    },
+    {
+      "id": 79,
+      "start": 385.28,
+      "end": 389.92,
+      "text": "eight or more and you can't change that. And so probably dictionary encoding because you can"
+    },
+    {
+      "id": 80,
+      "start": 389.92,
+      "end": 394.48,
+      "text": "then take the results of the dictionary encoding that compress column and then apply all these"
+    },
+    {
+      "id": 81,
+      "start": 394.48,
+      "end": 400.24,
+      "text": "other things on top of it and get it compressed even more. All right, dictionary encoding. Again,"
+    },
+    {
+      "id": 82,
+      "start": 400.24,
+      "end": 404.08,
+      "text": "this is the same thing with the intro class. The basic idea is that we're going to replace"
+    },
+    {
+      "id": 83,
+      "start": 404.96,
+      "end": 410.32,
+      "text": "values that occur often in our column with some smaller fixed-length dictionary code from a"
+    },
+    {
+      "id": 84,
+      "start": 410.32,
+      "end": 415.92,
+      "text": "smaller domain. And then we use that at runtime to figure out, okay, if I see this dictionary code"
+    },
+    {
+      "id": 85,
+      "start": 415.92,
+      "end": 420.08,
+      "text": "in this column, I can do reference the dictionary to figure out what the actual value should be."
+    },
+    {
+      "id": 86,
+      "start": 420.08,
+      "end": 424.56,
+      "text": "Again, this is how we convert variable-length strings, variable-length data into fixed-length"
+    },
+    {
+      "id": 87,
+      "start": 424.56,
+      "end": 431.76,
+      "text": "values that we can store in our columns. It means the metadata is going to be now arbitrary"
+    },
+    {
+      "id": 88,
+      "start": 431.92,
+      "end": 435.84,
+      "text": "because all the strings that were variable-length in our column are now being stored in the dictionary,"
+    },
+    {
+      "id": 89,
+      "start": 435.84,
+      "end": 442.96,
+      "text": "which is stored in the header of the row group. So the code dictionary codes could either be"
+    },
+    {
+      "id": 90,
+      "start": 442.96,
+      "end": 446.96,
+      "text": "positions within the dictionary and therefore you have to maintain a hash table to figure out"
+    },
+    {
+      "id": 91,
+      "start": 446.96,
+      "end": 454.32,
+      "text": "how to find that position or in the dictionary. Or we could do offsets within the dictionary,"
+    },
+    {
+      "id": 92,
+      "start": 454.32,
+      "end": 458.88,
+      "text": "assuming it's like everything is going to get those bytes. We can also also"
+    },
+    {
+      "id": 93,
+      "start": 459.2,
+      "end": 462.72,
+      "text": "sort the values in the dictionary and that'll help us get some additional benefits for"
+    },
+    {
+      "id": 94,
+      "start": 462.72,
+      "end": 466.88,
+      "text": "your compression in some cases. And then we can further compress the dictionary or encode in"
+    },
+    {
+      "id": 95,
+      "start": 466.88,
+      "end": 473.52,
+      "text": "columns to reduce the name further and use RLE and other techniques. So in the different formats,"
+    },
+    {
+      "id": 96,
+      "start": 473.52,
+      "end": 479.6,
+      "text": "they handle the case when the dictionary becomes too large because there's too many unique values"
+    },
+    {
+      "id": 97,
+      "start": 479.6,
+      "end": 482.72,
+      "text": "and therefore I'm losing all the benefit of dictionary code. Like if I have my"
+    },
+    {
+      "id": 98,
+      "start": 483.6,
+      "end": 489.92,
+      "text": "column is just monitoring increasing values from one to a billion, then it's kind of stupid"
+    },
+    {
+      "id": 99,
+      "start": 489.92,
+      "end": 494.48,
+      "text": "to store dictionary code for a billion two-poles that are all unique because I don't have a"
+    },
+    {
+      "id": 100,
+      "start": 494.48,
+      "end": 498.72,
+      "text": "billion dictionary codes. So now I have the original column that's dictionary coded with a billion"
+    },
+    {
+      "id": 101,
+      "start": 498.72,
+      "end": 502.56,
+      "text": "unique values and I'm storing the billion unique values in the dictionary. So I'm double the size"
+    },
+    {
+      "id": 102,
+      "start": 502.56,
+      "end": 507.04,
+      "text": "of it. So they have various techniques that figure out, okay this is not working out, I don't"
+    },
+    {
+      "id": 103,
+      "start": 507.04,
+      "end": 511.76,
+      "text": "want to do dictionary encoding. So in case of par k, if the dictionary gets larger than one megabyte,"
+    },
+    {
+      "id": 104,
+      "start": 511.84,
+      "end": 516.24,
+      "text": "then they just stop and then everything comes out, comes after that point, it's just stored as"
+    },
+    {
+      "id": 105,
+      "start": 516.24,
+      "end": 522.56,
+      "text": "regular the plane encoding, the original values. In the case of ORC, they compute the number"
+    },
+    {
+      "id": 106,
+      "start": 522.56,
+      "end": 525.92,
+      "text": "distinct values ahead of time, but basically they have a look ahead buffer where they can say,"
+    },
+    {
+      "id": 107,
+      "start": 525.92,
+      "end": 531.2,
+      "text": "let me look at the, when I'm starting to write out chunk of data, let me go look ahead like 512"
+    },
+    {
+      "id": 108,
+      "start": 531.2,
+      "end": 536.56,
+      "text": "values or 500 values, go figure out whether there's enough distinct values and I think the rest of the"
+    },
+    {
+      "id": 109,
+      "start": 536.56,
+      "end": 540.72,
+      "text": "data is going to look like that and doesn't make sense to do dictionary coding or not. If they get"
+    },
+    {
+      "id": 110,
+      "start": 540.72,
+      "end": 547.28,
+      "text": "it wrong, then they do the same thing as par k, they basically stop encoding and just store data"
+    },
+    {
+      "id": 111,
+      "start": 547.28,
+      "end": 553.12,
+      "text": "in this native format. So here's a really simple example, I have some column with a bunch of strings in"
+    },
+    {
+      "id": 112,
+      "start": 553.12,
+      "end": 560.48,
+      "text": "it. If I'm doing an unsorted dictionary, then the values of the strings that I'm trying to compress"
+    },
+    {
+      "id": 113,
+      "start": 560.48,
+      "end": 565.84,
+      "text": "will just be in the order that they appear as I'm scanning through the column, right? And I can"
+    },
+    {
+      "id": 114,
+      "start": 565.84,
+      "end": 574.56,
+      "text": "either store the position in the dictionary, again, so the first one here was William. So at offset"
+    },
+    {
+      "id": 115,
+      "start": 574.56,
+      "end": 581.04,
+      "text": "one, then I position one, I would find the actual string that I wanted. Or I can store this as an"
+    },
+    {
+      "id": 116,
+      "start": 581.04,
+      "end": 587.76,
+      "text": "offset, so if I take the treatises as bytes, so I know that if I look at my dictionary, I need to"
+    },
+    {
+      "id": 117,
+      "start": 587.76,
+      "end": 592.8,
+      "text": "jump to the seventh byte and that's going to tell me where the starting point for my entry will be."
+    },
+    {
+      "id": 118,
+      "start": 592.8,
+      "end": 597.76,
+      "text": "And I don't need to maintain a hash table. Yes?"
+    }
+  ],
+  "language": "en"
+}
